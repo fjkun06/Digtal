@@ -132,3 +132,4 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Welcome back Admin",
     "copyright": "Digtal @2022",
 }
+
