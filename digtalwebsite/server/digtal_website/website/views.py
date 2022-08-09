@@ -13,10 +13,16 @@ class ContactViewSet(ModelViewSet):
 
         return Contact.objects.all()
 
-    # def get_permissions(self):
+    # def create(self, request, *args, **kwargs):
 
-    #     if self.action == 'create':
-    #         permission_classes = []
-    #     else:
-    #         permission_classes = [IsAuthenticated, IsAdminUser]
-    #     return [permission() for permission in permission_classes]
+    #     serializer = ContactSerializer(request.data)
+    #     if serializer.is_valid():
+    #         print(request.data)
+
+    def get_permissions(self):
+
+        if self.action == 'create':
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated, IsAdminUser]
+        return [permission() for permission in permission_classes]
