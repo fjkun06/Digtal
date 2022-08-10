@@ -20,7 +20,7 @@ for i in range(2):
     text = generator.text()
 
     data = {'first_name': first_name, 'last_name': last_name,
-            'email': email, 'phone_number': phone, 'message': text}
+            'email': 'kirikounat2@gmail.com', 'subject': 'testing the website', 'phone_number': phone, 'message': text}
 
     request = requests.post(endpoint, data=data, headers=headers)
 
