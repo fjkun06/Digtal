@@ -57,7 +57,7 @@ export default function ValidationTextFields() {
       pr={{ xs: 1 }}
       sx={{
         "& .MuiTextField-root": { mt: 5 },
-        padding: "1rem"
+        padding: "1rem",
         // width:"100vw"
       }}
       noValidate
@@ -106,7 +106,7 @@ export default function ValidationTextFields() {
           <CustomTextField label="Email Address" />
         </Grid>
 
-        <Grid item xs={12} sx={{ borderRadius: 1}} mt={5}>
+        <Grid item xs={12} sx={{ borderRadius: 1 }} mt={5}>
           {/* <FormControl
             variant="filled"
             pl={4}
@@ -141,21 +141,22 @@ export default function ValidationTextFields() {
           </FormControl> */}
           <FormControl
             sx={{
-              m: 1,ml:0,
+              m: 1,
+              ml: 0,
               minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
 
               //   minWidth: 120
             }}
           >
-            <InputLabel id="demo-simple-select-helper-label">
+            <InputLabel color="secondary" id="demo-simple-select-helper-label">
               Subject
             </InputLabel>
             <Select
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
               value={age}
-                          label="Subject"
-                          color="secondary"
+              label="Subject"
+              color="secondary"
               onChange={handleChange}
             >
               <MenuItem value="">
