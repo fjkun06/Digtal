@@ -71,7 +71,7 @@ function Form(){
                         <div className="flex flex-col w-full">
                             <label htmlFor="email" className="text-2xl py-3 px-1 ">Email Address</label>
                             <input type="email" name="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" value={contact.email} onChange={(e)=>{setcontact({...contact,'email':e.target.value})}} required placeholder="example@example.com" className="peer transition font-normal border py-3 px-1 text-2xl focus:ring focus:ring-slate-400 hover:ring hover:ring-slate-200 focus:outline-none w-100 rounded-md ease-in-out"/>
-                            <p className="text-xl text-red-500 invisible py-3 peer-invalid:visible flex flex-row items-center"><GoAlert className=""/>This email is not valid</p>
+                            <p  className="text-xl text-red-500 invisible py-3 peer-invalid:visible flex flex-row items-center"><GoAlert className=""/>This email is not valid</p>
                         </div>
                     </fieldset>
                     <fieldset className="flex flex-row justify-start ">
