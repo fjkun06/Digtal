@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import {
   Button,
   FormControl,
+  FormHelperText,
   Grid,
   InputLabel,
   MenuItem,
@@ -17,6 +18,8 @@ import SendIcon from "@mui/icons-material/Send";
 import { LoadingButton } from "@mui/lab";
 import Modaly from "./Modal";
 import { purple } from "@mui/material/colors";
+import CustomTextField from "./CustomTextFiels";
+import CustomImage from "./CustomImage";
 
 export default function ValidationTextFields() {
   //media queries
@@ -27,6 +30,7 @@ export default function ValidationTextFields() {
   const [age, setAge] = React.useState("");
   const [error, setError] = React.useState(false);
 
+    //handle change for subject field
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -53,7 +57,7 @@ export default function ValidationTextFields() {
       pr={{ xs: 1 }}
       sx={{
         "& .MuiTextField-root": { mt: 5 },
-        padding: "1rem",
+        padding: "1rem"
         // width:"100vw"
       }}
       noValidate
@@ -90,71 +94,32 @@ export default function ValidationTextFields() {
       >
         <Grid item container xs={12} spacing={{ xs: 0, md: 5 }}>
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
-            <TextField
-              //   error
-              id="filled-error"
-              label="First Name"
-              color="success"
-              defaultValue=""
-              // variant="filled"
-              size="medium"
-              //   helperText="Madhauss."
-              fullWidth
-            />
+            <CustomTextField label="Firt Name" />
           </Grid>
 
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
-            <TextField
-              //   error
-              id="filled-error"
-              label="Last Name"
-              color="success"
-              defaultValue=""
-              // variant="filled"
-              size="medium"
-              //   helperText="Madhauss."
-              fullWidth
-            />
+            <CustomTextField label="Last Name" />
           </Grid>
         </Grid>
 
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
-          <TextField
-            //   error
-            fullWidth
-            id="filled-error"
-            label="Email Address"
-            color="success"
-            defaultValue=""
-            // variant="filled"
-            size="medium"
-            // helperText="Madhauss."
-          />
+          <CustomTextField label="Email Address" />
         </Grid>
 
-        <Grid item xs={12} sx={{ borderRadius: 1 }} mt={5}>
-          {/* <TextField
-            //   error
-            fullWidth
-            id="filled-error"
-            label="Subject (Service)"
-            color="success"
-            defaultValue=""
-            // variant="filled"
-            size="medium"
-            // helperText="Madhauss."
-          /> */}
-          <FormControl
+        <Grid item xs={12} sx={{ borderRadius: 1}} mt={5}>
+          {/* <FormControl
             variant="filled"
+            pl={4}
             sx={{
-              minWidth: { xs: 190, sm: 200, md: 320 },
+              minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
               border: "1px solid gray",
               borderRadius: "2px",
             }}
           >
-            <InputLabel id="demo-simple-select-filled-label">
-              Subject
-            </InputLabel>
+            <InputLabel
+              pl={4}
+              id="demo-simple-select-filled-label"
+            ></InputLabel>
             <Select
               color="success"
               variant="standard"
@@ -163,31 +128,47 @@ export default function ValidationTextFields() {
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
               value={age}
+              label="Select"
               onChange={handleChange}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Web Development</MenuItem>
-              <MenuItem value={20}>Digital Marketing</MenuItem>
-              <MenuItem value={30}>Consulting</MenuItem>
+              <MenuItem value={"Web Development"}>Web Development</MenuItem>
+              <MenuItem value={"Digital Marketing"}>Digital Marketing</MenuItem>
+              <MenuItem value={"Consulting"}>Consulting</MenuItem>
+            </Select>
+          </FormControl> */}
+          <FormControl
+            sx={{
+              m: 1,ml:0,
+              minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
+
+              //   minWidth: 120
+            }}
+          >
+            <InputLabel id="demo-simple-select-helper-label">
+              Subject
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={age}
+                          label="Subject"
+                          color="secondary"
+              onChange={handleChange}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={"Web Development"}>Web Development</MenuItem>
+              <MenuItem value={"Digital Marketing"}>Digital Marketing</MenuItem>
+              <MenuItem value={"Consulting"}>Consulting</MenuItem>
             </Select>
           </FormControl>
         </Grid>
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
-          <TextField
-            //   error
-            fullWidth
-            id="filled-error"
-            label="Message"
-            color="success"
-            defaultValue=""
-            // variant="filled"
-            size="medium"
-            multiline
-            rows={4}
-            // helperText="Madhauss."
-          />
+          <CustomTextField label={"Message"} multiline rows={4} />
         </Grid>
         <Grid item container mt={5}>
           <Modaly opener={error} />
@@ -227,46 +208,11 @@ export default function ValidationTextFields() {
         md={6}
         sm={7}
       >
-        {matchesSM && (
-          <img
-            src={pictureSM}
-            alt="pima"
-            loading="lazy"
-            objectfit="cover"
-            height={{ sm: "auto" }}
-            width={{ sm: "100px" }}
-          />
-        )}
+        {/* conditional rendering images based on breakpoints */}
+        {matchesSM && <CustomImage image={pictureSM} />}
 
-        {matchesMDAndAbove && (
-          <img
-            src={picture}
-            alt="pima"
-            loading="lazy"
-            objectfit="cover"
-            height={{ sm: "auto" }}
-            width={{ sm: "100px" }}
-          />
-        )}
+        {matchesMDAndAbove && <CustomImage image={picture} />}
       </Grid>
-
-      {/* <div>
-        <TextField
-          error
-          id="standard-error"
-          label="Error"
-          defaultValue="Hello World"
-          variant="standard"
-        />
-        <TextField
-          error
-          id="standard-error-helper-text"
-          label="Error"
-          defaultValue="Hello World"
-          helperText="Incorrect entry."
-          variant="standard"
-        />
-      </div> */}
     </Grid>
   );
 }
