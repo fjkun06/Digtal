@@ -10,7 +10,7 @@ export default function Telephone() {
       "input changed. number: ",
       telNumber,
       "selected country: ",
-      selectedCountry
+      selectedCountry,
     );
   }
   
