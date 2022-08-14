@@ -1,5 +1,6 @@
 from datetime import timedelta
 from pathlib import Path
+import time
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,12 +125,14 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
 }
 
+year = time.gmtime(time.time()).tm_year
+
 
 JAZZMIN_SETTINGS = {
     "site_title": "Digtal Admin Dashboard",
     "site_header": "Digtal Admin",
     "welcome_sign": "Welcome back Admin",
-    "copyright": "Digtal @2022",
+    "copyright": f"Digtal @{year}",
 }
 
 CORS_ORIGIN_WHITELIST = ['http://localhost:3000']

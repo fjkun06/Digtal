@@ -20,8 +20,41 @@ import Modaly from "./Modal";
 import { purple } from "@mui/material/colors";
 import CustomTextField from "./CustomTextFiels";
 import CustomImage from "./CustomImage";
+import {useState} from 'react'
 
 export default function ValidationTextFields() {
+  //the hook for the form 
+  const [contact , setcontact] = useState(contact=>({
+    'first_name':'',
+    'last_name':'',
+    'email':'',
+    'subject':'',
+    'message':'',
+    'phone':'none'
+  }))
+  function handleForm(e){
+    e.preventDefault();
+    // const contactdata = JSON.stringify(contact)
+    const getToken = async () => {
+        fetch("http://127.0.0.1:8000/api/content/contact/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "first_name":contact.first_name, "last_name":contact.last_name, "email":contact.email, "phone_number":contact.phone , "subject":contact.subject , "message":contact.message
+        })
+        })
+        .then(res => res.json())
+        .then((data)=>{
+          console.log(data)
+        })
+        .catch((e)=>{
+            console.log(e)
+        })
+    };
+    getToken();
+}
   //media queries
   const matchesSM = useMediaQuery("(max-width:900px)");
   const matchesMDAndAbove = useMediaQuery("(min-width:901px)");

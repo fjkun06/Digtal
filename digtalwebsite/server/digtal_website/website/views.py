@@ -2,8 +2,8 @@
 
 from email import message
 from rest_framework.viewsets import ModelViewSet
-from website.models import Contact
-from website.serializer import ContactSerializer
+from website.models import Contact, Newsletter
+from website.serializer import ContactSerializer, NewsletterSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
@@ -65,4 +65,29 @@ class ContactViewSet(ModelViewSet):
             permission_classes = []
         else:
             permission_classes = [IsAuthenticated, IsAdminUser]
+        return [permission() for permission in permission_classes]
+
+
+class NewsletterViewset(ModelViewSet):
+
+    serializer_class = NewsletterSerializer
+
+    def get_queryset(self):
+        return Newsletter.objects.all()
+
+    def create(self, request):
+
+        serializer = NewsletterSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=HTTP_200_OK, )
+
+    def get_permissions(self):
+
+        if self.action == "create":
+            permission_classes = []
+        else:
+            permission_classes = [IsAuthenticated, IsAdminUser]
+
         return [permission() for permission in permission_classes]
