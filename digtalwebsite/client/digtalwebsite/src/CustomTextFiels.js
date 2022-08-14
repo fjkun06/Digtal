@@ -5,15 +5,16 @@ export default function CustomTextField({ label, rows }) {
     
   return (
     <TextField
-      //   error
+      error
+      required
       id="filled-error"
       label={label}
       color="secondary"
           defaultValue=""
           
-      // variant="filled"
+      variant="filled"
       size="medium"
-        // helperText="Madhauss."
+        helperText="Madhauss."
       fullWidth
           multiline
         //   onFocus={}

@@ -72,6 +72,15 @@ export default function ValidationTextFields() {
   const [age, setAge] = React.useState("");
   const [error, setError] = React.useState(false);
 
+  //setting border color to error
+  let root = document.documentElement;
+  var rs = getComputedStyle(root);
+  const errorBorder = rs.getPropertyValue("--error-border");
+  const errorTextColor = rs.getPropertyValue("--error-text");
+  // root.style.setProperty("--normal-border", errorBorder);
+  root.style.setProperty("--default-text", errorTextColor);
+
+
   //closing modal
   // if(error) window.onclick = () => console.log("er",error);
   if (error)
@@ -186,6 +195,10 @@ export default function ValidationTextFields() {
             </Typography>
           </Grid>
           <Telephone />
+          <FormHelperText id="component-helper-text" sx={{paddingLeft:"16px"}} error>
+            Some important helper text
+          </FormHelperText>
+
           {/* <CustomTextField label="Telephone" />
            */}
         </Grid>
@@ -200,6 +213,8 @@ export default function ValidationTextFields() {
           }}
         >
           <FormControl
+            variant="filled"
+            error
             sx={{
               m: 1,
               ml: 0,
@@ -208,7 +223,11 @@ export default function ValidationTextFields() {
               // minWidth: 120
             }}
           >
-            <InputLabel color="secondary" id="demo-simple-select-helper-label">
+            <InputLabel
+              color="secondary"
+              id="demo-simple-select-helper-label"
+              required
+            >
               Subject
             </InputLabel>
             <Select
@@ -226,6 +245,9 @@ export default function ValidationTextFields() {
               <MenuItem value={"Digital Marketing"}>Digital Marketing</MenuItem>
               <MenuItem value={"Consulting"}>Consulting</MenuItem>
             </Select>
+            <FormHelperText id="component-helper-text" >
+              Some important helper text
+            </FormHelperText>
           </FormControl>
         </Grid>
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
