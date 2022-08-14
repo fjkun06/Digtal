@@ -1,0 +1,92 @@
+.tel--default {
+  /* font-size: 100px; */
+  /* border: 10px solid red; */
+  /* width: 400px; */
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4375em;
+  letter-spacing: 0.00938em;
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+}
+
+.tel--default:focus {
+  /* border: none;
+    outline: none;
+    outline-color: blueviolet; */
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+/* editing input field*/
+.react-tel-input input[type="text"]:focus,
+.react-tel-input input[type="tel"]:focus {
+  outline-color: rgb(166, 17, 166);
+  /* border-left-color: #cacaca; */
+  /* outline: none; */
+}
+
+.react-tel-input input[type="text"]:hover,
+.react-tel-input input[type="tel"]:hover {
+  border-color: black;
+  /* border-left-color: #cacaca; */
+  /* outline: none; */
+}
+
+/* bgcolor on hover*/
+.react-tel-input .country-list .country:hover {
+  background-color: #dabbdf7d;
+}
+
+/*active country color*/
+.react-tel-input .country-list .country.highlight {
+  background-color: #9c27b029;
+}
+
+/*input field*/
+.react-tel-input input[type="text"],
+.react-tel-input input[type="tel"] {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: no-wrap;
+  height: 30px;
+  padding: 26px 44px;
+  /* min-width: 18rem; */
+  width: 320px;
+  /* border: none; */
+  /* width: fit-content; */
+}
+
+/********vertically positioning flag***/
+.react-tel-input .selected-flag {
+  height: 50px;
+}
+
+.react-tel-input .country-list {
+    top: 40px;
+}
+
+/*making tell input fiel responsive */
+@media only screen and (max-width: 599px) and (min-width: 300px) {
+  .react-tel-input input[type="text"],
+  .react-tel-input input[type="tel"] {
+    width: 260px;
+  }
+}
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .react-tel-input input[type="text"],
+  .react-tel-input input[type="tel"] {
+    width: 195px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .react-tel-input input[type="text"],
+  .react-tel-input input[type="tel"] {
+    width: 190px;
+  }
+}

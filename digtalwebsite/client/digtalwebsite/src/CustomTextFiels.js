@@ -13,11 +13,12 @@ export default function CustomTextField({ label, rows }) {
           
       // variant="filled"
       size="medium"
-      //   helperText="Madhauss."
+        // helperText="Madhauss."
       fullWidth
           multiline
         //   onFocus={}
       rows={rows ?? 1}
+      // sx={{textOverflow:"ellipsis",overflow:"hidden",whiteSpace:"no-wrap"}}
     />
   );
 }

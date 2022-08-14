@@ -20,50 +20,67 @@ import Modaly from "./Modal";
 import { purple } from "@mui/material/colors";
 import CustomTextField from "./CustomTextFiels";
 import CustomImage from "./CustomImage";
-import {useState} from 'react'
+import { useState } from "react";
+import Telephone from "./Telephone";
+
 
 export default function ValidationTextFields() {
-  //the hook for the form 
-  const [contact , setcontact] = useState(contact=>({
-    'first_name':'',
-    'last_name':'',
-    'email':'',
-    'subject':'',
-    'message':'',
-    'phone':'none'
-  }))
-  function handleForm(e){
+  //the hook for the form
+  const [contact, setcontact] = useState((contact) => ({
+    first_name: "",
+    last_name: "",
+    email: "",
+    subject: "",
+    message: "",
+    phone: "none",
+  }));
+  function handleForm(e) {
     e.preventDefault();
     // const contactdata = JSON.stringify(contact)
     const getToken = async () => {
-        fetch("http://127.0.0.1:8000/api/content/contact/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            "first_name":contact.first_name, "last_name":contact.last_name, "email":contact.email, "phone_number":contact.phone , "subject":contact.subject , "message":contact.message
+      fetch("http://127.0.0.1:8000/api/content/contact/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: contact.first_name,
+          last_name: contact.last_name,
+          email: contact.email,
+          phone_number: contact.phone,
+          subject: contact.subject,
+          message: contact.message,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
         })
-        })
-        .then(res => res.json())
-        .then((data)=>{
-          console.log(data)
-        })
-        .catch((e)=>{
-            console.log(e)
-        })
+        .catch((e) => {
+          console.log(e);
+        });
     };
     getToken();
-}
+  }
   //media queries
   const matchesSM = useMediaQuery("(max-width:900px)");
+  const cmd = useMediaQuery("(min-width:900px)");
+  const cxs = useMediaQuery("(max-width:599px)");
   const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
 
   //select option state handler
   const [age, setAge] = React.useState("");
   const [error, setError] = React.useState(false);
 
-    //handle change for subject field
+  //closing modal
+  // if(error) window.onclick = () => console.log("er",error);
+  if (error)
+    window.onclick = () =>
+      setTimeout(() => {
+        setError(false);
+      }, 1000);
+
+  //handle change for subject field
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -72,10 +89,10 @@ export default function ValidationTextFields() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(!loading);
-    setError(true);
-    setTimeout(() => {
-      setError(false);
-    }, 3000);
+    setError(error ? false : true);
+    // setTimeout(() => {
+    //   setError(false);
+    // }, 3000);
     console.log("errr: ", error);
   }
 
@@ -125,7 +142,13 @@ export default function ValidationTextFields() {
         alignItems="center"
         justifyContent={"center"}
       >
-        <Grid item container xs={12} spacing={{ xs: 0, md: 5 }}>
+        <Grid
+          item
+          container
+          xs={12}
+          // spacing={{ xs: 0, md: 5 }}
+          spacing={cxs ? 0 : cmd ? 5 : ""}
+        >
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
             <CustomTextField label="Firt Name" />
           </Grid>
@@ -134,51 +157,55 @@ export default function ValidationTextFields() {
             <CustomTextField label="Last Name" />
           </Grid>
         </Grid>
-
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
           <CustomTextField label="Email Address" />
         </Grid>
 
-        <Grid item xs={12} sx={{ borderRadius: 1 }} mt={5}>
-          {/* <FormControl
-            variant="filled"
-            pl={4}
-            sx={{
-              minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
-              border: "1px solid gray",
-              borderRadius: "2px",
-            }}
-          >
-            <InputLabel
-              pl={4}
-              id="demo-simple-select-filled-label"
-            ></InputLabel>
-            <Select
-              color="success"
-              variant="standard"
-              width={100}
-              size="large"
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
-              value={age}
-              label="Select"
-              onChange={handleChange}
+        <Grid
+          item
+          xs={12}
+          mt={4}
+          md={12}
+          sx={{
+            borderRadius: 1,
+            // border: "1px solid black",
+            minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
+          }}
+        >
+          <Grid item container>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+              component="div"
+              sx={{ fontSize: "300" }}
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={"Web Development"}>Web Development</MenuItem>
-              <MenuItem value={"Digital Marketing"}>Digital Marketing</MenuItem>
-              <MenuItem value={"Consulting"}>Consulting</MenuItem>
-            </Select>
-          </FormControl> */}
+              Tel:{" "}
+              <em style={{ color: "#cacaca" }}>
+                select country and enter phone number
+              </em>
+            </Typography>
+          </Grid>
+          <Telephone />
+          {/* <CustomTextField label="Telephone" />
+           */}
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          mt={4}
+          // sm={12}
+          // md={6}
+          sx={{
+            borderRadius: 1,
+          }}
+        >
           <FormControl
             sx={{
               m: 1,
               ml: 0,
               minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
 
-              //   minWidth: 120
+              // minWidth: 120
             }}
           >
             <InputLabel color="secondary" id="demo-simple-select-helper-label">

@@ -17,14 +17,16 @@ const style = {
   p: 4,
 };
 
-export default function Modaly({ opener } ) {
+export default function Modaly({ opener }) {
+  const [closer, setCloser] = React.useState(true);
   return (
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={opener}
-        // onClose={handleClose }
+        // open={opener && closer}
+        onClose={() => setCloser(closer? false : true) }
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -32,6 +34,7 @@ export default function Modaly({ opener } ) {
         }}
       >
         <Fade in={opener}>
+        {/* <Fade in={opener && closer}> */}
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
               An error occured
