@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Contact from "./pages/contact";
+import ValidationTextFields from "./MUIForm";
 function App() {
   return (
     <>
-      <h1>
-        Welcome to Digtal
-    </h1>
+      {/*Pour Bill
+       <Contact/> */}
+
+      <ValidationTextFields />
     </>
   );
 }
