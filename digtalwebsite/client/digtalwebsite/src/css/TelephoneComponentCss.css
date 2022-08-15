@@ -1,5 +1,5 @@
 :root {
-  --normal-border: 1px solid black;
+  --normal-border: 1px solid #4d4b4b;
   --error-border: 2px solid #d32f2f;
   --default-text: black;
   --error-text: #d32f2f;

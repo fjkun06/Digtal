@@ -1,25 +1,33 @@
-import { TextField } from '@mui/material';
-import React from 'react'
+import { TextField } from "@mui/material";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import React from "react";
 
-export default function CustomTextField({ label, rows }) {
-    
+export default function CustomTextField({
+  label,
+  rows,
+  errorState,
+  field,
+  errorText,
+}) {
   return (
     <TextField
-      error
-      required
       id="filled-error"
       label={label}
       color="secondary"
-          defaultValue=""
-          
+      // defaultValue=""
       variant="filled"
       size="medium"
-        helperText="Madhauss."
       fullWidth
-          multiline
-        //   onFocus={}
+      multiline
       rows={rows ?? 1}
-      // sx={{textOverflow:"ellipsis",overflow:"hidden",whiteSpace:"no-wrap"}}
+      {...field}
+      error={errorState}
+      helperText={errorText}
+      
     />
   );
+}
+
+{
 }

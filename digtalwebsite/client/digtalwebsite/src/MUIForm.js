@@ -22,46 +22,49 @@ import CustomTextField from "./CustomTextFiels";
 import CustomImage from "./CustomImage";
 import { useState } from "react";
 import Telephone from "./Telephone";
-
+import { Controller, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import schema from "./schemas/yupSchema";
 
 export default function ValidationTextFields() {
   //the hook for the form
-  const [contact, setcontact] = useState((contact) => ({
-    first_name: "",
-    last_name: "",
-    email: "",
-    subject: "",
-    message: "",
-    phone: "none",
-  }));
-  function handleForm(e) {
-    e.preventDefault();
-    // const contactdata = JSON.stringify(contact)
-    const getToken = async () => {
-      fetch("http://127.0.0.1:8000/api/content/contact/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          first_name: contact.first_name,
-          last_name: contact.last_name,
-          email: contact.email,
-          phone_number: contact.phone,
-          subject: contact.subject,
-          message: contact.message,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
-    getToken();
-  }
+  const [contact, setContact] = useState({});
+  // const [contact, setContact] = useState((contact) => ({
+  //   first_name: "",
+  //   last_name: "",
+  //   email: "",
+  //   subject: "",
+  //   message: "",
+  //   phone: "none",
+  // }));
+  // function handleForm(e) {
+  //   e.preventDefault();
+  //   // const contactdata = JSON.stringify(contact)
+  //   const getToken = async () => {
+  //     fetch("http://127.0.0.1:8000/api/content/contact/", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         first_name: contact.first_name,
+  //         last_name: contact.last_name,
+  //         email: contact.email,
+  //         phone_number: contact.phone,
+  //         subject: contact.subject,
+  //         message: contact.message,
+  //       }),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   };
+  //   getToken();
+  // }
   //media queries
   const matchesSM = useMediaQuery("(max-width:900px)");
   const cmd = useMediaQuery("(min-width:900px)");
@@ -71,15 +74,6 @@ export default function ValidationTextFields() {
   //select option state handler
   const [age, setAge] = React.useState("");
   const [error, setError] = React.useState(false);
-
-  //setting border color to error
-  let root = document.documentElement;
-  var rs = getComputedStyle(root);
-  const errorBorder = rs.getPropertyValue("--error-border");
-  const errorTextColor = rs.getPropertyValue("--error-text");
-  // root.style.setProperty("--normal-border", errorBorder);
-  root.style.setProperty("--default-text", errorTextColor);
-
 
   //closing modal
   // if(error) window.onclick = () => console.log("er",error);
@@ -98,12 +92,36 @@ export default function ValidationTextFields() {
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(!loading);
-    setError(error ? false : true);
+    // setError(error ? false : true);
     // setTimeout(() => {
     //   setError(false);
     // }, 3000);
-    console.log("errr: ", error);
+    // console.log("errr: ", error);
+    console.log("Contact: ",contact)
   }
+
+  //React hook form validation with yupSchema
+  const {
+    handleSubmit,
+    formState: { isValid },
+    control,
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+    defaultValues: {
+      first_name: "",
+      last_name: "",
+      email: "",
+      subject: "",
+      message: "",
+      phone: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log("onSubmit", data);
+    setContact(data);
+  };
 
   return (
     <Grid
@@ -121,6 +139,7 @@ export default function ValidationTextFields() {
       }}
       noValidate
       autoComplete="off"
+      onSubmit={handleSubmit(onSubmit)}
     >
       <Grid item container pl={{ xs: 1, sm: 4 }}>
         <Grid item container>
@@ -159,15 +178,51 @@ export default function ValidationTextFields() {
           spacing={cxs ? 0 : cmd ? 5 : ""}
         >
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
-            <CustomTextField label="Firt Name" />
+            <Controller
+              render={({ field, formState }) => (
+                <CustomTextField
+                  label="First Name"
+                  // name="first_name"
+                  errorState={!!formState.errors?.first_name}
+                  errorText={formState.errors.first_name?.message}
+                  field={field}
+                />
+              )}
+              name={"first_name"}
+              control={control}
+            />
           </Grid>
 
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
-            <CustomTextField label="Last Name" />
+            <Controller
+              render={({ field, formState }) => (
+                <CustomTextField
+                  label="Last Name"
+                  // name="last_name"
+                  errorState={!!formState.errors?.last_name}
+                  errorText={formState.errors.last_name?.message}
+                  field={field}
+                />
+              )}
+              name={"last_name"}
+              control={control}
+            />
           </Grid>
         </Grid>
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
-          <CustomTextField label="Email Address" />
+          <Controller
+            render={({ field, formState }) => (
+              <CustomTextField
+                label="Email"
+                // name="email"
+                errorState={!!formState.errors?.email}
+                errorText={formState.errors.email?.message}
+                field={field}
+              />
+            )}
+            name={"email"}
+            control={control}
+          />
         </Grid>
 
         <Grid
@@ -181,23 +236,39 @@ export default function ValidationTextFields() {
             minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
           }}
         >
-          <Grid item container>
-            <Typography
-              variant="subtitle1"
-              gutterBottom
-              component="div"
-              sx={{ fontSize: "300" }}
-            >
-              Tel:{" "}
-              <em style={{ color: "#cacaca" }}>
-                select country and enter phone number
-              </em>
-            </Typography>
-          </Grid>
-          <Telephone />
-          <FormHelperText id="component-helper-text" sx={{paddingLeft:"16px"}} error>
-            Some important helper text
-          </FormHelperText>
+          <Controller
+            render={({ field, formState }) => (
+              <>
+                <Grid item container>
+                  <Typography
+                    variant="subtitle1"
+                    gutterBottom
+                    component="div"
+                    sx={{ fontSize: "300" }}
+                  >
+                    Tel:{" "}
+                    <em style={{ color: "#cacaca" }}>
+                      select country and enter phone number
+                    </em>
+                  </Typography>
+                </Grid>
+                <Telephone
+                  errorState={!!formState.errors?.phone}
+                  errorText={formState.errors.phone?.message}
+                  field={field}
+                />
+                <FormHelperText
+                  id="component-helper-text"
+                  sx={{ paddingLeft: "16px" }}
+                  error={!!formState.errors?.phone}
+                >
+                  {formState.errors.phone?.message}
+                </FormHelperText>
+              </>
+            )}
+            name={"phone"}
+            control={control}
+          />
 
           {/* <CustomTextField label="Telephone" />
            */}
@@ -212,46 +283,75 @@ export default function ValidationTextFields() {
             borderRadius: 1,
           }}
         >
-          <FormControl
-            variant="filled"
-            error
-            sx={{
-              m: 1,
-              ml: 0,
-              minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
+          <Controller
+            render={({ field, formState }) => (
+              <>
+                <FormControl
+                  variant="filled"
+                  // error
+                  error={!!formState.errors?.subject}
+                  sx={{
+                    m: 1,
+                    ml: 0,
+                    minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
 
-              // minWidth: 120
-            }}
-          >
-            <InputLabel
-              color="secondary"
-              id="demo-simple-select-helper-label"
-              required
-            >
-              Subject
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-helper-label"
-              id="demo-simple-select-helper"
-              value={age}
-              label="Subject"
-              color="secondary"
-              onChange={handleChange}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={"Web Development"}>Web Development</MenuItem>
-              <MenuItem value={"Digital Marketing"}>Digital Marketing</MenuItem>
-              <MenuItem value={"Consulting"}>Consulting</MenuItem>
-            </Select>
-            <FormHelperText id="component-helper-text" >
-              Some important helper text
-            </FormHelperText>
-          </FormControl>
+                    // minWidth: 120
+                  }}
+                >
+                  <InputLabel
+                    color="secondary"
+                    id="demo-simple-select-helper-label"
+                    required
+                  >
+                    Subject
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    value={age}
+                    label="Subject"
+                    color="secondary"
+                    onChange={handleChange}
+                    error={!!formState.errors?.subject}
+                    {...field}
+                  >
+                    <MenuItem value={""}>
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"Web Development"}>
+                      Web Development
+                    </MenuItem>
+                    <MenuItem value={"Digital Marketing"}>
+                      Digital Marketing
+                    </MenuItem>
+                    <MenuItem value={"Consulting"}>Consulting</MenuItem>
+                  </Select>
+                  <FormHelperText id="component-helper-text">
+                    {formState.errors.subject?.message}
+                  </FormHelperText>
+                </FormControl>
+              </>
+            )}
+            name={"subject"}
+            control={control}
+          />
         </Grid>
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
-          <CustomTextField label={"Message"} multiline rows={4} />
+          <Controller
+            render={({ field, formState }) => (
+              <CustomTextField
+                label="Message"
+                multiline
+                rows={4}
+                // name="first_name"
+                errorState={!!formState.errors?.message}
+                errorText={formState.errors.message?.message}
+                field={field}
+              />
+            )}
+            name={"message"}
+            control={control}
+          />
         </Grid>
         <Grid item container mt={5}>
           <Modaly opener={error} />
@@ -261,11 +361,13 @@ export default function ValidationTextFields() {
             fullWidth
             size="large"
             variant="contained"
+            type="submit"
             sx={{
               backgroundColor: purple[400],
               transition: "all ease 0.0.5s",
               "&:hover": { backgroundColor: purple[500] },
             }}
+            disabled={!isValid}
           >
             Send
           </Button>

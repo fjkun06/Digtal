@@ -2405,6 +2405,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yup@^0.29.14":
+  "integrity" "sha512-Ynb/CjHhE/Xp/4bhHmQC4U1Ox+I2OpfRYF3dnNgQqn1cHa6LK3H1wJMNPT02tSVZA6FYuXE2ITORfbnb6zBCSA=="
+  "resolved" "https://registry.npmjs.org/@types/yup/-/yup-0.29.14.tgz"
+  "version" "0.29.14"
+
 "@typescript-eslint/eslint-plugin@^4.0.0 || ^5.0.0", "@typescript-eslint/eslint-plugin@^5.5.0":
   "integrity" "sha512-CHLuz5Uz7bHP2WgVlvoZGhf0BvFakBJKAD/43Ty0emn4wXWv5k01ND0C0fHcl/Im8Td2y/7h44E9pca9qAu2ew=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.32.0.tgz"
@@ -6404,6 +6409,11 @@
     "prelude-ls" "~1.1.2"
     "type-check" "~0.3.2"
 
+"libphonenumber-js@^1.10.8":
+  "integrity" "sha512-xTFBs3ipFQNmjCUkDj6ZzRJvs97IyazFHBKWtrQrLiYs0Zk0GANob1hkMRlQUQXbJrpQGwnI+/yU4oyD4ohvpw=="
+  "resolved" "https://registry.npmjs.org/libphonenumber-js/-/libphonenumber-js-1.10.12.tgz"
+  "version" "1.10.12"
+
 "lilconfig@^2.0.3", "lilconfig@^2.0.5", "lilconfig@^2.0.6":
   "integrity" "sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg=="
   "resolved" "https://registry.npmjs.org/lilconfig/-/lilconfig-2.0.6.tgz"
@@ -9777,7 +9787,15 @@
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
 
-"yup@^0.32.11":
+"yup-phone-lite@^1.1.2":
+  "integrity" "sha512-nMfvljFzxvrBHicqIQsT8FYaD8hXTTrO947kn92xrAL0/mX5reo4qBo4RkE/k6bBXMDGj96LzXlUvN1SfwVOUw=="
+  "resolved" "https://registry.npmjs.org/yup-phone-lite/-/yup-phone-lite-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "@types/yup" "^0.29.14"
+    "libphonenumber-js" "^1.10.8"
+
+"yup@^0.32.11", "yup@>0.32.0":
   "integrity" "sha512-Z2Fe1bn+eLstG8DRR6FTavGD+MeAwyfmouhHsIUgaADz8jvFKbO/fXc2trJKZg+5EBjh4gGm3iU/t3onKlXHIg=="
   "resolved" "https://registry.npmjs.org/yup/-/yup-0.32.11.tgz"
   "version" "0.32.11"
