@@ -1,6 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import {
   Button,
   FormControl,
@@ -14,7 +12,6 @@ import {
 } from "@mui/material";
 import picture from "../src/images/image.png";
 import pictureSM from "../src/images/image2.png";
-import SendIcon from "@mui/icons-material/Send";
 import { LoadingButton } from "@mui/lab";
 import Modaly from "./Modal";
 import { purple } from "@mui/material/colors";
@@ -74,6 +71,7 @@ export default function ValidationTextFields() {
   //select option state handler
   const [age, setAge] = React.useState("");
   const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   //closing modal
   // if(error) window.onclick = () => console.log("er",error);
@@ -89,16 +87,9 @@ export default function ValidationTextFields() {
   };
 
   //loading state
-  const [loading, setLoading] = React.useState(false);
   function handleClick() {
     setLoading(true);
     // setError(error ? false : true);
-    setTimeout(() => {
-      setLoading(false);
-    // document.getElementById("form1").reset();
-
-    }, 3000);
-    console.log("Contact: ", contact);
   }
 
   //React hook form validation with yupSchema
@@ -121,6 +112,7 @@ export default function ValidationTextFields() {
 
   const onSubmit = (data) => {
     console.log("onSubmit", data);
+
     setContact(data);
   };
 
@@ -181,13 +173,18 @@ export default function ValidationTextFields() {
         >
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
             <Controller
-              render={({ field, formState }) => (
+              render={({
+                field,
+                formState,
+                fieldState: { isDirty, invalid },
+              }) => (
                 <CustomTextField
                   label="First Name"
                   // name="first_name"
                   errorState={!!formState.errors?.first_name}
                   errorText={formState.errors.first_name?.message}
                   field={field}
+                  success={isDirty & !invalid}
                 />
               )}
               name={"first_name"}
@@ -197,13 +194,18 @@ export default function ValidationTextFields() {
 
           <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
             <Controller
-              render={({ field, formState }) => (
+              render={({
+                field,
+                formState,
+                fieldState: { isDirty, invalid },
+              }) => (
                 <CustomTextField
                   label="Last Name"
                   // name="last_name"
                   errorState={!!formState.errors?.last_name}
                   errorText={formState.errors.last_name?.message}
                   field={field}
+                  success={isDirty & !invalid}
                 />
               )}
               name={"last_name"}
@@ -213,13 +215,18 @@ export default function ValidationTextFields() {
         </Grid>
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
           <Controller
-            render={({ field, formState }) => (
+            render={({
+              field,
+              formState,
+              fieldState: { isDirty, invalid },
+            }) => (
               <CustomTextField
                 label="Email"
                 // name="email"
                 errorState={!!formState.errors?.email}
                 errorText={formState.errors.email?.message}
                 field={field}
+                success={isDirty & !invalid}
               />
             )}
             name={"email"}
@@ -239,7 +246,11 @@ export default function ValidationTextFields() {
           }}
         >
           <Controller
-            render={({ field, formState }) => (
+            render={({
+              field,
+              formState,
+              fieldState: { isDirty, invalid },
+            }) => (
               <>
                 <Grid item container>
                   <Typography
@@ -258,6 +269,7 @@ export default function ValidationTextFields() {
                   errorState={!!formState.errors?.phone}
                   errorText={formState.errors.phone?.message}
                   field={field}
+                  success={isDirty & !invalid}
                 />
                 <FormHelperText
                   id="component-helper-text"
@@ -271,37 +283,33 @@ export default function ValidationTextFields() {
             name={"phone"}
             control={control}
           />
-
-          {/* <CustomTextField label="Telephone" />
-           */}
         </Grid>
         <Grid
           item
           xs={12}
           mt={4}
-          // sm={12}
-          // md={6}
           sx={{
             borderRadius: 1,
           }}
         >
           <Controller
-            render={({ field, formState }) => (
+            render={({
+              field,
+              formState,
+              fieldState: { isDirty, invalid },
+            }) => (
               <>
                 <FormControl
                   variant="filled"
-                  // error
                   error={!!formState.errors?.subject}
                   sx={{
                     m: 1,
                     ml: 0,
                     minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
-
-                    // minWidth: 120
                   }}
                 >
                   <InputLabel
-                    color="secondary"
+                    color={isDirty & !invalid ? "success" : "secondary"}
                     id="demo-simple-select-helper-label"
                     required
                   >
@@ -312,7 +320,7 @@ export default function ValidationTextFields() {
                     id="demo-simple-select-helper"
                     value={age}
                     label="Subject"
-                    color="secondary"
+                    color={isDirty & !invalid ? "success" : "secondary"}
                     onChange={handleChange}
                     error={!!formState.errors?.subject}
                     {...field}
@@ -340,7 +348,11 @@ export default function ValidationTextFields() {
         </Grid>
         <Grid item xs={12} sx={{ borderRadius: 1 }}>
           <Controller
-            render={({ field, formState }) => (
+            render={({
+              field,
+              formState,
+              fieldState: { isDirty, invalid },
+            }) => (
               <CustomTextField
                 label="Message"
                 multiline
@@ -349,6 +361,7 @@ export default function ValidationTextFields() {
                 errorState={!!formState.errors?.message}
                 errorText={formState.errors.message?.message}
                 field={field}
+                success={isDirty & !invalid}
               />
             )}
             name={"message"}
@@ -377,16 +390,10 @@ export default function ValidationTextFields() {
 
           {/* if loadx render this !! remember */}
           {/* <LoadingButton
-            onClick={handleClick}
-            endIcon={<SendIcon />}
             loading={loading}
-            loadingPosition="end"
-            variant="secondary"
+            // variant="secondary"
             fullWidth
-            size="large"
             onClick={handleClick}
-            fullWidth
-            // endIcon={<SendIcon />}
             loadingPosition="center"
             size="large"
             variant="contained"
@@ -397,8 +404,6 @@ export default function ValidationTextFields() {
               "&:hover": { backgroundColor: purple[500] },
             }}
             disabled={!isValid}
-          >
-            {loading ? "An Error Occured" : "Send"}
           >
             {loading ? "An Error Occured" : "Send"}
           </LoadingButton> */}

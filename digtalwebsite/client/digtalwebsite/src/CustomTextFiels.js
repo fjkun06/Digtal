@@ -9,12 +9,30 @@ export default function CustomTextField({
   errorState,
   field,
   errorText,
+  success
 }) {
-  return (
+  return success ? (
     <TextField
       id="filled-error"
       label={label}
-      color="secondary"
+      color={success ? "success" : "secondary"}
+      // defaultValue=""
+      variant="filled"
+      size="medium"
+      fullWidth
+      focused
+      multiline
+      rows={rows ?? 1}
+      {...field}
+      error={errorState}
+      helperText={errorText}
+      // {}
+    />
+  ) : (
+    <TextField
+      id="filled-error"
+      label={label}
+      color={success ? "success" : "secondary"}
       // defaultValue=""
       variant="filled"
       size="medium"
@@ -24,7 +42,7 @@ export default function CustomTextField({
       {...field}
       error={errorState}
       helperText={errorText}
-      
+      // {}
     />
   );
 }

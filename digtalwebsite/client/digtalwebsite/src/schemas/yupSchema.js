@@ -2,10 +2,12 @@ import { object, string, date } from "yup";
 
 let schema = object({
   first_name: string()
+    .transform((value) => value.charAt(0).toUpperCase() + value.slice(1))
     .required("Please fill out this field.")
     .min(3, "Atleast 3 characters long.")
     .ensure(),
   last_name: string()
+    .transform((value) => value.charAt(0).toUpperCase() + value.slice(1))
     .required("Please fill out this field.")
     .min(3, "Atleast 3 characters long.")
     .ensure(),
@@ -14,16 +16,12 @@ let schema = object({
     .email("Please enter a valid email address.")
     .ensure(),
   subject: string()
-    .test((v) => v.length > 5 ? true : false)
-
+    .test((v) => (v.length > 5 ? true : false))
     .defined("Please select an option")
     .required("Please fill out this field."),
-  // subject: string()
-  //   .required("Please fill out this field.")
-  //   .min(6, "Please select an option.").nonNullable,
   message: string()
+    .transform((value) => value.charAt(0).toUpperCase() + value.slice(1))
     .required("Please fill out this field.")
-    .min(20, "Atleast 20 characters long.")
     .ensure(),
   phone: string()
     .required("Please fill out this field.")
