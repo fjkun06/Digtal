@@ -91,13 +91,14 @@ export default function ValidationTextFields() {
   //loading state
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
-    setLoading(!loading);
+    setLoading(true);
     // setError(error ? false : true);
-    // setTimeout(() => {
-    //   setError(false);
-    // }, 3000);
-    // console.log("errr: ", error);
-    console.log("Contact: ",contact)
+    setTimeout(() => {
+      setLoading(false);
+    // document.getElementById("form1").reset();
+
+    }, 3000);
+    console.log("Contact: ", contact);
   }
 
   //React hook form validation with yupSchema
@@ -127,6 +128,7 @@ export default function ValidationTextFields() {
     <Grid
       container
       component="form"
+      id="form1"
       alignItems={"center"}
       justifyContent="center"
       direction="row"
@@ -315,7 +317,7 @@ export default function ValidationTextFields() {
                     error={!!formState.errors?.subject}
                     {...field}
                   >
-                    <MenuItem value={""}>
+                    <MenuItem value={"   "}>
                       <em>None</em>
                     </MenuItem>
                     <MenuItem value={"Web Development"}>
@@ -359,6 +361,7 @@ export default function ValidationTextFields() {
           <Button
             onClick={handleClick}
             fullWidth
+            // endIcon={<SendIcon />}
             size="large"
             variant="contained"
             type="submit"
@@ -381,6 +384,21 @@ export default function ValidationTextFields() {
             variant="secondary"
             fullWidth
             size="large"
+            onClick={handleClick}
+            fullWidth
+            // endIcon={<SendIcon />}
+            loadingPosition="center"
+            size="large"
+            variant="contained"
+            type="submit"
+            sx={{
+              backgroundColor: purple[400],
+              transition: "all ease 0.0.5s",
+              "&:hover": { backgroundColor: purple[500] },
+            }}
+            disabled={!isValid}
+          >
+            {loading ? "An Error Occured" : "Send"}
           >
             {loading ? "An Error Occured" : "Send"}
           </LoadingButton> */}

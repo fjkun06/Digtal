@@ -14,7 +14,7 @@ let schema = object({
     .email("Please enter a valid email address.")
     .ensure(),
   subject: string()
-    .test((v) => v.length > 0 ? true : false)
+    .test((v) => v.length > 5 ? true : false)
 
     .defined("Please select an option")
     .required("Please fill out this field."),
