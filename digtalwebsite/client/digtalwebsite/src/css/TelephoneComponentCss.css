@@ -1,0 +1,116 @@
+:root {
+  --normal-border: 1px solid #4d4b4b;
+  --error-border: 2px solid #d32f2f;
+  --validated-border: 2px solid #2e7d32;
+  --default-text: black;
+  --error-text: #d32f2f;
+  --validated-text: #2e7d32;
+
+
+}
+
+.tel--default {
+ 
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  background-color: transparent;
+
+}
+
+.tel--default:focus {
+ 
+  background-color: transparent;
+
+}
+
+/*editing flag dropdown */
+.react-tel-input .flag-dropdown {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px 0 0 3px;
+  outline: 0px solid transparent;
+}
+
+.react-tel-input .selected-flag {
+  background-color: transparent;
+}
+
+/* editing input field*/
+
+.react-tel-input input[type="tel"] {
+  background-color: rgba(0, 0, 0, 0.06);
+  border: 0px solid #e5e7eb;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: var(--default-text);
+  border-bottom: var(--normal-border);
+ 
+}
+
+.react-tel-input input[type="text"]:focus,
+.react-tel-input input[type="tel"]:focus {
+  border: 1px solid transparent;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: all ease 0.1s;
+  border-bottom: 2px solid rgb(166, 17, 166);
+  outline: none;
+}
+
+.react-tel-input input[type="text"]:hover,
+.react-tel-input input[type="tel"]:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+
+}
+
+/* bgcolor on hover*/
+.react-tel-input .country-list .country:hover {
+  background-color: #dabbdf7d;
+}
+
+/*active country color*/
+.react-tel-input .country-list .country.highlight {
+  background-color: #9c27b029;
+}
+
+/*input field*/
+.react-tel-input input[type="text"],
+.react-tel-input input[type="tel"] {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: no-wrap;
+  height: 30px;
+  padding: 26px 44px;
+  width: 320px;
+  
+}
+
+/********vertically positioning flag***/
+.react-tel-input .selected-flag {
+  height: 50px;
+}
+
+.react-tel-input .country-list {
+  top: 40px;
+}
+
+/*making tell input fiel responsive */
+@media only screen and (max-width: 599px) and (min-width: 300px) {
+  .react-tel-input input[type="text"],
+  .react-tel-input input[type="tel"] {
+    width: 260px;
+  }
+}
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .react-tel-input input[type="text"],
+  .react-tel-input input[type="tel"] {
+    width: 195px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .react-tel-input input[type="text"],
+  .react-tel-input input[type="tel"] {
+    width: 190px;
+  }
+}
