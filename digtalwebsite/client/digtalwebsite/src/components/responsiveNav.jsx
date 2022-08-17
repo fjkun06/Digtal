@@ -5,12 +5,13 @@ import france from '../assets/images/france.png'
 import german from '../assets/images/german.png'
 import {useState} from 'react'
 
-export default function ResponsiveNav(){
+export default function ResponsiveNav({setFlag}){
 
     const [service,setService] = useState((service)=>"none")
     const [serviceState , setServiceState] = useState((serviceState)=>'close')
     const [language,setLanguage] = useState((language)=>"none")
     const [languageState , setLanguageState] = useState((serviceState)=>'close')
+
 
     function handleLanguage(){
 
@@ -92,19 +93,19 @@ export default function ResponsiveNav(){
                         </div>
                         {/* contenu d'un element language*/}
                         <div className={"inner-content divide-y divide-slate-100 "+language}>
-                            <div className="px-32 cursor-pointer text-slate-500 hover:text-white focus:bg-purple-400 hover:bg-purple-400  inner-nav-element w-full flex flex-row justify-between items-center p-4 transition transition-colors ease-in-out">
+                            <div className="px-32 cursor-pointer text-slate-500 hover:text-white focus:bg-purple-400 hover:bg-purple-400  inner-nav-element w-full flex flex-row justify-between items-center p-4  transition-colors ease-in-out" onClick={()=>{setFlag((flag)=>anglais)}}>
                                 <a href="/#" className="text-4xl my-4">
                                     English
                                 </a>
                                 <img src={anglais} alt="france-flag" className="h-12 w-12 object-contain" />
                             </div>
-                            <div className="px-32 cursor-pointer text-slate-500 hover:text-white focus:bg-purple-400 hover:bg-purple-400  inner-nav-element w-full flex flex-row justify-between items-center p-4 transition transition-colors ease-in-out">
+                            <div className="px-32 cursor-pointer text-slate-500 hover:text-white focus:bg-purple-400 hover:bg-purple-400  inner-nav-element w-full flex flex-row justify-between items-center p-4  transition-colors ease-in-out" onClick={()=>{setFlag((flag)=>france)}}>
                                 <a href="/#" className="text-4xl my-4">
                                     French
                                 </a>
                                 <img src={france} alt="france-flag" className="h-12 w-12 object-contain" />
                             </div>
-                            <div className="px-32 cursor-pointer text-slate-500 hover:text-white focus:bg-purple-400 hover:bg-purple-400  inner-nav-element w-full flex flex-row justify-between items-center p-4 transition transition-colors ease-in-out">
+                            <div className="px-32 cursor-pointer text-slate-500 hover:text-white focus:bg-purple-400 hover:bg-purple-400  inner-nav-element w-full flex flex-row justify-between items-center p-4  transition-colors ease-in-out" onClick={()=>{setFlag((flag)=>german)}}>
                                 <a href="/#" className="text-4xl my-4">
                                     German
                                 </a>

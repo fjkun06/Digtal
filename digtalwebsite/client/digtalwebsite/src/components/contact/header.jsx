@@ -7,27 +7,28 @@ import ResponsiveNav from '../responsiveNav'
 import anglais from '../../assets/images/anglais.png'
 import france from '../../assets/images/france.png'
 import german from '../../assets/images/german.png'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 
 
 
 export default function Header(){
 
-    const hamburger = <GiHamburgerMenu className="tourne "/>
+    const hamburger = <GiHamburgerMenu className="tourne text-slate-700 ring-4 ring-purple-700 hover:ring-4 focus:ring focus:ring-purple-500 rounded-sm" onClick={()=>{setNavstatus(true)}} />
+    const cross = <ImCross className="tourne tourne text-slate-700 " onClick={()=>{setNavstatus(false)}}/>
     const [dropdown,setDropdown] = useState((dropdown)=>'none')
     const [flag,setFlag] = useState((flag)=>anglais)
     const [icons,setIcons] = useState((icons)=>hamburger)
     const [iconsState,setIconsState]=useState((iconsState)=>'hamburger')
-    const [close,setClose]=useState((close)=>"none")
+    const [navstatus,setNavstatus]=useState((navstatus)=>false)
 
     function manageIcons(){
 
         if (iconsState === 'hamburger'){
-            setIcons(<ImCross className="tourne "/>);
+            setIcons(cross);
             setIconsState('');
         }
         else{
-            setIcons(<GiHamburgerMenu className="tourne "/>);
+            setIcons(hamburger);
             setIconsState('hamburger');
         }
 
@@ -47,13 +48,13 @@ export default function Header(){
                         <AiFillCaretDown />
                     </li>
                     <li className="text-4xl transition ease-in-out hover:text-purple-600 font-simple hover:underline decoration-purple-600"><a href="#">Contact</a></li>
-                    <li className="text-4xl transition ease-in-out hover:text-purple-600  font-simple flex flex-row items-center justify-center gap-x-4 cursor-pointer hover:underline decoration-purple-600" onClick={()=>{setDropdown('');setClose("")}}>
+                    <li className="text-4xl transition ease-in-out hover:text-purple-600  font-simple flex flex-row items-center justify-center gap-x-4 cursor-pointer hover:underline decoration-purple-600" onClick={()=>{setDropdown('')}} >
                         <img src={flag}  alt="france flag" className="h-12 w-12 object-contain" />
                         <AiFillCaretDown />
                     </li>
                 </ul>
                 <button className="text-5xl font-simple" id="normal-nav" onClick={()=>{manageIcons()}}>
-                    <span className=" " >
+                    <span className="  "  >
                         {icons}
                     </span>
                 </button>
@@ -74,7 +75,10 @@ export default function Header(){
                     </div>
                 </div>
             </div>
-            <ResponsiveNav />
+            {
+                navstatus ? <ResponsiveNav setFlag={setFlag} /> :''
+            }
+            
         </>
     )
 
