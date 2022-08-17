@@ -2,10 +2,71 @@
 @tailwind base;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,200;1,300;1,400&display=swap');
 * {
     box-sizing: border-box;
-}
-
-html {
-    font-size: 85%;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+    
+    }
+    
+    .tourne {
+    
+        transition: transform 0.8s ease-in-out;
+    }
+    
+    .tourne:hover {
+        animation: tourn .5s linear ;
+    }
+    
+    .logo {
+        width: 15rem;
+        max-height: 7rem;
+        object-fit: cover;
+    }
+    
+    .font-simple {
+        font-weight: 350;
+    }
+    
+    #normal-nav {
+        display: none;
+    }
+    
+    .none {
+        display: none !important;
+    }
+    
+    
+    @keyframes tourn {
+    
+        0% {
+            transform: rotate(360deg);
+        }
+        100%{
+            transform: rotate(0deg);
+        }
+    }
+    
+    @media all and (max-width:1024px) {
+        html {
+            font-size: 53%;
+        }
+                        }
+                        @media all and (max-width:768px) {
+                html {
+                    font-size: 50%;
+                    }
+                    
+                    #normal-nav {
+                        display: block;
+                    }
+                    
+                    .item-expand {
+                        display: none;
+                    }
 }

@@ -1,5 +1,5 @@
 import Intro from "./utils/intro"
-import cont from '../../assests/images/contact.png'
+import cont from '../../assets/images/contact.png'
 import {GoAlert} from 'react-icons/go'
 import {useState} from 'react'
 import Spinner from "./utils/spinner"

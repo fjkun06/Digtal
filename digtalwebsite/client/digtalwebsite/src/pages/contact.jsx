@@ -9,8 +9,6 @@ export default function Contact(){
     return(
         <>
             <Header />
-            <Form />
-            <Footer />  
         </>
     )
 
