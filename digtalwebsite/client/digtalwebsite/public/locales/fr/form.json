@@ -1,24 +1,24 @@
 {
    "contact-section": {
-      "contact": "Contact Us",
-      "our": "Our love of God"
+      "contact": "contact",
+      "our": "Notre amour pour Dieu"
    },
    "name": {
-      "first": "First Name",
-      "last": "Last Name"
+      "first": "Nom",
+      "last": "Prénom"
    },
    "email": "Email",
    "phone": {
       "tel": "Tel:",
-      "sel": "select country and enter phone number"
+      "sel": "Choisissez votre pays et entrez votre numéro"
    },
    "subject": {
-      "label": "Subject",
-      "op1": "None",
-      "op2": "Web Development",
-      "op3": "Digital Marketing",
+      "label": "Sujet",
+      "op1": "Autres",
+      "op2": " Developement Web",
+      "op3": " Marketing Digital",
       "op4": "Consulting"
    },
    "message": "Message",
-   "button": "Send"
+   "button": "Envoyer"
 }
