@@ -186,15 +186,17 @@ export default function ValidationTextFields() {
               <Grid item xs={12} sm={12} md={6} sx={{ borderRadius: 1 }}>
                  <Controller
                     render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-                       <CustomTextField
-                          label={t('name.last')}
-                          // name="last_name"
-                          errorState={!!formState.errors?.last_name}
-                          //   errorText={formState.errors.last_name?.message}
-                          errorText={t(formState.errors.last_name?.message, { ns: 'formerror' })}
-                          field={field}
-                          success={isDirty & !invalid}
-                       />
+                       <>
+                          <CustomTextField
+                             label={t('name.last')}
+                             // name="last_name"
+                             errorState={!!formState.errors?.last_name}
+                             //   errorText={formState.errors.last_name?.message}
+                             errorText={t(formState.errors.last_name?.message, { ns: 'formerror' })}
+                             field={field}
+                             success={isDirty & !invalid}
+                          />
+                       </>
                     )}
                     name={'last_name'}
                     control={control}
@@ -243,13 +245,12 @@ export default function ValidationTextFields() {
                        </Grid>
                        <Telephone
                           errorState={!!formState.errors?.phone}
-                         
                           field={field}
                           success={isDirty & !invalid}
                        />
                        <FormHelperText
                           id="component-helper-text"
-                          sx={{ paddingLeft: '16px' }}
+                          sx={{ paddingLeft: '14px', fontSize: '0.9rem' }}
                           error={!!formState.errors?.phone}>
                           {t(formState.errors.phone?.message, { ns: 'formerror' })}
                        </FormHelperText>
@@ -299,7 +300,9 @@ export default function ValidationTextFields() {
                              <MenuItem value={t('subject.op3')}>{t('subject.op3')}</MenuItem>
                              <MenuItem value={t('subject.op4')}>{t('subject.op4')}</MenuItem>
                           </Select>
-                          <FormHelperText id="component-helper-text">
+                          <FormHelperText
+                             id="component-helper-text"
+                             sx={{fontSize: '0.9rem' }}>
                              {/* {formState.errors.subject?.message} */}
                              {t(formState.errors.subject?.message, { ns: 'formerror' })}
                           </FormHelperText>
@@ -364,7 +367,7 @@ export default function ValidationTextFields() {
             {loading ? "An Error Occured" : "Send"}
           </LoadingButton> */}
            </Grid>
-           <Grid>
+           {/* <Grid>
               <Button
                  onClick={() => languageSwitcher('fr')}
                  fullWidth
@@ -404,7 +407,7 @@ export default function ValidationTextFields() {
                  }}>
                  {t('button')}
               </Button>
-           </Grid>
+           </Grid> */}
         </Grid>
         <Grid container sx={{ display: { xs: 'none', sm: 'block' } }} item md={6} sm={7}>
            {/* conditional rendering images based on breakpoints */}
