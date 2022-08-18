@@ -1,9 +1,10 @@
+import ValidationTextFields from "./MUIForm";
 import Contact from "./pages/contact";
-// import ValidationTextFields from "./MUIForm";
 function App() {
   return (
     <>
-      <Contact/>
+      <ValidationTextFields/>
+      {/* <Contact/> */}
     </>
   );
 }
