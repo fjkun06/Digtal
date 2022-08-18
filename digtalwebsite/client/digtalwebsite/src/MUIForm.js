@@ -22,6 +22,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from 'react-i18next';
 
 import schema from "./schemas/yupSchema";
+import languageSwitcher from "./i18n/languageSwitcher";
 
 export default function ValidationTextFields() {
   //the hook for the form
@@ -69,7 +70,7 @@ export default function ValidationTextFields() {
   const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
 
   //setting up language translator
-   const { t, i18n } = useTranslation('form');
+   const { t, i18n } = useTranslation(['form','formerror']);
 
 
   //select option state handler
@@ -172,7 +173,7 @@ export default function ValidationTextFields() {
                           label={t('name.first')}
                           // name="first_name"
                           errorState={!!formState.errors?.first_name}
-                          errorText={formState.errors.first_name?.message}
+                          errorText={t(formState.errors.first_name?.message, { ns: 'formerror' })}
                           field={field}
                           success={isDirty & !invalid}
                        />
@@ -189,7 +190,8 @@ export default function ValidationTextFields() {
                           label={t('name.last')}
                           // name="last_name"
                           errorState={!!formState.errors?.last_name}
-                          errorText={formState.errors.last_name?.message}
+                          //   errorText={formState.errors.last_name?.message}
+                          errorText={t(formState.errors.last_name?.message, { ns: 'formerror' })}
                           field={field}
                           success={isDirty & !invalid}
                        />
@@ -206,7 +208,8 @@ export default function ValidationTextFields() {
                        label={t('email')}
                        // name="email"
                        errorState={!!formState.errors?.email}
-                       errorText={formState.errors.email?.message}
+                       //   errorText={formState.errors.email?.message}
+                       errorText={t(formState.errors.email?.message, { ns: 'formerror' })}
                        field={field}
                        success={isDirty & !invalid}
                     />
@@ -240,7 +243,7 @@ export default function ValidationTextFields() {
                        </Grid>
                        <Telephone
                           errorState={!!formState.errors?.phone}
-                          errorText={formState.errors.phone?.message}
+                         
                           field={field}
                           success={isDirty & !invalid}
                        />
@@ -248,7 +251,7 @@ export default function ValidationTextFields() {
                           id="component-helper-text"
                           sx={{ paddingLeft: '16px' }}
                           error={!!formState.errors?.phone}>
-                          {formState.errors.phone?.message}
+                          {t(formState.errors.phone?.message, { ns: 'formerror' })}
                        </FormHelperText>
                     </>
                  )}
@@ -289,7 +292,7 @@ export default function ValidationTextFields() {
                              onChange={handleChange}
                              error={!!formState.errors?.subject}
                              {...field}>
-                             <MenuItem value={'   '}>
+                             <MenuItem value={'other'}>
                                 <em>{t('subject.op1')}</em>
                              </MenuItem>
                              <MenuItem value={t('subject.op2')}>{t('subject.op2')}</MenuItem>
@@ -297,7 +300,8 @@ export default function ValidationTextFields() {
                              <MenuItem value={t('subject.op4')}>{t('subject.op4')}</MenuItem>
                           </Select>
                           <FormHelperText id="component-helper-text">
-                             {formState.errors.subject?.message}
+                             {/* {formState.errors.subject?.message} */}
+                             {t(formState.errors.subject?.message, { ns: 'formerror' })}
                           </FormHelperText>
                        </FormControl>
                     </>
@@ -314,7 +318,8 @@ export default function ValidationTextFields() {
                        multiline
                        rows={4}
                        errorState={!!formState.errors?.message}
-                       errorText={formState.errors.message?.message}
+                       //   errorText={formState.errors.message?.message}
+                       errorText={t(formState.errors.message?.message, { ns: 'formerror' })}
                        field={field}
                        success={isDirty & !invalid}
                     />
@@ -358,6 +363,47 @@ export default function ValidationTextFields() {
           >
             {loading ? "An Error Occured" : "Send"}
           </LoadingButton> */}
+           </Grid>
+           <Grid>
+              <Button
+                 onClick={() => languageSwitcher('fr')}
+                 fullWidth
+                 size="large"
+                 variant="contained"
+                 type="submit"
+                 sx={{
+                    backgroundColor: purple[400],
+                    transition: 'all ease 0.0.5s',
+                    '&:hover': { backgroundColor: purple[500] }
+                 }}>
+                 {t('button')}
+              </Button>
+              <Button
+                 onClick={() => languageSwitcher('de')}
+                 fullWidth
+                 size="large"
+                 variant="contained"
+                 type="submit"
+                 sx={{
+                    backgroundColor: purple[400],
+                    transition: 'all ease 0.0.5s',
+                    '&:hover': { backgroundColor: purple[500] }
+                 }}>
+                 {t('button')}
+              </Button>
+              <Button
+                 onClick={() => languageSwitcher('en')}
+                 fullWidth
+                 size="large"
+                 variant="contained"
+                 type="submit"
+                 sx={{
+                    backgroundColor: purple[400],
+                    transition: 'all ease 0.0.5s',
+                    '&:hover': { backgroundColor: purple[500] }
+                 }}>
+                 {t('button')}
+              </Button>
            </Grid>
         </Grid>
         <Grid container sx={{ display: { xs: 'none', sm: 'block' } }} item md={6} sm={7}>

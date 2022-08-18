@@ -33,10 +33,6 @@ export default function Telephone({ errorState, field, errorText,success }) {
     root.style.setProperty("--normal-border", "");
      }
         
-  const x = "helo";
-  const f = x.charAt(0).toUpperCase()
-  const y = x.slice(1)
-  console.log(f+y)
 
   // Use declaratively within another react components render method
   // var ReactTelInput = require("react-telephone-input");
@@ -51,7 +47,6 @@ export default function Telephone({ errorState, field, errorText,success }) {
         {...field}
        
         helperText={errorText}
-        //   onBlur={handleInputBlur}
       />
     </>
   );
