@@ -23,55 +23,21 @@ import { useTranslation } from 'react-i18next';
 
 import schema from "./schemas/yupSchema";
 import languageSwitcher from "./i18n/languageSwitcher";
+import { useTransition } from "react";
 
 export default function Contact() {
   //the hook for the form
   const [contact, setContact] = useState({});
-  // const [contact, setContact] = useState((contact) => ({
-  //   first_name: "",
-  //   last_name: "",
-  //   email: "",
-  //   subject: "",
-  //   message: "",
-  //   phone: "none",
-  // }));
-  // function handleForm(e) {
-  //   e.preventDefault();
-  //   // const contactdata = JSON.stringify(contact)
-  //   const getToken = async () => {
-  //     fetch("http://127.0.0.1:8000/api/content/contact/", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         first_name: contact.first_name,
-  //         last_name: contact.last_name,
-  //         email: contact.email,
-  //         phone_number: contact.phone,
-  //         subject: contact.subject,
-  //         message: contact.message,
-  //       }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //       })
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //   };
-  //   getToken();
-  // }
-  //media queries
+
+//   //media queries
   const matchesSM = useMediaQuery("(max-width:900px)");
   const cmd = useMediaQuery("(min-width:900px)");
   const cxs = useMediaQuery("(max-width:599px)");
   const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
 
-  //setting up language translator
-   const { t, i18n } = useTranslation(['form','formerror']);
-
+//   //setting up language translator
+   const { t, i18n, ready } = useTranslation(['form', 'formerror']);
+ 
 
   //select option state handler
   const [age, setAge] = React.useState("");
@@ -114,23 +80,24 @@ export default function Contact() {
   };
 
   return (
-     <Grid
-        container
-        component="form"
-        id="form1"
-        alignItems={'center'}
-        justifyContent="center"
-        direction="row"
-        pl={{ xs: 1 }}
-        pr={{ xs: 1 }}
-        sx={{
-           '& .MuiTextField-root': { mt: 5 },
-           padding: '1rem'
-           // width:"100vw"
-        }}
-        noValidate
-        autoComplete="off"
-        onSubmit={handleSubmit(onSubmit)}>
+       <Grid
+          container
+          component="form"
+          id="form1"
+          alignItems={'center'}
+          justifyContent="center"
+          direction="row"
+          pl={{ xs: 1 }}
+          pr={{ xs: 1 }}
+          sx={{
+             '& .MuiTextField-root': { mt: 5 },
+             padding: '1rem'
+             // width:"100vw"
+          }}
+          noValidate
+          autoComplete="off"
+          //   onSubmit={handleSubmit(onSubmit)}
+       >
         <Grid item container pl={{ xs: 1, sm: 4 }}>
            <Grid item container>
               <Typography variant="h3" gutterBottom component="div">
@@ -141,6 +108,7 @@ export default function Contact() {
            <Grid item container pl={1}>
               <Typography variant="subtitle1" gutterBottom component="div">
                  {t('contact-section.our')}
+
               </Typography>
            </Grid>
         </Grid>
@@ -300,9 +268,7 @@ export default function Contact() {
                              <MenuItem value={t('subject.op3')}>{t('subject.op3')}</MenuItem>
                              <MenuItem value={t('subject.op4')}>{t('subject.op4')}</MenuItem>
                           </Select>
-                          <FormHelperText
-                             id="component-helper-text"
-                             sx={{fontSize: '0.9rem' }}>
+                          <FormHelperText id="component-helper-text" sx={{ fontSize: '0.9rem' }}>
                              {/* {formState.errors.subject?.message} */}
                              {t(formState.errors.subject?.message, { ns: 'formerror' })}
                           </FormHelperText>
@@ -415,6 +381,8 @@ export default function Contact() {
 
            {matchesMDAndAbove && <CustomImage image={picture} />}
         </Grid>
-     </Grid>
+
+       </Grid>
   );
 }
+

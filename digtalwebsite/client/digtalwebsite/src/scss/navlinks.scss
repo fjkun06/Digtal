@@ -1,9 +1,14 @@
+//variables
+$displayState: none;
+
 //all components
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
 }
+
+
 
 //Configuring html
 html {
@@ -67,37 +72,61 @@ a {
 //Icon container
 .language-item {
    padding-top: 5px;
-   //    border: 1px solid black;
+   display: grid;
+   //  border: 1px solid black;
+   justify-content: center;
+   align-items: center;
+   padding-left: 1rem;
+
    &:hover {
       //   background-color: rgb(148, 64, 64);
    }
 
    .language-item-sub {
-      //   border: 1px solid black;
+        border: 1px solid black;
       position: relative;
-      text-align: left;
+      text-align: center;
       width: 5rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       justify-content: center;
       align-items: center;
 
+ &:hover {
+
+
+            $displayState: grid;
+         }      
       .language-item-sub-arrow {
          display: grid;
-         //   border: 1px solid black;
+         transition: all ease 0.25s;
+
+         &:hover {
+            transition: all ease 0.25s;
+
+            transform: scale(1.5);
+
+            $displayState: grid;
+         }
+         //    border: 1px solid black;
          //   align-self: end;
          //   margin-left: -0.4rem;
       }
 
       .language-dropdown {
-         background-color: yellow;
+         display: $displayState;
+         position: absolute;
+         //  background-color: yellow;
          width: 6rem;
          height: 7rem;
-         display: grid;
-
+         //   display: grid;
+         top: 3.3rem;
+         right: 0.6rem;
          transition: all ease 0.2s;
          border-radius: 2%;
-         row-gap: 0px;
+         display: none;
+
+         //  row-gap: 0px;
 
          //dropdown items
          .language-dropdown-item {
@@ -106,14 +135,27 @@ a {
             display: grid;
             width: inherit;
             height: 100%;
-            background-color: rgb(111, 91, 91);
+            border-radius: 4%;
+            background-color: #fff;
+            border-left: 1px solid cyan;
+            // border-top: 1px solid cyan;
+            border-right: 1px solid cyan;
 
-            img {
-               width: 25px;
-               height: 30px;
+            // img {
+            //    width: 25px;
+            //    height: 30px;
+            // }
+
+            &:last-child {
+               border-bottom: 1px solid cyan;
+            }
+            &:first-child {
+               // border-top: 1px solid cyan;
             }
 
             &:hover {
+               transition: all ease 0.2s;
+
                background-color: aqua;
             }
          }
