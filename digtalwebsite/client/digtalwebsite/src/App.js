@@ -9,10 +9,10 @@ function App() {
         {/* <ValidationTextFields/> */}
         {/* <Contact/> */}
         <Grid>
-           <Grid container sx={{ backgroundColor: 'blue' }}>
+           <Grid container>
               <Navbar />
            </Grid>
-           <Grid sx={{ backgroundColor: 'blue' }}>
+           <Grid>
               <Outlet />
            </Grid>
         </Grid>

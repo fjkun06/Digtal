@@ -8,6 +8,8 @@ import france from './images/fr32.png';
 import german from './images/de32.png';
 import german64 from './images/de64.png';
 import { Box } from '@mui/system';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
 
 export default function Navbar() {
    const Gridd = styled(Grid)(
@@ -38,7 +40,7 @@ export default function Navbar() {
             <Grid
                item
                container
-               sx={{ backgroundColor: 'yellow', display: 'none' }}
+               sx={{ backgroundColor: 'white' }}
                //    pt={1}
                //    pb={1}
                alignItems={'center'}
@@ -52,8 +54,8 @@ export default function Navbar() {
                   container
                   item
                   //    columnSpacing={2}
-                  sx={{ backgroundColor: 'red', display: 'none' }}
-                  alignItems={'start'}
+                  sx={{ backgroundColor: 'white' }}
+                  alignItems={'center'}
                   justifyContent="end"
                   pl={5}
                   pr={5}>
@@ -71,8 +73,10 @@ export default function Navbar() {
                   </Gridd>
                   <Gridd item md={1} className="language-item">
                      {/* <ActiveNavLink to="/en/opo" text="Language" /> */}
-                     <Box sx={{ border: '1px solid black', textAlign: 'left', p: 0 }}>
+                     <Box className="language-item-sub">
                         <img src={german64} alt="france-flag" className="language-image" />
+                        <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" />
+                        
                      </Box>
                   </Gridd>
                </Grid>

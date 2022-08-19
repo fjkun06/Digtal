@@ -1,10 +1,9 @@
 //all components
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
-
 
 //Configuring html
 html {
@@ -24,11 +23,11 @@ html {
 }
 
 //styling links
-a{
-    text-decoration: none;
-    &:visited{
-        color: black;
-    }
+a {
+   text-decoration: none;
+   &:visited {
+      color: black;
+   }
 }
 
 //navbar links
@@ -38,9 +37,9 @@ a{
    font-family: 'Gudea';
    transition: all ease 0.15s;
 
-//    &:hover{
+   //    &:hover{
 
-//    }
+   //    }
 }
 
 /* .nav--link:hover{
@@ -57,7 +56,6 @@ a{
     display: 'block'; */
 }
 
-
 //language controls
 .language-image {
    /* max-width: 100%; */
@@ -66,35 +64,63 @@ a{
    height: 38px;
 }
 
-.language-item{
-padding-top: 5px;
-    &:hover{
-        background-color: rgb(148, 64, 64);
-    }
+//Icon container
+.language-item {
+   padding-top: 5px;
+   //    border: 1px solid black;
+   &:hover {
+      //   background-color: rgb(148, 64, 64);
+   }
+
+   .language-item-sub {
+      //   border: 1px solid black;
+      position: relative;
+      text-align: left;
+      width: 5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      align-items: center;
+
+      .language-item-sub-arrow {
+         display: grid;
+         //   border: 1px solid black;
+         //   align-self: end;
+         //   margin-left: -0.4rem;
+      }
+
+      .language-dropdown {
+         background-color: yellow;
+         width: 6rem;
+         height: 7rem;
+         display: grid;
+
+         transition: all ease 0.2s;
+         border-radius: 2%;
+         row-gap: 0px;
+
+         //dropdown items
+         .language-dropdown-item {
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            width: inherit;
+            height: 100%;
+            background-color: rgb(111, 91, 91);
+
+            img {
+               width: 25px;
+               height: 30px;
+            }
+
+            &:hover {
+               background-color: aqua;
+            }
+         }
+      }
+   }
 }
 
-.language-dropdown {
-    background-color: yellow;
-    width: 5rem;
-    height: 7rem;
-    display: grid;
-    justify-content: start;
-    align-items: center;
-    transition: all ease 0.2s;
-    border-radius: 2%;
-
-    //dropdown items
-    .language-dropdown-item {
-        width: inherit;
-        height: 80%;
-        background-color: rgb(111, 91, 91);
-    padding: 0.3rem;
-
-        &:hover{
-            background-color: aqua;
-        }
-    }
-}
 // @keyframes App-logo-spin {
 //   from {
 //     transform: rotate(0deg);
