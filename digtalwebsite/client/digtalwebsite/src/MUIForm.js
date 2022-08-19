@@ -24,7 +24,7 @@ import { useTranslation } from 'react-i18next';
 import schema from "./schemas/yupSchema";
 import languageSwitcher from "./i18n/languageSwitcher";
 
-export default function ValidationTextFields() {
+export default function Contact() {
   //the hook for the form
   const [contact, setContact] = useState({});
   // const [contact, setContact] = useState((contact) => ({

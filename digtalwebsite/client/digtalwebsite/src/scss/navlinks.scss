@@ -1,0 +1,105 @@
+//all components
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+//Configuring html
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+@media all and (max-width: 1024px) {
+   html {
+      font-size: 53%;
+   }
+}
+@media all and (max-width: 768px) {
+   html {
+      font-size: 50%;
+   }
+}
+
+//styling links
+a{
+    text-decoration: none;
+    &:visited{
+        color: black;
+    }
+}
+
+//navbar links
+.nav--link {
+   display: 'block';
+   /* color: 'black'; */
+   font-family: 'Gudea';
+   transition: all ease 0.15s;
+
+//    &:hover{
+
+//    }
+}
+
+/* .nav--link:hover{
+    color: red;
+} */
+
+.nav--link--active {
+   color: red;
+   padding-bottom: 3px;
+   border-bottom: 2px solid red;
+
+   /*font-family: 'Gudea';
+        transition: all ease 1s;
+    display: 'block'; */
+}
+
+
+//language controls
+.language-image {
+   /* max-width: 100%; */
+   /* height: auto; */
+   width: 30px;
+   height: 38px;
+}
+
+.language-item{
+padding-top: 5px;
+    &:hover{
+        background-color: rgb(148, 64, 64);
+    }
+}
+
+.language-dropdown {
+    background-color: yellow;
+    width: 5rem;
+    height: 7rem;
+    display: grid;
+    justify-content: start;
+    align-items: center;
+    transition: all ease 0.2s;
+    border-radius: 2%;
+
+    //dropdown items
+    .language-dropdown-item {
+        width: inherit;
+        height: 80%;
+        background-color: rgb(111, 91, 91);
+    padding: 0.3rem;
+
+        &:hover{
+            background-color: aqua;
+        }
+    }
+}
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }

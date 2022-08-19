@@ -3,7 +3,11 @@ import React from 'react';
 import '@fontsource/gudea';
 import sx from '@mui/system/sx';
 import ActiveNavLink from './routes/NavLink';
-import { NavLink } from 'react-router-dom';
+import anglais from './images/uk32.png';
+import france from './images/fr32.png';
+import german from './images/de32.png';
+import german64 from './images/de64.png';
+import { Box } from '@mui/system';
 
 export default function Navbar() {
    const Gridd = styled(Grid)(
@@ -23,15 +27,20 @@ export default function Navbar() {
             container
             alignItems={'center'}
             // justifyContent="center"
-            justifyContent="center"
+            // justifyContent="center"
             direction="row"
-            sx={{ border: '1px solid black', padding: '2px', fontFamily: 'Gudea' }}>
+            sx={{
+               border: '1px solid black',
+               //    padding: '2px',
+               backgroundColor: 'red',
+               fontFamily: 'Gudea'
+            }}>
             <Grid
                item
                container
-               sx={{ backgroundColor: 'white' }}
-               pt={1}
-               pb={1}
+               sx={{ backgroundColor: 'yellow', display: 'none' }}
+               //    pt={1}
+               //    pb={1}
                alignItems={'center'}
                //    columnSpacing={19}
                justifyContent="space-between">
@@ -41,10 +50,10 @@ export default function Navbar() {
                <Grid
                   md={9}
                   container
-                       item
-                    //    columnSpacing={2}
-                  sx={{ backgroundColor: 'white' }}
-                  alignItems={'center'}
+                  item
+                  //    columnSpacing={2}
+                  sx={{ backgroundColor: 'red', display: 'none' }}
+                  alignItems={'start'}
                   justifyContent="end"
                   pl={5}
                   pr={5}>
@@ -60,10 +69,12 @@ export default function Navbar() {
                   <Gridd item md={1}>
                      <ActiveNavLink to="/en/contact" text="Contact" />
                   </Gridd>
-                  <Gridd item md={1}>
-                     <ActiveNavLink to="/en/opo" text="Flags" />
+                  <Gridd item md={1} className="language-item">
+                     {/* <ActiveNavLink to="/en/opo" text="Language" /> */}
+                     <Box sx={{ border: '1px solid black', textAlign: 'left', p: 0 }}>
+                        <img src={german64} alt="france-flag" className="language-image" />
+                     </Box>
                   </Gridd>
-                  
                </Grid>
             </Grid>
          </Grid>
