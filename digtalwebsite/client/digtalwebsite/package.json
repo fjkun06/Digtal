@@ -5,6 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@fontsource/aileron": "^4.5.3",
+    "@fontsource/gudea": "^4.5.8",
     "@fontsource/roboto": "^4.5.8",
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.8.8",
@@ -27,8 +29,10 @@
     "react-hook-form": "^7.27.1",
     "react-i18next": "^11.18.4",
     "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "react-telephone-input": "^5.0.0",
+    "sass": "^1.54.4",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11",
     "yup-phone-lite": "^1.1.2"
