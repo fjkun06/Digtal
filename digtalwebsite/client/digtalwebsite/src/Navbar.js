@@ -10,23 +10,30 @@ import german64 from './images/de64.png';
 import { Box } from '@mui/system';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import languageSwitcher from './i18n/languageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
    const [dropdown, setdropdown] = useState('');
-   const [language, setlanguage] = useState('/en');
-   const [region, setRegion] = useState(anglais)
+   const [language, setLanguage] = useState('/en');
+   // const [language, setlanguage] = useState('/en');
+   const [region, setRegion] = useState(anglais);
    const navigate = useNavigate();
    //displaying on arrow hover
    //setting border color to error
    window.onload = () => {
       setdropdown(document.getElementsByClassName('dropdown'));
       // console.log('hello');
-      // navigate('/en');
-      //   navigate(language);
+      // navigate('/en/home');
+      navigate(language + '/home');
    };
 
-//    console.log('onSubmit', dropdown);
+   //language settings
+   const { t, i18n, ready } = useTranslation('navbar');
+   let location = useLocation();
+
+   //    console.log('onSubmit', dropdown);
 
    // navigation
    //    document.addEventListener('DOMContentLoaded', () => navigate('/en'));
@@ -62,8 +69,8 @@ export default function Navbar() {
                item
                container
                sx={{ backgroundColor: 'white' }}
-               //    pt={1}
-               //    pb={1}
+               pt={2}
+               pb={2}
                alignItems={'center'}
                //    columnSpacing={19}
                justifyContent="space-between">
@@ -74,30 +81,62 @@ export default function Navbar() {
                   md={9}
                   container
                   item
+                  // columnGap={1}
                   //    columnSpacing={2}
                   sx={{ backgroundColor: 'white' }}
                   alignItems={'center'}
                   justifyContent="end"
                   pl={5}
                   pr={5}>
-                  <Gridd item md={1}>
-                     <ActiveNavLink to={language} text="Home" />
+                  <Gridd
+                     item
+                     // md={1}
+                     md={location.pathname === '/de/home' ? 0.5 : 1}
+                     // md={0.7}
+                     sx={
+                        {
+                           // border: '1px solid black'
+                        }
+                     }>
+                     <ActiveNavLink to={language + '/home'} text={t('home')} />
                   </Gridd>
-                  <Gridd item md={1}>
-                     <ActiveNavLink to={language + '/enterprise'} text={'Enterprise'} />
+                  <Gridd
+                     item
+                     // md={{ language } === '/de' ? 1.5 : 1.3}
+                     md={location.pathname === '/de/home' ? 1.5 : 1.5}
+                     // md={1.5}
+                     sx={
+                        {
+                           // border: '1px solid black'
+                        }
+                     }>
+                     <ActiveNavLink to={language + '/enterprise'} text={t('enterprise')} />
                   </Gridd>
-                  <Gridd item md={1} sx={{border: '1px solid black'}}>
-                     <ActiveNavLink to={language + '/services/'} text="Services" />
-                     <ExpandMoreOutlined
-                        fontSize="large"
-                        className="language-item-sub-arrow"
-                        // onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
-                     />
+                  <Gridd
+                     item
+                     md={location.pathname === '/de/home' ? 1.7 : 1.3}
+                     // md={1.5}
+                     // md={1}
+                     className="select-item">
+                     <Box className="select-item-dropdown">
+                        <ActiveNavLink to={language + '/services/'} text={t('services')} />
+                        <ExpandMoreOutlined
+                           fontSize="large"
+                           className="select-item-sub-arrow"
+                           // onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
+                        />
+                     </Box>
                   </Gridd>
-                  <Gridd item md={1}>
-                     <ActiveNavLink to={language + '/contact'} text="Contact" />
+                  <Gridd
+                     item
+                     md={0.7}
+                     sx={{
+                        // border: '1px solid black',
+                        width: 'fit-content'
+                     }}>
+                     <ActiveNavLink to={language + '/contact'} text={t('contact')} />
                   </Gridd>
-                  <Gridd item md={1} className="language-item">
+                  <Gridd item md={1.5} className="language-item">
                      {/* <ActiveNavLink to="/en/opo" text="Language" /> */}
                      <Box
                         className="language-item-sub"
@@ -112,30 +151,46 @@ export default function Navbar() {
                            {/* <Box display={'none'}> */}
                            <Box
                               className="language-dropdown-item"
-                              onClick={() => {
-                                 setlanguage('/en');
-                                 setRegion(anglais);
-
-                                 navigate('/en');
+                              onClick={function () {
+                                 if (language === '/en') {
+                                    console.log('en already');
+                                 } else {
+                                    setLanguage('/en');
+                                    setRegion(anglais);
+                                    setTimeout(() => navigate('/en/home'), 300);
+                                    languageSwitcher('/en');
+                                    console.log('lang: ', location, 'mang: ', location.pathname);
+                                 }
                               }}>
                               <img src={anglais} alt="france-flag" className="language-image" />
                            </Box>
                            <Box
                               className="language-dropdown-item"
-                              onClick={() => {
-                                 setlanguage('/fr');
-                                 setRegion(france);
-
-                                 navigate('/fr');
+                              onClick={function () {
+                                 if (language === '/fr') {
+                                    console.log('fr already');
+                                 } else {
+                                    setLanguage('/fr');
+                                    setRegion(france);
+                                    setTimeout(() => navigate('/fr/home'), 300);
+                                    languageSwitcher('/fr');
+                                    console.log('lang: ', language);
+                                 }
                               }}>
                               <img src={france} alt="france-flag" className="language-image" />
                            </Box>
                            <Box
                               className="language-dropdown-item"
-                              onClick={() => {
-                                 setlanguage('/de');
-                                 setRegion(german);
-                                 navigate('/de');
+                              onClick={function () {
+                                 if (language === '/de') {
+                                    console.log('de already');
+                                 } else {
+                                    setLanguage('/de');
+                                    setRegion(german);
+                                    setTimeout(() => navigate('/de/home'), 300);
+                                    languageSwitcher('/de');
+                                    console.log('lang: ', language);
+                                 }
                               }}>
                               <img src={german} alt="france-flag" className="language-image" />
                            </Box>

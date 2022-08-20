@@ -1,5 +1,7 @@
 //variables
 $displayState: none;
+$mainPurple: rebeccapurple;
+$mainBlack: #000000;
 
 //all components
 * {
@@ -7,8 +9,6 @@ $displayState: none;
    padding: 0;
    box-sizing: border-box;
 }
-
-
 
 //Configuring html
 html {
@@ -36,15 +36,20 @@ a {
 }
 
 //navbar links
-.nav--link {
+.nav--link,
+.nav--link:visited {
    display: 'block';
-   /* color: 'black'; */
+   color: 'black';
    font-family: 'Gudea';
    transition: all ease 0.15s;
 
-   //    &:hover{
-
-   //    }
+   // &:hover {
+   //    transition: all ease 0.15s;
+   //    // text-decoration: underline;
+   //    padding-bottom: 5px;
+   //    border-bottom: 2px solid rebeccapurple;
+   //    // color:rebeccapurple;
+   // }
 }
 
 /* .nav--link:hover{
@@ -54,7 +59,7 @@ a {
 .nav--link--active {
    color: red;
    padding-bottom: 3px;
-   border-bottom: 2px solid red;
+   border-bottom: 2px solid $mainPurple;
 
    /*font-family: 'Gudea';
         transition: all ease 1s;
@@ -71,32 +76,32 @@ a {
 
 //Icon container
 .language-item {
-   padding-top: 5px;
+   // padding-top: 5px;
+
    display: grid;
    //  border: 1px solid black;
    justify-content: center;
    align-items: center;
-   padding-left: 1rem;
+   padding-left: 3rem;
 
    &:hover {
       //   background-color: rgb(148, 64, 64);
    }
 
    .language-item-sub {
-        border: 1px solid black;
-      position: relative;
-      text-align: center;
-      width: 5rem;
+      // border: 1px solid black;
+      // position: relative;
+      // text-align: center;
+
+      width: 5.5rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       justify-content: center;
       align-items: center;
 
- &:hover {
-
-
-            $displayState: grid;
-         }      
+      &:hover {
+         $displayState: grid;
+      }
       .language-item-sub-arrow {
          display: grid;
          transition: all ease 0.25s;
@@ -120,8 +125,9 @@ a {
          width: 6rem;
          height: 7rem;
          //   display: grid;
-         top: 3.3rem;
-         right: 0.6rem;
+         top: 5.3rem;
+         right: 9.98rem;
+         // right: 7.55rem;
          transition: all ease 0.2s;
          border-radius: 2%;
          display: none;
@@ -135,11 +141,10 @@ a {
             display: grid;
             width: inherit;
             height: 100%;
-            border-radius: 4%;
-            background-color: #fff;
-            border-left: 1px solid cyan;
+            background-color: $mainPurple;
+            border-left: 1px solid $mainBlack;
             // border-top: 1px solid cyan;
-            border-right: 1px solid cyan;
+            border-right: 1px solid $mainBlack;
 
             // img {
             //    width: 25px;
@@ -147,21 +152,78 @@ a {
             // }
 
             &:last-child {
-               border-bottom: 1px solid cyan;
+               border-bottom: 1px solid $mainBlack;
+            border-radius: 4%;
+
             }
             &:first-child {
-               // border-top: 1px solid cyan;
+               border-top: 1px solid $mainBlack;
+            border-radius: 4%;
+
             }
 
             &:hover {
                transition: all ease 0.2s;
 
-               background-color: aqua;
+               background-color: lighten($mainPurple, 50);
             }
          }
       }
    }
 }
+
+//for select dropdown
+.select-item {
+   // border: 1px solid rgb(176, 22, 22);
+   padding-left: 2rem;
+   display: grid;
+
+   justify-content: center;
+   align-items: center;
+
+ 
+
+   .select-item-dropdown {
+      // border: 1px solid black;
+      // position: relative;
+      text-align: center;
+      width: 80%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      align-items: center;
+
+      //navbar links
+      .nav--link,
+      .nav--link:visited {
+         display: 'block';
+         color: 'black';
+         font-family: 'Gudea';
+         transition: all ease 0.15s;
+
+         //    &:hover{
+
+         //    }
+      }
+
+      .select-item-sub-arrow {
+         transition: all ease 0.25s;
+         // border: 1px solid black;
+         align-self: baseline;
+
+         &:hover {
+            transition: all ease 0.25s;
+
+            transform: scale(1.5);
+         }
+      }
+   }
+}
+
+// element.style {
+// }
+// <style>
+// .css-tzssek-MuiSvgIcon-root {
 
 // @keyframes App-logo-spin {
 //   from {
@@ -171,3 +233,10 @@ a {
 //     transform: rotate(360deg);
 //   }
 // }
+
+  //select item dropdown
+   .select-item-sub{
+      border: 1px solid black;
+      background-color: $mainPurple;
+      width: 30%;
+   }
