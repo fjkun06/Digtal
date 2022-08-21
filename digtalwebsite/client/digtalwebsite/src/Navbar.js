@@ -1,4 +1,4 @@
-import { Grid, styled } from '@mui/material';
+import { Grid, styled, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import '@fontsource/gudea';
 import sx from '@mui/system/sx';
@@ -8,7 +8,7 @@ import france from './images/fr64.png';
 import german from './images/de64.png';
 import logo from './images/logo.png';
 // import german64 from './images/de64.png';
-import { Box } from '@mui/system';
+import { Box, createTheme, ThemeProvider } from '@mui/system';
 // import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -33,7 +33,7 @@ export default function Navbar() {
    };
 
    //language settings
-   const { t, i18n, ready } = useTranslation(['navbar','form']);
+   const { t, i18n, ready } = useTranslation(['navbar', 'form']);
    let location = useLocation();
 
    //    console.log('onSubmit', dropdown);
@@ -53,203 +53,226 @@ export default function Navbar() {
       })
    );
 
+   //media queries
+   const max767 = useMediaQuery('(max-width:767px)');
+
+   //theme
+   const theme = createTheme({
+      breakpoints: {
+         values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            bs: 767,
+            w793: 796,
+            w893: 893,
+            lg: 1200,
+            xl: 1536
+         }
+      }
+   });
+
    return (
       <>
-         <Grid
-            component={'nav'}
-            container
-            alignItems={'center'}
-            // justifyContent="center"
-            // justifyContent="center"
-            direction="row"
-            sx={{
-               border: '1px solid black',
-               //    padding: '2px',
-               backgroundColor: 'red',
-               fontFamily: 'Gudea'
-            }}>
+         <ThemeProvider theme={theme}>
             <Grid
-               item
+               component={'nav'}
                container
-               sx={{ backgroundColor: 'white' }}
-               pt={2}
-               pb={2}
                alignItems={'center'}
-               //    columnSpacing={19}
-               justifyContent="space-between">
-               <Grid item justifyContent="flex-start" md={3} >
-                  <Gridd item sx={{ width: '60%' }}>
-                     <img src={logo} alt="Digtal Logo" class="logo" />
-                  </Gridd>
-               </Grid>
+               // justifyContent="center"
+               // justifyContent="center"
+               direction="row"
+               sx={{
+                  border: '1px solid black',
+                  //    padding: '2px',
+                  backgroundColor: 'red',
+                  fontFamily: 'Gudea'
+               }}>
                <Grid
-                  md={9}
-                  container
                   item
-                  // columnGap={1}
-                  //    columnSpacing={2}
-                  sx={{ backgroundColor: 'yellow' }}
-                  // sx={{ backgroundColor: 'white' }}
+                  container
+                  sx={{ backgroundColor: 'white' }}
+                  pt={2}
+                  pb={2}
                   alignItems={'center'}
-                  justifyContent="end"
-                  columnGap={5}
-                  pl={5}
-                  pr={5}>
-                  <Gridd
+                  //    columnSpacing={19}
+                  justifyContent="space-between">
+                  <Grid item justifyContent="flex-start" md={3}>
+                     <Gridd item sx={{ width: '60%' }}>
+                        <img src={logo} alt="Digtal Logo" class="logo" />
+                     </Gridd>
+                  </Grid>
+                  <Grid
+                     md={9}
+                     sm={4}
+                     bs={9}
+                     container
                      item
-                     // md={1}
-                     md={location.pathname === '/de/' ? 0.5 : 1}
-                     // md={0.7}
-                     sx={
-                        {
-                           // border: '1px solid black'
-                        }
-                     }>
-                     <ActiveNavLink to={language + '/home'} text={t('home')} />
-                  </Gridd>
-                  <Gridd
-                     item
-                     // md={{ language } === '/de' ? 1.5 : 1.3}
-                     md={location.pathname === '/de/' ? 1.5 : 2}
-                     lg={location.pathname === '/de/' ? 1.5 : 1.5}
-                     // md={1.5}
-                     sx={
-                        {
-                           border: '1px solid black'
-                        }
-                     }>
-                     <ActiveNavLink to={language + '/enterprise'} text={t('enterprise')} />
-                  </Gridd>
-                  <Gridd
-                     item
-                     md={location.pathname === '/de/home' ? 1.7 : 1.3}
-                     // md={1.5}
-                     // md={1}
-                     className="select-item">
-                     <Box
-                        className="select-item-dropdown"
-                        onMouseLeave={() =>
-                           (Array.from(servicesDropdown)[0].style.display = 'none')
-                        }>
-                        <ActiveNavLink to={language + '/services/'} text={t('services')} />
-                        <ExpandMoreOutlined
-                           fontSize="large"
-                           className="select-item-sub-arrow"
-                           onMouseEnter={() =>
-                              (Array.from(servicesDropdown)[0].style.display = 'block')
+                     // columnGap={1}
+                     //    columnSpacing={2}
+                     sx={{ backgroundColor: 'yellow' }}
+                     // sx={{ backgroundColor: 'white' }}
+                     alignItems={'center'}
+                     justifyContent="end"
+                     columnGap={{ bs: 3, w893:5}}
+                     pl={5}
+                     pr={5}>
+                     <Gridd
+                        item
+                        // md={1}
+                        md={location.pathname === '/de/' ? 0.5 : 1}
+                        // md={0.7}
+                        sx={
+                           {
+                              border: '1px solid black'
                            }
-                        />
-                        <Box className="select-item-sub services-dropdown">
-                           {/* <Box display={'none'}> */}
-                           <Box className="select-item-sub-container">
-                              {/* <Typography variant="h5" className="select-item-dropdown-text"></Typography> */}
-                              <NavLink
-                                 to={language + '/services/web-development'}
-                                 className="select-item-dropdown-text">
-                                 {' '}
-                                 {/* Web Development */}
-                                 {t('subject.op2', { ns: 'form' })}
-                              </NavLink>
-                           </Box>
-                           <Box className="select-item-sub-container">
-                              {/* <Typography variant="h5" className="select-item-dropdown-text">
+                        }>
+                        <ActiveNavLink to={language + '/home'} text={t('home')} />
+                     </Gridd>
+                     <Gridd
+                        item
+                        // md={{ language } === '/de' ? 1.5 : 1.3}
+                        md={location.pathname === '/de/' ? 1.5 : 2}
+                        lg={location.pathname === '/de/' ? 1.5 : 1.5}
+                        // md={1.5}
+                        sx={{
+                           border: '1px solid black'
+                        }}>
+                        <ActiveNavLink to={language + '/enterprise'} text={t('enterprise')} />
+                     </Gridd>
+                     <Gridd
+                        item
+                        sx={{border: '1px solid black'}}
+                        md={location.pathname === '/de/home' ? 1.7 : 1.3}
+                        sm={2}
+                        // md={1.5}
+                        // md={1}
+                        className="select-item">
+                        <Box
+                           className="select-item-dropdown"
+                           onMouseLeave={() =>
+                              (Array.from(servicesDropdown)[0].style.display = 'none')
+                           }>
+                           <ActiveNavLink to={language + '/services/'} text={t('services')} />
+                           <ExpandMoreOutlined
+                              fontSize="large"
+                              className="select-item-sub-arrow"
+                              onMouseEnter={() =>
+                                 (Array.from(servicesDropdown)[0].style.display = 'block')
+                              }
+                           />
+                           <Box className="select-item-sub services-dropdown">
+                              {/* <Box display={'none'}> */}
+                              <Box className="select-item-sub-container">
+                                 {/* <Typography variant="h5" className="select-item-dropdown-text"></Typography> */}
+                                 <NavLink
+                                    to={language + '/services/web-development'}
+                                    className="select-item-dropdown-text">
+                                    {' '}
+                                    {/* Web Development */}
+                                    {t('subject.op2', { ns: 'form' })}
+                                 </NavLink>
+                              </Box>
+                              <Box className="select-item-sub-container">
+                                 {/* <Typography variant="h5" className="select-item-dropdown-text">
                   Digital Marketing
                </Typography> */}
-                              <NavLink
-                                 to={language + '/services/digital-marketing'}
-                                 className="select-item-dropdown-text">
-                                 {' '}
-                                 {t('subject.op3', { ns: 'form' })}
-                              </NavLink>
-                           </Box>
-                           <Box className="select-item-sub-container">
-                              {/* <Typography variant="h5" className="select-item-dropdown-text"> */}
-                              {/* <Typography variant="h6" className="select-item-dropdown-text" fontFamily={['Roboto', 'Helvetica Neue', 'Helvetica']}> */}
-                              {/* Consulting */}
-                              {/* </Typography> */}
-                              <NavLink
-                                 to={language + '/services/consulting'}
-                                 className="select-item-dropdown-text">
-                                 {' '}
-                                 {t('subject.op4', { ns: 'form' })}
-                              </NavLink>
-                           </Box>
-                        </Box>
-                     </Box>
-                  </Gridd>
-                  <Gridd
-                     item
-                     md={0.7}
-                     sx={{
-                        // border: '1px solid black',
-                        width: 'fit-content'
-                     }}>
-                     <ActiveNavLink to={language + '/contact'} text={t('contact')} />
-                  </Gridd>
-                  <Gridd item md={1.5} className="language-item">
-                     {/* <ActiveNavLink to="/en/opo" text="Language" /> */}
-                     <Box
-                        className="language-item-sub"
-                        onMouseLeave={() => (Array.from(dropdown)[0].style.display = 'none')}>
-                        <img src={region} alt="france-flag" className="language-image" />
-                        <ExpandMoreOutlined
-                           fontSize="large"
-                           className="language-item-sub-arrow"
-                           onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
-                        />
-                        <Box className="language-dropdown lang-dropdown">
-                           {/* <Box display={'none'}> */}
-                           <Box
-                              className="language-dropdown-item"
-                              onClick={function () {
-                                 if (language === '/en') {
-                                    console.log('en already');
-                                 } else {
-                                    setLanguage('/en');
-                                    setRegion(anglais);
-                                    setTimeout(() => navigate('/en/home'), 300);
-                                    languageSwitcher('/en');
-                                    console.log('lang: ', location, 'mang: ', location.pathname);
-                                 }
-                              }}>
-                              <img src={anglais} alt="france-flag" className="language-image" />
-                           </Box>
-                           <Box
-                              className="language-dropdown-item"
-                              onClick={function () {
-                                 if (language === '/fr') {
-                                    console.log('fr already');
-                                 } else {
-                                    setLanguage('/fr');
-                                    setRegion(france);
-                                    setTimeout(() => navigate('/fr/home'), 300);
-                                    languageSwitcher('/fr');
-                                    console.log('lang: ', language);
-                                 }
-                              }}>
-                              <img src={france} alt="france-flag" className="language-image" />
-                           </Box>
-                           <Box
-                              className="language-dropdown-item"
-                              onClick={function () {
-                                 if (language === '/de') {
-                                    console.log('de already');
-                                 } else {
-                                    setLanguage('/de');
-                                    setRegion(german);
-                                    setTimeout(() => navigate('/de/home'), 300);
-                                    languageSwitcher('/de');
-                                    console.log('lang: ', language);
-                                 }
-                              }}>
-                              <img src={german} alt="france-flag" className="language-image" />
+                                 <NavLink
+                                    to={language + '/services/digital-marketing'}
+                                    className="select-item-dropdown-text">
+                                    {' '}
+                                    {t('subject.op3', { ns: 'form' })}
+                                 </NavLink>
+                              </Box>
+                              <Box className="select-item-sub-container">
+                                 {/* <Typography variant="h5" className="select-item-dropdown-text"> */}
+                                 {/* <Typography variant="h6" className="select-item-dropdown-text" fontFamily={['Roboto', 'Helvetica Neue', 'Helvetica']}> */}
+                                 {/* Consulting */}
+                                 {/* </Typography> */}
+                                 <NavLink
+                                    to={language + '/services/consulting'}
+                                    className="select-item-dropdown-text">
+                                    {' '}
+                                    {t('subject.op4', { ns: 'form' })}
+                                 </NavLink>
+                              </Box>
                            </Box>
                         </Box>
-                     </Box>
-                  </Gridd>
+                     </Gridd>
+                     <Gridd
+                        item
+                        md={0.7}
+                        sx={{
+                           border: '1px solid black',
+                           width: 'fit-content'
+                        }}>
+                        <ActiveNavLink to={language + '/contact'} text={t('contact')} />
+                     </Gridd>
+                     <Gridd item md={1.5} className="language-item">
+                        {/* <ActiveNavLink to="/en/opo" text="Language" /> */}
+                        <Box
+                           className="language-item-sub"
+                           onMouseLeave={() => (Array.from(dropdown)[0].style.display = 'none')}>
+                           <img src={region} alt="france-flag" className="language-image" />
+                           <ExpandMoreOutlined
+                              fontSize="large"
+                              className="language-item-sub-arrow"
+                              onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
+                           />
+                           <Box className="language-dropdown lang-dropdown">
+                              {/* <Box display={'none'}> */}
+                              <Box
+                                 className="language-dropdown-item"
+                                 onClick={function () {
+                                    if (language === '/en') {
+                                       console.log('en already');
+                                    } else {
+                                       setLanguage('/en');
+                                       setRegion(anglais);
+                                       setTimeout(() => navigate('/en/home'), 300);
+                                       languageSwitcher('/en');
+                                       console.log('lang: ', location, 'mang: ', location.pathname);
+                                    }
+                                 }}>
+                                 <img src={anglais} alt="france-flag" className="language-image" />
+                              </Box>
+                              <Box
+                                 className="language-dropdown-item"
+                                 onClick={function () {
+                                    if (language === '/fr') {
+                                       console.log('fr already');
+                                    } else {
+                                       setLanguage('/fr');
+                                       setRegion(france);
+                                       setTimeout(() => navigate('/fr/home'), 300);
+                                       languageSwitcher('/fr');
+                                       console.log('lang: ', language);
+                                    }
+                                 }}>
+                                 <img src={france} alt="france-flag" className="language-image" />
+                              </Box>
+                              <Box
+                                 className="language-dropdown-item"
+                                 onClick={function () {
+                                    if (language === '/de') {
+                                       console.log('de already');
+                                    } else {
+                                       setLanguage('/de');
+                                       setRegion(german);
+                                       setTimeout(() => navigate('/de/home'), 300);
+                                       languageSwitcher('/de');
+                                       console.log('lang: ', language);
+                                    }
+                                 }}>
+                                 <img src={german} alt="france-flag" className="language-image" />
+                              </Box>
+                           </Box>
+                        </Box>
+                     </Gridd>
+                  </Grid>
                </Grid>
             </Grid>
-         </Grid>
+         </ThemeProvider>
       </>
    );
 }

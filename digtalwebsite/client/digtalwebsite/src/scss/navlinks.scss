@@ -113,7 +113,7 @@ a {
 
             $displayState: grid;
          }
-         //    border: 1px solid black;
+            // border: 1px solid black;
          //   align-self: end;
          //   margin-left: -0.4rem;
       }
@@ -125,7 +125,7 @@ a {
          width: 6rem;
          height: 7rem;
          //   display: grid;
-         top: 5.5rem;
+         top: 6rem;
          right: 7.5rem;
          // right: 7.55rem;
          transition: all ease 0.2s;
@@ -209,8 +209,8 @@ a {
          position: absolute;
          // padding: 5px;
          // box-shadow: 1px 1px 15px 1px;
-         top: 2.5rem;
-         left: -9.0rem;
+         top: 2.2rem;
+         left: -9rem;
          display: none;
 
          .select-item-sub-container {
@@ -253,7 +253,7 @@ a {
       .select-item-sub-arrow {
          transition: all ease 0.25s;
          // border: 1px solid black;
-         align-self: baseline;
+         align-self: flex-end;
 
          &:hover {
             transition: all ease 0.25s;
@@ -279,8 +279,33 @@ a {
 // }
 
 //select item dropdown
-.logo{
+.logo {
    width: 50px;
    height: 50px;
    // border: 1px solid black;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+   .language-item {
+      .language-item-sub {
+         .language-dropdown {
+            top: 7rem;
+         }
+      }
+   }
+}
+@media (min-width: 900px) and (max-width: 1330px) {
+   .select-item {
+      .select-item-dropdown {
+      .select-item-sub {
+         width: 350%;
+
+         .select-item-sub-container {
+            .select-item-dropdown-text {
+               // width: 19rem;
+               // border: 1px solid yellow;
+            }
+         }
+      }}
+   }
 }

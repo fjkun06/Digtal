@@ -313,67 +313,9 @@ export default function Contact() {
                  {t('button')}
               </Button>
 
-              {/* if loadx render this !! remember */}
-              {/* <LoadingButton
-            loading={loading}
-            // variant="secondary"
-            fullWidth
-            onClick={handleClick}
-            loadingPosition="center"
-            size="large"
-            variant="contained"
-            type="submit"
-            sx={{
-              backgroundColor: purple[400],
-              transition: "all ease 0.0.5s",
-              "&:hover": { backgroundColor: purple[500] },
-            }}
-            disabled={!isValid}
-          >
-            {loading ? "An Error Occured" : "Send"}
-          </LoadingButton> */}
+            
            </Grid>
-           {/* <Grid>
-              <Button
-                 onClick={() => languageSwitcher('fr')}
-                 fullWidth
-                 size="large"
-                 variant="contained"
-                 type="submit"
-                 sx={{
-                    backgroundColor: purple[400],
-                    transition: 'all ease 0.0.5s',
-                    '&:hover': { backgroundColor: purple[500] }
-                 }}>
-                 {t('button')}
-              </Button>
-              <Button
-                 onClick={() => languageSwitcher('de')}
-                 fullWidth
-                 size="large"
-                 variant="contained"
-                 type="submit"
-                 sx={{
-                    backgroundColor: purple[400],
-                    transition: 'all ease 0.0.5s',
-                    '&:hover': { backgroundColor: purple[500] }
-                 }}>
-                 {t('button')}
-              </Button>
-              <Button
-                 onClick={() => languageSwitcher('en')}
-                 fullWidth
-                 size="large"
-                 variant="contained"
-                 type="submit"
-                 sx={{
-                    backgroundColor: purple[400],
-                    transition: 'all ease 0.0.5s',
-                    '&:hover': { backgroundColor: purple[500] }
-                 }}>
-                 {t('button')}
-              </Button>
-           </Grid> */}
+
         </Grid>
         <Grid container sx={{ display: { xs: 'none', sm: 'block' } }} item md={6} sm={7}>
            {/* conditional rendering images based on breakpoints */}
