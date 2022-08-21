@@ -3,7 +3,7 @@ import Footer from "../components/contact/footer"
 import Form from "../components/contact/form"
 import { useState } from "react"
 
-export default function Contact(){
+export default function Contact2(){
 
 
     return(

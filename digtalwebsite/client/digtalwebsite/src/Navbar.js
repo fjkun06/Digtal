@@ -88,15 +88,17 @@ export default function Navbar() {
                   item
                   // columnGap={1}
                   //    columnSpacing={2}
-                  sx={{ backgroundColor: 'white' }}
+                  sx={{ backgroundColor: 'yellow' }}
+                  // sx={{ backgroundColor: 'white' }}
                   alignItems={'center'}
                   justifyContent="end"
+                  columnGap={5}
                   pl={5}
                   pr={5}>
                   <Gridd
                      item
                      // md={1}
-                     md={location.pathname === '/de/home' ? 0.5 : 1}
+                     md={location.pathname === '/de/' ? 0.5 : 1}
                      // md={0.7}
                      sx={
                         {
@@ -108,11 +110,12 @@ export default function Navbar() {
                   <Gridd
                      item
                      // md={{ language } === '/de' ? 1.5 : 1.3}
-                     md={location.pathname === '/de/home' ? 1.5 : 1.5}
+                     md={location.pathname === '/de/' ? 1.5 : 2}
+                     lg={location.pathname === '/de/' ? 1.5 : 1.5}
                      // md={1.5}
                      sx={
                         {
-                           // border: '1px solid black'
+                           border: '1px solid black'
                         }
                      }>
                      <ActiveNavLink to={language + '/enterprise'} text={t('enterprise')} />
