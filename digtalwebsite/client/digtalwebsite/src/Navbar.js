@@ -6,16 +6,18 @@ import ActiveNavLink from './routes/NavLink';
 import anglais from './images/uk64.png';
 import france from './images/fr64.png';
 import german from './images/de64.png';
-import german64 from './images/de64.png';
+import logo from './images/logo.png';
+// import german64 from './images/de64.png';
 import { Box } from '@mui/system';
-import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+// import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import languageSwitcher from './i18n/languageSwitcher';
 import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
    const [dropdown, setdropdown] = useState('');
+   const [servicesDropdown, setServicesDropdown] = useState('');
    const [language, setLanguage] = useState('/en');
    // const [language, setlanguage] = useState('/en');
    const [region, setRegion] = useState(anglais);
@@ -23,14 +25,15 @@ export default function Navbar() {
    //displaying on arrow hover
    //setting border color to error
    window.onload = () => {
-      setdropdown(document.getElementsByClassName('dropdown'));
+      setdropdown(document.getElementsByClassName('lang-dropdown'));
+      setServicesDropdown(document.getElementsByClassName('services-dropdown'));
       // console.log('hello');
       // navigate('/en/home');
       navigate(language + '/home');
    };
 
    //language settings
-   const { t, i18n, ready } = useTranslation('navbar');
+   const { t, i18n, ready } = useTranslation(['navbar','form']);
    let location = useLocation();
 
    //    console.log('onSubmit', dropdown);
@@ -74,8 +77,10 @@ export default function Navbar() {
                alignItems={'center'}
                //    columnSpacing={19}
                justifyContent="space-between">
-               <Grid item justifyContent="space-between" md={3}>
-                  <Gridd item>Logo</Gridd>
+               <Grid item justifyContent="flex-start" md={3} >
+                  <Gridd item sx={{ width: '60%' }}>
+                     <img src={logo} alt="Digtal Logo" class="logo" />
+                  </Gridd>
                </Grid>
                <Grid
                   md={9}
@@ -118,13 +123,55 @@ export default function Navbar() {
                      // md={1.5}
                      // md={1}
                      className="select-item">
-                     <Box className="select-item-dropdown">
+                     <Box
+                        className="select-item-dropdown"
+                        onMouseLeave={() =>
+                           (Array.from(servicesDropdown)[0].style.display = 'none')
+                        }>
                         <ActiveNavLink to={language + '/services/'} text={t('services')} />
                         <ExpandMoreOutlined
                            fontSize="large"
                            className="select-item-sub-arrow"
-                           // onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
+                           onMouseEnter={() =>
+                              (Array.from(servicesDropdown)[0].style.display = 'block')
+                           }
                         />
+                        <Box className="select-item-sub services-dropdown">
+                           {/* <Box display={'none'}> */}
+                           <Box className="select-item-sub-container">
+                              {/* <Typography variant="h5" className="select-item-dropdown-text"></Typography> */}
+                              <NavLink
+                                 to={language + '/services/web-development'}
+                                 className="select-item-dropdown-text">
+                                 {' '}
+                                 {/* Web Development */}
+                                 {t('subject.op2', { ns: 'form' })}
+                              </NavLink>
+                           </Box>
+                           <Box className="select-item-sub-container">
+                              {/* <Typography variant="h5" className="select-item-dropdown-text">
+                  Digital Marketing
+               </Typography> */}
+                              <NavLink
+                                 to={language + '/services/digital-marketing'}
+                                 className="select-item-dropdown-text">
+                                 {' '}
+                                 {t('subject.op3', { ns: 'form' })}
+                              </NavLink>
+                           </Box>
+                           <Box className="select-item-sub-container">
+                              {/* <Typography variant="h5" className="select-item-dropdown-text"> */}
+                              {/* <Typography variant="h6" className="select-item-dropdown-text" fontFamily={['Roboto', 'Helvetica Neue', 'Helvetica']}> */}
+                              {/* Consulting */}
+                              {/* </Typography> */}
+                              <NavLink
+                                 to={language + '/services/consulting'}
+                                 className="select-item-dropdown-text">
+                                 {' '}
+                                 {t('subject.op4', { ns: 'form' })}
+                              </NavLink>
+                           </Box>
+                        </Box>
                      </Box>
                   </Gridd>
                   <Gridd
@@ -147,7 +194,7 @@ export default function Navbar() {
                            className="language-item-sub-arrow"
                            onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
                         />
-                        <Box className="language-dropdown dropdown">
+                        <Box className="language-dropdown lang-dropdown">
                            {/* <Box display={'none'}> */}
                            <Box
                               className="language-dropdown-item"

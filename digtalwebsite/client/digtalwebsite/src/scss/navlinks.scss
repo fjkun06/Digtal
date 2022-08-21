@@ -125,8 +125,8 @@ a {
          width: 6rem;
          height: 7rem;
          //   display: grid;
-         top: 5.3rem;
-         right: 9.98rem;
+         top: 5.5rem;
+         right: 7.5rem;
          // right: 7.55rem;
          transition: all ease 0.2s;
          border-radius: 2%;
@@ -153,13 +153,11 @@ a {
 
             &:last-child {
                border-bottom: 1px solid $mainBlack;
-            border-radius: 4%;
-
+               border-radius: 4%;
             }
             &:first-child {
                border-top: 1px solid $mainBlack;
-            border-radius: 4%;
-
+               border-radius: 4%;
             }
 
             &:hover {
@@ -181,11 +179,9 @@ a {
    justify-content: center;
    align-items: center;
 
- 
-
    .select-item-dropdown {
       // border: 1px solid black;
-      // position: relative;
+      position: relative;
       text-align: center;
       width: 80%;
       display: grid;
@@ -204,6 +200,54 @@ a {
          //    &:hover{
 
          //    }
+      }
+
+      .select-item-sub {
+         // border: 1px solid red;
+         background-color: $mainPurple;
+         width: 250%;
+         position: absolute;
+         // padding: 5px;
+         // box-shadow: 1px 1px 15px 1px;
+         top: 2.5rem;
+         left: -9.0rem;
+         display: none;
+
+         .select-item-sub-container {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            width: 100%;
+            transition: all ease 0.2s;
+            border-bottom: 1px solid $mainBlack;
+            // border: 1px solid yellow;
+
+            &:hover {
+               transition: background-color ease 0.2s;
+               cursor: pointer;
+               background-color: lighten($mainPurple, 50);
+
+               .select-item-dropdown-text {
+                  color: #000000;
+               }
+            }
+
+            .select-item-dropdown-text {
+               // font-family: 'Roboto', sans-serif;
+               font-family: 'Gudea';
+               color: white;
+
+               width: 19rem;
+               font-size: 1.5rem;
+               letter-spacing: 0.05rem;
+               // border: 1px solid white;
+
+               // &:hover {
+               //    color: #000000;
+               // }
+            }
+         }
       }
 
       .select-item-sub-arrow {
@@ -234,9 +278,9 @@ a {
 //   }
 // }
 
-  //select item dropdown
-   .select-item-sub{
-      border: 1px solid black;
-      background-color: $mainPurple;
-      width: 30%;
-   }
+//select item dropdown
+.logo{
+   width: 50px;
+   height: 50px;
+   // border: 1px solid black;
+}

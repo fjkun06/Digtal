@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Contact from "./MUIForm";
 import Navbar, { NavList } from "./Navbar";
+import Enterprise from "./routes/Enterprise";
 function App() {
   return (
      <>
@@ -14,6 +15,7 @@ function App() {
                  <Outlet />
               </Grid>
            </Grid>
+        {/* <Enterprise/> */}
         {/* <NavList/> */}
      </>
   );
