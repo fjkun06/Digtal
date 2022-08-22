@@ -30,6 +30,19 @@ min-height: 4rem;
 display: grid;
 justify-content: center;
 align-items: center;
+
+&:first-child{
+    // background-color: red;
+    .main-footer-item-sub-heading{
+border: 1px solid red;
+    }
+}
+
+&:last-child{
+display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
         }
         
     }
