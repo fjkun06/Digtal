@@ -453,7 +453,7 @@ export default function Navbar() {
                                     } else {
                                        setLanguage('/en');
                                        setRegion(anglais);
-                                       setTimeout(() => navigate('/en/home'), 300);
+                                       // setTimeout(() => navigate('/en/home'), 300);
                                        languageSwitcher('/en');
                                        console.log('lang: ', location, 'mang: ', location.pathname);
                                     }
@@ -468,7 +468,7 @@ export default function Navbar() {
                                     } else {
                                        setLanguage('/fr');
                                        setRegion(france);
-                                       setTimeout(() => navigate('/fr/home'), 300);
+                                       // setTimeout(() => navigate('/fr/home'), 300);
                                        languageSwitcher('/fr');
                                        console.log('lang: ', language);
                                     }
@@ -483,7 +483,7 @@ export default function Navbar() {
                                     } else {
                                        setLanguage('/de');
                                        setRegion(german);
-                                       setTimeout(() => navigate('/de/home'), 300);
+                                       // setTimeout(() => navigate('/de/home'), 300);
                                        languageSwitcher('/de');
                                        console.log('lang: ', language);
                                     }
