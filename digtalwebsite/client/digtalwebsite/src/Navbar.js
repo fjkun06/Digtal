@@ -1,5 +1,5 @@
 import { Grid, styled, useMediaQuery } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@fontsource/gudea';
 import sx from '@mui/system/sx';
 import ActiveNavLink from './routes/NavLink';
@@ -35,7 +35,11 @@ export default function Navbar() {
    const navigate = useNavigate();
    //displaying on arrow hover
    //setting border color to error
-   window.onload = () => {
+
+
+   useEffect(() => {
+     
+   // window.onload = () => {
       setdropdown(document.getElementsByClassName('lang-dropdown'));
       setServicesDropdown(document.getElementsByClassName('services-dropdown'));
       setMobileServicesDropdown(document.getElementsByClassName('mobile-services-dropdown'));
@@ -45,11 +49,14 @@ export default function Navbar() {
       setMobileMenu(document.getElementsByClassName('mobile-navbar-menu'));
       setspecialLanguage(document.getElementsByClassName('special-language'));
 
-      
       // console.log('hello');
       // navigate('/en/home');
       navigate(language + '/home');
-   };
+   // };
+     
+   }, [])
+   
+   
 
    //language settings
    const { t, i18n, ready } = useTranslation(['navbar', 'form']);

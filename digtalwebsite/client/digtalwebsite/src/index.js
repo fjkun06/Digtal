@@ -15,11 +15,28 @@ import Contact from './MUIForm';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <React.StrictMode>
-      <BrowserRouter>
-         <Routes>
-            <Route path="/" element={<App />}>
-               <Route path="/en">
+      <React.Suspense fallback="Loading...">
+         <BrowserRouter>
+            <Routes>
+               <Route path="/" element={<App />}>
+                  <Route path="/en">
+                     <Route path="home" element={<Home />} />
+                     <Route path="enterprise" element={<Enterprise />} />
+                     <Route path="services">
+                        <Route index element={<Services />} />
+                        <Route path="consulting" element={<Consulting />} />
+                        <Route path="web-development" element={<WebDevelopment />} />
+                        <Route path="digital-marketing" element={<DigitalMarketing />} />
+                     </Route>
+                     <Route path="contact" element={<Contact />} />
+                     <Route path="*" element={<FourOFour />} />
+                  </Route>
+               </Route>
+
+               <Route path="/de" element={<App />}>
+                  {/* <Route path="/de" element={<App />}> */}
                   <Route path="home" element={<Home />} />
+
                   <Route path="enterprise" element={<Enterprise />} />
                   <Route path="services">
                      <Route index element={<Services />} />
@@ -29,42 +46,26 @@ root.render(
                   </Route>
                   <Route path="contact" element={<Contact />} />
                   <Route path="*" element={<FourOFour />} />
+                  {/* </Route> */}
                </Route>
-            </Route>
 
-            <Route path="/de" element={<App />}>
-               {/* <Route path="/de" element={<App />}> */}
-               <Route path="home" element={<Home />} />
+               <Route path="/fr" element={<App />}>
+                  {/* <Route path="/de" element={<App />}> */}
+                  <Route path="home" element={<Home />} />
 
-               <Route path="enterprise" element={<Enterprise />} />
-               <Route path="services">
-                  <Route index element={<Services />} />
-                  <Route path="consulting" element={<Consulting />} />
-                  <Route path="web-development" element={<WebDevelopment />} />
-                  <Route path="digital-marketing" element={<DigitalMarketing />} />
+                  <Route path="enterprise" element={<Enterprise />} />
+                  <Route path="services">
+                     <Route index element={<Services />} />
+                     <Route path="consulting" element={<Consulting />} />
+                     <Route path="web-development" element={<WebDevelopment />} />
+                     <Route path="digital-marketing" element={<DigitalMarketing />} />
+                  </Route>
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="*" element={<FourOFour />} />
+                  {/* </Route> */}
                </Route>
-               <Route path="contact" element={<Contact />} />
-               <Route path="*" element={<FourOFour />} />
-               {/* </Route> */}
-            </Route>
-
-            <Route path="/fr" element={<App />}>
-               {/* <Route path="/de" element={<App />}> */}
-               <Route path="home" element={<Home />} />
-
-               <Route path="enterprise" element={<Enterprise />} />
-               <Route path="services">
-                  <Route index element={<Services />} />
-                  <Route path="consulting" element={<Consulting />} />
-                  <Route path="web-development" element={<WebDevelopment />} />
-                  <Route path="digital-marketing" element={<DigitalMarketing />} />
-               </Route>
-               <Route path="contact" element={<Contact />} />
-               <Route path="*" element={<FourOFour />} />
-               {/* </Route> */}
-            </Route>
-         </Routes>
-      </BrowserRouter>
-      
+            </Routes>
+         </BrowserRouter>
+      </React.Suspense>
    </React.StrictMode>
 );
