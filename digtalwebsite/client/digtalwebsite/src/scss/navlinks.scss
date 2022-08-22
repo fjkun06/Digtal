@@ -284,9 +284,11 @@ background: linear-gradient(to left, lighten($mainPurple, 10), lighten(rgb(0, 81
             background-color: lighten($mainPurple, 50);
 
             .mobile-nav-bar-item-link {
-               color: #000000;
+               color: #000;
             }
          }
+
+         
 
          .mobile-nav-bar-item-link {
             display: 'block';
@@ -294,9 +296,16 @@ background: linear-gradient(to left, lighten($mainPurple, 10), lighten(rgb(0, 81
             font-family: 'Gudea';
             transition: all ease 0.15s;
             font-size: 1.5rem;
+
             // width: 1%;
 
             // border: 1px solid red;
+         }
+
+         //ative link styling
+         .mobile-nav--link--active {
+               color: gold;
+
          }
 
          //arrows
