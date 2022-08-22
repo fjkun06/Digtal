@@ -100,9 +100,10 @@ export default function Navbar() {
                alignItems={'center'}
                // justifyContent="center"
                // justifyContent="center"
+               className="main-nav"
                direction="row"
                sx={{
-                  borderBottom: '1px solid black',
+                  // borderBottom: '1px solid black',
                   //    padding: '2px',
                   // backgroundColor: 'red',
                   fontFamily: 'Gudea'
