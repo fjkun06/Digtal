@@ -68,7 +68,7 @@ i18n
    .use(Backend)
    // detect user language
    // learn more: https://github.com/i18next/i18next-browser-languageDetector
-   .use(LanguageDetector)
+   // .use(LanguageDetector)
    // pass the i18n instance to react-i18next.
    .use(initReactI18next)
    // init i18next
@@ -76,7 +76,7 @@ i18n
    .init({
       fallbackLng: 'en',
       debug: true,
-      lng:'cimode',
+      // lng:'cimode',
 
       interpolation: {
          escapeValue: false // not needed for react as it escapes by default
