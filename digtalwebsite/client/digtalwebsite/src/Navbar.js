@@ -324,7 +324,7 @@ export default function Navbar() {
                      bs={9}
                      container
                      item
-                     sx={{ display: max767 ? 'none' : '', backgroundColor: 'yellow' }}
+                     sx={{ display: max767 ? 'none' : '' }}
                      // display={{ xs:'none',bs:'flexbox'}}
                      // columnGap={1}
                      //    columnSpacing={2}
@@ -341,7 +341,7 @@ export default function Navbar() {
                         md={location.pathname === '/de/' ? 0.5 : 1}
                         // md={0.7}
                         sx={{
-                           border: '1px solid black'
+                           // border: '1px solid black'
                         }}>
                         <ActiveNavLink to={language + '/home'} text={t('home')} />
                      </Gridd>
@@ -352,13 +352,13 @@ export default function Navbar() {
                         lg={location.pathname === '/de/' ? 1.5 : 1.5}
                         // md={1.5}
                         sx={{
-                           border: '1px solid black'
+                           // border: '1px solid black'
                         }}>
                         <ActiveNavLink to={language + '/enterprise'} text={t('enterprise')} />
                      </Gridd>
                      <Gridd
                         item
-                        sx={{ border: '1px solid black' }}
+                        // sx={{ border: '1px solid black' }}
                         md={location.pathname === '/de/home' ? 1.7 : 1.3}
                         sm={2}
                         // md={1.5}
@@ -419,7 +419,7 @@ export default function Navbar() {
                         item
                         md={0.7}
                         sx={{
-                           border: '1px solid black',
+                           // border: '1px solid black',
                            width: 'fit-content'
                         }}>
                         <ActiveNavLink to={language + '/contact'} text={t('contact')} />
