@@ -138,6 +138,14 @@ function App() {
                   </Grid>
                   <Grid item>
                      <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
+                        <Typography
+                           variant="h4"
+                           color="secondary"
+                           gutterBottom
+                           component="div"
+                           align="center">
+                           Developpement Web
+                        </Typography>
                         Nous développons des logiciels qui inspirent les utilisateurs et les
                         conduisent à leur destination de la manière la plus rapide possible. En tant
                         que partenaire fiable, nous vous soutenons également au niveau local grâce à
@@ -146,7 +154,7 @@ function App() {
                         et choisissons la technologie appropriée et testons la solution.
                      </Typography>
                   </Grid>
-                  <Grid item>
+                  <Grid item >
                      <Button
                         variant="outlined"
                         color="secondary"
@@ -172,6 +180,14 @@ function App() {
                   </Grid>
                   <Grid item>
                      <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
+                        <Typography
+                           variant="h4"
+                           align="center"
+                           color="secondary"
+                           gutterBottom
+                           component="div">
+                           Marketing Digital
+                        </Typography>
                         Nous aidons votre entreprise à booster sa visibilité en optimisant ses
                         stratégies d’acquisition payantes, mais également en mettant en place une
                         stratégie SEO pointue. Les experts Marketing de Digtal maîtrisent les bonnes
@@ -207,6 +223,14 @@ function App() {
                   </Grid>
                   <Grid item>
                      <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
+                        <Typography
+                           variant="h4"
+                           color="secondary"
+                           gutterBottom
+                           component="div"
+                           align="center">
+                           IT Consulting
+                        </Typography>
                         Nos consultants informatiques allient la pensée stratégique, les idées pour
                         le choix des technologies et des outils ainsi que les tendances numériques à
                         la gestion de projet.Nos consultants informatiques sont sollicités lorsqu'il
