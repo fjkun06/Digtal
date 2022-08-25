@@ -44,7 +44,7 @@ function App() {
                className=""
                container
                md={5}
-               sm={5}
+               
                mr={{ md: 12 }}
                display={'flex'}
                alignItems="center"
@@ -79,7 +79,7 @@ function App() {
                </Grid>
             </Grid>
 
-            <Grid item xs={12} sm={5} md={6} className="">
+            <Grid item xs={12}  md={6} className="">
                <img src={digitalBusiness} alt="digitalBusiness" />
             </Grid>
          </Grid>
@@ -90,6 +90,7 @@ function App() {
 
          <Grid
             container
+            fontFamily={'Poppins, sans-serif'}
             display={'flex'}
             alignItems="center"
             justifyContent={'center'}
@@ -112,7 +113,7 @@ function App() {
             <Grid item>
                <Typography
                   align="Justify"
-                  fontSize="2rem"
+                  fontSize="1.5rem"
                   gutterBottom
                   component="div"
                   maxWidth={'630px'}
@@ -138,7 +139,7 @@ function App() {
                      <img src={WebDev} alt="WebDev " />
                   </Grid>
                   <Grid item>
-                     <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
+                     <Typography align="Justify" fontSize="1.5rem" gutterBottom component="div">
                         <Typography
                            variant="h4"
                            align="center"
@@ -182,7 +183,7 @@ function App() {
                      <img src={digitalMarketingimg} alt="Digital Marketing " />
                   </Grid>
                   <Grid item>
-                     <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
+                     <Typography align="Justify" fontSize="1.5rem" gutterBottom component="div">
                         <Typography
                            variant="h4"
                            align="center"
@@ -225,7 +226,7 @@ function App() {
                      <img src={itcon} alt="itConsulting  " />
                   </Grid>
                   <Grid item>
-                     <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
+                     <Typography align="Justify" fontSize="1.5rem" gutterBottom component="div">
                         <Typography
                            variant="h4"
                            color="secondary"
