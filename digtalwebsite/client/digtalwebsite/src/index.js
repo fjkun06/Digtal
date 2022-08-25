@@ -10,7 +10,7 @@ import WebDevelopment from './routes/services/WebDevelopment';
 import DigitalMarketing from './routes/services/DigitalMarketing';
 import FourOFour from './routes/FourOFour';
 import Home from './routes/Home';
-import Contact from './MUIForm';
+import Contact from './components/ContactForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

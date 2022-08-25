@@ -1,10 +1,7 @@
 import { Box } from '@mui/system';
-import anglais from '../images/uk64.png';
-import france from '../images/fr64.png';
-import german from '../images/de64.png';
+
 
 import React from 'react';
-import { Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 export default function Enterprise() {

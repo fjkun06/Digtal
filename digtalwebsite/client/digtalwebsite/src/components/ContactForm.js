@@ -10,20 +10,18 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import picture from "../src/images/image.png";
-import pictureSM from "../src/images/image2.png";
+import picture from "../assets/images/image.png";
+import pictureSM from "../assets/images/image2.png";
 import { purple } from "@mui/material/colors";
-import CustomTextField from "./CustomTextFiels";
-import CustomImage from "./CustomImage";
+import CustomTextField from "./ReusableTextField";
+import CustomImage from "./ReusableImage";
 import { useState } from "react";
 import Telephone from "./Telephone";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from 'react-i18next';
 
-import schema from "./schemas/yupSchema";
-import languageSwitcher from "./i18n/languageSwitcher";
-import { useTransition } from "react";
+import schema from "../schemas/yupSchema";
 
 export default function Contact() {
    //the hook for the form

@@ -1,13 +1,12 @@
 import { Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import Footer from "./Footer";
-import Contact from "./MUIForm";
-import Navbar, { NavList } from "./Navbar";
-import Enterprise from "./routes/Enterprise";
+import Footer from "./components/Footer";
+import Contact from "./components/ContactForm";
+import Navbar from "./components/Navbar";
+import './assets/sass/main.scss';
 function App() {
   return (
      <>
-        {/* <Contact/> */}
            <Grid>
               <Grid container>
                  <Navbar />
@@ -19,8 +18,7 @@ function App() {
                  <Footer/>
               </Grid>
            </Grid>
-        {/* <Enterprise/> */}
-        {/* <NavList/> */}
+      
      </>
   );
 }
