@@ -8,6 +8,7 @@ import WebDev from './assets/images/development.jpg';
 import itcon from './assets/images/consulting.jpg';
 import digitalMarketingimg from './assets/images/marketing.jpg';
 import { Button } from '@mui/material';
+import ControlledCarousel from './components/firstCaroussel/caroussel';
 
 
 
@@ -18,7 +19,7 @@ function App() {
       <>
          <ValidationTextFields />
          {/* <Contact/> */}
-
+<ControlledCarousel/>
          {/* ////////////////////////////////////////////////HERO COMPONENT///////////////////////////////////////////////////*/}
          <Typography
             variant="h1"
@@ -34,10 +35,7 @@ function App() {
          </Typography>
          <Grid
             container
-            pl={{ xs: 1, sm: 4 }}
-            pr={{ xs: 1, sm: 4 }}
-            fontFamily="Poppins, sans-serif"
-            fontSize="2rem">
+            >
             <Grid
                item
                xs={12}
