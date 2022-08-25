@@ -4,9 +4,9 @@ import Contact from './pages/contact';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import digitalBusiness from './assets/images/digital-businessimg.jpg';
-import webDevImg from './assets/images/webDevImg.jpg';
-import itConsultingimg from './assets/images/itConsultingimg.jpg';
-import digitalMarketingimg from './assets/images/digitalMarketingimg.jpeg';
+import WebDev from './assets/images/development.jpg';
+import itcon from './assets/images/consulting.jpg';
+import digitalMarketingimg from './assets/images/marketing.jpg';
 import { Button } from '@mui/material';
 
 
@@ -44,6 +44,7 @@ function App() {
                className=""
                container
                md={5}
+               sm={5}
                mr={{ md: 12 }}
                display={'flex'}
                alignItems="center"
@@ -78,7 +79,7 @@ function App() {
                </Grid>
             </Grid>
 
-            <Grid item xs={12} md={6} className="">
+            <Grid item xs={12} sm={5} md={6} className="">
                <img src={digitalBusiness} alt="digitalBusiness" />
             </Grid>
          </Grid>
@@ -131,19 +132,20 @@ function App() {
                   xs={12}
                   sm={12}
                   md={3.9}
-                  border="2px solid green"
+                  
                   padding="1rem">
-                  <Grid border="2px solid red">
-                     <img item width={'500px'} height={'auto'} src={webDevImg} alt="WebDev " />
+                  <Grid item>
+                     <img src={WebDev} alt="WebDev " />
                   </Grid>
                   <Grid item>
                      <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
                         <Typography
                            variant="h4"
+                           align="center"
                            color="secondary"
                            gutterBottom
                            component="div"
-                           align="center">
+                           m="2rem">
                            Developpement Web
                         </Typography>
                         Nous développons des logiciels qui inspirent les utilisateurs et les
@@ -154,7 +156,7 @@ function App() {
                         et choisissons la technologie appropriée et testons la solution.
                      </Typography>
                   </Grid>
-                  <Grid item >
+                  <Grid item>
                      <Button
                         variant="outlined"
                         color="secondary"
@@ -166,6 +168,7 @@ function App() {
                   </Grid>
                </Grid>
                {/* ////////////////////////Item1///////////////*/}
+
                {/* ////////////////////////Item2///////////////*/}
                <Grid
                   item
@@ -173,10 +176,10 @@ function App() {
                   xs={12}
                   sm={12}
                   md={3.9}
-                  border="2px solid green"
+                  
                   padding="1rem">
                   <Grid item>
-                     <img src={digitalMarketingimg} alt="Digital Marketing " height={'280px'} />
+                     <img src={digitalMarketingimg} alt="Digital Marketing " />
                   </Grid>
                   <Grid item>
                      <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
@@ -185,11 +188,12 @@ function App() {
                            align="center"
                            color="secondary"
                            gutterBottom
-                           component="div">
+                           component="div"
+                           m="2rem">
                            Marketing Digital
                         </Typography>
                         Nous aidons votre entreprise à booster sa visibilité en optimisant ses
-                        stratégies d’acquisition payantes, mais également en mettant en place une
+                        stratégies d'acquisition payantes, mais également en mettant en place une
                         stratégie SEO pointue. Les experts Marketing de Digtal maîtrisent les bonnes
                         pratiques des différents des moteurs de recherche et plateformes digitales
                         par cœur, et leur savoir-faire en la matière va générer un trafic qualifié
@@ -197,7 +201,6 @@ function App() {
                      </Typography>
                   </Grid>
                   <Grid item>
-                     {' '}
                      <Button
                         variant="outlined"
                         color="secondary"
@@ -216,10 +219,10 @@ function App() {
                   xs={12}
                   sm={12}
                   md={3.9}
-                  border="2px solid green"
+                  
                   padding="1rem">
                   <Grid item>
-                     <img width={'500px'} src={itConsultingimg} alt="itConsulting  " />
+                     <img src={itcon} alt="itConsulting  " />
                   </Grid>
                   <Grid item>
                      <Typography align="Justify" fontSize="2rem" gutterBottom component="div">
@@ -228,14 +231,15 @@ function App() {
                            color="secondary"
                            gutterBottom
                            component="div"
-                           align="center">
+                           align="center"
+                           m="2rem">
                            IT Consulting
                         </Typography>
                         Nos consultants informatiques allient la pensée stratégique, les idées pour
                         le choix des technologies et des outils ainsi que les tendances numériques à
-                        la gestion de projet.Nos consultants informatiques sont sollicités lorsqu'il
-                        s'agit de soutenir des processus par l'informatique ou de fournir des
-                        conseils stratégiques sur la manière dont l'informatique peut être utilisée
+                        la gestion de projet. <br /> Nos consultants  sont égalements sollicités lorsqu'il
+                        s'agit de soutenir des processus informatique ou de fournir des
+                        conseils stratégiques sur la manière dont le digital peut être utilisée de manière éfficiente
                         dans une entreprise.
                      </Typography>
                   </Grid>
