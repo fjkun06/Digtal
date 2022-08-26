@@ -1,21 +1,19 @@
-import { Grid, styled, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "@fontsource/gudea";
-import sx from "@mui/system/sx";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import anglais from "../assets/images/uk64.png";
-import france from "../assets/images/fr64.png";
-import german from "../assets/images/de64.png";
 import logo from "../assets/images/logo.png";
-import { Box, createTheme, ThemeProvider } from "@mui/system";
+import { Box, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import languageSwitcher from "../i18n/languageSwitcher";
 import { useTranslation } from "react-i18next";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
+import { useMediaQuery, Grid } from "@mui/material";
+//importing configuration
+import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown, selectMenu } from "./config/navbar_config";
 
 export default function Navbar() {
   //initialising states
@@ -36,13 +34,9 @@ export default function Navbar() {
     // window.onload = () => {
     setdropdown(document.getElementsByClassName("lang-dropdown"));
     setServicesDropdown(document.getElementsByClassName("services-dropdown"));
-    setMobileServicesDropdown(
-      document.getElementsByClassName("mobile-services-dropdown")
-    );
+    setMobileServicesDropdown(document.getElementsByClassName("mobile-services-dropdown"));
     setMobileSpecial(document.getElementsByClassName("special-navbar-item"));
-    setMobileNavbarReveal(
-      document.getElementsByClassName("mobile-navbar-reveal")
-    );
+    setMobileNavbarReveal(document.getElementsByClassName("mobile-navbar-reveal"));
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
     setspecialLanguage(document.getElementsByClassName("special-language"));
@@ -53,31 +47,6 @@ export default function Navbar() {
   //language settings
   const { t, i18n } = useTranslation(["navbar", "form"]);
   let location = useLocation();
-
-  const Gridd = styled(Grid)(
-    sx({
-      fontFamily: "Gudea",
-      fontSize: "1.5rem",
-      textAlign: "center",
-      display: "block",
-    })
-  );
-
-  //theme
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        bs: 768,
-        w793: 796,
-        w893: 893,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-  });
 
   //media query
   const max767 = useMediaQuery("(max-width:767px)");
@@ -97,15 +66,7 @@ export default function Navbar() {
             fontFamily: "Gudea",
           }}
         >
-          <Grid
-            item
-            container
-            sx={{ backgroundColor: "white" }}
-            pt={2}
-            pb={2}
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
+          <Grid item container sx={{ backgroundColor: "white" }} pt={2} pb={2} alignItems={"center"} justifyContent="space-between">
             <Grid item justifyContent="flex-start" bs={3} md={3} xs={3}>
               <Gridd item sx={{ width: "60%" }}>
                 <img src={logo} alt="Digtal Logo" className="logo" />
@@ -135,11 +96,7 @@ export default function Navbar() {
                   // display: 'none'
                 }}
                 className="mobile-navbar-menu"
-                onClick={() => {
-                  Array.from(mobileNavbarReveal)[0].style.display = "grid";
-                  Array.from(mobileCross)[0].style.display = "block";
-                  Array.from(mobileMenu)[0].style.display = "none";
-                }}
+                onClick={() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "round")}
               />
 
               <CloseTwoToneIcon
@@ -151,142 +108,61 @@ export default function Navbar() {
                 }}
                 className="mobile-navbar-cross"
                 onClick={() => {
-                  setTimeout(() => {
-                    Array.from(mobileNavbarReveal)[0].style.display = "none";
-                    Array.from(mobileCross)[0].style.display = "none";
-                    Array.from(mobileMenu)[0].style.display = "block";
-                  }, 50);
+                  setTimeout(() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "cross"), 50);
                 }}
               />
 
               <Grid className="mobile-nav-bar mobile-navbar-reveal">
                 <Grid item className="mobile-nav-bar-item">
-                  <MobileActiveNavLink
-                    to={language + "/home"}
-                    text={t("home")}
-                  />
+                  <MobileActiveNavLink to={language + "/home"} text={t("home")} />
                 </Grid>
                 <Grid item className="mobile-nav-bar-item">
-                  <MobileActiveNavLink
-                    to={language + "/enterprise"}
-                    text={t("enterprise")}
-                  />
+                  <MobileActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                 </Grid>
-                <Grid
-                  item
-                  className="mobile-nav-bar-item"
-                  onClick={() => {
-                    if (
-                      Array.from(mobileServicesDropdown)[0].style.display ===
-                        "block" &&
-                      Array.from(mobileSpecial)[0].style.display === "block"
-                    ) {
-                      Array.from(mobileServicesDropdown)[0].style.display =
-                        "none";
-                      Array.from(mobileSpecial)[0].style.display = "none";
-                    } else {
-                      Array.from(mobileServicesDropdown)[0].style.display =
-                        "block";
-                      Array.from(mobileSpecial)[0].style.display = "block";
-                    }
-                  }}
-                >
-                  <MobileActiveNavLink
-                    to={language + "/services/"}
-                    text={t("services")}
-                  />
-                  <ExpandMoreOutlined
-                    sx={{ fontSize: 24 }}
-                    className="select-item-sub-arrow"
-                    // onMouseEnter={() => {
-                    //    Array.from(mobileSpecial)[0].style.display = 'block';
-                    //    Array.from(mobileServicesDropdown)[0].style.display = 'block';
-                    // }}
-                  />
+                <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
+                  <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
+                  <ExpandMoreOutlined sx={{ fontSize: 24 }} className="select-item-sub-arrow" />
                 </Grid>
+
                 <Grid item className="mobile-nav-bar-item special-navbar-item">
-                  {/* <MobileActiveNavLink to={language + '/contact'} text={t('contact')} /> */}
                   <Box className="select-item-sub mobile-services-dropdown">
-                    {/* <Box display={'none'}> */}
-                    <Box className="select-item-sub-container">
-                      {/* <Typography variant="h5" className="select-item-dropdown-text"></Typography> */}
-                      <NavLink
-                        to={language + "/services/web-development"}
-                        className="select-item-dropdown-text"
-                      >
+                    {selectMenu.map((item) => (
+                      <Box className="select-item-sub-container" key={item.t}>
+                        <NavLink to={language + "/services/"+ item.path} className="select-item-dropdown-text">
+                          {" "}
+                          {t(item.t, { ns: "form" })}
+                        </NavLink>
+                      </Box>
+                    ))}
+                    {/* <Box className="select-item-sub-container">
+                      <NavLink to={language + "/services/web-development"} className="select-item-dropdown-text">
                         {" "}
-                        {/* Web Development */}
                         {t("subject.op2", { ns: "form" })}
                       </NavLink>
                     </Box>
                     <Box className="select-item-sub-container">
-                      {/* <Typography variant="h5" className="select-item-dropdown-text">
-                  Digital Marketing
-               </Typography> */}
-                      <NavLink
-                        to={language + "/services/digital-marketing"}
-                        className="select-item-dropdown-text"
-                      >
+                      <NavLink to={language + "/services/digital-marketing"} className="select-item-dropdown-text">
                         {" "}
                         {t("subject.op3", { ns: "form" })}
                       </NavLink>
                     </Box>
                     <Box className="select-item-sub-container">
-                      {/* <Typography variant="h5" className="select-item-dropdown-text"> */}
-                      {/* <Typography variant="h6" className="select-item-dropdown-text" fontFamily={['Roboto', 'Helvetica Neue', 'Helvetica']}> */}
-                      {/* Consulting */}
-                      {/* </Typography> */}
-                      <NavLink
-                        to={language + "/services/consulting"}
-                        className="select-item-dropdown-text"
-                      >
+                      <NavLink to={language + "/services/consulting"} className="select-item-dropdown-text">
                         {" "}
                         {t("subject.op4", { ns: "form" })}
                       </NavLink>
-                    </Box>
+                    </Box> */}
                   </Box>
                 </Grid>
                 <Grid item className="mobile-nav-bar-item">
-                  <MobileActiveNavLink
-                    to={language + "/contact"}
-                    text={t("contact")}
-                  />
+                  <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
                 </Grid>
-                <Grid
-                  item
-                  className="mobile-nav-bar-item"
-                  onClick={() => {
-                    if (
-                      Array.from(specialLanguage)[0].style.display === "grid"
-                    ) {
-                      Array.from(specialLanguage)[0].style.display = "none";
-                    } else {
-                      Array.from(specialLanguage)[0].style.display = "grid";
-                    }
-                  }}
-                >
-                  <img
-                    src={region}
-                    alt="france-flag"
-                    className="language-image"
-                  />
-                  <ExpandMoreOutlined
-                    // fontSize={40}
-                    sx={{ fontSize: 24 }}
-                    className="lselect-item-sub-arrow"
-                    // onMouseEnter={() => (Array.from(dropdown)[0].style.display = 'grid')}
-                  />
+                <Grid item className="mobile-nav-bar-item" onClick={() => toggleLanguage(specialLanguage)}>
+                  <img src={region} alt="france-flag" className="language-image" />
+                  <ExpandMoreOutlined sx={{ fontSize: 24 }} className="lselect-item-sub-arrow" />
                 </Grid>
                 <Grid item className="mobile-nav-bar-item special-language">
-                  {/* language dropdown component here */}
-
-                  <LanguageDropdown
-                    location={location}
-                    language={language}
-                    setRegion={setRegion}
-                    setLanguage={setLanguage}
-                    classes={"language-dropdown"}
-                  />
+                  <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown"} />
                 </Grid>
               </Grid>
             </Grid>
@@ -334,10 +210,7 @@ export default function Navbar() {
                   }
                 }
               >
-                <ActiveNavLink
-                  to={language + "/enterprise"}
-                  text={t("enterprise")}
-                />
+                <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
               <Gridd
                 item
@@ -348,31 +221,14 @@ export default function Navbar() {
                 // md={1}
                 className="select-item"
               >
-                <Box
-                  className="select-item-dropdown"
-                  onMouseLeave={() =>
-                    (Array.from(servicesDropdown)[0].style.display = "none")
-                  }
-                >
-                  <ActiveNavLink
-                    to={language + "/services/"}
-                    text={t("services")}
-                  />
-                  <ExpandMoreOutlined
-                    fontSize="large"
-                    className="select-item-sub-arrow"
-                    onMouseEnter={() =>
-                      (Array.from(servicesDropdown)[0].style.display = "block")
-                    }
-                  />
+                <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
+                  <ActiveNavLink to={language + "/services/"} text={t("services")} />
+                  <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} />
                   <Box className="select-item-sub services-dropdown">
                     {/* <Box display={'none'}> */}
                     <Box className="select-item-sub-container">
                       {/* <Typography variant="h5" className="select-item-dropdown-text"></Typography> */}
-                      <NavLink
-                        to={language + "/services/web-development"}
-                        className="select-item-dropdown-text"
-                      >
+                      <NavLink to={language + "/services/web-development"} className="select-item-dropdown-text">
                         {" "}
                         {/* Web Development */}
                         {t("subject.op2", { ns: "form" })}
@@ -382,10 +238,7 @@ export default function Navbar() {
                       {/* <Typography variant="h5" className="select-item-dropdown-text">
                   Digital Marketing
                </Typography> */}
-                      <NavLink
-                        to={language + "/services/digital-marketing"}
-                        className="select-item-dropdown-text"
-                      >
+                      <NavLink to={language + "/services/digital-marketing"} className="select-item-dropdown-text">
                         {" "}
                         {t("subject.op3", { ns: "form" })}
                       </NavLink>
@@ -395,10 +248,7 @@ export default function Navbar() {
                       {/* <Typography variant="h6" className="select-item-dropdown-text" fontFamily={['Roboto', 'Helvetica Neue', 'Helvetica']}> */}
                       {/* Consulting */}
                       {/* </Typography> */}
-                      <NavLink
-                        to={language + "/services/consulting"}
-                        className="select-item-dropdown-text"
-                      >
+                      <NavLink to={language + "/services/consulting"} className="select-item-dropdown-text">
                         {" "}
                         {t("subject.op4", { ns: "form" })}
                       </NavLink>
@@ -418,31 +268,11 @@ export default function Navbar() {
               </Gridd>
               <Gridd item md={1.5} className="language-item">
                 {/* <ActiveNavLink to="/en/opo" text="Language" /> */}
-                <Box
-                  className="language-item-sub"
-                  onMouseLeave={() =>
-                    (Array.from(dropdown)[0].style.display = "none")
-                  }
-                >
-                  <img
-                    src={region}
-                    alt="language-flag"
-                    className="language-image"
-                  />
-                  <ExpandMoreOutlined
-                    fontSize="large"
-                    className="language-item-sub-arrow"
-                    onMouseEnter={() =>
-                      (Array.from(dropdown)[0].style.display = "grid")
-                    }
-                  />
-                  <LanguageDropdown
-                    location={location}
-                    language={language}
-                    setRegion={setRegion}
-                    setLanguage={setLanguage}
-                    classes={"language-dropdown lang-dropdown"}
-                  />
+                <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
+                  <img src={region} alt="language-flag" className="language-image" />
+
+                  <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} />
+                  <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} />
                 </Box>
               </Gridd>
             </Grid>
