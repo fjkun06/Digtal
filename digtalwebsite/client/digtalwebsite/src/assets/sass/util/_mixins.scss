@@ -1,0 +1,25 @@
+//sets display to grid
+@mixin grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+//sets width and height
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin responsive-select($min-width, $max-width) {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+        .select-item {
+            .select-item-dropdown {
+                .select-item-sub {
+                    width: 350%;
+                    @content;
+                }
+            }
+        }
+    }
+}

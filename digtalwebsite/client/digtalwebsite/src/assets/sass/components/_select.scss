@@ -1,0 +1,76 @@
+@use "../util/mixins";
+@use "../util/variables";
+
+//for select dropdown
+%select-item {
+    padding-left: 2rem;
+
+    @include mixins.grid;
+
+    .select-item-dropdown {
+        position: relative;
+        text-align: center;
+        width: 80%;
+        grid-template-columns: repeat(2, 1fr);
+        @include mixins.grid;
+
+        //navbar links
+        .nav--link,
+        .nav--link:visited {
+            // display: "block";
+            color: black;
+            font-family: "Gudea";
+            transition: all ease 0.15s;
+        }
+
+        //reusable
+        .select-item-sub {
+            background-color: variables.$mainPurple;
+            width: 250%;
+            position: absolute;
+
+            top: 2.2rem;
+            left: -9rem;
+            display: none;
+
+            // &-container {
+            .select-item-sub-container {
+                padding: 5px;
+                width: 100%;
+                transition: all ease 0.2s;
+                border-bottom: 1px solid variables.$mainBlack;
+
+                &:hover {
+                    transition: background-color ease 0.2s;
+                    cursor: pointer;
+                    background-color: lighten(variables.$mainPurple, 50);
+
+                    .select-item-dropdown-text {
+                        color: #000000;
+                    }
+                }
+
+                // &-text {
+                .select-item-dropdown-text {
+                    font-family: "Gudea";
+                    color: white;
+
+                    width: 19rem;
+                    font-size: 1.5rem;
+                    letter-spacing: 0.05rem;
+                }
+            }
+        }
+
+        .select-item-sub-arrow {
+            transition: all ease 0.25s;
+            align-self: flex-end;
+
+            &:hover {
+                transition: all ease 0.25s;
+
+                transform: scale(1.5);
+            }
+        }
+    }
+}
