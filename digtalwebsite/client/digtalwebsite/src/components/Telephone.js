@@ -33,9 +33,7 @@ export default function Telephone({ errorState, field, errorText,success }) {
      }
         
 
-  // Use declaratively within another react components render method
-  // var ReactTelInput = require("react-telephone-input");
-  // var ReactTelInput = require('react-telephone-input/lib/withStyles'), if you need the styles
+
   return (
     <>
       <ReactTelInput

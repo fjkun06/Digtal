@@ -30,6 +30,7 @@
 
       .language-dropdown {
          position: absolute;
+         cursor: pointer;
 
          @include mixins.size(6rem, 7rem);
 
