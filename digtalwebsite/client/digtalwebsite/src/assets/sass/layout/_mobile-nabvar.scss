@@ -3,11 +3,12 @@
 
 //navbar fo mobile
 .mobile-nav-bar {
-    margin-top: 40px;
+    margin-top: 45px;
     background-color: variables.$mainPurple;
     color: aliceblue;
     position: relative;
     transition: all ease 0.2s;
+
     @include mixins.size(250px, fit-content);
 
     z-index: -1;
@@ -24,10 +25,13 @@
         z-index: -1;
     }
 
+
+
     .mobile-nav-bar-item {
         border-bottom: 1px solid variables.$mainBlack;
         padding: 1rem;
         text-align: center;
+        
 
         &:hover {
             transition: background-color ease 0.2s;
@@ -80,6 +84,7 @@
         display: none;
         transition: all ease 0.2s;
 
+
         //being reused
         .select-item-sub {
             background-color: variables.$mainPurple;
@@ -89,7 +94,7 @@
             transition: display ease 0.2s;
 
             top: 12.4rem;
-            left: 9.3rem;
+            left: 3.5rem;
             display: none;
 
             .select-item-sub-container {
@@ -147,16 +152,14 @@
     }
 }
 .mobile-navbar-cross {
-    position: absolute;
-    right: 6.5rem;
-    top: 1rem;
+
+    @extend .mobile-navbar-menu;
     animation-duration: 1s;
     animation-name: rotateCross;
-    transition: all ease 0.15s;
 }
 .mobile-navbar-menu {
     position: absolute;
-    right: 6.5rem;
+    right: 5rem;
     top: 1rem;
 
     transition: all ease 0.15s;
