@@ -6,8 +6,17 @@
     display: grid;
     justify-content: center;
     align-items: center;
+    @content;
 }
 
+@mixin flex($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    @content;
+
+}
 //sets width and height
 @mixin size($width, $height) {
     width: $width;
@@ -36,7 +45,7 @@
 }
 
 @mixin select-item-sub($width,$top,$left,$border-bottom){
-    background-color: variables.$mainPurple;
+    background-color: variables.$purple;
     width: $width;
     position: absolute;
 
@@ -56,7 +65,7 @@
         &:hover {
             transition: background-color ease 0.2s;
             cursor: pointer;
-            background-color: lighten(variables.$mainPurple, 50);
+            background-color: lighten(variables.$purple, 50);
 
             .select-item-dropdown-text {
                 color: #000000;

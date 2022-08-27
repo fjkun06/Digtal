@@ -1,0 +1,80 @@
+@use "../util/mixins";
+@use "../util/variables";
+
+%subscribe {
+  .footer-subscribe {
+    width: 90vw;
+    // margin-left: 5%;
+
+    // padding: 64px;
+    // background-color: #429be3;
+    background-color: #f5f7fa;
+    border: none;
+    grid-template-columns: 1fr 1fr;
+    @include mixins.grid;
+    // padding-left: 10.75vw;
+    // padding-right: 10.75vw;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    &-text {
+      border: 1px solid red;
+      width: 40rem;
+
+      @include mixins.grid;
+      &-typ {
+        font-size: 2.5rem;
+      }
+    }
+
+    &-item {
+      border: 1px solid red;
+      width: 40rem;
+      @include mixins.grid;
+      grid-template-columns: 1fr 1fr;
+      padding-left: 7.5%;
+      // grid-column-gap: 2px;
+
+      &-button {
+        background: linear-gradient(to right bottom, variables.$light-blue, variables.$purple);
+        border-radius: 0px;
+        padding: 8px 18px;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+  
+      @include mixins.flex(column);
+      row-gap: 3rem;
+
+      &-item {
+      // margin-top: 3rem;
+      // padding-left: 6.5%;
+
+      }
+    }
+  }
+
+ 
+}
+
+#subscribe-input {
+  // background-color: #f87 ;
+  min-width: 230px;
+  // min-width: 15vw;
+  border: none;
+  // height: 20px;
+  padding: 8px 7px;
+  font-size: 1rem;
+  border-radius: 0px;
+  box-shadow: 5px 5px 10px -10px #777;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 1.325rem;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+  color: variables.$black;
+  &:focus {
+    outline: none;
+    caret-color: #888;
+  }
+}

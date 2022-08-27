@@ -1,6 +1,7 @@
-@use 'layout/footer';
 @use 'layout/navbar';
 @use 'components/telephone';
+@use 'layout/footer';
+
 
 
 //all components
@@ -14,4 +15,9 @@
 html {
    font-size: 62.5%;
    overflow-x: hidden;
+   // min-width: 320px;
 }
+
+body { font-size: 1.6em;
+   min-width: 32rem;
+ }

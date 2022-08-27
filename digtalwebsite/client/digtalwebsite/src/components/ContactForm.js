@@ -60,7 +60,6 @@ export default function Contact() {
       <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
 
       <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={6} sm={7}>
-        {/* conditional rendering images based on breakpoints */}
         {matchesSM && <CustomImage image={pictureSM} alt="background" />}
 
         {matchesMDAndAbove && <CustomImage image={picture} />}

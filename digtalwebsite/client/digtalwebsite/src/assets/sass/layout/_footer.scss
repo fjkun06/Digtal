@@ -1,46 +1,36 @@
+@use "../util/mixins";
+@use "../util/variables";
+@use "../components/footer-subscribe";
+
 .footer {
-    // width: 100%;
-    height: fit-content;
-    background-color: yellow;
-    padding: 50px 30px 40px 30px;
+    // border: 5px solid black;
 
-    .footer-item {
+    height: 300px;
+    background-color: rgb(0, 255, 60);
+    // padding: 50px 30px 40px 30px;
+    padding-top: 50px;
+    @include mixins.grid;
+    grid-template-columns: 1fr;
+    width: 100vw;
+    min-width: 32rem;
+
+  //subscribe section here
+  @extend %subscribe;
+
+  
+    &-menu,
+    &-policy {
         border: 1px solid black;
-        width: 90%;
+    }
+}
 
-        &:first-child {
-            padding: 64px;
-            background-color: #f5f7fa;
-            border: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-        // &:last-child{
-        //     padding: 64px;
-        //     background-color: #f5f7fa;
-        //     border: none;
+@keyframes animated-background{
+    0%{
 
-        // }
+    }
+    100%{
+        // background: linear-gradient(to right bottom, variables.$purple, variables.$light-blue);
+        background: #000;
 
-        .footer-item-sub {
-            border: 1px solid black;
-            min-height: 4rem;
-            display: grid;
-            justify-content: center;
-            align-items: center;
-
-            &:first-child {
-                // background-color: red;
-                .footer-item-sub-heading {
-                    border: 1px solid red;
-                }
-            }
-
-            &:last-child {
-                display: flex;
-                justify-content: center;
-                gap: 1rem;
-            }
-        }
     }
 }

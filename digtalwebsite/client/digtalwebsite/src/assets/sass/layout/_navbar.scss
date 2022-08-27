@@ -16,7 +16,7 @@
      
       @include mixins.size(100%,4px);
       // background-color: red;
-      background: linear-gradient(to left, lighten(variables.$mainPurple, 10), lighten(rgb(0, 81, 139), 50));
+      background: linear-gradient(to left, lighten(variables.$purple, 10), variables.$light-blue);
       // border: 1px solid red;
    }
 
@@ -62,7 +62,7 @@ a {   font-family: "Gudea";
 
 .nav--link--active {
    padding-bottom: 3px;
-   border-bottom: 2px solid variables.$mainPurple;
+   border-bottom: 2px solid variables.$purple;
 }
 
 

@@ -67,7 +67,17 @@ export default function Navbar() {
         >
           <Grid item container sx={{ backgroundColor: "white" }} pt={2} pb={2} alignItems={"center"} justifyContent="space-between">
             <Grid item justifyContent="flex-start" bs={3} md={3} xs={4}>
-              <Gridd item sx={{ width: "100%"}} ml={{xs:2}}>
+              <Gridd
+                item
+                sx={{
+                  width: {
+                    md: "50%",
+                    sm:"70%",
+                    xs: "100%",
+                  },
+                }}
+                ml={{ xs: 2 }}
+              >
                 <img src={logo} alt="Digtal Logo" className="logo" />
               </Gridd>
             </Grid>
@@ -80,7 +90,7 @@ export default function Navbar() {
                 height: "7rem",
                 justifyContent: "end",
                 zIndex: 99,
-                position: "relative"
+                position: "relative",
               }}
               display={{ xs: "grid", bs: "none" }}
               xs={8}

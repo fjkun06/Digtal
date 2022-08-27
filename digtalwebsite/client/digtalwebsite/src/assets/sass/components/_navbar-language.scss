@@ -46,24 +46,24 @@
 
             @include mixins.size(inherit, 100%);
 
-            background-color: variables.$mainPurple;
-            border-left: 1px solid variables.$mainBlack;
+            background-color: variables.$purple;
+            border-left: 1px solid variables.$black;
 
-            border-right: 1px solid variables.$mainBlack;
+            border-right: 1px solid variables.$black;
 
             &:last-child {
-               border-bottom: 1px solid variables.$mainBlack;
+               border-bottom: 1px solid variables.$black;
                border-radius: 4%;
             }
             &:first-child {
-               border-top: 1px solid variables.$mainBlack;
+               border-top: 1px solid variables.$black;
                border-radius: 4%;
             }
 
             &:hover {
                transition: all ease 0.2s;
 
-               background-color: lighten(variables.$mainPurple, 50);
+               background-color: lighten(variables.$purple, 50);
             }
          }
       }
