@@ -1,4 +1,6 @@
 {
-   "subscribe": "Subscribe to our Newsletter",
-   "subs-button": "Subscribe"
+   "subscribe": "Subscribe to Our Newsletter",
+   "subs-button": "Subscribe",
+   "placeholder": "Enter email address"
+
 }

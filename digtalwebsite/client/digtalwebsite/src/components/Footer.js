@@ -17,7 +17,7 @@ export default function Footer() {
             <Grid item className="footer-subscribe-item">
               <Grid item>
                 {/* <TextField id="subscribe-input" size="small" /> */}
-                <input type="text"  id="subscribe-input" placeholder="Enter email address" />
+                <input type="text"  id="subscribe-input" placeholder={t("placeholder" )}/>
               </Grid>
               <Grid item>
                 <Button className="footer-subscribe-item-button" variant="contained" sx={{}}>
