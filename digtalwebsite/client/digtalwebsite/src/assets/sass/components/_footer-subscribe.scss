@@ -7,7 +7,6 @@
 
     background-color: #f5f7fa;
     border: none;
-    grid-template-columns: 1fr 1fr;
     @include mixins.flex;
     column-gap: 10vw;
 
@@ -28,10 +27,7 @@
       @include mixins.flex;
 
       &-button {
-        background: linear-gradient(to right bottom, variables.$light-blue, variables.$purple);
-        // border: 1px solid red;
-
-        border-radius: 0px;
+       @include mixins.gradient-button-pb;
         padding: 8px 18px;
       }
     }

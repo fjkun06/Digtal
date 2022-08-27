@@ -93,3 +93,11 @@
     @include select-item-hover;
 
 }
+
+//buttons
+@mixin gradient-button-pb{
+    background: linear-gradient(to right bottom, variables.$light-blue, variables.$purple);
+    // border: 1px solid red;
+
+    border-radius: 0px;
+}

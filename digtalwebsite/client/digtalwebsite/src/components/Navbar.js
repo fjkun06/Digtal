@@ -16,7 +16,7 @@ import { useMediaQuery, Grid } from "@mui/material";
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
 
-export default function Navbar() {
+export default function Navbar({ language, setLanguage }) {
   //initialising states
   const [dropdown, setdropdown] = useState("");
   const [servicesDropdown, setServicesDropdown] = useState("");
@@ -26,7 +26,7 @@ export default function Navbar() {
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const [specialLanguage, setspecialLanguage] = useState("");
-  const [language, setLanguage] = useState("/en");
+  // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
   const navigate = useNavigate();
 
@@ -41,13 +41,15 @@ export default function Navbar() {
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
     setspecialLanguage(document.getElementsByClassName("special-language"));
-
-    navigate(language + "/home");
-  }, []);
+  }, [language]);
+  // }, [language,navigate]);
 
   //language settings
   const { t } = useTranslation(["navbar", "form"]);
   let location = useLocation();
+
+  //init page
+  window.onload = () => navigate(language + "/home");
 
   //media query
   const max767 = useMediaQuery("(max-width:767px)");
@@ -72,7 +74,7 @@ export default function Navbar() {
                 sx={{
                   width: {
                     md: "50%",
-                    sm:"70%",
+                    sm: "70%",
                     xs: "100%",
                   },
                 }}

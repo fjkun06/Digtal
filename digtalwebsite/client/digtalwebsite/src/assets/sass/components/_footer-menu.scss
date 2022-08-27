@@ -1,0 +1,110 @@
+@use "../util/mixins";
+@use "../util/variables";
+%menu {
+  .footer-menu {
+    width: 90vw;
+    // border: 1px solid black;
+    background-color: #f5f7fa;
+    // padding-left: 10px;
+    // border: none;
+    @include mixins.flex {
+      justify-content: space-between;
+    }
+
+    & > * {
+      // border: 1px solid black;
+      min-width: 50%;
+    }
+
+    &-link-text {
+      // background-color: #f45;
+      @include mixins.flex;
+      justify-content: flex-start;
+      column-gap: 3rem;
+
+      & > * {
+        // border: 1px solid black;
+        width: fit-content;
+        font-size: 1.2rem;
+        color: variables.$black;
+        font-family: "Gudea";
+        font-weight: 400;
+
+        &:hover {
+          color: lighten(variables.$purple, 20%);
+        }
+      }
+    }
+    &-link-image {
+      // background-color: rgb(102, 68, 255);
+      padding-top: 3px;
+      @include mixins.flex;
+      justify-content: flex-end;
+      column-gap: 3rem;
+      & > * {
+        // border: 1px solid black;
+        width: fit-content;
+        // font-size: 80%;
+        color: variables.$black;
+        // font-family: "Gudea";
+
+        //colo
+        transition: all 0.2s ease;
+
+        &:nth-child(1) {
+          font-size: 2rem;
+
+          &:hover {
+            color: blue;
+            transition: all 0.2s ease;
+          }
+        }
+        &:nth-child(2) {
+          &:hover {
+            color: variables.$light-blue;
+            transition: all 0.2s ease;
+          }
+        }
+        &:nth-child(3) {
+          &:hover {
+            color: variables.$purple;
+            transition: all 0.2s ease;
+          }
+        }
+        &:nth-child(4) {
+          &:hover {
+            color: red;
+            transition: all 0.2s ease;
+          }
+        }
+
+        // &:hover{
+        // color: lighten(variables.$purple,20%);
+
+        // }
+      }
+    }
+
+    //queries
+    @media only screen and (max-width: 599px) {
+      @include mixins.flex(column);
+      row-gap: 2rem;
+
+      &-link-image {
+        justify-content: center;
+      }
+    }
+
+    @media only screen and (max-width: 319px) {
+      @include mixins.flex(column);
+      row-gap: 2rem;
+
+      &-link-text {
+      @include mixins.flex(column);
+      row-gap: 1rem;
+
+        // justify-content: center;
+      }
+    }
+  }
+}

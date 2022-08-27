@@ -1,6 +1,7 @@
 @use "../util/mixins";
 @use "../util/variables";
 @use "../components/footer-subscribe";
+@use "../components/footer-menu";
 
 .footer {
     // border: 5px solid black;
@@ -12,24 +13,26 @@
     @include mixins.flex(column);
     grid-template-columns: 1fr;
     width: 100vw;
+    row-gap: 3rem;
 
   //subscribe section here
   @extend %subscribe;
 
+
+  //menu links section here
+  @extend %menu;
+
   
     &-menu,
     &-policy {
-        border: 1px solid black;
+        // border: 1px solid black;
     }
 }
 
-@keyframes animated-background{
-    0%{
-
-    }
-    100%{
-        // background: linear-gradient(to right bottom, variables.$purple, variables.$light-blue);
-        background: #000;
-
-    }
+//ative link styling
+.mobile-nav--link--active {
+    color: variables.$active-hover;
 }
+
+
+

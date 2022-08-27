@@ -1,6 +1,12 @@
 {
    "subscribe": "Subscribe to Our Newsletter",
    "subs-button": "Subscribe",
-   "placeholder": "Enter email address"
+   "placeholder": "Enter email address",
+   "link":{
+      "about":"About Us",
+      "contact":"Contact",
+      "legal":"Legal Notice",
+      "news":"News"
+   }
 
 }
