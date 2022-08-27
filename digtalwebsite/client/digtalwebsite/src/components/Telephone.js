@@ -19,7 +19,7 @@ export default function Telephone({ errorState, field, errorText,success }) {
   const errorBorder = rs.getPropertyValue("--error-border");
   const validBorder = rs.getPropertyValue("--validated-border");
   const errorTextColor = rs.getPropertyValue("--error-text");
-  const validTextColor = rs.getPropertyValue("--validated-text");
+  // const validTextColor = rs.getPropertyValue("--validated-text");
 
   if (errorState) {
            root.style.setProperty("--normal-border", errorBorder);

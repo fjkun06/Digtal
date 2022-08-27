@@ -19,7 +19,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
 
   //React hook form validation with yupSchema
   const {
-    handleSubmit,
+    // handleSubmit,
     formState: { isValid },
     control,
   } = useForm({
@@ -129,9 +129,11 @@ export default function ContactFormFields({ t, cxs, cmd }) {
                   <MenuItem value={"other"}>
                     <em>{t("subject.op1")}</em>
                   </MenuItem>
-                  <MenuItem value={t("subject.op2")}>{t("subject.op2")}</MenuItem>
-                  <MenuItem value={t("subject.op3")}>{t("subject.op3")}</MenuItem>
-                  <MenuItem value={t("subject.op4")}>{t("subject.op4")}</MenuItem>
+                  {["subject.op2", "subject.op3", "subject.op4"].map((item) => (
+                    <MenuItem value={t(item)} key={item}>
+                      {t(item)}
+                    </MenuItem>
+                  ))}
                 </Select>
                 <FormHelperText id="component-helper-text" sx={{ fontSize: "0.9rem" }}>
                   {t(formState.errors.subject?.message, { ns: "formerror" })}

@@ -1,22 +1,16 @@
 import * as React from "react";
-import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Typography, useMediaQuery } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import picture from "../assets/images/image.png";
 import pictureSM from "../assets/images/image2.png";
-import { purple } from "@mui/material/colors";
-import CustomTextField from "./ReusableTextField";
 import CustomImage from "./ReusableImage";
-import { useState } from "react";
-import Telephone from "./Telephone";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+// import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import schema from "../schemas/yupSchema";
 import ContactFormFields from "./ContactFormFields";
 
 export default function Contact() {
   //the hook for the form
-  const [contact, setContact] = useState({});
+  // const [contact, setContact] = useState({});
 
   //   //media queries
   const matchesSM = useMediaQuery("(max-width:900px)");
@@ -25,25 +19,13 @@ export default function Contact() {
   const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
 
   //   //setting up language translator
-  const { t, i18n, ready } = useTranslation(["form", "formerror"]);
+  const { t } = useTranslation(["form", "formerror"]);
 
+  // const onSubmit = (data) => {
+  //   console.log("onSubmit", data);
 
-  // const [loading, setLoading] = React.useState(false);
-
-
-  //loading state
-  // function handleClick() {
-  //   setLoading(true);
-  //   // setError(error ? false : true);
-  // }
-
-  
-
-  const onSubmit = (data) => {
-    console.log("onSubmit", data);
-
-    setContact(data);
-  };
+  //   setContact(data);
+  // };
 
   return (
     <Grid
@@ -58,7 +40,6 @@ export default function Contact() {
       sx={{
         "& .MuiTextField-root": { mt: 5 },
         padding: "1rem",
-        // width:"100vw"
       }}
       noValidate
       autoComplete="off"
@@ -77,8 +58,8 @@ export default function Contact() {
         </Grid>
       </Grid>
       <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
-  
-      <Grid container sx={{ display: { xs: "none", sm: "block", md:"block" } }} item md={6} sm={7}>
+
+      <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={6} sm={7}>
         {/* conditional rendering images based on breakpoints */}
         {matchesSM && <CustomImage image={pictureSM} alt="background" />}
 
