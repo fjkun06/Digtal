@@ -9,10 +9,9 @@
     background-color: rgb(0, 255, 60);
     // padding: 50px 30px 40px 30px;
     padding-top: 50px;
-    @include mixins.grid;
+    @include mixins.flex(column);
     grid-template-columns: 1fr;
     width: 100vw;
-    min-width: 32rem;
 
   //subscribe section here
   @extend %subscribe;

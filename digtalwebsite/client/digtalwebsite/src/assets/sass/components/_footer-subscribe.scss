@@ -11,13 +11,14 @@
     background-color: #f5f7fa;
     border: none;
     grid-template-columns: 1fr 1fr;
-    @include mixins.grid;
+    @include mixins.flex;
+    column-gap: 10vw;
     // padding-left: 10.75vw;
     // padding-right: 10.75vw;
     padding-top: 64px;
     padding-bottom: 64px;
     &-text {
-      border: 1px solid red;
+      // border: 1px solid red;
       width: 40rem;
 
       @include mixins.grid;
@@ -29,32 +30,79 @@
     &-item {
       border: 1px solid red;
       width: 40rem;
-      @include mixins.grid;
-      grid-template-columns: 1fr 1fr;
-      padding-left: 7.5%;
+      @include mixins.flex;
+      // @include mixins.grid;
+      // grid-template-columns: 1fr 1fr;
+      // padding-left: 7.5%;
       // grid-column-gap: 2px;
 
       &-button {
         background: linear-gradient(to right bottom, variables.$light-blue, variables.$purple);
+        border: 1px solid red;
+
         border-radius: 0px;
         padding: 8px 18px;
       }
     }
 
+    @media only screen and (min-width: 768px) and (max-width: 1045px) {
+    column-gap: 4vw;
+
+    }
+
     @media only screen and (max-width: 767px) {
-  
       @include mixins.flex(column);
       row-gap: 3rem;
 
       &-item {
-      // margin-top: 3rem;
-      // padding-left: 6.5%;
+        width: fit-content;
+        // margin-top: 3rem;
+        // padding-left: 6.5%;
+      }
+    }
 
+    @media only screen and (min-width: 321px) and (max-width: 450px) {
+      // @include mixins.flex(column);
+      // row-gap: 3rem;
+
+      &-item {
+        // margin-top: 3rem;
+        // padding-left: 6.5%;
+      }
+
+      #subscribe-input {
+        // background-color: #f87 ;
+        min-width: 180px;
+      }
+
+      &-text {
+        &-typ {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      // @include mixins.flex(column);
+      // row-gap: 3rem;
+      width: 80vw;
+      padding-top: 34px;
+      padding-bottom: 34px;
+
+      &-item {
+        flex-direction: column;
+        justify-content: start;
+        row-gap: 2rem;
+        width: fit-content;
+      }
+
+      &-text {
+        &-typ {
+          font-size: 1.7rem;
+        }
       }
     }
   }
-
- 
 }
 
 #subscribe-input {
