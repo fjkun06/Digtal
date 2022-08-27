@@ -1,14 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export default function CustomImage({image}) {
-  return (
-    <img
-      src={image}
-      alt="pima"
-      loading="lazy"
-      objectfit="cover"
-      height={{ sm: "auto" }}
-      width={{ sm: "100px" }}
-    />
-  );
+export default function CustomImage({ image, alt, classes }) {
+  return <img src={image} alt={alt} className={classes ?? ""} />;
 }

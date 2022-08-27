@@ -1,0 +1,86 @@
+@use "./variables";
+
+
+//sets display to grid
+@mixin grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+//sets width and height
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin responsive-select($min-width, $max-width) {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+        .select-item {
+            .select-item-dropdown {
+                .select-item-sub {
+                    width: 350%;
+                    @content;
+                }
+            }
+        }
+    }
+}
+
+@mixin select-item-dropdown-text($font-size) {
+    font-family: "Gudea";
+    color: white;
+    width: 19rem;
+    font-size: $font-size;
+    letter-spacing: 0.05rem;
+}
+
+@mixin select-item-sub($width,$top,$left,$border-bottom){
+    background-color: variables.$mainPurple;
+    width: $width;
+    position: absolute;
+
+    transition: display ease 0.2s;
+
+    top: $top;
+    left: $left;
+    display: none;
+
+    .select-item-sub-container {
+        @content;
+        padding: 5px;
+        width: 100%;
+        transition: all ease 0.2s;
+        border-bottom: $border-bottom;
+
+        &:hover {
+            transition: background-color ease 0.2s;
+            cursor: pointer;
+            background-color: lighten(variables.$mainPurple, 50);
+
+            .select-item-dropdown-text {
+                color: #000000;
+            }
+        }
+
+        .select-item-dropdown-text {
+           
+            @include select-item-dropdown-text(1.3rem);
+        }
+    }
+}
+
+@mixin select-item-hover {
+    &:hover {
+        transition: all ease 0.25s;
+
+        transform: scale(1.5);
+    }
+}
+
+@mixin select-item-arrow($alignment) {
+    transition: all ease 0.25s;
+    align-self: $alignment;
+    @include select-item-hover;
+
+}
