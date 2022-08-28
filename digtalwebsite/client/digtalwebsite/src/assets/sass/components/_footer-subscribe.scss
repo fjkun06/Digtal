@@ -10,13 +10,16 @@
     // @include mixins.flex;
     column-gap: 10vw;
 
-    // padding-top: 64px;
+    margin-top: 30px;
     // padding-bottom: 64px;
+    // border: 1px solid;
 
-    @include mixins.footer-item-init(64px);
-
+    
+    @include mixins.footer-item-init(34px,#f5f7fa);
+    // @include mixins.footer-item-init(64px);
     &-text {
-      width: 40rem;
+      // width: 40rem;
+      width: calc(100% / 2);
 
       @include mixins.grid;
       &-typ {
@@ -26,11 +29,13 @@
 
     &-item {
       // border: 1px solid red;
-      width: 40rem;
+      // width: 40rem;
+      width: calc(100% / 2);
+
       @include mixins.flex;
 
       &-button {
-       @include mixins.gradient-button-pb;
+        @include mixins.gradient-button-pb;
         padding: 8px 18px;
       }
     }
@@ -49,7 +54,7 @@
       }
     }
 
-    @media only screen and (min-width: 321px) and (max-width: 450px) {
+    @media only screen and (max-width: 450px) {
       #subscribe-input {
         min-width: 180px;
       }
@@ -63,8 +68,8 @@
 
     @media only screen and (max-width: 320px) {
       width: 80vw;
-      padding-top: 34px;
-      padding-bottom: 34px;
+      padding: 34px 0px;
+      // padding-bottom: 34px;
 
       &-item {
         flex-direction: column;
@@ -75,8 +80,12 @@
 
       &-text {
         &-typ {
-          font-size: 1.7rem;
+          font-size: 1.4rem;
         }
+      }
+
+      #subscribe-input {
+        min-width: 40px;
       }
     }
   }

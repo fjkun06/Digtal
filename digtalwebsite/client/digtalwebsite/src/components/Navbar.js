@@ -59,7 +59,7 @@ export default function Navbar({ language, setLanguage }) {
   // window.onload = () => navigate(language + "/home");
 
   //media query
-  const max767 = useMediaQuery("(max-width:767px)");
+  const max767 = useMediaQuery("(max-width:768px)");
 
   return (
     <>

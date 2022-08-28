@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function TermsOfUse() {
+export default function PrivacyPolicy() {
   return (
     <div>
-      Terms of pisss
+      Privacy btxch
     </div>
   )
 }

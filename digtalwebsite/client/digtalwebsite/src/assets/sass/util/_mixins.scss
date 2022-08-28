@@ -103,11 +103,11 @@
 }
 
 //footer items init
-@mixin footer-item-init($pdt,$flex-direction: row,$flex-jposition: center,$pdb:$pdt,) {
-    width: 90vw;
+@mixin footer-item-init($pdt,$bgcolor,$flex-direction: row,$flex-jposition: center,$pdb:$pdt,) {
+    width: 80%;
     padding-top: $pdt;
     padding-bottom: $pdb;
-    background-color: #f5f7fa;
+    background-color: $bgcolor;
     // border: none;
     @include flex($flex-direction){
 justify-content: $flex-jposition;

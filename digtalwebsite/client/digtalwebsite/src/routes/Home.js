@@ -5,7 +5,7 @@ export default function Home() {
   return <>
     <Grid>
     {/* <Grid className='mobile-nav-bar'> */}
-      hello
+      hello xnbjejk nagkjdehka adjhkjhd
   </Grid>
   </>
    
