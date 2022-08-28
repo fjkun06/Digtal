@@ -26,10 +26,22 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const [specialLanguage, setspecialLanguage] = useState("");
-  const [scrollUp, setScrollUp] = useState(false);
+  const [scrollUp, setScrollUp] = useState(true);
   // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const navigate = useNavigate();
+
+  //language settings
+  const { t } = useTranslation(["navbar", "form"]);
+  let location = useLocation();
+
+  //codition for scrolling
+  
+  const condition = location["pathname"]?.includes("home");
+
+  console.log(location);
+  console.log("condition: ", condition, "scrollUp: ", scrollUp);
 
   //first useffect hook
   useEffect(() => {
@@ -46,27 +58,44 @@ export default function Navbar({ language, setLanguage }) {
 
   //navigation
   useEffect(() => {
-    
-    navigate(language + "/home");
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // navigate(language + "/home");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   //scrolling
   useEffect(() => {
-    
-    window.onscroll = function(e) {
-      // print "false" if direction is down and "true" if up
-      console.log(this.oldScroll > this.scrollY);
-      this.oldScroll > this.scrollY ? setScrollUp(true): setScrollUp(false);
-      this.oldScroll = this.scrollY;
-    }
-  }, []);
-  // }, [language,navigate]);
+    const outlet = document.getElementById("hbody");
+    const nav = document.getElementById("scroll-nav");
+    const mainNav = document.getElementById("n-main");
+    const navbar = getComputedStyle(nav, null);
+    const sticky = outlet.offsetTop;
 
-  //language settings
-  const { t } = useTranslation(["navbar", "form"]);
-  let location = useLocation();
+    if (!condition) {
+      //making navbar visible
+      nav.style.opacity = 1;
+      mainNav.style.position = "relative";
+    }
+    //  else {
+    //   setScrollUp(false);
+    // }
+
+    
+
+    window.onscroll = function () {
+      // print "false" if direction is down and "true" if up
+      console.log("fnf", false * false);
+      if (window.pageYOffset >= sticky && this.oldScroll > this.scrollY && condition) {
+        setHasScrolled(true);
+        nav.style.opacity = 1;
+      }else{
+        setHasScrolled(false);
+
+      }
+
+      this.oldScroll = this.scrollY;
+    };
+  }, [condition]);
+  // }, [language,navigate]);
 
   //init page
   // window.onload = () => navigate(language + "/home");
@@ -82,11 +111,13 @@ export default function Navbar({ language, setLanguage }) {
           container
           alignItems={"center"}
           className="main-nav"
+          id="scroll-nav"
           direction="row"
           sx={{
             fontFamily: "Gudea",
             position: "sticky",
-            // display: scrollUp ? "grid" : "none"
+            display: condition? (hasScrolled ? "grid" : "none") : (scrollUp ? "grid" : "none"),
+            // display: !condition && scrollUp ? "grid" : "none",
           }}
         >
           <Grid item container sx={{ backgroundColor: "white" }} pt={2} pb={2} alignItems={"center"} justifyContent="space-between">

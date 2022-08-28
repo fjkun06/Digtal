@@ -11,10 +11,10 @@ function App() {
   return (
      <>
            <Grid>
-              <Grid container>
+              <Grid container className="navigation-main" id="n-main">
                  <Navbar setLanguage={setLanguage} language={language}/>
               </Grid>
-              <Grid>
+              <Grid id="scroll-zone" >
                  <Outlet />
               </Grid>
               <Grid>
