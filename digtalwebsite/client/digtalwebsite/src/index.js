@@ -14,6 +14,7 @@ import AboutUs from "./routes/footer/AboutUs";
 import LegalPolicy from "./routes/footer/LegalPolicy";
 import News from "./routes/footer/News";
 import Contact from "./components/ContactForm";
+import TermsOfUse from "./routes/footer/TermsOfUse";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -35,6 +36,7 @@ root.render(
               <Route path="about" element={<AboutUs />} />
               <Route path="news" element={<News />} />
               <Route path="legal-police" element={<LegalPolicy />} />
+              <Route path="terms-of-use" element={<TermsOfUse />} />
               <Route path="*" element={<FourOFour />} />
             </Route>
           </Route>
@@ -54,6 +56,8 @@ root.render(
             <Route path="about" element={<AboutUs />} />
             <Route path="news" element={<News />} />
             <Route path="legal-police" element={<LegalPolicy />} />
+            <Route path="terms-of-use" element={<TermsOfUse />} />
+
             <Route path="*" element={<FourOFour />} />
             {/* </Route> */}
           </Route>
@@ -73,6 +77,8 @@ root.render(
             <Route path="about" element={<AboutUs />} />
             <Route path="news" element={<News />} />
             <Route path="legal-police" element={<LegalPolicy />} />
+            <Route path="terms-of-use" element={<TermsOfUse />} />
+
             <Route path="*" element={<FourOFour />} />
             {/* </Route> */}
           </Route>

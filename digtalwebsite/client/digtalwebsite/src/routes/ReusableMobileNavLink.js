@@ -6,13 +6,7 @@ export default function MobileActiveNavLink({ to, text }) {
     // <NavLink style={x}
     <NavLink
       // className={"nav--link"}
-      // className={({ isActive }) => (isActive ? "foote" : "")}
-      // className={({ isActive }) => (isActive ? "footer-link--active" : "")}
-
-      style={isActive => ({
-        color: isActive ? "green" : "blue"
-      })}
-      
+      className={({ isActive }) => (isActive ? "mobile-nav--link--active mobile-nav-bar-item-link" : "mobile-nav-bar-item-link")}
       to={to}
     >
       {text}

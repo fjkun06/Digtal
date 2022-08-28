@@ -3,15 +3,18 @@
 
 %subscribe {
   .footer-subscribe {
-    width: 90vw;
+    // width: 90vw;
 
-    background-color: #f5f7fa;
+    // background-color: #f5f7fa;
     border: none;
-    @include mixins.flex;
+    // @include mixins.flex;
     column-gap: 10vw;
 
-    padding-top: 64px;
-    padding-bottom: 64px;
+    // padding-top: 64px;
+    // padding-bottom: 64px;
+
+    @include mixins.footer-item-init(64px);
+
     &-text {
       width: 40rem;
 

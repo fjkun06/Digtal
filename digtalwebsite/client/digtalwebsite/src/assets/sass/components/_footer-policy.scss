@@ -1,0 +1,41 @@
+@use "../util/mixins";
+@use "../util/variables";
+@use "../util/extensions";
+
+%policy {
+  .footer-policy {
+    // width: 90vw;
+    // padding-top: 2.5vh;
+    // padding-bottom: 2.5vh;
+    // background-color: #f5f7fa;
+    // border: none;
+    @include mixins.footer-item-init(2.5vh, row, center);
+    border: 5px solid yellow;
+// display: none;
+
+
+    & > * {
+      @extend %f-text;
+      min-width: 50%;
+      border: 1px solid red;
+
+      // font-weight: 400;
+    }
+
+
+    .footer-policy-link-text{
+      @include mixins.flex{
+        justify-content: flex-end;
+      };
+  
+      column-gap: 3rem;
+  
+      & > * :hover,& > * :active {
+        // color: orangered;
+        color: lighten(variables.$purple, 20%);
+    }
+  }
+  }
+
+
+}

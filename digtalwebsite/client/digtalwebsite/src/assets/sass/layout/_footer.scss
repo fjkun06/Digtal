@@ -2,18 +2,19 @@
 @use "../util/variables";
 @use "../components/footer-subscribe";
 @use "../components/footer-menu";
+@use "../components/footer-policy";
 
 .footer {
     // border: 5px solid black;
 
-    height: 300px;
+    height: 600px;
     background-color: rgb(0, 255, 60);
     // padding: 50px 30px 40px 30px;
     padding-top: 50px;
     @include mixins.flex(column);
     grid-template-columns: 1fr;
     width: 100vw;
-    row-gap: 3rem;
+    // row-gap: 3rem;
 
   //subscribe section here
   @extend %subscribe;
@@ -22,11 +23,15 @@
   //menu links section here
   @extend %menu;
 
+
+  //menu links section here
+  @extend %policy;
+
   
-    &-menu,
-    &-policy {
-        // border: 1px solid black;
-    }
+    // &-menu,
+    // &-policy {
+    //     // border: 1px solid black;
+    // }
 }
 
 //ative link styling

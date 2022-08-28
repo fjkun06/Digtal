@@ -1,16 +1,22 @@
 @use "../util/mixins";
 @use "../util/variables";
+@use "../util/extensions";
 %menu {
   .footer-menu {
-    width: 90vw;
-    // border: 1px solid black;
-    background-color: #f5f7fa;
+    // width: 90vw;
+    // background-color: #f5f7fa;
+    // padding-top: 3vh;
+    // padding-bottom: 3vh;
     // padding-left: 10px;
-    // border: none;
-    @include mixins.flex {
-      justify-content: space-between;
-    }
+    // border: none; // @include mixins.flex {
+    //   justify-content: space-between;
+    // }
 
+    @include mixins.footer-item-init(3vh, row, space-between);
+    border: 1px solid black;
+
+
+    
     & > * {
       // border: 1px solid black;
       min-width: 50%;
@@ -24,10 +30,7 @@
 
       & > * {
         // border: 1px solid black;
-        width: fit-content;
-        font-size: 1.2rem;
-        color: variables.$black;
-        font-family: "Gudea";
+        @extend %f-text;
         font-weight: 400;
 
         &:hover {
@@ -100,8 +103,8 @@
       row-gap: 2rem;
 
       &-link-text {
-      @include mixins.flex(column);
-      row-gap: 1rem;
+        @include mixins.flex(column);
+        row-gap: 1rem;
 
         // justify-content: center;
       }

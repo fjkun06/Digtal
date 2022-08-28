@@ -42,6 +42,13 @@ export default function Navbar({ language, setLanguage }) {
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
     setspecialLanguage(document.getElementsByClassName("special-language"));
   }, [language]);
+
+  //navigation
+  useEffect(() => {
+    
+    navigate(language + "/home");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // }, [language,navigate]);
 
   //language settings
@@ -49,7 +56,7 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //init page
-  window.onload = () => navigate(language + "/home");
+  // window.onload = () => navigate(language + "/home");
 
   //media query
   const max767 = useMediaQuery("(max-width:767px)");

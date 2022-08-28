@@ -18,10 +18,10 @@ export default function Footer({ language }) {
   ];
 
   const icons = [
-     { url: "facebook.com", icon: <FacebookIcon fontSize="large"/> },
-    { url: "twitter.com", icon: <TwitterIcon fontSize="large"/> },
-    { url: "instagram.com", icon: <InstagramIcon fontSize="large"/> },
-    { url: "youtube.com", icon: <YouTubeIcon fontSize="large"/> },
+    { url: "https://www.facebook.com", icon: <FacebookIcon fontSize="large" /> },
+    { url: "https://www.twitter.com", icon: <TwitterIcon fontSize="large" /> },
+    { url: "https://www.instagram.com", icon: <InstagramIcon fontSize="large" /> },
+    { url: "https://www.youtube.com", icon: <YouTubeIcon fontSize="large" /> },
   ];
 
   console.log("langggg: ", language);
@@ -53,13 +53,20 @@ export default function Footer({ language }) {
               ))}
             </Grid>
             <Grid item className="footer-menu-link-image">
-            {icons.map((icon) => (
-                <ActiveNavLink key={icon.url} to={icon.url} text={icon.icon} />
+              {icons.map((icon) => (
+                <a key={icon.url} href={icon.url} target="_blank" rel=" noreferrer">
+                  {icon.icon}
+                </a>
               ))}
             </Grid>
           </Grid>
           <Grid item className="footer-policy">
-            major
+              <Typography>© 2022 Digtal  Tous droits réservés</Typography>
+            <Grid item className="footer-policy-link-text">
+              {links.map((link) => (
+                <ActiveNavLink key={link.label} to={language + link.route} text={t(link.label)} />
+              ))}
+            </Grid>
           </Grid>
         </Box>
       </StyledEngineProvider>
