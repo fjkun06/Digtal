@@ -13,7 +13,7 @@
     // padding-top: 115px;
     @include mixins.flex(column);
     grid-template-columns: 1fr;
-    width: 100vw;
+    min-width: 100vw;
     // row-gap: 3rem;
 
      //Multicolor bottom border

@@ -14,8 +14,7 @@
     // padding-bottom: 64px;
     // border: 1px solid;
 
-    
-    @include mixins.footer-item-init(34px,#f5f7fa);
+    @include mixins.footer-item-init(34px, #f5f7fa);
     // @include mixins.footer-item-init(64px);
     &-text {
       // width: 40rem;
@@ -48,6 +47,15 @@
     @media only screen and (max-width: 979px) {
       @include mixins.flex(column);
       row-gap: 3rem;
+
+      &-text {
+        width: 100%;
+
+        @include mixins.grid;
+        &-typ {
+          font-size: 2.5rem;
+        }
+      }
 
       &-item {
         width: fit-content;
@@ -98,7 +106,7 @@
   font-size: 1rem;
   border-radius: 0px;
   box-shadow: 5px 5px 10px -10px #777;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Gudea", "Arial", sans-serif;
   font-weight: 300;
   font-size: 1.325rem;
   line-height: 1.235;

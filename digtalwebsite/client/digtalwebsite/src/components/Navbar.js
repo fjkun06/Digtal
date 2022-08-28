@@ -26,6 +26,7 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const [specialLanguage, setspecialLanguage] = useState("");
+  const [scrollUp, setScrollUp] = useState(false);
   // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
   const navigate = useNavigate();
@@ -48,6 +49,18 @@ export default function Navbar({ language, setLanguage }) {
     
     navigate(language + "/home");
       // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
+  //scrolling
+  useEffect(() => {
+    
+    window.onscroll = function(e) {
+      // print "false" if direction is down and "true" if up
+      console.log(this.oldScroll > this.scrollY);
+      this.oldScroll > this.scrollY ? setScrollUp(true): setScrollUp(false);
+      this.oldScroll = this.scrollY;
+    }
   }, []);
   // }, [language,navigate]);
 
@@ -72,6 +85,8 @@ export default function Navbar({ language, setLanguage }) {
           direction="row"
           sx={{
             fontFamily: "Gudea",
+            position: "sticky",
+            // display: scrollUp ? "grid" : "none"
           }}
         >
           <Grid item container sx={{ backgroundColor: "white" }} pt={2} pb={2} alignItems={"center"} justifyContent="space-between">
