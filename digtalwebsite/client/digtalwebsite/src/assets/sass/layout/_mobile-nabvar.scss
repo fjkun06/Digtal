@@ -1,0 +1,116 @@
+@use "../util/variables";
+@use "../util/mixins";
+
+//navbar fo mobile
+.mobile-nav-bar {
+    margin-top: 45px;
+    background-color: variables.$purple;
+    color: aliceblue;
+    position: relative;
+    transition: all ease 0.2s;
+
+    @include mixins.size(250px, fit-content);
+
+    z-index: -1;
+
+    &::before {
+        content: "";
+        display: grid;
+        position: absolute;
+        background-color: variables.$purple;
+
+        @include mixins.size(70px, 50px);
+        top: -50px;
+        right: 0px;
+        z-index: -1;
+    }
+
+    .mobile-nav-bar-item {
+        border-bottom: 1px solid variables.$black;
+        padding: 1rem;
+        text-align: center;
+
+        &:hover {
+            transition: background-color ease 0.2s;
+            cursor: pointer;
+            background-color: lighten(variables.$purple, 50);
+
+            .mobile-nav-bar-item-link {
+                color: #000;
+            }
+        }
+
+        .mobile-nav-bar-item-link {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        //ative link styling
+        .mobile-nav--link--active {
+            color: variables.$active-hover;
+        }
+
+        //arrows
+        .select-item-sub-arrow {
+            margin-bottom: -10px;
+            margin-left: -3px;
+            @include mixins.select-item-arrow(end);
+        }
+        .lselect-item-sub-arrow {
+            @include mixins.select-item-hover;
+        }
+    }
+
+    //special item
+    .special-navbar-item {
+        height: 9.2rem;
+        display: none;
+        transition: all ease 0.2s;
+
+        //being reused
+        .select-item-sub {
+            @include mixins.select-item-sub(70%, 12.4rem, 3.5rem, 1px solid lighten(variables.$purple, 50)) {
+                @include mixins.grid;
+            }
+        }
+    }
+
+    .special-language {
+        display: none;
+
+        &:hover {
+            background-color: variables.$purple;
+        }
+
+        .language-dropdown {
+            //dropdown items
+            cursor: pointer;
+
+            .language-dropdown-item {
+                transition: all ease 0.2s;
+
+                cursor: pointer;
+                &:hover {
+                    transition: all ease 0.2s;
+                    background-color: lighten(variables.$purple, 50);
+                }
+                border-bottom: 1px solid lighten(variables.$purple, 50);
+            }
+        }
+    }
+}
+.mobile-navbar-cross {
+    @extend .mobile-navbar-menu;
+    animation-duration: 1s;
+    animation-name: rotateCross;
+}
+.mobile-navbar-menu {
+    position: absolute;
+    right: 5rem;
+    top: 1rem;
+    transition: all ease 0.15s;
+}
+
+.mobile-navbar-reveal {
+    display: none;
+}

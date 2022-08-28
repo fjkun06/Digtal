@@ -1,0 +1,10 @@
+@use "./variables";
+
+
+//footer
+%f-text{
+  width: fit-content;
+  font-size: 1.3rem;
+  color: variables.$black;
+  font-family: "Gudea";
+}

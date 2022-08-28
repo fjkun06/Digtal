@@ -1,0 +1,53 @@
+@use "../util/mixins";
+@use "../util/variables";
+@use "../util/extensions";
+
+%policy {
+  .footer-policy {
+    @include mixins.footer-item-init(2.5vh, white, row, center);
+
+    & > * {
+      @extend %f-text;
+      width: calc(100% / 2);
+
+      font-weight: 400;
+    }
+
+    &-link-text {
+      @include mixins.flex {
+        justify-content: flex-end;
+      }
+      column-gap: 2rem;
+    }
+
+    a {
+      text-decoration: underline;
+      &:hover {
+        color: lighten(variables.$purple, 20%);
+      }
+    }
+
+    //queries
+    @media only screen and (max-width: 599px) {
+      @include mixins.flex(column);
+      row-gap: 2rem;
+
+      & > * {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      width: 80vw;
+    }
+  }
+}
+
+.footer-policy-link-text-item {
+  color: red;
+  &:hover {
+    color: lighten(variables.$purple, 20%);
+  }
+}
