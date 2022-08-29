@@ -1,0 +1,12 @@
+@use "./home-body";
+@use "./home-header";
+
+.home {
+  height: fit-content;
+
+  //body goes here
+  @extend %home-header;
+
+  //body goes here
+  @extend %home-body;
+}

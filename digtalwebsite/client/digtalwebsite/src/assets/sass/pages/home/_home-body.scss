@@ -1,0 +1,11 @@
+@use "../../util/mixins";
+@use "../../util/variables";
+@use "../../util/extensions";
+
+%home-body{
+  .home-body{
+    background-color: red;
+    width: 100vw;
+    height: 300vh;
+  }
+}

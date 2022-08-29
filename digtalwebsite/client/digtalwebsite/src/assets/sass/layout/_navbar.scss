@@ -5,16 +5,32 @@
 @use "../util/media-queries";
 @use "../layout//mobile-nabvar";
 
+.navigation-main {
+   position: fixed;
+   // top: 40vh;
+   z-index: 9999;
+}
+
 //main container
 .main-nav {
-   position: relative;
+   position: sticky;
+   position: -webkit-sticky;
+   // opacity: 0;
+   // opacity: 1;
+   animation: animate-navbar 0.2s ease-in-out;
 
+   animation-iteration-count: 1;
+
+   // transition: opacity 0.2s ease-in-out 0s;
+   
+
+   // top:70vh;
    //Multicolor bottom border
    &::after {
       content: "";
       display: block;
-     
-      @include mixins.size(100%,4px);
+
+      @include mixins.size(100%, 4px);
       // background-color: red;
       background: linear-gradient(to left, lighten(variables.$purple, 10), variables.$light-blue);
       // border: 1px solid red;
@@ -48,7 +64,8 @@
 }
 
 //styling links
-a {   font-family: "Gudea";
+a {
+   font-family: "Gudea";
    transition: all ease 0.15s;
    text-decoration: none;
    color: black;
@@ -58,14 +75,10 @@ a {   font-family: "Gudea";
    }
 }
 
-
-
 .nav--link--active {
    padding-bottom: 3px;
    border-bottom: 2px solid variables.$purple;
 }
-
-
 
 @keyframes rotateCross {
    from {
@@ -74,5 +87,18 @@ a {   font-family: "Gudea";
 
    to {
       transform: rotate(360deg);
+   }
+}
+
+@keyframes animate-navbar {
+  
+   0% {
+      opacity: 0;
+
+   }
+
+   100% {
+      opacity: 1;
+
    }
 }

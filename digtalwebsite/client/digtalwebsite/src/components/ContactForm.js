@@ -21,6 +21,7 @@ export default function Contact() {
   //   //setting up language translator
   const { t } = useTranslation(["form", "formerror"]);
 
+
   // const onSubmit = (data) => {
   //   console.log("onSubmit", data);
 
