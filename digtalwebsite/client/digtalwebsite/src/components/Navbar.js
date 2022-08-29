@@ -58,7 +58,7 @@ export default function Navbar({ language, setLanguage }) {
 
   //navigation
   useEffect(() => {
-    if(location.pathname === '/') navigate(language);
+    if(location.pathname === '/') navigate(language + '/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
