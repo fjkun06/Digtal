@@ -3,28 +3,33 @@ import React from 'react'
 
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
-import digitalBusiness from "./assets/images/digital-businessimg.jpg";
-import WebDev from "./assets/images/development.jpg";
-import itcon from "./assets/images/consulting.jpg";
-import digitalMarketingimg from "./assets/images/marketing.jpg";
+import digitalBusiness from "../../assets/images/digital-businessimg.jpg";
+import WebDev from "../../assets/images/development.jpg";
+import itcon from "../../assets/images/consulting.jpg";
+import digitalMarketingimg from "../../assets/images/marketing.jpg";
 import { Button } from "@mui/material";
 
 export default function Hero() {
   return (
     <>
-      <Typography
-        variant="h1"
-        color="secondary"
-        align="center"
-        padding="2rem"
-        margin="2rem"
-        fontSize="100"
-        gutterBottom
-        component="div"
-      >
-        {" "}
-        Let's Keep it Simple
-      </Typography>
+      <Grid display="flex" justify="center" align="center">
+        <Grid item>
+          <Typography
+            variant="h1"
+            color="secondary"
+            align="center"
+            padding="2rem"
+            margin="2rem"
+            fontSize="100"
+            gutterBottom
+            component="div"
+          >
+            {" "}
+            Let's Keep it Simple
+          </Typography>
+        </Grid>
+      </Grid>
+
       <Grid
         container
         pl={{ xs: 1, sm: 4 }}
@@ -82,7 +87,12 @@ export default function Hero() {
         </Grid>
 
         <Grid item xs={12} md={6} className="">
-          <img src={digitalBusiness} alt="digitalBusiness" />
+          <img
+            width="100%"
+            height="auto"
+            src={digitalBusiness}
+            alt="digitalBusiness"
+          />
         </Grid>
       </Grid>
 
@@ -99,6 +109,8 @@ export default function Hero() {
         flexDirection={"column"}
         pl={{ xs: 1, sm: 4 }}
         pr={{ xs: 1, sm: 4 }}
+        mb="10rem"
+        mt="10rem"
       >
         <Grid item>
           <Typography
@@ -135,7 +147,7 @@ export default function Hero() {
           {/* ////////////////////////Item1///////////////*/}
           <Grid item container xs={12} sm={12} md={3.9} padding="1rem">
             <Grid item>
-              <img src={WebDev} alt="WebDev " />
+              <img width={"100%"} height="auto" src={WebDev} alt="WebDev " />
             </Grid>
             <Grid item>
               <Typography
@@ -180,7 +192,12 @@ export default function Hero() {
           {/* ////////////////////////Item2///////////////*/}
           <Grid item container xs={12} sm={12} md={3.9} padding="1rem">
             <Grid item>
-              <img src={digitalMarketingimg} alt="Digital Marketing " />
+              <img
+                width={"100%"}
+                height="auto"
+                src={digitalMarketingimg}
+                alt="Digital Marketing "
+              />
             </Grid>
             <Grid item>
               <Typography
@@ -224,7 +241,12 @@ export default function Hero() {
           {/* ////////////////////////Item3///////////////*/}
           <Grid item container xs={12} sm={12} md={3.9} padding="1rem">
             <Grid item>
-              <img src={itcon} alt="itConsulting  " />
+              <img
+                width={"100%"}
+                height="auto"
+                src={itcon}
+                alt="itConsulting  "
+              />
             </Grid>
             <Grid item>
               <Typography

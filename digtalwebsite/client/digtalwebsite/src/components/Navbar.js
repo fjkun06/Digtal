@@ -38,7 +38,7 @@ export default function Navbar({ language, setLanguage }) {
 
   //codition for scrolling
   
-  const condition = location["pathname"]?.includes("home");
+  const condition = location["pathname"]=== language +'/home';
 
   console.log(location);
   console.log("condition: ", condition, "scrollUp: ", scrollUp);
