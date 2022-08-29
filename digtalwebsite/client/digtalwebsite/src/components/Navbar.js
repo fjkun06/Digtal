@@ -37,11 +37,11 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //codition for scrolling
-  
-  const condition = location["pathname"]?.includes("home");
 
-  console.log(location);
-  console.log("condition: ", condition, "scrollUp: ", scrollUp);
+  const condition = window.location.pathname === language + '/';
+  console.log(location)
+
+  // console.log("condition: ", condition, "scrollUp: ", scrollUp);
 
   //first useffect hook
   useEffect(() => {
@@ -58,43 +58,92 @@ export default function Navbar({ language, setLanguage }) {
 
   //navigation
   useEffect(() => {
-    // navigate(language + "/home");
+    if(location.pathname === '/') navigate(language);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //scrolling
+  const [scrollDir, setScrollDir] = useState("scrolling down");
+
   useEffect(() => {
-    const outlet = document.getElementById("hbody");
     const nav = document.getElementById("scroll-nav");
     const mainNav = document.getElementById("n-main");
-    const navbar = getComputedStyle(nav, null);
-    const sticky = outlet.offsetTop;
+    const outlet = document.getElementById("hbody");
+
+    const sticky = condition ? outlet.offsetTop : "";
 
     if (!condition) {
-      //making navbar visible
+      //   //making navbar visible
       nav.style.opacity = 1;
-      mainNav.style.position = "relative";
+    }else{
+      nav.style.opacity = 0;
+
     }
-    //  else {
-    //   setScrollUp(false);
-    // }
 
-    
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
 
-    window.onscroll = function () {
-      // print "false" if direction is down and "true" if up
-      console.log("fnf", false * false);
-      if (window.pageYOffset >= sticky && this.oldScroll > this.scrollY && condition) {
-        setHasScrolled(true);
-        nav.style.opacity = 1;
-      }else{
-        setHasScrolled(false);
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
 
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
       }
+      if (lastScrollY >= sticky) {
+        setHasScrolled(scrollY > lastScrollY ? false : true);
+      nav.style.opacity = 1;
 
-      this.oldScroll = this.scrollY;
+      } else {
+        setHasScrolled(scrollY > lastScrollY ? false : false);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
     };
-  }, [condition]);
+
+    const onScroll = () => {
+      if (condition) mainNav.classList.add("fix");
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    console.log(scrollDir);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      mainNav.classList.remove("fix");
+    };
+  }, [scrollDir, condition]);
+  // useEffect(() => {
+
+  // console.log(window.location.pathname);
+
+  //   // const navbar = getComputedStyle(nav, null);
+
+  //   //  else {
+  //   //   setScrollUp(false);
+  //   // }
+
+  //   window.onscroll = function () {
+  //     // // print "false" if direction is down and "true" if up
+  // if (window.pageYOffset >= sticky && this.oldScroll > this.scrollY && condition) {
+  //     //   // console.log("fnf", false * false);
+  //     //   setHasScrolled(true);
+  //     //   nav.style.opacity = 1;
+  //     // } else {
+  //     //   setHasScrolled(false);
+  //     // }
+
+  //     // this.oldScroll = this.scrollY;
+
+  //     console.log("scrolled")
+  //   };
+  // }, [condition]);
   // }, [language,navigate]);
 
   //init page
@@ -116,7 +165,7 @@ export default function Navbar({ language, setLanguage }) {
           sx={{
             fontFamily: "Gudea",
             position: "sticky",
-            display: condition? (hasScrolled ? "grid" : "none") : (scrollUp ? "grid" : "none"),
+            display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
             // display: !condition && scrollUp ? "grid" : "none",
           }}
         >
@@ -175,7 +224,7 @@ export default function Navbar({ language, setLanguage }) {
               />
 
               <Grid className="mobile-nav-bar mobile-navbar-reveal">
-                {["home", "enterprise"].map((item) => (
+                {["", "enterprise"].map((item) => (
                   <Grid item className="mobile-nav-bar-item" key={item}>
                     <MobileActiveNavLink to={language + "/" + item} text={t(item)} />
                   </Grid>
@@ -205,7 +254,7 @@ export default function Navbar({ language, setLanguage }) {
             {/* Desktop navbar */}
             <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5 }} pl={5} pr={5}>
               <Gridd item md={location.pathname === "/de/" ? 0.5 : 1}>
-                <ActiveNavLink to={language + "/home"} text={t("home")} />
+                <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
               <Gridd item md={location.pathname === "/de/" ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />

@@ -1,7 +1,8 @@
 @use 'layout/navbar';
-@use 'components/telephone';
 @use 'layout/footer';
 @use 'pages/home/home';
+@use 'components/telephone';
+
 
 
 
@@ -21,4 +22,8 @@ html {
 
 body { font-size: 1.6em;
    min-width: 32rem;
+ }
+
+ .fix{
+   position: fixed;
  }

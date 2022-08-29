@@ -7,11 +7,14 @@ import { useState } from "react";
 function App() {
 
   const [language, setLanguage] = useState("/en");
+  const condition = window.location.pathname?.includes("home");
+
 
   return (
      <>
            <Grid>
-              <Grid container className="navigation-main" id="n-main">
+              <Grid container className="navigation-main" id="n-main" >
+              {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
                  <Navbar setLanguage={setLanguage} language={language}/>
               </Grid>
               <Grid id="scroll-zone" >

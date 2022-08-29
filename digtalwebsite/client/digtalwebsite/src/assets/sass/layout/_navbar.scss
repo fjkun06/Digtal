@@ -6,7 +6,7 @@
 @use "../layout//mobile-nabvar";
 
 .navigation-main {
-   position: fixed;
+   // position: relative;
    // top: 40vh;
    z-index: 9999;
 }
@@ -15,7 +15,7 @@
 .main-nav {
    position: sticky;
    position: -webkit-sticky;
-   // opacity: 0;
+   opacity: 0;
    // opacity: 1;
    animation: animate-navbar 0.2s ease-in-out;
 

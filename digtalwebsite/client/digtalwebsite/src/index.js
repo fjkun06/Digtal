@@ -23,9 +23,10 @@ root.render(
     <React.Suspense fallback="Loading...">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/" exact element={<App />}>
             <Route path="/en">
-              <Route path="home" element={<Home />} />
+              <Route index exact element={<Home />} />
+              {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">
                 <Route index element={<Services />} />
