@@ -102,6 +102,13 @@
     border-radius: 0px;
 }
 
+@mixin gradient-button-pb-inverse{
+    background: linear-gradient(to left bottom, variables.$light-blue, variables.$purple);
+    // border: 1px solid red;
+
+    border-radius: 0px;
+}
+
 //footer items init
 @mixin footer-item-init($pdt,$bgcolor,$flex-direction: row,$flex-jposition: center,$pdb:$pdt,) {
     width: 80%;
