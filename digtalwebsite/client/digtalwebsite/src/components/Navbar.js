@@ -68,7 +68,7 @@ export default function Navbar({ language, setLanguage }) {
     const nav = document.getElementById("scroll-nav");
     const mainNav = document.getElementById("n-main");
     const navbar = getComputedStyle(nav, null);
-    const sticky = outlet.offsetTop;
+    const sticky = condition ?  outlet.offsetTop : '';
 
     if (!condition) {
       //making navbar visible
