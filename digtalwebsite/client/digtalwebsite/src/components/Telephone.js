@@ -3,6 +3,7 @@ import React from "react";
 import ReactTelInput from "react-telephone-input";
 import "react-telephone-input/css/default.css";
 import flags from "../assets/images/flags.png";
+import '../css/TelephoneComponentCss.css'
 
 export default function Telephone({ errorState, field, errorText,success }) {
   function handleInputChange(telNumber, selectedCountry) {
