@@ -1,0 +1,123 @@
+@use "../util/mixins";
+@use "../util/variables";
+@use "../util/extensions";
+%menu {
+  .footer-menu {
+    // width: 90vw;
+    // background-color: #f5f7fa;
+    // padding-top: 3vh;
+    // padding-bottom: 3vh;
+    // padding-left: 10px;
+    // border: none; // @include mixins.flex {
+    //   justify-content: space-between;
+    // }
+
+    @include mixins.footer-item-init(3vh, white,row, space-between);
+    border-bottom: 1px solid #e4ebf3;
+    // box-shadow: 5px 5px 10px -10px #777;
+
+
+
+
+    
+    & > * {
+      // border: 1px solid black;
+      // min-width: 50%;
+      width: calc(100% / 2);
+    }
+
+    &-link-text {
+      // background-color: #f45;
+      @include mixins.flex;
+      justify-content: flex-start;
+      column-gap: 3rem;
+
+      & > * {
+        // border: 1px solid black;
+        @extend %f-text;
+        font-weight: 400;
+
+        &:hover {
+          color: lighten(variables.$purple, 20%);
+        }
+      }
+    }
+    &-link-image {
+      // background-color: rgb(102, 68, 255);
+      padding-top: 3px;
+      @include mixins.flex;
+      justify-content: flex-end;
+      column-gap: 2rem;
+      & > * {
+        // border: 1px solid black;
+        width: fit-content;
+        // font-size: 80%;
+        color: variables.$black;
+        // font-family: "Gudea";
+
+        //colo
+        transition: all 0.2s ease;
+
+        &:nth-child(1) {
+          font-size: 2rem;
+
+          &:hover {
+            color: blue;
+            transition: all 0.2s ease;
+          }
+        }
+        &:nth-child(2) {
+          &:hover {
+            color: variables.$light-blue;
+            transition: all 0.2s ease;
+          }
+        }
+        &:nth-child(3) {
+          &:hover {
+            color: variables.$purple;
+            transition: all 0.2s ease;
+          }
+        }
+        &:nth-child(4) {
+          &:hover {
+            color: red;
+            transition: all 0.2s ease;
+          }
+        }
+
+        // &:hover{
+        // color: lighten(variables.$purple,20%);
+
+        // }
+      }
+    }
+
+    //queries
+    @media only screen and (max-width: 702px) {
+    // @media only screen and (max-width: 599px) {
+      @include mixins.flex(column);
+      row-gap: 2rem;
+
+      &-link-image {
+        justify-content: center;
+      }
+      &-link-text {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 351px) {
+      // @include mixins.flex(column);
+      // row-gap: 2rem;
+      width: 80vw;
+
+      &-link-text {
+        @include mixins.flex(column);
+        row-gap: 1rem;
+
+        // justify-content: center;
+      }
+    }
+  }
+}

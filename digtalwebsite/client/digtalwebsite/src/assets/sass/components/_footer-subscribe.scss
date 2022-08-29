@@ -1,0 +1,119 @@
+@use "../util/mixins";
+@use "../util/variables";
+
+%subscribe {
+  .footer-subscribe {
+    // width: 90vw;
+
+    // background-color: #f5f7fa;
+    border: none;
+    // @include mixins.flex;
+    column-gap: 10vw;
+
+    margin-top: 30px;
+    // padding-bottom: 64px;
+    // border: 1px solid;
+
+    @include mixins.footer-item-init(34px, #f5f7fa);
+    // @include mixins.footer-item-init(64px);
+    &-text {
+      // width: 40rem;
+      width: calc(100% / 2);
+
+      @include mixins.grid;
+      &-typ {
+        font-size: 2.5rem;
+      }
+    }
+
+    &-item {
+      // border: 1px solid red;
+      // width: 40rem;
+      width: calc(100% / 2);
+
+      @include mixins.flex;
+
+      &-button {
+        @include mixins.gradient-button-pb;
+        padding: 8px 18px;
+      }
+    }
+
+    //Media queries
+    @media only screen and (min-width: 980px) and (max-width: 1045px) {
+      column-gap: 4vw;
+    }
+
+    @media only screen and (max-width: 979px) {
+      @include mixins.flex(column);
+      row-gap: 3rem;
+
+      &-text {
+        width: 100%;
+
+        @include mixins.grid;
+        &-typ {
+          font-size: 2.5rem;
+        }
+      }
+
+      &-item {
+        width: fit-content;
+      }
+    }
+
+    @media only screen and (max-width: 450px) {
+      #subscribe-input {
+        min-width: 180px;
+      }
+
+      &-text {
+        &-typ {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      width: 80vw;
+      padding: 34px 0px;
+      // padding-bottom: 34px;
+
+      &-item {
+        flex-direction: column;
+        justify-content: start;
+        row-gap: 2rem;
+        width: fit-content;
+      }
+
+      &-text {
+        &-typ {
+          font-size: 1.4rem;
+        }
+      }
+
+      #subscribe-input {
+        min-width: 40px;
+      }
+    }
+  }
+}
+
+#subscribe-input {
+  min-width: 230px;
+  border: none;
+  padding: 8px 7px;
+  font-size: 1rem;
+  border-radius: 0px;
+  box-shadow: 5px 5px 10px -10px #777;
+  font-family: "Roboto", "Gudea", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 1.325rem;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+  color: variables.$black;
+  &:focus {
+    outline: none;
+    caret-color: #888;
+  }
+}
