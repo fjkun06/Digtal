@@ -1,0 +1,34 @@
+@use "../util/mixins";
+@use "../util/variables";
+
+//for select dropdown
+%select-item {
+    padding-left: 2rem;
+
+    @include mixins.grid;
+
+    .select-item-dropdown {
+        position: relative;
+        text-align: center;
+        width: 80%;
+        grid-template-columns: repeat(2, 1fr);
+        @include mixins.grid;
+
+        //navbar links
+        .nav--link,
+        .nav--link:visited {
+            color: black;
+            font-family: "Gudea";
+            transition: all ease 0.15s;
+        }
+
+        //reusable
+        .select-item-sub {
+            @include mixins.select-item-sub(250%, 2.2rem, -9rem, 1px solid variables.$black);
+        }
+
+        .select-item-sub-arrow {
+            @include mixins.select-item-arrow(flex-end);
+        }
+    }
+}

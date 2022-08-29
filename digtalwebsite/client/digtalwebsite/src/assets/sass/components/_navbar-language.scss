@@ -1,0 +1,71 @@
+@use "../util/mixins";
+@use "../util/variables";
+
+//language controls
+.language-image {
+   @include mixins.size(30px, 38px);
+}
+
+//Icon container
+%language-item {
+   @include mixins.grid;
+   padding-left: 3rem;
+
+   .language-item-sub {
+      @include mixins.grid;
+
+      width: 5.5rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      .language-item-sub-arrow {
+         display: grid;
+         transition: all ease 0.25s;
+
+         &:hover {
+            transition: all ease 0.25s;
+
+            transform: scale(1.5);
+         }
+      }
+
+      .language-dropdown {
+         position: absolute;
+         cursor: pointer;
+
+         @include mixins.size(6rem, 7rem);
+
+         top: 6rem;
+
+         transition: all ease 0.2s;
+         border-radius: 2%;
+         display: none;
+
+         //dropdown items
+         .language-dropdown-item {
+            @include mixins.grid;
+
+            @include mixins.size(inherit, 100%);
+
+            background-color: variables.$purple;
+            border-left: 1px solid variables.$black;
+
+            border-right: 1px solid variables.$black;
+
+            &:last-child {
+               border-bottom: 1px solid variables.$black;
+               border-radius: 4%;
+            }
+            &:first-child {
+               border-top: 1px solid variables.$black;
+               border-radius: 4%;
+            }
+
+            &:hover {
+               transition: all ease 0.2s;
+
+               background-color: lighten(variables.$purple, 50);
+            }
+         }
+      }
+   }
+}

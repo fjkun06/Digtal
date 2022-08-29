@@ -1,0 +1,24 @@
+@use 'layout/navbar';
+@use 'components/telephone';
+@use 'layout/footer';
+@use 'pages/home';
+
+
+
+//all components
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+//Configuring html
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+   // min-width: 320px;
+}
+
+body { font-size: 1.6em;
+   min-width: 32rem;
+ }

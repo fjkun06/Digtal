@@ -1,12 +1,10 @@
-import Contact from "./pages/contact";
 import ValidationTextFields from "./MUIForm";
+import Contact from "./pages/contact";
 function App() {
   return (
     <>
-      {/*Pour Bill
-       <Contact/> */}
-
-      <ValidationTextFields />
+      <ValidationTextFields/>
+      {/* <Contact/> */}
     </>
   );
 }

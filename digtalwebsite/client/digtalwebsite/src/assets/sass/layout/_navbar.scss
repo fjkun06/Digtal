@@ -1,0 +1,78 @@
+@use "../util/variables";
+@use "../util/mixins";
+@use "../components/select";
+@use "../components/navbar-language";
+@use "../util/media-queries";
+@use "../layout//mobile-nabvar";
+
+//main container
+.main-nav {
+   position: relative;
+
+   //Multicolor bottom border
+   &::after {
+      content: "";
+      display: block;
+     
+      @include mixins.size(100%,4px);
+      // background-color: red;
+      background: linear-gradient(to left, lighten(variables.$purple, 10), variables.$light-blue);
+      // border: 1px solid red;
+   }
+
+   //language here
+
+   .language-item {
+      @extend %language-item;
+   }
+
+   //select here
+
+   .select-item {
+      @extend %select-item;
+   }
+
+   //mobile navbar here
+
+   //media queries here
+   @include mixins.responsive-select(767px, 1100px) {
+      left: -6rem;
+   }
+   @include mixins.responsive-select(1101px, 1330px);
+
+   //logo here
+   //select item dropdown
+   .logo {
+      @include mixins.size(50px, 50px);
+   }
+}
+
+//styling links
+a {   font-family: "Gudea";
+   transition: all ease 0.15s;
+   text-decoration: none;
+   color: black;
+
+   &:visited {
+      color: black;
+   }
+}
+
+
+
+.nav--link--active {
+   padding-bottom: 3px;
+   border-bottom: 2px solid variables.$purple;
+}
+
+
+
+@keyframes rotateCross {
+   from {
+      transform: rotate(0deg);
+   }
+
+   to {
+      transform: rotate(360deg);
+   }
+}
