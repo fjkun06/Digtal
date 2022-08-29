@@ -121,33 +121,6 @@ export default function Navbar({ language, setLanguage }) {
   }, [scrollDir, condition]);
   // useEffect(() => {
 
-  // console.log(window.location.pathname);
-
-  //   // const navbar = getComputedStyle(nav, null);
-
-  //   //  else {
-  //   //   setScrollUp(false);
-  //   // }
-
-  //   window.onscroll = function () {
-  //     // // print "false" if direction is down and "true" if up
-  // if (window.pageYOffset >= sticky && this.oldScroll > this.scrollY && condition) {
-  //     //   // console.log("fnf", false * false);
-  //     //   setHasScrolled(true);
-  //     //   nav.style.opacity = 1;
-  //     // } else {
-  //     //   setHasScrolled(false);
-  //     // }
-
-  //     // this.oldScroll = this.scrollY;
-
-  //     console.log("scrolled")
-  //   };
-  // }, [condition]);
-  // }, [language,navigate]);
-
-  //init page
-  // window.onload = () => navigate(language + "/home");
 
   //media query
   const max767 = useMediaQuery("(max-width:768px)");
