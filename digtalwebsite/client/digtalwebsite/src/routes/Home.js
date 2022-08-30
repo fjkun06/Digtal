@@ -1,5 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
+import HomeCard from "./reusables/HomeCard";
+
 
 export default function Home() {
   return (
@@ -29,7 +31,13 @@ export default function Home() {
           </Grid>
         </Grid>
 
-        <Grid className="home-body" id="hbody"></Grid>
+        <Grid className="home-body" id="hbody">
+          <Grid className="home-body-inner"> 
+          <HomeCard />
+          <HomeCard/>
+          <HomeCard/>
+           </Grid>
+        </Grid>
       </Grid>
     </>
   );

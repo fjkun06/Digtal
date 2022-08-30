@@ -1,12 +1,26 @@
 @use "../../util/mixins";
 @use "../../util/variables";
 @use "../../util/extensions";
+@use './home-card';
 
-%home-body{
-  .home-body{
+%home-body {
+  .home-body {
     // background-color: red;
-    border: 5px solid green;
+    // border: 5px solid green;
     width: 100vw;
-    height: 300vh;
+    height: 100vh;
+    @include mixins.grid;
+
+    &-inner {
+      // border: 5px solid green;
+      // background-color: yellow;
+      width: 70vw;
+    height: 100vh;
+    @include mixins.flex;
+column-gap: 2em;
+    }
   }
+
+  //home card here
+  @extend %home-card;
 }

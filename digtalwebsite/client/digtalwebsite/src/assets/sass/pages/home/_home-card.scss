@@ -1,0 +1,14 @@
+
+
+%home-card{
+  .home-card{
+  box-shadow: 5px 5px 10px -10px #888,-5px -5px 10px -10px #555;
+  transition: all 0.5s ease-in-out;
+  max-width: 40vw;
+  
+  // box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
+&:hover{
+  transform: scale(1.15);
+}
+  }
+}

@@ -38,14 +38,14 @@
 
 @mixin select-item-dropdown-text($font-size) {
     font-family: "Gudea";
-    color: white;
+    color: var(--navbar-select-item-dd-text);
     width: 19rem;
     font-size: $font-size;
     letter-spacing: 0.05rem;
 }
 
 @mixin select-item-sub($width,$top,$left,$border-bottom){
-    background-color: variables.$purple;
+    background-color: var(--navbar-select-item-bg);
     width: $width;
     position: absolute;
 
@@ -65,10 +65,10 @@
         &:hover {
             transition: background-color ease 0.2s;
             cursor: pointer;
-            background-color: lighten(variables.$purple, 50);
+            background-color: var(--navbar-select-item-hover);
 
             .select-item-dropdown-text {
-                color: #000000;
+                color: var(--navbar-select-item-dd-text-hover);
             }
         }
 

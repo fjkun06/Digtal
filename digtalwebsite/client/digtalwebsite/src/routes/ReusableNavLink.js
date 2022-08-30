@@ -7,7 +7,7 @@ export default function ActiveNavLink({ to, text }) {
 
     <NavLink
       // className={"nav--link"}
-      className={({ isActive }) => (isActive ? "nav--link--active nav--link" : "nav--link")}
+      className={({ isActive }) => (isActive ? "nav--link--active" : "")}
       to={to}
     >
       {text}
