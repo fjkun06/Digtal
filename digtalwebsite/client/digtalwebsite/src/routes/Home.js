@@ -35,7 +35,7 @@ export default function Home() {
         <Grid className="home-body" id="hbody">
           <Grid className="home-body-inner"> 
           {homeCards.map((card, index) => 
-          <HomeCard key={card.heading} logo={card.logo} text={card.text} heading={card.heading} cname={"home-card" + (index + 1)}/>
+          <HomeCard key={card.heading} logo={card.logo} text={card.text} heading={card.heading} cname={"home-card-" + (index + 1)}/>
             
             )}
           {/* <HomeCard/>
