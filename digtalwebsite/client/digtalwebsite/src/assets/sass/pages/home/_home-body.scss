@@ -10,12 +10,13 @@
     width: 100vw;
     height: 100vh;
     @include mixins.grid;
+    position: relative;
 
     &-inner {
       // border: 5px solid green;
       // background-color: yellow;
       width: 70vw;
-    height: 100vh;
+    height: fit-content;
     @include mixins.flex;
 column-gap: 2em;
     }
