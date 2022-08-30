@@ -11,17 +11,17 @@ export default function Home() {
         <Grid className="home-header">
           <Grid item>
             <div id="title">
-              <div class="header-1">
-                <div class="header-arrow-1"></div>
+              <div className="header-1">
+                <div className="header-arrow-1"></div>
               </div>
-              <div class="header-2">
-                <div class="header-arrow-2"></div>
+              <div className="header-2">
+                <div className="header-arrow-2"></div>
               </div>
-              <div class="header-3">
-                <div class="header-arrow-3"></div>
+              <div className="header-3">
+                <div className="header-arrow-3"></div>
               </div>
-              <div class="header-4">
-                <div class="header-arrow-4"></div>
+              <div className="header-4">
+                <div className="header-arrow-4"></div>
               </div>
             </div>
           </Grid>
