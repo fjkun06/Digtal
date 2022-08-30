@@ -6,22 +6,22 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+export default function HomeCard({ logo, text, heading, cname, id }) {
 
-export default function HomeCard({logo,text,heading,cname}) {
   return (
-    <Card className={cname}>
+    <Card className={cname} id={id}>
       <CardMedia component="img" alt="green iguana" height="250" image={logo} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-        {text}
+          {heading}
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          {heading}
+          {text}
         </Typography>
       </CardContent>
       <CardActions>
         {/* <Button size="small">Share</Button> */}
-        <Button size="small">Learn More</Button>
+        <Button size="large">Learn More</Button>
       </CardActions>
     </Card>
   );

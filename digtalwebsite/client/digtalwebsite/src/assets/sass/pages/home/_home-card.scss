@@ -1,17 +1,70 @@
-
-
-%home-card{
-  @for $i from 1 through 3{
-    .home-card-#{$i}{
-      box-shadow: 5px 5px 10px -10px #888,-5px -5px 10px -10px #555;
+%home-card {
+  @for $i from 1 through 3 {
+    .home-card-#{$i} {
+      box-shadow: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
       transition: all 0.5s ease-in-out;
-      max-width: 40vw;
-    
+      max-width: 22vw;
+      // max-width: 40vw;
+
       // box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
-    &:hover{
-      transform: scale(1.15);
-    }
+      &:hover {
+        transform: scale(1.15);
       }
+    }
   }
 
+  .home-card-1 {
+    
+    // animation: scalar 1s ease-in-out 1;
+    // animation-play-state: paused;
+  }
+  .home-card-2 {
+    // animation: scalar 1s ease-in-out 0.5s 1;
+    // animation-play-state: paused;
+  }
+  .home-card-3 {
+    // animation: scalar 1s ease-in-out 1s 1;
+    // animation-play-state: paused;
+  }
+
+  @keyframes scalar {
+    50% {
+      transform: scale(1.15);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  // .home-card-1{
+  //   position: absolute;
+  //   right: 650px;
+  //   top: 250px;
+  //   z-index: 1;
+  //   border: 2px solid red;
+
+  // }
+  // .home-card-2{
+  //   position: absolute;
+  //   left: 650px;
+  //   top: 120px;
+  //   z-index: 0;
+  //   border: 2px solid green;
+
+  //   &:hover{
+  //     z-index: 2;
+
+  //   }
+
+  // }
+  // .home-card-3{
+  //   position: absolute;
+  //   z-index: 0;
+  //   border: 2px solid brown;
+  //   &:hover{
+  //     z-index: 2;
+
+  //   }
+  // }
 }
