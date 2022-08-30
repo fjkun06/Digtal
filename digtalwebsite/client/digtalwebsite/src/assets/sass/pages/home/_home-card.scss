@@ -21,6 +21,13 @@
         max-width: 40vw;
       }
     }
+
+    @media only screen and (max-width: 600px) {
+
+    .home-card-#{$i} {
+      max-width: 80vw;
+    }
+    }
   }
 
   .home-card-1 {
