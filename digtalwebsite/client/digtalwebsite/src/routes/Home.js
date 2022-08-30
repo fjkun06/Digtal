@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
+import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
 
 
@@ -33,9 +34,12 @@ export default function Home() {
 
         <Grid className="home-body" id="hbody">
           <Grid className="home-body-inner"> 
-          <HomeCard />
-          <HomeCard/>
-          <HomeCard/>
+          {homeCards.map((card, index) => 
+          <HomeCard key={card.heading} logo={card.logo} text={card.text} heading={card.heading} cname={"home-card" + (index + 1)}/>
+            
+            )}
+          {/* <HomeCard/>
+          <HomeCard/> */}
            </Grid>
         </Grid>
       </Grid>

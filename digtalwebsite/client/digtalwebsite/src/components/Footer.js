@@ -10,6 +10,8 @@ import { links, policy, icons } from "./config/footer_config";
 export default function Footer({ language }) {
   const { t } = useTranslation("pageend");
 
+  console.log(new Date().getFullYear())
+
   return (
     <>
       <StyledEngineProvider injectFirst>
@@ -44,7 +46,7 @@ export default function Footer({ language }) {
             </Grid>
           </Grid>
           <Grid item className="footer-policy">
-            <Typography>© 2022 Digtal  Tous droits réservés</Typography>
+            <Typography>© {new Date().getFullYear()} Digtal  Tous droits réservés</Typography>
             <Grid item className="footer-policy-link-text">
               {policy.map((link) => (
                 <FooterLink key={link.label} to={language + link.route} text={t(link.label)} className="footer-policy-link-text-item" sx={{ color: "red" }} />

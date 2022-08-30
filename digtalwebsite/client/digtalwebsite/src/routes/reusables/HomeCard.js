@@ -7,16 +7,16 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 
-export default function HomeCard({logo}) {
+export default function HomeCard({logo,text,heading,cname}) {
   return (
-    <Card className="home-card">
-      <CardMedia component="img" alt="green iguana" height="300" image={logo} />
+    <Card className={cname}>
+      <CardMedia component="img" alt="green iguana" height="250" image={logo} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+        {text}
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+          {heading}
         </Typography>
       </CardContent>
       <CardActions>
