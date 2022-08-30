@@ -1,27 +1,42 @@
 @use "../../util/mixins";
 @use "../../util/variables";
 @use "../../util/extensions";
-@use './home-card';
+@use "./home-card";
 
 %home-body {
   .home-body {
-    // background-color: red;
     // border: 5px solid green;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     @include mixins.grid;
     position: relative;
 
     &-inner {
       // border: 5px solid green;
       // background-color: yellow;
+      background-color: var(--home-body-inner-bg-light);
+
       width: 70vw;
+      height: 100%;
+      @include mixins.flex;
+      column-gap: 2em;
+
+       //home card here
+  @extend %home-card;
+
+      @media only screen and (max-width: 1050px) {
+        @include mixins.flex(column);
     height: fit-content;
-    @include mixins.flex;
-column-gap: 2em;
+row-gap: 4rem;
+padding-top: 8rem;
+padding-bottom: 8rem;
+      }
     }
   }
 
-  //home card here
-  @extend %home-card;
+ 
+  @media only screen and (max-width: 1050px) {
+    height: fit-content;
+  }
+ 
 }

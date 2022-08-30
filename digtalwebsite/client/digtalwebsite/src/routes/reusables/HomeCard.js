@@ -5,7 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Arrow from "../Arrow";
 import MiniArrows from "../MiniArrows";
 
 export default function HomeCard({ logo, text, heading, cname, id }) {

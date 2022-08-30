@@ -2,20 +2,19 @@ import { Grid } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
-import { Waypoint } from "react-waypoint";
 import useOnScreen from "./OnScreen";
 import Arrow from "./Arrow";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const ref = useRef();
   const isVisible = useOnScreen(ref);
-  const [func, setFunc] = useState(() => "hello");
+  const {t} = useTranslation('pageend')
 
   React.useEffect(() => {
     const id1 = document.getElementById("hcard1");
     const id2 = document.getElementById("hcard2");
     const id3 = document.getElementById("hcard3");
-    const boxes = document.getElementById("hbody");
 
     if (isVisible) {
       callback();
@@ -39,7 +38,7 @@ export default function Home() {
           </Grid>
           <Grid item>
             <a href="#hbody" className="link">
-              Go to content
+             {t('content')}
             </a>
           </Grid>
         </Grid>
