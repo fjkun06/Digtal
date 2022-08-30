@@ -46,7 +46,7 @@ root.render(
 
           <Route path="/de" element={<App />}>
             {/* <Route path="/de" element={<App />}> */}
-            <Route path="home" element={<Home />} />
+            <Route index exact element={<Home />} />
 
             <Route path="enterprise" element={<Enterprise />} />
             <Route path="services">
@@ -68,7 +68,7 @@ root.render(
 
           <Route path="/fr" element={<App />}>
             {/* <Route path="/de" element={<App />}> */}
-            <Route path="home" element={<Home />} />
+            <Route index exact element={<Home />} />
 
             <Route path="enterprise" element={<Enterprise />} />
             <Route path="services">

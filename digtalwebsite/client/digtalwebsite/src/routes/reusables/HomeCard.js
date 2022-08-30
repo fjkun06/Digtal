@@ -5,6 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Arrow from "../Arrow";
+import MiniArrows from "../MiniArrows";
 
 export default function HomeCard({ logo, text, heading, cname, id }) {
 
@@ -22,6 +24,7 @@ export default function HomeCard({ logo, text, heading, cname, id }) {
       <CardActions>
         {/* <Button size="small">Share</Button> */}
         <Button size="large">Learn More</Button>
+        <MiniArrows/>
       </CardActions>
     </Card>
   );

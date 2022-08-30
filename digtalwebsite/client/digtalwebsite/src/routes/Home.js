@@ -4,6 +4,7 @@ import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
 import { Waypoint } from "react-waypoint";
 import useOnScreen from "./OnScreen";
+import Arrow from "./Arrow";
 
 export default function Home() {
   const ref = useRef();
@@ -22,9 +23,9 @@ export default function Home() {
     function callback() {
       console.log("callback");
       setTimeout(() => {
-      id1.style.animation = "scalar 1s ease-in-out 1";
-      id2.style.animation = " scalar 1s ease-in-out 0.5s 1";
-      id3.style.animation = " scalar 1s ease-in-out 1s 1";
+      id1.style.animation = "scalar 1.5s ease-in-out 1";
+      id2.style.animation = " scalar 1.5s ease-in-out 0.75s 1";
+      id3.style.animation = " scalar 1.5s ease-in-out 1.5s 1";
       }, 1000);
     }
   }, [isVisible]);
@@ -34,20 +35,7 @@ export default function Home() {
       <Grid className="home">
         <Grid className="home-header">
           <Grid item>
-            <div id="title">
-              <div className="header-1">
-                <div className="header-arrow-1"></div>
-              </div>
-              <div className="header-2">
-                <div className="header-arrow-2"></div>
-              </div>
-              <div className="header-3">
-                <div className="header-arrow-3"></div>
-              </div>
-              <div className="header-4">
-                <div className="header-arrow-4"></div>
-              </div>
-            </div>
+           <Arrow/>
           </Grid>
           <Grid item>
             <a href="#hbody" className="link">
