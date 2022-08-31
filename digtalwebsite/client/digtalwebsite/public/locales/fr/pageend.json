@@ -12,6 +12,14 @@
   "terms": "Conditions Générales",
   "policy": "Politique de confidentialité",
   "rights": "Tous droits réservés",
-  "content": "Vers le Contenu"
-
+  "content": "Vers le Contenu",
+  "text": {
+    "web": "Nous développons des logiciels qui inspirent les utilisateurs et les conduisent à leur destination de la manière la plus rapide possible.",
+    "marketing": " Nous aidons votre entreprise à booster sa visibilité en optimisant ses stratégies d’acquisition payantes, mais également en mettant en place une stratégie SEO pointue.",
+    "consulting": "Nos consultants informatiques allient la pensée stratégique, les idées pour le choix des technologies et des outils ainsi que les tendances numériques à la gestion de projet."
+  },
+  "nos-services": {
+    "title": "Nos Services",
+    "text": "Profitez du savoir faire de notre jeune et dynamique équipe regroupant plus de 10 experts du développement web & mobile, du IT Consulting et du Marketing Digital."
+  }
 }
