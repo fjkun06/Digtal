@@ -16,8 +16,10 @@ export default function HomeCard({ logo, text, heading, cname, id }) {
         <Typography gutterBottom variant="h5" component="div">
           {heading}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
-          {text}
+        <Typography variant="body1" className="home-card-text" >
+        {/* <Typography variant="body1" color="text.secondary" textOverflow={'ellipsis'} whiteSpace="nowrap" overflow={"hidden"}> */}
+          {text.length > 130? text.substring(0,130) + '...' : text}
+          {}
         </Typography>
       </CardContent>
       <CardActions>

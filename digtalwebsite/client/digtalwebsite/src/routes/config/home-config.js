@@ -4,18 +4,18 @@ import logo3 from "../../assets/images/phones.jpg";
 
 export const homeCards = [
   {
-    text: " Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    text: "text.web",
     logo: logo,
-    heading: "Lizard0",
+    heading: "subject.op2",
   },
   {
-    text: " Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    text: "text.marketing",
     logo: logo2,
-    heading: "Lizard1",
+    heading: "subject.op3",
   },
   {
-    text: " Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    text: "text.consulting", 
     logo: logo3,
-    heading: "Lizard2",
+    heading: "subject.op4",
   },
 ];

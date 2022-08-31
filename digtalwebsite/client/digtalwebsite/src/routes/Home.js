@@ -10,7 +10,7 @@ export default function Home() {
   const ref = useRef();
   // const inViewport = useIntersection(ref, '0px'); // Trigger as soon as the element becomes visible
   const inViewport = useIntersection(ref, "-200px");
-  const { t } = useTranslation("pageend");
+  const { t } = useTranslation(["pageend,form"]);
 
   React.useEffect(() => {
     const id1 = document.getElementById("hcard1");
@@ -40,7 +40,7 @@ export default function Home() {
           </Grid>
           <Grid item>
             <a href="#hbody" className="link">
-              {t("content")}
+              {t("content",{ns:"pageend"})}
             </a>
           </Grid>
         </Grid>
@@ -50,19 +50,18 @@ export default function Home() {
         <Grid className="home-body" id="hbody">
           <Grid className="home-body-header">
             <Typography variant="h3" className="home-body-header-title">
-              Nos Services
+             {t('nos-services.title',{ns:"pageend"})}
             </Typography>
             <Typography variant="subtitle1" className="home-body-header-para">
-              Profitez du savoir faire de notre jeune et dynamique équipe regroupant
-               plus de 10 experts <br/> du développement web & mobile, du IT Consulting et
-                du Marketing Digital.
+             {t('nos-services.text',{ns:"pageend"})}
+              
             </Typography>
           </Grid>
           <Grid className="home-body-inner" id="hinner" ref={ref}>
             {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
             {homeCards.map((card, index) => (
-              <HomeCard key={card.heading} logo={card.logo} text={card.text} heading={card.heading} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} />
+              <HomeCard key={card.heading} logo={card.logo} text={t(card.text,{ns:"pageend"})} heading={t(card.heading,{ns: "form"})} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} />
             ))}
             {/* <HomeCard/>
           <HomeCard/> */}

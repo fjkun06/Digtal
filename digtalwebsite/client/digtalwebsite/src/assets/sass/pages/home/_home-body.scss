@@ -5,14 +5,14 @@
 
 %home-body {
   .home-body {
-    border: 5px solid green;
+    // border: 5px solid green;
     width: 100vw;
     min-height: 100vh;
     @include mixins.grid;
     position: relative;
 
     &-inner {
-      border: 5px solid green;
+      // border: 5px solid green;
       // background-color: yellow;
       background-color: var(--home-body-inner-bg-light);
 
@@ -32,9 +32,11 @@
         padding-bottom: 8rem;
       }
       @media only screen and (max-width: 600px) {
-        @include mixins.flex(column);
+        // @include mixins.flex(column);
         // height: fit-content;
         width: 100vw;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
 
         // row-gap: 4rem;
         // padding-top: 8rem;
@@ -42,11 +44,30 @@
       }
     }
 
+    //header
     &-header {
       @include mixins.grid;
       row-gap: 1rem;
+      width: 70vw;
+      background-color: var(--home-body-inner-bg);
 
-      border: 1px solid red;
+      @media only screen and (max-width: 1050px) {
+        &-header {
+          width: 40vw;
+          padding-bottom: 4rem;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        // margin-left: 7.5vw;
+        // &-header {
+          justify-self: center;
+          width: 90vw;
+
+        // }
+      }
+
+      // border: 1px solid red;
 
       &-title {
         font-family: "Gudea";
@@ -54,18 +75,39 @@
         // border: 1px solid red;
         text-align: center;
         font-weight: 900;
+
+        
+        @media only screen and (max-width: 1050px) {
+          // margin-left: 7.5vw;
+          // &-para {
+          padding-top: 4rem;
+
+            font-size: 2rem;
+          // }
+        }
       }
 
       &-para {
         // border: 1px solid red;
+        padding: 0px 10px;
         text-align: center;
-font-weight: 300;
-        font-size: 1.5rem;
+        font-weight: 300;
+        font-size: 1.7rem;
+        font-family: "Roboto";
+
+        @media only screen and (max-width: 1016px) {
+          // &-para {
+            font-size: 1.4rem;
+          // }
+        }
+
+        @media only screen and (max-width: 600px) {
+          // margin-left: 7.5vw;
+          // &-para {
+            font-size: 1rem;
+          // }
+        }
       }
     }
-  }
-
-  @media only screen and (max-width: 1050px) {
-    height: fit-content;
   }
 }

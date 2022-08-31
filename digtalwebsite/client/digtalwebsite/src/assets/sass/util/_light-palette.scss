@@ -58,7 +58,7 @@
   --arrow-end: #{$arrow-end-light};
 
   //home
---home-body-inner-bg-light: #{$home-body-inner-bg-light};
-
-
+  --home-body-inner-bg: #{$home-body-inner-bg-light};
+  --home-body-card-text: #{$home-body-card-text-light};
+  --home-body-card-heading: #{$home-body-card-heading-light};
 }

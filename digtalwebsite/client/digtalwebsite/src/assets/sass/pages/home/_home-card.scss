@@ -6,13 +6,22 @@
       box-shadow: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
       transition: all 0.5s ease-in-out;
       max-width: 22vw;
+color: var(  --home-body-card-heading);
 
+      // display: -webkit-box;
+  // -webkit-box-orient: vertical;
+  // -webkit-line-clamp: 2;
+  // overflow: hidden;
       // max-width: 40vw;
 
       // box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
       &:hover {
         transform: scale(1.15);
       }
+    }
+
+    .home-card-text{
+      color: var(--home-body-card-text);
     }
 
     @media only screen and (max-width: 1050px) {
@@ -26,6 +35,10 @@
 
     .home-card-#{$i} {
       max-width: 85vw;
+
+      &:hover {
+        transform: scale(1.03);
+      }
     }
     }
   }
