@@ -44,8 +44,8 @@ export default function Navbar({ language, setLanguage }) {
   // const condition = regex.test(window.location.pathname);
 
   const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
-  console.log(language);
-  console.log(window.location.pathname);
+  // console.log(language);
+  console.log( "windows",window.location.pathname);
 
   // console.log("regex: ",regex.test('/fr/')); // true
 
@@ -64,7 +64,7 @@ export default function Navbar({ language, setLanguage }) {
     } else if (window.location.pathname === "/de/") {
       setRegion(german);
     }
-  }, [window.location.pathname]);
+  }, []);
 
   //first useffect hook
   useEffect(() => {
@@ -93,7 +93,8 @@ export default function Navbar({ language, setLanguage }) {
     const mainNav = document.getElementById("n-main");
     const outlet = document.getElementById("hbody");
 
-    const sticky = condition ? outlet.offsetTop : "";
+    const sticky = condition ? outlet?.offsetTop : "";
+    // const sticky = condition ? outlet.offsetTop : "";
 
     if (!condition) {
       //   //making navbar visible
@@ -217,7 +218,7 @@ export default function Navbar({ language, setLanguage }) {
               />
 
               <Grid className="mobile-nav-bar mobile-navbar-reveal">
-                {["", "enterprise"].map((item) => (
+                {["Home", "enterprise"].map((item) => (
                   <Grid item className="mobile-nav-bar-item" key={item}>
                     <MobileActiveNavLink to={language + "/" + item} text={t(item)} />
                   </Grid>

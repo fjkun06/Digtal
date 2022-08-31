@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import './assets/sass/main.scss';
+import "@fontsource/carrois-gothic"
 import { useState } from "react";
 function App() {
 

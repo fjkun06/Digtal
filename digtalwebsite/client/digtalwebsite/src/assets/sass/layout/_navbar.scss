@@ -21,6 +21,17 @@
 
    animation-iteration-count: 1;
 
+   &-item{
+     transition: all 0.1s ease;
+
+      &:hover{
+     transition: all 0.1s ease;
+padding-bottom: 0.3rem;
+         border-bottom: var(--navbar-link-active-bb);
+
+         }
+   }
+
    // transition: opacity 0.2s ease-in-out 0s;
 
    // top:70vh;

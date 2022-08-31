@@ -32,10 +32,10 @@ export default function Home() {
           id1.style.animation = "scalar 1.5s ease-in-out 1";
           id2.style.animation = " scalar 1.5s ease-in-out 0.75s 1";
           id3.style.animation = " scalar 1.5s ease-in-out 1.5s 1";
-        }, 3000);
-      }, 1000);
+        }, 1800);
+      }, 100);
     }
-  }, [inViewport]);
+  }, [visible,inViewport]);
 
   return (
     <>

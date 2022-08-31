@@ -3,16 +3,16 @@
 %home-card {
   @for $i from 1 through 3 {
     .home-card-#{$i} {
-      box-shadow: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
+      box-shadow: var(--home-body-card-bs-light);
       transition: all 0.5s ease-in-out;
       max-width: 22vw;
 color: var(  --home-body-card-heading);
-// border: 1px solid red;
-      // display: -webkit-box;
-  // -webkit-box-orient: vertical;
-  // -webkit-line-clamp: 2;
-  // overflow: hidden;
-      // max-width: 40vw;
+
+
+//button
+&-button{
+  color: var(--home-body-card-button);
+}
 
       // box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
       &:hover {
@@ -43,20 +43,7 @@ color: var(  --home-body-card-heading);
     }
   }
 
-  .home-card-1 {
-    // display: none;
-
-    // animation: scalar 1s ease-in-out 1;
-    // animation-play-state: paused;
-  }
-  .home-card-2 {
-    // animation: scalar 1s ease-in-out 0.5s 1;
-    // animation-play-state: paused;
-  }
-  .home-card-3 {
-    // animation: scalar 1s ease-in-out 1s 1;
-    // animation-play-state: paused;
-  }
+ 
 
   @keyframes scalar {
     50%,

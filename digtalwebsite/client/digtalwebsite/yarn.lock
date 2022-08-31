@@ -1311,6 +1311,11 @@
   "resolved" "https://registry.npmjs.org/@fontsource/aileron/-/aileron-4.5.3.tgz"
   "version" "4.5.3"
 
+"@fontsource/carrois-gothic@^4.5.9":
+  "integrity" "sha512-ceQnv2TJ25SiAFAabiuLfdc4ho6ejOf72J81Zk3XSFQqqilU3Y6gw+gf+E2uTlRLx+2DgNRF80grfKedqZVAog=="
+  "resolved" "https://registry.npmjs.org/@fontsource/carrois-gothic/-/carrois-gothic-4.5.9.tgz"
+  "version" "4.5.9"
+
 "@fontsource/gudea@^4.5.8":
   "integrity" "sha512-fMlmt/V6mLVDoPhiMMrRpJDnhurWcRE/TNtpeECYXlrlpkKjyq5s0il1nMEmQumpz2ZbEEcMAP1TAWYR4mUUEA=="
   "resolved" "https://registry.npmjs.org/@fontsource/gudea/-/gudea-4.5.8.tgz"

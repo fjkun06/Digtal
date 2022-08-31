@@ -10,16 +10,21 @@
     min-height: 100vh;
     @include mixins.grid;
     position: relative;
+    row-gap: 0;
+    
 
     &-inner {
       // border: 5px solid green;
       // background-color: yellow;
-      background-color: var(--home-body-inner-bg-light);
+      background-color: var(--home-body-inner-bg);
 
       width: 70vw;
       height: 100%;
       @include mixins.flex;
       column-gap: 2em;
+
+      padding-top: 6rem;
+      padding-bottom: 16rem;
 
       //home card here
       @extend %home-card;
@@ -50,6 +55,9 @@
       row-gap: 1rem;
       width: 70vw;
       background-color: var(--home-body-inner-bg);
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+      // margin-top: -4rem;
 
       @media only screen and (max-width: 1050px) {
         &-header {
@@ -75,6 +83,7 @@
         // border: 1px solid red;
         text-align: center;
         font-weight: 900;
+        color: var( --home-body-title);
 
         
         @media only screen and (max-width: 1050px) {
@@ -85,6 +94,15 @@
             font-size: 2rem;
           // }
         }
+
+        @media only screen and (max-width: 600px) {
+          // margin-left: 7.5vw;
+          // &-para {
+          padding-top: 0rem;
+
+            font-size: 2.4rem;
+          // }
+        }
       }
 
       &-para {
@@ -92,10 +110,14 @@
         padding: 0px 10px;
         text-align: center;
         font-weight: 300;
-        font-size: 1.7rem;
-        font-family: "Roboto";
+        font-size: 1.45rem;
+        font-family: "Carrois Gothic";
+        color: var( --home-body-para);
+        padding: 2rem 10rem;
 
         @media only screen and (max-width: 1016px) {
+        padding: 1rem;
+
           // &-para {
             font-size: 1.4rem;
           // }
@@ -104,7 +126,7 @@
         @media only screen and (max-width: 600px) {
           // margin-left: 7.5vw;
           // &-para {
-            font-size: 1rem;
+            font-size: 1.4rem;
           // }
         }
       }

@@ -12,6 +12,7 @@
     @include mixins.size(250px, fit-content);
 
     z-index: -1;
+    // z-index: -1;
 
     &::before {
         content: "";
