@@ -42,9 +42,8 @@ root.render(
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<FourOFour />} />
             </Route>
-          </Route>
 
-          <Route path="/de" element={<App />}>
+            <Route path="/de">
             {/* <Route path="/de" element={<App />}> */}
             <Route index exact element={<Home />} />
 
@@ -66,7 +65,7 @@ root.render(
             {/* </Route> */}
           </Route>
 
-          <Route path="/fr" element={<App />}>
+          <Route path="/fr">
             {/* <Route path="/de" element={<App />}> */}
             <Route index exact element={<Home />} />
 
@@ -87,6 +86,9 @@ root.render(
             <Route path="*" element={<FourOFour />} />
             {/* </Route> */}
           </Route>
+          </Route>
+
+
         </Routes>
       </BrowserRouter>
     </React.Suspense>

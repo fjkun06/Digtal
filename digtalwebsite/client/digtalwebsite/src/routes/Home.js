@@ -11,6 +11,8 @@ export default function Home() {
   // const inViewport = useIntersection(ref, '0px'); // Trigger as soon as the element becomes visible
   const inViewport = useIntersection(ref, "-200px");
   const { t } = useTranslation(["pageend,form"]);
+  const [visible, setVisible] = useState(false);
+  
 
   React.useEffect(() => {
     const id1 = document.getElementById("hcard1");
@@ -24,9 +26,13 @@ export default function Home() {
     function callback() {
       console.log("callbackkkkk");
       setTimeout(() => {
-        id1.style.animation = "scalar 1.5s ease-in-out 1";
-        id2.style.animation = " scalar 1.5s ease-in-out 0.75s 1";
-        id3.style.animation = " scalar 1.5s ease-in-out 1.5s 1";
+        setVisible(true);
+        console.log("set visible:", visible);
+        setTimeout(() => {
+          id1.style.animation = "scalar 1.5s ease-in-out 1";
+          id2.style.animation = " scalar 1.5s ease-in-out 0.75s 1";
+          id3.style.animation = " scalar 1.5s ease-in-out 1.5s 1";
+        }, 3000);
       }, 1000);
     }
   }, [inViewport]);
@@ -40,7 +46,7 @@ export default function Home() {
           </Grid>
           <Grid item>
             <a href="#hbody" className="link">
-              {t("content",{ns:"pageend"})}
+              {t("content", { ns: "pageend" })}
             </a>
           </Grid>
         </Grid>
@@ -50,18 +56,17 @@ export default function Home() {
         <Grid className="home-body" id="hbody">
           <Grid className="home-body-header">
             <Typography variant="h3" className="home-body-header-title">
-             {t('nos-services.title',{ns:"pageend"})}
+              {t("nos-services.title", { ns: "pageend" })}
             </Typography>
             <Typography variant="subtitle1" className="home-body-header-para">
-             {t('nos-services.text',{ns:"pageend"})}
-              
+              {t("nos-services.text", { ns: "pageend" })}
             </Typography>
           </Grid>
           <Grid className="home-body-inner" id="hinner" ref={ref}>
             {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
             {homeCards.map((card, index) => (
-              <HomeCard key={card.heading} logo={card.logo} text={t(card.text,{ns:"pageend"})} heading={t(card.heading,{ns: "form"})} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} />
+              <HomeCard key={card.heading} logo={card.logo} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} />
             ))}
             {/* <HomeCard/>
           <HomeCard/> */}

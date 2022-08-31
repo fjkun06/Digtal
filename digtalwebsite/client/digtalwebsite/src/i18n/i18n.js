@@ -18,7 +18,7 @@ i18n
    // init i18next
    // for all options read: https://www.i18next.com/overview/configuration-options
    .init({
-      fallbackLng: 'en',
+      fallbackLng: window.location.pathname[1] + window.location.pathname[2],
       debug: true,
       // lng:'cimode',
 

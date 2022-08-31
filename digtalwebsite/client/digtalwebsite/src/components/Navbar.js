@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "@fontsource/gudea";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import anglais from "../assets/images/uk64.png";
+import france from "../assets/images/fr64.png";
+import german from "../assets/images/de64.png";
 import logo from "../assets/images/logo.png";
 import { Box, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
@@ -25,7 +27,7 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileNavbarReveal, setMobileNavbarReveal] = useState("");
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
-  const [specialLanguage, setspecialLanguage] = useState("");
+  const [specialLanguage, setspecialLanguage] = useState(window.location.pathname[1] + window.location.pathname[2]);
   const [scrollUp, setScrollUp] = useState(true);
   // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
@@ -37,11 +39,32 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //codition for scrolling
+  // const regex = new RegExp(/\/..\/$/);
 
-  const condition = window.location.pathname === language + '/';
-  console.log(location)
+  // const condition = regex.test(window.location.pathname);
+
+  const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
+  console.log(language);
+  console.log(window.location.pathname);
+
+  // console.log("regex: ",regex.test('/fr/')); // true
 
   // console.log("condition: ", condition, "scrollUp: ", scrollUp);
+
+  //language flag useeffect
+  useEffect(() => {
+    // specialLanguage === '/en/' ? anglais : ('/fr/') ? france : ('/de/') ? german : null
+    // const setflag = () => {
+
+    // }
+    if (window.location.pathname === "/en/") {
+      setRegion(anglais);
+    } else if (window.location.pathname === "/fr/") {
+      setRegion(france);
+    } else if (window.location.pathname === "/de/") {
+      setRegion(german);
+    }
+  }, [window.location.pathname]);
 
   //first useffect hook
   useEffect(() => {
@@ -54,11 +77,11 @@ export default function Navbar({ language, setLanguage }) {
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
     setspecialLanguage(document.getElementsByClassName("special-language"));
-  }, [language]);
+  }, []);
 
   //navigation
   useEffect(() => {
-    if(location.pathname === '/') navigate(language + '/');
+    if (location.pathname === "/") navigate(language + "/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -75,9 +98,8 @@ export default function Navbar({ language, setLanguage }) {
     if (!condition) {
       //   //making navbar visible
       nav.style.opacity = 1;
-    }else{
+    } else {
       nav.style.opacity = 0;
-
     }
 
     const threshold = 0;
@@ -93,8 +115,7 @@ export default function Navbar({ language, setLanguage }) {
       }
       if (lastScrollY >= sticky) {
         setHasScrolled(scrollY > lastScrollY ? false : true);
-      nav.style.opacity = 1;
-
+        nav.style.opacity = 1;
       } else {
         setHasScrolled(scrollY > lastScrollY ? false : false);
       }
@@ -120,7 +141,6 @@ export default function Navbar({ language, setLanguage }) {
     };
   }, [scrollDir, condition]);
   // useEffect(() => {
-
 
   //media query
   const max767 = useMediaQuery("(max-width:768px)");
