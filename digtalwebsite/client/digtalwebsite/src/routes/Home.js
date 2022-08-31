@@ -1,10 +1,11 @@
 import { Grid, Typography } from "@mui/material";
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
 import { useIntersection } from "./OnScreen";
 import Arrow from "./Arrow";
 import { useTranslation } from "react-i18next";
+import HomeSkeleton from "./skeletons/HomeSkeleton";
 
 export default function Home() {
   const ref = useRef();
@@ -38,7 +39,7 @@ export default function Home() {
   }, [visible,inViewport]);
 
   return (
-    <>
+    <><Suspense fallback={<HomeSkeleton/>} >
       <Grid className="home">
         <Grid className="home-header">
           <Grid item>
@@ -73,6 +74,7 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
+      </Suspense>
     </>
   );
 }

@@ -16,11 +16,12 @@ import News from "./routes/footer/News";
 import Contact from "./components/ContactForm";
 import TermsOfUse from "./routes/footer/TermsOfUse";
 import PrivacyPolicy from "./routes/footer/PrivacyPolicy";
+import HomeSkeleton from "./routes/skeletons/HomeSkeleton";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <React.Suspense fallback="Loading...">
+    <React.Suspense fallback={<HomeSkeleton/>}>
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<App />}>

@@ -8,7 +8,6 @@ import { useState } from "react";
 function App() {
 
   const [language, setLanguage] = useState("/en");
-  const condition = window.location.pathname?.includes("home");
 
 
   return (

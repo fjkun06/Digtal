@@ -101,6 +101,7 @@ export default function Navbar({ language, setLanguage }) {
       nav.style.opacity = 1;
     } else {
       nav.style.opacity = 0;
+      nav.style.display = "none";
     }
 
     const threshold = 0;
