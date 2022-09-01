@@ -18,7 +18,16 @@ export default function Home() {
   const { t } = useTranslation(["pageend,form"]);
   const [visible, setVisible] = useState(false);
 
+  //scroll element
+  const [scroller, setScroller] = useState(null);
+  const handleScroll = () => scroller.scrollIntoView();
+
   React.useEffect(() => {
+
+    //setting scroller
+    setScroller(document.getElementById("hbody"));
+
+
     const id1 = document.getElementById("hcard1");
     const id2 = document.getElementById("hcard2");
     const id3 = document.getElementById("hcard3");
@@ -46,13 +55,13 @@ export default function Home() {
       <Suspense fallback={<HomeSkeleton />}>
         <Grid className="home">
           <Grid className="home-header">
-            <Grid item>
+            <Grid item className="home-header-arrow-container" onClick={handleScroll}>
               <Arrow />
             </Grid>
-            <Grid item>
-              <a href="#hbody" className="link">
+            <Grid item xs={12}>
+              <Typography variant="body1" className="link">
                 {t("content", { ns: "pageend" })}
-              </a>
+              </Typography>
             </Grid>
           </Grid>
           {/* <div ref={ref}>{isVisible && `Yep, I'm on screen`}</div> */}

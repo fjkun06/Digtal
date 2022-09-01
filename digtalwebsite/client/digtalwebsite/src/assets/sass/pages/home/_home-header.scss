@@ -7,10 +7,15 @@
   .home-header {
     @include mixins.grid;
     height: 100vh;
+    // width: 10vw;
+    border: 5px solid green;
+
     // height: 88vh;
     position: relative;
     min-width: 100vw;
-    background-image: url(../../../images/home_header.jpg);
+    background-image: url('../../../images/digtal ui_shadow_v2.png');
+    // background-image: url(../../../images/original.png);
+    // background-image: url(../../../images/home_header.jpg);
     // background-color: #fff;
     background-size: cover;
     background-attachment: scroll;
@@ -25,19 +30,38 @@
       height: 100vh;
       // height: 88vh;
       min-width: 100vw;
-    // border: 1px solid green;
 
     }
     //  background: rgba(variables.$black,0.2);
 
-  
+  //arrow container
+  &-arrow-container{
+    position: absolute;
+    top: 82vh;
+    @include mixins.grid;
+
+    // left: 46.5vw;
+    transform: scale(0.5);
+    border: 1px solid red;
+    width: 100vw;
+    height: 120px;
+    z-index: 7;
+    &:hover{
+      cursor: pointer;
+    }
+  }
 
     .link{
-      margin-top: 400px;
+      margin-top: 93vh;
       // background-color: #fff;
       z-index: 2;
+      font-size: 1.3rem;
       // text-decoration: underline;
       position: relative;
+      font-family: "Gudea";
+      font-weight: bold;
+    @include mixins.grid;
+
 
       &::after {
         position: absolute;
