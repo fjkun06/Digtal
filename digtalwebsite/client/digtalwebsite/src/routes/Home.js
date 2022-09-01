@@ -14,13 +14,9 @@ export default function Home() {
   const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
 
   const inViewport = useIntersection(ref || null, "-200px");
-  
-
-
 
   const { t } = useTranslation(["pageend,form"]);
   const [visible, setVisible] = useState(false);
-  
 
   React.useEffect(() => {
     const id1 = document.getElementById("hcard1");
@@ -43,44 +39,45 @@ export default function Home() {
         }, 1800);
       }, 100);
     }
-  }, [visible,inViewport,condition]);
+  }, [visible, inViewport, condition]);
 
   return (
-    <><Suspense fallback={<HomeSkeleton/>} >
-      <Grid className="home">
-        <Grid className="home-header">
-          <Grid item>
-            <Arrow />
+    <>
+      <Suspense fallback={<HomeSkeleton />}>
+        <Grid className="home">
+          <Grid className="home-header">
+            <Grid item>
+              <Arrow />
+            </Grid>
+            <Grid item>
+              <a href="#hbody" className="link">
+                {t("content", { ns: "pageend" })}
+              </a>
+            </Grid>
           </Grid>
-          <Grid item>
-            <a href="#hbody" className="link">
-              {t("content", { ns: "pageend" })}
-            </a>
-          </Grid>
-        </Grid>
-        {/* <div ref={ref}>{isVisible && `Yep, I'm on screen`}</div> */}
-        {/* {isVisible && console.log("div className")} */}
+          {/* <div ref={ref}>{isVisible && `Yep, I'm on screen`}</div> */}
+          {/* {isVisible && console.log("div className")} */}
 
-        <Grid className="home-body" id="hbody">
-          <Grid className="home-body-header">
-            <Typography variant="h3" className="home-body-header-title">
-              {t("nos-services.title", { ns: "pageend" })}
-            </Typography>
-            <Typography variant="subtitle1" className="home-body-header-para">
-              {t("nos-services.text", { ns: "pageend" })}
-            </Typography>
-          </Grid>
-          <Grid className="home-body-inner" id="hinner" ref={ref}>
-            {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
+          <Grid className="home-body" id="hbody">
+            <Grid className="home-body-header">
+              <Typography variant="h3" className="home-body-header-title">
+                {t("nos-services.title", { ns: "pageend" })}
+              </Typography>
+              <Typography variant="subtitle1" className="home-body-header-para">
+                {t("nos-services.text", { ns: "pageend" })}
+              </Typography>
+            </Grid>
+            <Grid className="home-body-inner" id="hinner" ref={ref}>
+              {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
-            {homeCards.map((card, index) => (
-              <HomeCard key={card.heading} logo={card.logo} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} />
-            ))}
-            {/* <HomeCard/>
+              {homeCards.map((card, index) => (
+                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })}/>
+              ))}
+              {/* <HomeCard/>
           <HomeCard/> */}
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
       </Suspense>
     </>
   );

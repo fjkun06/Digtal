@@ -7,9 +7,15 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MiniArrows from "../MiniArrows";
 import { Slide } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function HomeCard({ logo, text, heading, cname, id, visible, appear }) {
+export default function HomeCard({ logo, text, heading, cname, id, visible, appear,path,buttonText }) {
   // const containerRef = React.useRef(null);
+  const navigate = useNavigate();
+  const location = window?.location?.pathname?.slice(0,4)
+  console.log()
+
+  const handleclick= () => navigate(location+ path)
 
   React.useEffect(() => {
     //  console.log("currid: ",containerRef.current.id);
@@ -37,7 +43,8 @@ export default function HomeCard({ logo, text, heading, cname, id, visible, appe
           {/* <Slide direction="right" in={visible} mountOnEnter  timeout={{appear: appear}} container={containerRef.current}> */}
 
           {/* <Button size="small">Share</Button> */}
-          <Button size="large" className={cname + '-button'}>Learn More</Button>
+          <Button size="large" className={cname + '-button'} onClick={handleclick}>{buttonText}</Button>
+          {/* <Button size="large" className={cname + '-button'} onClick={handleclick}><Link to={'/en/services'}>Learn More</Link></Button> */}
           {/* <MiniArrows /> */}
         </Slide>
         {/* <Slide direction="right" in={visible} mountOnEnter> */}

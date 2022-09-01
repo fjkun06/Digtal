@@ -7,15 +7,20 @@ export const homeCards = [
     text: "text.web",
     logo: logo,
     heading: "subject.op2",
+    path: "services/web-development"
   },
   {
     text: "text.marketing",
     logo: logo2,
     heading: "subject.op3",
+    path: "services/digital-marketing"
+
   },
   {
     text: "text.consulting", 
     logo: logo3,
     heading: "subject.op4",
+    path: "services/consulting"
+
   },
 ];
