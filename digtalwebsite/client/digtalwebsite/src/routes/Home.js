@@ -2,15 +2,22 @@ import { Grid, Typography } from "@mui/material";
 import React, { Suspense, useRef, useState } from "react";
 import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
-import { useIntersection } from "./OnScreen";
+import { useIntersection } from "./useIntersection";
 import Arrow from "./Arrow";
 import { useTranslation } from "react-i18next";
 import HomeSkeleton from "./skeletons/HomeSkeleton";
 
 export default function Home() {
   const ref = useRef();
+
   // const inViewport = useIntersection(ref, '0px'); // Trigger as soon as the element becomes visible
-  const inViewport = useIntersection(ref, "-200px");
+  const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
+
+  const inViewport = useIntersection(ref || null, "-200px");
+  
+
+
+
   const { t } = useTranslation(["pageend,form"]);
   const [visible, setVisible] = useState(false);
   
@@ -20,7 +27,7 @@ export default function Home() {
     const id2 = document.getElementById("hcard2");
     const id3 = document.getElementById("hcard3");
 
-    if (inViewport) {
+    if (inViewport && condition) {
       console.log("in viewport:", ref.current);
       callback();
     }
@@ -36,7 +43,7 @@ export default function Home() {
         }, 1800);
       }, 100);
     }
-  }, [visible,inViewport]);
+  }, [visible,inViewport,condition]);
 
   return (
     <><Suspense fallback={<HomeSkeleton/>} >

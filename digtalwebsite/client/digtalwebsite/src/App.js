@@ -9,6 +9,7 @@ function App() {
 
   const [language, setLanguage] = useState("/en");
 
+  console.log("im in app")
 
   return (
      <>

@@ -39,11 +39,11 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //codition for scrolling
-  // const regex = new RegExp(/\/..\/$/);
+  const regex = new RegExp(/\/..\/$/);
 
-  // const condition = regex.test(window.location.pathname);
+  const condition = regex.test(window.location.pathname);
 
-  const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
+  // const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
   // console.log(language);
   console.log( "windows",window.location.pathname);
 
@@ -94,16 +94,19 @@ export default function Navbar({ language, setLanguage }) {
     const outlet = document.getElementById("hbody");
 
     const sticky = condition ? outlet?.offsetTop : "";
-    // const sticky = condition ? outlet.offsetTop : "";
 
     if (!condition) {
-      //   //making navbar visible
+        //making navbar visible
+      nav.style.display = "grid";
+      console.log("im not home")
+
       nav.style.opacity = 1;
     } else {
       nav.style.opacity = 0;
-      nav.style.display = "none";
-    }
+      console.log("im  home")
 
+      nav.style.height = "0px";
+    }
     const threshold = 0;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
@@ -118,8 +121,12 @@ export default function Navbar({ language, setLanguage }) {
       if (lastScrollY >= sticky) {
         setHasScrolled(scrollY > lastScrollY ? false : true);
         nav.style.opacity = 1;
+      nav.style.height = "100%";
+
+
       } else {
         setHasScrolled(scrollY > lastScrollY ? false : false);
+
       }
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
@@ -219,7 +226,7 @@ export default function Navbar({ language, setLanguage }) {
               />
 
               <Grid className="mobile-nav-bar mobile-navbar-reveal">
-                {["Home", "enterprise"].map((item) => (
+                {["home", "enterprise"].map((item) => (
                   <Grid item className="mobile-nav-bar-item" key={item}>
                     <MobileActiveNavLink to={language + "/" + item} text={t(item)} />
                   </Grid>
@@ -248,7 +255,7 @@ export default function Navbar({ language, setLanguage }) {
 
             {/* Desktop navbar */}
             <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5 }} pl={5} pr={5}>
-              <Gridd item md={location.pathname === "/de/" ? 0.5 : 1}>
+              <Gridd item md={location.pathname === "/de/" ? 0.5 : 1} >
                 <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
               <Gridd item md={location.pathname === "/de/" ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
