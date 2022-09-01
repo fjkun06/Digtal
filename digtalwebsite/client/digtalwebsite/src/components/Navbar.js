@@ -258,10 +258,10 @@ export default function Navbar({ language, setLanguage }) {
               <Gridd item md={location.pathname === "/de/" ? 0.5 : 1} >
                 <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
-              <Gridd item md={location.pathname === "/de/" ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
+              <Gridd item md={window?.location?.pathname.includes("/de/") ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
-              <Gridd item md={location.pathname === "/de/home" ? 1.7 : 1.3} sm={2} className="select-item">
+              <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item">
                 <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
                   <ActiveNavLink to={language + "/services/"} text={t("services")} />
                   <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} />
