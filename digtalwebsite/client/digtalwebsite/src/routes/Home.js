@@ -6,6 +6,12 @@ import { useIntersection } from "./useIntersection";
 import Arrow from "./Arrow";
 import { useTranslation } from "react-i18next";
 import HomeSkeleton from "./skeletons/HomeSkeleton";
+import CustomImage from "../components/ReusableImage";
+import original from "../assets/images/digtal_ui.png";
+import original2 from "../assets/images/digtal ui_shadow_v2.png";
+import original3 from "../assets/images/digtal_ui_shadow_v3.png";
+
+
 
 export default function Home() {
   const ref = useRef();
@@ -21,6 +27,8 @@ export default function Home() {
   //scroll element
   const [scroller, setScroller] = useState(null);
   const handleScroll = () => scroller.scrollIntoView();
+
+  //
 
   React.useEffect(() => {
 
@@ -55,14 +63,17 @@ export default function Home() {
       <Suspense fallback={<HomeSkeleton />}>
         <Grid className="home">
           <Grid className="home-header">
+            <CustomImage image={original} alt="hello" classes="home-header-image" />
+            <CustomImage image={original2} alt="hello" classes="home-header-image" />
+            <CustomImage image={original3} alt="hello" classes="home-header-image" />
             <Grid item className="home-header-arrow-container" onClick={handleScroll}>
               <Arrow />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Typography variant="body1" className="link">
                 {t("content", { ns: "pageend" })}
               </Typography>
-            </Grid>
+            </Grid> */}
           </Grid>
           {/* <div ref={ref}>{isVisible && `Yep, I'm on screen`}</div> */}
           {/* {isVisible && console.log("div className")} */}
