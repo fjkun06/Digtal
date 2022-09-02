@@ -11,8 +11,6 @@ import original from "../assets/images/digtal_ui.png";
 import original2 from "../assets/images/digtal ui_shadow_v2.png";
 import original3 from "../assets/images/digtal_ui_shadow_v3.png";
 
-
-
 export default function Home() {
   const ref = useRef();
 
@@ -28,13 +26,35 @@ export default function Home() {
   const [scroller, setScroller] = useState(null);
   const handleScroll = () => scroller.scrollIntoView();
 
-  //
+  //scroll arrow
+  const [scrollArrow, setScrollArrow] = useState(null);
+
+  //Carousel
+  const steps = [
+    { position: 0, arrow: "" },
+    { position: -100, arrow: "" },
+    { position: -200, arrow: "" },
+  ];
+  const [carouselElement, setCarouselElement] = useState(null);
+  const nextCarousel = (position) => {
+    carouselElement.style.transform = `translateX(${position}vw)`;
+  };
 
   React.useEffect(() => {
-
     //setting scroller
-    setScroller(document.getElementById("hbody"));
+    setScroller(document?.getElementById("hbody"));
 
+    //setting carousel
+    setCarouselElement(document?.getElementById("hheader"));
+    console.log("carousel element: ", carouselElement);
+
+    //automatic carousel
+    setInterval(() => {
+      
+    }, 2000);
+
+    //setting scroll arrow
+    setScrollArrow(document?.getElementById("harrow"));
 
     const id1 = document.getElementById("hcard1");
     const id2 = document.getElementById("hcard2");
@@ -56,18 +76,19 @@ export default function Home() {
         }, 1800);
       }, 100);
     }
-  }, [visible, inViewport, condition]);
+  }, [visible, inViewport, condition, carouselElement]);
 
   return (
     <>
       <Suspense fallback={<HomeSkeleton />}>
         <Grid className="home">
-          <Grid className="home-header">
+          <Grid className="home-header" id="hheader">
             <CustomImage image={original} alt="hello" classes="home-header-image" />
             <CustomImage image={original2} alt="hello" classes="home-header-image" />
             <CustomImage image={original3} alt="hello" classes="home-header-image" />
-            <Grid item className="home-header-arrow-container" onClick={handleScroll}>
-              <Arrow />
+            <Grid item className="home-header-arrow-container" id="harrow" onClick={nextCarousel}>
+              {/* <Grid item className="home-header-arrow-container" onClick={handleScroll}> */}
+              <Arrow onClick={nextCarousel}/>
             </Grid>
             {/* <Grid item xs={12}>
               <Typography variant="body1" className="link">
@@ -91,7 +112,7 @@ export default function Home() {
               {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
               {homeCards.map((card, index) => (
-                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })}/>
+                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} />
               ))}
               {/* <HomeCard/>
           <HomeCard/> */}
