@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense, useCallback, useRef, useState } from "react";
 import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
 import { useIntersection } from "./useIntersection";
@@ -30,15 +30,57 @@ export default function Home() {
   const [scrollArrow, setScrollArrow] = useState(null);
 
   //Carousel
-  const steps = [
-    { position: 0, arrow: "" },
-    { position: -100, arrow: "" },
-    { position: -200, arrow: "" },
-  ];
-  const [carouselElement, setCarouselElement] = useState(null);
-  const nextCarousel = (position) => {
-    carouselElement.style.transform = `translateX(${position}vw)`;
-  };
+  const [carouselPosition, setCarouselPosition] = useState(-100);
+  const [prev, setPrev] = useState(0);
+  const [carouselElement, setCarouselElement] = useState(document?.getElementById("hheader"));
+  const nextCarousel = useCallback(
+    (position) => {
+     if(carouselElement) carouselElement.style.transform = `translateX(${position}vw)`;
+    },
+    [ carouselElement],
+  )
+  
+
+   //automatic carousel
+   setInterval(() => {
+    if (carouselPosition === -200) {
+      nextCarousel(carouselPosition);
+
+      setTimeout(() => {
+
+        setCarouselPosition(-100);
+      setPrev(-200);
+
+      }, 2000);
+    }
+
+    // nextCarousel(carouselPosition);
+
+    if (carouselPosition === 0 ) {
+      nextCarousel(carouselPosition);
+
+      setTimeout(() => {
+
+        setCarouselPosition(-100);
+      setPrev(0);
+
+      }, 2000);}
+
+    if (carouselPosition === -100 && prev === 0) {
+      nextCarousel(carouselPosition);
+
+      setTimeout(() => {
+        setCarouselPosition(-200);
+      }, 2000);}
+
+    if (carouselPosition === -100 && prev === -200) {
+      nextCarousel(carouselPosition);
+
+      setTimeout(() => {
+        setCarouselPosition(0);
+      }, 2000);
+    }
+  }, 2000);
 
   React.useEffect(() => {
     //setting scroller
@@ -48,10 +90,7 @@ export default function Home() {
     setCarouselElement(document?.getElementById("hheader"));
     console.log("carousel element: ", carouselElement);
 
-    //automatic carousel
-    setInterval(() => {
-      
-    }, 2000);
+   
 
     //setting scroll arrow
     setScrollArrow(document?.getElementById("harrow"));
@@ -77,6 +116,7 @@ export default function Home() {
       }, 100);
     }
   }, [visible, inViewport, condition, carouselElement]);
+  // }, [visible, inViewport, condition, carouselElement, nextCarousel, carouselPosition,prev]);
 
   return (
     <>
@@ -88,7 +128,7 @@ export default function Home() {
             <CustomImage image={original3} alt="hello" classes="home-header-image" />
             <Grid item className="home-header-arrow-container" id="harrow" onClick={nextCarousel}>
               {/* <Grid item className="home-header-arrow-container" onClick={handleScroll}> */}
-              <Arrow onClick={nextCarousel}/>
+              <Arrow onClick={nextCarousel} />
             </Grid>
             {/* <Grid item xs={12}>
               <Typography variant="body1" className="link">

@@ -27,15 +27,16 @@ transition: transform 2s ease-in-out;
       content: "";
       display: block;
       position: absolute;
-      // background: linear-gradient(transparent 40%, variables.$black 60%);
+      background: linear-gradient(rgba(255, 255, 255, 0.621) ,90%,variables.$black);
       opacity: 0.5;
-      // height: 100vh;
+      height: 100vh;
       // height: 88vh;
-      // min-width: 100vw;
+      min-width: 100vw;
     }
     //  images: 
     &-image{
       // width: auto;
+      
       // height: auto;
       width: 100vw;
       height: 100vh;
