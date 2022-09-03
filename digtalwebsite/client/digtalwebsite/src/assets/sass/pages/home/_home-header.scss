@@ -2,11 +2,12 @@
 @use "../../util/variables";
 @use "../../util/extensions";
 @use "../../components//arrows";
+@use "../../components//header-video";
 
 %home-header {
   .home-header {
-    @include mixins.flex;
-    height: 100vh;
+    @include mixins.grid;
+    height: 90vh;
     // width: 10vw;
     // border: 5px solid green;
 transition: transform 2s ease-in-out;
@@ -45,12 +46,12 @@ transition: transform 2s ease-in-out;
     //arrow container
     &-arrow-container {
       position: absolute;
-      top: 82vh;
+      top: 75vh;
       @include mixins.grid;
 
       left: 49.5vw;
       transform: scale(0.5);
-      border: 1px solid red;
+      // border: 1px solid red;
       // width: 100vw;
       height: 120px;
       z-index: 7;
@@ -60,9 +61,9 @@ transition: transform 2s ease-in-out;
     }
 
     .link {
-      margin-top: 93vh;
+      margin-top: -8vh;
       // background-color: #fff;
-      border: 1px solid red;
+      // border: 1px solid red;
 
       z-index: 2;
       font-size: 1.3rem;
@@ -92,4 +93,9 @@ transition: transform 2s ease-in-out;
 
   //arrows here
   @extend %arrow;
+
+  //header video here
+  @extend %header-video;
 }
+
+

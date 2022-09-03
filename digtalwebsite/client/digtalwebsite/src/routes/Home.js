@@ -27,15 +27,9 @@ export default function Home() {
   //scroll arrow
   const [scrollArrow, setScrollArrow] = useState(null);
 
-
-  
-
-
   React.useEffect(() => {
     //setting scroller
     setScroller(document?.getElementById("hbody"));
-
-   
 
     //setting scroll arrow
     setScrollArrow(document?.getElementById("harrow"));
@@ -68,20 +62,12 @@ export default function Home() {
       <Suspense fallback={<HomeSkeleton />}>
         <Grid className="home">
           <Grid className="home-header" id="hheader">
-          
-            <HeaderCarousel/>
+            <HeaderCarousel />
             <Grid item className="home-header-arrow-container" id="harrow" onClick={handleScroll}>
-              {/* <Grid item className="home-header-arrow-container" onClick={handleScroll}> */}
-              <Arrow onClick={handleScroll} />
+                {/* <Button>Zoom</Button> */}
+                <Arrow onClick={handleScroll} text={t("content", { ns: "pageend" })}/>
             </Grid>
-            {/* <Grid item xs={12}>
-              <Typography variant="body1" className="link">
-                {t("content", { ns: "pageend" })}
-              </Typography>
-            </Grid> */}
           </Grid>
-          {/* <div ref={ref}>{isVisible && `Yep, I'm on screen`}</div> */}
-          {/* {isVisible && console.log("div className")} */}
 
           <Grid className="home-body" id="hbody">
             <Grid className="home-body-header">

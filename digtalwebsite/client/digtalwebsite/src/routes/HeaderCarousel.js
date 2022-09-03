@@ -9,6 +9,7 @@ import original from "../assets/images/digtal_ui.png";
 import original2 from "../assets/images/digtal ui_shadow_v2.png";
 import original3 from "../assets/images/digtal_ui_shadow_v3.png";
 import { useState } from "react";
+import {HeaderVideo} from "./HeaderVideo";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
@@ -73,7 +74,7 @@ export const HeaderCarousel = () => {
   };
 
   return (
-    <div style={{width:"100vw", height:"100vh"}}>
+    <div style={{width:"100vw", height:"90vh"}}>
             <button onClick={decrementIndex} disabled={index === 0 ? true : false}>
         left arrow
       </button>
@@ -95,10 +96,11 @@ export const HeaderCarousel = () => {
       <button onClick={() => setAutoplay(autoplay? false: true)}  >
         {autoplay ? "pause" : "play"}
       </button>
-      <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={3000} autoplay={autoplay}>
+      <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={4000} autoplay={autoplay}>
       <CustomImage image={original} alt="hello" classes="home-header-image" />
             <CustomImage image={original2} alt="hello" classes="home-header-image" />
-            <CustomImage image={original3} alt="hello" classes="home-header-image" />
+            <HeaderVideo/>
+            {/* <CustomImage image={original3} alt="hello" classes="home-header-image" /> */}
       </AutoPlaySwipeableViews>
 
 
