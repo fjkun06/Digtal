@@ -6,10 +6,8 @@ import { useIntersection } from "./useIntersection";
 import Arrow from "./Arrow";
 import { useTranslation } from "react-i18next";
 import HomeSkeleton from "./skeletons/HomeSkeleton";
-import CustomImage from "../components/ReusableImage";
-import original from "../assets/images/digtal_ui.png";
-import original2 from "../assets/images/digtal ui_shadow_v2.png";
-import original3 from "../assets/images/digtal_ui_shadow_v3.png";
+
+import SwipeableTextMobileStepper, { HeaderCarousel } from "./HeaderCarousel";
 
 export default function Home() {
   const ref = useRef();
@@ -29,66 +27,13 @@ export default function Home() {
   //scroll arrow
   const [scrollArrow, setScrollArrow] = useState(null);
 
-  //Carousel
-  const [carouselPosition, setCarouselPosition] = useState(-100);
-  const [prev, setPrev] = useState(0);
-  const [carouselElement, setCarouselElement] = useState(document?.getElementById("hheader"));
-  const nextCarousel = useCallback(
-    (position) => {
-     if(carouselElement) carouselElement.style.transform = `translateX(${position}vw)`;
-    },
-    [ carouselElement],
-  )
+
   
 
-   //automatic carousel
-   setInterval(() => {
-    if (carouselPosition === -200) {
-      nextCarousel(carouselPosition);
-
-      setTimeout(() => {
-
-        setCarouselPosition(-100);
-      setPrev(-200);
-
-      }, 2000);
-    }
-
-    // nextCarousel(carouselPosition);
-
-    if (carouselPosition === 0 ) {
-      nextCarousel(carouselPosition);
-
-      setTimeout(() => {
-
-        setCarouselPosition(-100);
-      setPrev(0);
-
-      }, 2000);}
-
-    if (carouselPosition === -100 && prev === 0) {
-      nextCarousel(carouselPosition);
-
-      setTimeout(() => {
-        setCarouselPosition(-200);
-      }, 2000);}
-
-    if (carouselPosition === -100 && prev === -200) {
-      nextCarousel(carouselPosition);
-
-      setTimeout(() => {
-        setCarouselPosition(0);
-      }, 2000);
-    }
-  }, 2000);
 
   React.useEffect(() => {
     //setting scroller
     setScroller(document?.getElementById("hbody"));
-
-    //setting carousel
-    setCarouselElement(document?.getElementById("hheader"));
-    console.log("carousel element: ", carouselElement);
 
    
 
@@ -115,7 +60,7 @@ export default function Home() {
         }, 1800);
       }, 100);
     }
-  }, [visible, inViewport, condition, carouselElement]);
+  }, [visible, inViewport, condition]);
   // }, [visible, inViewport, condition, carouselElement, nextCarousel, carouselPosition,prev]);
 
   return (
@@ -123,12 +68,11 @@ export default function Home() {
       <Suspense fallback={<HomeSkeleton />}>
         <Grid className="home">
           <Grid className="home-header" id="hheader">
-            <CustomImage image={original} alt="hello" classes="home-header-image" />
-            <CustomImage image={original2} alt="hello" classes="home-header-image" />
-            <CustomImage image={original3} alt="hello" classes="home-header-image" />
-            <Grid item className="home-header-arrow-container" id="harrow" onClick={nextCarousel}>
+          
+            <HeaderCarousel/>
+            <Grid item className="home-header-arrow-container" id="harrow" onClick={handleScroll}>
               {/* <Grid item className="home-header-arrow-container" onClick={handleScroll}> */}
-              <Arrow onClick={nextCarousel} />
+              <Arrow onClick={handleScroll} />
             </Grid>
             {/* <Grid item xs={12}>
               <Typography variant="body1" className="link">
