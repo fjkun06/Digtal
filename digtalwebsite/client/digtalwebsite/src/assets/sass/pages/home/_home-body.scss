@@ -11,12 +11,19 @@
     @include mixins.grid;
     position: relative;
     row-gap: 0;
+   
     
 
     &-inner {
       // border: 5px solid green;
       // background-color: yellow;
-      background-color: var(--home-body-inner-bg);
+      // background-color: var(--home-body-inner-bg);
+
+      background-image: url(../../../images/original.png);
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      height:300vh;
+      // background-size: cover;
 
       width: 70vw;
       height: 100%;

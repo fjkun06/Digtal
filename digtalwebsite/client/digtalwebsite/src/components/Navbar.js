@@ -96,6 +96,7 @@ export default function Navbar({ language, setLanguage }) {
           sx={{
             fontFamily: "Gudea",
             position: "sticky",
+            zIndex: 100
        
             // display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
             // display: !condition && scrollUp ? "grid" : "none",
@@ -155,7 +156,8 @@ export default function Navbar({ language, setLanguage }) {
                 }}
               />
 
-              <Grid className="mobile-nav-bar mobile-navbar-reveal">
+              <Grid className="mobile-nav-bar mobile-navbar-reveal" 
+              >
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/"} text={t("home")} />
                 </Grid>
