@@ -28,12 +28,8 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const [specialLanguage, setspecialLanguage] = useState(window.location.pathname[0] + window.location.pathname[1] + window.location.pathname[2]);
-  const [scrollUp, setScrollUp] = useState(true);
-  const [beyondHeader, setBeyondHeader] = useState(false);
   // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const [display, setDisplay] = useState("");
   const navigate = useNavigate();
 
   //language settings
@@ -45,18 +41,11 @@ export default function Navbar({ language, setLanguage }) {
 
   const condition = regex.test(window.location.pathname);
 
-  // const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
-  // console.log(language);
-  // console.log("windows", window.location.pathname);
 
-  // console.log("regex: ",regex.test('/fr/')); // true
-
-  // console.log("condition: ", condition, "scrollUp: ", scrollUp);
 
   //language flag useeffect
   useEffect(() => {
-    // specialLanguage === '/en/' ? anglais : ('/fr/') ? france : ('/de/') ? german : null
-    // const setflag = () => {
+  
 
     // }
     if (window.location.pathname === "/en/") {
@@ -87,78 +76,7 @@ export default function Navbar({ language, setLanguage }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //scrolling
-  const [scrollDir, setScrollDir] = useState("scrolling down");
 
-  useEffect(() => {
-    const nav = document.getElementById("scroll-nav");
-    const mainNav = document.getElementById("n-main");
-    const outlet = document.getElementById("hbody");
-
-    const sticky = condition ? outlet?.offsetTop : "";
-
-    if (!condition) {
-      //making navbar visible
-      nav.style.display = "grid";
-      // console.log("im not home");
-
-      nav.style.opacity = 1;
-    } else {
-      nav.style.opacity = 0;
-      // console.log("im  home");
-
-      nav.style.height = "0px";
-    }
-    const threshold = 0;
-    let lastScrollY = window.pageYOffset;
-    let ticking = false;
-
-    //beyond header
-    // if(lastScrollY >= sticky) ;
-
-    const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
-      // console.log("sy: ", scrollY);
-
-      if (scrollY >= 769) {
-        setBeyondHeader(true);
-      } else {
-        setBeyondHeader(false);
-      }
-
-      if (Math.abs(scrollY - lastScrollY) < threshold) {
-        ticking = false;
-        return;
-      }
-      if (lastScrollY >= sticky) {
-        setHasScrolled(scrollY > lastScrollY ? false : true);
-        nav.style.opacity = 1;
-        nav.style.height = "100%";
-      } else {
-        setHasScrolled(scrollY > lastScrollY ? false : false);
-      }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (condition) mainNav.classList.add("fix");
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll);
-
-    // console.log(scrollDir);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      mainNav.classList.remove("fix");
-    };
-  }, [scrollDir, condition]);
-  // useEffect(() => {
 
   //media query
   const max767 = useMediaQuery("(max-width:768px)");
@@ -178,21 +96,7 @@ export default function Navbar({ language, setLanguage }) {
           sx={{
             fontFamily: "Gudea",
             position: "sticky",
-            display: () => {
-              if (condition) {
-                if (hasScrolled && beyondHeader) {
-                  // console.log("beyond: ", beyondHeader);
-
-                  return "grid";
-                } else {
-                  // console.log("not beyond: ", beyondHeader);
-
-                  return "none";
-                }
-              } else {
-                return "grid";
-              }
-            },
+       
             // display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
             // display: !condition && scrollUp ? "grid" : "none",
           }}
