@@ -27,7 +27,7 @@
       // background-color: yellow;
       background-color: var(--home-body-inner-bg);
 
-      width: 70vw;
+      width: 74vw;
       height: 100%;
       @include mixins.flex;
       column-gap: 2em;
@@ -62,7 +62,7 @@
     &-header {
       @include mixins.grid;
       row-gap: 1rem;
-      width: 70vw;
+      width: 74vw;
       background-color: var(--home-body-inner-bg);
       padding-top: 4rem;
       padding-bottom: 2rem;

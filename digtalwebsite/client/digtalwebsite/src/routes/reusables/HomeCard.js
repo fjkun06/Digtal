@@ -32,11 +32,14 @@ export default function HomeCard({ logo, text, heading, cname, id, visible, appe
           </Typography>
         </Slide> */}
         <Slide direction="right" in={visible} mountOnEnter timeout={{ enter: 1000 }} easing={"ease-in-out"}>
-          <Typography gutterBottom variant="h5" component="div" sx={{ margin: "-1px" }}>
-            <Typography gutterBottom variant="h5" component="span" sx={{ margin: "-1px" }}>
-              <LanguageIcon fontSize="large" sx={{ margin: "-1px" }} />
+          <Typography gutterBottom variant="h5" component="div" sx={{display: "grid" }}>
+            <Typography gutterBottom variant="h5" component="span"  >
+              <LanguageIcon sx={{ fontSize: 25,color: "rebeccapurple"}}/>
             </Typography>{" "}
+            <Typography gutterBottom variant="h5" component="span" sx={{ paddingLeft: "4rem",marginTop: "-3.5rem",fontWeight: "500",fontSize: 20 }}>
             {heading}
+
+            </Typography>{" "}
           </Typography>
         </Slide>
 
