@@ -14,7 +14,7 @@
     // padding-bottom: 64px;
     // border: 1px solid;
 
-    @include mixins.footer-item-init(34px, #f5f7fa);
+    @include mixins.footer-item-init(34px, var(--footer-subscribe-bg));
     // @include mixins.footer-item-init(64px);
     &-text {
       // width: 40rem;
@@ -105,7 +105,7 @@
   padding: 8px 7px;
   font-size: 1rem;
   border-radius: 0px;
-  box-shadow: 5px 5px 10px -10px #777;
+  box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
   font-family: "Roboto", "Gudea", "Arial", sans-serif;
   font-weight: 300;
   font-size: 1.325rem;
@@ -114,6 +114,6 @@
   color: variables.$black;
   &:focus {
     outline: none;
-    caret-color: #888;
+    caret-color: var(--footer-subscribe-input-caret);
   }
 }

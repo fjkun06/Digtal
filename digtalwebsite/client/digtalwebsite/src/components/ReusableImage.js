@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function CustomImage({ image, alt, classes }) {
+export default function CustomImage({ image, alt, classes,h }) {
   return <img src={image} alt={alt} className={classes ?? ""} />;
 }

@@ -1,9 +1,23 @@
 @use 'layout/navbar';
-@use 'components/telephone';
 @use 'layout/footer';
 @use 'pages/home/home';
+@use 'components/telephone';
 
+//root schemes
+//light here
+@import './util/light-palette';
 
+//styling links
+a {
+   font-family: "Gudea";
+   transition: all ease 0.15s;
+   text-decoration: none;
+   color: var(--navbar-link);
+
+   &:visited {
+      color: var(--navbar-link);
+   }
+}
 
 //all components
 * {
@@ -16,9 +30,14 @@
 html {
    font-size: 62.5%;
    overflow-x: hidden;
+   scroll-behavior: smooth;
    // min-width: 320px;
 }
 
 body { font-size: 1.6em;
    min-width: 32rem;
+ }
+
+ .fix{
+   position: fixed;
  }
