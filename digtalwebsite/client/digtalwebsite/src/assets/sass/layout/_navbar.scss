@@ -1,6 +1,7 @@
 @use "../util/variables";
 @use "../util/mixins";
 @use "../components/select";
+@use "../components/navbar-theme";
 @use "../components/navbar-language";
 @use "../util/media-queries";
 @use "../layout//mobile-nabvar";
@@ -66,6 +67,9 @@ padding-bottom: 0.3rem;
       left: -6rem;
    }
    @include mixins.responsive-select(1101px, 1330px);
+
+   //theme here
+   @extend %navbar-theme;
 
    //logo here
    //select item dropdown

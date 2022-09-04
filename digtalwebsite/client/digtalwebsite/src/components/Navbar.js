@@ -5,7 +5,7 @@ import anglais from "../assets/images/uk64.png";
 import france from "../assets/images/fr64.png";
 import german from "../assets/images/de64.png";
 import logo from "../assets/images/logo.png";
-import { Box, ThemeProvider } from "@mui/system";
+import { Box, StyledEngineProvider, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -17,6 +17,7 @@ import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
+import { DarkModeTwoTone, LightModeTwoTone } from "@mui/icons-material";
 
 export default function Navbar({ language, setLanguage }) {
   //initialising states
@@ -41,12 +42,8 @@ export default function Navbar({ language, setLanguage }) {
 
   const condition = regex.test(window.location.pathname);
 
-
-
   //language flag useeffect
   useEffect(() => {
-  
-
     // }
     if (window.location.pathname === "/en/") {
       setRegion(anglais);
@@ -76,13 +73,11 @@ export default function Navbar({ language, setLanguage }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
-
   //media query
   const max767 = useMediaQuery("(max-width:768px)");
 
   console.log("condicao: ", condition);
-// 
+  //
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -96,8 +91,8 @@ export default function Navbar({ language, setLanguage }) {
           sx={{
             fontFamily: "Gudea",
             position: "sticky",
-            zIndex: 100
-       
+            zIndex: 100,
+
             // display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
             // display: !condition && scrollUp ? "grid" : "none",
           }}
@@ -156,8 +151,7 @@ export default function Navbar({ language, setLanguage }) {
                 }}
               />
 
-              <Grid className="mobile-nav-bar mobile-navbar-reveal" 
-              >
+              <Grid className="mobile-nav-bar mobile-navbar-reveal">
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/"} text={t("home")} />
                 </Grid>
@@ -205,6 +199,14 @@ export default function Navbar({ language, setLanguage }) {
               <Gridd item md={0.7} sx={{ width: "fit-content" }}>
                 <ActiveNavLink to={language + "/contact"} text={t("contact")} />
               </Gridd>
+              <StyledEngineProvider injectFirst>
+                <Gridd item md={0.2} sx={{ width: "fit-content" }} className="navbar-theme navbar-theme-dark">
+                  <DarkModeTwoTone sx={{ fontSize: 25 }} />
+                </Gridd>
+                <Gridd item md={0.2} sx={{ width: "fit-content" }} className="navbar-theme navbar-theme-light">
+                  <LightModeTwoTone sx={{ fontSize: 25 }} />
+                </Gridd>
+              </StyledEngineProvider>
               <Gridd item md={1.5} className="language-item">
                 <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
                   <img src={region} alt="language-flag" className="language-image" />
