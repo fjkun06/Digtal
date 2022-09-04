@@ -57,10 +57,11 @@ transition: transform 2s ease-in-out;
       top: 65vh;
       @include mixins.grid;
 
-      left: 49.5vw;
+      // left: calc(100vw/2.085);
+      left: -10px;
       transform: scale(0.5);
-      // border: 1px solid red;
-      // width: 100vw;
+      border: 1px solid red;
+      width: 100vw;
       height: 120px;
       z-index: 7;
       &:hover {
