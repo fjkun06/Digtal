@@ -15,7 +15,7 @@ export default function Home() {
   // const inViewport = useIntersection(ref, '0px'); // Trigger as soon as the element becomes visible
   const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
 
-  const inViewport = useIntersection(ref || null, "50px");
+  const inViewport = useIntersection(ref || null, "750px");
 
   const { t } = useTranslation(["pageend,form"]);
   const [visible, setVisible] = useState(false);

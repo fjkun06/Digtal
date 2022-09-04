@@ -54,7 +54,7 @@ transition: transform 2s ease-in-out;
     //arrow container
     &-arrow-container {
       position: absolute;
-      top: 75vh;
+      top: 65vh;
       @include mixins.grid;
 
       left: 49.5vw;
