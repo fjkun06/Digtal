@@ -30,6 +30,7 @@
       "react-hook-form": "^7.27.1",
       "react-i18next": "^11.18.4",
       "react-icons": "^4.4.0",
+      "react-moving-text": "^0.0.7",
       "react-router-dom": "^6.3.0",
       "react-scripts": "5.0.0",
       "react-swipeable-views": "^0.14.0",

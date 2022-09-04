@@ -13,6 +13,7 @@ import { useState } from "react";
 import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
 import { useMediaQuery } from "@mui/material";
+import WhoWeAre from "./WhoWeAre";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
@@ -96,6 +97,7 @@ export const HeaderCarousel = () => {
       <button onClick={() => setAutoplay(autoplay? false: true)}  >
         {autoplay ? "pause" : "play"}
       </button>
+      <WhoWeAre/>
       <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={4000} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
         {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
 
