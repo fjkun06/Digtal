@@ -181,6 +181,23 @@ export default function Navbar({ language, setLanguage }) {
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
                 </Grid>
+                <Grid item className="mobile-nav-bar-item" alignItems={"center"} justifyContent={"center"}>
+                <DarkModeTwoTone className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                   <LightModeTwoTone className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+
+                    }}
+                  />
+                </Grid>
                 <Grid item className="mobile-nav-bar-item" onClick={() => toggleLanguage(specialLanguage)}>
                   <img src={region} alt="france-flag" className="language-image" />
                   <ExpandMoreOutlined sx={{ fontSize: 24 }} className="lselect-item-sub-arrow" />
