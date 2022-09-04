@@ -24,7 +24,7 @@
 
         //reusable
         .select-item-sub {
-            @include mixins.select-item-sub(250%, 2.2rem, -9rem, 1px solid variables.$black);
+            @include mixins.select-item-sub(250%, 2.2rem, -9rem, 1px solid var(--navbar-select-item-bb));
         }
 
         .select-item-sub-arrow {

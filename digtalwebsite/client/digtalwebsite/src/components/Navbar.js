@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "@fontsource/gudea";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import anglais from "../assets/images/uk64.png";
+import france from "../assets/images/fr64.png";
+import german from "../assets/images/de64.png";
 import logo from "../assets/images/logo.png";
 import { Box, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
@@ -25,11 +27,13 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileNavbarReveal, setMobileNavbarReveal] = useState("");
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
-  const [specialLanguage, setspecialLanguage] = useState("");
+  const [specialLanguage, setspecialLanguage] = useState(window.location.pathname[0] + window.location.pathname[1] + window.location.pathname[2]);
   const [scrollUp, setScrollUp] = useState(true);
+  const [beyondHeader, setBeyondHeader] = useState(false);
   // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [display, setDisplay] = useState("");
   const navigate = useNavigate();
 
   //language settings
@@ -37,11 +41,34 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //codition for scrolling
-  
-  const condition = location["pathname"]=== language +'/home';
 
-  console.log(location);
-  console.log("condition: ", condition, "scrollUp: ", scrollUp);
+  const regex = new RegExp(/\/..\/$/);
+
+
+  const condition = regex.test(window.location.pathname);
+
+  // const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
+  // console.log(language);
+  // console.log("windows", window.location.pathname);
+
+  // console.log("regex: ",regex.test('/fr/')); // true
+
+  // console.log("condition: ", condition, "scrollUp: ", scrollUp);
+
+  //language flag useeffect
+  useEffect(() => {
+    // specialLanguage === '/en/' ? anglais : ('/fr/') ? france : ('/de/') ? german : null
+    // const setflag = () => {
+
+    // }
+    if (window.location.pathname === "/en/") {
+      setRegion(anglais);
+    } else if (window.location.pathname === "/fr/") {
+      setRegion(france);
+    } else if (window.location.pathname === "/de/") {
+      setRegion(german);
+    }
+  }, []);
 
   //first useffect hook
   useEffect(() => {
@@ -54,55 +81,94 @@ export default function Navbar({ language, setLanguage }) {
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
     setspecialLanguage(document.getElementsByClassName("special-language"));
-  }, [language]);
+  }, []);
 
   //navigation
   useEffect(() => {
-    // navigate(language + "/home");
+    if (location.pathname === "/") navigate(language + "/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //scrolling
+  const [scrollDir, setScrollDir] = useState("scrolling down");
+
   useEffect(() => {
-    const outlet = document.getElementById("hbody");
     const nav = document.getElementById("scroll-nav");
     const mainNav = document.getElementById("n-main");
-    const navbar = getComputedStyle(nav, null);
-    const sticky = condition ?  outlet.offsetTop : '';
+
+    const outlet = document.getElementById("hbody");
+
+    const sticky = condition ? outlet?.offsetTop : "";
+
 
     if (!condition) {
       //making navbar visible
+      nav.style.display = "grid";
+      // console.log("im not home");
+
       nav.style.opacity = 1;
-      mainNav.style.position = "relative";
+    } else {
+      nav.style.opacity = 0;
+      // console.log("im  home");
+
+      nav.style.height = "0px";
     }
-    //  else {
-    //   setScrollUp(false);
-    // }
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
 
-    
+    //beyond header
+    // if(lastScrollY >= sticky) ;
 
-    window.onscroll = function () {
-      // print "false" if direction is down and "true" if up
-      console.log("fnf", false * false);
-      if (window.pageYOffset >= sticky && this.oldScroll > this.scrollY && condition) {
-        setHasScrolled(true);
-        nav.style.opacity = 1;
-      }else{
-        setHasScrolled(false);
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+      // console.log("sy: ", scrollY);
 
+      if (scrollY >= 769) {
+        setBeyondHeader(true);
+      } else {
+        setBeyondHeader(false);
       }
 
-      this.oldScroll = this.scrollY;
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
+      }
+      if (lastScrollY >= sticky) {
+        setHasScrolled(scrollY > lastScrollY ? false : true);
+        nav.style.opacity = 1;
+        nav.style.height = "100%";
+      } else {
+        setHasScrolled(scrollY > lastScrollY ? false : false);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
     };
-  }, [condition]);
-  // }, [language,navigate]);
 
-  //init page
-  // window.onload = () => navigate(language + "/home");
+    const onScroll = () => {
+      if (condition) mainNav.classList.add("fix");
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    // console.log(scrollDir);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      mainNav.classList.remove("fix");
+    };
+  }, [scrollDir, condition]);
+  // useEffect(() => {
 
   //media query
   const max767 = useMediaQuery("(max-width:768px)");
 
+  console.log("condicao: ", condition);
+// 
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -116,7 +182,22 @@ export default function Navbar({ language, setLanguage }) {
           sx={{
             fontFamily: "Gudea",
             position: "sticky",
-            display: condition? (hasScrolled ? "grid" : "none") : (scrollUp ? "grid" : "none"),
+            display: () => {
+              if (condition) {
+                if (hasScrolled && beyondHeader) {
+                  // console.log("beyond: ", beyondHeader);
+
+                  return "grid";
+                } else {
+                  // console.log("not beyond: ", beyondHeader);
+
+                  return "none";
+                }
+              } else {
+                return "grid";
+              }
+            },
+            // display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
             // display: !condition && scrollUp ? "grid" : "none",
           }}
         >
@@ -175,11 +256,12 @@ export default function Navbar({ language, setLanguage }) {
               />
 
               <Grid className="mobile-nav-bar mobile-navbar-reveal">
-                {["home", "enterprise"].map((item) => (
-                  <Grid item className="mobile-nav-bar-item" key={item}>
-                    <MobileActiveNavLink to={language + "/" + item} text={t(item)} />
-                  </Grid>
-                ))}
+                <Grid item className="mobile-nav-bar-item">
+                  <MobileActiveNavLink to={language + "/"} text={t("home")} />
+                </Grid>
+                <Grid item className="mobile-nav-bar-item">
+                  <MobileActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
+                </Grid>
 
                 <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
                   <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
@@ -205,12 +287,12 @@ export default function Navbar({ language, setLanguage }) {
             {/* Desktop navbar */}
             <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5 }} pl={5} pr={5}>
               <Gridd item md={location.pathname === "/de/" ? 0.5 : 1}>
-                <ActiveNavLink to={language + "/home"} text={t("home")} />
+                <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
-              <Gridd item md={location.pathname === "/de/" ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
+              <Gridd item md={window?.location?.pathname.includes("/de/") ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
-              <Gridd item md={location.pathname === "/de/home" ? 1.7 : 1.3} sm={2} className="select-item">
+              <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item">
                 <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
                   <ActiveNavLink to={language + "/services/"} text={t("services")} />
                   <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} />

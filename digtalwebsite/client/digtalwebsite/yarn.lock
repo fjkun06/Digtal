@@ -1311,6 +1311,11 @@
   "resolved" "https://registry.npmjs.org/@fontsource/aileron/-/aileron-4.5.3.tgz"
   "version" "4.5.3"
 
+"@fontsource/carrois-gothic@^4.5.9":
+  "integrity" "sha512-ceQnv2TJ25SiAFAabiuLfdc4ho6ejOf72J81Zk3XSFQqqilU3Y6gw+gf+E2uTlRLx+2DgNRF80grfKedqZVAog=="
+  "resolved" "https://registry.npmjs.org/@fontsource/carrois-gothic/-/carrois-gothic-4.5.9.tgz"
+  "version" "4.5.9"
+
 "@fontsource/gudea@^4.5.8":
   "integrity" "sha512-fMlmt/V6mLVDoPhiMMrRpJDnhurWcRE/TNtpeECYXlrlpkKjyq5s0il1nMEmQumpz2ZbEEcMAP1TAWYR4mUUEA=="
   "resolved" "https://registry.npmjs.org/@fontsource/gudea/-/gudea-4.5.8.tgz"
@@ -3649,6 +3654,11 @@
   "integrity" "sha512-U73+6lQFmfiNPrYbXqr6kZ1i1wiRqXnp2nhMsINseWXO8lDau0LGEffJ8kQi4EjLZympVgRdvqjAgiZ1tgzDDA=="
   "resolved" "https://registry.npmjs.org/connect-history-api-fallback/-/connect-history-api-fallback-2.0.0.tgz"
   "version" "2.0.0"
+
+"consolidated-events@^1.1.0 || ^2.0.0":
+  "integrity" "sha512-2/uRVMdRypf5z/TW/ncD/66l75P5hH2vM/GR8Jf8HLc2xnfJtmina6F6du8+v4Z2vTrMo7jC+W1tmEEuuELgkQ=="
+  "resolved" "https://registry.npmjs.org/consolidated-events/-/consolidated-events-2.0.2.tgz"
+  "version" "2.0.2"
 
 "content-disposition@0.5.4":
   "integrity" "sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ=="
@@ -7995,15 +8005,8 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types-extra@^1.1.0":
-  "integrity" "sha512-59+AHNnHYCdiC+vMwY52WmvP5dM3QLeoumYuEyceQDi9aEhtwN9zIQ2ZNo25sMyXnbh32h+P1ezDsUpUH3JAew=="
-  "resolved" "https://registry.npmjs.org/prop-types-extra/-/prop-types-extra-1.1.1.tgz"
-  "version" "1.1.1"
-  dependencies:
-    "react-is" "^16.3.2"
-    "warning" "^4.0.0"
+"prop-types@^15.0.0", "prop-types@^15.5.10", "prop-types@^15.5.7", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.8.1":
 
-"prop-types@^15.5.10", "prop-types@^15.5.7", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -8216,7 +8219,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react-is@^16.8.0 || ^17.0.0", "react-is@^17.0.1":
+"react-is@^16.8.0 || ^17.0.0", "react-is@^17.0.1", "react-is@^17.0.1 || ^18.0.0":
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
@@ -8358,7 +8361,17 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^15.5.x || ^16.x || ^17.x || ^18.x", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0", "react@^16.9.0 || ^17 || ^18", "react@^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=0.14.0 || ^15.0.0 || ^16.0.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@15.x || 16.x":
+"react-waypoint@^10.3.0":
+  "integrity" "sha512-iF1y2c1BsoXuEGz08NoahaLFIGI9gTUAAOKip96HUmylRT6DUtpgoBPjk/Y8dfcFVmfVDvUzWjNXpZyKTOV0SQ=="
+  "resolved" "https://registry.npmjs.org/react-waypoint/-/react-waypoint-10.3.0.tgz"
+  "version" "10.3.0"
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "consolidated-events" "^1.1.0 || ^2.0.0"
+    "prop-types" "^15.0.0"
+    "react-is" "^17.0.1 || ^18.0.0"
+
+"react@*", "react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^15.5.x || ^16.x || ^17.x || ^18.x", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0", "react@^16.9.0 || ^17 || ^18", "react@^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=0.14.0 || ^15.0.0 || ^16.0.0", "react@>=16.6.0", "react@>=16.8", "react@>=16.8.0", "react@15.x || 16.x":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -9656,6 +9669,11 @@
   dependencies:
     "glob-to-regexp" "^0.4.1"
     "graceful-fs" "^4.1.2"
+
+"waypoints@^4.0.1":
+  "integrity" "sha512-PbydbsTvCFYoE1DaRAKBM4xPQi+7ULcULZ7vK79NLM55da5g46oyY62Xv9X5Z9F7O/qXmcS/XJ7Ae2pYij4bpw=="
+  "resolved" "https://registry.npmjs.org/waypoints/-/waypoints-4.0.1.tgz"
+  "version" "4.0.1"
 
 "wbuf@^1.1.0", "wbuf@^1.7.3":
   "integrity" "sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA=="

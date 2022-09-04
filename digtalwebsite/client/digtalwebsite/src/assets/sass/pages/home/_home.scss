@@ -9,4 +9,8 @@
 
   //body goes here
   @extend %home-body;
+
+  @media only screen and (max-width: 1050px) {
+    min-height: 100vw;
+  }
 }
