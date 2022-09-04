@@ -1,3 +1,4 @@
+
 import { Grid, Typography } from "@mui/material";
 import React, { Suspense, useRef, useState } from "react";
 import { homeCards } from "./config/home-config";
@@ -122,4 +123,5 @@ export default function Home() {
       </Suspense>
     </>
   );
+
 }

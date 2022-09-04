@@ -41,7 +41,9 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //codition for scrolling
+
   const regex = new RegExp(/\/..\/$/);
+
 
   const condition = regex.test(window.location.pathname);
 
@@ -93,9 +95,11 @@ export default function Navbar({ language, setLanguage }) {
   useEffect(() => {
     const nav = document.getElementById("scroll-nav");
     const mainNav = document.getElementById("n-main");
+
     const outlet = document.getElementById("hbody");
 
     const sticky = condition ? outlet?.offsetTop : "";
+
 
     if (!condition) {
       //making navbar visible

@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero/Hero";
 import './assets/sass/main.scss';
 import "@fontsource/carrois-gothic"
 import { useState } from "react";
@@ -14,9 +15,13 @@ function App() {
   return (
      <>
            <Grid>
+
               <Grid container className="navigation-main" id="n-main" >
               {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
                  <Navbar setLanguage={setLanguage} language={language}/>
+
+          
+
               </Grid>
               <Grid id="scroll-zone" >
                  <Outlet />
