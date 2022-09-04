@@ -2,7 +2,8 @@
 @use "../../util/variables";
 @use "../../util/extensions";
 @use "../../components//arrows";
-@use "../../components//header-video";
+@use "./header-video";
+@use "./loader";
 
 %home-header {
   .home-header {
@@ -45,7 +46,7 @@ transition: transform 2s ease-in-out;
       
       // height: auto;
       width: 100vw;
-      height: 88vh;
+      height: 90vh;
       object-fit: cover;
       object-position: center;
     }
@@ -103,6 +104,9 @@ transition: transform 2s ease-in-out;
 
   //header video here
   @extend %header-video;
+
+  //loader here
+  @extend %loader7;
 }
 
 
