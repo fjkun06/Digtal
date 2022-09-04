@@ -181,16 +181,16 @@ export default function Navbar({ language, setLanguage }) {
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
                 </Grid>
-                <Grid item className="mobile-nav-bar-item" alignItems={"center"} justifyContent={"center"}>
+                <Grid item className="mobile-nav-bar-item" >
                 <DarkModeTwoTone className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none",marginLeft: '45%' }}
                     onClick={() => {
                       switchTheme("light");
                       setWebsiteTheme("light");
                     }}
                   />
                    <LightModeTwoTone className="navbar-theme-light"
-                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none",marginLeft: '45%' }}
                     onClick={() => {
                       switchTheme("dark");
                       setWebsiteTheme("dark");
