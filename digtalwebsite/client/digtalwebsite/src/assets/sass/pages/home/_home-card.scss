@@ -7,7 +7,9 @@
       transition: all 0.5s ease-in-out;
       max-width: 22vw;
       color: var(--home-body-card-heading);
-
+      &:hover {
+        transform: scale(1.1);
+      }
       //button
       &-button {
         color: var(--home-body-card-button);
@@ -30,10 +32,11 @@
         }
       }
 
-      // box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
-      &:hover {
-        transform: scale(1.1);
+      // icons
+      &-icon{
+        color: var(--home-body-card-icon);
       }
+     
     }
 
     .home-card-text {

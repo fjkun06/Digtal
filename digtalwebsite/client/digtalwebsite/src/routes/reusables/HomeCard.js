@@ -7,10 +7,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MiniArrows from "../MiniArrows";
 import { Slide } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import LanguageIcon from "@mui/icons-material/Language";
+import { useNavigate } from "react-router-dom";
 
-export default function HomeCard({ logo, text, heading, cname, id, visible, appear, path, buttonText }) {
+
+export default function HomeCard({ logo, text, heading, cname, id, visible, appear, path, buttonText,icon }) {
   // const containerRef = React.useRef(null);
   const navigate = useNavigate();
   const location = window?.location?.pathname?.slice(0, 4);
@@ -18,9 +18,8 @@ export default function HomeCard({ logo, text, heading, cname, id, visible, appe
 
   const handleclick = () => navigate(location + path);
 
-  React.useEffect(() => {
-    //  console.log("currid: ",containerRef.current.id);
-  }, []);
+
+
   return (
     <Card className={cname} id={id}>
       <CardMedia component="img" alt="green iguana" height="250" image={logo} />
@@ -33,8 +32,9 @@ export default function HomeCard({ logo, text, heading, cname, id, visible, appe
         </Slide> */}
         <Slide direction="right" in={visible} mountOnEnter timeout={{ enter: 1000 }} easing={"ease-in-out"}>
           <Typography gutterBottom variant="h5" component="div" sx={{display: "grid" }}>
-            <Typography gutterBottom variant="h5" component="span"  >
-              <LanguageIcon sx={{ fontSize: 25,color: "rebeccapurple"}}/>
+            <Typography gutterBottom variant="h5" component="span"  className={cname + '-icon'}>
+              {/* <LanguageIcon sx={{ fontSize: 25,color: "rebeccapurple"}}/> */}
+              {icon}
             </Typography>{" "}
             <Typography gutterBottom variant="h5" component="span" sx={{ paddingLeft: "4rem",marginTop: "-3.5rem",fontWeight: "500",fontSize: 20 }}>
             {heading}

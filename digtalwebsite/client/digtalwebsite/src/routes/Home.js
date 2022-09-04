@@ -82,7 +82,7 @@ export default function Home() {
               {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
               {homeCards.map((card, index) => (
-                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} />
+                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} icon={card.icon}/>
               ))}
 
               {/* <HomeCard/>
@@ -92,7 +92,7 @@ export default function Home() {
               {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
               {homeCards.map((card, index) => (
-                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} />
+                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} icon={card.icon}/>
               ))}
 
               {/* <HomeCard/>
