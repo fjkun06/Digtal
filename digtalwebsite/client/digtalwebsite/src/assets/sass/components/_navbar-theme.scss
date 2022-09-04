@@ -1,20 +1,13 @@
-%navbar-theme{
-  .navbar-theme{
-    border-color: yellow;
-    background-color: #fff;
-    fill: red;
-    cursor: pointer;
-    stop-color: red;
-
-    &-dark{
+%navbar-theme {
+  .navbar-theme {
+    &-dark {
       color: navy;
-
+      cursor: pointer;
     }
 
-    &-light{
-    color: gold;
-
+    &-light {
+      color: gold;
+      cursor: pointer;
     }
-    ;
   }
 }

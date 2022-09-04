@@ -21,6 +21,9 @@ import { DarkModeTwoTone, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 
 export default function Navbar({ language, setLanguage }) {
+  //theme configuration
+  const [websiteTheme, setWebsiteTheme] = useState("dark");
+
   //initialising states
   const [dropdown, setdropdown] = useState("");
   const [servicesDropdown, setServicesDropdown] = useState("");
@@ -43,6 +46,12 @@ export default function Navbar({ language, setLanguage }) {
 
   const condition = regex.test(window.location.pathname);
 
+  //theme configuration
+  useEffect(() => {
+    document.documentElement.className = "dark";
+    setWebsiteTheme(document.documentElement.className);
+    console.log("theme: ", document.documentElement.className);
+  }, []);
 
   //language flag useeffect
   useEffect(() => {
@@ -202,12 +211,24 @@ export default function Navbar({ language, setLanguage }) {
                 <ActiveNavLink to={language + "/contact"} text={t("contact")} />
               </Gridd>
               <StyledEngineProvider injectFirst>
-                <Gridd item md={0.2} sx={{ width: "fit-content" }} className="navbar-theme navbar-theme-dark">
-                  <DarkModeTwoTone sx={{ fontSize: 25 }} />
+                <Gridd item md={0.2} sx={{ width: "fit-content" }} >
+                  <DarkModeTwoTone className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                   <LightModeTwoTone className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+
+                    }}
+                  />
                 </Gridd>
-                <Gridd item md={0.2} sx={{ width: "fit-content" }} className="navbar-theme navbar-theme-light">
-                  <LightModeTwoTone sx={{ fontSize: 25 }} onClick={() => switchTheme('light')}/>
-                </Gridd>
+               
               </StyledEngineProvider>
               <Gridd item md={1.5} className="language-item">
                 <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
