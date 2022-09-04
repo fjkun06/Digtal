@@ -11,19 +11,21 @@
     @include mixins.grid;
     position: relative;
     row-gap: 0;
-   
+    background-image: url(../../../images/digtal_ui_shadow_v3.png);
+    // background-attachment: scroll, local;
+    background-repeat: no-repeat;
+    // background-size: cover;
+
+    // height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     
 
     &-inner {
       // border: 5px solid green;
       // background-color: yellow;
-      // background-color: var(--home-body-inner-bg);
-
-      background-image: url(../../../images/original.png);
-      background-attachment: scroll;
-      background-repeat: no-repeat;
-      height:300vh;
-      // background-size: cover;
+      background-color: var(--home-body-inner-bg);
 
       width: 70vw;
       height: 100%;

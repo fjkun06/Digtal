@@ -25,7 +25,7 @@ transition: transform 2s ease-in-out;
     // background-image: url(../../../images/home_header.jpg);
     // background-color: #fff;
     // background-size: 100vw 100vh;
-    background-attachment: scroll;
+    background-attachment: fixed;
     // background-position: center;
     background-repeat: no-repeat;
     &::after {
@@ -45,7 +45,7 @@ transition: transform 2s ease-in-out;
       
       // height: auto;
       width: 100vw;
-      height: 87vh;
+      height: 88vh;
       object-fit: cover;
       object-position: center;
     }

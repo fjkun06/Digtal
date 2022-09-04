@@ -15,7 +15,7 @@ export default function Home() {
   // const inViewport = useIntersection(ref, '0px'); // Trigger as soon as the element becomes visible
   const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
 
-  const inViewport = useIntersection(ref || null, "-200px");
+  const inViewport = useIntersection(ref || null, "0px");
 
   const { t } = useTranslation(["pageend,form"]);
   const [visible, setVisible] = useState(false);
@@ -64,8 +64,8 @@ export default function Home() {
           <Grid className="home-header" id="hheader">
             <HeaderCarousel />
             <Grid item className="home-header-arrow-container" id="harrow" onClick={handleScroll}>
-                {/* <Button>Zoom</Button> */}
-                <Arrow onClick={handleScroll} text={t("content", { ns: "pageend" })}/>
+              {/* <Button>Zoom</Button> */}
+              <Arrow onClick={handleScroll} text={t("content", { ns: "pageend" })} />
             </Grid>
           </Grid>
 
@@ -84,9 +84,17 @@ export default function Home() {
               {homeCards.map((card, index) => (
                 <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} />
               ))}
+
+              {/* <HomeCard/>
+          <HomeCard/> */}
+            </Grid>
+            <Grid className="home-body-inner" id="hhinner" ref={ref}>
+              {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
+
               {homeCards.map((card, index) => (
                 <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "pageend" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "pageend" })} />
               ))}
+
               {/* <HomeCard/>
           <HomeCard/> */}
             </Grid>
