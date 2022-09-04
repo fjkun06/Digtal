@@ -18,6 +18,7 @@ import { useMediaQuery, Grid } from "@mui/material";
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
 import { DarkModeTwoTone, LightModeTwoTone } from "@mui/icons-material";
+import { switchTheme } from "./config/theme";
 
 export default function Navbar({ language, setLanguage }) {
   //initialising states
@@ -41,6 +42,7 @@ export default function Navbar({ language, setLanguage }) {
   const regex = new RegExp(/\/..\/$/);
 
   const condition = regex.test(window.location.pathname);
+
 
   //language flag useeffect
   useEffect(() => {
@@ -204,7 +206,7 @@ export default function Navbar({ language, setLanguage }) {
                   <DarkModeTwoTone sx={{ fontSize: 25 }} />
                 </Gridd>
                 <Gridd item md={0.2} sx={{ width: "fit-content" }} className="navbar-theme navbar-theme-light">
-                  <LightModeTwoTone sx={{ fontSize: 25 }} />
+                  <LightModeTwoTone sx={{ fontSize: 25 }} onClick={() => switchTheme('light')}/>
                 </Gridd>
               </StyledEngineProvider>
               <Gridd item md={1.5} className="language-item">
