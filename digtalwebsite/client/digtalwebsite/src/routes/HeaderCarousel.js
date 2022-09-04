@@ -25,21 +25,21 @@ export const HeaderCarousel = () => {
   const match870 = useMediaQuery("(max-width:870px)");
 
   useEffect(() => {
-    // if (index === 0) {
-    //   slide1.current.style.backgroundColor = "red";
-    // } else {
-    //   slide1.current.style.backgroundColor = "transparent";
-    // }
-    // if (index === 1) {
-    //   slide2.current.style.backgroundColor = "red";
-    // } else {
-    //   slide2.current.style.backgroundColor = "transparent";
-    // }
-    // if (index === 2) {
-    //   slide3.current.style.backgroundColor = "red";
-    // } else {
-    //   slide3.current.style.backgroundColor = "transparent";
-    // }
+    if (index === 0) {
+      slide1.current.style.backgroundColor = "red";
+    } else {
+      slide1.current.style.backgroundColor = "transparent";
+    }
+    if (index === 1) {
+      slide2.current.style.backgroundColor = "red";
+    } else {
+      slide2.current.style.backgroundColor = "transparent";
+    }
+    if (index === 2) {
+      slide3.current.style.backgroundColor = "red";
+    } else {
+      slide3.current.style.backgroundColor = "transparent";
+    }
     return () => {
       // slide1.current.style.backgroundColor = "none";
       // slide2.current.style.backgroundColor = "none";
@@ -75,7 +75,7 @@ export const HeaderCarousel = () => {
 
   return (
     <div style={{ width: "100vw", height: "90vh" }}>
-      {/* <button onClick={decrementIndex} disabled={index === 0 ? true : false}>
+      <button onClick={decrementIndex} disabled={index === 0 ? true : false}>
         left arrow
       </button>
 
@@ -95,7 +95,7 @@ export const HeaderCarousel = () => {
 
       <button onClick={() => setAutoplay(autoplay? false: true)}  >
         {autoplay ? "pause" : "play"}
-      </button> */}
+      </button>
       <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={4000} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
         {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
 

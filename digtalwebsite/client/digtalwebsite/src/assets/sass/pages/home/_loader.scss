@@ -29,10 +29,13 @@
           border-radius: 50%;
           box-shadow: 0 0 50px blue;
           transition: all 0.5s ease;
+          color: black;
 
           &:nth-child(1){
               position: absolute;
-              content: '';
+              content: 'hello';
+          color: black;
+background-color: blue;
               width: 250px;
               height: 250px;
               border: 2px solid black;
@@ -44,7 +47,10 @@
 
           &:nth-child(2){
               position: absolute;
-              content: '';
+              content: 'bybye';
+          color: black;
+          background-color: green;
+
               width: 250px;
               height: 250px;
               border: 2px solid black;
