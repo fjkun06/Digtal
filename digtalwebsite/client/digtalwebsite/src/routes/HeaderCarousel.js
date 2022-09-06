@@ -6,12 +6,12 @@ import { autoPlay } from "react-swipeable-views-utils";
 import CustomImage from "../components/ReusableImage";
 import digtalBig from "../assets/images/digtal ui_shadow.png";
 import digtal870 from "../assets/images/digtal ui_shadow_small_trema.png";
-import web1080 from "../assets/images/web-1080.jpg";
+import web1080 from "../assets/images/web-1080.png";
 import web870 from "../assets/images/web-870.png";
-import marketing1080 from "../assets/images/digital-marketing-1080.jpg";
-import marketing870 from "../assets/images/digital-marketing-870.jpg";
-import consulting1080 from "../assets/images/it-consulting-1080.jpg";
-import consulting870 from "../assets/images/it-consulting-870.jpg";
+import marketing1080 from "../assets/images/digital-marketing-1080.png";
+import marketing870 from "../assets/images/digital-marketing-870.png";
+import consulting1080 from "../assets/images/it-consulting-1080.png";
+import consulting870 from "../assets/images/it-consulting-870.png";
 import { useState } from "react";
 import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
@@ -72,12 +72,12 @@ export const HeaderCarousel = () => {
           {/* <HeaderVideo /> */}
           <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> 
           {/* {!match870 ? <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={web870} alt="Digtal Cover photo" classes="home-header-image" />} */}
-          {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />}
+          {/* {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> 
           {/* {!match870 ? <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={consulting870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           
           {/* <CustomImage image={web1080} alt="Web Design Cover photo" classes="home-header-image" /> */}
-          {/* <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" /> */}
+          <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" />
           {/* <HeaderLoader /> */}
         </AutoPlaySwipeableViews>
       </div>
