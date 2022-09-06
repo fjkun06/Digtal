@@ -1,12 +1,56 @@
-%personality{
-  .home-header-personality{
-    border: 1px solid red;
-    z-index:999;
-    height: 100px;
+%personality {
+  .home-header-personality {
+    // border: 1px solid red;
+    z-index: 999;
+    height: fit-content;
     width: 1000px;
     position: absolute;
-    left: 1rem;
-    font-family: 'Montserrat',sans-serif;
-    font-size: 2.7rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-family: "Victor Mono", monospace;
+    font-size: 2.2rem;
+    line-height: 4rem;
+    transition: all 0.5s ease-in-out;
+    // color: transparent;
+    &-text {
+      &-1 {
+        // margin-left: 2rem;
+        @extend %text;
+
+        animation: larget-text 3s ease-in-out 2s infinite;
+      }
+      &-2 {
+        margin-left: 2rem;
+        @extend %text;
+
+        animation: larget-text 3s ease-in-out 3s infinite;
+      }
+      &-3 {
+        @extend %text;
+        margin-left: 4rem;
+
+        animation: larget-text 3s ease-in-out 4s infinite;
+      }
+    }
+  }
+}
+
+%text {
+  height: 15px;
+  border-left: 3px solid rebeccapurple;
+
+  font-weight: 100;
+  margin-top: 1.7rem;
+}
+
+@keyframes larget-text {
+  50% {
+
+
+    text-shadow: 1px 1px 2px rebeccapurple;
+    // text-shadow: 1px 1px 2px #888;
+  }
+  0%,
+  100% {
   }
 }

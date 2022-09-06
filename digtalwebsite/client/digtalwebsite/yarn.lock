@@ -1350,6 +1350,11 @@
   "resolved" "https://registry.npmjs.org/@fontsource/roboto/-/roboto-4.5.8.tgz"
   "version" "4.5.8"
 
+"@fontsource/victor-mono@^4.5.4":
+  "integrity" "sha512-Kav4Ipl+aU7bRnPJD1FluHg/xp9YTE693dYpUC25mZ2qGAZiu4q7fH7Jk0Ue42zEZ9kk4wlmnc+6+zraF8nXTw=="
+  "resolved" "https://registry.npmjs.org/@fontsource/victor-mono/-/victor-mono-4.5.4.tgz"
+  "version" "4.5.4"
+
 "@hookform/error-message@^2.0.0":
   "integrity" "sha512-Y90nHzjgL2MP7GFy75kscdvxrCTjtyxGmOLLxX14nd08OXRIh9lMH/y9Kpdo0p1IPowJBiZMHyueg7p+yrqynQ=="
   "resolved" "https://registry.npmjs.org/@hookform/error-message/-/error-message-2.0.0.tgz"
