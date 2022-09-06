@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import MovingText from 'react-moving-text'
 import "@fontsource/victor-mono";
 const WhoWeAre = ({state}) => {
-  const [timer, setTimer] = useState(false);
+  // const [timer, setTimer] = useState(false);
 
-  setTimeout(() => {
-    setTimer(true);
-  }, 1000);
+  // setTimeout(() => {
+  //   setTimer(true);
+  // }, 1000);
   return (
-    <div className="home-header-personality" style={{opacity: state === 0 && timer? 1: 0}}>
+    <div className="home-header-personality" style={{opacity: state === 0? 1: 0}}>
+    {/* <div className="home-header-personality" style={{opacity: state === 0 && timer? 1: 0}}> */}
     {/* <div className="home-header-personality" style={{display: state === 0 && timer? "block": "none"}}> */}
-      <MovingText
+      {/* <MovingText
       className="home-header-personality-text-1"
   // type="fadeInFromLeft"
   duration="2000ms"
@@ -45,7 +46,17 @@ const WhoWeAre = ({state}) => {
   fillMode="none">
   We are professionals.
 
-</MovingText>
+</MovingText> */}
+
+<MovingText type="typewriter"
+      className="home-header-personality-text-3"
+
+  dataText={[
+  ' We are young',
+  '  We are talented',
+  '  We are professionals.',
+  // 'Salat'
+]} />
     </div>
   );
 }

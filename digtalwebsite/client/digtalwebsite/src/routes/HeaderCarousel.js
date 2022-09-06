@@ -18,6 +18,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
   const [index, setIndex] = useState(0);
+  const [interval, setInterval] = useState(11500);
   const [autoplay, setAutoplay] = useState(true);
   const slide1 = useRef(null);
   const slide2 = useRef(null);
@@ -41,13 +42,26 @@ export const HeaderCarousel = () => {
     // } else {
     //   slide3.current.style.backgroundColor = "transparent";
     // }
+
+    //adjusting ingterval
+    if(index === 1){
+      setInterval(5000)
+      console.log("1: ",interval)
+    }
+    if(index === 0){
+      setInterval(11500)
+      console.log("2: ",interval)
+
+    }
+
+
     return () => {
       // slide1.current.style.backgroundColor = "none";
       // slide2.current.style.backgroundColor = "none";
       // slide3.current.style.backgroundColor = "none";
       console.log("im the cleanr");
     };
-  }, [index]);
+  }, [index,interval]);
 
   const handleChangeIndex = (index) => {
     setIndex(index);
@@ -98,7 +112,7 @@ export const HeaderCarousel = () => {
         {autoplay ? "pause" : "play"}
       </button> */}
       <WhoWeAre state={index}/>
-      <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={10000} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
+      <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={interval} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
         {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
 
         <HeaderVideo />

@@ -13,7 +13,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
-import { useMediaQuery, Grid } from "@mui/material";
+import { useMediaQuery, Grid, Tooltip, IconButton } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
@@ -181,20 +181,21 @@ export default function Navbar({ language, setLanguage }) {
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
                 </Grid>
-                <Grid item className="mobile-nav-bar-item" >
-                <DarkModeTwoTone className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none",marginLeft: '45%' }}
+                <Grid item className="mobile-nav-bar-item">
+                  <DarkModeTwoTone
+                    className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none", marginLeft: "45%" }}
                     onClick={() => {
                       switchTheme("light");
                       setWebsiteTheme("light");
                     }}
                   />
-                   <LightModeTwoTone className="navbar-theme-light"
-                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none",marginLeft: '45%' }}
+                  <LightModeTwoTone
+                    className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none", marginLeft: "45%" }}
                     onClick={() => {
                       switchTheme("dark");
                       setWebsiteTheme("dark");
-
                     }}
                   />
                 </Grid>
@@ -228,24 +229,26 @@ export default function Navbar({ language, setLanguage }) {
                 <ActiveNavLink to={language + "/contact"} text={t("contact")} />
               </Gridd>
               <StyledEngineProvider injectFirst>
-                <Gridd item md={0.2} sx={{ width: "fit-content" }} >
-                  <DarkModeTwoTone className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
-                    onClick={() => {
-                      switchTheme("light");
-                      setWebsiteTheme("light");
-                    }}
-                  />
-                   <LightModeTwoTone className="navbar-theme-light"
+                <Gridd item md={0.2} sx={{ width: "fit-content" }}>
+                   
+
+                      <DarkModeTwoTone
+                        className="navbar-theme-dark"
+                        sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                        onClick={() => {
+                          switchTheme("light");
+                          setWebsiteTheme("light");
+                        }}
+                      />
+                  <LightModeTwoTone
+                    className="navbar-theme-light"
                     sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
                     onClick={() => {
                       switchTheme("dark");
                       setWebsiteTheme("dark");
-
                     }}
                   />
                 </Gridd>
-               
               </StyledEngineProvider>
               <Gridd item md={1.5} className="language-item">
                 <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
