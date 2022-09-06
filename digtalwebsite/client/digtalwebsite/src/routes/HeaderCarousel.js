@@ -14,10 +14,10 @@ import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
 import { IconButton, useMediaQuery } from "@mui/material";
 import WhoWeAre from "./WhoWeAre";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import PauseIcon from "@mui/icons-material/Pause";
+
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import { KeyboardDoubleArrowLeft, KeyboardDoubleArrowRight } from "@mui/icons-material";
+import { CarouselControl } from "./CarouselControl";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
@@ -81,51 +81,43 @@ export const HeaderCarousel = () => {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "90vh" }}>
+      <div style={{ width: "100vw", height: "90vh",backgroundColor:"red",marginTop: "0" }}>
         <div className="carousel-arrow-left">
           {index === 0 ? (
             <IconButton aria-label="swipe left" onClick={decrementIndex} disabled disableRipple >
-              <KeyboardDoubleArrowLeft sx={{ fontSize: 100 }} onClick={decrementIndex} />
+              <KeyboardDoubleArrowLeft onClick={decrementIndex} />
             </IconButton>
           ) : (
-            <IconButton aria-label="swipe left" onClick={decrementIndex}  disableRipple className="carousel-arrow-left">
-              <KeyboardDoubleArrowLeft sx={{ fontSize: 100 }} onClick={decrementIndex} />
+            <IconButton aria-label="swipe left" onClick={decrementIndex}  disableRipple className="carousel-arrow-left-icon">
+              <KeyboardDoubleArrowLeft onClick={decrementIndex} />
             </IconButton>
           )}
         
         </div>
 
-        <div className="carousel">
-          {[0, 1, 2, 3].map((elt) => (
-            <button onClick={() => setIndex(elt)} className="carousel-button"></button>
-          ))}
-          {/* <button onClick={resetIndex} ref={slide1}>
-            set 0
-          </button>
-          <button onClick={resetIndex1} ref={slide2}>
-            set 1
-          </button>
-          <button onClick={resetIndex2} ref={slide3}>
-            set 2
-          </button> */}
-
-          {autoplay ? <PauseIcon onClick={() => setAutoplay(false)} fontSize={!match870 ? "large" : "medium"} className="carousel-icon" /> : <PlayArrowIcon onClick={() => setAutoplay(true)} fontSize={!match870 ? "large" : "medium"} className="carousel-icon" />}
-        </div>
+      
 
         <div className="carousel-arrow-right">
           {index === 3 ? (
             <IconButton aria-label="swipe left" onClick={incrementIndex} disabled disableRipple >
-              <KeyboardDoubleArrowRight sx={{ fontSize: 100 }} onClick={incrementIndex} />
+              <KeyboardDoubleArrowRight onClick={incrementIndex} />
             </IconButton>
           ) : (
-            <IconButton aria-label="swipe left" onClick={incrementIndex}  disableRipple className="carousel-arrow-right">
-              <KeyboardDoubleArrowRight sx={{ fontSize: 100 }} onClick={incrementIndex} />
+            <IconButton aria-label="swipe left" onClick={incrementIndex}  disableRipple className="carousel-arrow-right-icon">
+              <KeyboardDoubleArrowRight onClick={incrementIndex} />
             </IconButton>
           )}
         
         </div>
 
+       
+{/* animated text */}
         <WhoWeAre state={index} />
+
+        {/* carousel buttons */}
+        <CarouselControl autoplay={autoplay} match870={match870} setIndex={setIndex} setAutoplay={setAutoplay} currentIndex={index}/>
+
+
         <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={interval} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
           {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
 
