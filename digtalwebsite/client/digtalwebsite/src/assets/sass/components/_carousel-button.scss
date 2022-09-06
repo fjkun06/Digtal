@@ -86,13 +86,21 @@
    
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1079px) {
     .carousel {
       &-arrow-left,
       &-arrow-right
       {
         display: none;
       }
+
+      //icon
+    &-icon {
+      transform: scale(1.5);
+         }
+
+   
+    
     }}
 }
 
