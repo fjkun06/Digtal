@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect } from "react";
-import { useRef } from "react";
 
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
@@ -12,40 +11,24 @@ import original3 from "../assets/images/digtal_ui_shadow_v3.png";
 import { useState } from "react";
 import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
-import { IconButton, useMediaQuery } from "@mui/material";
+import {  useMediaQuery } from "@mui/material";
 import WhoWeAre from "./WhoWeAre";
 
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import { KeyboardDoubleArrowLeft, KeyboardDoubleArrowRight } from "@mui/icons-material";
 import { CarouselControl } from "./CarouselControl";
+import { LeftArrow } from "./LeftArrow";
+import { RightArrow } from "./RightArrow";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
   const [index, setIndex] = useState(0);
   const [interval, setInterval] = useState(11500);
   const [autoplay, setAutoplay] = useState(true);
-  const slide1 = useRef(null);
-  const slide2 = useRef(null);
-  const slide3 = useRef(null);
+  
 
   const match870 = useMediaQuery("(max-width:870px)");
 
   useEffect(() => {
-    // if (index === 0) {
-    //   slide1.current.style.backgroundColor = "red";
-    // } else {
-    //   slide1.current.style.backgroundColor = "transparent";
-    // }
-    // if (index === 1) {
-    //   slide2.current.style.backgroundColor = "red";
-    // } else {
-    //   slide2.current.style.backgroundColor = "transparent";
-    // }
-    // if (index === 2) {
-    //   slide3.current.style.backgroundColor = "red";
-    // } else {
-    //   slide3.current.style.backgroundColor = "transparent";
-    // }
+  
 
     //adjusting ingterval
     if (index === 1) {
@@ -57,12 +40,6 @@ export const HeaderCarousel = () => {
       console.log("2: ", interval);
     }
 
-    return () => {
-      // slide1.current.style.backgroundColor = "none";
-      // slide2.current.style.backgroundColor = "none";
-      // slide3.current.style.backgroundColor = "none";
-      console.log("im the cleanr");
-    };
   }, [index, interval]);
 
   const handleChangeIndex = (index) => {
@@ -72,43 +49,21 @@ export const HeaderCarousel = () => {
 
   const decrementIndex = () => {
     if (index > 0) setIndex(index - 1);
-    // if (index > 0 && index < 3) setIndex(index - 1);
   };
   const incrementIndex = () => {
     if (index >= 0) setIndex(index + 1);
-    // if (index >= 0 && index < 2) setIndex(index + 1);
   };
 
   return (
     <>
       <div style={{ width: "100vw", height: "90vh",backgroundColor:"red",marginTop: "0" }}>
-        <div className="carousel-arrow-left">
-          {index === 0 ? (
-            <IconButton aria-label="swipe left" onClick={decrementIndex} disabled disableRipple >
-              <KeyboardDoubleArrowLeft onClick={decrementIndex} />
-            </IconButton>
-          ) : (
-            <IconButton aria-label="swipe left" onClick={decrementIndex}  disableRipple className="carousel-arrow-left-icon">
-              <KeyboardDoubleArrowLeft onClick={decrementIndex} />
-            </IconButton>
-          )}
-        
-        </div>
+       
 
-      
+      {/* left arrow here */}
+      <LeftArrow index={index} decrementIndex={decrementIndex}/>
 
-        <div className="carousel-arrow-right">
-          {index === 3 ? (
-            <IconButton aria-label="swipe left" onClick={incrementIndex} disabled disableRipple >
-              <KeyboardDoubleArrowRight onClick={incrementIndex} />
-            </IconButton>
-          ) : (
-            <IconButton aria-label="swipe left" onClick={incrementIndex}  disableRipple className="carousel-arrow-right-icon">
-              <KeyboardDoubleArrowRight onClick={incrementIndex} />
-            </IconButton>
-          )}
-        
-        </div>
+      {/* right arrow here */}
+      <RightArrow index={index} incrementIndex={incrementIndex}/>
 
        
 {/* animated text */}
@@ -126,7 +81,6 @@ export const HeaderCarousel = () => {
           <HeaderLoader />
         </AutoPlaySwipeableViews>
 
-        {/* <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex} /> */}
       </div>
     </>
   );
