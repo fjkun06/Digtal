@@ -5,6 +5,8 @@
 border: 1px solid red;
     @include mixins.flex();
     column-gap: 1rem;
+
+    //button
     &-button {
       background-color: red;
       width: 2.5rem;
@@ -15,5 +17,34 @@ border: 1px solid red;
         transform: scale(1.15);
       }
     }
+
+    //icon
+    &-icon{
+      cursor: pointer;
+      color: red
+    }
+
+
+    //arrow left
+    &-arrow-left{
+@extend .arrow;
+    }
+
+    //arrow right
+    &-arrow-right{
+
+@extend .arrow;
+
+    };
+
   }
+}
+
+
+.arrow{
+  border: 1px solid black;
+  width: max-content;
+color: red;
+cursor: pointer;
+// font-size: 10rem;
 }

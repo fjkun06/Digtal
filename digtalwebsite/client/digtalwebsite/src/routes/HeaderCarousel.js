@@ -12,10 +12,12 @@ import original3 from "../assets/images/digtal_ui_shadow_v3.png";
 import { useState } from "react";
 import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
-import { useMediaQuery } from "@mui/material";
+import { IconButton, useMediaQuery } from "@mui/material";
 import WhoWeAre from "./WhoWeAre";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import { KeyboardDoubleArrowLeft, KeyboardDoubleArrowRight } from "@mui/icons-material";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
@@ -69,20 +71,28 @@ export const HeaderCarousel = () => {
   };
 
   const decrementIndex = () => {
-    if (index > 0 && index < 3) setIndex(index - 1);
+    if (index > 0) setIndex(index - 1);
+    // if (index > 0 && index < 3) setIndex(index - 1);
   };
   const incrementIndex = () => {
-    if (index >= 0 && index < 2) setIndex(index + 1);
-    // console.log(index);
+    if (index >= 0) setIndex(index + 1);
+    // if (index >= 0 && index < 2) setIndex(index + 1);
   };
 
   return (
     <>
       <div style={{ width: "100vw", height: "90vh" }}>
-        <div>
-          <button onClick={decrementIndex} disabled={index === 0 ? true : false}>
-            left arrow
-          </button>
+        <div className="carousel-arrow-left">
+          {index === 0 ? (
+            <IconButton aria-label="swipe left" onClick={decrementIndex} disabled disableRipple >
+              <KeyboardDoubleArrowLeft sx={{ fontSize: 100 }} onClick={decrementIndex} />
+            </IconButton>
+          ) : (
+            <IconButton aria-label="swipe left" onClick={decrementIndex}  disableRipple className="carousel-arrow-left">
+              <KeyboardDoubleArrowLeft sx={{ fontSize: 100 }} onClick={decrementIndex} />
+            </IconButton>
+          )}
+        
         </div>
 
         <div className="carousel">
@@ -99,13 +109,20 @@ export const HeaderCarousel = () => {
             set 2
           </button> */}
 
-          {autoplay ? <PauseIcon onClick={() => setAutoplay(false)} fontSize={!match870 ? "large" : "medium"} /> : <PlayArrowIcon onClick={() => setAutoplay(true)} fontSize={!match870 ? "large" : "medium"} />}
+          {autoplay ? <PauseIcon onClick={() => setAutoplay(false)} fontSize={!match870 ? "large" : "medium"} className="carousel-icon" /> : <PlayArrowIcon onClick={() => setAutoplay(true)} fontSize={!match870 ? "large" : "medium"} className="carousel-icon" />}
         </div>
 
-        <div>
-          <button onClick={incrementIndex} disabled={index === 2 ? true : false}>
-            right arrow
-          </button>
+        <div className="carousel-arrow-right">
+          {index === 3 ? (
+            <IconButton aria-label="swipe left" onClick={incrementIndex} disabled disableRipple >
+              <KeyboardDoubleArrowRight sx={{ fontSize: 100 }} onClick={incrementIndex} />
+            </IconButton>
+          ) : (
+            <IconButton aria-label="swipe left" onClick={incrementIndex}  disableRipple className="carousel-arrow-right">
+              <KeyboardDoubleArrowRight sx={{ fontSize: 100 }} onClick={incrementIndex} />
+            </IconButton>
+          )}
+        
         </div>
 
         <WhoWeAre state={index} />
