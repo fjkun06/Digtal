@@ -108,7 +108,7 @@ export default function Navbar({ language, setLanguage }) {
             // display: !condition && scrollUp ? "grid" : "none",
           }}
         >
-          <Grid item container sx={{ backgroundColor: "white" }} pt={2} pb={2} alignItems={"center"} justifyContent="space-between">
+          <Grid item container sx={{ backgroundColor: "white" }}  alignItems={"center"} justifyContent="space-between">
             <Grid item justifyContent="flex-start" bs={3} md={3} xs={4}>
               <Gridd
                 item
