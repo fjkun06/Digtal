@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MovingText from 'react-moving-text'
 import "@fontsource/victor-mono";
+import { useTranslation } from 'react-i18next';
 const WhoWeAre = ({state}) => {
+
+  const {t} = useTranslation('home');
   // const [timer, setTimer] = useState(false);
 
   // setTimeout(() => {

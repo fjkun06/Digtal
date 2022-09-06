@@ -22,6 +22,8 @@
       background: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
 
       &:hover {
+      height: 5px;
+
         transform: scale(1.25);
       }
     }
@@ -60,8 +62,27 @@
 
     //consulting caption
 &-consulting-caption{
+  @include mixins.grid();
   position: absolute;
-  background-color: white;
+  background: black;
+  color: #888;
+  // background-color: rgba(0, 0, 0, 0.821);
+  border: 1px solid transparent;
+  border: none;
+  // left: 0vw;
+  top: 100px;
+  margin-left: 15vw;
+  width: 20rem;
+  text-align: center;
+  vertical-align: middle;
+  height: 15rem;
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 50%;
+  // box-shadow: inset 5px 5px 500px rgba(0, 0, 0, 0.72),-5px -5px 50px 10px black
+  // box-shadow: inset 5px 5px 500px #333
+  box-shadow:  -5px -5px 50px 70px black
 }
    
   }

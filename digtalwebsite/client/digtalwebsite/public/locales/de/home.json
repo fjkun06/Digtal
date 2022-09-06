@@ -1,0 +1,21 @@
+{
+  
+  "digtal-carousel":{
+    "one": "We are young",
+    "two": "We are talented",
+    "three": " We are professionals."
+  },
+ 
+  "content": "Zum Inhalt",
+  "text": {
+    "web": "Wir entwickeln Softwares, die die Nutzer auf tolle Ideen bringen und sie so schnell wie möglich ans Ziel führen.",
+    "marketing": "Wir Unterstützen Ihrem Unternehmen dabei, Ihre Sichtbarkeit zu erhöhen, indem wir die bezahlten Akquisitionsstrategien optimieren, aber auch eine ausgefeilte SEO-Strategie implementieren. ",
+    "consulting": "Unsere IT-Berater verbinden strategisches Denken, Ideen für die Auswahl von Technologien und Werkzeugen sowie digitale Trends mit Projektmanagement."
+  },
+  "nos-services": {
+    "title": "Unsere Dienstleistungen",
+    "text": "Profitieren Sie von dem Know-how unseres jungen und dynamischen Teams von mehr als 10 Experten aus den Bereichen Web & Mobile Entwicklung, IT Consulting und Digital Marketing."
+  },
+  "card-button": "Mehr erfahren"
+  
+}

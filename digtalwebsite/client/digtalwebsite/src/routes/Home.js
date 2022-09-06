@@ -72,7 +72,7 @@ export default function Home() {
               {/* <Button>Zoom</Button> */}
               <Arrow
                 onClick={handleScroll}
-                text={t("content", { ns: "pageend" })}
+                text={t("content", { ns: "home" })}
               />
             </Grid>
           </Grid>
@@ -80,10 +80,10 @@ export default function Home() {
           <Grid className="home-body" id="hbody">
             <Grid className="home-body-header">
               <Typography variant="h3" className="home-body-header-title">
-                {t("nos-services.title", { ns: "pageend" })}
+                {t("nos-services.title", { ns: "home" })}
               </Typography>
               <Typography variant="subtitle1" className="home-body-header-para">
-                {t("nos-services.text", { ns: "pageend" })}
+                {t("nos-services.text", { ns: "home" })}
               </Typography>
             </Grid>
             <Grid className="home-body-inner" id="hinner" ref={ref}>
@@ -94,13 +94,13 @@ export default function Home() {
                   key={card.heading}
                   logo={card.logo}
                   path={card.path}
-                  text={t(card.text, { ns: "pageend" })}
+                  text={t(card.text, { ns: "home" })}
                   heading={t(card.heading, { ns: "form" })}
                   id={"hcard" + (index + 1)}
                   cname={"home-card-" + (index + 1)}
                   visible={visible}
                   appear={index + 1}
-                  buttonText={t("card-button", { ns: "pageend" })}
+                  buttonText={t("card-button", { ns: "home" })}
                   icon={card.icon}
                 />
               ))}
@@ -116,13 +116,13 @@ export default function Home() {
                   key={card.heading}
                   logo={card.logo}
                   path={card.path}
-                  text={t(card.text, { ns: "pageend" })}
+                  text={t(card.text, { ns: "home" })}
                   heading={t(card.heading, { ns: "form" })}
                   id={"hcard" + (index + 1)}
                   cname={"home-card-" + (index + 1)}
                   visible={visible}
                   appear={index + 1}
-                  buttonText={t("card-button", { ns: "pageend" })}
+                  buttonText={t("card-button", { ns: "home" })}
                   icon={card.icon}
                 />
               ))}

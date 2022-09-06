@@ -16,6 +16,8 @@ import { useState } from "react";
 import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
 import { useMediaQuery } from "@mui/material";
+import MovingText from 'react-moving-text'
+
 import WhoWeAre from "./WhoWeAre";
 
 import { CarouselControl } from "./CarouselControl";
@@ -70,16 +72,23 @@ export const HeaderCarousel = () => {
           {!match870 ? <CustomImage image={digtalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={digtal870} alt="Digtal Cover photo" classes="home-header-image" />}
 
           {/* <HeaderVideo /> */}
-          <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> 
+          <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" />
           {/* {!match870 ? <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={web870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           {/* {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           <div>
-            <span className="carousel-consulting-caption">hello god</span>
-          <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> 
-
+            <div className="carousel-consulting-caption">
+              <dive>I love you</dive>
+              <dive>I love you</dive>
+             {["lolita"].map((letter, index) =>
+              <MovingText type="shadow" duration="3000ms" delay="index * 100ms" direction="normal" timing="ease" iteration="5" fillMode="none">
+                {letter}
+              </MovingText>
+              )}
+            </div>
+            <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" />
           </div>
           {/* {!match870 ? <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={consulting870} alt="Digtal Cover photo" classes="home-header-image" />} */}
-          
+
           {/* <CustomImage image={web1080} alt="Web Design Cover photo" classes="home-header-image" /> */}
           <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" />
           {/* <HeaderLoader /> */}

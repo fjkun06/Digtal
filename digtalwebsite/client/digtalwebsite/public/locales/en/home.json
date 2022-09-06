@@ -1,0 +1,19 @@
+{
+  "digtal-carousel":{
+    "one": "We are young",
+    "two": "We are talented",
+    "three": " We are professionals."
+  },
+  "content": "Go to Content",
+
+  "text":{
+    "web": "We develop softwares that inspire users, and lead them to their destination as quickly as possible. Your satisfaction, is our objective.",
+    "marketing": "We help your company boost its visibility by optimizing its paid acquisition strategies, but also by implementing a focused SEO strategy.",
+    "consulting": "Our IT consultants combine strategic thinking, appropriate choice of technologies and tools, as well as digital trends with project management."
+  },
+  "nos-services":{
+    "title":"Our Services",
+    "text":"Benefit from the know-how of our young and dynamic team, comprising of more than 10 experts in Web & Mobile Development, IT Consulting, and Digital Marketing."
+  },
+  "card-button": "Learn More"
+}
