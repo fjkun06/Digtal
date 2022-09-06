@@ -8,7 +8,7 @@ export const CarouselControl = ({ autoplay, match870, setIndex, setAutoplay, cur
 
   return (
     <div className="carousel">
-      {[0, 1, 2, 3].map((elt, index) => (match480 ? <button onClick={() => setIndex(elt)} className="carousel-button" style={{ backgroundColor: index === currentIndex ? "" : "rgba(0, 208, 255, 0.302)" }}></button> : <button onClick={() => setIndex(elt)} className="carousel-button" style={{ height: index === currentIndex ? "8px" : "" }}></button>))}
+      {[0, 1, 2, 3].map((elt, index) => (match480 ? <button onClick={() => setIndex(elt)} className="carousel-button" style={{ backgroundColor: index !== currentIndex ? "" : "rgba(0, 208, 255, 0.302)" }}></button> : <button onClick={() => setIndex(elt)} className="carousel-button" style={{ height: index === currentIndex ? "8px" : "" }}></button>))}
       {/* <button onClick={resetIndex} ref={slide1}>
             set 0
           </button>
