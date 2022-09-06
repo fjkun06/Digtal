@@ -73,7 +73,11 @@ export const HeaderCarousel = () => {
           <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> 
           {/* {!match870 ? <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={web870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           {/* {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />} */}
+          <div>
+            <span className="carousel-consulting-caption">hello god</span>
           <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> 
+
+          </div>
           {/* {!match870 ? <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={consulting870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           
           {/* <CustomImage image={web1080} alt="Web Design Cover photo" classes="home-header-image" /> */}
