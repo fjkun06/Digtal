@@ -27,33 +27,31 @@ export const HeaderCarousel = () => {
   const match870 = useMediaQuery("(max-width:870px)");
 
   useEffect(() => {
-    // if (index === 0) {
-    //   slide1.current.style.backgroundColor = "red";
-    // } else {
-    //   slide1.current.style.backgroundColor = "transparent";
-    // }
-    // if (index === 1) {
-    //   slide2.current.style.backgroundColor = "red";
-    // } else {
-    //   slide2.current.style.backgroundColor = "transparent";
-    // }
-    // if (index === 2) {
-    //   slide3.current.style.backgroundColor = "red";
-    // } else {
-    //   slide3.current.style.backgroundColor = "transparent";
-    // }
+    if (index === 0) {
+      slide1.current.style.backgroundColor = "red";
+    } else {
+      slide1.current.style.backgroundColor = "transparent";
+    }
+    if (index === 1) {
+      slide2.current.style.backgroundColor = "red";
+    } else {
+      slide2.current.style.backgroundColor = "transparent";
+    }
+    if (index === 2) {
+      slide3.current.style.backgroundColor = "red";
+    } else {
+      slide3.current.style.backgroundColor = "transparent";
+    }
 
     //adjusting ingterval
-    if(index === 1){
-      setInterval(5000)
-      console.log("1: ",interval)
+    if (index === 1) {
+      setInterval(5000);
+      console.log("1: ", interval);
     }
-    if(index === 0){
-      setInterval(11500)
-      console.log("2: ",interval)
-
+    if (index === 0) {
+      setInterval(11500);
+      console.log("2: ", interval);
     }
-
 
     return () => {
       // slide1.current.style.backgroundColor = "none";
@@ -61,7 +59,7 @@ export const HeaderCarousel = () => {
       // slide3.current.style.backgroundColor = "none";
       console.log("im the cleanr");
     };
-  }, [index,interval]);
+  }, [index, interval]);
 
   const handleChangeIndex = (index) => {
     setIndex(index);
@@ -89,37 +87,44 @@ export const HeaderCarousel = () => {
   };
 
   return (
-    <div style={{ width: "100vw", height: "90vh" }}>
-      {/* <button onClick={decrementIndex} disabled={index === 0 ? true : false}>
-        left arrow
-      </button>
+    <>
+      <div style={{ width: "100vw", height: "90vh" }}>
+        <div>
+          <button onClick={decrementIndex} disabled={index === 0 ? true : false}>
+            left arrow
+          </button>
+        </div>
 
-      <button onClick={resetIndex} ref={slide1}>
-        set 0
-      </button>
-      <button onClick={resetIndex1} ref={slide2}>
-        set 1
-      </button>
-      <button onClick={resetIndex2} ref={slide3}>
-        set 2
-      </button>
+        <div>
+          <button onClick={resetIndex} ref={slide1}>
+            set 0
+          </button>
+          <button onClick={resetIndex1} ref={slide2}>
+            set 1
+          </button>
+          <button onClick={resetIndex2} ref={slide3}>
+            set 2
+          </button>
 
-      <button onClick={incrementIndex} disabled={index === 2 ? true : false}>
-        right arrow
-      </button>
+          <button onClick={() => setAutoplay(autoplay ? false : true)}>{autoplay ? "pause" : "play"}</button>
+        </div>
 
-      <button onClick={() => setAutoplay(autoplay? false: true)}  >
-        {autoplay ? "pause" : "play"}
-      </button> */}
-      <WhoWeAre state={index}/>
-      <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={interval} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
-        {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
+        <div>
+          <button onClick={incrementIndex} disabled={index === 2 ? true : false}>
+            right arrow
+          </button>
+        </div>
 
-        <HeaderVideo />
-        <HeaderLoader />
-      </AutoPlaySwipeableViews>
+        <WhoWeAre state={index} />
+        <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={interval} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
+          {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
 
-      {/* <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex} /> */}
-    </div>
+          <HeaderVideo />
+          <HeaderLoader />
+        </AutoPlaySwipeableViews>
+
+        {/* <Pagination dots={3} index={index} onChangeIndex={this.handleChangeIndex} /> */}
+      </div>
+    </>
   );
 };
