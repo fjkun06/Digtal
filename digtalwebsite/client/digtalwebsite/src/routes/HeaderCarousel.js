@@ -14,6 +14,8 @@ import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
 import { useMediaQuery } from "@mui/material";
 import WhoWeAre from "./WhoWeAre";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PauseIcon from "@mui/icons-material/Pause";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
@@ -27,21 +29,21 @@ export const HeaderCarousel = () => {
   const match870 = useMediaQuery("(max-width:870px)");
 
   useEffect(() => {
-    if (index === 0) {
-      slide1.current.style.backgroundColor = "red";
-    } else {
-      slide1.current.style.backgroundColor = "transparent";
-    }
-    if (index === 1) {
-      slide2.current.style.backgroundColor = "red";
-    } else {
-      slide2.current.style.backgroundColor = "transparent";
-    }
-    if (index === 2) {
-      slide3.current.style.backgroundColor = "red";
-    } else {
-      slide3.current.style.backgroundColor = "transparent";
-    }
+    // if (index === 0) {
+    //   slide1.current.style.backgroundColor = "red";
+    // } else {
+    //   slide1.current.style.backgroundColor = "transparent";
+    // }
+    // if (index === 1) {
+    //   slide2.current.style.backgroundColor = "red";
+    // } else {
+    //   slide2.current.style.backgroundColor = "transparent";
+    // }
+    // if (index === 2) {
+    //   slide3.current.style.backgroundColor = "red";
+    // } else {
+    //   slide3.current.style.backgroundColor = "transparent";
+    // }
 
     //adjusting ingterval
     if (index === 1) {
@@ -66,18 +68,6 @@ export const HeaderCarousel = () => {
     console.log(index);
   };
 
-  const resetIndex = () => {
-    setIndex(0);
-    // console.log(index);
-  };
-  const resetIndex1 = () => {
-    setIndex(1);
-    // console.log(index);
-  };
-  const resetIndex2 = () => {
-    setIndex(2);
-    // console.log(index);
-  };
   const decrementIndex = () => {
     if (index > 0 && index < 3) setIndex(index - 1);
   };
@@ -95,8 +85,11 @@ export const HeaderCarousel = () => {
           </button>
         </div>
 
-        <div>
-          <button onClick={resetIndex} ref={slide1}>
+        <div className="carousel">
+          {[0, 1, 2, 3].map((elt) => (
+            <button onClick={() => setIndex(elt)} className="carousel-button"></button>
+          ))}
+          {/* <button onClick={resetIndex} ref={slide1}>
             set 0
           </button>
           <button onClick={resetIndex1} ref={slide2}>
@@ -104,9 +97,9 @@ export const HeaderCarousel = () => {
           </button>
           <button onClick={resetIndex2} ref={slide3}>
             set 2
-          </button>
+          </button> */}
 
-          <button onClick={() => setAutoplay(autoplay ? false : true)}>{autoplay ? "pause" : "play"}</button>
+          {autoplay ? <PauseIcon onClick={() => setAutoplay(false)} fontSize={!match870 ? "large" : "medium"} /> : <PlayArrowIcon onClick={() => setAutoplay(true)} fontSize={!match870 ? "large" : "medium"} />}
         </div>
 
         <div>
@@ -120,6 +113,7 @@ export const HeaderCarousel = () => {
           {!match870 ? <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={original870} alt="Digtal Cover photo" classes="home-header-image" />}
 
           <HeaderVideo />
+          <CustomImage image={originalBig} alt="Digtal Cover photo" classes="home-header-image" />
           <HeaderLoader />
         </AutoPlaySwipeableViews>
 

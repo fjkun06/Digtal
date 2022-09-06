@@ -2,6 +2,7 @@
 @use "../../util/variables";
 @use "../../util/extensions";
 @use "../../components//arrows";
+@use "../../components/carousel-button";
 @use "./header-video";
 @use "./loader";
 @use "./personality";
@@ -113,6 +114,9 @@ transition: transform 2s ease-in-out;
 
     //personality
     @extend %personality;
+
+    //carousel here
+    @extend %carousel-control;
 }
 
 

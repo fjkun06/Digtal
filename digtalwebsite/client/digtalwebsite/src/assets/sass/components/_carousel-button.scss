@@ -1,0 +1,19 @@
+@use '../util/mixins';
+
+%carousel-control {
+  .carousel {
+border: 1px solid red;
+    @include mixins.flex();
+    column-gap: 1rem;
+    &-button {
+      background-color: red;
+      width: 2.5rem;
+      height: 5px;
+      transition: all 0.25s ease-in-out;
+      border:1px solid transparent;
+      &:hover{
+        transform: scale(1.15);
+      }
+    }
+  }
+}
