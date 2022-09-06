@@ -1,11 +1,10 @@
 {
-  
-  "digtal-carousel":{
-    "one": "We are young",
-    "two": "We are talented",
-    "three": " We are professionals."
+  "digtal-carousel": {
+    "one": "Wir sind jung",
+    "two": "talentiert",
+    "three": " und Profis."
   },
- 
+
   "content": "Zum Inhalt",
   "text": {
     "web": "Wir entwickeln Softwares, die die Nutzer auf tolle Ideen bringen und sie so schnell wie möglich ans Ziel führen.",
@@ -17,5 +16,4 @@
     "text": "Profitieren Sie von dem Know-how unseres jungen und dynamischen Teams von mehr als 10 Experten aus den Bereichen Web & Mobile Entwicklung, IT Consulting und Digital Marketing."
   },
   "card-button": "Mehr erfahren"
-  
 }
