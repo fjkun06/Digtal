@@ -69,21 +69,27 @@ export const HeaderCarousel = () => {
         <CarouselControl autoplay={autoplay} match870={match870} setIndex={setIndex} setAutoplay={setAutoplay} currentIndex={index} />
 
         <AutoPlaySwipeableViews index={index} onChangeIndex={handleChangeIndex} interval={interval} autoplay={autoplay} style={{ transition: "all 0.5s ease-in-out" }}>
+          
           {!match870 ? <CustomImage image={digtalBig} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={digtal870} alt="Digtal Cover photo" classes="home-header-image" />}
+          
+          <div>
+          <CarouselConsultingCaption index={index} pos={1} text={'over-text.web'}/>
 
           {/* <HeaderVideo /> */}
           <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" />
+          </div>
+
           {/* {!match870 ? <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={web870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           {/* {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           <div>
             {/* carousel consulting caption here */}
-            <CarouselConsultingCaption index={index} />
+            <CarouselConsultingCaption index={index} pos={2} text={'over-text.consulting'}/>
 
             <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" />
           </div>
           <div>
             {/* carousel consulting caption here */}
-            <CarouselConsultingCaption index={index} />
+            <CarouselConsultingCaption index={index} pos={3} text={'over-text.marketing'}/>
 
             <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" />
 
