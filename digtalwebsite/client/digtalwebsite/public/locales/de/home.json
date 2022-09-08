@@ -15,5 +15,10 @@
     "title": "Unsere Dienstleistungen",
     "text": "Profitieren Sie von dem Know-how unseres jungen und dynamischen Teams von mehr als 10 Experten aus den Bereichen Web & Mobile Entwicklung, IT Consulting und Digital Marketing."
   },
-  "card-button": "Mehr erfahren"
+  "card-button": "Mehr erfahren",
+  "over-text": {
+    "web": "We Are Web Developers.",
+    "marketing": "Explore All Possibilities.",
+    "consulting": " IT Consulting Made Easy."
+  }
 }

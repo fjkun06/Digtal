@@ -80,7 +80,10 @@
        font-size: 4rem;
        font-family: "Sarala,Gudea",sans-serif;
        font-weight: 700;
-        background-color: rgba(125, 148, 171, 0.7);
+       margin-top: -15vh;
+        background-color: rgba(black, 0.4);
+        // background-color: rgba(rebeccapurple, 0.2);
+        // background-color: rgba(125, 148, 171, 0.7);
         @include mixins.grid();
         place-items: center;
 
