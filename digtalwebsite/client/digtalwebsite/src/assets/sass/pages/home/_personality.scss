@@ -12,46 +12,6 @@
     line-height: 4rem;
     transition: all 0.5s ease-in-out;
     
-    // color: transparent;
-    &-text {
-      &-1 {
-        // margin-left: 2rem;
-        @extend %text;
-
-        animation: larget-text 3s ease-in-out 2s infinite;
-      }
-      &-2 {
-        margin-left: 2rem;
-        @extend %text;
-
-        animation: larget-text 3s ease-in-out 3s infinite;
-      }
-      &-3 {
-        @extend %text;
-        margin-left: 4rem;
-color: rebeccapurple;
-        animation: larget-text 3s ease-in-out 4s infinite;
-      }
-    }
   }
 }
 
-%text {
-  height: 15px;
-  border-left: 3px solid rebeccapurple;
-
-  font-weight: 100;
-  margin-top: 1.7rem;
-}
-
-@keyframes larget-text {
-  50% {
-
-
-    text-shadow: 1px 1px 2px rebeccapurple;
-    // text-shadow: 1px 1px 2px #888;
-  }
-  0%,
-  100% {
-  }
-}
