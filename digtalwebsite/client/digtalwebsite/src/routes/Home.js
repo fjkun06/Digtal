@@ -12,8 +12,7 @@ import { useMemo } from "react";
 
 export default function Home() {
   const ref = useRef();
-  let cards =  useMemo(() => [], []);
-
+  let cards = useMemo(() => [], []);
 
   // const inViewport = useIntersection(ref, '0px'); // Trigger as soon as the element becomes visible
   const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
@@ -31,13 +30,12 @@ export default function Home() {
     //setting scroller
     setScroller(document?.getElementById("hbody"));
 
-    if(condition){
+    if (condition) {
       cards[0] = document.getElementById("hcard1");
       cards[1] = document.getElementById("hcard2");
       cards[2] = document.getElementById("hcard3");
     }
-
-  }, [condition,cards]);
+  }, [condition, cards]);
 
   //text animation controller
   function callback() {
@@ -66,19 +64,14 @@ export default function Home() {
               onClick={() => {
                 handleScroll();
                 callback();
-              }
-
-              }
+              }}
             >
               {/* <Button>Zoom</Button> */}
-              <Arrow
-                onClick={handleScroll}
-                text={t("content", { ns: "home" })}
-              />
+              <Arrow onClick={handleScroll} text={t("content", { ns: "home" })} />
             </Grid>
           </Grid>
 
-          <Grid className="home-body" id="hbody">
+          <Grid className="home-body" id="hbody" onMouseEnter={() => {console.log("i am in/....")}} onMouseOver={() => console.log("im over.........")}>
             <Grid className="home-body-header">
               <Typography variant="h3" className="home-body-header-title">
                 {t("nos-services.title", { ns: "home" })}
@@ -91,31 +84,17 @@ export default function Home() {
               {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
               {homeCards.map((card, index) => (
-                <HomeCard
-                  key={card.heading}
-                  logo={card.logo}
-                  path={card.path}
-                  text={t(card.text, { ns: "home" })}
-                  heading={t(card.heading, { ns: "form" })}
-                  id={"hcard" + (index + 1)}
-                  cname={"home-card-" + (index + 1)}
-                  visible={visible}
-                  appear={index + 1}
-                  buttonText={t("card-button", { ns: "home" })}
-                  icon={card.icon}
-                />
+                <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "home" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "home" })} icon={card.icon} />
               ))}
 
               {/* <HomeCard/>
           <HomeCard/> */}
             </Grid>
-            <Grid className="home-body-methodology" id="hhinner" ref={ref}>
-              {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
-
-            
-
-              {/* <HomeCard/>
-          <HomeCard/> */}
+            <Grid className="home-body-methodology">
+            <div className="home-body-methodology-one"></div>
+            <div className="home-body-methodology-two"></div>
+            <div className="home-body-methodology-three"></div>
+            <div className="home-body-methodology-four"></div>
             </Grid>
           </Grid>
         </Grid>
