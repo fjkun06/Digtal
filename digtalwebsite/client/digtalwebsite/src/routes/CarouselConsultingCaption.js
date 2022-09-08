@@ -9,11 +9,10 @@ export default function CarouselConsultingCaption({ index, pos, text }) {
   const [disp, setDisp] = useState("none");
   const [topBorder, setTopBorder] = useState(null);
   const { t } = useTranslation("home");
-  const match670Down = useMediaQuery("(max-width: 670px)");
-  const match320Down = useMediaQuery("(max-width: 6320px)");
+  const match670Down540Up = useMediaQuery("(max-width: 670px) and (min-width: 541px)");
+  const match390Down = useMediaQuery("(max-width: 390px)");
   const match670Up = useMediaQuery("(min-width: 670px)");
-  const match400Up = useMediaQuery("(min-width: 400px)");
-  const match540Down = useMediaQuery("(max-width: 540px)");
+  const match400Up540Down = useMediaQuery("(max-width: 540px) and (min-width: 400px)");
 
   useEffect(() => {
     index === pos
@@ -51,41 +50,11 @@ export default function CarouselConsultingCaption({ index, pos, text }) {
 
   if (index === pos) {
 
-    animateWidth(match670Down,45,45);
+    animateWidth(match670Down540Up,45,45);
     animateWidth(match670Up,60,40);
-    animateWidth(match320Down,32,33);
-    animateWidth(match400Up && match540Down,35,36);
-  //   if (match670Down) {
-  //     const timer = setInterval(() => {
-  //       topBorder?.style?.setProperty("--carousel-caption-overline-width", `${i}rem`);
+    animateWidth(match390Down,30,33);
+    animateWidth(match400Up540Down,33,35);
 
-  //       if (i === 46) {
-  //         clearInterval(timer);
-  //       } else {
-  //         i++;
-  //       }
-  //     }, 45);
-  //   }
-  // } else if (match670Up) {
-  //   const timer = setInterval(() => {
-  //     topBorder?.style?.setProperty("--carousel-caption-overline-width", `${i}rem`);
-
-  //     if (i === 61) {
-  //       clearInterval(timer);
-  //     } else {
-  //       i++;
-  //     }
-  //   }, 40);
-  // } else if (match320Down) {
-  //   const timer = setInterval(() => {
-  //     topBorder?.style?.setProperty("--carousel-caption-overline-width", `${i}rem`);
-
-  //     if (i === 33) {
-  //       clearInterval(timer);
-  //     } else {
-  //       i++;
-  //     }
-  //   }, 33);
   }
 
   return (
