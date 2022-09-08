@@ -22,7 +22,7 @@
       background: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
 
       &:hover {
-      height: 5px;
+        height: 5px;
 
         transform: scale(1.25);
       }
@@ -61,75 +61,79 @@
     }
 
     //consulting caption
-&-consulting-caption{
-  @include mixins.grid();
-  position: absolute;
-  background: transparent;
-  color: #888;
-  // background-color: rgba(0, 0, 0, 0.821);
-  border: 1px solid white;
-  // border: none;
-  // left: 0vw;
-  // top: 40%;
-  // margin-left: 40vw;
-  width: 100vw;
-  height: 100vh;
-  // width: 20rem;
-  text-align: center;
-  vertical-align: middle;
-  // height: 15rem;
-  // border-bottom-left-radius: 5%;
-  // border-top-left-radius: 0%;
-  // border-top-right-radius: 5%;
-  // border-bottom-right-radius: 50%;
-  // box-shadow: inset 5px 5px 500px rgba(0, 0, 0, 0.72),-5px -5px 50px 10px black
-  // box-shadow: inset 5px 5px 500px #333
-  // box-shadow:  -5px -5px 50px 70px black
-}
-   
+    &-consulting-caption {
+      @include mixins.grid();
+      position: absolute;
+      background: transparent;
+      color: #fff;
+
+      border: 1px solid white;
+
+      width: 100vw;
+      height: 90vh;
+
+      //sub here
+      &-sub {
+        // border: 1px solid white;
+        width: 40vw;
+        height: 15vh;
+       font-size: 4rem;
+       font-family: "Sarala,Gudea",sans-serif;
+       font-weight: 700;
+        background-color: rgba(125, 148, 171, 0.7);
+        @include mixins.grid();
+        place-items: center;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 1vh;
+          width: var(--carousel-caption-overline-width);
+          transition: all 0.5s ease-in-out;
+          // width: 40vw;
+          background-color: white;
+          animation-name: anim-width;
+          animation-duration: 2s;
+          animation-iteration-count: 3;
+
+          margin-top: -80px;
+        }
+      }
+    }
   }
 
   @media only screen and (max-height: 900px) and (max-width: 480px) {
     .carousel {
-    bottom: 10rem;
-    column-gap: 0.5rem;
-    
+      bottom: 10rem;
+      column-gap: 0.5rem;
 
-  &-button{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 100%;
-    background: rebeccapurple;
+      &-button {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 100%;
+        background: rebeccapurple;
+      }
 
-  }
-
-    //icon
-    &-icon {
-      transform: scale(1.5);
-         }
-
-   
+      //icon
+      &-icon {
+        transform: scale(1.5);
+      }
     }
-
-   
   }
 
   @media only screen and (max-width: 1079px) {
     .carousel {
       &-arrow-left,
-      &-arrow-right
-      {
+      &-arrow-right {
         display: none;
       }
 
       //icon
-    &-icon {
-      transform: scale(1.5);
-         }
-
-   
-    
-    }}
+      &-icon {
+        transform: scale(1.5);
+      }
+    }
+  }
 }
 
 .arrow {
@@ -147,4 +151,10 @@
   width: fit-content;
 }
 
-
+//animations
+// @keyframes anim-width{
+//   100%{
+//     // width: var(--carousel-caption-overline-animated-width);
+//     width: 40vw;
+//   }
+// }

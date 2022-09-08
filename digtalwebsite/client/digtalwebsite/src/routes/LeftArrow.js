@@ -8,11 +8,11 @@ export const LeftArrow = ({index,decrementIndex}) => {
     <div className="carousel-arrow-left">
     {index === 0 ? (
       <IconButton aria-label="swipe left" onClick={decrementIndex} disabled disableRipple >
-        <KeyboardDoubleArrowLeft onClick={decrementIndex} />
+        <KeyboardDoubleArrowLeft />
       </IconButton>
     ) : (
       <IconButton aria-label="swipe left" onClick={decrementIndex}  disableRipple className="carousel-arrow-left-icon">
-        <KeyboardDoubleArrowLeft onClick={decrementIndex} />
+        <KeyboardDoubleArrowLeft />
       </IconButton>
     )}
   

@@ -76,15 +76,23 @@ export const HeaderCarousel = () => {
           {/* {!match870 ? <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={web870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           {/* {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           <div>
-         {/* carousel consulting caption here */}
-         <CarouselConsultingCaption index={index}/>
+            {/* carousel consulting caption here */}
+            <CarouselConsultingCaption index={index} />
 
             <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" />
+          </div>
+          <div>
+            {/* carousel consulting caption here */}
+            <CarouselConsultingCaption index={index} />
+
+            <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" />
+
+            {/* <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> */}
           </div>
           {/* {!match870 ? <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={consulting870} alt="Digtal Cover photo" classes="home-header-image" />} */}
 
           {/* <CustomImage image={web1080} alt="Web Design Cover photo" classes="home-header-image" /> */}
-          <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" />
+          {/* <CustomImage image={marketing1080} alt="Marketing Cover photo" classes="home-header-image" /> */}
           {/* <HeaderLoader /> */}
         </AutoPlaySwipeableViews>
       </div>

@@ -9,6 +9,7 @@
       "@fontsource/carrois-gothic": "^4.5.9",
       "@fontsource/gudea": "^4.5.8",
       "@fontsource/roboto": "^4.5.8",
+      "@fontsource/sarala": "^4.5.9",
       "@fontsource/victor-mono": "^4.5.4",
       "@hookform/error-message": "^2.0.0",
       "@hookform/resolvers": "^2.8.8",

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "@fontsource/gudea";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import anglais from "../assets/images/uk64.png";
 import france from "../assets/images/fr64.png";
@@ -48,7 +47,8 @@ export default function Navbar({ language, setLanguage }) {
 
   //theme configuration
   useEffect(() => {
-    document.documentElement.className = "dark";
+    //setting default color scheme
+    document.documentElement.className = "light";
     setWebsiteTheme(document.documentElement.className);
     console.log("theme: ", document.documentElement.className);
   }, []);

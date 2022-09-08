@@ -7,11 +7,11 @@ export const RightArrow = ({index,incrementIndex}) => {
     <div className="carousel-arrow-right">
     {index === 3 ? (
       <IconButton aria-label="swipe right" onClick={incrementIndex} disabled disableRipple >
-        <KeyboardDoubleArrowRight onClick={incrementIndex} />
+        <KeyboardDoubleArrowRight />
       </IconButton>
     ) : (
       <IconButton aria-label="swipe right" onClick={incrementIndex}  disableRipple className="carousel-arrow-right-icon">
-        <KeyboardDoubleArrowRight onClick={incrementIndex} />
+        <KeyboardDoubleArrowRight />
       </IconButton>
     )}
   

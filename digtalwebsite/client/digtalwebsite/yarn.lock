@@ -1350,6 +1350,11 @@
   "resolved" "https://registry.npmjs.org/@fontsource/roboto/-/roboto-4.5.8.tgz"
   "version" "4.5.8"
 
+"@fontsource/sarala@^4.5.9":
+  "integrity" "sha512-ozzFrG8tZyhxmqRTuwneNC1k0M9Ddr0uie1W3pMgfMwJITMgsBsR+1FW+YEf6CmrCp1L5vB8Gnio2Urrm59gLw=="
+  "resolved" "https://registry.npmjs.org/@fontsource/sarala/-/sarala-4.5.9.tgz"
+  "version" "4.5.9"
+
 "@fontsource/victor-mono@^4.5.4":
   "integrity" "sha512-Kav4Ipl+aU7bRnPJD1FluHg/xp9YTE693dYpUC25mZ2qGAZiu4q7fH7Jk0Ue42zEZ9kk4wlmnc+6+zraF8nXTw=="
   "resolved" "https://registry.npmjs.org/@fontsource/victor-mono/-/victor-mono-4.5.4.tgz"
