@@ -16,13 +16,13 @@ import { useState } from "react";
 import { HeaderVideo } from "./HeaderVideo";
 import HeaderLoader from "./HeaderLoader";
 import { useMediaQuery } from "@mui/material";
-import MovingText from 'react-moving-text'
 
 import WhoWeAre from "./WhoWeAre";
 
 import { CarouselControl } from "./CarouselControl";
 import { LeftArrow } from "./LeftArrow";
 import { RightArrow } from "./RightArrow";
+import CarouselConsultingCaption from "./CarouselConsultingCaption";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const HeaderCarousel = () => {
@@ -76,15 +76,9 @@ export const HeaderCarousel = () => {
           {/* {!match870 ? <CustomImage image={web1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={web870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           {/* {!match870 ? <CustomImage image={marketing1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={marketing870} alt="Digtal Cover photo" classes="home-header-image" />} */}
           <div>
-            <div className="carousel-consulting-caption">
-              <dive>I love you</dive>
-              <dive>I love you</dive>
-             {["lolita"].map((letter, index) =>
-              <MovingText type="shadow" duration="3000ms" delay="index * 100ms" direction="normal" timing="ease" iteration="5" fillMode="none">
-                {letter}
-              </MovingText>
-              )}
-            </div>
+         {/* carousel consulting caption here */}
+         <CarouselConsultingCaption index={index}/>
+
             <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" />
           </div>
           {/* {!match870 ? <CustomImage image={consulting1080} alt="Digtal Cover photo" classes="home-header-image" /> : <CustomImage image={consulting870} alt="Digtal Cover photo" classes="home-header-image" />} */}
