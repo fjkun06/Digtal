@@ -67,7 +67,7 @@
       background: transparent;
       color: #fff;
 
-      border: 1px solid white;
+      // border: 1px solid white;
 
       width: 100vw;
       height: 90vh;
@@ -75,12 +75,12 @@
       //sub here
       &-sub {
         // border: 1px solid white;
-        width: 40vw;
+        width: 63rem;
         height: 15vh;
-       font-size: 4rem;
-       font-family: "Sarala,Gudea",sans-serif;
-       font-weight: 700;
-       margin-top: -15vh;
+        font-size: 4rem;
+        font-family: "Sarala,Gudea", sans-serif;
+        font-weight: 700;
+        margin-top: -15vh;
         background-color: rgba(black, 0.4);
         // background-color: rgba(rebeccapurple, 0.2);
         // background-color: rgba(125, 148, 171, 0.7);
@@ -98,13 +98,49 @@
           animation-name: anim-width;
           animation-duration: 2s;
           animation-iteration-count: 3;
-
+          text-align: center;
           margin-top: -80px;
         }
       }
     }
   }
 
+  //making carousel overtext responsive
+  @media only screen and (max-width: 320px) {
+    .carousel {
+      &-consulting-caption {
+        &-sub {
+        width: 32rem;
+        font-size: 2rem;
+
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 540px) and (min-width: 400px) {
+    .carousel {
+      &-consulting-caption {
+        &-sub {
+        width: 35rem;
+        font-size: 2.5rem;
+
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 670px) and (min-width: 541px) {
+    .carousel {
+      &-consulting-caption {
+        &-sub {
+        width: 50rem;
+        font-size: 3rem;
+
+        }
+      }
+    }
+  }
+
+  //making carousel buttons responsive
   @media only screen and (max-height: 900px) and (max-width: 480px) {
     .carousel {
       bottom: 10rem;
