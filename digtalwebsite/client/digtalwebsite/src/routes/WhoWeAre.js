@@ -10,20 +10,17 @@ const WhoWeAre = ({ state }) => {
   // }, 1000);
   return (
     <div className="home-header-personality" style={{ opacity: state === 0 ? 1 : 0 }}>
-   
-
       <MovingText
         type="typewriter"
         className="home-header-personality-text-3"
         dataText={[
-          " We are young",
-          "  We are talented",
-          "  We are professionals.",
+          t("digtal-carousel.one"),
+          t("digtal-carousel.two"),
+          t("digtal-carousel.three"),
+
           // 'Salat'
         ]}
       />
-
-   
     </div>
   );
 };
