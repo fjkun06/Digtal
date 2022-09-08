@@ -109,24 +109,10 @@ export default function Home() {
               {/* <HomeCard/>
           <HomeCard/> */}
             </Grid>
-            <Grid className="home-body-inner" id="hhinner" ref={ref}>
+            <Grid className="home-body-methodology" id="hhinner" ref={ref}>
               {/* <Waypoint topOffset="20%" onEnter={() => func()} /> */}
 
-              {homeCards.map((card, index) => (
-                <HomeCard
-                  key={card.heading}
-                  logo={card.logo}
-                  path={card.path}
-                  text={t(card.text, { ns: "home" })}
-                  heading={t(card.heading, { ns: "form" })}
-                  id={"hcard" + (index + 1)}
-                  cname={"home-card-" + (index + 1)}
-                  visible={visible}
-                  appear={index + 1}
-                  buttonText={t("card-button", { ns: "home" })}
-                  icon={card.icon}
-                />
-              ))}
+            
 
               {/* <HomeCard/>
           <HomeCard/> */}
