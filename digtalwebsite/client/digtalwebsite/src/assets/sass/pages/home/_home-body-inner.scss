@@ -14,7 +14,8 @@
     column-gap: 2em;
 
     padding-top: 6rem;
-    padding-bottom: 16rem;
+    // padding-bottom: 16rem;
+    padding-bottom: 6rem;
 
     //home card here
     @extend %home-card;
@@ -22,10 +23,10 @@
     
     //animator here
     &-animator{
-      border: 1px solid red;
+      border: 1px solid transparent;
       position: absolute;
       background-color: transparent;
-      top: 750px;
+      top: 450px;
     }
 
     @media only screen and (max-width: 1050px) {
