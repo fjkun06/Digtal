@@ -232,10 +232,13 @@ export default function Home() {
             </Grid>
 
             <Grid className="home-body-methodology">
-              <div className="home-body-methodology-one"></div>
+              {["one","two","three","four","five","six","seven","eight"].map(child => <div key={child} className={"home-body-methodology-" + child}>
+
+              </div>)}
+              {/* <div className="home-body-methodology-one"></div>
               <div className="home-body-methodology-two"></div>
               <div className="home-body-methodology-three"></div>
-              <div className="home-body-methodology-four">I am"visible" : "invisible"</div>
+              <div className="home-body-methodology-four"></div> */}
             </Grid>
           </Grid>
         </Grid>
