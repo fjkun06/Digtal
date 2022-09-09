@@ -19,7 +19,7 @@
       height: 3.5px;
       transition: all 0.25s ease-in-out;
       border: 1px solid transparent;
-      background: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
+      background: var(  --carousel-button-bg);
 
       &:hover {
         height: 5px;
@@ -31,7 +31,7 @@
     //icon
     &-icon {
       cursor: pointer;
-      color: rebeccapurple;
+      color: var( --carousel-icon-bg);
     }
 
     //arrow left
@@ -65,7 +65,7 @@
       @include mixins.grid();
       position: absolute;
       background: transparent;
-      color: #fff;
+      color: var(  --carousel-consulting-caption);
 
       // border: 1px solid white;
 
@@ -81,7 +81,7 @@
         font-family: "Sarala,Gudea", sans-serif;
         font-weight: 700;
         margin-top: -15vh;
-        background-color: rgba(black, 0.4);
+        background-color: var(  --carousel-consulting-caption-sub-bg);
         // background-color: rgba(rebeccapurple, 0.2);
         // background-color: rgba(125, 148, 171, 0.7);
         @include mixins.grid();
@@ -94,7 +94,7 @@
           width: var(--carousel-caption-overline-width);
           transition: all 0.5s ease-in-out;
           // width: 40vw;
-          background-color: white;
+          background-color: var(  --carousel-consulting-caption-sub-before-bg);
           animation-name: anim-width;
           animation-duration: 2s;
           animation-iteration-count: 3;
@@ -150,7 +150,7 @@
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 100%;
-        background: rebeccapurple;
+        background: var(  --carousel-button-mobile-bg);
       }
 
       //icon
@@ -179,7 +179,7 @@
   width: max-content;
   cursor: pointer;
   opacity: 0.5;
-  color: rebeccapurple;
+  color: var( --carousel-control-arrow);
 
   // font-size: 10rem;
 }
