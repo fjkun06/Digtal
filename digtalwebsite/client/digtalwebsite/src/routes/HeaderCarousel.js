@@ -55,7 +55,7 @@ export const HeaderCarousel = () => {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "90vh", backgroundColor: "red", marginTop: "0" }}>
+      <div className="home-header-carousel">
         {/* left arrow here */}
         <LeftArrow index={index} decrementIndex={decrementIndex} />
 
