@@ -38,7 +38,7 @@ export default function Home() {
 
   React.useEffect(() => {
     //setting scroller
-    setScroller(document?.getElementById("hinner"));
+    setScroller(document?.getElementById("hbody"));
     // setScroller(document?.getElementById("hbody"));
 
     if (condition) {
