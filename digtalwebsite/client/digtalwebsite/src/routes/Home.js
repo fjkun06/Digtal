@@ -13,6 +13,9 @@ import ReactVisibilitySensor from "react-visibility-sensor";
 import VisibilitySensor from "react-visibility-sensor";
 import { useCallback } from "react";
 import Headings from "./reusables/Headings";
+import HomeMethodology from "./HomeMethodology";
+
+
 
 export default function Home() {
   // const VisibilitySensor = require("react-visibility-sensor");
@@ -211,24 +214,8 @@ export default function Home() {
               ))}
             </Grid>
 
-            <Grid className="home-body-methodology">
-              <Headings heading={t("our-process.title", { ns: "home" })} subHeading={t("our-process.text", { ns: "home" })} />
-
-              <Grid className={"home-body-methodology-sub"}>
-                {["one", "two", "three", "four", "five", "six", "seven", "eight"].map((child) => (
-                  <div key={child} className={"home-body-methodology-sub-" + child}>
-
-                  <div key={child} className={"home-body-methodology-sub-" + child + "-child"}></div>
-
-                  </div>
-                ))}
-              </Grid>
-
-              {/* <div className="home-body-methodology-one"></div>
-              <div className="home-body-methodology-two"></div>
-              <div className="home-body-methodology-three"></div>
-              <div className="home-body-methodology-four"></div> */}
-            </Grid>
+      {/* methodology here */}
+      <HomeMethodology heading={t("our-process.title", { ns: "home" })} subHeading={t("our-process.text", { ns: "home" })}/>
           </Grid>
         </Grid>
       </Suspense>
