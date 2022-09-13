@@ -175,30 +175,23 @@ justify-content: $flex-jposition;
         font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
       }
       // }
+
   
       //meth-before-mixin
       @include methodology-span-before($angle, $side);
+
+ 
     }
   }
   
-  @mixin stage($number, $position, $content, $top) {
+  @mixin stage($number, $position) {
     //#{$number}
     &-#{$number} {
       &-child {
-        //stage element
-        &::before {
-          background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-          content: $content;
-          position: absolute;
-  
-          @include size(fit-content, fit-content);
-  
-          color: #fff;
-          #{$position}: 35%;
-          top: $top;
-          padding: 5px 7px;
-          border-radius: 5%;
+        .methodology-stage-#{$number}{
+            #{$position} : 35%;
         }
+
       }
     }
   }

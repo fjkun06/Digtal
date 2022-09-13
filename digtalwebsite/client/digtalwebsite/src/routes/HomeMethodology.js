@@ -20,15 +20,15 @@ export default function HomeMethodology({ heading, subHeading }) {
   // const [opacity, setOpacity] = useState(0);
 
   const obj = [
-    { num: "one", icon: <AcUnitTwoToneIcon className="methodology-icon" />, transform: transform1, setTrans: settransform1 },
-    { num: "two", icon: null, opacity: "", setTrans: (x) => console.log(x)},
-    { num: "three", icon: <NextPlanTwoToneIcon className="methodology-icon" />, transform: transform3, setTrans: settransform3 },
-    { num: "four", icon: null, opacity: "", setTrans: (x) => console.log(x)},
+    { num: "one", icon: <AcUnitTwoToneIcon className="methodology-icon" />, transform: transform1, setTrans: settransform1,stage: "Stage One" },
+    { num: "two", icon: null, opacity: "", setTrans: (x) => console.log(x) },
+    { num: "three", icon: <NextPlanTwoToneIcon className="methodology-icon" />, transform: transform3, setTrans: settransform3,stage: "Stage Two" },
+    { num: "four", icon: null, opacity: "", setTrans: (x) => console.log(x) },
 
-    { num: "five", icon: <WebhookTwoToneIcon className="methodology-icon" />, transform: transform5, setTrans: settransform5 },
-    { num: "six", icon: null, opacity: "", setTrans: (x) => console.log(x)},
+    { num: "five", icon: <WebhookTwoToneIcon className="methodology-icon" />, transform: transform5, setTrans: settransform5,stage: "Stage Three" },
+    { num: "six", icon: null, opacity: "", setTrans: (x) => console.log(x) },
 
-    { num: "seven", icon: <EngineeringTwoToneIcon className="methodology-icon" />, transform: transform7, setTrans: settransform7 },
+    { num: "seven", icon: <EngineeringTwoToneIcon className="methodology-icon" />, transform: transform7, setTrans: settransform7,stage: "Final Stage" },
   ];
 
   return (
@@ -37,37 +37,35 @@ export default function HomeMethodology({ heading, subHeading }) {
         <Headings heading={heading} subHeading={subHeading} />
 
         <Grid className={"home-body-methodology-sub"}>
-          {obj.map(({ num, icon, setTrans, transform }, index) => (
+          {obj.map(({ num, icon, setTrans, transform,stage }, index) => (
             <div key={num} className={"home-body-methodology-sub-" + num}>
               <Tooltip title="Toggle display." placement="bottom">
-
-              <div
-                key={num}
-                className={"home-body-methodology-sub-" + num + "-child"}
-                onMouseEnter={() => {
-
-                  setTrans('scale(.99)');
-                }}
-                onMouseLeave={() => {
-                  setTrans(transform === 'scale(1)' ? transform : 'scale(0)');
-                 
-                }}
-                onClick={() => {
-
-                  setTrans(transform === "scale(0)" || transform === "scale(.99)" ? "scale(1)" : "scale(0)");
-             
-                }}
-              >
-                {icon}
-                {(index + 1) % 2 === 1 ? (
-                  <span className={"methodology-span"} style={{ transform: transform }}>
-                    <span class={"methodology-span-title"}>Hello</span>
-                    <span class={"methodology-span-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta blanditiis iusto culpa </span>
-                  </span>
-                ) : (
-                  () => console.log("no")
-                )}
-              </div>
+                <div
+                  key={num}
+                  className={"home-body-methodology-sub-" + num + "-child"}
+                  onMouseEnter={() => {
+                    setTrans("scale(.99)");
+                  }}
+                  onMouseLeave={() => {
+                    setTrans(transform === "scale(1)" ? transform : "scale(0)");
+                  }}
+                  onClick={() => {
+                    setTrans(transform === "scale(0)" || transform === "scale(.99)" ? "scale(1)" : "scale(0)");
+                  }}
+                >
+                  {icon}
+                  {(index + 1) % 2 === 1 ? (
+                    <>
+                      <span className={"methodology-span"} style={{ transform: transform }}>
+                        <span class={"methodology-span-title"}>Hello</span>
+                        <span class={"methodology-span-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta blanditiis iusto culpa </span>
+                      </span>
+                      <span className={"methodology-stage methodology-stage-" + num}>{stage}</span>
+                    </>
+                  ) : (
+                    () => console.log("no")
+                  )}
+                </div>
               </Tooltip>
             </div>
           ))}

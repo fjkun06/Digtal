@@ -28,6 +28,13 @@
         }
       }
 
+      //children
+      // &-two,
+      // &-four,
+      // &-six {
+      //   // border: 1px solid red
+      // }
+
       &-one,
       &-five {
         &-child {
@@ -67,10 +74,30 @@
       }
 
       //stage elements
-      @include mixins.stage(one, left, "Stage One", 61%);
-      @include mixins.stage(three, right, "Stage Two", 72%);
-      @include mixins.stage(five, left, "Stage Three", 83%);
-      @include mixins.stage(seven, right, "Final Stage", 94%);
+      @include mixins.stage(one, left);
+      @include mixins.stage(three, right);
+      @include mixins.stage(five, left);
+      @include mixins.stage(seven, right);
+
+      // &-one {
+      //   &-child {
+      //     .methodology-stage-one {
+      //       left: 35%;
+      //     }
+      //   }
+      // }
+
+      //all stage rectangles
+      .methodology-stage {
+        background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+        @include mixins.size(fit-content, fit-content);
+        color: #fff;
+        position: absolute;
+        font-family: "Gudea", sans-serif;
+        padding: 5px 7px;
+        border-radius: 5%;
+      }
+      
     }
   }
 }
@@ -88,7 +115,8 @@
 }
 
 %line {
-  @include mixins.size(3px, 100px);
+  @include mixins.size(3px, 12.4vh);
+  // @include mixins.size(3px, 15.4vh);
   background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
   transition: all 0.5s ease-in-out;
 }
