@@ -1,5 +1,70 @@
 @use "../../util/mixins";
 
+@mixin methodology-span-before($angle,$position){
+  
+  &::before {
+    content: "";
+    background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+    position: absolute;
+    @include mixins.size( 20px,20px);
+
+    transform: rotate($angle);
+    #{$position}: 100%;
+    top: 35%;
+    border-radius: 1.5%;
+    // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  }
+}
+
+
+@mixin methodology-span($position,$pos_value,$direction,$angle,$side,$alignment) {
+  .methodology-span {
+    @include mixins.flex(column);
+   
+@include mixins.size( 25vw,fit-content);
+    
+    color: #fff;
+    background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+    position: absolute;
+    #{$position}: $pos_value;
+    border-radius: 1.5%;
+
+    transition: all 0.4s ease-in-out;
+
+    //tooltip content
+   
+    &-text,
+    &-title {
+    
+@include mixins.size( fit-content,fit-content);
+
+    }
+    &-text {
+      padding:0px 10px 2px 10px;
+      font-size: 1.3rem;
+      line-height: 2rem;
+      font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
+      direction: $direction;
+    }
+    &-title {
+      font-size: 1.4rem;
+
+      font-weight: bolder;
+      align-self: $alignment;
+      padding: 5px 10px 0 10px;
+      text-transform: uppercase;
+      font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
+    }
+    // }
+
+
+    //meth-before-mixin
+    @include methodology-span-before($angle,$side );
+
+  }
+}
+
 %methodology {
   .home-body-methodology {
     border: 5px solid greenyellow;
@@ -55,61 +120,26 @@
 
           }
 
-          .methodology-span {
-            @include mixins.flex(column);
-            height: fit-content;
-            // width: 25vw;
-    @include mixins.size( 25vw,fit-content);
-            
-            color: #fff;
-            background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-            position: absolute;
-            right: 19.25%;
-            border-radius: 1.5%;
-            // padding: 10px 0;
 
-            transition: all 0.2s ease-in-out;
 
-            //tooltip content
-           
-            &-text,
-            &-title {
-              height: fit-content;
-              width: fit-content;
-            }
-            &-text {
-              padding:0px 10px 2px 10px;
-              font-size: 1.3rem;
-              line-height: 2rem;
-              font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
-              direction: rtl;
-            }
-            &-title {
-              font-size: 1.4rem;
+        }
+      }
 
-              font-weight: bolder;
-              align-self: flex-end;
-              padding: 5px 10px 0 10px;
-              text-transform: uppercase;
-              font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
-            }
-            // }
+      &-one,&-five{
+        &-child{
+          @extend %circle;
 
-            &::before {
-              content: "";
-              background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-              position: absolute;
-              height: 20px;
-              width: 20px;
-              transform: rotate(90deg);
-              right: 100%;
-              top: 35%;
-              border-radius: 1.5%;
+//methodology-span mixin
+@include methodology-span(right,19.25% ,rtl,90deg,right,flex-end );
+        }
+      }
 
-              clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-              transition: all 0.2s ease-in-out;
-            }
-          }
+      &-three,&-seven{
+        &-child{
+          @extend %circle;
+
+//methodology-span mixin
+@include methodology-span(left,20% ,ltr,-90deg,left ,flex-start);
         }
       }
       //linear
@@ -130,59 +160,127 @@
         margin-top: -5rem;
         z-index: 9;
 
-        &-child {
-          @extend %circle;
-          .methodology-span {
-            @include mixins.flex(column);
-            height: fit-content;
-            width: 25vw;
-            color: #fff;
-            background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-            position: absolute;
-            left: 20%;
-            border-radius: 1.5%;
+        // &-child {
+        //   @extend %circle;
+        //   .methodology-span {
+        //     @include mixins.flex(column);
+        //     @include mixins.size( 25vw,fit-content);
 
-            transition: all 0.2s ease-in-out;
+        //     color: #fff;
+        //     background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+        //     position: absolute;
+        //     left: 20%;
+        //     border-radius: 1.5%;
 
-            //tooltip content
-            // .methodology{
-            &-text,
-            &-title {
-              height: fit-content;
-              width: fit-content;
-            }
-            &-text {
-              padding: 0px 10px 2px 10px;
-              font-size: 1.3rem;
-              line-height: 2rem;
-              font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
-            }
-            &-title {
-              // background-color: #591;
-              font-size: 1.4rem;
+        //     transition: all 0.2s ease-in-out;
 
-              font-weight: bolder;
-              align-self: flex-start;
-              padding: 5px 10px 0 10px;
-              text-transform: uppercase;
-              font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
-            }
-            // }
+        //     //tooltip content
+        //     // .methodology{
+        //     &-text,
+        //     &-title {
+        //       @include mixins.size( fit-content,fit-content);
 
-            &::before {
-              content: "";
-              background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-              position: absolute;
-              height: 20px;
-              width: 20px;
-              transform: rotate(-90deg);
-              left: 100%;
-              top: 35%;
-              border-radius: 1.5%;
-              // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-              clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-            }
-          }
+        //     }
+        //     &-text {
+        //       padding: 0px 10px 2px 10px;
+        //       font-size: 1.3rem;
+        //       line-height: 2rem;
+        //       font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
+        //     }
+        //     &-title {
+        //       // background-color: #591;
+        //       font-size: 1.4rem;
+
+        //       font-weight: bolder;
+        //       align-self: flex-start;
+        //       padding: 5px 10px 0 10px;
+        //       text-transform: uppercase;
+        //       font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
+        //     }
+        //     // }
+
+        //     &::before {
+        //       content: "";
+        //       background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+        //       position: absolute;
+        //       @include mixins.size( 20px,20px);
+
+        //       transform: rotate(-90deg);
+        //       left: 100%;
+        //       top: 35%;
+        //       border-radius: 1.5%;
+        //       // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+        //       clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        //     }
+        //   }
+        // }
+      }
+
+      //three
+      &-three{
+        &-child{
+                //stage element
+                &::before{
+                  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+                  content: 'Stage Two';
+                    position: absolute;
+                    // height: fit-content;
+                    // width: fit-content;
+          @include mixins.size(fit-content, fit-content);
+                    
+                    color: #fff;
+                    right: 35%;
+                    top: 72%;
+                    padding: 5px 7px;
+                    border-radius: 5%;
+                    // background-color: red;
+      
+                }
+        }
+      }
+      //four
+      &-five{
+        &-child{
+                //stage element
+                &::before{
+                  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+                  content: 'Stage Three';
+                    position: absolute;
+                    // height: fit-content;
+                    // width: fit-content;
+          @include mixins.size(fit-content, fit-content);
+                    
+                    color: #fff;
+                    left: 35%;
+                    top: 83%;
+                    padding: 5px 7px;
+                    border-radius: 5%;
+                    // background-color: red;
+      
+                }
+        }
+      }
+
+      //seven
+      &-seven{
+        &-child{
+                //stage element
+                &::before{
+                  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+                  content: 'Final Stage';
+                    position: absolute;
+                    // height: fit-content;
+                    // width: fit-content;
+          @include mixins.size(fit-content, fit-content);
+                    
+                    color: #fff;
+                    right: 35%;
+                    top: 94%;
+                    padding: 5px 7px;
+                    border-radius: 5%;
+                    // background-color: red;
+      
+                }
         }
       }
     }
@@ -212,3 +310,5 @@
   place-items: center;
   margin-top: -5rem;
 }
+
+
