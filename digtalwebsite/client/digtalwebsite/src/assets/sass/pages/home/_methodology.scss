@@ -16,22 +16,18 @@
       width: inherit;
       height: 80%;
 
+      //methodology icons
       .methodology-icon {
         color: #fff;
         font-size: 5rem;
+        cursor: pointer;
       }
 
       &-one {
-        cursor: pointer;
         &-child {
-          background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-          // background: linear-gradient(to bottom right,orangered 0 70%,71% 80%, rebeccapurple 81% 100%);
-          height: 70px;
-          width: 70px;
-          border-radius: 50%;
-          align-self: flex-start;
-          @include mixins.grid;
-          place-items: center;
+          @extend %circle;
+          border: 1px solid red;
+
           // &::after{
           //   content: '';
           //   position: absolute;
@@ -41,89 +37,116 @@
 
           // background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
           // transform: rotate(-72deg) translate(12vh,25vh);
-          // // transform: rotate(-75deg) translate(130px,240px);
+          &:hover {
+            transition: all 0.25s ease-in-out;
+
+            .methodology-span-one {
+              opacity: 1;
+            }
+          }
 
           // }
+
+          .methodology-span-one {
+            @include mixins.flex(column);
+            height: 60px;
+            width: 400px;
+            border: 1px solid red;
+            color: #fff;
+            background-color: red;
+            position: absolute;
+            left: 20%;
+            border-radius: 1.5%;
+            // display: none;
+            opacity: 0;
+            transition: all 0.25s ease-in-out;
+
+            //tooltip content
+            // .methodology{
+            &-text,
+            &-title {
+              height: fit-content;
+              width: fit-content;
+            }
+            &-text {
+              // background-color: #fff;
+              padding: 0px 5px;
+              font-size: 1.3rem;
+              font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
+            }
+            &-title {
+              // background-color: #591;
+              font-size: 1.4rem;
+
+              font-weight: bolder;
+              align-self: flex-start;
+              padding-left: 5px;
+              text-transform: uppercase;
+              font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
+            }
+            // }
+
+            &::before {
+              content: "";
+              background-color: red;
+              position: absolute;
+              height: 20px;
+              width: 20px;
+              // clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+              transform: rotate(-90deg);
+              left: 100%;
+              top: 35%;
+              border-radius: 1.5%;
+              // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+              clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            }
+          }
         }
       }
-      &-two {
-        @include mixins.grid;
-        place-items: center;
-        margin-top: -5rem;
+      //linear
+      &-two,
+      &-four,
+      &-six {
+        @extend %even;
 
         &-child {
-          height: 100px;
-          width: 3px;
-          background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
-          transition: all 0.5s ease-in-out;
+          @extend %line;
         }
       }
+
+      //circular
+      &-seven,
+      &-five,
       &-three {
         margin-top: -5rem;
-
-        &-child {
-          @include mixins.grid;
-          place-items: center;
-          background-color: #043;
-          height: 70px;
-          width: 70px;
-          background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-          border-radius: 50%;
-        }
-      }
-      &-four {
-        @include mixins.grid;
-        place-items: center;
-        margin-top: -5rem;
-
-        &-child {
-          height: 100px;
-          width: 3px;
-          background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
-          transition: all 0.5s ease-in-out;
-        }
-      }
-      &-five {
         z-index: 9;
-        margin-top: -5rem;
 
         &-child {
-          @include mixins.grid;
-          place-items: center;
-          background-color: #549;
-          height: 70px;
-          width: 70px;
-          background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-          border-radius: 50%;
-        }
-      }
-      &-six {
-        @include mixins.grid;
-        place-items: center;
-        margin-top: -5rem;
-
-        &-child {
-          height: 100px;
-          width: 3px;
-          background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
-          transition: all 0.5s ease-in-out;
-        }
-      }
-      &-seven {
-        margin-top: -5rem;
-
-        &-child {
-          @include mixins.grid;
-          place-items: center;
-          background-color: #843;
-          height: 70px;
-          width: 70px;
-          background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-          border-radius: 50%;
+          @extend %circle;
         }
       }
     }
   }
 }
 
+%circle {
+  @include mixins.grid;
+  place-items: center;
+  background-color: #549;
+  @include mixins.size(70px, 70px);
+  cursor: pointer;
+  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+  border-radius: 50%;
+}
 
+%line {
+  @include mixins.size(3px, 100px);
+  background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
+  transition: all 0.5s ease-in-out;
+}
+
+%even {
+  @include mixins.grid;
+  place-items: center;
+  margin-top: -5rem;
+}
