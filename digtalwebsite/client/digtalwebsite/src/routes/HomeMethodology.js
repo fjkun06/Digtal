@@ -14,7 +14,7 @@ export default function HomeMethodology({ heading, subHeading }) {
   const [display7, setDisplay7] = useState("none");
 
   const obj = [
-    { num: "one", icon: <AcUnitTwoToneIcon className="methodology-icon" onClick={() => setDisplay1('flex')}/>,display: display1 ,setDisp:setDisplay1},
+    { num: "one", icon: <AcUnitTwoToneIcon className="methodology-icon"/>,display: display1 ,setDisp:setDisplay1},
     { num: "two", icon: null,display:  '',setDisp:(x) => console.log(x)},
     { num: "three", icon: <NextPlanTwoToneIcon className="methodology-icon" />,display: display3 ,setDisp:setDisplay3},
     { num: "four", icon: null ,display: '',setDisp:(x) => console.log(x)},
@@ -34,8 +34,16 @@ export default function HomeMethodology({ heading, subHeading }) {
           {obj.map(({num,icon,display,setDisp}) => (
             <div key={num} className={"home-body-methodology-sub-" + num}>
               <div key={num} className={"home-body-methodology-sub-" + num + "-child"}
-              //  onMouseEnter={() => setDisp("")} 
-               onClick={() => setDisp(display === ""? display: "none")} >
+               onMouseEnter={() => setDisp("")} 
+               onMouseLeave={() => setDisp(display === "flex" ?  display:"none")} 
+              //  onClick={() => } 
+               onClick={() => {
+                setDisp(display === "none"? "flex" : "none" )
+
+                console.log("display: ",display)
+              } 
+              }
+               >
                 {icon }
                 <span className={"methodology-span-" + num} style={{ display: display }}>
                   <span class={"methodology-span-" + num + "-title"}>Hello</span>
