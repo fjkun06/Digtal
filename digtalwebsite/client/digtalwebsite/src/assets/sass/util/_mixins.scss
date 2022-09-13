@@ -128,11 +128,16 @@ justify-content: $flex-jposition;
       background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
       position: absolute;
       @include size(40px, 4px);
+    //   @include size(40px, 4px);
   
     //   transform: rotate($angle);
+      transform: rotate(-180deg);
       #{$position}: 101%;
+    //   #{$position}: 101%;
       top: 45%;
       border-radius: 1.5%;
+  transition: all 0.5s ease-in-out;
+
       // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
     //   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
     }

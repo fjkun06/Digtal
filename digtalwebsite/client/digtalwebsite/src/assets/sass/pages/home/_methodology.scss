@@ -111,14 +111,28 @@
 }
 
 %line {
-  @include mixins.size(3px, 12.4vh);
+  // @include mixins.size(3px, 12.4vh);
+  width: 3px;
+  height: 12.4vh;
+  // height: 2.4vh;
   // @include mixins.size(3px, 15.4vh);
-  background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
+  border: 1px solid red;
+  // background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
   transition: all 0.5s ease-in-out;
+
+  &::before{
+    content: '';
+    position: absolute;
+    width: 3px;
+  height: 2.4vh;
+  border: 1px solid blue;
+right: 10px;
+  }
 }
 
 %even {
   @include mixins.grid;
-  place-items: center;
+  // place-items: center;
+  align-items: start;
   margin-top: -5rem;
 }
