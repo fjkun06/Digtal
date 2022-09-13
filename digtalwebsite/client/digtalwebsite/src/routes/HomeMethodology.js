@@ -39,7 +39,7 @@ export default function HomeMethodology({ heading, subHeading }) {
         <Grid className={"home-body-methodology-sub"}>
           {obj.map(({ num, icon, setTrans, transform }, index) => (
             <div key={num} className={"home-body-methodology-sub-" + num}>
-              <Tooltip title="Click to opacity." placement="bottom">
+              <Tooltip title="Toggle display." placement="bottom">
 
               <div
                 key={num}

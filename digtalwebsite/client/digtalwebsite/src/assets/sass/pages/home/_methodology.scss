@@ -1,86 +1,5 @@
 @use "../../util/mixins";
 
-@mixin methodology-span-before($angle, $position) {
-  &::before {
-    content: "";
-    background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-    position: absolute;
-    @include mixins.size(20px, 20px);
-
-    transform: rotate($angle);
-    #{$position}: 100%;
-    top: 35%;
-    border-radius: 1.5%;
-    // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-  }
-}
-
-@mixin methodology-span($position, $pos_value, $direction, $angle, $side, $alignment) {
-  .methodology-span {
-    @include mixins.flex(column);
-
-    @include mixins.size(25vw, fit-content);
-
-    color: #fff;
-    background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-    position: absolute;
-    #{$position}: $pos_value;
-    border-radius: 1.5%;
-
-    transition: all 0.4s ease-in-out;
-
-    //tooltip content
-
-    &-text,
-    &-title {
-      @include mixins.size(fit-content, fit-content);
-    }
-    &-text {
-      padding: 0px 10px 2px 10px;
-      font-size: 1.3rem;
-      line-height: 2rem;
-      font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
-      direction: $direction;
-    }
-    &-title {
-      font-size: 1.4rem;
-
-      font-weight: bolder;
-      align-self: $alignment;
-      padding: 5px 10px 0 10px;
-      text-transform: uppercase;
-      font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
-    }
-    // }
-
-    //meth-before-mixin
-    @include methodology-span-before($angle, $side);
-  }
-}
-
-@mixin stage($number, $position, $content, $top) {
-  //#{$number}
-  &-#{$number} {
-    &-child {
-      //stage element
-      &::before {
-        background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-        content: $content;
-        position: absolute;
-
-        @include mixins.size(fit-content, fit-content);
-
-        color: #fff;
-        #{$position}: 35%;
-        top: $top;
-        padding: 5px 7px;
-        border-radius: 5%;
-      }
-    }
-  }
-}
-
 %methodology {
   .home-body-methodology {
     border: 5px solid greenyellow;
@@ -109,14 +28,13 @@
         }
       }
 
-
       &-one,
       &-five {
         &-child {
           @extend %circle;
 
           //methodology-span mixin
-          @include methodology-span(right, 19.25%, rtl, 90deg, right, flex-end);
+          @include mixins.methodology-span(right, 19.25%, rtl, 90deg, right, flex-end);
         }
       }
 
@@ -126,7 +44,7 @@
           @extend %circle;
 
           //methodology-span mixin
-          @include methodology-span(left, 20%, ltr, -90deg, left, flex-start);
+          @include mixins.methodology-span(left, 20%, ltr, -90deg, left, flex-start);
         }
       }
       //linear
@@ -148,11 +66,11 @@
         z-index: 9;
       }
 
-      //stage element
-      @include stage(one, left, "Stage One", 59%);
-      @include stage(three, right, "Stage Two", 70.5%);
-      @include stage(five, left, "Stage Three", 82%);
-      @include stage(seven, right, "Final Stage", 93.5%);
+      //stage elements
+      @include mixins.stage(one, left, "Stage One", 61%);
+      @include mixins.stage(three, right, "Stage Two", 72%);
+      @include mixins.stage(five, left, "Stage Three", 83%);
+      @include mixins.stage(seven, right, "Final Stage", 94%);
     }
   }
 }
