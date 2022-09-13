@@ -32,18 +32,21 @@
        
         &-child {
           @extend %circle;
-          border: 1px solid red;
+          // border: 1px solid red;
        
           .methodology-span {
             @include mixins.flex(column);
-            height: 60px;
-            width: 400px;
+            height: fit-content;
+            // height: 60px;
+            width: 25vw;
+            // width: 400px;
             // border: 1px solid red;
             color: #fff;
             background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
             position: absolute;
-            left: 20%;
+            right: 19.25%;
             border-radius: 1.5%;
+            // padding: 10px 0;
           
             transition: all 0.2s ease-in-out;
 
@@ -56,17 +59,19 @@
             }
             &-text {
               // background-color: #fff;
-              padding: 0px 5px;
+              padding: 0px 10px;
               font-size: 1.3rem;
+              line-height: 2rem;
               font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
+              direction: rtl;
             }
             &-title {
               // background-color: #591;
               font-size: 1.4rem;
 
               font-weight: bolder;
-              align-self: flex-start;
-              padding-left: 5px;
+              align-self: flex-end;
+              padding: 5px 10px 0 10px;
               text-transform: uppercase;
               font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
             }
@@ -78,8 +83,8 @@
               position: absolute;
               height: 20px;
               width: 20px;
-              transform: rotate(-90deg);
-              left: 100%;
+              transform: rotate(90deg);
+              right: 100%;
               top: 35%;
               border-radius: 1.5%;
               // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
