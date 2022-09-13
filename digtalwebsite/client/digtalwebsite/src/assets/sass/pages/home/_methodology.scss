@@ -1,12 +1,11 @@
 @use "../../util/mixins";
 
-@mixin methodology-span-before($angle,$position){
-  
+@mixin methodology-span-before($angle, $position) {
   &::before {
     content: "";
     background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
     position: absolute;
-    @include mixins.size( 20px,20px);
+    @include mixins.size(20px, 20px);
 
     transform: rotate($angle);
     #{$position}: 100%;
@@ -17,13 +16,12 @@
   }
 }
 
-
-@mixin methodology-span($position,$pos_value,$direction,$angle,$side,$alignment) {
+@mixin methodology-span($position, $pos_value, $direction, $angle, $side, $alignment) {
   .methodology-span {
     @include mixins.flex(column);
-   
-@include mixins.size( 25vw,fit-content);
-    
+
+    @include mixins.size(25vw, fit-content);
+
     color: #fff;
     background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
     position: absolute;
@@ -33,15 +31,13 @@
     transition: all 0.4s ease-in-out;
 
     //tooltip content
-   
+
     &-text,
     &-title {
-    
-@include mixins.size( fit-content,fit-content);
-
+      @include mixins.size(fit-content, fit-content);
     }
     &-text {
-      padding:0px 10px 2px 10px;
+      padding: 0px 10px 2px 10px;
       font-size: 1.3rem;
       line-height: 2rem;
       font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
@@ -58,10 +54,30 @@
     }
     // }
 
-
     //meth-before-mixin
-    @include methodology-span-before($angle,$side );
+    @include methodology-span-before($angle, $side);
+  }
+}
 
+@mixin stage($number, $position, $content, $top) {
+  //#{$number}
+  &-#{$number} {
+    &-child {
+      //stage element
+      &::before {
+        background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+        content: $content;
+        position: absolute;
+
+        @include mixins.size(fit-content, fit-content);
+
+        color: #fff;
+        #{$position}: 35%;
+        top: $top;
+        padding: 5px 7px;
+        border-radius: 5%;
+      }
+    }
   }
 }
 
@@ -79,9 +95,7 @@
       border: 1px solid blue;
       @include mixins.grid;
       row-gap: -1rem;
-    @include mixins.size(inherit, 80%);
-      
- 
+      @include mixins.size(inherit, 80%);
 
       //methodology icons
       .methodology-icon {
@@ -95,51 +109,24 @@
         }
       }
 
-      &-one {
-        // border: 1px solid red;
 
+      &-one,
+      &-five {
         &-child {
           @extend %circle;
-          // border: 1px solid red;
 
-          //stage element
-          &::before{
-            background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-            content: 'Stage One';
-              position: absolute;
-              // height: fit-content;
-              // width: fit-content;
-    @include mixins.size(fit-content, fit-content);
-              
-              color: #fff;
-              left: 35%;
-              top: 61%;
-              padding: 5px 7px;
-              border-radius: 5%;
-              // background-color: red;
-
-          }
-
-
-
+          //methodology-span mixin
+          @include methodology-span(right, 19.25%, rtl, 90deg, right, flex-end);
         }
       }
 
-      &-one,&-five{
-        &-child{
+      &-three,
+      &-seven {
+        &-child {
           @extend %circle;
 
-//methodology-span mixin
-@include methodology-span(right,19.25% ,rtl,90deg,right,flex-end );
-        }
-      }
-
-      &-three,&-seven{
-        &-child{
-          @extend %circle;
-
-//methodology-span mixin
-@include methodology-span(left,20% ,ltr,-90deg,left ,flex-start);
+          //methodology-span mixin
+          @include methodology-span(left, 20%, ltr, -90deg, left, flex-start);
         }
       }
       //linear
@@ -159,130 +146,13 @@
       &-three {
         margin-top: -5rem;
         z-index: 9;
-
-        // &-child {
-        //   @extend %circle;
-        //   .methodology-span {
-        //     @include mixins.flex(column);
-        //     @include mixins.size( 25vw,fit-content);
-
-        //     color: #fff;
-        //     background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-        //     position: absolute;
-        //     left: 20%;
-        //     border-radius: 1.5%;
-
-        //     transition: all 0.2s ease-in-out;
-
-        //     //tooltip content
-        //     // .methodology{
-        //     &-text,
-        //     &-title {
-        //       @include mixins.size( fit-content,fit-content);
-
-        //     }
-        //     &-text {
-        //       padding: 0px 10px 2px 10px;
-        //       font-size: 1.3rem;
-        //       line-height: 2rem;
-        //       font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
-        //     }
-        //     &-title {
-        //       // background-color: #591;
-        //       font-size: 1.4rem;
-
-        //       font-weight: bolder;
-        //       align-self: flex-start;
-        //       padding: 5px 10px 0 10px;
-        //       text-transform: uppercase;
-        //       font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
-        //     }
-        //     // }
-
-        //     &::before {
-        //       content: "";
-        //       background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-        //       position: absolute;
-        //       @include mixins.size( 20px,20px);
-
-        //       transform: rotate(-90deg);
-        //       left: 100%;
-        //       top: 35%;
-        //       border-radius: 1.5%;
-        //       // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-        //       clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-        //     }
-        //   }
-        // }
       }
 
-      //three
-      &-three{
-        &-child{
-                //stage element
-                &::before{
-                  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-                  content: 'Stage Two';
-                    position: absolute;
-                    // height: fit-content;
-                    // width: fit-content;
-          @include mixins.size(fit-content, fit-content);
-                    
-                    color: #fff;
-                    right: 35%;
-                    top: 72%;
-                    padding: 5px 7px;
-                    border-radius: 5%;
-                    // background-color: red;
-      
-                }
-        }
-      }
-      //four
-      &-five{
-        &-child{
-                //stage element
-                &::before{
-                  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-                  content: 'Stage Three';
-                    position: absolute;
-                    // height: fit-content;
-                    // width: fit-content;
-          @include mixins.size(fit-content, fit-content);
-                    
-                    color: #fff;
-                    left: 35%;
-                    top: 83%;
-                    padding: 5px 7px;
-                    border-radius: 5%;
-                    // background-color: red;
-      
-                }
-        }
-      }
-
-      //seven
-      &-seven{
-        &-child{
-                //stage element
-                &::before{
-                  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
-                  content: 'Final Stage';
-                    position: absolute;
-                    // height: fit-content;
-                    // width: fit-content;
-          @include mixins.size(fit-content, fit-content);
-                    
-                    color: #fff;
-                    right: 35%;
-                    top: 94%;
-                    padding: 5px 7px;
-                    border-radius: 5%;
-                    // background-color: red;
-      
-                }
-        }
-      }
+      //stage element
+      @include stage(one, left, "Stage One", 59%);
+      @include stage(three, right, "Stage Two", 70.5%);
+      @include stage(five, left, "Stage Three", 82%);
+      @include stage(seven, right, "Final Stage", 93.5%);
     }
   }
 }
@@ -310,5 +180,3 @@
   place-items: center;
   margin-top: -5rem;
 }
-
-
