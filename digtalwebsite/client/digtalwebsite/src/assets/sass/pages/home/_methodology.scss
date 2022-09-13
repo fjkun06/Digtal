@@ -51,14 +51,14 @@
             @include mixins.flex(column);
             height: 60px;
             width: 400px;
-            border: 1px solid red;
+            // border: 1px solid red;
             color: #fff;
-            background-color: red;
+            background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
             position: absolute;
             left: 20%;
             border-radius: 1.5%;
             // display: none;
-            opacity: 1;
+            // opacity: 1;
             transition: all 0.25s ease-in-out;
 
             //tooltip content
@@ -88,7 +88,7 @@
 
             &::before {
               content: "";
-              background-color: red;
+              background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
               position: absolute;
               height: 20px;
               width: 20px;
@@ -111,6 +111,7 @@
 
         &-child {
           @extend %line;
+          
         }
       }
 

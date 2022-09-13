@@ -12,6 +12,7 @@ export default function HomeMethodology({ heading, subHeading }) {
   const [display3, setDisplay3] = useState("none");
   const [display5, setDisplay5] = useState("none");
   const [display7, setDisplay7] = useState("none");
+  const [opacity, setOpacity] = useState(0);
 
   const obj = [
     { num: "one", icon: <AcUnitTwoToneIcon className="methodology-icon"/>,display: display1 ,setDisp:setDisplay1},
@@ -31,24 +32,34 @@ export default function HomeMethodology({ heading, subHeading }) {
         <Headings heading={heading} subHeading={subHeading} />
 
         <Grid className={"home-body-methodology-sub"}>
-          {obj.map(({num,icon,display,setDisp}) => (
+          {obj.map(({num,icon,display,setDisp},index) => (
             <div key={num} className={"home-body-methodology-sub-" + num}>
               <div key={num} className={"home-body-methodology-sub-" + num + "-child"}
-               onMouseEnter={() => setDisp("")} 
-               onMouseLeave={() => setDisp(display === "flex" ?  display:"none")} 
+               onMouseEnter={() => {
+                setDisp("")
+                setOpacity(1)
+              } 
+               }
+               onMouseLeave={() =>
+                { setDisp(display === "flex" ?  display:"none")
+                setOpacity(display === "flex" ? 1 : 0)
+              } 
+               }
               //  onClick={() => } 
                onClick={() => {
-                setDisp(display === "none"? "flex" : "none" )
+                setDisp(display === "none" || display === ""? "flex" : "none" )
+                setOpacity(1);
 
                 console.log("display: ",display)
               } 
               }
                >
                 {icon }
-                <span className={"methodology-span-" + num} style={{ display: display }}>
+                {(index + 1) % 2 === 1?
+                <span className={"methodology-span-" + num} style={{ display: display,opacity: opacity}}>
                   <span class={"methodology-span-" + num + "-title"}>Hello</span>
                   <span class={"methodology-span-" + num + "-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta blanditiis iusto culpa </span>
-                </span>
+                </span> : () => console.log('no')}
               </div>
             </div>
           ))}
