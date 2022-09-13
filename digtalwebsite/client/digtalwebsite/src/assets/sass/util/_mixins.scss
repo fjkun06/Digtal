@@ -127,14 +127,14 @@ justify-content: $flex-jposition;
       content: "";
       background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
       position: absolute;
-      @include size(20px, 20px);
+      @include size(40px, 4px);
   
-      transform: rotate($angle);
-      #{$position}: 100%;
-      top: 35%;
+    //   transform: rotate($angle);
+      #{$position}: 101%;
+      top: 45%;
       border-radius: 1.5%;
       // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    //   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
     }
   }
   
@@ -190,6 +190,15 @@ justify-content: $flex-jposition;
       &-child {
         .methodology-stage-#{$number}{
             #{$position} : 35%;
+
+            &-after{
+                content: '';
+                position: inherit;
+                @include size(50px,10px);
+                background-color: red;
+                top: 100px;
+                left: 0;
+            }
         }
 
       }

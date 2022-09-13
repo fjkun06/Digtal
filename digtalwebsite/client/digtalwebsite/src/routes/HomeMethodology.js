@@ -39,7 +39,7 @@ export default function HomeMethodology({ heading, subHeading }) {
         <Grid className={"home-body-methodology-sub"}>
           {obj.map(({ num, icon, setTrans, transform,stage }, index) => (
             <div key={num} className={"home-body-methodology-sub-" + num}>
-              <Tooltip title="Toggle display." placement="bottom">
+              <Tooltip title={(index + 1) % 2 === 1? <h2>Toggle textbox display</h2> : <h2>Transition</h2>} placement="bottom">
                 <div
                   key={num}
                   className={"home-body-methodology-sub-" + num + "-child"}
