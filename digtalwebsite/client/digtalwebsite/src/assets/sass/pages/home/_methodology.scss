@@ -24,14 +24,14 @@
         transition: all 0.2s ease-in-out;
 
         &:hover {
-          transform: scale(0.9);
+          transform: scale(0.95);
         }
       }
 
       &-one {
         &-child {
           @extend %circle;
-          // border: 1px solid red;
+          border: 1px solid red;
 
           .methodology-span {
             @include mixins.flex(column);
