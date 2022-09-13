@@ -3,8 +3,9 @@
 %methodology {
   .home-body-methodology {
     border: 5px solid greenyellow;
-    width: 74vw;
-    height: 120vh;
+    @include mixins.size(74vw, 120vh);
+    // width: 74vw;
+    // height: 120vh;
     background-color: var(--home-body-inner-bg);
     padding-bottom: 6rem;
 
@@ -13,8 +14,9 @@
       border: 1px solid blue;
       @include mixins.grid;
       row-gap: -1rem;
-      width: inherit;
-      height: 80%;
+    @include mixins.size(inherit, 80%);
+      
+ 
 
       //methodology icons
       .methodology-icon {
@@ -40,8 +42,10 @@
             background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
             content: 'Stage One';
               position: absolute;
-              height: fit-content;
-              width: fit-content;
+              // height: fit-content;
+              // width: fit-content;
+    @include mixins.size(fit-content, fit-content);
+              
               color: #fff;
               left: 35%;
               top: 61%;
@@ -54,7 +58,8 @@
           .methodology-span {
             @include mixins.flex(column);
             height: fit-content;
-            width: 25vw;
+            // width: 25vw;
+    @include mixins.size( 25vw,fit-content);
             
             color: #fff;
             background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
