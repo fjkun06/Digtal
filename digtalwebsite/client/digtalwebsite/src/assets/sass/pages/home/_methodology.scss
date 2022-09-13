@@ -21,33 +21,20 @@
         color: #fff;
         font-size: 5rem;
         cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+          transform: scale(.9);
+        }
       }
 
       &-one {
+       
         &-child {
           @extend %circle;
           border: 1px solid red;
-
-          // &::after{
-          //   content: '';
-          //   position: absolute;
-          //   height: 34vh;
-          //   width: 3px;
-          // transition: all 0.5s ease-in-out;
-
-          // background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
-          // transform: rotate(-72deg) translate(12vh,25vh);
-          &:hover {
-            transition: all 0.25s ease-in-out;
-
-            .methodology-span-one {
-              // opacity: 1;
-            }
-          }
-
-          // }
-
-          .methodology-span-one {
+       
+          .methodology-span {
             @include mixins.flex(column);
             height: 60px;
             width: 400px;
@@ -57,9 +44,8 @@
             position: absolute;
             left: 20%;
             border-radius: 1.5%;
-            // display: none;
-            // opacity: 1;
-            transition: all 0.25s ease-in-out;
+          
+            transition: all 0.2s ease-in-out;
 
             //tooltip content
             // .methodology{
@@ -92,7 +78,6 @@
               position: absolute;
               height: 20px;
               width: 20px;
-              // clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
               transform: rotate(-90deg);
               left: 100%;
               top: 35%;
@@ -124,6 +109,58 @@
 
         &-child {
           @extend %circle;
+          .methodology-span {
+            @include mixins.flex(column);
+            height: 60px;
+            width: 400px;
+            // border: 1px solid red;
+            color: #fff;
+            background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+            position: absolute;
+            left: 20%;
+            border-radius: 1.5%;
+          
+            transition: all 0.2s ease-in-out;
+
+            //tooltip content
+            // .methodology{
+            &-text,
+            &-title {
+              height: fit-content;
+              width: fit-content;
+            }
+            &-text {
+              // background-color: #fff;
+              padding: 0px 5px;
+              font-size: 1.3rem;
+              font-family: "Roboto", "Verdana", "Helvetica", sans-serif;
+            }
+            &-title {
+              // background-color: #591;
+              font-size: 1.4rem;
+
+              font-weight: bolder;
+              align-self: flex-start;
+              padding-left: 5px;
+              text-transform: uppercase;
+              font-family: "Gudea", "Verdana", "Helvetica", sans-serif;
+            }
+            // }
+
+            &::before {
+              content: "";
+              background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+              position: absolute;
+              height: 20px;
+              width: 20px;
+              transform: rotate(-90deg);
+              left: 100%;
+              top: 35%;
+              border-radius: 1.5%;
+              // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+              clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            }
+          }
         }
       }
     }
@@ -138,6 +175,8 @@
   cursor: pointer;
   background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
   border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  
 }
 
 %line {
