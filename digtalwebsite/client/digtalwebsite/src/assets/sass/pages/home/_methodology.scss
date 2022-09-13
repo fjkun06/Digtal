@@ -74,10 +74,10 @@
       }
 
       //stage elements
-      @include mixins.stage(one, left);
-      @include mixins.stage(three, right);
-      @include mixins.stage(five, left);
-      @include mixins.stage(seven, right);
+      @include mixins.stage(one, left,-90deg,show-arrow 1s ease-in-out 0s 5 normal forwards);
+      @include mixins.stage(three, right,90deg,show-arrow );
+      @include mixins.stage(five, left,-90deg,show-arrow );
+      @include mixins.stage(seven, right,90deg,show-arrow );
 
    
 
@@ -90,6 +90,8 @@
         font-family: "Gudea", sans-serif;
         padding: 5px 7px;
         border-radius: 5%;
+// animation: name duration timing-function delay iteration-count direction fill-mode;
+
       }
 
      
@@ -108,26 +110,17 @@
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
   // position: relative;
+  
 }
 
 %line {
   // @include mixins.size(3px, 12.4vh);
   width: 3px;
   height: 12.4vh;
-  // height: 2.4vh;
   // @include mixins.size(3px, 15.4vh);
-  border: 1px solid red;
-  // background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
+  background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
   transition: all 0.5s ease-in-out;
 
-  &::before{
-    content: '';
-    position: absolute;
-    width: 3px;
-  height: 2.4vh;
-  border: 1px solid blue;
-right: 10px;
-  }
 }
 
 %even {

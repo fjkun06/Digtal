@@ -43,12 +43,12 @@ export default function HomeMethodology({ heading, subHeading }) {
                 <div
                   key={num}
                   className={"home-body-methodology-sub-" + num + "-child"}
-                  onMouseEnter={() => {
-                    setTrans("scale(.99)");
-                  }}
-                  onMouseLeave={() => {
-                    setTrans(transform === "scale(1)" ? transform : "scale(0)");
-                  }}
+                  // onMouseEnter={() => {
+                  //   setTrans("scale(.99)");
+                  // }}
+                  // onMouseLeave={() => {
+                  //   setTrans(transform === "scale(1)" ? transform : "scale(0)");
+                  // }}
                   onClick={() => {
                     setTrans(transform === "scale(0)" || transform === "scale(.99)" ? "scale(1)" : "scale(0)");
                   }}
