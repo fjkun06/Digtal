@@ -35,17 +35,19 @@
       //   // border: 1px solid red
       // }
 
-      &-one,
-      &-five {
-        &-child {
-          @extend %circle;
+      // &-one,
+      // &-five {
+      //   &-child {
+      //     @extend %circle;
 
-          //methodology-span mixin
-          @include mixins.methodology-span(right, 19.25%, rtl, 90deg, right, flex-end);
-        }
-      }
+      //     //methodology-span mixin
+      //     @include mixins.methodology-span(right, 19.25%, rtl, 90deg, right, flex-end);
+      //   }
+      // }
 
       &-three,
+      &-one,
+      &-five,
       &-seven {
         &-child {
           @extend %circle;
@@ -54,6 +56,11 @@
           @include mixins.methodology-span(left, 20%, ltr, -90deg, left, flex-start);
         }
       }
+
+
+
+
+
       //linear
       &-two,
       &-four,

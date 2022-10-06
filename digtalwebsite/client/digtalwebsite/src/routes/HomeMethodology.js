@@ -51,12 +51,14 @@ export default function HomeMethodology({ heading, subHeading }) {
                   // }}
                   onClick={() => {
                     setTrans(transform === "scale(0)" || transform === "scale(.99)" ? "scale(1)" : "scale(0)");
+                    
                   }}
                 >
                   {icon}
                   {(index + 1) % 2 === 1 ? (
                     <>
-                      <span className={"methodology-span"} style={{ transform: transform }}>
+                      <span className={"methodology-span"} style={{ }}>
+                      {/* <span className={"methodology-span"} style={{ transform: transform }}> */}
                         <span class={"methodology-span-title"}>Hello</span>
                         <span class={"methodology-span-text"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta blanditiis iusto culpa </span>
                       </span>

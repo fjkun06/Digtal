@@ -127,19 +127,14 @@ justify-content: $flex-jposition;
       content: "";
       background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
       position: absolute;
-      @include size(40px, 4px);
-    //   @include size(40px, 4px);
-  
-    //   transform: rotate($angle);
-    //   transform: rotate(180deg);
+      @include size(0px, 4px);
+  animation: link-icon-text 1s ease-in-out 0s 5 normal forwards;
       #{$position}: 101%;
-    //   #{$position}: 101%;
       top: 45%;
       border-radius: 1.5%;
   transition: all 0.5s ease-in-out;
 
-      // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-    //   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+
     }
   }
   
@@ -156,6 +151,8 @@ justify-content: $flex-jposition;
       border-radius: 1.5%;
   
       transition: all 0.4s ease-in-out;
+    //   display: none;
+      animation: meth-display 1s ease-in-out 0s 5 normal forwards;
   
       //tooltip content
   
@@ -208,9 +205,7 @@ justify-content: $flex-jposition;
                 top: 25%;
                 border-radius: 1.5%;
             transition: all 0.2s ease-in-out;
-        //   opacity: 0;
-        // display: none;
-                // clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+       
                 clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
                 animation: $animation;
               }
@@ -232,6 +227,18 @@ justify-content: $flex-jposition;
   @keyframes show-arrow {
     100%{
         width: 15px;
+
+    }
+  }
+  @keyframes link-icon-text {
+    100%{
+        width: 40px;
+
+    }
+  }
+  @keyframes meth-display {
+    100%{
+        display: flex;
 
     }
   }
