@@ -4,7 +4,7 @@
 //navbar fo mobile
 .mobile-nav-bar {
     margin-top: 45px;
-    background-color: variables.$purple;
+    background-color: var(--mobile-navbar-bg);
     color: aliceblue;
     position: relative;
     transition: all ease 0.2s;
@@ -12,12 +12,13 @@
     @include mixins.size(250px, fit-content);
 
     z-index: -1;
+    // z-index: -1;
 
     &::before {
         content: "";
         display: grid;
         position: absolute;
-        background-color: variables.$purple;
+        background-color: var(--mobile-navbar-bg);
 
         @include mixins.size(70px, 50px);
         top: -50px;
@@ -26,28 +27,28 @@
     }
 
     .mobile-nav-bar-item {
-        border-bottom: 1px solid variables.$black;
+        border-bottom: 1px solid var(--mobile-navbar-item-bb);
         padding: 1rem;
         text-align: center;
 
         &:hover {
             transition: background-color ease 0.2s;
             cursor: pointer;
-            background-color: lighten(variables.$purple, 50);
+            background-color: var(--mobile-navbar-item-hover);
 
             .mobile-nav-bar-item-link {
-                color: #000;
+                color: var(--mobile-navbar-item-link-hovered);
             }
         }
 
         .mobile-nav-bar-item-link {
-            color: white;
+            color: var(--mobile-navbar-item-link);
             font-size: 1.5rem;
         }
 
         //ative link styling
         .mobile-nav--link--active {
-            color: variables.$active-hover;
+            color: var(--mobile-navbar-link);
         }
 
         //arrows
@@ -69,7 +70,7 @@
 
         //being reused
         .select-item-sub {
-            @include mixins.select-item-sub(70%, 12.4rem, 3.5rem, 1px solid lighten(variables.$purple, 50)) {
+            @include mixins.select-item-sub(70%, 12.4rem, 3.5rem, 1px solid var(--navbar-select-item-bg)) {
                 @include mixins.grid;
             }
         }
@@ -79,7 +80,7 @@
         display: none;
 
         &:hover {
-            background-color: variables.$purple;
+            background-color: var(  --special-language-hover-bg);
         }
 
         .language-dropdown {
@@ -92,9 +93,9 @@
                 cursor: pointer;
                 &:hover {
                     transition: all ease 0.2s;
-                    background-color: lighten(variables.$purple, 50);
+                    background-color: var(--special-language-dd-hover-bg);
                 }
-                border-bottom: 1px solid lighten(variables.$purple, 50);
+                border-bottom: 1px solid var(  --special-language-dd-bb);
             }
         }
     }

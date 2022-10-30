@@ -46,24 +46,24 @@
 
             @include mixins.size(inherit, 100%);
 
-            background-color: variables.$purple;
-            border-left: 1px solid variables.$black;
+            background-color: var(--navbar-language-dd-item-bg);
+            border-left: 1px solid var(--navbar-language-dd-item-bl);
 
-            border-right: 1px solid variables.$black;
+            border-right: 1px solid var(--navbar-language-dd-item-br);
 
             &:last-child {
-               border-bottom: 1px solid variables.$black;
+               border-bottom: 1px solid var(--navbar-language-dd-item-bb);
                border-radius: 4%;
             }
             &:first-child {
-               border-top: 1px solid variables.$black;
+               border-top: 1px solid var(--navbar-language-dd-item-bt);
                border-radius: 4%;
             }
 
             &:hover {
                transition: all ease 0.2s;
 
-               background-color: lighten(variables.$purple, 50);
+               background-color: var(--navbar-language-dd-item-bg-hover);
             }
          }
       }

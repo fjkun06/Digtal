@@ -16,16 +16,18 @@ import News from "./routes/footer/News";
 import Contact from "./components/ContactForm";
 import TermsOfUse from "./routes/footer/TermsOfUse";
 import PrivacyPolicy from "./routes/footer/PrivacyPolicy";
+import HomeSkeleton from "./routes/skeletons/HomeSkeleton";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <React.Suspense fallback="Loading...">
+    <React.Suspense fallback={<HomeSkeleton/>}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/" exact element={<App />}>
             <Route path="/en">
-              <Route path="home" element={<Home />} />
+              <Route index exact element={<Home />} />
+              {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">
                 <Route index element={<Services />} />
@@ -41,11 +43,10 @@ root.render(
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<FourOFour />} />
             </Route>
-          </Route>
 
-          <Route path="/de" element={<App />}>
+            <Route path="/de">
             {/* <Route path="/de" element={<App />}> */}
-            <Route path="home" element={<Home />} />
+            <Route index exact element={<Home />} />
 
             <Route path="enterprise" element={<Enterprise />} />
             <Route path="services">
@@ -65,9 +66,9 @@ root.render(
             {/* </Route> */}
           </Route>
 
-          <Route path="/fr" element={<App />}>
+          <Route path="/fr">
             {/* <Route path="/de" element={<App />}> */}
-            <Route path="home" element={<Home />} />
+            <Route index exact element={<Home />} />
 
             <Route path="enterprise" element={<Enterprise />} />
             <Route path="services">
@@ -86,6 +87,9 @@ root.render(
             <Route path="*" element={<FourOFour />} />
             {/* </Route> */}
           </Route>
+          </Route>
+
+
         </Routes>
       </BrowserRouter>
     </React.Suspense>

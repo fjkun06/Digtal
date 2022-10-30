@@ -1,0 +1,64 @@
+
+      %header-video{  @keyframes bg {
+          0%, 100%{
+              background-color: rgba(255, 253, 253, 0.5);
+          }
+
+          25%{
+              background-color: rgba(247, 0, 255, 0.5);
+          }
+
+          50%{
+              background-color: rgba(0, 140, 255, 0.5);
+          }
+
+          75%{
+              background-color: rgba(232, 232, 246, 0.5);
+          }
+      }
+      .slider{
+          position: relative;
+          width: 100%;
+          height: 87vh;
+          background-color: #111;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          animation: bg 4s linear infinite;
+          overflow: hidden;
+      }
+
+      .sliderc h1{
+          margin-bottom: 20px;
+          font-size: 60px;
+          text-shadow: 0 0 10px #000;
+      }
+
+      .slider video{
+          position: absolute;
+          top: 0;
+          left: 0;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: -1;
+      }
+
+      .cta{
+          padding: 15px 120px;
+          display: inline-block;
+          font-size: 24px;
+          font-weight: bold;
+          margin-top: 35px;
+          cursor: pointer;
+          transition: all 0.5s ease;
+          box-shadow: 0 0 3px #fff;
+      }
+
+      .cta:hover{
+          border-color: #e74c3c;
+          background-color: #e74c3c;
+          box-shadow: 0 0 10px #e74c3c;
+      }
+    }

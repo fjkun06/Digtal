@@ -4,7 +4,7 @@
 
 %policy {
   .footer-policy {
-    @include mixins.footer-item-init(2.5vh, white, row, center);
+    @include mixins.footer-item-init(2.5vh, var(--footer-policy-bg), row, center);
 
     & > * {
       @extend %f-text;
@@ -23,7 +23,7 @@
     a {
       text-decoration: underline;
       &:hover {
-        color: lighten(variables.$purple, 20%);
+        color: var(--footer-link-hover);
       }
     }
 
@@ -46,8 +46,7 @@
 }
 
 .footer-policy-link-text-item {
-  color: red;
   &:hover {
-    color: lighten(variables.$purple, 20%);
+    color: var(--footer-link-hover);
   }
 }

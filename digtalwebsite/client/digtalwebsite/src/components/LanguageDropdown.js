@@ -32,7 +32,7 @@ export default function LanguageDropdown({
             } else {
               setLanguage(item.route);
               setRegion(item.src);
-              setTimeout(() => navigate(item.route + "/home"), 300);
+              setTimeout(() => navigate(item.route + "/"), 300);
               languageSwitcher(item.route);
               console.log("lang: ", location, "mang: ", location.pathname);
             }
