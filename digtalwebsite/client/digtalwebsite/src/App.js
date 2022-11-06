@@ -5,6 +5,11 @@ import Navbar from "./components/Navbar";
 import "./assets/sass/main.scss";
 import "./fonts/fonts";
 import { useState } from "react";
+import ServicesLayout from "./components/home/services/layout";
+import ServiceFirst from "./components/home/services/service";
+import Title from "./components/home/services/title";
+import { ServiceSecond } from "./components/home/services/service";
+import { ServiceThird } from "./components/home/services/service";
 function App() {
   const [language, setLanguage] = useState("/en");
 
@@ -17,7 +22,16 @@ function App() {
           {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
           <Navbar setLanguage={setLanguage} language={language} />
         </Grid>
-        {/* Bill put your componenets here, i will route them as we progress: Remember React + TS */}
+        {/* bill's work starts here */}
+
+        <ServicesLayout>
+          <Title />
+          <ServiceFirst />
+          <ServiceSecond />
+          <ServiceThird />
+        </ServicesLayout>
+
+        {/* bill's work ends here */}
         <Grid>
           <Footer language={language} />
         </Grid>

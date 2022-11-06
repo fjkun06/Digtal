@@ -1,0 +1,6 @@
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+.solutions__title {
+  position: relative;
+}/*# sourceMappingURL=index.css.map */
