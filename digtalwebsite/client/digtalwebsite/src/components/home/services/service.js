@@ -57,7 +57,7 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
                 ease:true,
             },{
                 duration:.5,
-                lineHeight:1.6,
+                lineHeight:2.2,
                 opacity:1,
                 duration:1.5
             }
@@ -92,27 +92,23 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
 
     return (
         <Container 
-            className="relative flex items-center justify-center w-3/5 h-[380px] mx-8 my-4"
+            className="relative flex items-center justify-between w-4/5 h-[480px] mx-8 p-0 my-4"
         >
-            <img src={image} alt="" 
-                className="object-cover w-[100%] h-full"
-                ref={rightBoxImg}
-            />
-            <Box component="div" 
-                className="absolute top-0 left-2/4  w-4/5 h-full flex flex-col items-center justify-center gap-8"
+            <Box
+                className="z-40  w-full h-[85%] flex flex-col items-end justify-start top-0 right-0 absolute gap-8"
             >
                 <Box component="div"
-                    className="bg-white  shadow-2xl shadow-purple-900/20 w-3/4 min-h-[20rem]  py-4 flex items-center justify-around gap-8 px-4"
+                    className="bg-white h-full  shadow-2xl shadow-purple-900/20 w-3/5  py-4 flex items-center justify-around gap-8 px-4"
                     ref={rightBox}
                 >
                     <img src={icon} alt="" class="max-w-24 h-24 " />
                     <Box className="w-full">
                         <h2
                             ref={rightBoxTitle}
-                            className="text-3xl text-start tracking-wide text-[#2B0A3D] font-bold leading-relaxed capitalize "
+                            className="text-6xl my-2 text-start tracking-wide text-[#2B0A3D] font-bold leading-relaxed capitalize "
                         >{title}</h2>
                         <p
-                            className="text-start leading-relaxed text-[#2B0A3D]"
+                            className="text-start leading-relaxed text-3xl text-[#2B0A3D]"
                             ref={rightBoxText}
                         >{text}</p>
                     </Box>
@@ -122,10 +118,14 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
                 >
                     <ArrowForwardIosIcon 
                         ref={rightBoxDirection}
-                        className="text-5xl text-purple-900 font-bold  cursor-pointer"
+                        className="text-6xl text-purple-900 font-bold  cursor-pointer"
                     />
                 </Box>
             </Box>
+            <img src={image} alt="" 
+                className="object-cover z-[2] h-[85%] bottom-0 left-0 w-[70%]  absolute"
+                ref={rightBoxImg}
+            />
         </Container>
     )
 }
@@ -214,29 +214,29 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
 
     return (
         <Container 
-            className="relative flex items-center justify-center w-3/5 h-[380px] mx-8 my-4"
+            className="relative flex items-center justify-between w-4/5 h-[480px] mx-8 p-0 my-4"
         >
             <img src={image} alt="" 
-                className="object-cover w-[100%] h-full"
+                className="object-cover z-[2] h-[85%] bottom-0 right-0 w-[70%]  absolute"
                 ref={leftBoxImg} 
             />
             <Box component="div" 
-                className="absolute top-0 right-2/4  w-4/5 h-full flex flex-col items-center justify-center gap-8"
+                className="z-40  w-full h-[85%] flex flex-col items-start justify-start top-0 right-0 absolute gap-8"
             >
                 <Box component="div"
-                    className="bg-white  shadow-2xl shadow-purple-900/20 w-3/4 min-h-[20rem]  py-4 flex items-center justify-around gap-8 px-4"
+                    className="bg-white h-full  shadow-2xl shadow-purple-900/20 w-3/5  py-4 flex items-center justify-around gap-8 px-4"
                     ref={leftBox}
                 >
                     <img src={icon} alt="" 
                         class="max-w-24 h-24 "
                     />
-                    <Box className="w-full">
+                    <Box className="w-full flex flex-col">
                         <h2
-                            className="text-3xl text-start tracking-wide text-[#2B0A3D] font-bold leading-relaxed"
+                            className="text-6xl my-2 text-start tracking-wide text-[#2B0A3D] font-bold leading-relaxed"
                             ref={leftBoxTitle} 
                         >{title}</h2>
                         <p
-                            className="text-start leading-relaxed text-[#2B0A3D]"
+                            className="text-start leading-relaxed text-[#2B0A3D] text-3xl"
                             ref={leftBoxText} 
                         >{text}</p>
                     </Box>
@@ -245,7 +245,7 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
                     className="w-3/4 py-4 flex items-center justify-start"
                 >
                     <ArrowForwardIosIcon 
-                        className="text-5xl text-purple-900 font-bold cursor-pointer"
+                        className="text-6xl text-purple-900 font-bold cursor-pointer"
                         ref={leftBoxDirection} 
                     />
                 </Box>

@@ -21,7 +21,6 @@ import HomeSkeleton from "./routes/skeletons/HomeSkeleton";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
     <React.Suspense fallback={<HomeSkeleton/>}>
       <BrowserRouter>
         <Routes>
@@ -94,5 +93,4 @@ root.render(
         </Routes>
       </BrowserRouter>
     </React.Suspense>
-  </React.StrictMode>
 );
