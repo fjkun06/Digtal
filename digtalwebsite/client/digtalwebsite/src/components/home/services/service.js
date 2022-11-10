@@ -3,6 +3,7 @@ import img from  "../../../assets/images/section3.png"
 import img2 from "../../../assets/images/section2.png"
 import img3 from "../../../assets/images/section1.png"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import geography from "../../../assets/images/Geography.png"
 export default function ServicerFirst({image="",text="",title="",icon=""}){
     return (
         <Container 
@@ -15,14 +16,17 @@ export default function ServicerFirst({image="",text="",title="",icon=""}){
                 className="absolute top-0 left-2/4  w-4/5 h-full flex flex-col items-center justify-center gap-8"
             >
                 <Box component="div"
-                    className="bg-white  shadow-xl shadow-purple-900/20 w-3/4 min-h-[20rem] px-2 py-4"
+                    className="bg-white  shadow-xl shadow-purple-900/20 w-3/4 min-h-[20rem]  py-4 flex items-center justify-around gap-8 px-4"
                 >
-                    <h2
-                        className="text-3xl text-center tracking-wide text-purple-900 font-bold leading-relaxed"
-                    >web & mobile development</h2>
-                    <p
-                        className="text-start leading-relaxed"
-                    >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate iure fugit, minus magnam veniam esse autem facere laudantium, quas obcaecati modi, assumenda cumque quis est debitis accusantium porro ratione odio.</p>
+                    <img src={geography} alt="" class="max-w-24 h-24 " />
+                    <Box className="w-full">
+                        <h2
+                            className="text-3xl text-start tracking-wide text-purple-900 font-bold leading-relaxed capitalize"
+                        >web & mobile development</h2>
+                        <p
+                            className="text-start leading-relaxed"
+                        >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate iure fugit, minus magnam veniam esse autem facere laudantium, quas obcaecati modi, assumenda cumque quis est debitis accusantium porro ratione odio.</p>
+                    </Box>
                 </Box>
                 <Box
                     className="w-3/4 py-4 flex items-center justify-end "
