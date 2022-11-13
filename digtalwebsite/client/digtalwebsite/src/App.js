@@ -6,7 +6,8 @@ import ServiceSection from "./components/home/services/main";
 import "./assets/sass/main.scss";
 import "./fonts/fonts";
 import { useState } from "react";
-import ServicesLayout from "./components/home/services/layout";
+import CarouselSection from "./components/home/carousel/carousel";
+
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
 // import Title from "./components/home/services/title";
 // import { ServiceSecond } from "./components/home/services/service";
@@ -25,8 +26,8 @@ function App() {
           <Navbar setLanguage={setLanguage} language={language} />
         </Grid>
         {/* bill's work starts here */}
+          <CarouselSection />
           <ServiceSection />
-
         {/* bill's work ends here */}
         <Grid>
           <Footer language={language} />
