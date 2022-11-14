@@ -5,6 +5,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import schema from "../schemas/yupSchema";
 import { contactFields } from "./config/contact_config";
+import ContactFormOptions from "./ContactFormOptions";
 import CustomTextField from "./ReusableTextField";
 import Telephone from "./Telephone";
 
@@ -42,14 +43,17 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       sm={5}
       pl={{ xs: 1, sm: 4 }}
       pr={{ xs: 1, sm: 4 }}
-      md={6}
+      md={5}
       container
       sx={{
         padding: { xs: "8px" },
       }}
       alignItems="center"
       justifyContent={"center"}
+      className="contact-form"
     >
+      <ContactFormOptions/>
+
       <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 5 : ""} rowSpacing={1}>
         {contactFields.map((cf) => (
           <Grid item xs={12} sm={12} md={cf.md} sx={{ borderRadius: 1 }} key={cf.label}>
@@ -110,43 +114,23 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           borderRadius: 1,
         }}
       >
-        <Controller
-          render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-            <>
-              <FormControl
-                variant="filled"
-                error={!!formState.errors?.subject}
-                sx={{
-                  m: 1,
-                  ml: 0,
-                  minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
-                }}
-              >
-                <InputLabel color={isDirty & !invalid ? "success" : "secondary"} id="demo-simple-select-helper-label" required>
-                  {t("subject.label")}
-                </InputLabel>
-                <Select labelId="demo-simple-select-helper-label" id="demo-simple-select-helper" value={age} label={t("subject.label")} color={isDirty & !invalid ? "success" : "secondary"} onChange={handleChange} error={!!formState.errors?.subject} {...field}>
-                  <MenuItem value={"other"}>
-                    <em>{t("subject.op1")}</em>
-                  </MenuItem>
-                  {["subject.op2", "subject.op3", "subject.op4"].map((item) => (
-                    <MenuItem value={t(item)} key={item}>
-                      {t(item)}
-                    </MenuItem>
-                  ))}
-                </Select>
-                <FormHelperText id="component-helper-text" sx={{ fontSize: "0.9rem" }}>
-                  {t(formState.errors.subject?.message, { ns: "formerror" })}
-                </FormHelperText>
-              </FormControl>
-            </>
-          )}
-          name={"subject"}
-          control={control}
-        />
       </Grid>
       <Grid item xs={12} sx={{ borderRadius: 1 }}>
-        <Controller render={({ field, formState, fieldState: { isDirty, invalid } }) => <CustomTextField label={t("message")} multiline rows={4} errorState={!!formState.errors?.message} errorText={t(formState.errors.message?.message, { ns: "formerror" })} field={field} success={isDirty & !invalid} />} name={"message"} control={control} />
+        <Controller
+          render={({ field, formState, fieldState: { isDirty, invalid } }) => (
+            <CustomTextField
+              label={t("message")}
+              multiline
+              rows={4}
+              errorState={!!formState.errors?.message}
+              errorText={t(formState.errors.message?.message, { ns: "formerror" })}
+              field={field}
+              success={isDirty & !invalid}
+            />
+          )}
+          name={"message"}
+          control={control}
+        />
       </Grid>
       <Grid item container mt={5}>
         <Button

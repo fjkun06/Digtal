@@ -1,0 +1,49 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+
+.contact {
+  //get intouch section of form
+  &-getintouch {
+    background-color: #000;
+    border: 10px solid red;
+    height: 100px;
+  }
+
+  //form input fields
+  &-form {
+    border-radius: 2%;
+    box-shadow: 5px 5px 25px -1px rgba(187, 141, 138, 0.122), -5px -5px 25px 1px rgba(141, 138, 138, 0.122);
+  }
+
+  //form options
+  &-formoptions {
+    @include mixins.flex;
+    border: 1px solid variables.$purple;
+    height: fit-content;
+    font-family: "Poppins";
+
+
+    //headx
+    &-heading {
+      color: variables.$purple;
+    }
+
+    //pills
+    &--pills {
+    @include mixins.flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+      &-pill {
+        border: 2px solid rgba(#663399,0.5);
+        // border: 2px solid variables.$purple;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 18px;
+        color: rgba(#663399,0.5);
+
+      }
+    }
+  }
+}

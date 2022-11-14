@@ -32,6 +32,7 @@ export default function Contact() {
     <Grid
       container
       component="form"
+      m = {4}
       id="form1"
       alignItems={"center"}
       justifyContent="center"
@@ -46,7 +47,7 @@ export default function Contact() {
       autoComplete="off"
       //   onSubmit={handleSubmit(onSubmit)}
     >
-      <Grid item container pl={{ xs: 1, sm: 4 }}>
+      {/* <Grid item container pl={{ xs: 1, sm: 4 }}>
         <Grid item container>
           <Typography variant="h3" gutterBottom component="div">
             {t("contact-section.contact")}
@@ -57,14 +58,15 @@ export default function Contact() {
             {t("contact-section.our")}
           </Typography>
         </Grid>
+      </Grid> */}
+
+      <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={4.5} sm={5} className="contact-getintouch">
+        {/* {matchesSM && <CustomImage image={pictureSM} alt="background" />}
+
+        {matchesMDAndAbove && <CustomImage image={picture} />} */}
       </Grid>
       <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
 
-      <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={6} sm={7}>
-        {matchesSM && <CustomImage image={pictureSM} alt="background" />}
-
-        {matchesMDAndAbove && <CustomImage image={picture} />}
-      </Grid>
     </Grid>
   );
 }
