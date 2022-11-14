@@ -3,18 +3,18 @@
 
 .contact {
   //get intouch section of form
+transition: all 0.25s ease-in-out;
+
   &-getintouch {
     background-color: #000;
     border: 10px solid red;
     height: 100px;
 
-    // outline: none;
-    // border: none;
-    // color: red;
   }
 
   //textfields
   &-textfield {
+
     //input label
     .MuiFormLabel-root,
     .MuiInputLabel-root {
@@ -53,7 +53,6 @@
       }
 
       &.Mui-focused {
-        // border: 3px solid red;
         .MuiOutlinedInput-notchedOutline {
           border: 3px solid green;
 
@@ -72,19 +71,13 @@
                 font-size: 10px;
               }
             }
-            // border: none;
           }
         }
 
-        // fieldset {
-        //   border: 3px solid rgba(#663399, 1);
-        //   // border: none;
-        // }
       }
       &.Mui-required {
         fieldset {
           border: 3px solid red;
-          // border: none;
         }
       }
       &.Mui-error {
@@ -95,7 +88,6 @@
               font-size: 10px;
             }
           }
-          // border: none;
         }
       }
     }
@@ -110,7 +102,6 @@
   //form options
   &-formoptions {
     @include mixins.flex;
-    // border: 1px solid variables.$purple;
     height: fit-content;
     font-family: "Poppins";
     row-gap: 10px;
@@ -126,8 +117,6 @@
     //pills
     &--pills {
       @include mixins.flex;
-      // flex: 1;
-      // border: 1px solid variables.$purple;
       row-gap: 10px;
       flex-wrap: wrap;
       column-gap: 10px;
@@ -135,7 +124,6 @@
 
       &-pill {
         border: 3px solid rgba(#663399, 0.5);
-        // border: 2px solid variables.$purple;
         padding: 8px 10px;
         border-radius: 5px;
         font-size: 18px;
@@ -144,13 +132,10 @@
         cursor: pointer;
         user-select: none;
 
-        &:hover,&:focus {
+        &:hover{
           border: 3px solid rgba(#663399, 1);
           color: rgba(#663399, 1);
-
         }
-
-        
       }
       &--bordered {
         border: 3px solid rgba(#663399, 1);
