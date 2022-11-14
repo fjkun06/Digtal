@@ -7,6 +7,81 @@
     background-color: #000;
     border: 10px solid red;
     height: 100px;
+
+    // outline: none;
+    // border: none;
+    // color: red;
+  }
+
+  //textfields
+  &-textfield {
+    //input label
+    .MuiFormLabel-root,
+    .MuiInputLabel-root {
+      &.Mui-focused {
+        color: green;
+        &.Mui-error {
+          color: red;
+        }
+      }
+      &.Mui-error {
+        color: red;
+      }
+    }
+
+    //input fields
+    .MuiInputBase-root,
+    .MuiOutlinedInput-root {
+      fieldset {
+        border: 3px solid rgba(#663399, 0.5);
+      }
+
+      &:hover {
+        fieldset {
+          border: 3px solid rgba(#663399, 1);
+        }
+      }
+      &:valid {
+        fieldset {
+          border: 3px solid green;
+        }
+      }
+
+      &.Mui-focused {
+        // border: 3px solid red;
+        .MuiOutlinedInput-notchedOutline {
+          border: 3px solid green;
+        }
+
+        label {
+          color: green;
+        }
+
+        &.Mui-error {
+          fieldset {
+            border: 3px solid red;
+            // border: none;
+          }
+        }
+
+        // fieldset {
+        //   border: 3px solid rgba(#663399, 1);
+        //   // border: none;
+        // }
+      }
+      &.Mui-required {
+        fieldset {
+          border: 3px solid red;
+          // border: none;
+        }
+      }
+      &.Mui-error {
+        fieldset {
+          border: 3px solid red;
+          // border: none;
+        }
+      }
+    }
   }
 
   //form input fields
@@ -18,31 +93,42 @@
   //form options
   &-formoptions {
     @include mixins.flex;
-    border: 1px solid variables.$purple;
+    // border: 1px solid variables.$purple;
     height: fit-content;
     font-family: "Poppins";
-
+    row-gap: 10px;
+    margin-top: 5vh;
 
     //headx
     &-heading {
       color: variables.$purple;
+      font-weight: bold;
+      font-size: 22px;
     }
 
     //pills
     &--pills {
-    @include mixins.flex;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: space-between;
+      @include mixins.flex;
+      // flex: 1;
+      // border: 1px solid variables.$purple;
+      row-gap: 10px;
+      flex-wrap: wrap;
+      column-gap: 10px;
+      justify-content: start;
 
       &-pill {
-        border: 2px solid rgba(#663399,0.5);
+        border: 3px solid rgba(#663399, 0.5);
         // border: 2px solid variables.$purple;
-        padding: 10px;
+        padding: 8px 10px;
         border-radius: 5px;
         font-size: 18px;
-        color: rgba(#663399,0.5);
+        color: rgba(#663399, 0.5);
+        font-size: 18px;
 
+        &:nth-child(1) {
+          border: 3px solid rgba(#663399, 1);
+          color: rgba(#663399, 1);
+        }
       }
     }
   }

@@ -38,11 +38,11 @@ export default function ContactFormFields({ t, cxs, cmd }) {
   return (
     <Grid
       item
-      rowSpacing={{ sm: -10, md: 0 }}
+      rowSpacing={{ sm: -10, md: -10 }}
       xs={12}
       sm={5}
-      pl={{ xs: 1, sm: 4 }}
-      pr={{ xs: 1, sm: 4 }}
+      pl={{ xs: 1, sm: 4, md: 5 }}
+      pr={{ xs: 1, sm: 4, md: 5 }}
       md={5}
       container
       sx={{
@@ -54,7 +54,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
     >
       <ContactFormOptions/>
 
-      <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 5 : ""} rowSpacing={1}>
+      <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 2 : ""} rowSpacing={-1}>
         {contactFields.map((cf) => (
           <Grid item xs={12} sm={12} md={cf.md} sx={{ borderRadius: 1 }} key={cf.label}>
             <Controller
@@ -81,7 +81,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       <Grid
         item
         xs={12}
-        mt={4}
+        mt={2}
         md={12}
         sx={{
           borderRadius: 1,
@@ -109,7 +109,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       <Grid
         item
         xs={12}
-        mt={4}
+        mt={2}
         sx={{
           borderRadius: 1,
         }}

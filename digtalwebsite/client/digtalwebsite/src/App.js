@@ -7,6 +7,7 @@ import "./assets/sass/main.scss";
 import "./fonts/fonts";
 import { useState } from "react";
 import ServicesLayout from "./components/home/services/layout";
+import { StyledEngineProvider } from "@mui/system";
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
 // import Title from "./components/home/services/title";
 // import { ServiceSecond } from "./components/home/services/service";
@@ -19,6 +20,8 @@ function App() {
 
   return (
     <>
+    <StyledEngineProvider injectFirst>
+
       <Grid>
         <Grid container className="navigation-main" id="n-main">
           {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
@@ -35,6 +38,7 @@ function App() {
           <Footer language={language} />
         </Grid>
       </Grid>
+      </StyledEngineProvider>
     </>
   );
 }

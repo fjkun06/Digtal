@@ -10,21 +10,15 @@ const ContactFormOptions = () => {
     <StyledEngineProvider injectFirst>
       <Grid container className="contact-formoptions">
         <Grid item container className="contact-formoptions-heading">
-          <Typography variant="h4">I am interested in...</Typography>
+          <span>I am interested in . . .</span>
         </Grid>
         <Grid item container className="contact-formoptions--pills">
-          <Typography variant="h5" sx={{ fontFamily: "Poppins" }} className="contact-formoptions--pills-pill">
+          <h5 component={"span"} sx={{ fontFamily: "Poppins" }} className="contact-formoptions--pills-pill">
             {t("subject.op2")}
-          </Typography>
-          <Typography variant="h5" className="contact-formoptions--pills-pill">
-            {t("subject.op1")}
-          </Typography>
-          <Typography variant="h5" className="contact-formoptions--pills-pill">
-            {t("subject.op4")}
-          </Typography>
-          <Typography variant="h5" className="contact-formoptions--pills-pill">
-            {t("subject.op3")}
-          </Typography>
+          </h5>
+          <h5 className="contact-formoptions--pills-pill">{t("subject.op1")}</h5>
+          <h5 className="contact-formoptions--pills-pill">{t("subject.op4")}</h5>
+          <h5 className="contact-formoptions--pills-pill">{t("subject.op3")}</h5>
         </Grid>
       </Grid>
     </StyledEngineProvider>
