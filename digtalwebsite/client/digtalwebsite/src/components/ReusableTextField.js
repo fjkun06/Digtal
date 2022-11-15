@@ -29,7 +29,7 @@ export default function CustomTextField({ label, rows, errorState, field, errorT
   return (
     <>
       {success ? <ReusableTextField focused={true} {...prop} /> : <ReusableTextField {...prop} />}
-      <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "0.9rem" }} error={errorState}>
+      <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem" }} error={errorState}>
         {errorText}
       </FormHelperText>
     </>

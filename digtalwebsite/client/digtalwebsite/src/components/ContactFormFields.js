@@ -86,18 +86,11 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         md={12}
         sx={{
           borderRadius: 1,
-          minWidth: { m: 1, xs: 190, sm: 200, md: 320 },
         }}
       >
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <>
-              {/* <Grid item container>
-                <Typography variant="subtitle1" gutterBottom component="div" sx={{ fontSize: "300" }}>
-                  {t("phone.tel")} <em style={{ color: "#cacaca" }}>{t("phone.sel")}</em>
-                </Typography>
-              </Grid> */}
-              {/* <Telephone field={field} success={isDirty & !invalid} /> */}
               <MuiPhoneNumber
                 defaultCountry={"cm"}
                 onChange={handleChange}
@@ -109,8 +102,9 @@ export default function ContactFormFields({ t, cxs, cmd }) {
                 error={!!formState.errors?.phone}
                 {...field}
                 color={isDirty & !invalid ? "success" : "secondary"}
+                label={!isDirty & !invalid ? t("phone.tel") : null}
               />
-              <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "0.9rem" }} error={!!formState.errors?.phone}>
+              <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem" }} error={!!formState.errors?.phone}>
                 {t(formState.errors.phone?.message, { ns: "formerror" })}
               </FormHelperText>
             </>
