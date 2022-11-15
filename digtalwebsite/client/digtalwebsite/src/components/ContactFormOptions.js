@@ -1,12 +1,13 @@
-import { Grid } from "@mui/material";
+import { Grid, FormHelperText } from "@mui/material";
 import { StyledEngineProvider } from "@mui/system";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-const ContactFormOptions = () => {
+const ContactFormOptions = ({ setSubject, getSubject,valid,sendSubjectState }) => {
   const { t } = useTranslation("form");
   const [index, setIndex] = useState(4);
+  const [subject, setSubjectx] = useState(getSubject("subject"));
 
   const interests = [t("subject.op2"), t("subject.op1"), t("subject.op4"), t("subject.op3"), ". . "];
   const bordered = "contact-formoptions--pills--bordered";
@@ -31,13 +32,23 @@ const ContactFormOptions = () => {
     allInterests.forEach((elt) => {
       elt.addEventListener("click", (e) => {
         setIndex(Number(e.target.id));
+        setSubject("subject", e.target.textContent);
+        setSubjectx(getSubject("subject"));
+        console.log("subject: ", getSubject("subject"));
+
         if (testState(e.target.id)) {
         } else {
           removeBorderFromOtherElements(e.target.id);
         }
       });
     });
-  }, []);
+  });
+
+  //subject useeffect
+   useEffect(() => {
+    sendSubjectState(subject.length > 0)
+   
+  }, [subject.length,sendSubjectState]);
 
   return (
     <StyledEngineProvider injectFirst>
@@ -53,6 +64,12 @@ const ContactFormOptions = () => {
               {elt}
             </h5>
           ))}
+          <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem", display: valid?  (subject.length > 0 ? "none" : "inline-block") : "none" }} error={true}>
+            Please select an option or subject.
+          </FormHelperText>
+          {/* <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem" }} error={!!formState.errors?.phone}>
+                {t(formState.errors.phone?.message, { ns: "formerror" })}
+              </FormHelperText> */}
         </Grid>
       </Grid>
     </StyledEngineProvider>

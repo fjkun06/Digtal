@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
+import { useForm } from "react-hook-form";
 import picture from "../assets/images/image.png";
 import pictureSM from "../assets/images/image2.png";
 import CustomImage from "./ReusableImage";
@@ -20,13 +21,14 @@ export default function Contact() {
 
   //   //setting up language translator
   const { t } = useTranslation(["form", "formerror"]);
+  const { handleSubmit } = useForm();
 
 
-  // const onSubmit = (data) => {
-  //   console.log("onSubmit", data);
+  const onSubmit = (data) => {
+    console.log("onSubmit", data);
 
-  //   setContact(data);
-  // };
+    // setContact(data);
+  };
 
   return (
     <Grid
@@ -45,8 +47,7 @@ export default function Contact() {
       }}
       noValidate
       autoComplete="off"
-        // onSubmit={handleSubmit(onSubmit)}
-    >
+      onSubmit={handleSubmit(data => console.log(data))}    >
       {/* <Grid item container pl={{ xs: 1, sm: 4 }}>
         <Grid item container>
           <Typography variant="h3" gutterBottom component="div">
@@ -60,12 +61,12 @@ export default function Contact() {
         </Grid>
       </Grid> */}
 
-      <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={4.5} sm={5} className="contact-getintouch">
+      <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={4.5} sm={5} className="contact-getintouch" >
         {/* {matchesSM && <CustomImage image={pictureSM} alt="background" />}
 
         {matchesMDAndAbove && <CustomImage image={picture} />} */}
       </Grid>
-      <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
+      <ContactFormFields t={t} cxs={cxs} cmd={cmd}/>
 
     </Grid>
   );

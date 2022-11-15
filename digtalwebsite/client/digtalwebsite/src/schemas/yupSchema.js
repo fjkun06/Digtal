@@ -28,11 +28,7 @@ let schema = object({
       .email('Please enter a valid email address.')
 
       .ensure(),
-   subject: string()
-      .required('Please select an option')
-
-      
-      .required('Please fill out this field.'),
+   subject: string().nullable(),
   
    message: string()
       .transform((value) => value.charAt(0).toUpperCase() + value.slice(1))

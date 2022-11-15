@@ -11,7 +11,7 @@ import CustomTextField from "./ReusableTextField";
 
 export default function ContactFormFields({ t, cxs, cmd }) {
   //select option state handler
-  const [telFocus, setTelFocus] = React.useState(undefined);
+  const [subjectValidation, setSubjectValidation] = React.useState(false);
 
   //handle change for subject field
   const handleChange = (value) => {
@@ -20,7 +20,9 @@ export default function ContactFormFields({ t, cxs, cmd }) {
 
   //React hook form validation with yupSchema
   const {
-    // handleSubmit,
+    handleSubmit,
+    setValue,
+    getValues,
     formState: { isValid },
     control,
   } = useForm({
@@ -52,7 +54,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       justifyContent={"center"}
       className="contact-form"
     >
-      <ContactFormOptions />
+      <ContactFormOptions setSubject={setValue} getSubject={getValues} valid={isValid} sendSubjectState={setSubjectValidation} />
 
       <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 2 : ""} rowSpacing={-1}>
         {contactFields.map((cf) => (
@@ -92,12 +94,6 @@ export default function ContactFormFields({ t, cxs, cmd }) {
             <>
               <MuiPhoneNumber
                 defaultCountry={"cm"}
-                onChange={() =>
-                  function () {
-                    isDirty & !invalid && setTelFocus(true);
-                    console.log(telFocus);
-                  }
-                }
                 className="contact-textfield-telephone contact-textfield "
                 enableLongNumbers
                 dropdownClass=""
@@ -144,9 +140,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           control={control}
         />
       </Grid>
+
       <Grid item container mt={5}>
         <Button
-          // onClick={handleClick}
+          onClick={handleSubmit((data) => console.log("onSubmit", data))}
           fullWidth
           size="large"
           variant="contained"
@@ -156,7 +153,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
             transition: "all ease 0.0.5s",
             "&:hover": { backgroundColor: purple[500] },
           }}
-          disabled={!!isValid}
+          disabled={!(isValid && subjectValidation)}
         >
           {t("button")}
         </Button>
