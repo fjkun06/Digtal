@@ -12,6 +12,7 @@ const ContactFormLocation = () => {
       item
       xs={12}
       sm={5}
+      mb={12}
       pl={{ xs: 1, sm: 4, md: 5 }}
       pr={{ xs: 1, sm: 4, md: 5 }}
       md={5}
