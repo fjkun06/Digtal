@@ -11,6 +11,24 @@
     height: 100px;
   }
 
+  //submit button
+  &-submitbutton{
+    // .MuiButtonBase-root{
+      background-color: white !important;
+      border: 3px solid rebeccapurple;
+      color: rebeccapurple;
+      font-size: 14px;
+      font-family: "Poppins";
+      font-weight: 900;
+    // }
+    &:hover{
+      background-color: rebeccapurple !important;
+      // border: 3px solid white;
+      color: white;
+    }
+  }
+
+
   //textfields
   &-textfield {
     // @keyframes success-blink {

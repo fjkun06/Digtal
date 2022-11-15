@@ -142,18 +142,22 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       </Grid>
 
       <Grid item container mt={5}>
+        
         <Button
           onClick={handleSubmit((data) => console.log("onSubmit", data))}
           fullWidth
+          className="contact-submitbutton"
           size="large"
           variant="contained"
           type="submit"
-          sx={{
-            backgroundColor: purple[400],
-            transition: "all ease 0.0.5s",
-            "&:hover": { backgroundColor: purple[500] },
-          }}
-          disabled={!(isValid && subjectValidation)}
+          disableFocusRipple
+          disableRipple
+          // sx={{
+          //   backgroundColor: purple[400],
+          //   transition: "all ease 0.0.5s",
+          //   "&:hover": { backgroundColor: purple[500] },
+          // }}
+          // disabled={!(isValid && subjectValidation)}
         >
           {t("button")}
         </Button>
