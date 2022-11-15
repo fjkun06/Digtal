@@ -8,30 +8,71 @@
   &-getintouch {
     border: 1px solid red;
     // height: 100px;
-    h1{
-      color: red;
+    & > * {
       font-family: "Poppins";
+    }
+
+    h2,h4,
+    h3 {
+      color: rebeccapurple;
       font-weight: 900;
+    }
+    h2 {
+      font-size: 42px;
+      padding-bottom: 5px;
+
+    }
+    h3 {
+      font-size: 30px;
+      padding-top: 20px;
+      padding-bottom: 15px;
+
+    }
+    img{
+      padding-bottom: 20px;
+
+    }
+
+    img[alt*="svg"]{
+      // border: 1px solid red;
+     padding-bottom: 0px;
+     margin-top: -40px;
+    }
+
+    div {
+      font-size: 21px;
+    }
+
+    h4{
+      font-size: 30px;
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+
+    h5{
+      font-weight: 500;
+      color: rgba( #2B0A3D, 0.5);
+      font-size: 18px;
+
     }
   }
 
   //submit button
-  &-submitbutton{
+  &-submitbutton {
     // .MuiButtonBase-root{
-      background-color: white !important;
-      border: 3px solid rgba(rebeccapurple,0.5);
-      color: rebeccapurple;
-      font-size: 14px;
-      font-family: "Poppins";
-      font-weight: 900;
+    background-color: white !important;
+    border: 3px solid rgba(rebeccapurple, 0.5);
+    color: rebeccapurple;
+    font-size: 14px;
+    font-family: "Poppins";
+    font-weight: 900;
     // }
-    &:hover{
+    &:hover {
       background-color: rebeccapurple !important;
       // border: 3px solid white;
       color: white;
     }
   }
-
 
   //textfields
   &-textfield {

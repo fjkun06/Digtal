@@ -29,6 +29,7 @@ export default function Contact() {
       container
       component="form"
       m={4}
+      ml={1}
       id="form1"
       alignItems={"center"}
       justifyContent="center"

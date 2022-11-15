@@ -12,7 +12,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
-import { useMediaQuery, Grid, Tooltip, IconButton } from "@mui/material";
+import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
