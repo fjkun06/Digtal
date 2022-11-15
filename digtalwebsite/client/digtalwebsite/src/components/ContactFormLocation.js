@@ -2,7 +2,8 @@ import { Grid, Typography } from "@mui/material";
 import React from "react";
 import contactOffice from "../assets/images/contact-our-office.png";
 import CustomImage from "./ReusableImage";
-import mapIcon from '../assets/svg/map-pin.svg'
+import mapIcon from "../assets/svg/map-pin.svg";
+import telIcon from "../assets/svg/telephone.svg";
 
 const ContactFormLocation = () => {
   return (
@@ -44,22 +45,43 @@ const ContactFormLocation = () => {
             Germany
           </Typography>
           <Grid item container direction={"row"} spacing={0}>
-            <Grid item container pl={1} md={1.5}>
-              <img src={mapIcon} alt="svg"/>
-             
+            <Grid item container pl={1} md={1.7}>
+              <img src={mapIcon} alt="svg" />
             </Grid>
 
-            <Grid item container pl={0} direction={"column"} md={10}
-            // sx={{ border: "1px solid red" }}
+            <Grid
+              item
+              container
+              pl={0}
+              direction={"column"}
+              md={10}
+              // sx={{ border: "1px solid red" }}
             >
-            <Typography variant="h5" component={"h5"}>
-            Berlin, Brandenburg
+              <Typography variant="h5" component={"h5"}>
+                Berlin, Brandenburg
               </Typography>
               <Typography variant="h5" component={"h5"}>
-              Germany
+                Germany
               </Typography>
               <Typography variant="h5" component={"h5"}>
-              Rue 1234.
+                Rue 1234.
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item container direction={"row"} spacing={0} pt={3}>
+            <Grid item container pl={1} md={1.7}>
+              <img src={telIcon} alt="tel" />
+            </Grid>
+
+            <Grid
+              item
+              container
+              direction={"column"}
+              md={10}
+              // sx={{ border: "1px solid red" }}
+            >
+              <Typography variant="h5" component={"h5"}>
+                +49 1234 567 89
               </Typography>
             </Grid>
           </Grid>
@@ -73,6 +95,47 @@ const ContactFormLocation = () => {
           <Typography variant="h4" component={"h4"} className="contact-getintouch-country">
             Cameroon
           </Typography>
+          <Grid item container direction={"row"} spacing={0}>
+            <Grid item container pl={1} md={1.7}>
+              <img src={mapIcon} alt="svg" />
+            </Grid>
+
+            <Grid
+              item
+              container
+              pl={0}
+              direction={"column"}
+              md={10}
+              // sx={{ border: "1px solid red" }}
+            >
+              <Typography variant="h5" component={"h5"}>
+                Douala, Littoral
+              </Typography>
+              <Typography variant="h5" component={"h5"}>
+                Cameroon
+              </Typography>
+              <Typography variant="h5" component={"h5"}>
+                Rue 1234.
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item container direction={"row"} spacing={0} pt={3}>
+            <Grid item container pl={1} md={1.7}>
+              <img src={telIcon} alt="tel" />
+            </Grid>
+
+            <Grid
+              item
+              container
+              direction={"column"}
+              md={10}
+              // sx={{ border: "1px solid red" }}
+            >
+              <Typography variant="h5" component={"h5"}>
+                +237 1234 567 89
+              </Typography>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
