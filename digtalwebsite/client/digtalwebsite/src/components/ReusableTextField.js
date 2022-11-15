@@ -23,7 +23,7 @@ const CssTextField = styled(TextField)({
 });
 
 function ReusableTextField({ label, rows, errorState, field, errorText, success,focused }) {
-  return <TextField className="contact-textfield" id="filled-error" label={label} color={success ? "success" : "secondary"} variant="outlined" size="medium" fullWidth multiline rows={rows ?? 1} {...field} error={errorState} focused={focused}/>;
+  return <TextField className="contact-textfield" id="filled-error" label={!success? label : null} hiddenLabel color={success ? "success" : "secondary"} variant="outlined" size="medium" fullWidth multiline rows={rows ?? 1} {...field} error={errorState} focused={focused}/>;
 }
 
 

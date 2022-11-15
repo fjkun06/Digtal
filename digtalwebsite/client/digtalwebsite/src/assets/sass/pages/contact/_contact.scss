@@ -15,6 +15,18 @@ transition: all 0.25s ease-in-out;
   //textfields
   &-textfield {
 
+    @keyframes success-blink {
+
+      0% {
+        border: 3px solid green;      } 
+
+      70% {
+        border: 3px solid rgba(#663399, 1);
+
+      }
+    }
+    
+
     //input label
     .MuiFormLabel-root,
     .MuiInputLabel-root {
@@ -54,11 +66,17 @@ transition: all 0.25s ease-in-out;
 
       &.Mui-focused {
         .MuiOutlinedInput-notchedOutline {
-          border: 3px solid green;
+          // border: 3px solid green;
+          animation-name: success-blink;
+          animation-duration: 1s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
 
           legend {
             span {
               font-size: 10px;
+            // display: none;
+
             }
           }
         }
