@@ -40,12 +40,12 @@ const ContactFormLocation = () => {
         </Typography>
       </Grid>
       <Grid item container direction={"row"}>
-        <Grid item container md={6} sx={{ border: "1px solid red" }}>
+        <Grid item container md={6}>
           <Typography variant="h4" component={"h4"} className="contact-getintouch-country">
             Germany
           </Typography>
           <Grid item container direction={"row"} spacing={0}>
-            <Grid item container pl={1} md={1.7}>
+            <Grid item container pl={0.1} md={1.5}>
               <img src={mapIcon} alt="svg" />
             </Grid>
 
@@ -69,7 +69,7 @@ const ContactFormLocation = () => {
             </Grid>
           </Grid>
           <Grid item container direction={"row"} spacing={0} pt={3}>
-            <Grid item container pl={1} md={1.7}>
+            <Grid item container pl={0.1} md={1.5}>
               <img src={telIcon} alt="tel" />
             </Grid>
 
@@ -96,7 +96,7 @@ const ContactFormLocation = () => {
             Cameroon
           </Typography>
           <Grid item container direction={"row"} spacing={0}>
-            <Grid item container pl={1} md={1.7}>
+            <Grid item container pl={0.1} md={1.5}>
               <img src={mapIcon} alt="svg" />
             </Grid>
 
@@ -120,7 +120,7 @@ const ContactFormLocation = () => {
             </Grid>
           </Grid>
           <Grid item container direction={"row"} spacing={0} pt={3}>
-            <Grid item container pl={1} md={1.7}>
+            <Grid item container pl={0.1} md={1.5}>
               <img src={telIcon} alt="tel" />
             </Grid>
 
