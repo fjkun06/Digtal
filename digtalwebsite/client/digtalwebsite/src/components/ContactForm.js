@@ -8,6 +8,7 @@ import CustomImage from "./ReusableImage";
 import { useTranslation } from "react-i18next";
 
 import ContactFormFields from "./ContactFormFields";
+import ContactFormLocation from "./ContactFormLocation";
 
 export default function Contact() {
   //the hook for the form
@@ -23,18 +24,11 @@ export default function Contact() {
   const { t } = useTranslation(["form", "formerror"]);
   const { handleSubmit } = useForm();
 
-
-  const onSubmit = (data) => {
-    console.log("onSubmit", data);
-
-    // setContact(data);
-  };
-
   return (
     <Grid
       container
       component="form"
-      m = {4}
+      m={4}
       id="form1"
       alignItems={"center"}
       justifyContent="center"
@@ -47,7 +41,8 @@ export default function Contact() {
       }}
       noValidate
       autoComplete="off"
-      onSubmit={handleSubmit(data => console.log(data))}    >
+      onSubmit={handleSubmit((data) => console.log(data))}
+    >
       {/* <Grid item container pl={{ xs: 1, sm: 4 }}>
         <Grid item container>
           <Typography variant="h3" gutterBottom component="div">
@@ -61,13 +56,8 @@ export default function Contact() {
         </Grid>
       </Grid> */}
 
-      <Grid container sx={{ display: { xs: "none", sm: "block", md: "block" } }} item md={4.5} sm={5} className="contact-getintouch" >
-        {/* {matchesSM && <CustomImage image={pictureSM} alt="background" />}
-
-        {matchesMDAndAbove && <CustomImage image={picture} />} */}
-      </Grid>
-      <ContactFormFields t={t} cxs={cxs} cmd={cmd}/>
-
+     <ContactFormLocation/>
+      <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
     </Grid>
   );
 }
