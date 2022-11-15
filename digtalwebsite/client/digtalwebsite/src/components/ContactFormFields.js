@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
+import { Button, FormHelperText, Grid } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import MuiPhoneNumber from "material-ui-phone-number";
 import React from "react";
@@ -8,11 +8,10 @@ import schema from "../schemas/yupSchema";
 import { contactFields } from "./config/contact_config";
 import ContactFormOptions from "./ContactFormOptions";
 import CustomTextField from "./ReusableTextField";
-import Telephone from "./Telephone";
 
 export default function ContactFormFields({ t, cxs, cmd }) {
   //select option state handler
-  const [age, setAge] = React.useState("");
+  const [telFocus, setTelFocus] = React.useState(undefined);
 
   //handle change for subject field
   const handleChange = (value) => {
@@ -93,13 +92,20 @@ export default function ContactFormFields({ t, cxs, cmd }) {
             <>
               <MuiPhoneNumber
                 defaultCountry={"cm"}
-                onChange={handleChange}
+                onChange={() =>
+                  function () {
+                    isDirty & !invalid && setTelFocus(true);
+                    console.log(telFocus);
+                  }
+                }
                 className="contact-textfield-telephone contact-textfield "
                 enableLongNumbers
                 dropdownClass=""
                 fullWidth
+                hiddenLabel
                 variant="outlined"
                 error={!!formState.errors?.phone}
+                focused={isDirty & !invalid ? true : undefined}
                 {...field}
                 color={isDirty & !invalid ? "success" : "secondary"}
                 label={!isDirty & !invalid ? t("phone.tel") : null}
@@ -150,7 +156,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
             transition: "all ease 0.0.5s",
             "&:hover": { backgroundColor: purple[500] },
           }}
-          disabled={!isValid}
+          disabled={!!isValid}
         >
           {t("button")}
         </Button>
