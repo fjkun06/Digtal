@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Typography } from "@mui/material";
 import { purple } from "@mui/material/colors";
+import MuiPhoneNumber from "material-ui-phone-number";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import schema from "../schemas/yupSchema";
@@ -14,8 +15,8 @@ export default function ContactFormFields({ t, cxs, cmd }) {
   const [age, setAge] = React.useState("");
 
   //handle change for subject field
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleChange = (value) => {
+    console.log(value);
   };
 
   //React hook form validation with yupSchema
@@ -52,7 +53,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       justifyContent={"center"}
       className="contact-form"
     >
-      <ContactFormOptions/>
+      <ContactFormOptions />
 
       <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 2 : ""} rowSpacing={-1}>
         {contactFields.map((cf) => (
@@ -91,12 +92,24 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <>
-              <Grid item container>
+              {/* <Grid item container>
                 <Typography variant="subtitle1" gutterBottom component="div" sx={{ fontSize: "300" }}>
                   {t("phone.tel")} <em style={{ color: "#cacaca" }}>{t("phone.sel")}</em>
                 </Typography>
-              </Grid>
-              <Telephone errorState={!!formState.errors?.phone} field={field} success={isDirty & !invalid} />
+              </Grid> */}
+              {/* <Telephone field={field} success={isDirty & !invalid} /> */}
+              <MuiPhoneNumber
+                defaultCountry={"cm"}
+                onChange={handleChange}
+                className="contact-textfield-telephone contact-textfield "
+                enableLongNumbers
+                dropdownClass=""
+                fullWidth
+                variant="outlined"
+                error={!!formState.errors?.phone}
+                {...field}
+                color={isDirty & !invalid ? "success" : "secondary"}
+              />
               <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "0.9rem" }} error={!!formState.errors?.phone}>
                 {t(formState.errors.phone?.message, { ns: "formerror" })}
               </FormHelperText>
@@ -113,8 +126,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         sx={{
           borderRadius: 1,
         }}
-      >
-      </Grid>
+      ></Grid>
       <Grid item xs={12} sx={{ borderRadius: 1 }}>
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (

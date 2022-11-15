@@ -3,29 +3,26 @@
 
 .contact {
   //get intouch section of form
-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 
   &-getintouch {
     background-color: #000;
     border: 10px solid red;
     height: 100px;
-
   }
 
   //textfields
   &-textfield {
+    // @keyframes success-blink {
 
-    @keyframes success-blink {
+    //   0% {
+    //     border: 3px solid green;      }
 
-      0% {
-        border: 3px solid green;      } 
+    //   70% {
+    //     border: 3px solid rgba(#663399, 1);
 
-      70% {
-        border: 3px solid rgba(#663399, 1);
-
-      }
-    }
-    
+    //   }
+    // }
 
     //input label
     .MuiFormLabel-root,
@@ -33,7 +30,8 @@ transition: all 0.25s ease-in-out;
       font-size: 14px;
       margin-top: -5px;
       &.Mui-focused {
-        color: green;
+        color: #663399;
+        // color: green;
         font-size: 14px;
 
         &.Mui-error {
@@ -50,10 +48,12 @@ transition: all 0.25s ease-in-out;
     }
 
     //input fields
+
     .MuiInputBase-root,
     .MuiOutlinedInput-root {
       padding-bottom: 10px;
-      padding-top: 20px;
+      padding-top: 10px;
+      font-size: 16px;
       fieldset {
         border: 3px solid rgba(#663399, 0.5);
       }
@@ -66,17 +66,17 @@ transition: all 0.25s ease-in-out;
 
       &.Mui-focused {
         .MuiOutlinedInput-notchedOutline {
-          // border: 3px solid green;
-          animation-name: success-blink;
-          animation-duration: 1s;
-          animation-iteration-count: 1;
-          animation-fill-mode: forwards;
+          border: 3px solid green;
+          // animation-name: success-blink;
+          // animation-duration: 1s;
+          // animation-iteration-count: 1;
+          // animation-fill-mode: forwards;
+          // border: 3px solid rgba(#663399, 1);
 
           legend {
             span {
               font-size: 10px;
-            // display: none;
-
+              // display: none;
             }
           }
         }
@@ -91,7 +91,6 @@ transition: all 0.25s ease-in-out;
             }
           }
         }
-
       }
       &.Mui-required {
         fieldset {
@@ -107,6 +106,15 @@ transition: all 0.25s ease-in-out;
             }
           }
         }
+      }
+    }
+
+    //telephone
+    &-telephone {
+      .MuiInputBase-root,
+      .MuiOutlinedInput-root {
+        padding-bottom: 0px;
+        padding-top: 0px;
       }
     }
   }
@@ -150,7 +158,7 @@ transition: all 0.25s ease-in-out;
         cursor: pointer;
         user-select: none;
 
-        &:hover{
+        &:hover {
           border: 3px solid rgba(#663399, 1);
           color: rgba(#663399, 1);
         }
