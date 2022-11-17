@@ -260,6 +260,7 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
             </Grid>
           </Grid>
+          <Grid item container></Grid>
         </Grid>
       </ThemeProvider>
     </>
