@@ -167,17 +167,21 @@ export default function Navbar({ language, setLanguage }) {
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                 </Grid>
+             
 
                 <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
                   <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
                   <ExpandMoreOutlined sx={{ fontSize: 24 }} className="select-item-sub-arrow" />
+                </Grid>
+                <Grid item className="mobile-nav-bar-item">
+                  <MobileActiveNavLink to={language + "/about-us"} text={t("about")} />
                 </Grid>
 
                 <Grid item className="mobile-nav-bar-item special-navbar-item">
                   <SelectDropdown language={language} t={t} classes="select-item-sub mobile-services-dropdown" />
                 </Grid>
                 <Grid item className="mobile-nav-bar-item">
-                  <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
+                  <MobileActiveNavLink to={language + "/contact-us"} text={t("contact")} />
                 </Grid>
                 <Grid item className="mobile-nav-bar-item">
                   <DarkModeTwoTone
@@ -223,14 +227,17 @@ export default function Navbar({ language, setLanguage }) {
                   <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" />
                 </Box>
               </Gridd>
-              <Gridd item md={0.7} sx={{ width: "fit-content" }}>
-                <ActiveNavLink to={language + "/contact"} text={t("contact")} />
+              <Gridd item md={window?.location?.pathname.includes("/de/") ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
+                <ActiveNavLink to={language + "/about-us"} text={t("about")} />
+              </Gridd>
+              <Gridd item md={1.1} sx={{ width: "fit-content" }}>
+                <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
               </Gridd>
               <StyledEngineProvider injectFirst>
                 <Gridd item md={0.2} sx={{ width: "fit-content" }}>
                   <DarkModeTwoTone
                     className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
                     onClick={() => {
                       switchTheme("light");
                       setWebsiteTheme("light");
@@ -238,7 +245,7 @@ export default function Navbar({ language, setLanguage }) {
                   />
                   <LightModeTwoTone
                     className="navbar-theme-light"
-                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
                     onClick={() => {
                       switchTheme("dark");
                       setWebsiteTheme("dark");
