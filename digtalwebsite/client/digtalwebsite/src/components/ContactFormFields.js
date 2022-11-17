@@ -157,7 +157,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           //   transition: "all ease 0.0.5s",
           //   "&:hover": { backgroundColor: purple[500] },
           // }}
-          // disabled={!(isValid && subjectValidation)}
+          disabled={!(isValid && subjectValidation)}
         >
           {t("button")}
         </Button>

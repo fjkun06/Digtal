@@ -1,9 +1,6 @@
 import * as React from "react";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
+import { Grid, useMediaQuery } from "@mui/material";
 import { useForm } from "react-hook-form";
-import picture from "../assets/images/image.png";
-import pictureSM from "../assets/images/image2.png";
-import CustomImage from "./ReusableImage";
 // import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -15,10 +12,10 @@ export default function Contact() {
   // const [contact, setContact] = useState({});
 
   //   //media queries
-  const matchesSM = useMediaQuery("(max-width:900px)");
+  // const matchesSM = useMediaQuery("(max-width:900px)");
   const cmd = useMediaQuery("(min-width:900px)");
   const cxs = useMediaQuery("(max-width:599px)");
-  const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
+  // const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
 
   //   //setting up language translator
   const { t } = useTranslation(["form", "formerror"]);
@@ -45,20 +42,7 @@ export default function Contact() {
       autoComplete="off"
       onSubmit={handleSubmit((data) => console.log(data))}
     >
-      {/* <Grid item container pl={{ xs: 1, sm: 4 }}>
-        <Grid item container>
-          <Typography variant="h3" gutterBottom component="div">
-            {t("contact-section.contact")}
-          </Typography>
-        </Grid>
-        <Grid item container pl={1}>
-          <Typography variant="subtitle1" gutterBottom component="div">
-            {t("contact-section.our")}
-          </Typography>
-        </Grid>
-      </Grid> */}
-
-     <ContactFormLocation/>
+      <ContactFormLocation />
       <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
     </Grid>
   );

@@ -11,27 +11,32 @@
    // margin-top: -10vh;
    // z-index: 999999999999999;
    // position: fixed;
-
 }
 
 //main container
 .main-nav {
    position: fixed;
+   z-index: 99999;
    // opacity: 0;
    // opacity: 1;
    animation: animate-navbar 0.2s ease-in-out;
 
    animation-iteration-count: 1;
 
-   &-item{
-     transition: all 0.1s ease;
+   //styling all links in main-nav
+   & > * a {
+      font-weight: 600;
+      font-size: 17px;
+   }
 
-      &:hover{
-     transition: all 0.1s ease;
-padding-bottom: 0.3rem;
+   &-item {
+      transition: all 0.1s ease;
+
+      &:hover {
+         transition: all 0.1s ease;
+         padding-bottom: 0.3rem;
          border-bottom: var(--navbar-link-active-bb);
-
-         }
+      }
    }
 
    // transition: opacity 0.2s ease-in-out 0s;
@@ -74,11 +79,13 @@ padding-bottom: 0.3rem;
    //logo here
    //select item dropdown
    .logo {
-      @include mixins.size(70px, 70px);
+      @include mixins.size(85px, 85px);
+
+      img {
+         @include mixins.size(70px, 70px);
+      }
    }
 }
-
-
 
 .nav--link--active {
    padding-bottom: 3px;
