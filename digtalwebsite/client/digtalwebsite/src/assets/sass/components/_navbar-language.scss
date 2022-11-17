@@ -9,12 +9,20 @@
 //Icon container
 %language-item {
    @include mixins.grid;
-   padding-left: 3rem;
+   padding-left: 2rem;
+   @include mixins.grid{
+grid-template-columns: 1fr 1fr;
+justify-content: space-around;
+   };
+      border: 1px solid red;
+
 
    .language-item-sub {
       @include mixins.grid;
+      border: 1px solid red;
 
-      width: 5.5rem;
+
+      width: fit-content;
       grid-template-columns: repeat(2, 1fr);
 
       .language-item-sub-arrow {

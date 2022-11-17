@@ -5,14 +5,15 @@
     &-dark {
       fill: rebeccapurple;
       cursor: pointer;
-      font-size: 27px;
-      // @include mixins.size(0px, 0px);
+      font-size: 35px;
+      margin-top: -2px;
+      // border: 1px solid red;
     }
 
     &-light {
       color: white;
       cursor: pointer;
-      font-size: 27px;
+      font-size: 35px;
 
     }
   }

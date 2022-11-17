@@ -167,7 +167,6 @@ export default function Navbar({ language, setLanguage }) {
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                 </Grid>
-             
 
                 <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
                   <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
@@ -212,11 +211,11 @@ export default function Navbar({ language, setLanguage }) {
             </Grid>
 
             {/* Desktop navbar */}
-            <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5 }} pl={5} pr={5}>
-              <Gridd item md={location.pathname === "/de/" ? 0.5 : 1}>
+            <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5, md: 3 }} pl={5} pr={5}>
+              <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}>
                 <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
-              <Gridd item md={window?.location?.pathname.includes("/de/") ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
+              <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}>
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
               <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item">
@@ -227,21 +226,29 @@ export default function Navbar({ language, setLanguage }) {
                   <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" />
                 </Box>
               </Gridd>
-              <Gridd item md={window?.location?.pathname.includes("/de/") ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
+
+              <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}>
                 <ActiveNavLink to={language + "/about-us"} text={t("about")} />
               </Gridd>
-              <Gridd item md={1.1} sx={{ width: "fit-content" }}>
+              <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}>
                 <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
               </Gridd>
-              <StyledEngineProvider injectFirst>
-                <Gridd item md={0.2} sx={{ width: "fit-content" }}>
+
+              <Grid item md={1.5} className="language-item">
+                <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
+                  <img src={region} alt="language-flag" className="language-image" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} />
+
+                  {/* <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} /> */}
+                  <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} />
+                </Box>
+                <Grid item md={0.2} sx={{ width: "fit-content" }}>
                   <DarkMode
                     className="navbar-theme-dark"
                     sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
                     onClick={() => {
                       switchTheme("dark");
                       setWebsiteTheme("dark");
-                      console.log("hello: ",websiteTheme)
+                      console.log("hello: ", websiteTheme);
                     }}
                   />
                   <LightMode
@@ -252,16 +259,8 @@ export default function Navbar({ language, setLanguage }) {
                       setWebsiteTheme("light");
                     }}
                   />
-                </Gridd>
-              </StyledEngineProvider>
-              <Gridd item md={1.5} className="language-item">
-                <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
-                  <img src={region} alt="language-flag" className="language-image" />
-
-                  <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} />
-                  <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} />
-                </Box>
-              </Gridd>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item container></Grid>
