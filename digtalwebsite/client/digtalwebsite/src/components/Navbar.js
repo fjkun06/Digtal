@@ -16,7 +16,7 @@ import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
-import { DarkModeTwoTone, LightModeTwoTone } from "@mui/icons-material";
+import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 
 export default function Navbar({ language, setLanguage }) {
@@ -235,20 +235,21 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
               <StyledEngineProvider injectFirst>
                 <Gridd item md={0.2} sx={{ width: "fit-content" }}>
-                  <DarkModeTwoTone
+                  <DarkMode
                     className="navbar-theme-dark"
                     sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
                     onClick={() => {
-                      switchTheme("light");
-                      setWebsiteTheme("light");
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+                      console.log("hello: ",websiteTheme)
                     }}
                   />
-                  <LightModeTwoTone
+                  <LightMode
                     className="navbar-theme-light"
                     sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
                     onClick={() => {
-                      switchTheme("dark");
-                      setWebsiteTheme("dark");
+                      switchTheme("light");
+                      setWebsiteTheme("light");
                     }}
                   />
                 </Gridd>

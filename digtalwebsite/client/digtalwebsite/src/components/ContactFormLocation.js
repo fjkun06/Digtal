@@ -42,7 +42,7 @@ const ContactFormLocation = () => {
         </Typography>
       </Grid>
       <Grid item container direction={"row"}>
-       {location.map(loc => <ContactFormSubLocation {...loc}/>)}
+       {location.map(loc => <ContactFormSubLocation {...loc} key={loc.town}/>)}
       </Grid>
     </Grid>
   );
