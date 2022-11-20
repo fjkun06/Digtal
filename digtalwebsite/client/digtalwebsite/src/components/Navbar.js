@@ -116,7 +116,7 @@ export default function Navbar({ language, setLanguage }) {
                     md: "50%",
                     sm: "70%",
                     xs: "100%",
-                    border: "1px solid red",
+                    // border: "1px solid red",
                   },
                 }}
                 ml={{ xs: 6 }}
@@ -219,7 +219,9 @@ export default function Navbar({ language, setLanguage }) {
               bs={9}
               container
               item
-              sx={{ display: max767 ? "none" : "", border: "1px solid red" }}
+              sx={{ display: max767 ? "none" : "", 
+              // border: "1px solid red"
+             }}
               alignItems={"center"}
               justifyContent="end"
               columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
@@ -259,22 +261,18 @@ export default function Navbar({ language, setLanguage }) {
 
               <Grid
                 item
-                className="language-item"
+                // className="language-item"
                 sx={{
-                  border: "1px solid red",
+                  // border: "1px solid red",
                 }}
               >
-                {/* <Grid item md={1.5} className="language-item"> */}
-                {/* <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}> */}
-                {/* <img src={region} alt="language-flag" className="language-image" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} /> */}
-
-                {/* <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} /> */}
-                {/* <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} /> */}
-                {/* </Box> */}
+              
               </Grid>
 
-              <Gridd item direction={"column"} display={"grid"}>
-                <Grid sx={{ width: "fit-content" }}>
+              <Gridd item>
+                <Grid sx={{ width: "fit-content" }} className="language-item">
+                <EnglandIcon className="navbar-theme-dark" sx={{ fontSize: 25 }} />
+
                   <DarkMode
                     className="navbar-theme-dark"
                     sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
@@ -292,13 +290,8 @@ export default function Navbar({ language, setLanguage }) {
                       setWebsiteTheme("light");
                     }}
                   />
-                  <EnglandIcon className="navbar-theme-dark" 
-                    sx={{ fontSize: 25,}}
-                    />
                 </Grid>
               </Gridd>
-
-          
             </Grid>
           </Grid>
           <Grid item container></Grid>

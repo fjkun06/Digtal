@@ -9,10 +9,10 @@
 //Icon container
 %language-item {
    @include mixins.grid;
-   padding-left: 2rem;
    @include mixins.grid{
 grid-template-columns: 1fr 1fr;
-justify-content: space-around;
+column-gap: 0.75rem;
+justify-content: space-between;
    };
       // border: 1px solid red;
 
