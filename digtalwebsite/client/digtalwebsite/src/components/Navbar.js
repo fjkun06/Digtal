@@ -86,7 +86,7 @@ export default function Navbar({ language, setLanguage }) {
   }, []);
 
   //media query
-  const max767 = useMediaQuery("(max-width:768px)");
+  const max793 = useMediaQuery("(max-width:793px)");
 
   console.log("condicao: ", condition);
   //
@@ -107,7 +107,12 @@ export default function Navbar({ language, setLanguage }) {
           }}
         >
           <Grid item container sx={{ backgroundColor: "white" }} alignItems={"center"} justifyContent="space-between">
-            <Grid item justifyContent="flex-start" bs={3} md={3} xs={4}>
+            <Grid item justifyContent="flex-start" bs={3} md={3} xs={4} 
+            sx={{
+              border: "1px solid red",
+
+            }}
+            >
               <Gridd
                 item
                 className="logo"
@@ -116,7 +121,6 @@ export default function Navbar({ language, setLanguage }) {
                     md: "50%",
                     sm: "70%",
                     xs: "100%",
-                    // border: "1px solid red",
                   },
                 }}
                 ml={{ xs: 6 }}
@@ -215,12 +219,12 @@ export default function Navbar({ language, setLanguage }) {
             {/* Desktop navbar */}
             <Grid
               md={9}
-              sm={4}
+              sm={9}
               bs={9}
               container
               item
-              sx={{ display: max767 ? "none" : "", 
-              // border: "1px solid red"
+              sx={{ display: max793 ? "none" : "", 
+              border: "1px solid red"
              }}
               alignItems={"center"}
               justifyContent="end"
