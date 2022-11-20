@@ -3,7 +3,7 @@
 
 //language controls
 .language-image {
-   @include mixins.size(30px, 38px);
+   // @include mixins.size(30px, 38px);
 }
 
 //Icon container
@@ -14,12 +14,12 @@
 grid-template-columns: 1fr 1fr;
 justify-content: space-around;
    };
-      border: 1px solid red;
+      // border: 1px solid red;
 
 
    .language-item-sub {
       @include mixins.grid;
-      border: 1px solid red;
+      // border: 1px solid red;
 
 
       width: fit-content;

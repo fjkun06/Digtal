@@ -18,6 +18,7 @@ import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesD
 import SelectDropdown from "./SelectDropdown";
 import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
+import { EnglandIcon } from "../assets/svg/EnglandIcon";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -115,9 +116,10 @@ export default function Navbar({ language, setLanguage }) {
                     md: "50%",
                     sm: "70%",
                     xs: "100%",
+                    border: "1px solid red",
                   },
                 }}
-                ml={{ xs: 2 }}
+                ml={{ xs: 6 }}
               >
                 <img src={logo} alt="Digtal Logo" />
               </Gridd>
@@ -211,37 +213,68 @@ export default function Navbar({ language, setLanguage }) {
             </Grid>
 
             {/* Desktop navbar */}
-            <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5, md: 3 }} pl={5} pr={5}>
-              <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}>
+            <Grid
+              md={9}
+              sm={4}
+              bs={9}
+              container
+              item
+              sx={{ display: max767 ? "none" : "", border: "1px solid red" }}
+              alignItems={"center"}
+              justifyContent="end"
+              columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
+              pl={5}
+              pr={5}
+            >
+              <Gridd item>
+                {/* <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}> */}
                 <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
-              <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}>
+
+              <Gridd item>
+                {/* <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}> */}
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
-              <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item">
-                <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
-                  <ActiveNavLink to={language + "/services/"} text={t("services")} />
-                  <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} />
 
-                  <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" />
-                </Box>
+              <Gridd item className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
+                {/* <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item"> */}
+                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
+                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/services/"} text={t("services")} />
+                {/* <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} /> */}
+
+                {/* <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" /> */}
+                {/* </Box> */}
               </Gridd>
 
-              <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}>
+              <Gridd item>
+                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
                 <ActiveNavLink to={language + "/about-us"} text={t("about")} />
               </Gridd>
-              <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}>
+
+              <Gridd item>
+                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
                 <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
               </Gridd>
 
-              <Grid item md={1.5} className="language-item">
-                <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
-                  <img src={region} alt="language-flag" className="language-image" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} />
+              <Grid
+                item
+                className="language-item"
+                sx={{
+                  border: "1px solid red",
+                }}
+              >
+                {/* <Grid item md={1.5} className="language-item"> */}
+                {/* <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}> */}
+                {/* <img src={region} alt="language-flag" className="language-image" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} /> */}
 
-                  {/* <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} /> */}
-                  <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} />
-                </Box>
-                <Grid item md={0.2} sx={{ width: "fit-content" }}>
+                {/* <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} /> */}
+                {/* <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} /> */}
+                {/* </Box> */}
+              </Grid>
+
+              <Gridd item direction={"column"} display={"grid"}>
+                <Grid sx={{ width: "fit-content" }}>
                   <DarkMode
                     className="navbar-theme-dark"
                     sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
@@ -259,8 +292,13 @@ export default function Navbar({ language, setLanguage }) {
                       setWebsiteTheme("light");
                     }}
                   />
+                  <EnglandIcon className="navbar-theme-dark" 
+                    sx={{ fontSize: 25,}}
+                    />
                 </Grid>
-              </Grid>
+              </Gridd>
+
+          
             </Grid>
           </Grid>
           <Grid item container></Grid>
