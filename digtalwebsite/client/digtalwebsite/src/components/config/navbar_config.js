@@ -4,7 +4,6 @@ import sx from "@mui/system/sx";
 
 export const Gridd = styled(Grid)(
   sx({
-    fontFamily: "Gudea",
     fontSize: "1.5rem",
     textAlign: "center",
     display: "block",
