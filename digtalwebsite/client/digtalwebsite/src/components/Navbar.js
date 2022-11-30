@@ -32,8 +32,12 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const [specialLanguage, setspecialLanguage] = useState(window.location.pathname[0] + window.location.pathname[1] + window.location.pathname[2]);
+  const [scrollUp, setScrollUp] = useState(true);
+  const [beyondHeader, setBeyondHeader] = useState(false);
   // const [language, setLanguage] = useState("/en");
   const [region, setRegion] = useState(anglais);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [display, setDisplay] = useState("");
   const navigate = useNavigate();
 
   //language settings
@@ -41,9 +45,12 @@ export default function Navbar({ language, setLanguage }) {
   let location = useLocation();
 
   //codition for scrolling
+
   const regex = new RegExp(/\/..\/$/);
 
+
   const condition = regex.test(window.location.pathname);
+
 
   //theme configuration
   useEffect(() => {
@@ -55,6 +62,7 @@ export default function Navbar({ language, setLanguage }) {
 
   //language flag useeffect
   useEffect(() => {
+
     // }
     if (window.location.pathname === "/en/") {
       setRegion(anglais);
@@ -101,8 +109,9 @@ export default function Navbar({ language, setLanguage }) {
           direction="row"
           sx={{
             // fontFamily: "Gudea",
-            position: "sticky",
+            position: "sticky"
             zIndex: 100,
+
           }}
         >
           <Grid item container sx={{ backgroundColor: "white" }} alignItems={"center"} justifyContent="space-between">
