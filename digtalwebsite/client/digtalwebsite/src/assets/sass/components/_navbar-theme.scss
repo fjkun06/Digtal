@@ -1,13 +1,20 @@
+@use "../util/mixins";
+
 %navbar-theme {
   .navbar-theme {
     &-dark {
-      color: navy;
+      fill: rebeccapurple;
       cursor: pointer;
+      font-size: 35px;
+      margin-top: -2px;
+      // border: 1px solid red;
     }
 
     &-light {
-      color: gold;
+      color: white;
       cursor: pointer;
+      font-size: 35px;
+
     }
   }
 }

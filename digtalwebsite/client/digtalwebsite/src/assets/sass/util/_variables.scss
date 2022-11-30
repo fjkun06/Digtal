@@ -41,7 +41,7 @@ $footer-menu-bb-light: #e4ebf3;
 //desktop
 $navbar-link-light: $black;
 $navbar-link-visited-light: $navbar-link-light;
-$navbar-link-active-bb-light: 2px solid $purple;
+$navbar-link-active-bb-light: 3px solid $purple;
 
 //mobile
 $mobile-navbar-bg-light: $purple;
@@ -88,16 +88,11 @@ $home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
 $home-body-para-light: #555;
 $home-body-title-light: $purple;
 
-
 //home carousel
-$carousel-button-bg-light:  linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
+$carousel-button-bg-light: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
 $carousel-icon-bg-light: $purple;
 $carousel-consulting-caption-light: $white;
 $carousel-consulting-caption-sub-bg-light: rgba($black, 0.4);
 $carousel-consulting-caption-sub-before-bg-light: $white;
-$carousel-button-mobile-bg-light:  $purple;
+$carousel-button-mobile-bg-light: $purple;
 $carousel-control-arrow-light: $purple;
-
-
-
-
