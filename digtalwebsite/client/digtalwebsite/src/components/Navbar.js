@@ -3,7 +3,7 @@ import ActiveNavLink from "../routes/ReusableNavLink";
 import anglais from "../assets/images/uk64.png";
 import france from "../assets/images/fr64.png";
 import german from "../assets/images/de64.png";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logoo.png";
 import { Box, StyledEngineProvider, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
-import { useMediaQuery, Grid, Tooltip, IconButton } from "@mui/material";
+import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
@@ -100,18 +100,16 @@ export default function Navbar({ language, setLanguage }) {
           id="scroll-nav"
           direction="row"
           sx={{
-            fontFamily: "Gudea",
+            // fontFamily: "Gudea",
             position: "sticky",
             zIndex: 100,
-
-            // display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
-            // display: !condition && scrollUp ? "grid" : "none",
           }}
         >
-          <Grid item container sx={{ backgroundColor: "white" }}  alignItems={"center"} justifyContent="space-between">
+          <Grid item container sx={{ backgroundColor: "white" }} alignItems={"center"} justifyContent="space-between">
             <Grid item justifyContent="flex-start" bs={3} md={3} xs={4}>
               <Gridd
                 item
+                className="logo"
                 sx={{
                   width: {
                     md: "50%",
@@ -121,7 +119,7 @@ export default function Navbar({ language, setLanguage }) {
                 }}
                 ml={{ xs: 2 }}
               >
-                <img src={logo} alt="Digtal Logo" className="logo" />
+                <img src={logo} alt="Digtal Logo" />
               </Gridd>
             </Grid>
 
@@ -230,16 +228,14 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
               <StyledEngineProvider injectFirst>
                 <Gridd item md={0.2} sx={{ width: "fit-content" }}>
-                   
-
-                      <DarkModeTwoTone
-                        className="navbar-theme-dark"
-                        sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
-                        onClick={() => {
-                          switchTheme("light");
-                          setWebsiteTheme("light");
-                        }}
-                      />
+                  <DarkModeTwoTone
+                    className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
                   <LightModeTwoTone
                     className="navbar-theme-light"
                     sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
@@ -260,6 +256,7 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
             </Grid>
           </Grid>
+          <Grid item container></Grid>
         </Grid>
       </ThemeProvider>
     </>

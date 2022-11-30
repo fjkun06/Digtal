@@ -1345,6 +1345,11 @@
   "resolved" "https://registry.npmjs.org/@fontsource/gudea/-/gudea-4.5.8.tgz"
   "version" "4.5.8"
 
+"@fontsource/inter@^4.5.14":
+  "integrity" "sha512-JDC9AocdPLuGsASkvWw9hS5gtHE7K9dOwL98XLrk5yjYqxy4uVnScG58NUvFMJDVJRl/7c8Wnap6PEs+7Zvj1Q=="
+  "resolved" "https://registry.npmjs.org/@fontsource/inter/-/inter-4.5.14.tgz"
+  "version" "4.5.14"
+
 "@fontsource/poppins@^4.5.10":
   "integrity" "sha512-oYZVHsnlwV3VWM1SE/m6SUxVh0QLk5+2wB+lBiXcI7N/0KVQWmV9YykaPqfJHBLvmdya+MAOnv+BQHeLU1vOOw=="
   "resolved" "https://registry.npmjs.org/@fontsource/poppins/-/poppins-4.5.10.tgz"

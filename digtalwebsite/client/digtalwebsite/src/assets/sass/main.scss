@@ -11,11 +11,10 @@
 
 //styling links
 a {
-   font-family: "Gudea";
+   font-family: "Inter", sans-serif;
    transition: all ease 0.15s;
    text-decoration: none;
    color: var(--navbar-link);
-
    &:visited {
       color: var(--navbar-link);
    }
