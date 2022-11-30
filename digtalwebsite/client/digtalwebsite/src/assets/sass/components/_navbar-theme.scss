@@ -1,0 +1,13 @@
+%navbar-theme {
+  .navbar-theme {
+    &-dark {
+      color: navy;
+      cursor: pointer;
+    }
+
+    &-light {
+      color: gold;
+      cursor: pointer;
+    }
+  }
+}

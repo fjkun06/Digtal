@@ -1,6 +1,6 @@
 @import "./variables";
+@import "./custom-modifiers.scss";
 
-:root,
 :root.light {
   //footer section
   --footer-bg: #{$footer-bg-light};
@@ -63,7 +63,22 @@
   --home-body-card-heading: #{$home-body-card-heading-light};
   --home-body-card-button: #{$home-body-card-button-light};
   --home-body-card-bs-light: #{$home-body-card-bs-light};
-
+  --home-body-card-button-hover-color: #{$home-body-card-button-light-hover-color};
+  --home-body-card-button-hover-bg: #{$home-body-card-button-light-hover-bg};
   --home-body-para: #{$home-body-para-light};
   --home-body-title: #{$home-body-title-light};
+  --home-body-card-icon: #{$home-body-card-icon-light};
+
+  //home carousel
+  --carousel-button-bg: #{$carousel-button-bg-light};
+  --carousel-icon-bg: #{$carousel-icon-bg-light};
+  --carousel-consulting-caption: #{$carousel-consulting-caption-light};
+  --carousel-consulting-caption-sub-bg: #{$carousel-consulting-caption-sub-bg-light};
+  --carousel-consulting-caption-sub-before-bg: #{$carousel-consulting-caption-sub-before-bg-light};
+  --carousel-button-mobile-bg: #{$carousel-button-mobile-bg-light};
+  --carousel-control-arrow: #{$carousel-control-arrow-light};
+
+  //modifiers
+  --carousel-caption-overline-width: #{$carousel-caption-overline-width};
+  // --carousel-caption-overline-animated-width: #{$carousel-caption-overline-animated-width};
 }

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "@fontsource/gudea";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import anglais from "../assets/images/uk64.png";
 import france from "../assets/images/fr64.png";
 import german from "../assets/images/de64.png";
-import logo from "../assets/images/logo.png";
-import { Box, ThemeProvider } from "@mui/system";
+import logo from "../assets/images/logoo.png";
+import { Box, StyledEngineProvider, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -17,8 +16,13 @@ import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
+import { DarkModeTwoTone, LightModeTwoTone } from "@mui/icons-material";
+import { switchTheme } from "./config/theme";
 
 export default function Navbar({ language, setLanguage }) {
+  //theme configuration
+  const [websiteTheme, setWebsiteTheme] = useState("dark");
+
   //initialising states
   const [dropdown, setdropdown] = useState("");
   const [servicesDropdown, setServicesDropdown] = useState("");
@@ -47,18 +51,17 @@ export default function Navbar({ language, setLanguage }) {
 
   const condition = regex.test(window.location.pathname);
 
-  // const condition = window.location.pathname === "/en/" || "/fr/" || "/de/";
-  // console.log(language);
-  // console.log("windows", window.location.pathname);
 
-  // console.log("regex: ",regex.test('/fr/')); // true
-
-  // console.log("condition: ", condition, "scrollUp: ", scrollUp);
+  //theme configuration
+  useEffect(() => {
+    //setting default color scheme
+    document.documentElement.className = "light";
+    setWebsiteTheme(document.documentElement.className);
+    console.log("theme: ", document.documentElement.className);
+  }, []);
 
   //language flag useeffect
   useEffect(() => {
-    // specialLanguage === '/en/' ? anglais : ('/fr/') ? france : ('/de/') ? german : null
-    // const setflag = () => {
 
     // }
     if (window.location.pathname === "/en/") {
@@ -89,86 +92,11 @@ export default function Navbar({ language, setLanguage }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //scrolling
-  const [scrollDir, setScrollDir] = useState("scrolling down");
-
-  useEffect(() => {
-    const nav = document.getElementById("scroll-nav");
-    const mainNav = document.getElementById("n-main");
-
-    const outlet = document.getElementById("hbody");
-
-    const sticky = condition ? outlet?.offsetTop : "";
-
-
-    if (!condition) {
-      //making navbar visible
-      nav.style.display = "grid";
-      // console.log("im not home");
-
-      nav.style.opacity = 1;
-    } else {
-      nav.style.opacity = 0;
-      // console.log("im  home");
-
-      nav.style.height = "0px";
-    }
-    const threshold = 0;
-    let lastScrollY = window.pageYOffset;
-    let ticking = false;
-
-    //beyond header
-    // if(lastScrollY >= sticky) ;
-
-    const updateScrollDir = () => {
-      const scrollY = window.pageYOffset;
-      // console.log("sy: ", scrollY);
-
-      if (scrollY >= 769) {
-        setBeyondHeader(true);
-      } else {
-        setBeyondHeader(false);
-      }
-
-      if (Math.abs(scrollY - lastScrollY) < threshold) {
-        ticking = false;
-        return;
-      }
-      if (lastScrollY >= sticky) {
-        setHasScrolled(scrollY > lastScrollY ? false : true);
-        nav.style.opacity = 1;
-        nav.style.height = "100%";
-      } else {
-        setHasScrolled(scrollY > lastScrollY ? false : false);
-      }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (condition) mainNav.classList.add("fix");
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollDir);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll);
-
-    // console.log(scrollDir);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      mainNav.classList.remove("fix");
-    };
-  }, [scrollDir, condition]);
-  // useEffect(() => {
-
   //media query
   const max767 = useMediaQuery("(max-width:768px)");
 
   console.log("condicao: ", condition);
-// 
+  //
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -180,31 +108,17 @@ export default function Navbar({ language, setLanguage }) {
           id="scroll-nav"
           direction="row"
           sx={{
-            fontFamily: "Gudea",
-            position: "sticky",
-            display: () => {
-              if (condition) {
-                if (hasScrolled && beyondHeader) {
-                  // console.log("beyond: ", beyondHeader);
+            // fontFamily: "Gudea",
+            position: "sticky"
+            zIndex: 100,
 
-                  return "grid";
-                } else {
-                  // console.log("not beyond: ", beyondHeader);
-
-                  return "none";
-                }
-              } else {
-                return "grid";
-              }
-            },
-            // display: condition ? (hasScrolled ? "grid" : "none") : scrollUp ? "grid" : "none",
-            // display: !condition && scrollUp ? "grid" : "none",
           }}
         >
-          <Grid item container sx={{ backgroundColor: "white" }} pt={2} pb={2} alignItems={"center"} justifyContent="space-between">
+          <Grid item container sx={{ backgroundColor: "white" }} alignItems={"center"} justifyContent="space-between">
             <Grid item justifyContent="flex-start" bs={3} md={3} xs={4}>
               <Gridd
                 item
+                className="logo"
                 sx={{
                   width: {
                     md: "50%",
@@ -214,7 +128,7 @@ export default function Navbar({ language, setLanguage }) {
                 }}
                 ml={{ xs: 2 }}
               >
-                <img src={logo} alt="Digtal Logo" className="logo" />
+                <img src={logo} alt="Digtal Logo" />
               </Gridd>
             </Grid>
 
@@ -274,6 +188,24 @@ export default function Navbar({ language, setLanguage }) {
                 <Grid item className="mobile-nav-bar-item">
                   <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
                 </Grid>
+                <Grid item className="mobile-nav-bar-item">
+                  <DarkModeTwoTone
+                    className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none", marginLeft: "45%" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                  <LightModeTwoTone
+                    className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none", marginLeft: "45%" }}
+                    onClick={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+                    }}
+                  />
+                </Grid>
                 <Grid item className="mobile-nav-bar-item" onClick={() => toggleLanguage(specialLanguage)}>
                   <img src={region} alt="france-flag" className="language-image" />
                   <ExpandMoreOutlined sx={{ fontSize: 24 }} className="lselect-item-sub-arrow" />
@@ -303,6 +235,26 @@ export default function Navbar({ language, setLanguage }) {
               <Gridd item md={0.7} sx={{ width: "fit-content" }}>
                 <ActiveNavLink to={language + "/contact"} text={t("contact")} />
               </Gridd>
+              <StyledEngineProvider injectFirst>
+                <Gridd item md={0.2} sx={{ width: "fit-content" }}>
+                  <DarkModeTwoTone
+                    className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                  <LightModeTwoTone
+                    className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
+                    onClick={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+                    }}
+                  />
+                </Gridd>
+              </StyledEngineProvider>
               <Gridd item md={1.5} className="language-item">
                 <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
                   <img src={region} alt="language-flag" className="language-image" />
@@ -313,6 +265,7 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
             </Grid>
           </Grid>
+          <Grid item container></Grid>
         </Grid>
       </ThemeProvider>
     </>

@@ -15,17 +15,20 @@ let schema = object({
       .min(3, 'Atleast 3 characters long.')
       
       .ensure(),
+   company_name: string()
+      .transform((value) => value.charAt(0).toUpperCase() + value.slice(1))
+      .required('Please fill out this field.')
+    
+      .min(3, 'Atleast 3 characters long.')
+      
+      .ensure(),
    email: string()
       .required('Please fill out this field.')
      
       .email('Please enter a valid email address.')
 
       .ensure(),
-   subject: string()
-      .required('Please select an option')
-
-      
-      .required('Please fill out this field.'),
+   subject: string().nullable(),
   
    message: string()
       .transform((value) => value.charAt(0).toUpperCase() + value.slice(1))

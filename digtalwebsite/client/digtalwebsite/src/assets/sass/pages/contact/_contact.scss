@@ -1,0 +1,278 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+
+.contact {
+  //get intouch section of form
+  transition: all 0.25s ease-in-out;
+
+  &-getintouch {
+    // border: 1px solid red;
+    // height: 100px;
+    & > * {
+      font-family: "Poppins";
+    }
+
+    h2,h4,
+    h3 {
+      color: rebeccapurple;
+      font-weight: 900;
+    }
+    h2 {
+      font-size: 42px;
+      padding-bottom: 5px;
+
+    }
+    h3 {
+      font-size: 30px;
+      padding-top: 20px;
+      padding-bottom: 15px;
+
+    }
+    img{
+      padding-bottom: 20px;
+
+    }
+
+    img[alt*="svg"]{
+      // border: 1px solid red;
+     padding-bottom: 0px;
+     margin-top: -45px;
+    }
+
+    div {
+      font-size: 21px;
+    }
+
+    h4{
+      font-size: 30px;
+      padding-top: 30px;
+      padding-bottom: 15px;
+    }
+
+    h5{
+      font-weight: 500;
+      color: rgba( #2B0A3D, 0.5);
+      font-size: 18px;
+
+    }
+  }
+
+  //submit button
+  &-submitbutton {
+    // .MuiButtonBase-root{
+    background-color: white !important;
+    border: 3px solid rgba(rebeccapurple, 0.5);
+    color: rebeccapurple;
+    font-size: 14px;
+    font-family: "Poppins";
+    font-weight: 900;
+    // }
+    &:hover {
+      background-color: rebeccapurple !important;
+      // border: 3px solid white;
+      color: white;
+    }
+  }
+
+  //textfields
+  &-textfield {
+    // @keyframes success-blink {
+
+    //   0% {
+    //     border: 3px solid green;      }
+
+    //   70% {
+    //     border: 3px solid rgba(#663399, 1);
+
+    //   }
+    // }
+
+    //input label
+    .MuiFormLabel-root,
+    .MuiInputLabel-root {
+      font-size: 14px;
+      margin-top: -5px;
+      z-index: 2;
+      // margin-bottom: 15px;
+      // border: 3px solid rgba(#663399, 0.5);
+      // transform: translate(0,-5px);
+      &.Mui-focused {
+        color: #663399;
+        // color: green;
+        font-size: 14px;
+        margin-top: 0px;
+
+        &.Mui-error {
+          font-size: 14px;
+
+          color: red;
+        }
+      }
+      &.Mui-error {
+        font-size: 14px;
+
+        color: red;
+      }
+    }
+
+    //input fields
+
+    .MuiInputBase-root,
+    .MuiOutlinedInput-root {
+      padding-bottom: 10px;
+      padding-top: 10px;
+      // height: 10px;
+      font-size: 16px;
+      fieldset {
+        border: 3px solid rgba(#663399, 0.5);
+      }
+
+      &:hover {
+        fieldset {
+          border: 3px solid rgba(#663399, 1);
+        }
+      }
+
+      &.Mui-focused {
+        .MuiOutlinedInput-notchedOutline {
+          border: 3px solid green;
+          // animation-name: success-blink;
+          // animation-duration: 1s;
+          // animation-iteration-count: 1;
+          // animation-fill-mode: forwards;
+          border: 3px solid rgba(#663399, 1);
+
+          legend {
+            span {
+              // font-size: 6px;
+              padding-left: 0px;
+              padding-right: 0px;
+
+              // display: none;
+            }
+          }
+        }
+
+        &.Mui-error {
+          fieldset {
+            border: 3px solid red;
+            legend {
+              span {
+                // font-size: 8px;
+                padding-left: 0px;
+                padding-right: 0px;
+              }
+            }
+          }
+        }
+      }
+      &.Mui-required {
+        fieldset {
+          border: 3px solid red;
+        }
+      }
+      &.Mui-error {
+        fieldset {
+          border: 3px solid red;
+          legend {
+            span {
+              // font-size: 8px;
+              padding-left: 0px;
+              padding-right: 0px;
+            }
+          }
+        }
+      }
+    }
+
+    //telephone
+    &-telephone {
+      .MuiInputBase-root,
+      .MuiOutlinedInput-root {
+        padding-bottom: 0px;
+        padding-top: 0px;
+        font-size: 14px;
+      }
+
+      //input label
+      .MuiFormLabel-root,
+      .MuiInputLabel-root {
+        font-size: 14px;
+        margin-top: 0px;
+        z-index: 2;
+        // margin-bottom: 15px;
+        // border: 3px solid rgba(#663399, 0.5);
+        // transform: translate(0,-5px);
+        &.Mui-focused {
+          color: #663399;
+          // color: green;
+          font-size: 14px;
+          margin-top: 0px;
+          margin-left: -5px;
+
+          &.Mui-error {
+            font-size: 14px;
+
+            color: red;
+          }
+        }
+        &.Mui-error {
+          font-size: 14px;
+
+          color: red;
+        }
+      }
+    }
+  }
+
+  //form input fields
+  &-form {
+    border-radius: 2%;
+    box-shadow: 5px 5px 25px -1px rgba(187, 141, 138, 0.122), -5px -5px 25px 1px rgba(141, 138, 138, 0.122);
+  }
+
+  //form options
+  &-formoptions {
+    @include mixins.flex;
+    height: fit-content;
+    font-family: "Poppins";
+    row-gap: 10px;
+    margin-top: 5vh;
+
+    //headx
+    &-heading {
+      color: variables.$purple;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    //pills
+    &--pills {
+      @include mixins.flex;
+      row-gap: 10px;
+      flex-wrap: wrap;
+      column-gap: 10px;
+      justify-content: start;
+
+      &-pill {
+        border: 3px solid rgba(#663399, 0.5);
+        padding: 8px 10px;
+        border-radius: 5px;
+        font-size: 18px;
+        color: rgba(#663399, 0.5);
+        font-size: 18px;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+          border: 3px solid rgba(#663399, 1);
+          color: rgba(#663399, 1);
+        }
+      }
+      &--bordered {
+        border: 3px solid rgba(#663399, 1);
+        color: rgba(#663399, 1);
+      }
+    }
+  }
+}

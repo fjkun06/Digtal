@@ -1,19 +1,20 @@
 @use 'layout/navbar';
 @use 'layout/footer';
 @use 'pages/home/home';
+@use 'pages/contact/contact';
 @use 'components/telephone';
 
 //root schemes
 //light here
 @import './util/light-palette';
+@import './util/dark-palette';
 
 //styling links
 a {
-   font-family: "Gudea";
+   font-family: "Inter", sans-serif;
    transition: all ease 0.15s;
    text-decoration: none;
    color: var(--navbar-link);
-
    &:visited {
       color: var(--navbar-link);
    }

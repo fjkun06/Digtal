@@ -10,17 +10,5 @@
   },
   "terms": "Terms Of Use",
   "policy": "Privacy Policy",
-  "rights": "All Rights Reserved",
-  "content": "Go to Content",
-  "text":{
-    "web": "We develop softwares that inspires users and lead them to their destination as quickly as possible.",
-    "marketing": "We help your company boost its visibility by optimizing its paid acquisition strategies, but also by implementing a focused SEO strategy.",
-    "consulting": "Our IT consultants combine strategic thinking, appropriate choice of technologies and tools, as well as digital trends with project management."
-  },
-  "nos-services":{
-    "title":"Our Services",
-    "text":"Benefit from the know-how of our young and dynamic team of more than 10 experts in web & mobile development, IT Consulting and Digital Marketing."
-  },
-  "card-button": "Learn More"
-
+  "rights": "All Rights Reserved"
 }

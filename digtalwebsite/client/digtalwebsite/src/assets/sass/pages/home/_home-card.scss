@@ -6,21 +6,40 @@
       box-shadow: var(--home-body-card-bs-light);
       transition: all 0.5s ease-in-out;
       max-width: 22vw;
-color: var(  --home-body-card-heading);
-
-
-//button
-&-button{
-  color: var(--home-body-card-button);
-}
-
-      // box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
+      color: var(--home-body-card-heading);
       &:hover {
-        transform: scale(1.15);
+        transform: scale(1.1);
       }
+      //button
+      &-button {
+        color: var(--home-body-card-button);
+        border: 1px solid var(--home-body-card-button);
+        border-radius: 50px;
+        padding: 5px 7px;
+        // transition: background-color 0.2 linear;
+        background-color: transparent;
+        -webkit-transition: background-color 2s ease-out;
+        -moz-transition: background-color 2s ease-out;
+        -o-transition: background-color 2s ease-out;
+        transition: background-color 0.5s ease-out !important;
+        margin-right: 1rem;
+
+        &:hover {
+          color: var(--home-body-card-button-hover-color);
+          border: 1px solid var(--home-body-card-button);
+          background-color: var(--home-body-card-button-hover-bg);
+
+        }
+      }
+
+      // icons
+      &-icon{
+        color: var(--home-body-card-icon);
+      }
+     
     }
 
-    .home-card-text{
+    .home-card-text {
       color: var(--home-body-card-text);
     }
 
@@ -32,18 +51,15 @@ color: var(  --home-body-card-heading);
     }
 
     @media only screen and (max-width: 600px) {
+      .home-card-#{$i} {
+        max-width: 85vw;
 
-    .home-card-#{$i} {
-      max-width: 85vw;
-
-      &:hover {
-        transform: scale(1.03);
+        &:hover {
+          transform: scale(1.03);
+        }
       }
     }
-    }
   }
-
- 
 
   @keyframes scalar {
     50%,
@@ -54,6 +70,12 @@ color: var(  --home-body-card-heading);
     0%,
     100% {
       transform: scale(1);
+    }
+  }
+
+  @keyframes btn-color {
+    100% {
+      background-color: rebeccapurple;
     }
   }
 
@@ -72,8 +94,6 @@ color: var(  --home-body-card-heading);
     #title {
       height: 10px;
     }
-
-   
   }
 
   // .home-card-1{

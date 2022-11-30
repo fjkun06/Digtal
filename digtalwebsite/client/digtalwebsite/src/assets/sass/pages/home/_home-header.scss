@@ -2,50 +2,40 @@
 @use "../../util/variables";
 @use "../../util/extensions";
 @use "../../components//arrows";
-@use "../../components//header-video";
+@use "../../components/carousel-button";
+@use "./header-carousel";
+@use "./loader";
+@use "./personality";
 
 %home-header {
   .home-header {
     @include mixins.grid;
     height: 90vh;
-    // width: 10vw;
-    // border: 5px solid green;
-transition: transform 2s ease-in-out;
-    // height: 88vh;
+
+   
+
+    transition: transform 2s ease-in-out;
+
     position: relative;
 
-    // &:hover{
-    // z-index: 1;
-
-    // }
-    // width: 300vw;
-    // transform: translateX(-00vw);
-    // min-width: 100vw;
-    // background-image: url("../../../images/digtal ui_shadow_v2.png"), url("../../../images/original.png"), url("../../../images/home_header.jpg");
-    // background-image: url(../../../images/home_header.jpg);
-    // background-color: #fff;
-    // background-size: 100vw 100vh;
-    background-attachment: scroll;
+  
+    background-attachment: fixed;
     // background-position: center;
     background-repeat: no-repeat;
     &::after {
       content: "";
       display: block;
       position: absolute;
-      // background: linear-gradient(rgba(255, 255, 255, 0.621) ,90%,variables.$black);
-      // opacity: 0.5;
-      // height: 100vh;
-      // // height: 88vh;
-      // min-width: 100vw;
+   
     }
-    //  images: 
-    &-image{
+    //  images:
+    &-image {
       // width: auto;
-    z-index: -1;
-      
+      z-index: -1;
       // height: auto;
       width: 100vw;
-      height: 87vh;
+      height: 90vh;
+      // height: 90vh;
       object-fit: cover;
       object-position: center;
     }
@@ -53,13 +43,14 @@ transition: transform 2s ease-in-out;
     //arrow container
     &-arrow-container {
       position: absolute;
-      top: 75vh;
+      top: 65vh;
       @include mixins.grid;
 
-      left: 49.5vw;
+      // left: calc(100vw/2.085);
+      left: -10px;
       transform: scale(0.5);
       // border: 1px solid red;
-      // width: 100vw;
+      width: 100vw;
       height: 120px;
       z-index: 7;
       &:hover {
@@ -96,13 +87,39 @@ transition: transform 2s ease-in-out;
         }
       }
     }
-  }
+
+
+  //making header carousel respponsive
+  
+    @media only screen and (min-height: 769px) {
+      & {
+        height: 92vh;
+
+        &-image {
+    
+          height: 100vh;}
+      }
+    }
+
+    @media only screen and (min-height: 1364px) {
+      & {
+       height: 95vh;
+      }
+    }
+  
 
   //arrows here
   @extend %arrow;
 
   //header video here
-  @extend %header-video;
+  @extend %header-carousel;
+
+  //personality
+  @extend %personality;
+
+  //carousel here
+  @extend %carousel-control;
+
+
+  }
 }
-
-

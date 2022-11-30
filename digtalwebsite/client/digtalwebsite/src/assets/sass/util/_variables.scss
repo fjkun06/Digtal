@@ -4,7 +4,7 @@
 //dd: dropdown
 //bl: border left n so on...
 
-//variables
+//variablessss
 $displayState: none;
 $purple: rebeccapurple;
 $black: #000000;
@@ -81,6 +81,23 @@ $home-body-inner-bg-light: #f5f7fa;
 $home-body-card-text-light: #00000099;
 $home-body-card-heading-light: #000000de;
 $home-body-card-button-light: $purple;
+$home-body-card-button-light-hover-color: $home-body-inner-bg-light;
+$home-body-card-button-light-hover-bg: $home-body-card-button-light;
+$home-body-card-icon-light: $purple;
 $home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
 $home-body-para-light: #555;
 $home-body-title-light: $purple;
+
+
+//home carousel
+$carousel-button-bg-light:  linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
+$carousel-icon-bg-light: $purple;
+$carousel-consulting-caption-light: $white;
+$carousel-consulting-caption-sub-bg-light: rgba($black, 0.4);
+$carousel-consulting-caption-sub-before-bg-light: $white;
+$carousel-button-mobile-bg-light:  $purple;
+$carousel-control-arrow-light: $purple;
+
+
+
+
