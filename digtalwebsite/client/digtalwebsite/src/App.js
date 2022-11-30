@@ -12,6 +12,7 @@ import './assets/sass/main.scss';
 import "@fontsource/carrois-gothic"
 
 import { useState } from "react";
+import CarouselSection from "./components/home/carousel/carousel";
 import ServicesLayout from "./components/home/services/layout";
 import { StyledEngineProvider } from "@mui/system";
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
@@ -34,6 +35,9 @@ function App() {
           <Navbar setLanguage={setLanguage} language={language} />
         </Grid>
         {/* bill's work starts here */}
+
+          <CarouselSection />
+          <ServiceSection />
           {/* <ServiceSection /> */}
           <Grid id="scroll-zone" >
 
