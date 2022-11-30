@@ -1,3 +1,14 @@
+import { Grid, styled } from "@mui/material";
+import sx from "@mui/system/sx";
+
+export const CFLGrid = styled(Grid)(
+  sx({
+    fontSize: "1.5rem",
+    textAlign: "center",
+    display: "block",
+  })
+);
+
 //order firstname, last namme,email
 export const contactFields = [
   { label: "name.first", index: "first_name", md: 6 },
