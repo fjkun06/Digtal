@@ -27,13 +27,14 @@
    & > * a {
       font-weight: 600;
       font-size: 17px;
+      color: variables.$purple;
    }
 
    &-item {
-      transition: all 0.1s ease;
+      transition: all 0.25s ease-in-out;
 
       &:hover {
-         transition: all 0.1s ease;
+         transition: all 0.25s ease-in-out;
          padding-bottom: 0.3rem;
          border-bottom: var(--navbar-link-active-bb);
       }

@@ -40,10 +40,11 @@ const ContactFormLocation = () => {
         <Typography variant="body" component={"div"}>
           Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequa
         </Typography>
+        <Grid item container direction={"row"}>
+       {location.map(loc => <ContactFormSubLocation {...loc} key={loc.town}/>)}
       </Grid>
-      <Grid item container direction={"row"}>
-       {location.map(loc => <ContactFormSubLocation {...loc}/>)}
       </Grid>
+     
     </Grid>
   );
 };

@@ -41,18 +41,20 @@ export default function ContactFormFields({ t, cxs, cmd }) {
     <Grid
       item
       rowSpacing={{ sm: -10, md: -10 }}
-      xs={12}
-      sm={5}
+      // xs={12}
+      // sm={5}
       pl={{ xs: 1, sm: 4, md: 5 }}
       pr={{ xs: 1, sm: 4, md: 5 }}
-      md={5}
+      // md={5}
       container
       sx={{
         padding: { xs: "8px" },
+        border: "1px solid red",
+
       }}
       alignItems="center"
       justifyContent={"center"}
-      className="contact-form"
+      className="contact-form form"
     >
       <ContactFormOptions setSubject={setValue} getSubject={getValues} valid={isValid} sendSubjectState={setSubjectValidation} />
 

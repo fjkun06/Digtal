@@ -16,8 +16,9 @@ import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
-import { DarkModeTwoTone, LightModeTwoTone } from "@mui/icons-material";
+import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
+import { EnglandIcon } from "../assets/svg/EnglandIcon";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -93,7 +94,7 @@ export default function Navbar({ language, setLanguage }) {
   }, []);
 
   //media query
-  const max767 = useMediaQuery("(max-width:768px)");
+  const max793 = useMediaQuery("(max-width:793px)");
 
   console.log("condicao: ", condition);
   //
@@ -115,7 +116,14 @@ export default function Navbar({ language, setLanguage }) {
           }}
         >
           <Grid item container sx={{ backgroundColor: "white" }} alignItems={"center"} justifyContent="space-between">
-            <Grid item justifyContent="flex-start" bs={3} md={3} xs={4}>
+            {/* navbar logo */}
+
+            <Grid item justifyContent="flex-start" bs={3} md={3} xs={4} 
+            sx={{
+              border: "1px solid red",
+
+            }}
+            >
               <Gridd
                 item
                 className="logo"
@@ -126,14 +134,102 @@ export default function Navbar({ language, setLanguage }) {
                     xs: "100%",
                   },
                 }}
-                ml={{ xs: 2 }}
+                ml={{ xs: 6 }}
               >
                 <img src={logo} alt="Digtal Logo" />
               </Gridd>
             </Grid>
 
-            {/* mobile navbar */}
+           
+
+            {/* Desktop navbar */}
             <Grid
+              md={9}
+              sm={9}
+              bs={9}
+              container
+              item
+              sx={{ display: max793 ? "none" : "", 
+              border: "1px solid red",
+              backgroundColor: "red"
+             }}
+              alignItems={"center"}
+              justifyContent="end"
+              columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
+              pl={5}
+              pr={5}
+            >
+              <Gridd item>
+                {/* <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}> */}
+                <ActiveNavLink to={language + "/"} text={t("home")} />
+              </Gridd>
+
+              <Gridd item>
+                {/* <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}> */}
+                <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
+              </Gridd>
+
+              <Gridd item className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
+                {/* <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item"> */}
+                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
+                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/services/"} text={t("services")} />
+                {/* <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} /> */}
+
+                {/* <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" /> */}
+                {/* </Box> */}
+              </Gridd>
+
+              <Gridd item>
+                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/about-us"} text={t("about")} />
+              </Gridd>
+
+              <Gridd item>
+                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
+              </Gridd>
+
+              <Grid
+                item
+                // className="language-item"
+                sx={{
+                  // border: "1px solid red",
+                }}
+              >
+              
+              </Grid>
+
+              <Gridd item>
+                <Grid sx={{ width: "fit-content" }} className="language-item">
+                <EnglandIcon className="navbar-theme-dark" sx={{ fontSize: 25 }} />
+
+                  <DarkMode
+                    className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
+                    onClick={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+                      console.log("hello: ", websiteTheme);
+                    }}
+                  />
+                  <LightMode
+                    className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                </Grid>
+              </Gridd>
+            </Grid>
+         
+          </Grid>
+
+           {/* mobile navbar */}
+
+          <Grid
               item
               sx={{
                 backgroundColor: "transparent",
@@ -181,12 +277,15 @@ export default function Navbar({ language, setLanguage }) {
                   <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
                   <ExpandMoreOutlined sx={{ fontSize: 24 }} className="select-item-sub-arrow" />
                 </Grid>
+                <Grid item className="mobile-nav-bar-item">
+                  <MobileActiveNavLink to={language + "/about-us"} text={t("about")} />
+                </Grid>
 
                 <Grid item className="mobile-nav-bar-item special-navbar-item">
                   <SelectDropdown language={language} t={t} classes="select-item-sub mobile-services-dropdown" />
                 </Grid>
                 <Grid item className="mobile-nav-bar-item">
-                  <MobileActiveNavLink to={language + "/contact"} text={t("contact")} />
+                  <MobileActiveNavLink to={language + "/contact-us"} text={t("contact")} />
                 </Grid>
                 <Grid item className="mobile-nav-bar-item">
                   <DarkModeTwoTone
@@ -215,58 +314,8 @@ export default function Navbar({ language, setLanguage }) {
                 </Grid>
               </Grid>
             </Grid>
-
-            {/* Desktop navbar */}
-            <Grid md={9} sm={4} bs={9} container item sx={{ display: max767 ? "none" : "" }} alignItems={"center"} justifyContent="end" columnGap={{ bs: 3, w893: 5 }} pl={5} pr={5}>
-              <Gridd item md={location.pathname === "/de/" ? 0.5 : 1}>
-                <ActiveNavLink to={language + "/"} text={t("home")} />
-              </Gridd>
-              <Gridd item md={window?.location?.pathname.includes("/de/") ? 1.5 : 2} lg={location.pathname === "/de/" ? 1.5 : 1.5}>
-                <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
-              </Gridd>
-              <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item">
-                <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
-                  <ActiveNavLink to={language + "/services/"} text={t("services")} />
-                  <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} />
-
-                  <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" />
-                </Box>
-              </Gridd>
-              <Gridd item md={0.7} sx={{ width: "fit-content" }}>
-                <ActiveNavLink to={language + "/contact"} text={t("contact")} />
-              </Gridd>
-              <StyledEngineProvider injectFirst>
-                <Gridd item md={0.2} sx={{ width: "fit-content" }}>
-                  <DarkModeTwoTone
-                    className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none" }}
-                    onClick={() => {
-                      switchTheme("light");
-                      setWebsiteTheme("light");
-                    }}
-                  />
-                  <LightModeTwoTone
-                    className="navbar-theme-light"
-                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none" }}
-                    onClick={() => {
-                      switchTheme("dark");
-                      setWebsiteTheme("dark");
-                    }}
-                  />
-                </Gridd>
-              </StyledEngineProvider>
-              <Gridd item md={1.5} className="language-item">
-                <Box className="language-item-sub" onMouseLeave={() => (Array.from(dropdown)[0].style.display = "none")}>
-                  <img src={region} alt="language-flag" className="language-image" />
-
-                  <ExpandMoreOutlined fontSize="large" className="language-item-sub-arrow" onMouseEnter={() => (Array.from(dropdown)[0].style.display = "grid")} />
-                  <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown lang-dropdown"} />
-                </Box>
-              </Gridd>
-            </Grid>
           </Grid>
-          <Grid item container></Grid>
-        </Grid>
+           
       </ThemeProvider>
     </>
   );
