@@ -107,6 +107,8 @@ export default function Navbar({ language, setLanguage }) {
           }}
         >
           <Grid item container sx={{ backgroundColor: "white" }} alignItems={"center"} justifyContent="space-between">
+            {/* navbar logo */}
+
             <Grid item justifyContent="flex-start" bs={3} md={3} xs={4} 
             sx={{
               border: "1px solid red",
@@ -129,8 +131,96 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
             </Grid>
 
-            {/* mobile navbar */}
+           
+
+            {/* Desktop navbar */}
             <Grid
+              md={9}
+              sm={9}
+              bs={9}
+              container
+              item
+              sx={{ display: max793 ? "none" : "", 
+              border: "1px solid red",
+              backgroundColor: "red"
+             }}
+              alignItems={"center"}
+              justifyContent="end"
+              columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
+              pl={5}
+              pr={5}
+            >
+              <Gridd item>
+                {/* <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}> */}
+                <ActiveNavLink to={language + "/"} text={t("home")} />
+              </Gridd>
+
+              <Gridd item>
+                {/* <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}> */}
+                <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
+              </Gridd>
+
+              <Gridd item className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
+                {/* <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item"> */}
+                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
+                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/services/"} text={t("services")} />
+                {/* <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} /> */}
+
+                {/* <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" /> */}
+                {/* </Box> */}
+              </Gridd>
+
+              <Gridd item>
+                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/about-us"} text={t("about")} />
+              </Gridd>
+
+              <Gridd item>
+                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
+                <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
+              </Gridd>
+
+              <Grid
+                item
+                // className="language-item"
+                sx={{
+                  // border: "1px solid red",
+                }}
+              >
+              
+              </Grid>
+
+              <Gridd item>
+                <Grid sx={{ width: "fit-content" }} className="language-item">
+                <EnglandIcon className="navbar-theme-dark" sx={{ fontSize: 25 }} />
+
+                  <DarkMode
+                    className="navbar-theme-dark"
+                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
+                    onClick={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+                      console.log("hello: ", websiteTheme);
+                    }}
+                  />
+                  <LightMode
+                    className="navbar-theme-light"
+                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
+                    onClick={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                </Grid>
+              </Gridd>
+            </Grid>
+         
+          </Grid>
+
+           {/* mobile navbar */}
+
+          <Grid
               item
               sx={{
                 backgroundColor: "transparent",
@@ -215,91 +305,8 @@ export default function Navbar({ language, setLanguage }) {
                 </Grid>
               </Grid>
             </Grid>
-
-            {/* Desktop navbar */}
-            <Grid
-              md={9}
-              sm={9}
-              bs={9}
-              container
-              item
-              sx={{ display: max793 ? "none" : "", 
-              border: "1px solid red"
-             }}
-              alignItems={"center"}
-              justifyContent="end"
-              columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
-              pl={5}
-              pr={5}
-            >
-              <Gridd item>
-                {/* <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}> */}
-                <ActiveNavLink to={language + "/"} text={t("home")} />
-              </Gridd>
-
-              <Gridd item>
-                {/* <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}> */}
-                <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
-              </Gridd>
-
-              <Gridd item className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
-                {/* <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item"> */}
-                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
-                {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
-                <ActiveNavLink to={language + "/services/"} text={t("services")} />
-                {/* <ExpandMoreOutlined fontSize="large" className="select-item-sub-arrow" onMouseEnter={() => (Array.from(servicesDropdown)[0].style.display = "block")} /> */}
-
-                {/* <SelectDropdown language={language} t={t} classes="select-item-sub services-dropdown" /> */}
-                {/* </Box> */}
-              </Gridd>
-
-              <Gridd item>
-                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
-                <ActiveNavLink to={language + "/about-us"} text={t("about")} />
-              </Gridd>
-
-              <Gridd item>
-                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
-                <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
-              </Gridd>
-
-              <Grid
-                item
-                // className="language-item"
-                sx={{
-                  // border: "1px solid red",
-                }}
-              >
-              
-              </Grid>
-
-              <Gridd item>
-                <Grid sx={{ width: "fit-content" }} className="language-item">
-                <EnglandIcon className="navbar-theme-dark" sx={{ fontSize: 25 }} />
-
-                  <DarkMode
-                    className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
-                    onClick={() => {
-                      switchTheme("dark");
-                      setWebsiteTheme("dark");
-                      console.log("hello: ", websiteTheme);
-                    }}
-                  />
-                  <LightMode
-                    className="navbar-theme-light"
-                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
-                    onClick={() => {
-                      switchTheme("light");
-                      setWebsiteTheme("light");
-                    }}
-                  />
-                </Grid>
-              </Gridd>
-            </Grid>
           </Grid>
-          <Grid item container></Grid>
-        </Grid>
+           
       </ThemeProvider>
     </>
   );
