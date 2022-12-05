@@ -55,3 +55,6 @@ export const selectMenu = [
   { t: "subject.op3", path: "/digital-marketing" },
   { t: "subject.op4", path: "/services/consulting" },
 ];
+
+export const selectClosed = ["3/4","4/5","5/6","6/7"];
+export const selectOpen = ["3/8","8/9","9/10","10/11"];

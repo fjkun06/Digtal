@@ -111,7 +111,7 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub" height={showMobileMenu? "99.5vh" : "10vh"}>
+          <Grid item container className="main-nav-sub" height={showMobileMenu? "99.5vh" : "9vh"}>
             {/* navbar logo */}
 
             <Grid
@@ -285,21 +285,34 @@ export default function Navbar({ language, setLanguage }) {
               <div className="mobile-body--section menu">
                 <div className="menu-sub">
                   <Grid item className="mobile-nav-bar-item">
-                    <MobileActiveNavLink to={language + "/"} text={t("home")} />
+                    <ActiveNavLink to={language + "/"} text={t("home")} />
                   </Grid>
                   <Grid item className="mobile-nav-bar-item">
-                    <MobileActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
+                    <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                   </Grid>
 
-                  <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
-                    <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
+                  <Grid item className="mobile-nav-bar-item" sx={{gridRow: ""}} onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
+                    <ActiveNavLink to={language + "/services/"} text={t("services")} />
                     <ExpandMoreOutlined sx={{ fontSize: 24 }} className="select-item-sub-arrow" />
+
+                    {/* <Grid item className="mobile-nav-bar-item">
+                    <ActiveNavLink to={language + "/about-us"} text={t("about")} />
                   </Grid>
                   <Grid item className="mobile-nav-bar-item">
-                    <MobileActiveNavLink to={language + "/about-us"} text={t("about")} />
+                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
                   </Grid>
                   <Grid item className="mobile-nav-bar-item">
-                    <MobileActiveNavLink to={language + "/contact-us"} text={t("contact")} />
+                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
+                  </Grid> */}
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <ActiveNavLink to={language + "/about-us"} text={t("about")} />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
                   </Grid>
 
                   <Grid sx={{ width: "fit-content" }} className="language-item">
