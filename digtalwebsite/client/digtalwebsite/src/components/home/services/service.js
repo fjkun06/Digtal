@@ -28,12 +28,14 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
                 {
                 scale:.1,
                 opacity:.2,
-                ease:true
+                ease:true,
+                backgroundColor:"transparent"
             }
             ,{
                 opacity:1,
                 scale:1,
-                duration:.5
+                duration:.5,
+                backgroundColor:"white"
         }
         )
         .fromTo(
