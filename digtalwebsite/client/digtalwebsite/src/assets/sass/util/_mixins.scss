@@ -17,6 +17,53 @@
     @content;
 
 }
+/****************icons**********************************************/
+@mixin icons-flush($flex-direction,$column-gap) {
+  padding-top: 3px;
+  @include flex;
+  justify-content: $flex-direction;
+  column-gap: $column-gap;
+  & > * {
+    width: fit-content;
+    
+    transition: all 0.2s ease;
+
+    &:nth-child(4) {
+      font-size: 2rem;
+
+      &:hover {
+        color: variables.$facebook-hover;
+        transition: all 0.2s ease;
+      }
+    }
+    &:nth-child(2) {
+      &:hover {
+        color: variables.$twitter-hover;
+        transition: all 0.2s ease;
+      }
+    }
+    &:nth-child(3) {
+      &:hover {
+        color: variables.$instagram-hover;
+        transition: all 0.2s ease;
+      }
+    }
+    &:nth-child(5) {
+      &:hover {
+        color: variables.$youtube-hover;
+        transition: all 0.2s ease;
+      }
+    }
+    &:nth-child(1) {
+      &:hover {
+        color: variables.$linkedin-hover;
+        transition: all 0.2s ease;
+      }
+    }
+
+  }
+
+}
 //sets width and height
 @mixin size($width, $height) {
     width: $width;

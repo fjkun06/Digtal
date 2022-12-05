@@ -21,6 +21,7 @@ import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/ico
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
 import Search from "../assets/svg/Search";
+import { icons } from "./config/footer_config";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -40,7 +41,7 @@ export default function Navbar({ language, setLanguage }) {
   const navigate = useNavigate();
 
   //language settings
-  const { t } = useTranslation(["navbar", "form"]);
+  const { t } = useTranslation(["navbar", "form", "pageend"]);
   let location = useLocation();
 
   //codition for scrolling
@@ -314,9 +315,21 @@ export default function Navbar({ language, setLanguage }) {
                   <Search />
                 </div>
               </div>
-              <p className="mobile-body--section menu">hello</p>
+              <div className="mobile-body--section menu"></div>
               {/* <p className="mobile-body--section empty">hello</p> */}
-              <p className="mobile-body--section icons">hello</p>
+              <div className="mobile-body--section icons">
+                <div>
+                  {icons.map((icon) => (
+                    <a key={icon.url} href={icon.url} target="_blank" rel=" noreferrer">
+                      {icon.icon}
+                    </a>
+                  ))}
+                </div>
+
+                <div>
+                  © {new Date().getFullYear()} DIGTAL {t("rights", { ns: "pageend" })}
+                </div>
+              </div>
             </Grid>
           </Grid>
         </Grid>
