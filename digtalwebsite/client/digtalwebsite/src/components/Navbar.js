@@ -29,6 +29,8 @@ export default function Navbar({ language, setLanguage }) {
 
   //initialising states
   const [dropdown, setdropdown] = useState("");
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   const [servicesDropdown, setServicesDropdown] = useState("");
   const [mobileServicesDropdown, setMobileServicesDropdown] = useState("");
   const [mobileSpecial, setMobileSpecial] = useState("");
@@ -109,7 +111,7 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub">
+          <Grid item container className="main-nav-sub" height={showMobileMenu? "99.5vh" : "10vh"}>
             {/* navbar logo */}
 
             <Grid
@@ -244,7 +246,7 @@ export default function Navbar({ language, setLanguage }) {
                   }
                   className="mobile-navbar-menu"
 
-                  // onClick={() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "round")}
+                  onClick={() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "round")}
                 />
 
                 <CloseTwoToneIcon
@@ -253,7 +255,7 @@ export default function Navbar({ language, setLanguage }) {
                   }}
                   className="mobile-navbar-cross"
                   onClick={() => {
-                    setTimeout(() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "cross"), 50);
+                    setTimeout(() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "cross"), 50);
                   }}
                 />
 
@@ -274,7 +276,7 @@ export default function Navbar({ language, setLanguage }) {
             </Grid>
 
             {/* mobile navbar body */}
-            <Grid item container className="main-nav-sub--mobile-body">
+            <Grid item container className="main-nav-sub--mobile-body" sx={{display: !showMobileMenu? "none !important" : "grid"}}>
               <div className="mobile-body--section search">
                 <div>
                   <Search />
