@@ -4,11 +4,12 @@ import anglais from "../assets/images/uk64.png";
 import france from "../assets/images/fr64.png";
 import german from "../assets/images/de64.png";
 import logo from "../assets/images/logoo.png";
+import logoMobile from "../assets/images/logo2.png";
 import { Box, StyledEngineProvider, ThemeProvider } from "@mui/system";
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import MenuIcon from "@mui/icons-material/Menu";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
@@ -86,7 +87,7 @@ export default function Navbar({ language, setLanguage }) {
   }, []);
 
   //media query
-  const max793 = useMediaQuery("(max-width:793px)");
+  const max480 = useMediaQuery("(max-width:480px)");
 
   console.log("condicao: ", condition);
   //
@@ -106,18 +107,17 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container sx={{ backgroundColor: "yellow" }} alignItems={"center"} justifyContent="space-between">
+          <Grid item container className="main-nav-sub">
             {/* navbar logo */}
 
             <Grid
               item
               justifyContent="flex-start"
-              bs={3}
-              md={3}
-              xs={4}
-              sx={{
-                border: "1px solid red",
-              }}
+              className="main-nav-sub-logo"
+              // bs={3}
+              // md={3}
+              // xs={4}
+             
             >
               <Gridd
                 item
@@ -129,37 +129,39 @@ export default function Navbar({ language, setLanguage }) {
                     xs: "100%",
                   },
                 }}
-                ml={{ xs: 6 }}
+                // ml={{ xs: 6 }}
               >
-                <img src={logo} alt="Digtal Logo" />
+                {max480 ? <img src={logoMobile} alt="Digtal Logo" /> : <img src={logo} alt="Digtal Logo" />}
               </Gridd>
             </Grid>
 
             {/* Desktop navbar */}
             <Grid
-              md={8}
-              sm={9}
-              bs={9}
+              // md={8}
+              // sm={9}
+              // bs={9}
               container
               item
-              sx={{ display: max793 ? "none" : "", border: "1px solid red", backgroundColor: "red" }}
+              // sx={{ display: max793 ? "none" : "", border: "1px solid red", backgroundColor: "red" }}
               alignItems={"center"}
               justifyContent="end"
               columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
-              pl={5}
-              pr={5}
+              className="main-nav-sub-links"
+
+              // pl={5}
+              // pr={5}
             >
-              <Gridd item>
+              <Gridd item className="main-nav-sub-links--item">
                 {/* <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}> */}
                 <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
 
-              <Gridd item>
+              <Gridd item className="main-nav-sub-links--item">
                 {/* <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}> */}
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
 
-              <Gridd item className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
+              <Gridd item className="select-item-dropdown main-nav-sub-links--item" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")}>
                 {/* <Gridd item md={window?.location?.pathname.includes("/de/home") ? 1.7 : 1.3} sm={2} className="select-item"> */}
                 {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
                 {/* <Box className="select-item-dropdown" onMouseLeave={() => (Array.from(servicesDropdown)[0].style.display = "none")} sx={{ width: "100%", border: "1px solid red" }}> */}
@@ -170,12 +172,12 @@ export default function Navbar({ language, setLanguage }) {
                 {/* </Box> */}
               </Gridd>
 
-              <Gridd item>
+              <Gridd item className="main-nav-sub-links--item">
                 {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
                 <ActiveNavLink to={language + "/about-us"} text={t("about")} />
               </Gridd>
 
-              <Gridd item>
+              <Gridd item className="main-nav-sub-links--item">
                 {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
                 <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
               </Gridd>
@@ -183,6 +185,7 @@ export default function Navbar({ language, setLanguage }) {
               <Grid
                 item
                 // className="language-item"
+                className="main-nav-sub-links--item"
                 sx={
                   {
                     // border: "1px solid red",
@@ -190,33 +193,31 @@ export default function Navbar({ language, setLanguage }) {
                 }
               ></Grid>
 
-              <Gridd item>
+              <Gridd item className="main-nav-sub-links--itemx">
                 <Grid sx={{ width: "fit-content" }} className="language-item">
-                  <EnglandIcon className="navbar-theme-dark" sx={{ fontSize: 25 }} />
-
-                  <DarkMode
-                    className="navbar-theme-dark"
-                    sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
-                    onClick={() => {
-                      switchTheme("dark");
-                      setWebsiteTheme("dark");
-                      console.log("hello: ", websiteTheme);
-                    }}
-                  />
-                  <LightMode
-                    className="navbar-theme-light"
-                    sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
-                    onClick={() => {
-                      switchTheme("light");
-                      setWebsiteTheme("light");
-                    }}
-                  />
+                  <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} />
                 </Grid>
+
+                <DarkMode
+                  className="navbar-theme-dark"
+                  sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
+                  onClick={() => {
+                    switchTheme("dark");
+                    setWebsiteTheme("dark");
+                    console.log("hello: ", websiteTheme);
+                  }}
+                />
+                <LightMode
+                  className="navbar-theme-light"
+                  sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
+                  onClick={() => {
+                    switchTheme("light");
+                    setWebsiteTheme("light");
+                  }}
+                />
               </Gridd>
             </Grid>
-            <Grid item container sx={{ backgroundColor: "green" }} md={1} sm={9} bs={9}
-             alignItems={"center"}
-             justifyContent="end">
+            <Grid item container  md={1} sm={9} bs={9} alignItems={"center"} className="main-nav-sub-mobile" justifyContent="end">
               {/* mobile navbar */}
 
               <Grid
@@ -229,14 +230,16 @@ export default function Navbar({ language, setLanguage }) {
                   position: "relative",
                 }}
                 display={{ xs: "grid", bs: "grid" }}
-                xs={8}
-                pr={4}
-                pt={1}
+                className="mobile-sub-container"
+                // xs={8}
+                // pr={4}
+                // pt={1}
               >
-                <MenuRoundedIcon
+                <MenuIcon
                   sx={{
-                    fontSize: "4rem",
+                    fontSize: "4.5rem",
                     "&:hover": { cursor: "pointer" },
+
                   }}
                   className="mobile-navbar-menu"
                   onClick={() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "round")}
