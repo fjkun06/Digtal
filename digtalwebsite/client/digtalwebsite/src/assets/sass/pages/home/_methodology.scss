@@ -1,0 +1,138 @@
+@use "../../util/mixins";
+
+%methodology {
+  .home-body-methodology {
+    border: 5px solid greenyellow;
+    @include mixins.size(74vw, 120vh);
+    // width: 74vw;
+    // height: 120vh;
+    background-color: var(--home-body-inner-bg);
+    padding-bottom: 6rem;
+
+    //sub meth container
+    &-sub {
+      border: 1px solid blue;
+      @include mixins.grid;
+      row-gap: -1rem;
+      @include mixins.size(inherit, 80%);
+
+      //methodology icons
+      .methodology-icon {
+        color: #fff;
+        font-size: 5rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(0.95);
+        }
+      }
+
+      //children
+      // &-two,
+      // &-four,
+      // &-six {
+      //   // border: 1px solid red
+      // }
+
+      // &-one,
+      // &-five {
+      //   &-child {
+      //     @extend %circle;
+
+      //     //methodology-span mixin
+      //     @include mixins.methodology-span(right, 19.25%, rtl, 90deg, right, flex-end);
+      //   }
+      // }
+
+      &-three,
+      &-one,
+      &-five,
+      &-seven {
+        &-child {
+          @extend %circle;
+
+          //methodology-span mixin
+          @include mixins.methodology-span(left, 20%, ltr, -90deg, left, flex-start);
+        }
+      }
+
+
+
+
+
+      //linear
+      &-two,
+      &-four,
+      &-six {
+        @extend %even;
+
+        &-child {
+          @extend %line;
+        }
+      }
+
+      //circular
+      &-seven,
+      &-five,
+      &-three {
+        margin-top: -5rem;
+        z-index: 9;
+      }
+
+      //stage elements
+      @include mixins.stage(one, left,-90deg,show-arrow 1s ease-in-out 0s 5 normal forwards);
+      @include mixins.stage(three, right,90deg,show-arrow );
+      @include mixins.stage(five, left,-90deg,show-arrow );
+      @include mixins.stage(seven, right,90deg,show-arrow );
+
+   
+
+      //all stage rectangles
+      .methodology-stage {
+        background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+        @include mixins.size(fit-content, fit-content);
+        color: #fff;
+        position: absolute;
+        font-family: "Gudea", sans-serif;
+        padding: 5px 7px;
+        border-radius: 5%;
+// animation: name duration timing-function delay iteration-count direction fill-mode;
+
+      }
+
+     
+      
+    }
+  }
+}
+
+%circle {
+  @include mixins.grid;
+  place-items: center;
+  background-color: #549;
+  @include mixins.size(70px, 70px);
+  cursor: pointer;
+  background: linear-gradient(to top left, rgb(0, 208, 255) 10%, 20%, rebeccapurple 90%);
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  // position: relative;
+  
+}
+
+%line {
+  // @include mixins.size(3px, 12.4vh);
+  width: 3px;
+  height: 12.4vh;
+  // @include mixins.size(3px, 15.4vh);
+  background: linear-gradient(to top, rebeccapurple, 20%, rgb(0, 208, 255));
+  transition: all 0.5s ease-in-out;
+
+}
+
+%even {
+  @include mixins.grid;
+  // place-items: center;
+  align-items: start;
+  margin-top: -5rem;
+}

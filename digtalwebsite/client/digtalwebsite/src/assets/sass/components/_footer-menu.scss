@@ -12,8 +12,8 @@
     //   justify-content: space-between;
     // }
 
-    @include mixins.footer-item-init(3vh, white,row, space-between);
-    border-bottom: 1px solid #e4ebf3;
+    @include mixins.footer-item-init(3vh, var(--footer-menu-bg),row, space-between);
+    border-bottom: 1px solid var(--footer-menu-bb);
     // box-shadow: 5px 5px 10px -10px #777;
 
 
@@ -38,58 +38,13 @@
         font-weight: 400;
 
         &:hover {
-          color: lighten(variables.$purple, 20%);
+          color: var(--footer-link-hover);
         }
       }
     }
     &-link-image {
       // background-color: rgb(102, 68, 255);
-      padding-top: 3px;
-      @include mixins.flex;
-      justify-content: flex-end;
-      column-gap: 2rem;
-      & > * {
-        // border: 1px solid black;
-        width: fit-content;
-        // font-size: 80%;
-        color: variables.$black;
-        // font-family: "Gudea";
-
-        //colo
-        transition: all 0.2s ease;
-
-        &:nth-child(1) {
-          font-size: 2rem;
-
-          &:hover {
-            color: blue;
-            transition: all 0.2s ease;
-          }
-        }
-        &:nth-child(2) {
-          &:hover {
-            color: variables.$light-blue;
-            transition: all 0.2s ease;
-          }
-        }
-        &:nth-child(3) {
-          &:hover {
-            color: variables.$purple;
-            transition: all 0.2s ease;
-          }
-        }
-        &:nth-child(4) {
-          &:hover {
-            color: red;
-            transition: all 0.2s ease;
-          }
-        }
-
-        // &:hover{
-        // color: lighten(variables.$purple,20%);
-
-        // }
-      }
+     @include mixins.icons-flush(flex-end,2rem);
     }
 
     //queries

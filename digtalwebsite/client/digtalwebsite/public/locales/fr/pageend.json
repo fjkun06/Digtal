@@ -1,5 +1,15 @@
 {
   "subscribe": "S'abonner à notre Newsletter",
   "subs-button": "Souscrire",
-  "placeholder": "Veuillez entrer votre email"
+  "placeholder": "Veuillez entrer votre email",
+
+  "link": {
+    "about": "Entreprise ",
+    "contact": "Contact",
+    "legal": "Mentions Légales",
+    "news": "News"
+  },
+  "terms": "Conditions Générales",
+  "policy": "Politique de confidentialité",
+  "rights": "Tous droits réservés"
 }

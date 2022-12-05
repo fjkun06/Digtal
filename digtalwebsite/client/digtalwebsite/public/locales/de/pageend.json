@@ -1,6 +1,19 @@
 {
-   "subscribe": "Abonnieren Sie unsere Newsletter",
-   "subs-button": "Abonnieren",
-   "placeholder": "Enter email address"
+  "subscribe": "Abonnieren Sie unsere Newsletter",
+  "subs-button": "Abonnieren",
+  "placeholder": "Geben Sie ihre Email Addresse ein",
+
+  "link": {
+    "about": "Über uns",
+    "contact": "KontaKt",
+    "legal": "Impressum",
+    "news": "News"
+  },
+  "terms": "AGB",
+  "policy": "Datenschutz",
+  "rights": "Alle Rechte vorbehalten"
+
+
 
 }
+

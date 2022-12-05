@@ -1,7 +1,9 @@
+import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import ReactTelInput from "react-telephone-input";
 import "react-telephone-input/css/default.css";
 import flags from "../assets/images/flags.png";
+import '../css/TelephoneComponentCss.css'
 
 export default function Telephone({ errorState, field, errorText,success }) {
   function handleInputChange(telNumber, selectedCountry) {
@@ -36,6 +38,8 @@ export default function Telephone({ errorState, field, errorText,success }) {
 
   return (
     <>
+      <StyledEngineProvider injectFirst>
+
       <ReactTelInput
         defaultCountry="cm"
         flagsImagePath={flags}
@@ -45,6 +49,7 @@ export default function Telephone({ errorState, field, errorText,success }) {
        
         helperText={errorText}
       />
+      </StyledEngineProvider>
     </>
   );
 }

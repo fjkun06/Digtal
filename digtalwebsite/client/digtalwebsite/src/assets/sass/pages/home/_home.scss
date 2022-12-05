@@ -1,0 +1,18 @@
+@use "./home-body";
+@use "./home-header";
+
+.home {
+  height: fit-content;
+  // margin-top: 10vh;
+  // margin-top: 12vh;
+
+  //body goes here
+  @extend %home-header;
+
+  //body goes here
+  @extend %home-body;
+
+  @media only screen and (max-width: 1050px) {
+    min-height: 100vw;
+  }
+}

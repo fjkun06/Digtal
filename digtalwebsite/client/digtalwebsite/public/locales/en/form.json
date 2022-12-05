@@ -9,16 +9,19 @@
    },
    "email": "Email",
    "phone": {
-      "tel": "Tel:",
+      "tel": "Telephone",
       "sel": "select country and enter phone number"
+      
    },
    "subject": {
       "label": "Subject",
-      "op1": "Other",
-      "op2": "Web Development",
+      "op1": "UI/UX Design",
+      "op2": "Software Development",
       "op3": "Digital Marketing",
       "op4": "Consulting"
    },
    "message": "Message",
-   "button": "Send"
+   "company_name": "Company Name",
+   "button": "Submit",
+   "interest": "I am interested in"
 }

@@ -4,7 +4,6 @@ import sx from "@mui/system/sx";
 
 export const Gridd = styled(Grid)(
   sx({
-    fontFamily: "Gudea",
     fontSize: "1.5rem",
     textAlign: "center",
     display: "block",
@@ -18,7 +17,7 @@ export const theme = createTheme({
       xs: 0,
       sm: 600,
       md: 900,
-      bs: 768,
+      bs: 793,
       w793: 796,
       w893: 893,
       lg: 1200,
@@ -28,10 +27,12 @@ export const theme = createTheme({
 });
 
 //navbar icon switcher
-export const toggleMobileNavbar = (mobileNavbarReveal, mobileCross, mobileMenu, shape) => {
-  Array.from(mobileNavbarReveal)[0].style.display = shape === "round" ? "grid" : "none";
+export const toggleMobileNavbar = (setShowMobileMenu, mobileCross, mobileMenu, shape) => {
+  // Array.from(mobileNavbarReveal)[0].style.display = shape === "round" ? "grid" : "none";
   Array.from(mobileCross)[0].style.display = shape === "round" ? "block" : "none";
   Array.from(mobileMenu)[0].style.display = shape === "round" ? "none" : "block";
+  shape === "round" ? setShowMobileMenu(true) : setShowMobileMenu(false);
+  shape === "cross" ? setShowMobileMenu(false) : setShowMobileMenu(true);
 };
 
 //mobile navbar flag toggler
@@ -54,3 +55,6 @@ export const selectMenu = [
   { t: "subject.op3", path: "/digital-marketing" },
   { t: "subject.op4", path: "/services/consulting" },
 ];
+
+export const selectClosed = ["3/4","4/5","5/6","6/7"];
+export const selectOpen = ["3/8","8/9","9/10","10/11"];

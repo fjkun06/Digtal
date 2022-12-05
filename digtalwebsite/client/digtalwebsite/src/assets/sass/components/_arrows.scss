@@ -1,0 +1,159 @@
+%arrow{
+
+#title {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-row-gap: 1em;
+  transform: rotateZ(1deg);
+
+z-index: 2;
+
+
+
+  //functions for loading icons
+// @function slidde ($opacity){
+@for $i from 1 through 4 {
+  .header-arrow-#{$i} {
+    transform: rotateZ(35deg);
+    opacity: calc($i / 4);
+
+    position: relative;
+    width: 35px;
+    height: 12px;
+    //here
+    // background-color: red;
+    background-color: transparent;
+    z-index: 9999;
+    border: none;
+    outline: none;
+
+    // border: 1px solid black;
+  }
+
+  .header-arrow-#{$i}::after {
+    position: absolute;
+    content: "";
+    display: block;
+    transform: rotateZ(100deg);
+    // transform: rotateZ(95deg);
+    width: 40px;
+    height: 12px;
+    //here
+    z-index: -1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    // background-color: red;
+
+    left: 20px;
+    top: -14px;
+  }
+  // }
+}
+
+//header arrow
+
+.header-arrow-1 {
+  animation: slide 1s linear infinite alternate;
+}
+
+.header-arrow-1::after {
+  animation: slide 1s linear infinite alternate;
+  transition: all 0.2s;
+}
+
+.header-arrow-2 {
+  animation: slide 1s linear 0.375s infinite alternate;
+  transition: all 0.2s;
+}
+
+.header-arrow-2::after {
+  animation: slide 1s linear 0.375s infinite alternate;
+  transition: all 0.2s;
+}
+
+.header-arrow-3 {
+  animation: slide-blue 1s linear 0.75s infinite alternate;
+  transition: all 0.2s;
+}
+
+.header-arrow-3::after {
+  animation: slide-blue 1s linear 0.75s infinite alternate;
+  transition: all 0.2s;
+}
+
+.header-arrow-4 {
+  animation: slide-blue 1s linear 1.125s infinite alternate;
+  transition: all 0.2s;
+}
+
+.header-arrow-4::after {
+  animation: slide-blue 1s linear 1.125s infinite alternate;
+  transition: all 0.2s;
+}
+}
+
+
+
+// header arrow container
+// .header-1 {
+//   animation: bounce 1s linear infinite alternate;
+// }
+// .header-2 {
+//   animation: bounce 1s linear 1s infinite alternate;
+// }
+// .header-3 {
+//   animation: bounce 1s linear 2s infinite alternate;
+// }
+// .header-4 {
+//   animation: bounce 1s linear 3s infinite alternate;
+// }
+
+@keyframes slide {
+  0% {
+    //  transform: translate(0px, 0px);
+  }
+  50% {
+    //  transform: translate(0px, 10px);
+  }
+
+  100% {
+    //here
+    background-color: var(--arrow-end);
+    // background-color: purple;1
+    //  transform: translate(0px, 0px);
+  }
+}
+@keyframes slide-blue {
+  0% {
+    //  transform: translate(0px, 0px);
+  }
+  50% {
+    //  transform: translate(0px, 10px);
+  }
+
+  100% {
+    //here
+    background-color: var(--arrow-start );
+    // background-color: rgb(101, 210, 246);
+    //  transform: translate(0px, 0px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    //  all: purple;
+    transform: translate(0px, 0px);
+  }
+  50% {
+    //  all: purple;
+    transform: translate(0px, 30px);
+  }
+  100% {
+    //  all: purple;
+    // transform: translate(0px, 0px);
+    transform: translate(0px, 10px);
+  }
+}
+}
