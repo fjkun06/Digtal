@@ -130,13 +130,9 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid
-            item
-            container
-            sx={{ backgroundColor: "white" }}
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
+
+          <Grid item container sx={{ backgroundColor: "yellow" }} alignItems={"center"} justifyContent="space-between">
+
             {/* navbar logo */}
 
             <Grid
@@ -167,16 +163,14 @@ export default function Navbar({ language, setLanguage }) {
 
             {/* Desktop navbar */}
             <Grid
-              md={9}
+              md={8}
               sm={9}
               bs={9}
               container
               item
-              sx={{
-                display: max793 ? "none" : "",
-                border: "1px solid red",
-                backgroundColor: "red",
-              }}
+
+              sx={{ display: max793 ? "none" : "", border: "1px solid red", backgroundColor: "red" }}
+
               alignItems={"center"}
               justifyContent="end"
               columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
@@ -241,10 +235,8 @@ export default function Navbar({ language, setLanguage }) {
 
               <Gridd item>
                 <Grid sx={{ width: "fit-content" }} className="language-item">
-                  <EnglandIcon
-                    className="navbar-theme-dark"
-                    sx={{ fontSize: 25 }}
-                  />
+                  <EnglandIcon className="navbar-theme-dark" sx={{ fontSize: 25 }} />
+
 
                   <DarkMode
                     className="navbar-theme-dark"
@@ -272,161 +264,96 @@ export default function Navbar({ language, setLanguage }) {
                 </Grid>
               </Gridd>
             </Grid>
-          </Grid>
-
-          {/* mobile navbar */}
-
-          <Grid
-            item
-            sx={{
-              backgroundColor: "transparent",
-              height: "7rem",
-              justifyContent: "end",
-              zIndex: 99,
-              position: "relative",
-            }}
-            display={{ xs: "grid", bs: "none" }}
-            xs={8}
-            pr={4}
-            pt={1}
-          >
-            <MenuRoundedIcon
-              sx={{
-                fontSize: "4rem",
-                "&:hover": { cursor: "pointer" },
-              }}
-              className="mobile-navbar-menu"
-              onClick={() =>
-                toggleMobileNavbar(
-                  mobileNavbarReveal,
-                  mobileCross,
-                  mobileMenu,
-                  "round"
-                )
-              }
-            />
-
-            <CloseTwoToneIcon
-              sx={{
-                fontSize: "4rem",
-                color: "white",
-                "&:hover": { cursor: "pointer" },
-                display: "none",
-              }}
-              className="mobile-navbar-cross"
-              onClick={() => {
-                setTimeout(
-                  () =>
-                    toggleMobileNavbar(
-                      mobileNavbarReveal,
-                      mobileCross,
-                      mobileMenu,
-                      "cross"
-                    ),
-                  50
-                );
-              }}
-            />
-
-            <Grid className="mobile-nav-bar mobile-navbar-reveal">
-              <Grid item className="mobile-nav-bar-item">
-                <MobileActiveNavLink to={language + "/"} text={t("home")} />
-              </Grid>
-              <Grid item className="mobile-nav-bar-item">
-                <MobileActiveNavLink
-                  to={language + "/enterprise"}
-                  text={t("enterprise")}
-                />
-              </Grid>
+            <Grid item container sx={{ backgroundColor: "green" }} md={1} sm={9} bs={9}
+             alignItems={"center"}
+             justifyContent="end">
+              {/* mobile navbar */}
 
               <Grid
                 item
-                className="mobile-nav-bar-item"
-                onClick={() =>
-                  toggleMobileServicesDropdown(
-                    mobileServicesDropdown,
-                    mobileSpecial
-                  )
-                }
+                sx={{
+                  backgroundColor: "transparent",
+                  height: "7rem",
+                  justifyContent: "end",
+                  zIndex: 99,
+                  position: "relative",
+                }}
+                display={{ xs: "grid", bs: "grid" }}
+                xs={8}
+                pr={4}
+                pt={1}
               >
-                <MobileActiveNavLink
-                  to={language + "/services/"}
-                  text={t("services")}
+                <MenuRoundedIcon
+                  sx={{
+                    fontSize: "4rem",
+                    "&:hover": { cursor: "pointer" },
+                  }}
+                  className="mobile-navbar-menu"
+                  onClick={() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "round")}
                 />
-                <ExpandMoreOutlined
-                  sx={{ fontSize: 24 }}
-                  className="select-item-sub-arrow"
-                />
-              </Grid>
-              <Grid item className="mobile-nav-bar-item">
-                <MobileActiveNavLink
-                  to={language + "/about-us"}
-                  text={t("about")}
-                />
-              </Grid>
 
-              <Grid item className="mobile-nav-bar-item special-navbar-item">
-                <SelectDropdown
-                  language={language}
-                  t={t}
-                  classes="select-item-sub mobile-services-dropdown"
-                />
-              </Grid>
-              <Grid item className="mobile-nav-bar-item">
-                <MobileActiveNavLink
-                  to={language + "/contact-us"}
-                  text={t("contact")}
-                />
-              </Grid>
-              <Grid item className="mobile-nav-bar-item">
-                <DarkModeTwoTone
-                  className="navbar-theme-dark"
+                <CloseTwoToneIcon
                   sx={{
-                    fontSize: 25,
-                    display: websiteTheme === "dark" ? "block" : "none",
-                    marginLeft: "45%",
+                    fontSize: "4rem",
+                    color: "white",
+                    "&:hover": { cursor: "pointer" },
+                    display: "none",
                   }}
+                  className="mobile-navbar-cross"
                   onClick={() => {
-                    switchTheme("light");
-                    setWebsiteTheme("light");
+                    setTimeout(() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "cross"), 50);
                   }}
                 />
-                <LightModeTwoTone
-                  className="navbar-theme-light"
-                  sx={{
-                    fontSize: 25,
-                    display: websiteTheme === "light" ? "block" : "none",
-                    marginLeft: "45%",
-                  }}
-                  onClick={() => {
-                    switchTheme("dark");
-                    setWebsiteTheme("dark");
-                  }}
-                />
-              </Grid>
-              <Grid
-                item
-                className="mobile-nav-bar-item"
-                onClick={() => toggleLanguage(specialLanguage)}
-              >
-                <img
-                  src={region}
-                  alt="france-flag"
-                  className="language-image"
-                />
-                <ExpandMoreOutlined
-                  sx={{ fontSize: 24 }}
-                  className="lselect-item-sub-arrow"
-                />
-              </Grid>
-              <Grid item className="mobile-nav-bar-item special-language">
-                <LanguageDropdown
-                  location={location}
-                  language={language}
-                  setRegion={setRegion}
-                  setLanguage={setLanguage}
-                  classes={"language-dropdown"}
-                />
+
+                <Grid className="mobile-nav-bar mobile-navbar-reveal">
+                  <Grid item className="mobile-nav-bar-item">
+                    <MobileActiveNavLink to={language + "/"} text={t("home")} />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <MobileActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
+                  </Grid>
+
+                  <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
+                    <MobileActiveNavLink to={language + "/services/"} text={t("services")} />
+                    <ExpandMoreOutlined sx={{ fontSize: 24 }} className="select-item-sub-arrow" />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <MobileActiveNavLink to={language + "/about-us"} text={t("about")} />
+                  </Grid>
+
+                  <Grid item className="mobile-nav-bar-item special-navbar-item">
+                    <SelectDropdown language={language} t={t} classes="select-item-sub mobile-services-dropdown" />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <MobileActiveNavLink to={language + "/contact-us"} text={t("contact")} />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item">
+                    <DarkModeTwoTone
+                      className="navbar-theme-dark"
+                      sx={{ fontSize: 25, display: websiteTheme === "dark" ? "block" : "none", marginLeft: "45%" }}
+                      onClick={() => {
+                        switchTheme("light");
+                        setWebsiteTheme("light");
+                      }}
+                    />
+                    <LightModeTwoTone
+                      className="navbar-theme-light"
+                      sx={{ fontSize: 25, display: websiteTheme === "light" ? "block" : "none", marginLeft: "45%" }}
+                      onClick={() => {
+                        switchTheme("dark");
+                        setWebsiteTheme("dark");
+                      }}
+                    />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item" onClick={() => toggleLanguage(specialLanguage)}>
+                    <img src={region} alt="france-flag" className="language-image" />
+                    <ExpandMoreOutlined sx={{ fontSize: 24 }} className="lselect-item-sub-arrow" />
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item special-language">
+                    <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown"} />
+                  </Grid>
+                </Grid>
+
               </Grid>
             </Grid>
           </Grid>
