@@ -218,11 +218,30 @@
             }
 
             .menu {
-               grid-row: 3/8;
-               background-color: #71f;
-               border: 1px solid red;
+               grid-row: 3/9;
+               // background-color: #71f;
+               // border: 1px solid red;
+               @include mixins.flex;
 
-               // width: 100%;
+               &-sub {
+                  width: 80%;
+                  // border: 1px solid red;
+                  height: 100%;
+               @include mixins.flex(column);
+                  
+
+               &>*{
+                  // border: 1px solid red;
+                  width: 100%;
+                  height: 100%;
+                  a{
+                     font-size: 2rem;
+                     color: variables.$purple;
+                     font-family: "Inter",sans-serif;
+
+                  }
+               }
+               }
             }
 
             .empty {
@@ -235,7 +254,6 @@
             .icons {
                grid-row: 13/15;
                @include mixins.flex(column);
-           
 
                svg {
                   font-size: 25px;
@@ -243,8 +261,7 @@
 
                & > * {
                   &:nth-child(1) {
-               @include mixins.icons-flush(center, 1rem);
-
+                     @include mixins.icons-flush(center, 1rem);
                   }
                   &:nth-child(2) {
                      font-size: 0.9rem;

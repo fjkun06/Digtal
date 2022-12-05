@@ -30,6 +30,9 @@
 
     &:nth-child(4) {
       font-size: 2rem;
+      stroke: red;
+      color: blue;
+
 
       &:hover {
         color: variables.$facebook-hover;
