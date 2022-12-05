@@ -30,24 +30,24 @@ function App() {
     <StyledEngineProvider injectFirst>
 
       <Grid>
-        <Grid container className="navigation-main" id="n-main">
+        {/* <Grid container className="navigation-main" id="n-main"> */}
           {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
-          <Navbar setLanguage={setLanguage} language={language} />
-        </Grid>
+          {/* <Navbar setLanguage={setLanguage} language={language} />
+        </Grid> */}
         {/* bill's work starts here */}
 
           <CarouselSection />
           <ServiceSection />
           {/* <ServiceSection /> */}
-          <Grid id="scroll-zone" >
+          {/* <Grid id="scroll-zone" >
 
                  <Outlet />
-              </Grid>
+          </Grid> */}
 
         {/* bill's work ends here */}
-        <Grid>
+        {/* <Grid>
           <Footer language={language} />
-        </Grid>
+        </Grid> */}
       </Grid>
       </StyledEngineProvider>
     </>
