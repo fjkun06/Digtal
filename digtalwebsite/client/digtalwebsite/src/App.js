@@ -2,17 +2,10 @@ import { Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
 import ServiceSection from "./components/home/services/main";
 import "./assets/sass/main.scss";
 import "./fonts/fonts";
-
-import Hero from "./components/Hero/Hero";
-import './assets/sass/main.scss';
-import "@fontsource/carrois-gothic"
-
 import { useState } from "react";
-import CarouselSection from "./components/home/carousel/carousel";
 import ServicesLayout from "./components/home/services/layout";
 import { StyledEngineProvider } from "@mui/system";
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
@@ -23,9 +16,9 @@ import { StyledEngineProvider } from "@mui/system";
 function App() {
   const [language, setLanguage] = useState("/en");
 
+  console.log("im in app");
 
   return (
-
     <>
     <StyledEngineProvider injectFirst>
 
@@ -35,12 +28,8 @@ function App() {
           <Navbar setLanguage={setLanguage} language={language} />
         </Grid>
         {/* bill's work starts here */}
-
-          <CarouselSection />
-          <ServiceSection />
           {/* <ServiceSection /> */}
           <Grid id="scroll-zone" >
-
                  <Outlet />
               </Grid>
 

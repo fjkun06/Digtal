@@ -45,7 +45,7 @@ export default function Footer({ language }) {
             </Grid>
           </Grid>
           <Grid item className="footer-policy">
-            <Typography>© {new Date().getFullYear()} Digtal {t('rights')}</Typography>
+            <Typography>© {new Date().getFullYear()} DIGTAL {t('rights')}</Typography>
             <Grid item className="footer-policy-link-text">
               {policy.map((link) => (
                 <FooterLink key={link.label} to={language + link.route} text={t(link.label)} className="footer-policy-link-text-item" sx={{ color: "red" }} />
