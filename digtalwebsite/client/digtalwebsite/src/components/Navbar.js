@@ -20,6 +20,7 @@ import SelectDropdown from "./SelectDropdown";
 import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
+import Search from "../assets/svg/Search";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -117,7 +118,6 @@ export default function Navbar({ language, setLanguage }) {
               // bs={3}
               // md={3}
               // xs={4}
-             
             >
               <Gridd
                 item
@@ -217,7 +217,7 @@ export default function Navbar({ language, setLanguage }) {
                 />
               </Gridd>
             </Grid>
-            <Grid item container  md={1} sm={9} bs={9} alignItems={"center"} className="main-nav-sub-mobile" justifyContent="end">
+            <Grid item container md={1} sm={9} bs={9} alignItems={"center"} className="main-nav-sub-mobile" justifyContent="end">
               {/* mobile navbar */}
 
               <Grid
@@ -236,20 +236,18 @@ export default function Navbar({ language, setLanguage }) {
                 // pt={1}
               >
                 <MenuIcon
-                  sx={{
-                    fontSize: "4.5rem",
-                    "&:hover": { cursor: "pointer" },
-
-                  }}
+                  sx={
+                    {
+                      // display:"none"
+                    }
+                  }
                   className="mobile-navbar-menu"
-                  onClick={() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "round")}
+
+                  // onClick={() => toggleMobileNavbar(mobileNavbarReveal, mobileCross, mobileMenu, "round")}
                 />
 
                 <CloseTwoToneIcon
                   sx={{
-                    fontSize: "4rem",
-                    color: "white",
-                    "&:hover": { cursor: "pointer" },
                     display: "none",
                   }}
                   className="mobile-navbar-cross"
@@ -307,6 +305,18 @@ export default function Navbar({ language, setLanguage }) {
                   </Grid>
                 </Grid>
               </Grid>
+            </Grid>
+
+            {/* mobile navbar body */}
+            <Grid item container className="main-nav-sub--mobile-body">
+              <div className="mobile-body--section search">
+                <div>
+                  <Search />
+                </div>
+              </div>
+              <p className="mobile-body--section menu">hello</p>
+              {/* <p className="mobile-body--section empty">hello</p> */}
+              <p className="mobile-body--section icons">hello</p>
             </Grid>
           </Grid>
         </Grid>
