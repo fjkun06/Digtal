@@ -21,6 +21,8 @@ import SelectDropdown from "./SelectDropdown";
 import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
+import { FranceIcon } from "../assets/svg/FranceIcon";
+import { GermanyIcon } from "../assets/svg/GermanyIcon";
 import Search from "../assets/svg/Search";
 import { icons } from "./config/footer_config";
 
@@ -328,7 +330,9 @@ export default function Navbar({ language, setLanguage }) {
                   </Grid>
 
                   <Grid sx={{ width: "fit-content" }} className="language-item" gridRow={mobileSelectGridRows[3]}>
-                    <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} />
+                    <EnglandIcon sx={{ fontSize: 25 }} />
+                    <FranceIcon sx={{ fontSize: 25 }} />
+                    <GermanyIcon sx={{ fontSize: 25 }} />
                   </Grid>
                 </div>
               </div>

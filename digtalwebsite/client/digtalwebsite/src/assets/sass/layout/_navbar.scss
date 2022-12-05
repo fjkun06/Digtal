@@ -299,6 +299,10 @@
                         // background-color: #fff;
                         grid-row: 6/7;
                         // grid-row: 10/11;
+                        @include mixins.flex{
+                           justify-content: flex-start;
+                           column-gap: 2rem;
+                        };
                      }
                   }
                }
