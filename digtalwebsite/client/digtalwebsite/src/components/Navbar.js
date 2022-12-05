@@ -11,11 +11,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
+import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
-import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown } from "./config/navbar_config";
+import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown, selectClosed, selectOpen } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
 import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
@@ -30,8 +31,10 @@ export default function Navbar({ language, setLanguage }) {
   //initialising states
   const [dropdown, setdropdown] = useState("");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [mobileSelectState, setMobileSelectState] = useState(false);
 
   const [servicesDropdown, setServicesDropdown] = useState("");
+  const [mobileSelectGridRows, setmobileSelectGridRows] = useState(selectClosed);
   const [mobileServicesDropdown, setMobileServicesDropdown] = useState("");
   const [mobileSpecial, setMobileSpecial] = useState("");
   const [mobileNavbarReveal, setMobileNavbarReveal] = useState("");
@@ -93,6 +96,10 @@ export default function Navbar({ language, setLanguage }) {
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
 
+  function toggleMobileSelect() {
+    setMobileSelectState(mobileSelectState === true? false : true)
+  }
+
   console.log("condicao: ", condition);
   //
   return (
@@ -111,7 +118,7 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub" height={showMobileMenu? "99.5vh" : "9vh"}>
+          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : "9vh"}>
             {/* navbar logo */}
 
             <Grid
@@ -245,7 +252,6 @@ export default function Navbar({ language, setLanguage }) {
                     }
                   }
                   className="mobile-navbar-menu"
-
                   onClick={() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "round")}
                 />
 
@@ -276,7 +282,7 @@ export default function Navbar({ language, setLanguage }) {
             </Grid>
 
             {/* mobile navbar body */}
-            <Grid item container className="main-nav-sub--mobile-body" sx={{display: !showMobileMenu? "none !important" : "grid"}}>
+            <Grid item container className="main-nav-sub--mobile-body" sx={{ display: !showMobileMenu ? "none !important" : "grid" }}>
               <div className="mobile-body--section search">
                 <div>
                   <Search />
@@ -291,31 +297,37 @@ export default function Navbar({ language, setLanguage }) {
                     <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                   </Grid>
 
-                  <Grid item className="mobile-nav-bar-item" sx={{gridRow: ""}} onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
-                    <ActiveNavLink to={language + "/services/"} text={t("services")} />
-                    <ExpandMoreOutlined sx={{ fontSize: 24 }} className="select-item-sub-arrow" />
-
-                    {/* <Grid item className="mobile-nav-bar-item">
+                  <Grid item className="mobile-nav-bar-item"  onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
+                    <ActiveNavLink to={""} text={t("services")} onClick={toggleMobileSelect}/>
+                    {/* <ActiveNavLink to={language + "/services/"} text={t("services")} onClick={toggleMobileSelect}/> */}
+                    {!mobileSelectState ? (
+                      <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+                    ) : (
+                      <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+                    )}
+                    <div style={{ display: !mobileSelectState ? "none" : "block" }}>
+                      <Grid item className="mobile-nav-bar-item">
+                        <ActiveNavLink to={language + "/software-development"} text={t("subject.op2", { ns: "form" })} />
+                      </Grid>
+                      <Grid item className="mobile-nav-bar-item">
+                        <ActiveNavLink to={language + "/digital-marketing"} text={t("subject.op3", { ns: "form" })} />
+                      </Grid>
+                      <Grid item className="mobile-nav-bar-item">
+                        <ActiveNavLink to={language + "/consulting"} text={t("subject.op4", { ns: "form" })} />
+                      </Grid>
+                      <Grid item className="mobile-nav-bar-item">
+                        <ActiveNavLink to={language + "/ui-ux-design"} text={t("subject.op1", { ns: "form" })} />
+                      </Grid>
+                    </div>
+                  </Grid>
+                  <Grid item className="mobile-nav-bar-item" gridRow={mobileSelectGridRows[1]}>
                     <ActiveNavLink to={language + "/about-us"} text={t("about")} />
                   </Grid>
-                  <Grid item className="mobile-nav-bar-item">
-                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
-                  </Grid>
-                  <Grid item className="mobile-nav-bar-item">
-                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
-                  </Grid>
-                  <Grid item className="mobile-nav-bar-item">
-                    <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
-                  </Grid> */}
-                  </Grid>
-                  <Grid item className="mobile-nav-bar-item">
-                    <ActiveNavLink to={language + "/about-us"} text={t("about")} />
-                  </Grid>
-                  <Grid item className="mobile-nav-bar-item">
+                  <Grid item className="mobile-nav-bar-item" gridRow={mobileSelectGridRows[2]}>
                     <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
                   </Grid>
 
-                  <Grid sx={{ width: "fit-content" }} className="language-item">
+                  <Grid sx={{ width: "fit-content" }} className="language-item" gridRow={mobileSelectGridRows[3]}>
                     <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} />
                   </Grid>
                 </div>
