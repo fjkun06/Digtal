@@ -226,12 +226,12 @@
             .menu {
                grid-row: 3/13;
                // border: 1px solid red;
-               background-color: #7ff;
+               // background-color: #7ff;
                @include mixins.flex;
 
                &-sub {
                   width: 80%;
-                  border: 1px solid red;
+                  // border: 1px solid red;
                   height: 100%;
                   @include mixins.grid {
                      justify-content: start;
