@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ActiveNavLink from "../routes/ReusableNavLink";
-import anglais from "../assets/images/uk64.png";
-import france from "../assets/images/fr64.png";
-import german from "../assets/images/de64.png";
+import anglais from "../assets/svg/uk.svg";
+import france from "../assets/svg/fr.svg";
+import german from "../assets/svg/de.svg";
 import logo from "../assets/images/logoo.png";
 import logoMobile from "../assets/images/logo2.png";
 import { Box, StyledEngineProvider, ThemeProvider } from "@mui/system";
+import languageSwitcher from "../i18n/languageSwitcher";
+
 import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -16,7 +18,7 @@ import MobileActiveNavLink from "../routes/ReusableMobileNavLink";
 import LanguageDropdown from "./LanguageDropdown";
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
-import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown, selectClosed, selectOpen } from "./config/navbar_config";
+import { theme, Gridd, toggleMobileNavbar, toggleLanguage, toggleMobileServicesDropdown, selectClosed, selectOpen, dropdownItems } from "./config/navbar_config";
 import SelectDropdown from "./SelectDropdown";
 import { DarkMode, DarkModeTwoTone, LightMode, LightModeTwoTone } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
@@ -50,6 +52,7 @@ export default function Navbar({ language, setLanguage }) {
   //language settings
   const { t } = useTranslation(["navbar", "form", "pageend"]);
   let location = useLocation();
+  console.log(location);
 
   //codition for scrolling
   const regex = new RegExp(/\/..\/$/);
@@ -95,11 +98,68 @@ export default function Navbar({ language, setLanguage }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
+
+  const bordered = "flag--bordered";
+
+  //language switching function
+  async function switchLanguage(name) {
+    if (location.pathname.slice(0, 3) === name) {
+      // if (language === e.target.route) {
+      console.log(name + " already");
+    } else {
+     await setLanguage(name);
+      setTimeout(() => navigate(name + location.pathname.slice(3 - location.pathname.length)), 300);
+      languageSwitcher(name);
+    }
+  }
+
+  React.useEffect(() => {
+    function testState(id) {
+      return allFlags.filter((flag) => flag.classList.contains(bordered)).some((elt) => elt.id === id);
+    }
+
+    function removeBorderFromOtherElements(id) {
+      allFlags.forEach((flag) => {
+        if (flag.id !== id) {
+          flag.classList.remove(bordered);
+        } else {
+          flag.classList.add(bordered);
+        }
+      });
+    }
+
+    //setting default flag
+
+    allFlags.forEach((flag) => {
+      if (flag.name === location.pathname.slice(0, 3)) {
+        flag.classList.add(bordered);
+      } else {
+        flag.classList.remove(bordered);
+      }
+    });
+
+    allFlags.forEach((elt) => {
+      console.log("hel: ", location.pathname.slice(3 - location.pathname.length));
+      // console.log("hel: ",location.pathname.slice(3,location.pathname.length - 3))
+
+      elt.addEventListener("click", (e) => {
+        // handling changes
+        //hanling border
+        if (testState(e.target.id)) {
+        } else {
+          removeBorderFromOtherElements(e.target.id);
+        }
+
+      });
+    });
+  }, [language, location, setLanguage, navigate, allFlags]);
+
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
 
   function toggleMobileSelect() {
-    setMobileSelectState(mobileSelectState === true? false : true)
+    setMobileSelectState(mobileSelectState === true ? false : true);
   }
 
   console.log("condicao: ", condition);
@@ -115,7 +175,6 @@ export default function Navbar({ language, setLanguage }) {
           id="scroll-nav"
           direction="row"
           sx={{
-            // fontFamily: "Gudea",
             position: "sticky",
             zIndex: 100,
           }}
@@ -267,19 +326,6 @@ export default function Navbar({ language, setLanguage }) {
                   }}
                 />
 
-                <Grid className="mobile-nav-bar mobile-navbar-reveal">
-                  <Grid item className="mobile-nav-bar-item special-navbar-item">
-                    <SelectDropdown language={language} t={t} classes="select-item-sub mobile-services-dropdown" />
-                  </Grid>
-
-                  <Grid item className="mobile-nav-bar-item" onClick={() => toggleLanguage(specialLanguage)}>
-                    <img src={region} alt="france-flag" className="language-image" />
-                    <ExpandMoreOutlined sx={{ fontSize: 24 }} className="lselect-item-sub-arrow" />
-                  </Grid>
-                  <Grid item className="mobile-nav-bar-item special-language">
-                    <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown"} />
-                  </Grid>
-                </Grid>
               </Grid>
             </Grid>
 
@@ -292,15 +338,17 @@ export default function Navbar({ language, setLanguage }) {
               </div>
               <div className="mobile-body--section menu">
                 <div className="menu-sub">
-                  <Grid item className="mobile-nav-bar-item">
+                  <Grid item >
                     <ActiveNavLink to={language + "/"} text={t("home")} />
                   </Grid>
-                  <Grid item className="mobile-nav-bar-item">
+                  <Grid item >
                     <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                   </Grid>
 
-                  <Grid item className="mobile-nav-bar-item"  onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
-                    <ActiveNavLink to={""} text={t("services")} onClick={toggleMobileSelect}/>
+                  <Grid item >
+                  {/* <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}> */}
+                    {/* <ActiveNavLink to={""} text={t("services")} onClick={toggleMobileSelect} /> */}
+                    <span onClick={toggleMobileSelect}>{t("services")}</span>
                     {/* <ActiveNavLink to={language + "/services/"} text={t("services")} onClick={toggleMobileSelect}/> */}
                     {!mobileSelectState ? (
                       <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
@@ -330,13 +378,14 @@ export default function Navbar({ language, setLanguage }) {
                   </Grid>
 
                   <Grid sx={{ width: "fit-content" }} className="language-item" gridRow={mobileSelectGridRows[3]}>
-                    <EnglandIcon sx={{ fontSize: 25 }} />
-                    <FranceIcon sx={{ fontSize: 25 }} />
-                    <GermanyIcon sx={{ fontSize: 25 }} />
+                    {dropdownItems.map((flag) => (
+                      <div key={flag.id}>
+                        <img src={flag.src} alt={flag.alt} name={flag.route} route={flag.route} id={flag.id} className="mobile-select--flag" onClick={() => switchLanguage(flag.route)}/>
+                      </div>
+                    ))}
                   </Grid>
                 </div>
               </div>
-              {/* <p className="mobile-body--section empty">hello</p> */}
               <div className="mobile-body--section icons">
                 <div>
                   {icons.map((icon) => (

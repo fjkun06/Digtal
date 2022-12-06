@@ -15,10 +15,54 @@ export default function LanguageDropdown({
 }) {
   const navigate = useNavigate();
   const dropdownItems = [
-    { route: "/en", src: anglais },
-    { route: "/fr", src: france },
-    { route: "/de", src: german },
+    { route: "/en", src: anglais,alt:"britain-flag",id:"0" },
+    { route: "/fr", src: france ,alt:"france-flag",id:"1"},
+    { route: "/de", src: german,alt:"germany-flag",id:"2" },
   ];
+
+  const bordered = "flag--bordered";
+
+
+  React.useEffect(() => {
+    const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
+
+    function testState(id) {
+      return allFlags.filter((flag) => flag.classList.contains(bordered)).some((elt) => elt.id === id);
+    }
+
+    function removeBorderFromOtherElements(id) {
+      allFlags.forEach((flag) => {
+        if (flag.id !== id) {
+          flag.classList.remove(bordered);
+        } else {
+          flag.classList.add(bordered);
+        }
+      });
+    }
+
+    allFlags.forEach((elt) => {
+      elt.addEventListener("click", (e) => {
+        // setIndex(Number(e.target.id));
+
+
+        //hanling border
+        if (testState(e.target.id)) {
+        } else {
+          removeBorderFromOtherElements(e.target.id);
+        }
+
+        //handling changes
+        if (language === e.target.route) {
+          console.log(e.target.route + " already");
+        } else {
+          setLanguage(e.target.route);
+          setTimeout(() => window.location.reload(false), 300);
+          languageSwitcher(e.target.route);
+          console.log("lang: ", location, "mang: ", location.pathname);
+        }
+      });
+    });
+  });
 
   return (
     <Box className={classes}>

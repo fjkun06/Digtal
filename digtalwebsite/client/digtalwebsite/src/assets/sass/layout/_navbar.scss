@@ -229,6 +229,14 @@
                // background-color: #7ff;
                @include mixins.flex;
 
+               span{
+                  font-size: 2rem;
+                  color: rebeccapurple;
+                  font-family: "Inter",serif;
+                  font-weight: bold;
+                  cursor: pointer;
+               }
+
                &-sub {
                   width: 80%;
                   // border: 1px solid red;
@@ -265,7 +273,7 @@
                         background-color: #fff;
                         transition: height 10.5s ease-in-out;
 
-                        svg{
+                        svg {
                            cursor: pointer;
                         }
 
@@ -296,13 +304,27 @@
                      }
 
                      &:nth-child(6) {
-                        // background-color: #fff;
+                        // background-color: rgb(124, 60, 60);
                         grid-row: 6/7;
+                        margin-top: 1.5rem;
                         // grid-row: 10/11;
-                        @include mixins.flex{
+                        @include mixins.flex {
                            justify-content: flex-start;
                            column-gap: 2rem;
-                        };
+                        }
+                        div {
+                           cursor: pointer;
+                         
+                        }
+                        img{
+                           @include mixins.size(25px,20px);
+                           object-fit: contain;
+
+                        }
+                        .flag--bordered {
+                           border: 3px solid rebeccapurple;
+                           border-radius: 2px;
+                        }
                      }
                   }
                }

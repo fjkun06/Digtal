@@ -1,6 +1,9 @@
 import { Grid, styled } from "@mui/material";
 import { createTheme } from "@mui/system";
 import sx from "@mui/system/sx";
+import anglais from "./../../assets/svg/uk.svg";
+import france from "./../../assets/svg/fr.svg";
+import german from "./../../assets/svg/de.svg";
 
 export const Gridd = styled(Grid)(
   sx({
@@ -58,3 +61,10 @@ export const selectMenu = [
 
 export const selectClosed = ["3/4","4/5","5/6","6/7"];
 export const selectOpen = ["3/8","8/9","9/10","10/11"];
+
+
+export const dropdownItems = [
+  { route: "/en", src: anglais,alt:"britain-flag",id:"0" },
+  { route: "/fr", src: france ,alt:"france-flag",id:"1"},
+  { route: "/de", src: german,alt:"germany-flag",id:"2" },
+];
