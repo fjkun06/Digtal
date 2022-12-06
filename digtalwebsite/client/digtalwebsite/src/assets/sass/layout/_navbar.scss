@@ -298,6 +298,7 @@
                      &:nth-child(6) {
                         // background-color: rgb(124, 60, 60);
                         grid-row: 6/7;
+                        margin-top: 1.5rem;
                         // grid-row: 10/11;
                         @include mixins.flex {
                            justify-content: flex-start;
@@ -309,7 +310,7 @@
                         }
                         img{
                            @include mixins.size(25px,20px);
-                           padding: 0;
+                           object-fit: contain;
 
                         }
                         .flag--bordered {

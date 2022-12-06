@@ -98,11 +98,37 @@ export default function Navbar({ language, setLanguage }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
+  // React.useEffect(() => {
+  //   // window.onload = () => {
+  //   allFlags.forEach((flag) => {
+  //     if (flag.name === location.pathname.slice(0, 3)){
+  //       flag.classList.add(bordered);
+  //     } else{
+  //       flag.classList.remove(bordered);
+  //     }
+  //   });
+
+  //   // };
+  // },[allFlags,location.pathname]);
+
   //mobile language switcher
   const bordered = "flag--bordered";
 
+  //language switching function
+  async function switchLanguage(name) {
+    if (location.pathname.slice(0, 3) === name) {
+      // if (language === e.target.route) {
+      console.log(name + " already");
+    } else {
+     await setLanguage(name);
+      setTimeout(() => navigate(name + location.pathname.slice(3 - location.pathname.length)), 300);
+      languageSwitcher(name);
+      // console.log("lang: ", location, "mang: ", location.pathname);
+    }
+  }
+
   React.useEffect(() => {
-    const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
     function testState(id) {
       return allFlags.filter((flag) => flag.classList.contains(bordered)).some((elt) => elt.id === id);
     }
@@ -117,30 +143,33 @@ export default function Navbar({ language, setLanguage }) {
       });
     }
 
-    allFlags.forEach((elt) => {
+    //setting default flag
 
-      elt.name === location.pathname.slice(0,3) && elt.classList.add(bordered);
+    allFlags.forEach((flag) => {
+      if (flag.name === location.pathname.slice(0, 3)) {
+        flag.classList.add(bordered);
+      } else {
+        flag.classList.remove(bordered);
+      }
+    });
+
+    allFlags.forEach((elt) => {
+      console.log("hel: ", location.pathname.slice(3 - location.pathname.length));
+      // console.log("hel: ",location.pathname.slice(3,location.pathname.length - 3))
+
       elt.addEventListener("click", (e) => {
         // setIndex(Number(e.target.id));
-
+        // handling changes
         //hanling border
         if (testState(e.target.id)) {
         } else {
           removeBorderFromOtherElements(e.target.id);
         }
 
-        //handling changes
-        // if (language === e.target.route) {
-        //   console.log(e.target.route + " already");
-        // } else {
-        //   setLanguage(e.target.route);
-        //   // setTimeout(() => window.location.reload(false), 300);
-        //   languageSwitcher(e.target.route);
-        //   console.log("lang: ", location, "mang: ", location.pathname);
-        // }
+        // console.log("hhh: ", e.target.name);
       });
     });
-  }, [language, location, setLanguage]);
+  }, [language, location, setLanguage, navigate, allFlags]);
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
@@ -379,22 +408,12 @@ export default function Navbar({ language, setLanguage }) {
                   <Grid sx={{ width: "fit-content" }} className="language-item" gridRow={mobileSelectGridRows[3]}>
                     {dropdownItems.map((flag) => (
                       <div key={flag.id}>
-                        <img src={flag.src} alt={flag.alt} name={flag.route} route={flag.route} id={flag.id} className="mobile-select--flag" />
+                        <img src={flag.src} alt={flag.alt} name={flag.route} route={flag.route} id={flag.id} className="mobile-select--flag" onClick={() => switchLanguage(flag.route)}/>
                       </div>
                     ))}
-                    {/* <div> */}
-                      {/* <img src={anglais} alt="britain-flag" route="/en" id="0" className="mobile-select--flag" />
-                    </div>
-                    <div>
-                      <img src={france} alt="britain-flag" route="/fr" id="1" className="mobile-select--flag" />
-                    </div>
-                    <div>
-                      <img src={german} alt="britain-flag" route="/de" id="2" className="mobile-select--flag" />
-                    </div> */}
                   </Grid>
                 </div>
               </div>
-              {/* <p className="mobile-body--section empty">hello</p> */}
               <div className="mobile-body--section icons">
                 <div>
                   {icons.map((icon) => (
