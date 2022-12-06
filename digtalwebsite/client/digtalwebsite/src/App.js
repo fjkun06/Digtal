@@ -28,11 +28,13 @@ function App() {
           <Navbar setLanguage={setLanguage} language={language} />
         </Grid>
         {/* bill's work starts here */}
+
           {/*  <Grid id="scroll-zone" >
                  <Outlet />
               </Grid> */}
  <ServiceSection />
         
+
 
         {/* bill's work ends here */}
         <Grid>
