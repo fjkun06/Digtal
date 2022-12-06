@@ -99,20 +99,7 @@ export default function Navbar({ language, setLanguage }) {
   }, []);
 
   const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
-  // React.useEffect(() => {
-  //   // window.onload = () => {
-  //   allFlags.forEach((flag) => {
-  //     if (flag.name === location.pathname.slice(0, 3)){
-  //       flag.classList.add(bordered);
-  //     } else{
-  //       flag.classList.remove(bordered);
-  //     }
-  //   });
 
-  //   // };
-  // },[allFlags,location.pathname]);
-
-  //mobile language switcher
   const bordered = "flag--bordered";
 
   //language switching function
@@ -124,7 +111,6 @@ export default function Navbar({ language, setLanguage }) {
      await setLanguage(name);
       setTimeout(() => navigate(name + location.pathname.slice(3 - location.pathname.length)), 300);
       languageSwitcher(name);
-      // console.log("lang: ", location, "mang: ", location.pathname);
     }
   }
 
@@ -158,7 +144,6 @@ export default function Navbar({ language, setLanguage }) {
       // console.log("hel: ",location.pathname.slice(3,location.pathname.length - 3))
 
       elt.addEventListener("click", (e) => {
-        // setIndex(Number(e.target.id));
         // handling changes
         //hanling border
         if (testState(e.target.id)) {
@@ -166,7 +151,6 @@ export default function Navbar({ language, setLanguage }) {
           removeBorderFromOtherElements(e.target.id);
         }
 
-        // console.log("hhh: ", e.target.name);
       });
     });
   }, [language, location, setLanguage, navigate, allFlags]);
@@ -191,7 +175,6 @@ export default function Navbar({ language, setLanguage }) {
           id="scroll-nav"
           direction="row"
           sx={{
-            // fontFamily: "Gudea",
             position: "sticky",
             zIndex: 100,
           }}
@@ -343,19 +326,6 @@ export default function Navbar({ language, setLanguage }) {
                   }}
                 />
 
-                {/* <Grid className="mobile-nav-bar mobile-navbar-reveal">
-                  <Grid item className="mobile-nav-bar-item special-navbar-item">
-                    <SelectDropdown language={language} t={t} classes="select-item-sub mobile-services-dropdown" />
-                  </Grid>
-
-                  <Grid item className="mobile-nav-bar-item" onClick={() => toggleLanguage(specialLanguage)}>
-                    <img src={region} alt="france-flag" className="language-image" />
-                    <ExpandMoreOutlined sx={{ fontSize: 24 }} className="lselect-item-sub-arrow" />
-                  </Grid>
-                  <Grid item className="mobile-nav-bar-item special-language">
-                    <LanguageDropdown location={location} language={language} setRegion={setRegion} setLanguage={setLanguage} classes={"language-dropdown"} />
-                  </Grid>
-                </Grid> */}
               </Grid>
             </Grid>
 
@@ -368,15 +338,17 @@ export default function Navbar({ language, setLanguage }) {
               </div>
               <div className="mobile-body--section menu">
                 <div className="menu-sub">
-                  <Grid item className="mobile-nav-bar-item">
+                  <Grid item >
                     <ActiveNavLink to={language + "/"} text={t("home")} />
                   </Grid>
-                  <Grid item className="mobile-nav-bar-item">
+                  <Grid item >
                     <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
                   </Grid>
 
-                  <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}>
-                    <ActiveNavLink to={""} text={t("services")} onClick={toggleMobileSelect} />
+                  <Grid item >
+                  {/* <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}> */}
+                    {/* <ActiveNavLink to={""} text={t("services")} onClick={toggleMobileSelect} /> */}
+                    <span onClick={toggleMobileSelect}>{t("services")}</span>
                     {/* <ActiveNavLink to={language + "/services/"} text={t("services")} onClick={toggleMobileSelect}/> */}
                     {!mobileSelectState ? (
                       <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />

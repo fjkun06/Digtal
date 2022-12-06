@@ -229,6 +229,14 @@
                // background-color: #7ff;
                @include mixins.flex;
 
+               span{
+                  font-size: 2rem;
+                  color: rebeccapurple;
+                  font-family: "Inter",serif;
+                  font-weight: bold;
+                  cursor: pointer;
+               }
+
                &-sub {
                   width: 80%;
                   // border: 1px solid red;
