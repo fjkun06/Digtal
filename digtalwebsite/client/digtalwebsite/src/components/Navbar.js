@@ -346,10 +346,7 @@ export default function Navbar({ language, setLanguage }) {
                   </Grid>
 
                   <Grid item >
-                  {/* <Grid item className="mobile-nav-bar-item" onClick={() => toggleMobileServicesDropdown(mobileServicesDropdown, mobileSpecial)}> */}
-                    {/* <ActiveNavLink to={""} text={t("services")} onClick={toggleMobileSelect} /> */}
                     <span onClick={toggleMobileSelect}>{t("services")}</span>
-                    {/* <ActiveNavLink to={language + "/services/"} text={t("services")} onClick={toggleMobileSelect}/> */}
                     {!mobileSelectState ? (
                       <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
                     ) : (
