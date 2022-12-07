@@ -1,29 +1,23 @@
 import React, { useEffect, useState } from "react";
 import ActiveNavLink from "../routes/ReusableNavLink";
-import anglais from "../assets/svg/uk.svg";
-import france from "../assets/svg/fr.svg";
-import german from "../assets/svg/de.svg";
 import logo from "../assets/images/logoo.png";
 import logoMobile from "../assets/images/logo2.png";
 import { ThemeProvider } from "@mui/system";
 import languageSwitcher from "../i18n/languageSwitcher";
 
-import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
-import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
-import { theme, Gridd, toggleMobileNavbar, selectClosed, dropdownItems } from "./config/navbar_config";
+import { theme, Gridd, toggleMobileNavbar } from "./config/navbar_config";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
 import { FranceIcon } from "../assets/svg/FranceIcon";
 import { GermanyIcon } from "../assets/svg/GermanyIcon";
-import Search from "../assets/svg/Search";
-import { icons } from "./config/footer_config";
+
 import MobileNavbarBody from "./MobileNavbarBody";
 
 export default function Navbar({ language, setLanguage }) {
@@ -34,7 +28,6 @@ export default function Navbar({ language, setLanguage }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [mobileSelectState, setMobileSelectState] = useState(false);
 
-  const mobileSelectGridRows = selectClosed;
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const navigate = useNavigate();
@@ -42,10 +35,6 @@ export default function Navbar({ language, setLanguage }) {
   //language settings
   const { t } = useTranslation(["navbar", "form", "pageend"]);
   let location = useLocation();
-
-  //codition for scrolling
-  const regex = new RegExp(/\/..\/$/);
-  const condition = regex.test(window.location.pathname);
 
   //theme configuration
   useEffect(() => {
@@ -71,7 +60,7 @@ export default function Navbar({ language, setLanguage }) {
   const bordered = "flag--bordered";
 
   //language switching function
-   async function switchLanguage(name) {
+  async function switchLanguage(name) {
     if (location.pathname.slice(0, 3) === name) {
     } else {
       await setLanguage(name);
@@ -242,21 +231,7 @@ export default function Navbar({ language, setLanguage }) {
             <Grid item container md={1} sm={9} bs={9} alignItems={"center"} className="main-nav-sub-mobile" justifyContent="end">
               {/* mobile navbar */}
 
-              <Grid
-                item
-                sx={{
-                  backgroundColor: "transparent",
-                  height: "7rem",
-                  justifyContent: "end",
-                  zIndex: 99,
-                  position: "relative",
-                }}
-                display={{ xs: "grid", bs: "grid" }}
-                className="mobile-sub-container"
-                // xs={8}
-                // pr={4}
-                // pt={1}
-              >
+              <Grid item display={{ xs: "grid", bs: "grid" }} className="mobile-sub-container">
                 <MenuIcon className="mobile-navbar-menu" onClick={() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "round")} />
 
                 <CloseTwoToneIcon
@@ -270,8 +245,7 @@ export default function Navbar({ language, setLanguage }) {
             </Grid>
 
             {/* mobile navbar body */}
-            <MobileNavbarBody language={language} showMobileMenu={showMobileMenu}
-            toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage}/>
+            <MobileNavbarBody language={language} showMobileMenu={showMobileMenu} toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage} />
           </Grid>
         </Grid>
       </ThemeProvider>
