@@ -7,11 +7,10 @@ import languageSwitcher from "../i18n/languageSwitcher";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
+
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
-import { theme, Gridd, toggleMobileNavbar } from "./config/navbar_config";
+import { theme, Gridd } from "./config/navbar_config";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
@@ -19,6 +18,7 @@ import { FranceIcon } from "../assets/svg/FranceIcon";
 import { GermanyIcon } from "../assets/svg/GermanyIcon";
 
 import MobileNavbarBody from "./MobileNavbarBody";
+import MobileNavbarIconHandler from "./MobileNavbarIconHandler";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -228,21 +228,8 @@ export default function Navbar({ language, setLanguage }) {
                 />
               </Gridd>
             </Grid>
-            <Grid item container md={1} sm={9} bs={9} alignItems={"center"} className="main-nav-sub-mobile" justifyContent="end">
-              {/* mobile navbar */}
-
-              <Grid item display={{ xs: "grid", bs: "grid" }} className="mobile-sub-container">
-                <MenuIcon className="mobile-navbar-menu" onClick={() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "round")} />
-
-                <CloseTwoToneIcon
-                  sx={{ display: "none" }}
-                  className="mobile-navbar-cross"
-                  onClick={() => {
-                    setTimeout(() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "cross"), 50);
-                  }}
-                />
-              </Grid>
-            </Grid>
+            {/* mobile navbar */}
+            <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} />
 
             {/* mobile navbar body */}
             <MobileNavbarBody language={language} showMobileMenu={showMobileMenu} toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage} />

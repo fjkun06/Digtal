@@ -82,4 +82,4 @@ export const navbarItems = [
   { route: "/contact-us", index: "contact" },
 ];
 
-console.log(navbarItems.slice(2,4));
+console.log(navbarItems.slice(2,0));

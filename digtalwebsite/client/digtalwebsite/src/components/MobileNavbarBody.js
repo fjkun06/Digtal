@@ -6,8 +6,11 @@ import ActiveNavLink from "../routes/ReusableNavLink";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectClosed, selectDropdownItems } from "./config/navbar_config";
 import { icons } from "./config/footer_config";
+import { useTranslation } from "react-i18next";
 
-const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobileSelectState, t, switchLanguage }) => {
+const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobileSelectState, switchLanguage }) => {
+  const { t } = useTranslation(["navbar", "form", "pageend"]);
+
   return (
     <Grid item container className="main-nav-sub--mobile-body" sx={{ display: !showMobileMenu ? "none !important" : "grid" }}>
       <div className="mobile-body--section search">
