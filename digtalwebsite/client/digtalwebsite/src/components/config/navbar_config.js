@@ -68,3 +68,4 @@ export const dropdownItems = [
   { route: "/fr", src: france ,alt:"france-flag",id:"1"},
   { route: "/de", src: german,alt:"germany-flag",id:"2" },
 ];
+
