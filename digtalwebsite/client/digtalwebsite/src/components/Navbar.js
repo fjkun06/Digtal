@@ -126,7 +126,7 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : "9vh"}>
+          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : "7rem"}>
             {/* navbar logo */}
 
             <Grid

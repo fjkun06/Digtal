@@ -2,9 +2,12 @@
 @use "../util/mixins";
 
 @mixin navbar() {
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
+  @media screen and (min-width: 769px){
+  // @media screen and (min-width: 769px) and (max-width: 1024px) {
     // @media screen and (max-width: 480px) {
     .main-nav {
+      border: 1px solid rgb(85, 0, 255);
+
       //Multicolor bottom border
       &::after {
         @include mixins.size(100%, 4px);
@@ -12,9 +15,12 @@
 
       }
       &-sub {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(20, 1fr);
         //logo
         &-logo {
           background-color: #fff;
+          border: 1px solid red;
           img {
             transform: scale(0.8);
           }
@@ -27,6 +33,8 @@
 
         //items
         &-links {
+          border: 1px solid red;
+
         }
 
         //theme
