@@ -1,0 +1,40 @@
+@use "../util/variables";
+@use "../util/mixins";
+
+@mixin navbar() {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    // @media screen and (max-width: 480px) {
+    .main-nav {
+      //Multicolor bottom border
+      &::after {
+        @include mixins.size(100%, 4px);
+        // @include mixins.size(51%, 4px);
+
+      }
+      &-sub {
+        //logo
+        &-logo {
+          background-color: #fff;
+          img {
+            transform: scale(0.8);
+          }
+        }
+
+        //mobile body
+        &--mobile-body {
+       display: none;
+        }
+
+        //items
+        &-links {
+        }
+
+        //theme
+        &-mobile {
+          
+          display: none;
+        }
+      }
+    }
+  }
+}

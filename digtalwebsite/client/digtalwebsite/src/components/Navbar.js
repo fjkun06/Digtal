@@ -133,6 +133,7 @@ export default function Navbar({ language, setLanguage }) {
               item
               justifyContent="flex-start"
               className="main-nav-sub-logo"
+              id="navlogo"
               // bs={3}
               // md={3}
               // xs={4}
@@ -140,13 +141,13 @@ export default function Navbar({ language, setLanguage }) {
               <Gridd
                 item
                 className="logo"
-                sx={{
-                  width: {
-                    md: "50%",
-                    sm: "70%",
-                    xs: "100%",
-                  },
-                }}
+                // sx={{
+                //   width: {
+                //     md: "50%",
+                //     sm: "70%",
+                //     xs: "100%",
+                //   },
+                // }}
                 // ml={{ xs: 6 }}
               >
                 {max480 ? <img src={logoMobile} alt="Digtal Logo" /> : <img src={logo} alt="Digtal Logo" />}
@@ -204,7 +205,7 @@ export default function Navbar({ language, setLanguage }) {
                 }
               ></Grid>
 
-              <Gridd item className="main-nav-sub-links--itemx">
+              <Gridd item className="main-nav-sub-links--itemx" id="theme-switcher">
                 <Grid sx={{ width: "fit-content" }} className="language-item">
                   <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} />
                 </Grid>

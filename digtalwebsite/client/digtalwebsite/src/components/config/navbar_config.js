@@ -76,10 +76,10 @@ export const selectDropdownItems = [
 ];
 
 export const navbarItems = [
-  { route: "/", index: "home" },
-  { route: "/enterprise", index: "enterprise" },
-  { route: "/about-us", index: "about" },
-  { route: "/contact-us", index: "contact" },
+  { route: "/", index: "home",id:"home" },
+  { route: "/enterprise", index: "enterprise",id:"enterprise" },
+  { route: "/about-us", index: "about",id:"about" },
+  { route: "/contact-us", index: "contact",id:"contact" },
 ];
 
 console.log(navbarItems.slice(2,0));
