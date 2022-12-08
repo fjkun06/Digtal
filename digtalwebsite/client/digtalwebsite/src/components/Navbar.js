@@ -22,6 +22,7 @@ import MobileNavbarBody from "./MobileNavbarBody";
 import MobileNavbarIconHandler from "./MobileNavbarIconHandler";
 import Search from "../assets/svg/Search";
 import SearchDesktop from "../assets/svg/SearchDesktop";
+import { icons } from "./config/footer_config";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -138,7 +139,7 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : ( mobileSelectState && min769? "40rem" : "7rem") }>
+          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : mobileSelectState && min769 ? "30rem" : "7rem"}>
             {/* navbar logo */}
 
             <Grid item className="main-nav-sub-logo" id="navlogo">
@@ -218,16 +219,24 @@ export default function Navbar({ language, setLanguage }) {
                 />
               </Gridd>
             </Grid>
-            <Grid container item className="main-nav-sub-services"style={{display: mobileSelectState && min769? "grid": "none"}}>
+            <Grid container item className="main-nav-sub-services" style={{ display: mobileSelectState && min769 ? "grid" : "none" }}>
               <div className="service-list">
                 {selectDropdownItems.map((item) => (
                   <Grid item key={item.textIndex}>
-                    <KeyboardArrowRight/>
+                    <KeyboardArrowRight />
                     <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
                   </Grid>
                 ))}
               </div>
-              <div className="service-icons">hello</div>
+              <div className="service-icons">
+                <div>
+                  {icons.map((icon) => (
+                    <a key={icon.url} href={icon.url} target="_blank" rel=" noreferrer">
+                      {icon.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </Grid>
             {/* mobile navbar */}
             <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} />
