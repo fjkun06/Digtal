@@ -18,6 +18,12 @@
    animation-iteration-count: 1;
    background-color: white;
 
+   // // /controlling highlighter
+   &>* a::selection,   *::selection{
+      background-color: rebeccapurple;
+      color: white;
+   }
+
    //gridding
    &-sub {
       width: 100vw;
@@ -196,7 +202,7 @@
             @include mixins.grid;
             height: 100%;
 
-            &--item,
+            &--item,img,
             span {
                display: none;
             }
@@ -232,8 +238,11 @@
    //styling all links in main-nav
    & > * a {
       font-weight: 600;
-      font-size: 17px;
+      // font-size: 17px;
       color: variables.$purple;
+
+      // /controlling highlighter
+  
    }
 
    &-item {

@@ -1,7 +1,7 @@
 import { ExpandMoreOutlined } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 import React from "react";
-import Search from "../assets/svg/Search";
+import search from "../assets/svg/magnifier.svg";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectClosed, selectDropdownItems } from "./config/navbar_config";
@@ -15,7 +15,9 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
     <Grid item container className="main-nav-sub--mobile-body" sx={{ display: !showMobileMenu ? "none !important" : "grid" }}>
       <div className="mobile-body--section search" id="desktop-search">
         <div>
-          <Search />
+          {/* <Search /> */}
+          <img src={search} alt={"Search"}  />
+
         </div>
       </div>
       <div className="mobile-body--section menu">
