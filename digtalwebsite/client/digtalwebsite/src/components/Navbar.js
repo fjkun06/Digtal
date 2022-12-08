@@ -113,6 +113,7 @@ export default function Navbar({ language, setLanguage }) {
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
+  const min769 = useMediaQuery("(min-width:769px)");
 
   function toggleMobileSelect() {
     setMobileSelectState(mobileSelectState === true ? false : true);
@@ -120,7 +121,6 @@ export default function Navbar({ language, setLanguage }) {
 
   function toggleFlagDropdown() {
     setshowFlagDropdown(showFlagDropdown === true ? false : true);
-    console.log("clicked");
   }
 
   return (
@@ -138,7 +138,7 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : "7rem"}>
+          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : ( mobileSelectState && min769? "40rem" : "7rem") }>
             {/* navbar logo */}
 
             <Grid item className="main-nav-sub-logo" id="navlogo">
@@ -218,7 +218,7 @@ export default function Navbar({ language, setLanguage }) {
                 />
               </Gridd>
             </Grid>
-            <Grid container item className="main-nav-sub-services">
+            <Grid container item className="main-nav-sub-services"style={{display: mobileSelectState && min769? "grid": "none"}}>
               <div style={{ display: !mobileSelectState ? "none" : "block" }} className="service-list">
                 {selectDropdownItems.map((item) => (
                   <Grid item key={item.textIndex}>
