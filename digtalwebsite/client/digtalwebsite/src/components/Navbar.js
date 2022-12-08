@@ -33,6 +33,7 @@ export default function Navbar({ language, setLanguage }) {
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
   const [showFlagDropdown, setshowFlagDropdown] = useState(false);
+  const [flagId, setFlagId] = useState("");
   const navigate = useNavigate();
 
   //language settings
@@ -70,7 +71,6 @@ export default function Navbar({ language, setLanguage }) {
       setTimeout(() => navigate(name + location.pathname.slice(3 - location.pathname.length)), 300);
       languageSwitcher(name);
       toggleFlagDropdown();
-
     }
   }
 
@@ -89,10 +89,11 @@ export default function Navbar({ language, setLanguage }) {
       });
     }
 
-    //setting default flag
+    //setting default flag mobile
     allFlags.forEach((flag) => {
       if (flag.name === location.pathname.slice(0, 3)) {
         flag.classList.add(bordered);
+        setFlagId(flag.id !== flagId ? flag.id : flagId);
       } else {
         flag.classList.remove(bordered);
       }
@@ -107,7 +108,7 @@ export default function Navbar({ language, setLanguage }) {
         }
       });
     });
-  }, [language, location, setLanguage, navigate, allFlags]);
+  }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
@@ -118,7 +119,7 @@ export default function Navbar({ language, setLanguage }) {
 
   function toggleFlagDropdown() {
     setshowFlagDropdown(showFlagDropdown === true ? false : true);
-    console.log("clicked")
+    console.log("clicked");
   }
 
   return (
@@ -175,10 +176,10 @@ export default function Navbar({ language, setLanguage }) {
                 </span>
 
                 <Grid sx={{ width: "fit-content" }} className="language-item">
-                  <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown}/>
-                  <FranceIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown}/>
-                  <GermanyIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown}/>
-                  <Grid  className="language-item flags--off" id="flags" style={{display: !showFlagDropdown ? "none" : "grid"}} >
+                  {flagId === "0" ? <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown} /> : ""}
+                  {flagId === "1" ? <FranceIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown} /> : ""}
+                  {flagId === "2" ? <GermanyIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown} /> : ""}
+                  <Grid className="language-item flags--off" id="flags" style={{ display: !showFlagDropdown ? "none" : "grid" }}>
                     {flagItems.map((flag) => (
                       <div key={flag.id}>
                         <img src={flag.src} alt={flag.alt} name={flag.route} route={flag.route} id={flag.id} className="mobile-select--flag" onClick={() => switchLanguage(flag.route)} />

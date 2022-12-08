@@ -93,23 +93,31 @@
               margin-top: 5rem;
               margin-left: -8px;
               @include mixins.grid;
-              row-gap: 1rem;
-              padding: 5px;
+              // row-gap: 1rem;
+              // padding: 5px;
+
+              &>* div{
+                background-color: red;
+              }
 
               div {
                 cursor: pointer;
+                background-color: variables.$light-blue;
+                padding: 5px;
+                &:hover {
+                  background-color: darken($color: (variables.$light-blue), $amount: 20);
+                }
               }
               img {
                 @include mixins.size(25px, 20px);
-                object-fit: contain;
+                object-fit: scale-down;
+                // object-fit: contain;
 
-                &:hover {
-                  border: 3px solid rebeccapurple;
-                }
+               
               }
               .flag--bordered {
-                border: 3px solid rebeccapurple;
-                border-radius: 2px;
+                // border: 3px solid rebeccapurple;
+                background-color: rebeccapurple;
               
               }
               .flags--off {
@@ -119,11 +127,11 @@
               &::before {
                 content: "";
                 display: block;
-                @include mixins.size(105%, 20px);
+                @include mixins.size(108%, 20px);
                 background-color: variables.$light-blue;
                 position: absolute;
                 top: -2rem;
-                left: -1px;
+                left: -1.5px;
                 clip-path: polygon(50% 0, 100% 100%, 0 100%);
                 //  clip-path: polygon(50% 0%,100% 100%,100% 0%);
               }
