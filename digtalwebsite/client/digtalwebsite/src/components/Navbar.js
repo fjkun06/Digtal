@@ -9,7 +9,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 
-
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, flagItems, selectDropdownItems } from "./config/navbar_config";
@@ -161,21 +160,16 @@ export default function Navbar({ language, setLanguage }) {
               {/* <Gridd item className="main-nav-sub-links--item">
                 <ActiveNavLink to={language + "/services/"} text={t("services")} />
               </Gridd> */}
-               <Grid item className="main-nav-sub-links--item" id={"laptop-services"}>
-            <span onClick={toggleMobileSelect} id="services">{t("services")}</span>
-            {!mobileSelectState ? (
-              <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
-            ) : (
-              <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
-            )}
-            {/* <div style={{ display: !mobileSelectState ? "none" : "block" }}>
-              {selectDropdownItems.map((item) => (
-                <Grid item key={item.textIndex}>
-                  <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
-                </Grid>
-              ))}
-            </div> */}
-          </Grid>
+              <Grid item className="main-nav-sub-links--item" id={"laptop-services"}>
+                <span onClick={toggleMobileSelect} id="services">
+                  {t("services")}
+                </span>
+                {!mobileSelectState ? (
+                  <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+                ) : (
+                  <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+                )}
+              </Grid>
 
               <Gridd item className="main-nav-sub-links--item">
                 <ActiveNavLink to={language + "/about-us"} text={t("about")} />
@@ -223,6 +217,16 @@ export default function Navbar({ language, setLanguage }) {
                   }}
                 />
               </Gridd>
+            </Grid>
+            <Grid container item className="main-nav-sub-services">
+              <div style={{ display: !mobileSelectState ? "none" : "block" }} className="service-list">
+                {selectDropdownItems.map((item) => (
+                  <Grid item key={item.textIndex}>
+                    <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
+                  </Grid>
+                ))}
+              </div>
+              <div className="service-icons">hello</div>
             </Grid>
             {/* mobile navbar */}
             <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} />
