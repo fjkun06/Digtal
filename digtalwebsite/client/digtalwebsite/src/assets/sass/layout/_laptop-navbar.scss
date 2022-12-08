@@ -13,16 +13,16 @@
       }
 
       //links
-      & > * a,#services {
+      & > * a,
+      #services {
         font-weight: 600;
         font-size: 1.3rem;
         color: variables.$purple;
         font-family: "Inter", serif;
-
       }
 
       &-sub {
-      height: 40rem;
+        height: 40rem;
 
         grid-template-columns: repeat(20, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -59,14 +59,13 @@
           grid-row: 1/2;
           border: 1px solid red;
 
-          #laptop-services{
-          @include mixins.grid;
-          grid-template-columns: repeat(2, minmax(min-content, max-content));
-svg{
-  margin-top: 2px
-}
+          #laptop-services {
+            @include mixins.grid;
+            grid-template-columns: repeat(2, minmax(min-content, max-content));
+            svg {
+              margin-top: 2px;
+            }
           }
-
 
           @include mixins.grid;
           // grid-template-columns: minmax(1fr,1fr);
@@ -115,7 +114,7 @@ svg{
               // row-gap: 1rem;
               // padding: 5px;
 
-              &>* div{
+              & > * div {
                 background-color: red;
               }
 
@@ -124,20 +123,17 @@ svg{
                 background-color: variables.$light-blue;
                 padding: 5px;
                 &:hover {
-                  background-color: darken($color: (variables.$light-blue), $amount: 20);
+                  background-color: darken(variables.$light-blue, 20);
                 }
               }
               img {
                 @include mixins.size(25px, 20px);
                 object-fit: scale-down;
                 // object-fit: contain;
-
-               
               }
               .flag--bordered {
                 // border: 3px solid rebeccapurple;
                 background-color: rebeccapurple;
-              
               }
               .flags--off {
                 display: none;
@@ -159,7 +155,7 @@ svg{
         }
 
         //services body(dropdown)
-        &-services{
+        &-services {
           @include mixins.grid;
           width: 100%;
           height: 100%;
@@ -168,8 +164,34 @@ svg{
           grid-row: 2/6;
 
           grid-template-columns: repeat(2, 1fr);
-        // grid-template-rows: repeat(5, 1fr);
-       }
+          // grid-template-rows: repeat(5, 1fr);
+
+          & > * {
+            border: 1px solid red;
+            @include mixins.size(100%, 100%);
+          @include mixins.grid;
+
+          }
+
+          .service-list {
+            background-color: #f9f;
+           
+            svg{
+              font-size: 2rem;
+              margin-top: -1px;
+            }
+            & > * {
+              border: 1px solid red;
+              // @include mixins.size(100%, 100%);
+              width: 100%;
+  
+            }
+          }
+
+          .service-icons {
+            background-color: #89f;
+          }
+        }
 
         //theme
         &-mobile {

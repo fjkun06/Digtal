@@ -12,7 +12,7 @@ import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, flagItems, selectDropdownItems } from "./config/navbar_config";
-import { DarkMode, ExpandMoreOutlined, LightMode } from "@mui/icons-material";
+import { DarkMode, ExpandMoreOutlined, KeyboardArrowRight, LightMode } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
 import { FranceIcon } from "../assets/svg/FranceIcon";
@@ -219,9 +219,10 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
             </Grid>
             <Grid container item className="main-nav-sub-services"style={{display: mobileSelectState && min769? "grid": "none"}}>
-              <div style={{ display: !mobileSelectState ? "none" : "block" }} className="service-list">
+              <div className="service-list">
                 {selectDropdownItems.map((item) => (
                   <Grid item key={item.textIndex}>
+                    <KeyboardArrowRight/>
                     <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
                   </Grid>
                 ))}
