@@ -88,7 +88,7 @@
             position: relative;
 
             #flags {
-              border: 1px solid variables.$light-blue;
+              // border: 1px solid variables.$light-blue;
               position: absolute;
               margin-top: 5rem;
               margin-left: -8px;
@@ -127,11 +127,11 @@
               &::before {
                 content: "";
                 display: block;
-                @include mixins.size(108%, 20px);
+                @include mixins.size(105%, 20px);
                 background-color: variables.$light-blue;
                 position: absolute;
                 top: -2rem;
-                left: -1.5px;
+                left: -1px;
                 clip-path: polygon(50% 0, 100% 100%, 0 100%);
                 //  clip-path: polygon(50% 0%,100% 100%,100% 0%);
               }
