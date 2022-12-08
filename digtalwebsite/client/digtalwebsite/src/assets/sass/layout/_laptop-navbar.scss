@@ -1,0 +1,149 @@
+@use "../util/variables";
+@use "../util/mixins";
+
+@mixin navbar() {
+  @media screen and (min-width: 769px) {
+    // @media screen and (min-width: 769px) and (max-width: 1024px) {
+    // @media screen and (max-width: 480px) {
+    .main-nav {
+      //Multicolor bottom border
+      &::after {
+        @include mixins.size(100%, 4px);
+        // @include mixins.size(51%, 4px);
+      }
+
+      //links
+      & > * a {
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: variables.$purple;
+      }
+
+      &-sub {
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        //logo
+        &-logo {
+          grid-column: 1/5;
+
+          // background-color: #fff;
+          // border: 1px solid red;
+          img {
+            transform: scale(0.8);
+          }
+        }
+
+        // #home {
+        //   background-color: red;
+        //   grid-column: 5/7;
+        //   grid-row: 1/2;
+        //   display: block;
+        // }
+
+        //mobile body
+        &--mobile-body {
+          display: none;
+          //home
+        }
+
+        //items
+        &-links {
+          grid-column: 7/20;
+          @include mixins.grid;
+          // grid-template-columns: minmax(1fr,1fr);
+          grid-template-columns: repeat(6, minmax(min-content, max-content));
+          direction: row;
+          justify-content: flex-end;
+          // column-gap: auto;
+          @media screen and (min-width: 960px) {
+            column-gap: 3.5rem;
+          }
+          column-gap: 3rem;
+
+          // border: 1px solid red;
+          &--item,
+          img,
+          span {
+            cursor: pointer;
+            display: block;
+            // border: 1px solid red;
+            padding: 0;
+            word-break: keep-all;
+            // inline-size: min-content;
+            // overflow-wrap: normal;
+            width: fit-content(1rem);
+            width: max-content;
+          }
+
+          span,
+          svg {
+            user-select: none;
+          }
+
+          #theme-switcher {
+            // border: 1px solid rgb(72, 0, 255);
+            @include mixins.grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 1rem;
+            position: relative;
+
+            #flags {
+              border: 1px solid variables.$light-blue;
+              position: absolute;
+              margin-top: 5rem;
+              margin-left: -8px;
+              @include mixins.grid;
+              // row-gap: 1rem;
+              // padding: 5px;
+
+              &>* div{
+                background-color: red;
+              }
+
+              div {
+                cursor: pointer;
+                background-color: variables.$light-blue;
+                padding: 5px;
+                &:hover {
+                  background-color: darken($color: (variables.$light-blue), $amount: 20);
+                }
+              }
+              img {
+                @include mixins.size(25px, 20px);
+                object-fit: scale-down;
+                // object-fit: contain;
+
+               
+              }
+              .flag--bordered {
+                // border: 3px solid rebeccapurple;
+                background-color: rebeccapurple;
+              
+              }
+              .flags--off {
+                display: none;
+              }
+
+              &::before {
+                content: "";
+                display: block;
+                @include mixins.size(108%, 20px);
+                background-color: variables.$light-blue;
+                position: absolute;
+                top: -2rem;
+                left: -1.5px;
+                clip-path: polygon(50% 0, 100% 100%, 0 100%);
+                //  clip-path: polygon(50% 0%,100% 100%,100% 0%);
+              }
+            }
+          }
+        }
+
+        //theme
+        &-mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}

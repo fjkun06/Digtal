@@ -1,7 +1,7 @@
 import { ExpandMoreOutlined } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 import React from "react";
-import Search from "../assets/svg/Search";
+import search from "../assets/svg/magnifier.svg";
 import ActiveNavLink from "../routes/ReusableNavLink";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectClosed, selectDropdownItems } from "./config/navbar_config";
@@ -13,21 +13,23 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
 
   return (
     <Grid item container className="main-nav-sub--mobile-body" sx={{ display: !showMobileMenu ? "none !important" : "grid" }}>
-      <div className="mobile-body--section search">
+      <div className="mobile-body--section search" id="desktop-search">
         <div>
-          <Search />
+          {/* <Search /> */}
+          <img src={search} alt={"Search"}  />
+
         </div>
       </div>
       <div className="mobile-body--section menu">
         <div className="menu-sub">
           {navbarItems.slice(0, 2).map((item, index) => (
-            <Grid item key={index} className="mobile-nav-bar-item" gridRow={selectClosed[index + 1]}>
+            <Grid item key={index} id={item.id}>
               <ActiveNavLink to={language + item.route} text={t(item.index)} />
             </Grid>
           ))}
 
           <Grid item>
-            <span onClick={toggleMobileSelect}>{t("services")}</span>
+            <span onClick={toggleMobileSelect} id="services">{t("services")}</span>
             {!mobileSelectState ? (
               <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
             ) : (
@@ -35,7 +37,7 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
             )}
             <div style={{ display: !mobileSelectState ? "none" : "block" }}>
               {selectDropdownItems.map((item) => (
-                <Grid item className="mobile-nav-bar-item" key={item.textIndex}>
+                <Grid item key={item.textIndex}>
                   <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
                 </Grid>
               ))}
@@ -43,12 +45,12 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
           </Grid>
 
           {navbarItems.slice(2, 4).map((item, index) => (
-            <Grid item key={index} className="mobile-nav-bar-item" gridRow={selectClosed[index + 1]}>
+            <Grid item key={index}id={item.id}>
               <ActiveNavLink to={language + item.route} text={t(item.index)} />
             </Grid>
           ))}
 
-          <Grid sx={{ width: "fit-content" }} className="language-item" gridRow={selectClosed[3]}>
+          <Grid sx={{ width: "fit-content" }} className="language-item" id="flags">
             {flagItems.map((flag) => (
               <div key={flag.id}>
                 <img src={flag.src} alt={flag.alt} name={flag.route} route={flag.route} id={flag.id} className="mobile-select--flag" onClick={() => switchLanguage(flag.route)} />

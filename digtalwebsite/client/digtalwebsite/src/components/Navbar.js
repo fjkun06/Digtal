@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
-import { theme, Gridd } from "./config/navbar_config";
+import { theme, Gridd, flagItems } from "./config/navbar_config";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
@@ -19,6 +19,8 @@ import { GermanyIcon } from "../assets/svg/GermanyIcon";
 
 import MobileNavbarBody from "./MobileNavbarBody";
 import MobileNavbarIconHandler from "./MobileNavbarIconHandler";
+import Search from "../assets/svg/Search";
+import SearchDesktop from "../assets/svg/SearchDesktop";
 
 export default function Navbar({ language, setLanguage }) {
   //theme configuration
@@ -30,6 +32,8 @@ export default function Navbar({ language, setLanguage }) {
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
+  const [showFlagDropdown, setshowFlagDropdown] = useState(false);
+  const [flagId, setFlagId] = useState("");
   const navigate = useNavigate();
 
   //language settings
@@ -66,6 +70,7 @@ export default function Navbar({ language, setLanguage }) {
       await setLanguage(name);
       setTimeout(() => navigate(name + location.pathname.slice(3 - location.pathname.length)), 300);
       languageSwitcher(name);
+      toggleFlagDropdown();
     }
   }
 
@@ -84,10 +89,11 @@ export default function Navbar({ language, setLanguage }) {
       });
     }
 
-    //setting default flag
+    //setting default flag mobile
     allFlags.forEach((flag) => {
       if (flag.name === location.pathname.slice(0, 3)) {
         flag.classList.add(bordered);
+        setFlagId(flag.id !== flagId ? flag.id : flagId);
       } else {
         flag.classList.remove(bordered);
       }
@@ -102,13 +108,18 @@ export default function Navbar({ language, setLanguage }) {
         }
       });
     });
-  }, [language, location, setLanguage, navigate, allFlags]);
+  }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
 
   function toggleMobileSelect() {
     setMobileSelectState(mobileSelectState === true ? false : true);
+  }
+
+  function toggleFlagDropdown() {
+    setshowFlagDropdown(showFlagDropdown === true ? false : true);
+    console.log("clicked");
   }
 
   return (
@@ -126,56 +137,22 @@ export default function Navbar({ language, setLanguage }) {
             zIndex: 100,
           }}
         >
-          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : "9vh"}>
+          <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : "7rem"}>
             {/* navbar logo */}
 
-            <Grid
-              item
-              justifyContent="flex-start"
-              className="main-nav-sub-logo"
-              // bs={3}
-              // md={3}
-              // xs={4}
-            >
-              <Gridd
-                item
-                className="logo"
-                sx={{
-                  width: {
-                    md: "50%",
-                    sm: "70%",
-                    xs: "100%",
-                  },
-                }}
-                // ml={{ xs: 6 }}
-              >
+            <Grid item className="main-nav-sub-logo" id="navlogo">
+              <Gridd item className="logo">
                 {max480 ? <img src={logoMobile} alt="Digtal Logo" /> : <img src={logo} alt="Digtal Logo" />}
               </Gridd>
             </Grid>
 
             {/* Desktop navbar */}
-            <Grid
-              // md={8}
-              // sm={9}
-              // bs={9}
-              container
-              item
-              // sx={{ display: max793 ? "none" : "", border: "1px solid red", backgroundColor: "red" }}
-              alignItems={"center"}
-              justifyContent="end"
-              columnGap={{ bs: 3, w893: 5, md: 4, lg: 8 }}
-              className="main-nav-sub-links"
-
-              // pl={5}
-              // pr={5}
-            >
+            <Grid container item className="main-nav-sub-links">
               <Gridd item className="main-nav-sub-links--item">
-                {/* <Gridd item md={location.pathname === "/fr/" ? 0.7 : "/de/" ? 0.5 : 0.3}> */}
                 <ActiveNavLink to={language + "/"} text={t("home")} />
               </Gridd>
 
               <Gridd item className="main-nav-sub-links--item">
-                {/* <Gridd item md={window?.location?.pathname === "/de/" ? 1.5 : "/fr/" ? 1.0 : 0.5} lg={location.pathname === "/de/" ? 1.5 : "/fr/" ? 1.6 : 0.5} sx={{ border: "1px solid blue" }}> */}
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
 
@@ -184,29 +161,31 @@ export default function Navbar({ language, setLanguage }) {
               </Gridd>
 
               <Gridd item className="main-nav-sub-links--item">
-                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
                 <ActiveNavLink to={language + "/about-us"} text={t("about")} />
               </Gridd>
 
               <Gridd item className="main-nav-sub-links--item">
-                {/* <Gridd item md={1.1} sx={{ width: "fit-content", border: "1px solid red" }}> */}
                 <ActiveNavLink to={language + "/contact-us"} text={t("contact")} />
               </Gridd>
 
-              <Grid
-                item
-                // className="language-item"
-                className="main-nav-sub-links--item"
-                sx={
-                  {
-                    // border: "1px solid red",
-                  }
-                }
-              ></Grid>
+              {/* <Grid item className="main-nav-sub-links--item"></Grid> */}
 
-              <Gridd item className="main-nav-sub-links--itemx">
+              <Gridd item className="main-nav-sub-links--itemx" id="theme-switcher">
+                <span>
+                  <SearchDesktop />
+                </span>
+
                 <Grid sx={{ width: "fit-content" }} className="language-item">
-                  <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} />
+                  {flagId === "0" ? <EnglandIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown} /> : ""}
+                  {flagId === "1" ? <FranceIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown} /> : ""}
+                  {flagId === "2" ? <GermanyIcon className="navbar-theme-dark main-nav-sub-links--country" sx={{ fontSize: 25 }} toggleDropdown={toggleFlagDropdown} /> : ""}
+                  <Grid className="language-item flags--off" id="flags" style={{ display: !showFlagDropdown ? "none" : "grid" }}>
+                    {flagItems.map((flag) => (
+                      <div key={flag.id}>
+                        <img src={flag.src} alt={flag.alt} name={flag.route} route={flag.route} id={flag.id} className="mobile-select--flag" onClick={() => switchLanguage(flag.route)} />
+                      </div>
+                    ))}
+                  </Grid>
                 </Grid>
 
                 <DarkMode
