@@ -7,11 +7,13 @@ import languageSwitcher from "../i18n/languageSwitcher";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
+
 
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
-import { theme, Gridd, flagItems } from "./config/navbar_config";
-import { DarkMode, LightMode } from "@mui/icons-material";
+import { theme, Gridd, flagItems, selectDropdownItems } from "./config/navbar_config";
+import { DarkMode, ExpandMoreOutlined, LightMode } from "@mui/icons-material";
 import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
 import { FranceIcon } from "../assets/svg/FranceIcon";
@@ -156,9 +158,24 @@ export default function Navbar({ language, setLanguage }) {
                 <ActiveNavLink to={language + "/enterprise"} text={t("enterprise")} />
               </Gridd>
 
-              <Gridd item className="main-nav-sub-links--item">
+              {/* <Gridd item className="main-nav-sub-links--item">
                 <ActiveNavLink to={language + "/services/"} text={t("services")} />
-              </Gridd>
+              </Gridd> */}
+               <Grid item className="main-nav-sub-links--item" id={"laptop-services"}>
+            <span onClick={toggleMobileSelect} id="services">{t("services")}</span>
+            {!mobileSelectState ? (
+              <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+            ) : (
+              <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+            )}
+            {/* <div style={{ display: !mobileSelectState ? "none" : "block" }}>
+              {selectDropdownItems.map((item) => (
+                <Grid item key={item.textIndex}>
+                  <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
+                </Grid>
+              ))}
+            </div> */}
+          </Grid>
 
               <Gridd item className="main-nav-sub-links--item">
                 <ActiveNavLink to={language + "/about-us"} text={t("about")} />

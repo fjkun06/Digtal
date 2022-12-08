@@ -13,7 +13,7 @@
 .main-nav {
    position: fixed;
    z-index: 99999;
-   animation: animate-navbar 0.2s ease-in-out;
+   animation: animate-navbar 0.5s ease-in-out;
 
    animation-iteration-count: 1;
    background-color: white;
@@ -22,6 +22,10 @@
    &>* a::selection,   *::selection{
       background-color: rebeccapurple;
       color: white;
+   }
+
+   &>* ,   *selection{
+     transition: all 0.5s ease-in-out;
    }
 
    //gridding
