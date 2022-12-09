@@ -7,13 +7,14 @@
 @use "../layout//mobile-navbar";
 @use "../layout/tablet-navbar";
 @use "../layout/laptop-navbar";
+@use "../layout/desktop-navbar";
 
 
 //main container
 .main-nav {
    position: fixed;
    z-index: 99999;
-   animation: animate-navbar 0.2s ease-in-out;
+   animation: animate-navbar 0.5s ease-in-out;
 
    animation-iteration-count: 1;
    background-color: white;
@@ -24,12 +25,20 @@
       color: white;
    }
 
+   &>* ,   *selection{
+     transition: all 0.5s ease-in-out;
+   }
+
    //gridding
    &-sub {
       width: 100vw;
       @include mixins.grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(20, 1fr);
+
+      &-services{
+         display: none;
+      }
 
           //logo
           &-logo {
@@ -311,10 +320,10 @@
 /******************Laptop and Small Screen Devices****************/
 @include laptop-navbar.navbar;
 
+/******************Desktop Screens****************/
+// @include desktop-navbar.navbar;
 
 
-
-/******************Mobile Devices****************/
 /******************Mobile Devices****************/
 
 

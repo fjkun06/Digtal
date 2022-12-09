@@ -29,10 +29,10 @@ function App() {
         </Grid>
         {/* bill's work starts here */}
 
-          {/*  <Grid id="scroll-zone" >
+           <Grid id="scroll-zone" >
                  <Outlet />
-              </Grid> */}
- <ServiceSection />
+              </Grid>
+ {/* <ServiceSection /> */}
         
 
 
