@@ -63,6 +63,7 @@ export default function Navbar({ language, setLanguage }) {
 
   //language flasg
   const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
+  const navbar = document.querySelectorAll(".main-nav-sub");
   const bordered = "flag--bordered";
 
   //language switching function
@@ -76,7 +77,19 @@ export default function Navbar({ language, setLanguage }) {
     }
   }
 
+  
+  document.addEventListener("click", (e) => {
+    console.log("doc clicked: ",e.currentTarget.className);
+  });
+
   React.useEffect(() => {
+    //navbar
+    console.log("nav: ", navbar);
+
+    // document.addEventListener("click", (e) => {
+    //   console.log("doc clicked: ",e.target.className);
+    // });
+
     function testState(id) {
       return allFlags.filter((flag) => flag.classList.contains(bordered)).some((elt) => elt.id === id);
     }
