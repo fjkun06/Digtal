@@ -171,6 +171,8 @@
           & > * {
             @include mixins.size(100%, 100%);
             @include mixins.grid;
+              // border: 1px solid red;
+
           }
 
           .service-list {
@@ -194,7 +196,10 @@
             justify-content: flex-end;
             padding-right: 5rem;
 
-            // background-color: #89f;
+            background: url(./../../svg/waves.svg#select-waves) ;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
             div {
               transform: translate(0,-15rem);
           animation: translate-icons 0.5s ease-in-out 1 forwards;
