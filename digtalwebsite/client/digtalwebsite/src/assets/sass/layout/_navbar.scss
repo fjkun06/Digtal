@@ -7,6 +7,7 @@
 @use "../layout//mobile-navbar";
 @use "../layout/tablet-navbar";
 @use "../layout/laptop-navbar";
+@use "../layout/desktop-navbar";
 
 
 //main container
@@ -319,10 +320,10 @@
 /******************Laptop and Small Screen Devices****************/
 @include laptop-navbar.navbar;
 
+/******************Desktop Screens****************/
+// @include desktop-navbar.navbar;
 
 
-
-/******************Mobile Devices****************/
 /******************Mobile Devices****************/
 
 
