@@ -18,6 +18,7 @@ import Contact from "./components/ContactForm";
 import TermsOfUse from "./routes/footer/TermsOfUse";
 import PrivacyPolicy from "./routes/footer/PrivacyPolicy";
 import HomeSkeleton from "./routes/skeletons/HomeSkeleton";
+import ServiceSection from "./components/home/services/main";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const majorRoutes = ["/en", "/fr", "de"];
@@ -28,7 +29,7 @@ root.render(
         <Route path="/" exact element={<App />}>
           {majorRoutes.map((route, index) => (
             <Route path={route} key={index}>
-              <Route index exact element={<Home />} />
+              <Route index exact element={<ServiceSection />} />
               {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">
