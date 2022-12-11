@@ -48,8 +48,9 @@ root.render(
               <Route path="contact-us" element={<Contact />} />
               <Route
                 path="about-us"
-                element={() => import("./routes/footer/AboutUs")}
+                element={() => import("./routes/footer/AboutUs.js")}
               />
+              {/* <Route path="about-us" element={<AboutUs />} /> */}
               <Route path="news" element={<News />} />
               <Route path="legal-notice" element={<LegalPolicy />} />
               <Route path="terms-of-use" element={<TermsOfUse />} />
