@@ -1350,6 +1350,11 @@
   "resolved" "https://registry.npmjs.org/@fontsource/inter/-/inter-4.5.14.tgz"
   "version" "4.5.14"
 
+"@fontsource/passion-one@^4.5.9":
+  "integrity" "sha512-O4XNPppI5x9VdHgjSyulh0FduzvHCX+f+cg5vE5mtdWpSqhY4xZF4ageAZvLgH83cS6NIgkG2YwHzSFjc4BHLg=="
+  "resolved" "https://registry.npmjs.org/@fontsource/passion-one/-/passion-one-4.5.9.tgz"
+  "version" "4.5.9"
+
 "@fontsource/poppins@^4.5.10":
   "integrity" "sha512-oYZVHsnlwV3VWM1SE/m6SUxVh0QLk5+2wB+lBiXcI7N/0KVQWmV9YykaPqfJHBLvmdya+MAOnv+BQHeLU1vOOw=="
   "resolved" "https://registry.npmjs.org/@fontsource/poppins/-/poppins-4.5.10.tgz"

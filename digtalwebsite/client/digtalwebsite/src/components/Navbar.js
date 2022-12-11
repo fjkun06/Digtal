@@ -79,25 +79,6 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
     }
   }
 
-  // outlet.addEventListener("click", (e) => {
-  //   console.log("outlet: ", outlet);
-
-  //   console.log("seldd state: ", mobileSelectState);
-
-  //   if (mobileSelectState === true) {
-  //     // if (!e.target.classList.contains("main-nav-sub")) {
-  //       // setMobileSelectState(false);
-  //       console.log("wtf");
-  //     // }
-  //   }
-  // });
-
-  //outlet useeffect
-  // React.useEffect(() => {
-  //   setOutlet(document.querySelectorAll("#scroll-zone"));
-  //   console.log("outlet: ", outlet);
-  // });
-
   React.useEffect(() => {
     //navbar
 

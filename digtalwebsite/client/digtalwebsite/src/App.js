@@ -8,6 +8,7 @@ import "./fonts/fonts";
 import { useState } from "react";
 import ServicesLayout from "./components/home/services/layout";
 import { StyledEngineProvider } from "@mui/system";
+import AboutUs from "./routes/footer/AboutUs";
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
 // import Title from "./components/home/services/title";
 // import { ServiceSecond } from "./components/home/services/service";
@@ -33,7 +34,14 @@ function App() {
         <Grid>
           <Grid container className="navigation-main" id="n-main">
             {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
-            <Navbar setLanguage={setLanguage} language={language} toggleOutletSelect={toggleOutletSelectState} outletState={outletState} toggleOutletSelectStateOff={toggleOutletSelectStateOff} />
+
+            <Navbar
+              setLanguage={setLanguage}
+              language={language}
+              toggleOutletSelect={toggleOutletSelectState}
+              outletState={outletState}
+              toggleOutletSelectStateOff={toggleOutletSelectStateOff}
+            />
           </Grid>
           {/* bill's work starts here */}
 
@@ -46,7 +54,6 @@ function App() {
           >
             <Outlet />
           </Grid>
-          {/* <ServiceSection /> */}
 
           {/* bill's work ends here */}
           <Grid>
