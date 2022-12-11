@@ -16,8 +16,17 @@ import AboutUs from "./routes/footer/AboutUs";
 
 function App() {
   const [language, setLanguage] = useState("/en");
+  const [outletState, setOutletState] = useState(false);
 
   console.log("im in app");
+
+  function toggleOutletSelectState() {
+    setOutletState(true);
+  }
+
+  function toggleOutletSelectStateOff() {
+    setOutletState(false);
+  }
 
   return (
     <>
@@ -25,16 +34,26 @@ function App() {
         <Grid>
           <Grid container className="navigation-main" id="n-main">
             {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
-            <Navbar setLanguage={setLanguage} language={language} />
+
+            <Navbar
+              setLanguage={setLanguage}
+              language={language}
+              toggleOutletSelect={toggleOutletSelectState}
+              outletState={outletState}
+              toggleOutletSelectStateOff={toggleOutletSelectStateOff}
+            />
           </Grid>
           {/* bill's work starts here */}
 
-          <Grid id="scroll-zone">
+          <Grid
+            id="scroll-zone"
+            onClick={() => {
+              console.log("hello shxt");
+              setOutletState(false);
+            }}
+          >
             <Outlet />
           </Grid>
-          {/* 
-          <ServiceSection /> */}
-          {/* <AboutUs /> */}
 
           {/* bill's work ends here */}
           <Grid>
