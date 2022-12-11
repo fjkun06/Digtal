@@ -1,6 +1,4 @@
-
 import { Grid, Typography, useMediaQuery } from "@mui/material";
-
 import React, { Suspense, useRef, useState } from "react";
 import { homeCards } from "./config/home-config";
 import HomeCard from "./reusables/HomeCard";
@@ -9,14 +7,12 @@ import Arrow from "./Arrow";
 import { useTranslation } from "react-i18next";
 import HomeSkeleton from "./skeletons/HomeSkeleton";
 
-
 import { HeaderCarousel } from "./HeaderCarousel";
 import { useMemo } from "react";
 import ReactVisibilitySensor from "react-visibility-sensor";
 import VisibilitySensor from "react-visibility-sensor";
 import { useCallback } from "react";
 import Headings from "./reusables/Headings";
-import HomeMethodology from "./HomeMethodology";
 
 
 
@@ -42,7 +38,6 @@ export default function Home() {
   const [scroller, setScroller] = useState(null);
   const handleScroll = () => scroller.scrollIntoView();
 
-
   React.useEffect(() => {
     //setting scroller
     setScroller(document?.getElementById("hbody"));
@@ -53,7 +48,6 @@ export default function Home() {
       cards[1] = document.getElementById("hcard2");
       cards[2] = document.getElementById("hcard3");
     }
-
 
     // mobile animation
     if (condition && inViewport && match480Down) {
@@ -167,7 +161,6 @@ export default function Home() {
   //   };
   // }, [ condition]);
 
-
   return (
     <>
       <Suspense fallback={<HomeSkeleton />}>
@@ -185,16 +178,8 @@ export default function Home() {
             >
               {/* <Button>Zoom</Button> */}
               <Arrow onClick={handleScroll} text={t("content", { ns: "home" })} />
-
             </Grid>
-            {/* <Grid item xs={12}>
-              <Typography variant="body1" className="link">
-                {t("content", { ns: "pageend" })}
-              </Typography>
-            </Grid> */}
           </Grid>
-          {/* <div ref={ref}>{isVisible && `Yep, I'm on screen`}</div> */}
-          {/* {isVisible && console.log("div className")} */}
 
           <Grid className="home-body" id="hbody">
             {/* <Grid className="home-body-header">
@@ -226,15 +211,13 @@ export default function Home() {
               {homeCards.map((card, index) => (
                 <HomeCard key={card.heading} logo={card.logo} path={card.path} text={t(card.text, { ns: "home" })} heading={t(card.heading, { ns: "form" })} id={"hcard" + (index + 1)} cname={"home-card-" + (index + 1)} visible={visible} appear={index + 1} buttonText={t("card-button", { ns: "home" })} icon={card.icon} />
               ))}
-
             </Grid>
 
       {/* methodology here */}
-      <HomeMethodology heading={t("our-process.title", { ns: "home" })} subHeading={t("our-process.text", { ns: "home" })}/>
+      {/* <HomeMethodology heading={t("our-process.title", { ns: "home" })} subHeading={t("our-process.text", { ns: "home" })}/> */}
           </Grid>
         </Grid>
       </Suspense>
     </>
   );
-
 }

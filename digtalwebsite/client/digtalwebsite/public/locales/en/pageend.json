@@ -6,9 +6,19 @@
     "about": "About Us",
     "contact": "Contact",
     "legal": "Legal Notice",
-    "news": "News"
+    "news": "News",
+    "career": "Career",
+    "blog": "Blog"
   },
-  "terms": "Terms Of Use",
+  "services": {
+    "mad": "Mobile App Dev",
+    "wd": "Web Dev",
+    "dm": "Digital Marketing",
+    "ui": "UI/UX Design"
+  },
+  "terms": "Terms & Conditions",
   "policy": "Privacy Policy",
-  "rights": "All Rights Reserved"
+  "rights": "All Rights Reserved",
+  "cookie-settings": "Cookie Settings",
+  "cookie-policy": "Cookie Policy"
 }

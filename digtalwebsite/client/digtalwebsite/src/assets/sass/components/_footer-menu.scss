@@ -3,7 +3,6 @@
 @use "../util/extensions";
 %menu {
   .footer-menu {
-    // width: 90vw;
     // background-color: #f5f7fa;
     // padding-top: 3vh;
     // padding-bottom: 3vh;
@@ -14,6 +13,7 @@
 
     @include mixins.footer-item-init(3vh, var(--footer-menu-bg),row, space-between);
     border-bottom: 1px solid var(--footer-menu-bb);
+    
     // box-shadow: 5px 5px 10px -10px #777;
 
 
@@ -44,52 +44,7 @@
     }
     &-link-image {
       // background-color: rgb(102, 68, 255);
-      padding-top: 3px;
-      @include mixins.flex;
-      justify-content: flex-end;
-      column-gap: 2rem;
-      & > * {
-        // border: 1px solid black;
-        width: fit-content;
-        // font-size: 80%;
-        // color: variables.$black;
-        // font-family: "Gudea";
-
-        //colo
-        transition: all 0.2s ease;
-
-        &:nth-child(1) {
-          font-size: 2rem;
-
-          &:hover {
-            color: variables.$facebook-hover;
-            transition: all 0.2s ease;
-          }
-        }
-        &:nth-child(2) {
-          &:hover {
-            color: variables.$twitter-hover;
-            transition: all 0.2s ease;
-          }
-        }
-        &:nth-child(3) {
-          &:hover {
-            color: variables.$instagram-hover;
-            transition: all 0.2s ease;
-          }
-        }
-        &:nth-child(4) {
-          &:hover {
-            color: variables.$youtube-hover;
-            transition: all 0.2s ease;
-          }
-        }
-
-        // &:hover{
-        // color: lighten(variables.$purple,20%);
-
-        // }
-      }
+     @include mixins.icons-flush(flex-end,2rem);
     }
 
     //queries

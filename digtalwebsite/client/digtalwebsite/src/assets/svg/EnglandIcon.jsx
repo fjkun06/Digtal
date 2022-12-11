@@ -1,10 +1,11 @@
 import React from "react";
 
-export const EnglandIcon = () => {
+export const EnglandIcon = ({toggleDropdown}) => {
   return (
-    <>
+    <span onClick={toggleDropdown}>
       <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_1305_947)">
+        
+        <g clipPath="url(#clip0_1305_947)">
           <path d="M0.5 0H20.5V15H0.5V0Z" fill="#012169" />
           <path d="M2.84375 0L10.4688 5.65625L18.0625 0H20.5V1.9375L13 7.53125L20.5 13.0938V15H18L10.5 9.40625L3.03125 15H0.5V13.125L7.96875 7.5625L0.5 2V0H2.84375Z" fill="white" />
           <path
@@ -20,6 +21,6 @@ export const EnglandIcon = () => {
           </clipPath>
         </defs>
       </svg>
-    </>
+    </span>
   );
 };

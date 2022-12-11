@@ -2,6 +2,10 @@
 @import "./custom-modifiers.scss";
 
 :root.light {
+  &>* a::selection,   *::selection{
+    background-color: rebeccapurple;
+    color: white;
+ }
   //footer section
   --footer-bg: #{$footer-bg-light};
   --footer-text: #{$footer-text-light};
