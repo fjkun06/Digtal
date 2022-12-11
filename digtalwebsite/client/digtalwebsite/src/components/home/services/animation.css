@@ -1,0 +1,5 @@
+.rightbox{
+    background:transparent;
+    opacity: 0.2;
+    transform: translateX(150);
+}

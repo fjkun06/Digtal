@@ -62,7 +62,6 @@ function App() {
               <Footer language={language} />
             </Grid>
           </Grid>
-      </StyledEngineProvider>
     </>
   )
 }
