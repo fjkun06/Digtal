@@ -4,111 +4,126 @@
 %subscribe {
   .footer-subscribe {
     // width: 90vw;
+    // border: 1px solid red;
+    background-color: #ececec;
 
-    // background-color: #f5f7fa;
+    & > * {
+      font-family: "Montserrat", sans-serif;
+      width: calc(100%);
+    }
+    @include mixins.grid;
+    grid-template-rows: repeat(3, minmax(max-content));
+    grid-template-columns: repeat(1, 1fr);
     border: none;
-    // @include mixins.flex;
-    column-gap: 10vw;
+    justify-content: center;
+    align-items: center;
+    @include mixins.size(100%, max-content);
 
-    margin-top: 30px;
-    // padding-bottom: 64px;
-    // border: 1px solid;
-
-    @include mixins.footer-item-init(34px, var(--footer-subscribe-bg));
-    // @include mixins.footer-item-init(64px);
+    // @include mixins.footer-item-init(34px, var(--footer-subscribe-bg));
     &-text {
-      // width: 40rem;
-      width: calc(100% / 2);
-
+      grid-row: 1/2;
+      // width: calc(100% / 2);
+      // border: 1px solid red;
       @include mixins.grid;
       &-typ {
-        font-size: 2.5rem;
+        font-size: 0.9rem;
+        font-family: "Montserrat", sans-serif;
+        margin-top: 10px;
       }
     }
 
     &-item {
-      // border: 1px solid red;
-      // width: 40rem;
-      width: calc(100% / 2);
+      grid-row: 2/3;
+      margin-top: -5px;
+      padding-bottom: 1.1rem;
 
       @include mixins.flex;
 
       &-button {
         @include mixins.gradient-button-pb;
-        padding: 8px 18px;
+        padding: 2.75px 21px;
+        font-size: 0.7rem;
+        text-align: center;
+        vertical-align: center;
+        // border: 1px solid red;
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+        margin-top: 2px;
       }
     }
 
     //Media queries
-    @media only screen and (min-width: 980px) and (max-width: 1045px) {
-      column-gap: 4vw;
-    }
+    // @media only screen and (min-width: 980px) and (max-width: 1045px) {
+    //   column-gap: 4vw;
+    // }
 
-    @media only screen and (max-width: 979px) {
-      @include mixins.flex(column);
-      row-gap: 3rem;
+    // @media only screen and (max-width: 979px) {
+    //   @include mixins.flex(column);
+    //   row-gap: 3rem;
 
-      &-text {
-        width: 100%;
+    //   &-text {
+    //     width: 100%;
 
-        @include mixins.grid;
-        &-typ {
-          font-size: 2.5rem;
-        }
-      }
+    //     @include mixins.grid;
+    //     &-typ {
+    //       font-size: 2.5rem;
+    //     }
+    //   }
 
-      &-item {
-        width: fit-content;
-      }
-    }
+    //   &-item {
+    //     width: fit-content;
+    //   }
+    // }
 
-    @media only screen and (max-width: 450px) {
-      #subscribe-input {
-        min-width: 180px;
-      }
+    // @media only screen and (max-width: 450px) {
+    //   #subscribe-input {
+    //     min-width: 180px;
+    //   }
 
-      &-text {
-        &-typ {
-          font-size: 1.6rem;
-        }
-      }
-    }
+    //   &-text {
+    //     &-typ {
+    //       font-size: 1.6rem;
+    //     }
+    //   }
+    // }
 
-    @media only screen and (max-width: 320px) {
-      width: 80vw;
-      padding: 34px 0px;
-      // padding-bottom: 34px;
+    // @media only screen and (max-width: 320px) {
+    //   width: 80vw;
+    //   padding: 34px 0px;
+    //   // padding-bottom: 34px;
 
-      &-item {
-        flex-direction: column;
-        justify-content: start;
-        row-gap: 2rem;
-        width: fit-content;
-      }
+    //   &-item {
+    //     flex-direction: column;
+    //     justify-content: start;
+    //     row-gap: 2rem;
+    //     width: fit-content;
+    //   }
 
-      &-text {
-        &-typ {
-          font-size: 1.4rem;
-        }
-      }
+    //   &-text {
+    //     &-typ {
+    //       font-size: 0.9rem;
+    //     }
+    //   }
 
-      #subscribe-input {
-        min-width: 40px;
-      }
-    }
+    //   #subscribe-input {
+    //     min-width: 40px;
+    //   }
+    // }
   }
 }
 
 #subscribe-input {
-  min-width: 230px;
+  width: 17.4rem;
+  height: 15.5px;
   border: none;
-  padding: 8px 7px;
+  // border: 1px solid red;
+  padding: 0px 0.7rem;
   font-size: 1rem;
   border-radius: 0px;
   box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
-  font-family: "Roboto", "Gudea", "Arial", sans-serif;
   font-weight: 300;
-  font-size: 1.325rem;
+  font-size: 0.7rem;
   line-height: 1.235;
   letter-spacing: 0.00735em;
   color: variables.$black;

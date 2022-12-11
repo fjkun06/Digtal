@@ -24,9 +24,9 @@ export default function Footer({ language }) {
                 <input type="text" id="subscribe-input" placeholder={t("placeholder")} />
               </Grid>
               <Grid item>
-                <Button className="footer-subscribe-item-button" variant="contained">
+                <span className="footer-subscribe-item-button" variant="contained">
                   {t("subs-button")}
-                </Button>
+                </span>
               </Grid>
             </Grid>
           </Grid>
