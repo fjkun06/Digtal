@@ -13,7 +13,6 @@ import ReactVisibilitySensor from "react-visibility-sensor";
 import VisibilitySensor from "react-visibility-sensor";
 import { useCallback } from "react";
 import Headings from "./reusables/Headings";
-import HomeMethodology from "./HomeMethodology";
 
 
 
@@ -215,7 +214,7 @@ export default function Home() {
             </Grid>
 
       {/* methodology here */}
-      <HomeMethodology heading={t("our-process.title", { ns: "home" })} subHeading={t("our-process.text", { ns: "home" })}/>
+      {/* <HomeMethodology heading={t("our-process.title", { ns: "home" })} subHeading={t("our-process.text", { ns: "home" })}/> */}
           </Grid>
         </Grid>
       </Suspense>
