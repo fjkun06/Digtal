@@ -8,6 +8,7 @@ import "./fonts/fonts";
 import { useState } from "react";
 import ServicesLayout from "./components/home/services/layout";
 import { StyledEngineProvider } from "@mui/system";
+import AboutUs from "./routes/footer/AboutUs";
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
 // import Title from "./components/home/services/title";
 // import { ServiceSecond } from "./components/home/services/service";
@@ -15,34 +16,54 @@ import { StyledEngineProvider } from "@mui/system";
 
 function App() {
   const [language, setLanguage] = useState("/en");
+  const [outletState, setOutletState] = useState(false);
 
   console.log("im in app");
 
+  function toggleOutletSelectState() {
+    setOutletState(true);
+  }
+
+  function toggleOutletSelectStateOff() {
+    setOutletState(false);
+  }
+
   return (
     <>
-    <StyledEngineProvider injectFirst>
+      <StyledEngineProvider injectFirst>
+          <Grid>
+            <Grid container className="navigation-main" id="n-main">
+              {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
 
-      <Grid>
-        {/* <Grid container className="navigation-main" id="n-main"> */}
-          {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
-          {/* <Navbar setLanguage={setLanguage} language={language} />
-        </Grid> */}
-        {/* bill's work starts here */}
-          {/* <ServiceSection /> */}
+              <Navbar
+                setLanguage={setLanguage}
+                language={language}
+                toggleOutletSelect={toggleOutletSelectState}
+                outletState={outletState}
+                toggleOutletSelectStateOff={toggleOutletSelectStateOff}
+              />
+            </Grid>
+            {/* bill's work starts here */}
 
-          {/* <Grid id="scroll-zone" >
+            <Grid
+              id="scroll-zone"
+              onClick={() => {
+                console.log("hello shxt");
+                setOutletState(false);
+              }}
+            >
+              {/* <CarouselSection />
+              <ServiceSection /> */}
+              <Outlet />
+            </Grid>
 
-                 <Outlet />
-          </Grid> */}
-
-        {/* bill's work ends here */}
-        {/* <Grid>
-          <Footer language={language} />
-        </Grid> */}
-      </Grid>
-      </StyledEngineProvider>
+            {/* bill's work ends here */}
+            <Grid>
+              <Footer language={language} />
+            </Grid>
+          </Grid>
     </>
-  );
+  )
 }
 
 export default App;

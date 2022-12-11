@@ -1,6 +1,9 @@
 import { Grid, styled } from "@mui/material";
 import { createTheme } from "@mui/system";
 import sx from "@mui/system/sx";
+import anglais from "./../../assets/svg/uk.svg";
+import france from "./../../assets/svg/fr.svg";
+import german from "./../../assets/svg/de.svg";
 
 export const Gridd = styled(Grid)(
   sx({
@@ -56,5 +59,27 @@ export const selectMenu = [
   { t: "subject.op4", path: "/services/consulting" },
 ];
 
-export const selectClosed = ["3/4","4/5","5/6","6/7"];
-export const selectOpen = ["3/8","8/9","9/10","10/11"];
+export const selectClosed = ["3/4", "4/5", "5/6", "6/7"];
+export const selectOpen = ["3/8", "8/9", "9/10", "10/11"];
+
+export const flagItems = [
+  { route: "/en", src: anglais, alt: "britain-flag", id: "0" },
+  { route: "/fr", src: france, alt: "france-flag", id: "1" },
+  { route: "/de", src: german, alt: "germany-flag", id: "2" },
+];
+
+export const selectDropdownItems = [
+  { route: "/software-development", textIndex: "subject.op2" },
+  { route: "/digital-marketing", textIndex: "subject.op3" },
+  { route: "/consulting", textIndex: "subject.op4" },
+  { route: "/ui-ux-design", textIndex: "subject.op1" },
+];
+
+export const navbarItems = [
+  { route: "/", index: "home",id:"home" },
+  { route: "/enterprise", index: "enterprise",id:"enterprise" },
+  { route: "/about-us", index: "about",id:"about" },
+  { route: "/contact-us", index: "contact",id:"contact" },
+];
+
+console.log(navbarItems.slice(2,0));

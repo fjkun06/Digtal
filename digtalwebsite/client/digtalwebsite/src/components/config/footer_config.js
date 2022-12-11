@@ -13,7 +13,22 @@ export const links = [
 
 export const policy = [
   { label: "terms", route: "/terms-of-use" },
+  { label: "cookie-settings", route: "/privacy-policy" },
+  { label: "cookie-policy", route: "/privacy-policy" },
   { label: "policy", route: "/privacy-policy" },
+];
+
+export const enterprise = [
+  { label: "link.about", route: "/terms-of-use" },
+  { label: "link.contact", route: "/privacy-policy" },
+  { label: "link.career", route: "/privacy-policy" },
+  { label: "link.blog", route: "/privacy-policy" },
+];
+export const services = [
+  { label: "services.mad", route: "/terms-of-use" },
+  { label: "services.wd", route: "/privacy-policy" },
+  { label: "services.dm", route: "/privacy-policy" },
+  { label: "services.ui", route: "/privacy-policy" },
 ];
 
 export const icons = [
