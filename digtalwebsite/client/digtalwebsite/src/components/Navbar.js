@@ -17,6 +17,8 @@ import { switchTheme } from "./config/theme";
 import { EnglandIcon } from "../assets/svg/EnglandIcon";
 import { FranceIcon } from "../assets/svg/FranceIcon";
 import { GermanyIcon } from "../assets/svg/GermanyIcon";
+import { DarkModeIcon } from "../assets/svg/DarkModeIcon";
+import { LightModeIcon } from "../assets/svg/LightModeIcon";
 
 import MobileNavbarBody from "./MobileNavbarBody";
 import MobileNavbarIconHandler from "./MobileNavbarIconHandler";
@@ -24,13 +26,14 @@ import Search from "../assets/svg/Search";
 import SearchDesktop from "../assets/svg/SearchDesktop";
 import { icons } from "./config/footer_config";
 
-export default function Navbar({ language, setLanguage }) {
+export default function Navbar({ language, setLanguage, outletState,toggleOutletSelect,toggleOutletSelectStateOff }) {
   //theme configuration
   const [websiteTheme, setWebsiteTheme] = useState("dark");
 
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [mobileSelectState, setMobileSelectState] = useState(false);
+  const [outlet, setOutlet] = useState("");
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
@@ -63,7 +66,6 @@ export default function Navbar({ language, setLanguage }) {
 
   //language flasg
   const allFlags = Array.from(document.querySelectorAll(".mobile-select--flag"));
-  const navbar = document.querySelectorAll(".main-nav-sub");
   const bordered = "flag--bordered";
 
   //language switching function
@@ -77,18 +79,27 @@ export default function Navbar({ language, setLanguage }) {
     }
   }
 
-  
-  document.addEventListener("click", (e) => {
-    console.log("doc clicked: ",e.currentTarget.className);
-  });
+  // outlet.addEventListener("click", (e) => {
+  //   console.log("outlet: ", outlet);
+
+  //   console.log("seldd state: ", mobileSelectState);
+
+  //   if (mobileSelectState === true) {
+  //     // if (!e.target.classList.contains("main-nav-sub")) {
+  //       // setMobileSelectState(false);
+  //       console.log("wtf");
+  //     // }
+  //   }
+  // });
+
+  //outlet useeffect
+  // React.useEffect(() => {
+  //   setOutlet(document.querySelectorAll("#scroll-zone"));
+  //   console.log("outlet: ", outlet);
+  // });
 
   React.useEffect(() => {
     //navbar
-    console.log("nav: ", navbar);
-
-    // document.addEventListener("click", (e) => {
-    //   console.log("doc clicked: ",e.target.className);
-    // });
 
     function testState(id) {
       return allFlags.filter((flag) => flag.classList.contains(bordered)).some((elt) => elt.id === id);
@@ -123,7 +134,7 @@ export default function Navbar({ language, setLanguage }) {
         }
       });
     });
-  }, [language, location, setLanguage, navigate, allFlags, flagId]);
+  }, [language, location, setLanguage, navigate, allFlags, flagId, outlet]);
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
@@ -153,6 +164,7 @@ export default function Navbar({ language, setLanguage }) {
           }}
         >
           <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : mobileSelectState && min769 ? "30rem" : "7rem"}>
+          {/* <Grid item container className="main-nav-sub" height={showMobileMenu ? "99.5vh" : outletState && mobileSelectState && min769 ? "30rem" : "7rem"}> */}
             {/* navbar logo */}
 
             <Grid item className="main-nav-sub-logo" id="navlogo">
@@ -179,9 +191,21 @@ export default function Navbar({ language, setLanguage }) {
                   {t("services")}
                 </span>
                 {!mobileSelectState ? (
-                  <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+                // {!outletState && !mobileSelectState ? (
+                  <ExpandMoreOutlined
+                    onClick={() => {
+                      toggleMobileSelect();
+                      toggleOutletSelect();
+                    }}
+                    sx={{ fontSize: 24, marginTop: "-5px" }}
+                    className="select-item-sub-arrow"
+                  />
                 ) : (
-                  <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+                  <ExpandLessOutlinedIcon onClick={()=>{
+                    toggleOutletSelectStateOff();
+                    toggleMobileSelect();
+                  }
+                    } sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
                 )}
               </Grid>
 
@@ -197,7 +221,7 @@ export default function Navbar({ language, setLanguage }) {
 
               <Gridd item className="main-nav-sub-links--itemx" id="theme-switcher">
                 <span>
-                  <SearchDesktop />
+                  <Search />
                 </span>
 
                 <Grid sx={{ width: "fit-content" }} className="language-item">
@@ -213,26 +237,28 @@ export default function Navbar({ language, setLanguage }) {
                   </Grid>
                 </Grid>
 
-                <DarkMode
-                  className="navbar-theme-dark"
-                  sx={{ fontSize: 25, display: websiteTheme === "dark" ? "none" : "block" }}
-                  onClick={() => {
-                    switchTheme("dark");
-                    setWebsiteTheme("dark");
-                    console.log("hello: ", websiteTheme);
-                  }}
-                />
-                <LightMode
-                  className="navbar-theme-light"
-                  sx={{ fontSize: 25, display: websiteTheme === "light" ? "none" : "block" }}
-                  onClick={() => {
-                    switchTheme("light");
-                    setWebsiteTheme("light");
-                  }}
-                />
+                {websiteTheme === "dark" ? (
+                  <LightModeIcon
+                    className="navbar-theme-light"
+                    handler={() => {
+                      switchTheme("light");
+                      setWebsiteTheme("light");
+                    }}
+                  />
+                ) : (
+                  <DarkModeIcon
+                    className="navbar-theme-dark"
+                    handler={() => {
+                      switchTheme("dark");
+                      setWebsiteTheme("dark");
+                      console.log("hello: ", websiteTheme);
+                    }}
+                  />
+                )}
               </Gridd>
             </Grid>
             <Grid container item className="main-nav-sub-services" style={{ display: mobileSelectState && min769 ? "grid" : "none" }}>
+            {/* <Grid container item className="main-nav-sub-services" style={{ display: outletState && mobileSelectState && min769 ? "grid" : "none" }}> */}
               <div className="service-list">
                 {selectDropdownItems.map((item) => (
                   <Grid item key={item.textIndex}>
