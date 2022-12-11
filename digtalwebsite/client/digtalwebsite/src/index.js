@@ -34,12 +34,21 @@ root.render(
               <Route path="services">
                 <Route index element={<Services />} />
                 <Route path="consulting" element={<Consulting />} />
-                <Route path="software-development" element={<WebDevelopment />} />
-                <Route path="digital-marketing" element={<DigitalMarketing />} />
+                <Route
+                  path="software-development"
+                  element={<WebDevelopment />}
+                />
+                <Route
+                  path="digital-marketing"
+                  element={<DigitalMarketing />}
+                />
                 <Route path="ui-ux-design" element={<DigitalMarketing />} />
               </Route>
               <Route path="contact-us" element={<Contact />} />
-              <Route path="about-us" element={<AboutUs />} />
+              <Route
+                path="about-us"
+                element={() => import("./routes/footer/AboutUs")}
+              />
               <Route path="news" element={<News />} />
               <Route path="legal-notice" element={<LegalPolicy />} />
               <Route path="terms-of-use" element={<TermsOfUse />} />
