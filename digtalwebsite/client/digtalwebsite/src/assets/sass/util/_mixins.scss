@@ -148,7 +148,7 @@
 }
 
 @mixin gradient-button-pb-inverse {
-  background: linear-gradient(to left bottom, variables.$light-blue, variables.$purple);
+  background: linear-gradient(to left, variables.$light-blue, variables.$purple);
   // border: 1px solid red;
 
   border-radius: 0px;

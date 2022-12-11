@@ -50,6 +50,11 @@
         color: white;
         cursor: pointer;
         margin-top: 2px;
+        &:hover {
+          transition: all 0.25s ease-in-out;
+          // animation: background-change 1s ease-in-out 0 1 forwards;
+          background: rebeccapurple;
+        }
       }
     }
 
@@ -130,5 +135,12 @@
   &:focus {
     outline: none;
     caret-color: var(--footer-subscribe-input-caret);
+  }
+}
+
+@keyframes background-change {
+  100% {
+    background: rgb(0, 162, 255);
+    // background: linear-gradient(to left, variables.$light-blue, variables.$purple);
   }
 }
