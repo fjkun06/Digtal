@@ -1,11 +1,11 @@
 import CarouselLayout from "./layout"
-import { Carousel } from "./config"
 import SwiperCarousel from "./main"
+import Layout from "./layout"
 
 export default function CarouselSection(){
     return (
-        <CarouselLayout>
+        <Layout>
             <SwiperCarousel />
-        </CarouselLayout>
+        </Layout>
     )
 }

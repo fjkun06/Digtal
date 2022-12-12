@@ -47,14 +47,14 @@ export function Carousel(){
                 className="absolute top-0 w-full h-full flex flex-col items-center justify-center"
             >
                 <h2
-                    className="text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
                     ref={firstRef}
                 >
                     Let professional handle your projects 
                 </h2>
                 <h2
                     ref={secondRef}
-                    className="text-7xl text-white text-center leading-snug font-bold animation-left-one"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold animation-left-one"
                 >
                     And make it come to life
                 </h2>
@@ -104,14 +104,14 @@ export function CarouselTwo(){
                 className="absolute top-0 w-full h-full flex flex-col items-center justify-center"
             >
                 <h2
-                    className="text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
                     ref={thirdRef}
                 >
                     Let professional handle your projects 
                 </h2>
                 <h2
                     ref={fourthRef}
-                    className="text-7xl text-white text-center leading-snug font-bold animation-left-one"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold animation-left-one"
                 >
                     And make it come to life
                 </h2>
@@ -161,14 +161,14 @@ export function CarouselTree(){
                 className="absolute top-0 w-full h-full flex flex-col items-center justify-center"
             >
                 <h2
-                    className="text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
                     ref={troisRef}
                 >
                     Let professional handle your projects 
                 </h2>
                 <h2
                     ref={quatreRef}
-                    className="text-7xl text-white text-center leading-snug font-bold animation-left-one"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold animation-left-one"
                 >
                     And make it come to life
                 </h2>
@@ -218,14 +218,14 @@ export function CarouselFour(){
                 className="absolute top-0 w-full h-full flex flex-col items-center justify-center"
             >
                 <h2
-                    className="text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold firstanimation animation-left"
                     ref={thirdRef}
                 >
                     Let professional handle your projects 
                 </h2>
                 <h2
                     ref={fourthRef}
-                    className="text-7xl text-white text-center leading-snug font-bold animation-left-one"
+                    className="text-5xl md:text-7xl text-white text-center leading-snug font-bold animation-left-one"
                 >
                     And make it come to life
                 </h2>
