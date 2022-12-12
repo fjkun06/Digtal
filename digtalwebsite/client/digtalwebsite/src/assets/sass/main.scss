@@ -1,13 +1,13 @@
-@use 'layout/navbar';
-@use 'layout/footer';
-@use 'pages/home/home';
-@use 'pages/contact/contact';
-@use 'components/telephone';
-
+@use "layout/navbar";
+@use "layout/footer";
+@use "pages/home/home";
+@use "pages/contact/contact";
+@use "components/telephone";
+@use "pages/about/about";
 //root schemes
 //light here
-@import './util/light-palette';
-@import './util/dark-palette';
+@import "./util/light-palette";
+@import "./util/dark-palette";
 
 //styling links
 a {
@@ -35,10 +35,11 @@ html {
    // min-width: 320px;
 }
 
-body { font-size: 1.6em;
+body {
+   font-size: 1.6em;
    min-width: 32rem;
- }
+}
 
- .fix{
+.fix {
    position: fixed;
- }
+}

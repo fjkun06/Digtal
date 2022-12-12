@@ -1,20 +1,13 @@
 import { Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import ServiceSection from "./components/home/services/main";
+import Footer from "./layouts/footer/Footer";
+import Navbar from "./layouts/navbar/Navbar";
 import "./assets/sass/main.scss";
-import "./fonts/fonts";
+import "./assets/fonts/fonts";
 import { useState } from "react";
-import ServicesLayout from "./components/home/services/layout";
 import { StyledEngineProvider } from "@mui/system";
-import AboutUs from "./routes/footer/AboutUs";
-import background from "../src/assets/images/background.svg"
 import SwiperCarousel from "./components/home/carousel/main";
-// import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
-// import Title from "./components/home/services/title";
-// import { ServiceSecond } from "./components/home/services/service";
-// import { ServiceThird } from "./components/home/services/service";
+import ServiceSection from "./components/home/services/main";
 
 function App() {
   const [language, setLanguage] = useState("/en");
@@ -33,20 +26,13 @@ function App() {
   return (
     <>
       <StyledEngineProvider injectFirst>
-          <Grid>
-            <Grid container className="navigation-main" id="n-main">
-              {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
+        <Grid>
+          <Grid container className="navigation-main" id="n-main">
+            {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
 
-              <Navbar
-                setLanguage={setLanguage}
-                language={language}
-                toggleOutletSelect={toggleOutletSelectState}
-                outletState={outletState}
-                toggleOutletSelectStateOff={toggleOutletSelectStateOff}
-              />
-            </Grid>
-            {/* bill's work starts here */}
-
+            <Navbar setLanguage={setLanguage} language={language} toggleOutletSelect={toggleOutletSelectState} outletState={outletState} toggleOutletSelectStateOff={toggleOutletSelectStateOff} />
+          </Grid>
+          {/* bill's work starts here */}
             <Grid
               id="scroll-zone"
               onClick={() => {
@@ -65,7 +51,7 @@ function App() {
           </Grid>
       </StyledEngineProvider>
     </>
-  )
+  );
 }
 
 export default App;
