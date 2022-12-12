@@ -125,13 +125,13 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
         <Container 
             className="hidden relative w-full md:flex flex-column items-center justify-center h-[220px] md:items-center md:justify-between md:w-4/5 md:h-[480px] md:mx-8 md:p-0 md:my-4"
         >
-            {/* <Box className="relative w-full h-full md:z-[2] md:h-[85%] md:bottom-0 md:right-0 md:w-[70%]  md:absolute overflow-hidden">
+            <Box className="relative w-full h-full md:z-[2] md:h-[85%] md:bottom-0 md:right-0 md:w-[70%]  md:absolute overflow-hidden">
                 <img src={image} alt="" 
                     className={"object-cover z-[2] w-full h-full transition-all "+hover}
                     ref={leftBoxImg} 
                     onMouseEnter={()=>setHover("scale-125")}
                 />
-            </Box> */}
+            </Box>
             <Box component="div" 
                 className="w-full md:w-full md:h-[85%] flex flex-col items-start justify-start top-0 right-0 md:absolute gap-8"
             >
