@@ -26,3 +26,20 @@
     border: 0;
 	background-image: linear-gradient(to right, #663399, #00d0ff)
 }
+
+@media all and (max-width:768px){
+	.swiper-pagination-bullet {
+		width: 25px;
+		height:25px;
+		border: 2px solid #ddd;
+		padding: 2.5px 5px;
+	}
+}
+
+@media all and (max-width:472px){
+	.swiper-pagination-bullet {
+		width: 25px;
+		height:25px;
+		border: 1px solid #ddd;
+	}
+}

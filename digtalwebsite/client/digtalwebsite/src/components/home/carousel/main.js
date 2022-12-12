@@ -27,7 +27,7 @@ export default function SwiperCarousel(){
        }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
-      className="w-full h-full"
+      className="w-full h-[60vh] md:h-[91vh] mt-[7rem]"
     >
       <SwiperSlide>
         <CarouselTwo />
