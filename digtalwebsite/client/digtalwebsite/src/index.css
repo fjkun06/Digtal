@@ -4,3 +4,7 @@
 .solutions__title {
   position: relative;
 }/*# sourceMappingURL=index.css.map */
+
+html{
+  background-image: url("../src/assets/images/background.svg");
+}

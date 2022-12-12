@@ -8,9 +8,9 @@ export default function ServiceSection(){
 
         <ServicesLayout>
             <Title />
-            <WebSection />
+            {/* <WebSection />
             <MarketingSection />
-            <ConsultingSection />
+            <ConsultingSection /> */}
             <DesignSection />
         </ServicesLayout>
 
