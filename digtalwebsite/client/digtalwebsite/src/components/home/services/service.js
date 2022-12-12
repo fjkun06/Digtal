@@ -1,8 +1,7 @@
 import { Container,Box } from "@mui/material";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {gsap} from "gsap"
-import { useRef, useEffect,useState } from "react";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { useRef,useState } from "react";
 import './animation.css'
 
 
@@ -21,80 +20,11 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
     const [hover,setHover] = useState(hover=>"")
     //variables
 
-    //animations
 
-    useEffect(()=>{
-        anim
-            .fromTo(
-                rightBoxImg.current,
-                {
-                scale:.1,
-                opacity:.2,
-                ease:true
-            }
-            ,{
-                opacity:1,
-                scale:1,
-                duration:.5
-        }
-        )
-        .fromTo(
-            rightBox.current,
-            {
-                opacity:0,
-                yoyo:true,
-                x:200
-            },
-            {
-                duration:.7,
-                opacity:1,
-                x:0
-            }
-        )
-        .fromTo(
-            rightBoxText.current,
-            {
-                lineHeight:0,
-                opacity:0,
-                ease:true,
-            },{
-                duration:.5,
-                lineHeight:2.2,
-                opacity:1,
-                duration:1.5
-            }
-        )
-        .fromTo(
-            rightBoxDirection.current,
-            {
-                y:100,
-                opacity:0,
-                ease:true,
-            },{
-                y:0,
-                opacity:1,
-                duration:1
-            }
-        )
-        .fromTo(
-            rightBoxTitle.current,
-            {
-                y:-30,
-                opacity:0,
-                ease:true,
-            },{
-                y:0,
-                duration:.2,
-                opacity:1,
-            }
-        )
-    },[])
-
-    //ends of animations
-
-    return (
+        return (
+            <>
         <Container 
-            className="relative flex items-center justify-between w-4/5 h-[480px] mx-8 p-0 my-4"
+            className="hidden relative md:flex items-center justify-between w-4/5 h-[480px] mx-8 p-0 my-4"
         >
             <Box
                 className=" w-full h-[85%] flex flex-col items-end justify-start top-0 right-0 absolute gap-8"
@@ -132,6 +62,45 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
                 />
             </Box>
         </Container>
+        <Container className="m-8 flex md:hidden items-center justify-center flex-column gap-0">
+            <Box 
+                component="div"
+                className="flex items-center justify-center flex-col bg-white shadow-2xl shadow-purple-900/20"
+            >
+                <Box className="relative w-full h-full md:z-[2] md:h-[85%] md:bottom-0 md:right-0 md:w-[70%]  md:absolute overflow-hidden">
+                    <img src={image} alt="" 
+                        className={"object-cover z-[2] w-full h-[250px] transition-all "+hover}
+                        ref={rightBoxImg} 
+                        onMouseEnter={()=>setHover("scale-125")}
+                    />
+                </Box>
+                <Box
+                    className="flex items-center justify-around py-8 px-4 bg-white w-full gap-12"
+                >
+                    <Box
+                        className="h-full w-full flex items-center justify-center"
+                    >
+                        <img src={icon} alt="" 
+                            class="w-36 h-24"
+                        />
+                    </Box>
+                    <Box
+                        className="text flex-col items-center justify-start gap-2"
+                    >
+                        <h2
+                            className="text-4xl text-start  tracking-wide text-[#2B0A3D] font-bold leading-relaxed"
+                            ref={rightBoxTitle} 
+                        >{title}</h2>
+                        <p
+                            className="text-xl text-start leading-relaxed text-[#2B0A3D]"
+                            ref={rightBoxText} 
+                        >{text}</p>
+                    </Box>
+                </Box>
+                
+            </Box>
+        </Container>
+        </>
     )
 }
 
@@ -152,8 +121,9 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
     //animations
 
     return (
+        <>
         <Container 
-            className="relative w-full flex flex-column items-center justify-center h-[220px] md:items-center md:justify-between md:w-4/5 md:h-[480px] md:mx-8 md:p-0 md:my-4"
+            className="hidden relative w-full md:flex flex-column items-center justify-center h-[220px] md:items-center md:justify-between md:w-4/5 md:h-[480px] md:mx-8 md:p-0 md:my-4"
         >
             {/* <Box className="relative w-full h-full md:z-[2] md:h-[85%] md:bottom-0 md:right-0 md:w-[70%]  md:absolute overflow-hidden">
                 <img src={image} alt="" 
@@ -184,15 +154,55 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
                     </Box>
                 </Box>
                 <Box
-                    className="w-3/4 py-4 flex items-center justify-start"
+                    component="div"
+                    className="hidden invisible md:visible w-3/4 py-4 md:flex items-center justify-start"
                 >
                     <ArrowForwardIosIcon 
-                        className="text-6xl text-purple-900 font-bold cursor-pointer"
+                        className="hidden invisible md:visible md:block text-6xl text-purple-900 font-bold cursor-pointer"
                         ref={leftBoxDirection} 
                     />
                 </Box>
             </Box>
         </Container>
+        <Container className="m-8 flex md:hidden items-center justify-center flex-column gap-0">
+            <Box 
+                component="div"
+                className="flex items-center justify-center flex-col bg-white shadow-2xl shadow-purple-900/20 "
+            >
+                <Box className="relative w-full h-full md:z-[2] md:h-[85%] md:bottom-0 md:right-0 md:w-[70%]  md:absolute overflow-hidden">
+                    <img src={image} alt="" 
+                        className={"object-cover z-[2] w-full h-[250px] transition-all "+hover}
+                        ref={leftBoxImg} 
+                        onMouseEnter={()=>setHover("scale-125")}
+                    />
+                </Box>
+                <Box
+                    className="flex items-center justify-around py-8 px-4 bg-white w-full gap-12"
+                >
+                    <Box
+                        className="h-full w-full flex items-center justify-center"
+                    >
+                        <img src={icon} alt="" 
+                            class="w-36 h-24"
+                        />
+                    </Box>
+                    <Box
+                        className="text flex-col items-center justify-start gap-2"
+                    >
+                        <h2
+                            className="text-4xl text-start  tracking-wide text-[#2B0A3D] font-bold leading-relaxed"
+                            ref={leftBoxTitle} 
+                        >{title}</h2>
+                        <p
+                            className="text-xl text-start leading-relaxed text-[#2B0A3D]"
+                            ref={leftBoxText} 
+                        >{text}</p>
+                    </Box>
+                </Box>
+                
+            </Box>
+        </Container>
+        </>
     )
 
 }
