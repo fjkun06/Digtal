@@ -2,6 +2,8 @@ import { Container,Box } from "@mui/material";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {gsap} from "gsap"
 import { useRef,useState } from "react";
+import {IoIosArrowForward} from "react-icons/io"
+import {MdDoubleArrow} from "react-icons/md"
 import './animation.css'
 
 
@@ -11,13 +13,14 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
 
     //variables
     
-    const anim = gsap.timeline({repeat:0,delay:.5})
     const rightBox = useRef(0)
     const rightBoxText = useRef(0)
     const rightBoxImg = useRef(0)
     const rightBoxDirection = useRef(0)
     const rightBoxTitle = useRef(0)
     const [hover,setHover] = useState(hover=>"")
+    const [iconstate,setIconstate] = useState(iconstate=>"hidden")
+    const [icons,setIcons] = useState(icons=>"")
     //variables
 
 
@@ -46,11 +49,21 @@ export default function ServiceRight({image="",text="",title="",icon=""}){
                     </Box>
                 </Box>
                 <Box
-                    className="w-3/4 py-4 flex items-center justify-end "
+                    className="w-3/4 flex items-center justify-end"
                 >
-                    <ArrowForwardIosIcon 
+                    <IoIosArrowForward
                         ref={rightBoxDirection}
-                        className="text-6xl text-purple-900 font-bold  cursor-pointer"
+                        className={"text-purple-900 font-bold  cursor-pointer  "+icons}
+                        size={80}
+                        onMouseEnter={()=>{setIconstate(iconstate=>"");setIcons('hidden')}}
+                        // onMouseLeave={()=>setIconstate(iconstate=>"hidden")}
+                    />
+                    {/* double icons */}
+                    <MdDoubleArrow
+                        ref={rightBoxDirection}
+                        className={" text-purple-900 font-bold  cursor-pointer animate-ping "+iconstate}
+                        size={80}
+                        onMouseLeave={()=>{setIconstate(iconstate=>"hidden");setIcons('')}}
                     />
                 </Box>
             </Box>
@@ -115,6 +128,8 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
     const leftBoxDirection = useRef(0)
     const leftBoxTitle = useRef(0)
     const [hover,setHover] = useState(hover=>"")
+    const [iconstate,setIconstate] = useState(iconstate=>"hidden")
+    const [icons,setIcons] = useState(icons=>"")
     //declaration of variables
 
     //animations
@@ -157,9 +172,19 @@ export  function ServiceLeft({image="",text="",icon="",title=""}){
                     component="div"
                     className="hidden invisible md:visible w-3/4 py-4 md:flex items-center justify-start"
                 >
-                    <ArrowForwardIosIcon 
-                        className="hidden invisible md:visible md:block text-6xl text-purple-900 font-bold cursor-pointer"
-                        ref={leftBoxDirection} 
+                    <IoIosArrowForward
+                        ref={leftBoxDirection}
+                        className={"text-purple-900 font-bold  cursor-pointer  "+icons}
+                        size={80}
+                        onMouseEnter={()=>{setIconstate(iconstate=>"");setIcons('hidden')}}
+                        // onMouseLeave={()=>setIconstate(iconstate=>"hidden")}
+                    />
+                    {/* double icons */}
+                    <MdDoubleArrow
+                        ref={leftBoxDirection}
+                        className={" text-purple-900 font-bold  cursor-pointer animate-ping "+iconstate}
+                        size={80}
+                        onMouseLeave={()=>{setIconstate(iconstate=>"hidden");setIcons('')}}
                     />
                 </Box>
             </Box>
