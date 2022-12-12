@@ -8,6 +8,8 @@ export default function ServicesLayout({children}){
             alignItems:"center",
             justifyContent:"center",
             gap:4,
+            background:'url()',
+            marginVertical:"3rem"
         }}>
             {children}
         </Box>
