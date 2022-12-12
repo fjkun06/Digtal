@@ -9,6 +9,8 @@ import { useState } from "react";
 import ServicesLayout from "./components/home/services/layout";
 import { StyledEngineProvider } from "@mui/system";
 import AboutUs from "./routes/footer/AboutUs";
+import background from "../src/assets/images/background.svg"
+import SwiperCarousel from "./components/home/carousel/main";
 // import ServiceFirst, { ServiceFourth } from "./components/home/services/service";
 // import Title from "./components/home/services/title";
 // import { ServiceSecond } from "./components/home/services/service";
@@ -52,17 +54,16 @@ function App() {
                 setOutletState(false);
               }}
             >
-              {/* <CarouselSection />
-              <ServiceSection /> */}
-              <Outlet />
+              <SwiperCarousel />
+              <ServiceSection />
+              {/* <Outlet /> */}
             </Grid>
-
-            {/* bill's work ends here */}
             <Grid>
               <Footer language={language} />
             </Grid>
+
           </Grid>
-        </StyledEngineProvider>
+      </StyledEngineProvider>
     </>
   )
 }
