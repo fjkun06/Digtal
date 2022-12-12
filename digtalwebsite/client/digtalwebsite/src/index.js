@@ -4,27 +4,28 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import "./i18n/i18n";
 import "./index.css";
-import Enterprise from "./routes/Enterprise";
-import Services from "./routes/services/Services";
-import Consulting from "./routes/services/Consulting";
-import WebDevelopment from "./routes/services/WebDevelopment";
-import DigitalMarketing from "./routes/services/DigitalMarketing";
-import FourOFour from "./routes/FourOFour";
-import Home from "./routes/Home";
-import LegalPolicy from "./routes/footer/LegalPolicy";
-import News from "./routes/footer/News";
-import Contact from "./components/ContactForm";
-import TermsOfUse from "./routes/footer/TermsOfUse";
-import PrivacyPolicy from "./routes/footer/PrivacyPolicy";
-import HomeSkeleton from "./routes/skeletons/HomeSkeleton";
+import Enterprise from "./components/enterprise/Enterprise";
+import TermsAndConditions from "./components/terms&conditions/TermsAndConditions";
+import MobileApp from "./components/services/mobile_app/MobileApp";
+import UIUX from "./components/services/uiux/UIUX";
+import Consulting from "./components/services/consulting/Consulting";
+import WebDevelopment from "./components/services/web_development/WebDevelopment";
+import DigitalMarketing from "./components/services/digital_marketing/DigitalMarketing";
+import FourOFour from "./components/errorpage/FourOFour";
+import CookiePloicy from "./components/cookie_policy/CookiePolicy";
+import CookieSettings from "./components/cookie_settings/CookieSettings";
+import Career from "./components/career/Career";
+import Contact from "./pages/ContactForm";
+import Blog from "./components/blog/Blog";
+import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
 import ServiceSection from "./components/home/services/main";
 
-const AboutUs = React.lazy(() => import("./routes/footer/AboutUs.js"));
+const AboutUs = React.lazy(() => import("./pages/AboutUs.js"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const majorRoutes = ["/en", "/fr", "de"];
 root.render(
-  <React.Suspense fallback={<HomeSkeleton />}>
+  <React.Suspense>
     <BrowserRouter>
       <Routes>
         <Route path="/" exact element={<App />}>
@@ -34,17 +35,21 @@ root.render(
               {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">
-                <Route index element={<Services />} />
+                <Route index element={<App />} />
                 <Route path="consulting" element={<Consulting />} />
                 <Route
-                  path="software-development"
+                  path="web-development"
                   element={<WebDevelopment />}
+                />
+                <Route
+                  path="mobile-app-development"
+                  element={<MobileApp />}
                 />
                 <Route
                   path="digital-marketing"
                   element={<DigitalMarketing />}
                 />
-                <Route path="ui-ux-design" element={<DigitalMarketing />} />
+                <Route path="ui-ux-design" element={<UIUX />} />
               </Route>
               <Route path="contact-us" element={<Contact />} />
               {/* <Route
@@ -52,9 +57,11 @@ root.render(
                 element={() => import("./routes/footer/AboutUs.js")}
               /> */}
               <Route path="about-us" element={<AboutUs />} />
-              <Route path="news" element={<News />} />
-              <Route path="legal-notice" element={<LegalPolicy />} />
-              <Route path="terms-of-use" element={<TermsOfUse />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="career" element={<Career />} />
+              <Route path="terms_and_conditions" element={<TermsAndConditions />} />
+              <Route path="cookie-policy" element={<CookiePloicy />} />
+              <Route path="cookie-settings" element={<CookieSettings />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<FourOFour />} />
             </Route>
@@ -62,5 +69,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.Suspense>
+  // </React.Suspense>
 );
