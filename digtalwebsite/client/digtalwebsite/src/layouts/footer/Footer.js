@@ -3,16 +3,13 @@ import { Box, StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import logoMobile from "../../assets/images/logo2.png";
-import envelop from "../../assets/svg/envelop.svg";
 import FooterLink from "../../components/reusables/FooterLink";
 import { policy, icons, enterprise, services } from "./footer_config";
 import KeepItIcon from "../../assets/svg/KeepItIcon";
 import Telephone from "../../assets/svg/Telephone";
-import location from "../../assets/svg/Location.svg";
 import fblight from "../../assets/svg/FacebookLight.svg";
-import FacebookLight from "../../assets/svg/FacebookLight";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Location from "../../assets/svg/Location";
+import Envelop from "../../assets/svg/Envelop";
 
 export default function Footer({ language }) {
   const { t } = useTranslation("pageend");
@@ -32,7 +29,10 @@ export default function Footer({ language }) {
               <span>+237 671 234 567</span>
             </div>
             <div className="pair">
-              <img src={envelop} alt="envelop" />
+              <div className="mail">
+             <Envelop/>
+              </div>
+
               <span>contact@digtal.com</span>
             </div>
             <div className="pair">
