@@ -9,6 +9,7 @@ import { StyledEngineProvider } from "@mui/system";
 import SwiperCarousel from "./components/home/carousel/main";
 import ServiceSection from "./components/home/services/main";
 import ProcSection from "./components/home/process/main";
+import BrandSection from "./components/home/brands/main";
 
 function App() {
   const [language, setLanguage] = useState("/en");
@@ -44,6 +45,7 @@ function App() {
               <SwiperCarousel />
               <ServiceSection />
               <ProcSection />
+              <BrandSection />
               {/* <Outlet /> */}
             </Grid>
             <Grid>
