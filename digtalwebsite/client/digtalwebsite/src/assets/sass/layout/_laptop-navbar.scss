@@ -95,12 +95,15 @@
             // inline-size: min-content;
             // overflow-wrap: normal;
             width: fit-content(1rem);
+            width: -moz-fit-content(1rem);
             width: max-content;
           }
 
           span,
           svg {
+            -webkit-user-select: none;
             user-select: none;
+
           }
 
           #theme-switcher {
