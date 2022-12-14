@@ -22,8 +22,9 @@
   justify-content: $flex-direction;
   column-gap: $column-gap;
   & > * {
-    width: fit-content;
     width: -moz-fit-content;
+    width: fit-content;
+
 
     transition: all 0.2s ease;
 

@@ -18,7 +18,7 @@ import Career from "./components/career/Career";
 import Contact from "./pages/ContactForm";
 import Blog from "./components/blog/Blog";
 import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
-import ServiceSection from "./components/home/services/main";
+import Home from "./pages/Home";
 
 const AboutUs = React.lazy(() => import("./pages/AboutUs.js"));
 
@@ -31,7 +31,7 @@ root.render(
         <Route path="/" exact element={<App />}>
           {majorRoutes.map((route, index) => (
             <Route path={route} key={index}>
-              <Route index exact element={<ServiceSection />} />
+              <Route index exact element={<Home />} />
               {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">

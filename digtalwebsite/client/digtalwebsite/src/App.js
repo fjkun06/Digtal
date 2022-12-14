@@ -44,16 +44,7 @@ function App() {
               setOutletState(false);
             }}
           >
-            {/*
-              <ProcSection /> */}
-            {/* <Outlet /> */}
-            <SwiperCarousel />
-            <ServiceSection />
-
-            <ProcSection />
-            <BrandSection />
-            {/* <Outlet /> */}
-            {/* </Grid> */}
+            <Outlet />
           </Grid>
           <Grid>
             <Footer language={language} location={loc.pathname.includes("contact")} />
