@@ -37,6 +37,8 @@
   //footer help
   &-help {
     background-color: transparent;
+    background-color: #ececec;
+
     @include mixins.size(100%, fit-content);
 
     @include mixins.flex(column);

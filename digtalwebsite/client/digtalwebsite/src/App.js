@@ -11,15 +11,13 @@ import SwiperCarousel from "./components/home/carousel/main";
 import ServiceSection from "./components/home/services/main";
 import ProcSection from "./components/home/process/main";
 import { useLocation, useNavigate } from "react-router-dom";
-
-
+import BrandSection from "./components/home/brands/main";
 
 function App() {
-const loc = useLocation();
+  const loc = useLocation();
   const [language, setLanguage] = useState("/en");
   const [outletState, setOutletState] = useState(false);
   const [location, setLocation] = React.useState(true);
-
 
   function toggleOutletSelectState() {
     setOutletState(true);
@@ -46,13 +44,19 @@ const loc = useLocation();
               setOutletState(false);
             }}
           >
-            {/* <SwiperCarousel />
-              <ServiceSection />
+            {/*
               <ProcSection /> */}
-            <Outlet />
+            {/* <Outlet /> */}
+            <SwiperCarousel />
+            <ServiceSection />
+
+            <ProcSection />
+            <BrandSection />
+            {/* <Outlet /> */}
+            {/* </Grid> */}
           </Grid>
           <Grid>
-            <Footer language={language} location={loc.pathname.includes("contact")}/>
+            <Footer language={language} location={loc.pathname.includes("contact")} />
           </Grid>
         </Grid>
       </StyledEngineProvider>
