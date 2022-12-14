@@ -1,4 +1,4 @@
-import {  Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box, StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -14,7 +14,12 @@ export default function Footer({ language }) {
     <>
       <StyledEngineProvider injectFirst>
         <Box className="footer">
-          <Grid item className="footer-subscribe">
+          <Grid item className="footer-help">
+            <Typography component={"span"}>{t("help")}</Typography>
+
+            <button type="button">{t("contact")}</button>
+          </Grid>
+          <Grid item className="footer-contact">
             <Grid item className="footer-subscribe-text">
               <Typography className="footer-subscribe-text-typ">{t("subscribe")}</Typography>
             </Grid>
@@ -26,6 +31,21 @@ export default function Footer({ language }) {
                 <span className="footer-subscribe-item-button" variant="contained">
                   {t("subs-button")}
                 </span>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item className="footer-subscribe">
+            <Grid item className="footer-subscribe-text">
+              <Typography className="footer-subscribe-text-typ">{t("subscribe")}</Typography>
+            </Grid>
+            <Grid item className="footer-subscribe-item">
+              <Grid item>
+                <input type="text" id="subscribe-input" placeholder={t("placeholder")} />
+              </Grid>
+              <Grid item>
+                <button type="button" className="footer-subscribe-item-button" variant="contained">
+                  {t("subs-button")}
+                </button>
               </Grid>
             </Grid>
           </Grid>

@@ -31,6 +31,33 @@
     // border: 1px solid red;
   }
 
+  //footer help
+  &-help{
+    background-color: transparent;
+    @include mixins.size(100%,fit-content);
+
+    @include mixins.flex(column);
+    align-items: center;
+    padding: 1.5rem 0rem;
+
+    button,span{
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial;
+    }
+    button{
+      background-color: rebeccapurple;
+      color: #fff;
+      padding: 3px 8px;
+      font-size: .8rem;
+      border-radius: 5px;
+    }
+
+    span{
+      font-size: 1.1rem;
+      color:rebeccapurple;
+      font-weight: 400;
+    }
+  }
+
   //subscribe section here
   @extend %subscribe;
 
