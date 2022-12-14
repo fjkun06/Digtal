@@ -120,7 +120,6 @@ export default function Footer({ language,location }) {
             </Grid>
             <Typography component={"span"}>
               © {new Date().getFullYear()} DIGTAL {t("rights")}
-              {/* <img src={fblight} alt="envelop" /> */}
             </Typography>
           </Grid>
         </Box>

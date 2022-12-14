@@ -11,6 +11,11 @@
   }
   @media screen and (min-width: 961px) {
     height: 57vh;
+    height: 680px;
+  }
+  @media screen and (min-width: 1201px) {
+    height: 57vh;
+    height: 770px;
   }
 
   transition: all 0.5s ease-in-out;
@@ -164,7 +169,6 @@
               transform: scale(1.75);
             }
           }
-         
         }
       }
 
@@ -208,8 +212,13 @@
     @media screen and (min-width: 481px) {
       height: 30vh;
     }
-    @media screen and (min-width: 961px) {
-      height: 40vh;
+    @media screen and (min-width: 768px) {
+      height: 30vh;
+      height: 300px;
+    }
+    @media screen and (min-width: 1201px) {
+      // height: 45vh;
+      height: 420px;
     }
 
     @include mixins.grid;
@@ -260,12 +269,18 @@
         z-index: 2;
       }
       svg {
+        &>*{
+          font-weight: bold;
+        }
         transform: scale(0.9);
         @media screen and (min-width: 481px) {
           @include mixins.size(130px, 40px);
         }
         @media screen and (min-width: 769px) {
           @include mixins.size(133px, 42px);
+        transform: scale(1);
+        
+
         }
         @media screen and (min-width: 961px) {
           // @include mixins.size(130px, 41px);
@@ -283,7 +298,6 @@
       grid-template-rows: repeat(1, 1fr);
       grid-template-columns: repeat(4, 1fr);
       justify-content: start;
-
 
       & > * {
         @include mixins.size(100%, 100%);
@@ -308,7 +322,7 @@
           &::after {
             content: "";
             display: block;
-            @include mixins.size(5rem, 0.155rem);
+            @include mixins.size(4rem, 0.155rem);
             background: black;
             margin-top: 0.1px;
           }
@@ -359,7 +373,7 @@
           }
           @media screen and (min-width: 1201px) {
             font-size: 2.1rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
           }
           z-index: 2;
 
@@ -399,6 +413,12 @@
       @include mixins.icons-flush(center, 0.5rem);
       justify-content: flex-end;
       margin-top: -7px;
+      @media screen and (min-width: 961px) {
+        height: 60%;
+      }
+      @media screen and (min-width: 1201px) {
+        height: 80%;
+      }
 
       svg {
         font-size: 15px;

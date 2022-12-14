@@ -9,6 +9,15 @@
     @include mixins.flex(column);
     border-top: 1.65px solid #000;
     background: transparent;
+    @media screen and (min-width: 961px) {
+      font-size: 1.25rem;
+      @include mixins.flex(row-reverse);
+      justify-content: space-between;
+      padding-bottom: 3rem;
+    }
+    @media screen and (min-width: 1201px) {
+      padding-bottom: 5rem;
+    }
 
     & > * {
       @extend %f-text;
@@ -24,7 +33,6 @@
       font-size: 0.8rem;
       @media screen and (min-width: 481px) {
         font-size: 0.95rem;
-
       }
       @media screen and (min-width: 769px) {
         font-size: 1.1rem;
@@ -34,13 +42,23 @@
       }
       @media screen and (min-width: 1201px) {
         font-size: 1.4rem;
-      
-          }
+      }
     }
 
-    span{
+    span {
       font-size: 0.9rem;
-
+      @media screen and (min-width: 481px) {
+        font-size: 0.95rem;
+      }
+      @media screen and (min-width: 769px) {
+        font-size: 1.1rem;
+      }
+      @media screen and (min-width: 961px) {
+        font-size: 1.25rem;
+      }
+      @media screen and (min-width: 1201px) {
+        font-size: 1.4rem;
+      }
     }
 
     a {

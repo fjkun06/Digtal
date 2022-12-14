@@ -119,6 +119,13 @@
   @media screen and (min-width: 481px) {
     font-size: 1.1rem;
     padding: 11px 1rem;
+    width: 15rem;
+
+  }
+  @media screen and (min-width: 769px) {
+ 
+    width: 23rem;
+
   }
   line-height: 1.235;
   letter-spacing: 0.00735em;
@@ -130,7 +137,9 @@
 
   @media screen and (min-width: 961px) {
     font-size: 1.35rem;
-    height: 2.55rem;
+    height: 2.65rem;
+    width: 30rem;
+
   }
   @media screen and (min-width: 1201px) {
     width: 40rem;
