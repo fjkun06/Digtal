@@ -8,6 +8,7 @@ import { useState } from "react";
 import { StyledEngineProvider } from "@mui/system";
 import SwiperCarousel from "./components/home/carousel/main";
 import ServiceSection from "./components/home/services/main";
+import ProcSection from "./components/home/process/main";
 
 function App() {
   const [language, setLanguage] = useState("/en");
@@ -42,6 +43,7 @@ function App() {
             >
               <SwiperCarousel />
               <ServiceSection />
+              <ProcSection />
               {/* <Outlet /> */}
             </Grid>
             <Grid>

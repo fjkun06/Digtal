@@ -10,7 +10,7 @@ export function Carousel(){
 
     const firstRef = useRef(0)
     const secondRef = useRef(1)
-    const timeline = gsap.timeline({repeat:100,repeatDelay:3})
+    const timeline = gsap.timeline({repeat:100000,repeatDelay:3})
 
     useEffect(()=>{
         timeline.fromTo(
@@ -67,7 +67,7 @@ export function CarouselTwo(){
 
     const thirdRef = useRef(0)
     const fourthRef = useRef(1)
-    const timeline = gsap.timeline({repeat:100,repeatDelay:3})
+    const timeline = gsap.timeline({repeat:100000,repeatDelay:3})
 
     useEffect(()=>{
         timeline.fromTo(
@@ -124,7 +124,7 @@ export function CarouselTree(){
 
     const troisRef = useRef(0)
     const quatreRef = useRef(1)
-    const timeline = gsap.timeline({repeat:100,repeatDelay:3})
+    const timeline = gsap.timeline({repeat:100000,repeatDelay:3})
 
     useEffect(()=>{
         timeline.fromTo(
@@ -181,7 +181,7 @@ export function CarouselFour(){
 
     const thirdRef = useRef(0)
     const fourthRef = useRef(1)
-    const timeline = gsap.timeline({repeat:100,repeatDelay:3})
+    const timeline = gsap.timeline({repeat:100000,repeatDelay:3})
 
     useEffect(()=>{
         timeline.fromTo(

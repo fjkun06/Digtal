@@ -7,7 +7,7 @@ export default function ServiceSection(){
     return (
 
         <ServicesLayout>
-            <Title />
+            <Title text="DIVE INTO A MULTITUDE OF SOLUTIONS"/>
             <WebSection />
             <MarketingSection />
             <ConsultingSection />
