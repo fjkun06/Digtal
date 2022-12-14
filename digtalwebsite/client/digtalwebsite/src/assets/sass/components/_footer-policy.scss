@@ -8,11 +8,10 @@
     width: 87vw;
     @include mixins.flex(column);
     border-top: 1.65px solid #000;
+    background: transparent;
 
     & > * {
       @extend %f-text;
-      // width: calc(100% / 2);
-// border: 1px solid red;
       font-weight: 400;
     }
 
@@ -30,7 +29,13 @@
       @media screen and (min-width: 769px) {
         font-size: 1.1rem;
       }
-
+      @media screen and (min-width: 961px) {
+        font-size: 1.25rem;
+      }
+      @media screen and (min-width: 1201px) {
+        font-size: 1.4rem;
+      
+          }
     }
 
     span{
@@ -40,25 +45,10 @@
 
     a {
       &:hover {
-        color: var(--footer-link-hover);
+        // color: var(--footer-link-hover);
+        text-decoration: underline;
       }
     }
-
-    //queries
-    // @media only screen and (max-width: 599px) {
-    //   @include mixins.flex(column);
-    //   row-gap: 2rem;
-
-    //   & > * {
-    //     width: 100%;
-    //     justify-content: center;
-    //     text-align: center;
-    //   }
-    // }
-
-    // @media only screen and (max-width: 320px) {
-    //   width: 80vw;
-    // }
   }
 }
 
