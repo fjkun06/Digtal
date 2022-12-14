@@ -3,6 +3,7 @@
 @use "pages/home/home";
 @use "pages/contact/contact";
 @use "components/telephone";
+@use "components/scrollbar";
 @use "pages/about/about";
 //root schemes
 //light here
@@ -31,7 +32,9 @@ a {
 html {
    font-size: 62.5%;
    overflow-x: hidden;
+   -webkit-scroll-behavior: smooth;
    scroll-behavior: smooth;
+
    // min-width: 320px;
 }
 
