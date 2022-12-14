@@ -5,7 +5,6 @@ import vectorL from "../../../assets/images/process/vector-left.png"
 import vectorR from "../../../assets/images/process/vector-right.png"
 
 
-
 export function ProcessText({text,image,icon="",vector="",reverse=false}){
     return reverse?(
         <Container
@@ -16,7 +15,7 @@ export function ProcessText({text,image,icon="",vector="",reverse=false}){
             >
                 <Typography 
                     variant="p"
-                    className="text-xl lg:text-4xl text-start leading-loose text-[#2B0A3D]  font-bold"
+                    className="text-base lg:text-4xl text-start leading-loose text-[#2B0A3D]  font-bold"
                 >
                     {text}
                 </Typography>
@@ -25,17 +24,17 @@ export function ProcessText({text,image,icon="",vector="",reverse=false}){
                     className="w-full flex items-center justify-center py-4"
                 >
                     <Container
-                    className="w-full flex items-center justify-center"
-                >
+                        className="w-full flex items-center justify-center"
+                    >
                     <img src={icon} alt=""
-                        className="w-24 h-auto object-contain md:hidden"
+                        className="w-24 h-auto object-contain md:hidden "
                     />
                 </Container>
                 </Container>
             </div>
-            <Container className="w-fit max-w-[10rem] flex flex-col items-center justify-center h-full relative">
+            <Container className="w-fit max-w-[17rem] flex flex-col items-center justify-center h-full relative">
                 <img src={image} alt="circle digtal" 
-                    className="w-[10rem] md:w-[10rem] h-auto"
+                    className="w-[15rem] md:w-[10rem] h-auto"
                 />
                 <img src={vector} alt="" className="scale-[1.8] translate-y-40 -z-10 md:hidden" />
             </Container>
@@ -45,7 +44,7 @@ export function ProcessText({text,image,icon="",vector="",reverse=false}){
         <Container
             className="flex items-start justify-start gap-6 w-full md:max-w-[95rem]"
         >
-            <Container className="w-fit max-w-[10rem] flex flex-col items-center justify-center h-full relative">
+            <Container className="w-fit max-w-[17rem] flex flex-col items-center justify-center h-full relative">
                 <img src={image} alt="circle digtal" 
                     className="md:w-[10rem] h-auto"
                 />
@@ -56,7 +55,7 @@ export function ProcessText({text,image,icon="",vector="",reverse=false}){
             >
                 <Typography 
                     variant="p"
-                    className="text-xl lg:text-4xl text-start leading-loose text-[#2B0A3D]  font-bold"
+                    className="text-base lg:text-4xl text-start leading-loose text-[#2B0A3D]  font-bold"
                 >
                     {text}
                 </Typography>
