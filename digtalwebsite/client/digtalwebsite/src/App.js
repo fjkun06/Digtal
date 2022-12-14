@@ -6,6 +6,8 @@ import "./assets/sass/main.scss";
 import "./assets/fonts/fonts";
 import { useState } from "react";
 import { StyledEngineProvider } from "@mui/system";
+import SwiperCarousel from "./components/home/carousel/main";
+import ServiceSection from "./components/home/services/main";
 
 function App() {
   const [language, setLanguage] = useState("/en");
@@ -31,24 +33,22 @@ function App() {
             <Navbar setLanguage={setLanguage} language={language} toggleOutletSelect={toggleOutletSelectState} outletState={outletState} toggleOutletSelectStateOff={toggleOutletSelectStateOff} />
           </Grid>
           {/* bill's work starts here */}
+            <Grid
+              id="scroll-zone"
+              onClick={() => {
+                console.log("hello shxt");
+                setOutletState(false);
+              }}
+            >
+              <SwiperCarousel />
+              <ServiceSection />
+              {/* <Outlet /> */}
+            </Grid>
+            <Grid>
+              <Footer language={language} />
+            </Grid>
 
-          <Grid
-            id="scroll-zone"
-            onClick={() => {
-              console.log("hello shxt");
-              setOutletState(false);
-            }}
-          >
-            {/* <SwiperCarousel />
-               <ServiceSection /> */}
-            <Outlet />
-            {/* 
-
-            </Grid> */}
-            {/* <Grid> */}
-            <Footer language={language} />
           </Grid>
-        </Grid>
       </StyledEngineProvider>
     </>
   );
