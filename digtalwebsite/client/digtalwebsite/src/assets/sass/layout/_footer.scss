@@ -32,30 +32,83 @@
   }
 
   //footer help
-  &-help{
+  &-help {
     background-color: transparent;
-    @include mixins.size(100%,fit-content);
+    @include mixins.size(100%, fit-content);
 
     @include mixins.flex(column);
     align-items: center;
     padding: 1.5rem 0rem;
 
-    button,span{
+    button,
+    span {
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial;
     }
-    button{
+    button {
       background-color: rebeccapurple;
       color: #fff;
       padding: 3px 8px;
-      font-size: .8rem;
+      font-size: 0.8rem;
       border-radius: 5px;
     }
 
-    span{
+    span {
       font-size: 1.1rem;
-      color:rebeccapurple;
-      font-weight: 400;
+      color: rebeccapurple;
+      font-weight: 600;
+      padding-bottom: 3px;
     }
+  }
+
+  //footer
+  &-contact {
+    background-color: rebeccapurple;
+    @include mixins.size(100%, max-content);
+    @include mixins.flex;
+
+    & > * {
+      color: white;
+    }
+
+    .pair {
+      @include mixins.size(100%, 100%);
+      @include mixins.flex(column);
+      column-gap: 5px;
+      padding: 1.25rem 0rem;
+      cursor: pointer;
+      img {
+        // padding-bottom: 3px;
+        @include mixins.size(20px, 27px);
+      }
+
+      span {
+        padding-top: 3px;
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+      }
+      svg {
+        font-size: 1.5rem;
+        padding-bottom: 3px;
+        path {
+          fill: red;
+        }
+      }
+
+      .icon {
+        svg {
+          height: 27px;
+          width: 20px;
+        }
+      }
+    }
+
+   
+
+    //  svg{
+    //   path {
+    //     fill: yellow;
+    //   }
+    // }
   }
 
   //subscribe section here
@@ -86,16 +139,15 @@
       @include mixins.flex {
         justify-content: space-between;
       }
-      &>*{
+      & > * {
         margin-top: 12px;
       }
 
       img {
         @include mixins.size(24px, 23px);
         z-index: 2;
-
       }
-      svg{
+      svg {
         transform: scale(0.9);
       }
     }
@@ -108,20 +160,18 @@
       // height: 90%;
       // background-color: rgb(140, 188, 232);
 
-
       & > * {
         // border: 1px solid red;
         @include mixins.size(100%, 100%);
-
       }
 
       .enterprise {
         background-color: #fff;
-      // background-color: rgb(140, 188, 232);
+        // background-color: rgb(140, 188, 232);
 
         @include mixins.grid;
         justify-content: start;
-        
+
         // @include mixins.size(50%, 100%);
 
         // grid-template-rows: repeat(4, 1fr);
@@ -145,10 +195,9 @@
 
         .links {
           @include mixins.grid;
-        // row-gap: -5px;
-        margin-top: 8px;
-        z-index: 2;
-
+          // row-gap: -5px;
+          margin-top: 8px;
+          z-index: 2;
 
           justify-content: start;
           height: max-content;
@@ -157,10 +206,10 @@
             @include mixins.size(max-content, max-content);
             font-size: 0.9rem;
             font-weight: 500;
-          height: auto;
-          margin-top: -2px;
-          // border: 1px solid red;
-// padding: -5px;
+            height: auto;
+            margin-top: -2px;
+            // border: 1px solid red;
+            // padding: -5px;
           }
         }
       }

@@ -3,9 +3,16 @@ import { Box, StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import logoMobile from "../../assets/images/logo2.png";
+import envelop from "../../assets/svg/envelop.svg";
 import FooterLink from "../../components/reusables/FooterLink";
 import { policy, icons, enterprise, services } from "./footer_config";
 import KeepItIcon from "../../assets/svg/KeepItIcon";
+import Telephone from "../../assets/svg/Telephone";
+import location from "../../assets/svg/Location.svg";
+import fblight from "../../assets/svg/FacebookLight.svg";
+import FacebookLight from "../../assets/svg/FacebookLight";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Location from "../../assets/svg/Location";
 
 export default function Footer({ language }) {
   const { t } = useTranslation("pageend");
@@ -20,19 +27,21 @@ export default function Footer({ language }) {
             <button type="button">{t("contact")}</button>
           </Grid>
           <Grid item className="footer-contact">
-            <Grid item className="footer-subscribe-text">
-              <Typography className="footer-subscribe-text-typ">{t("subscribe")}</Typography>
-            </Grid>
-            <Grid item className="footer-subscribe-item">
-              <Grid item>
-                <input type="text" id="subscribe-input" placeholder={t("placeholder")} />
-              </Grid>
-              <Grid item>
-                <span className="footer-subscribe-item-button" variant="contained">
-                  {t("subs-button")}
-                </span>
-              </Grid>
-            </Grid>
+            <div className="pair">
+              <Telephone color={"red"} />
+              <span>+237 671 234 567</span>
+            </div>
+            <div className="pair">
+              <img src={envelop} alt="envelop" />
+              <span>contact@digtal.com</span>
+            </div>
+            <div className="pair">
+              <div className="icon">
+                <Location />
+              </div>
+
+              <span>Buea, CM</span>
+            </div>
           </Grid>
           <Grid item className="footer-subscribe">
             <Grid item className="footer-subscribe-text">
@@ -88,6 +97,7 @@ export default function Footer({ language }) {
             </Grid>
             <Typography component={"span"}>
               © {new Date().getFullYear()} DIGTAL {t("rights")}
+              <img src={fblight} alt="envelop" />
             </Typography>
           </Grid>
         </Box>
