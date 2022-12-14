@@ -11,56 +11,61 @@ import fblight from "../../assets/svg/FacebookLight.svg";
 import Location from "../../assets/svg/Location";
 import Envelop from "../../assets/svg/Envelop";
 
-export default function Footer({ language }) {
+export default function Footer({ language,location }) {
   const { t } = useTranslation("pageend");
+  console.log(window.location.pathname.includes("contact"));
 
 
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Box className="footer">
-          <Grid item className="footer-help">
-            <Typography component={"span"}>{t("help")}</Typography>
+        <Box className="footer" component={"div"} style={{height: location? "31vh": ""}}>
+          {!location && (
+            <>
+              <Grid item className="footer-help">
+                <Typography component={"span"}>{t("help")}</Typography>
 
-            <button type="button">{t("contact")}</button>
-          </Grid>
-          <Grid item className="footer-contact">
-            <div className="pair">
-              <Telephone color={"red"} />
-              <div className="double-numbers">
-                <span onClick={() => window.location.href = "tel:+375292771265"}>+237 671 234 567</span>
-                <span > | </span>
-                <span onClick={() => window.location.href = "tel:+375292771265"}>+237 671 234 567</span>
-              </div>
-            </div>
-            <div className="pair">
-              <div className="mail" onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>
-                <Envelop />
-              </div>
-              <div className="double-numbers">
-              <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
-                <span > | </span>
-                <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
-              </div>
-
-            </div>
-            <div className="pair">
-              <div className="icon">
-                <Location />
-              </div>
-              <div className="double-numbers">
-              <span>Buea, CM</span>
-                <span > | </span>
-                <span>Castrop, DE</span>
-              </div>
-              {/* <div>
+                <button type="button">{t("contact")}</button>
+              </Grid>
+              <Grid item className="footer-contact">
+                <div className="pair">
+                  <Telephone color={"red"} />
+                  <div className="double-numbers">
+                    <span onClick={() => (window.location.href = "tel:+375292771265")}>+237 671 234 567</span>
+                    <span> | </span>
+                    <span onClick={() => (window.location.href = "tel:+375292771265")}>+237 671 234 567</span>
+                  </div>
+                </div>
+                <div className="pair">
+                  <div className="mail" onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>
+                    <Envelop />
+                  </div>
+                  <div className="double-numbers">
+                    <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
+                    <span> | </span>
+                    <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
+                  </div>
+                </div>
+                <div className="pair">
+                  <div className="icon">
+                    <Location />
+                  </div>
+                  <div className="double-numbers">
+                    <span>Buea, CM</span>
+                    <span> | </span>
+                    <span>Castrop, DE</span>
+                  </div>
+                  {/* <div>
               <span>Buea, CM</span>
               <span> | </span>
               <span>Castrop, DE</span>
 
               </div> */}
-            </div>
-          </Grid>
+                </div>
+              </Grid>
+            </>
+          )}
+
           <Grid item className="footer-subscribe">
             <Grid item className="footer-subscribe-text">
               <Typography className="footer-subscribe-text-typ">{t("subscribe")}</Typography>
