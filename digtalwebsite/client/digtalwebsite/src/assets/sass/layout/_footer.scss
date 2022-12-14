@@ -134,7 +134,12 @@
       .icon,
       .mail {
         svg {
-          @include mixins.size(27px, 20px);
+          @include mixins.size(20px, 27px);
+          transform: scale(1.25);
+          
+          @media screen and (min-width: 769px) {
+            transform: scale(1.6);
+          }
         }
       }
 
