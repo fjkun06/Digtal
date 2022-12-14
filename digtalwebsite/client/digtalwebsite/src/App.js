@@ -41,9 +41,9 @@ function App() {
                 setOutletState(false);
               }}
             >
-              <SwiperCarousel />
+              {/* <SwiperCarousel />
               <ServiceSection />
-              <ProcSection />
+              <ProcSection /> */}
               <Outlet />
             </Grid>
             <Grid>

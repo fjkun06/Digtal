@@ -14,6 +14,7 @@ import Envelop from "../../assets/svg/Envelop";
 export default function Footer({ language }) {
   const { t } = useTranslation("pageend");
 
+
   return (
     <>
       <StyledEngineProvider injectFirst>
@@ -26,21 +27,38 @@ export default function Footer({ language }) {
           <Grid item className="footer-contact">
             <div className="pair">
               <Telephone color={"red"} />
-              <span>+237 671 234 567</span>
+              <div className="double-numbers">
+                <span onClick={() => window.location.href = "tel:+375292771265"}>+237 671 234 567</span>
+                <span > | </span>
+                <span onClick={() => window.location.href = "tel:+375292771265"}>+237 671 234 567</span>
+              </div>
             </div>
             <div className="pair">
               <div className="mail" onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>
                 <Envelop />
               </div>
-
+              <div className="double-numbers">
               <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
+                <span > | </span>
+                <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
+              </div>
+
             </div>
             <div className="pair">
               <div className="icon">
                 <Location />
               </div>
-
+              <div className="double-numbers">
               <span>Buea, CM</span>
+                <span > | </span>
+                <span>Castrop, DE</span>
+              </div>
+              {/* <div>
+              <span>Buea, CM</span>
+              <span> | </span>
+              <span>Castrop, DE</span>
+
+              </div> */}
             </div>
           </Grid>
           <Grid item className="footer-subscribe">
@@ -97,7 +115,7 @@ export default function Footer({ language }) {
             </Grid>
             <Typography component={"span"}>
               © {new Date().getFullYear()} DIGTAL {t("rights")}
-              <img src={fblight} alt="envelop" />
+              {/* <img src={fblight} alt="envelop" /> */}
             </Typography>
           </Grid>
         </Box>

@@ -18,15 +18,33 @@
     justify-content: center;
     align-items: center;
     @include mixins.size(100%, max-content);
+    @media screen and (min-width: 481px) {
+      @include mixins.flex;
+      grid-template-rows: repeat(1, 1fr);
+      padding: 1rem 0px;
+    }
 
     // @include mixins.footer-item-init(34px, var(--footer-subscribe-bg));
     &-text {
       grid-row: 1/2;
+      @media screen and (min-width: 481px) {
+        width: 50%;
+      }
       // width: calc(100% / 2);
-      // border: 1px solid red;
+      // border: 1px solid rgb(0, 255, 153);
       @include mixins.grid;
       &-typ {
         font-size: 0.9rem;
+        font-weight: 600;
+
+        @media screen and (min-width: 481px) {
+          font-size: 1.1rem;
+          margin-top: 0px;
+        }
+        @media screen and (min-width: 769px) {
+          font-size: 1.2rem;
+        }
+        
         font-family: "Montserrat", sans-serif;
         margin-top: 10px;
       }
@@ -34,6 +52,13 @@
 
     &-item {
       grid-row: 2/3;
+      // border: 1px solid red;
+
+      @media screen and (min-width: 481px) {
+        grid-row: 1/2;
+        width: 50%;
+        margin-top: 8px;
+      }
       margin-top: -5px;
       padding-bottom: 1.1rem;
 
@@ -43,6 +68,12 @@
         @include mixins.gradient-button-pb;
         padding: 2.75px 21px;
         font-size: 0.7rem;
+        @media screen and (min-width: 481px) {
+          font-size: 0.8rem;
+          padding: 5px 21px;
+          margin-top: 0px;
+          height: 100%;
+        }
         text-align: center;
         vertical-align: center;
         // border: 1px solid red;
@@ -57,7 +88,6 @@
         }
       }
     }
-
   }
 }
 
@@ -72,6 +102,11 @@
   box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
   font-weight: 300;
   font-size: 0.7rem;
+  @media screen and (min-width: 481px) {
+    font-size: 1.1rem;
+    padding: 11px 1rem;
+  }
+ 
   line-height: 1.235;
   letter-spacing: 0.00735em;
   color: variables.$black;

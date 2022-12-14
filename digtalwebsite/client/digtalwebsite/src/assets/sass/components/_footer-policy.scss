@@ -23,6 +23,13 @@
       column-gap: 1rem;
       @extend %f-text;
       font-size: 0.8rem;
+      @media screen and (min-width: 481px) {
+        font-size: 0.95rem;
+
+      }
+      @media screen and (min-width: 769px) {
+        font-size: 1.1rem;
+      }
 
     }
 
