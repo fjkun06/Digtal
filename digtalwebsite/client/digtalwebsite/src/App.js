@@ -44,7 +44,7 @@ function App() {
               <SwiperCarousel />
               <ServiceSection />
               <ProcSection />
-              {/* <Outlet /> */}
+              <Outlet />
             </Grid>
             <Grid>
               <Footer language={language} />

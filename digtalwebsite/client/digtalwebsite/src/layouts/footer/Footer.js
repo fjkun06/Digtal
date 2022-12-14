@@ -29,11 +29,11 @@ export default function Footer({ language }) {
               <span>+237 671 234 567</span>
             </div>
             <div className="pair">
-              <div className="mail">
-             <Envelop/>
+              <div className="mail" onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>
+                <Envelop />
               </div>
 
-              <span>contact@digtal.com</span>
+              <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
             </div>
             <div className="pair">
               <div className="icon">
