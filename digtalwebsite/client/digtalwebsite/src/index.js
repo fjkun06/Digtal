@@ -20,7 +20,7 @@ import Blog from "./components/blog/Blog";
 import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
 import Home from "./pages/Home";
 
-const AboutUs = React.lazy(() => import("./pages/AboutUs.js"));
+const AboutUs = React.lazy(() => import("@pages/AboutUs.js"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const majorRoutes = ["/en", "/fr", "de"];
@@ -37,14 +37,8 @@ root.render(
               <Route path="services">
                 <Route index element={<App />} />
                 <Route path="consulting" element={<Consulting />} />
-                <Route
-                  path="web-development"
-                  element={<WebDevelopment />}
-                />
-                <Route
-                  path="mobile-app-development"
-                  element={<MobileApp />}
-                />
+                <Route path="web-development" element={<WebDevelopment />} />
+                <Route path="mobile-app-development" element={<MobileApp />} />
                 <Route
                   path="digital-marketing"
                   element={<DigitalMarketing />}
@@ -59,7 +53,10 @@ root.render(
               <Route path="about-us" element={<AboutUs />} />
               <Route path="blog" element={<Blog />} />
               <Route path="career" element={<Career />} />
-              <Route path="terms_and_conditions" element={<TermsAndConditions />} />
+              <Route
+                path="terms_and_conditions"
+                element={<TermsAndConditions />}
+              />
               <Route path="cookie-policy" element={<CookiePloicy />} />
               <Route path="cookie-settings" element={<CookieSettings />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -69,5 +66,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  // </React.Suspense>
+  </React.Suspense>
 );

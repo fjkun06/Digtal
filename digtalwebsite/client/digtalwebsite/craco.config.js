@@ -9,7 +9,7 @@ module.exports = {
       "@i18n": path.resolve(__dirname, "src/i18n/"),
       "@layouts": path.resolve(__dirname, "src/layouts/"),
       "@pages": path.resolve(__dirname, "src/pages/"),
-      "@utils": path.resolve(__dirname, "src/utils/"),
-    },
-  },
+      "@utils": path.resolve(__dirname, "src/utils/")
+    }
+  }
 };
