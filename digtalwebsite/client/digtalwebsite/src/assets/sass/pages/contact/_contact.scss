@@ -17,6 +17,8 @@
   width: 99.1vw;
 
   // column-gap: 3rem;
+  // @include mixins.flex(column);
+
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, minmax(250px));
 
@@ -26,11 +28,18 @@
     grid-column: 1/2;
     background-color: green;
     font-family: "Poppins", sans-serif;
+    width: 80%;
+    height: 80%;
+
+    .top3{
+      background-color: gold;
+      // height: 100px;
+    }
   }
 
   .office {
-    grid-row: 10/18;
-    // grid-column: 1/2;
+    grid-row: 7/10;
+    grid-column: 1/2;
     // margin-top: -30vh;
     width: 38vw;
     background-color: rgb(0, 90, 128);
@@ -160,8 +169,10 @@
     //input label
     .MuiFormLabel-root,
     .MuiInputLabel-root {
-      font-size: 14px;
+      font-size: 12px;
+      // font-size: 14px;
       margin-top: -5px;
+      // margin-top: -5px;
       z-index: 2;
       // margin-bottom: 15px;
       // border: 3px solid rgba(#663399, 0.5);
@@ -169,17 +180,23 @@
       &.Mui-focused {
         color: #663399;
         // color: green;
-        font-size: 14px;
+      font-size: 12px;
+
+        // font-size: 14px;
         margin-top: 0px;
 
         &.Mui-error {
-          font-size: 14px;
+      font-size: 12px;
+
+          // font-size: 14px;
 
           color: red;
         }
       }
       &.Mui-error {
-        font-size: 14px;
+      font-size: 12px;
+
+        // font-size: 14px;
 
         color: red;
       }
@@ -191,8 +208,8 @@
     .MuiOutlinedInput-root {
       padding-bottom: 10px;
       padding-top: 10px;
-      // height: 10px;
-      font-size: 16px;
+      font-size: 12px;
+      // font-size: 16px;
       fieldset {
         border: 3px solid rgba(#663399, 0.5);
       }
@@ -326,7 +343,8 @@
 
       &-pill {
         border: 3px solid rgba(#663399, 0.5);
-        padding: 8px 10px;
+        padding: 3px 10px;
+        // padding: 8px 10px;
         border-radius: 5px;
         font-size: 18px;
         color: rgba(#663399, 0.5);
