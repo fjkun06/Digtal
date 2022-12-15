@@ -7,19 +7,21 @@ import FooterLink from "../../components/reusables/FooterLink";
 import { policy, icons, enterprise, services } from "./footer_config";
 import KeepItIcon from "../../assets/svg/KeepItIcon";
 import Telephone from "../../assets/svg/Telephone";
-import fblight from "../../assets/svg/FacebookLight.svg";
 import Location from "../../assets/svg/Location";
 import Envelop from "../../assets/svg/Envelop";
 
-export default function Footer({ language,location }) {
+export default function Footer({ language, location }) {
   const { t } = useTranslation("pageend");
   console.log(window.location.pathname.includes("contact"));
-
 
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Box className="footer" component={"div"} style={{height: location? "31vh": ""}}>
+        <Box
+          className="footer"
+          component={"div"}
+          style={{ height: location ? "31vh" : "" }}
+        >
           {!location && (
             <>
               <Grid item className="footer-help">
@@ -31,19 +33,48 @@ export default function Footer({ language,location }) {
                 <div className="pair">
                   <Telephone color={"red"} />
                   <div className="double-numbers">
-                    <span onClick={() => (window.location.href = "tel:+375292771265")}>+237 671 234 567</span>
+                    <span
+                      onClick={() =>
+                        (window.location.href = "tel:+375292771265")
+                      }
+                    >
+                      +237 671 234 567
+                    </span>
                     <span> | </span>
-                    <span onClick={() => (window.location.href = "tel:+375292771265")}>+237 671 234 567</span>
+                    <span
+                      onClick={() =>
+                        (window.location.href = "tel:+375292771265")
+                      }
+                    >
+                      +237 671 234 567
+                    </span>
                   </div>
                 </div>
                 <div className="pair">
-                  <div className="mail" onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>
+                  <div
+                    className="mail"
+                    onClick={() =>
+                      (window.location.href = "mailto:hunchofrank@gmail.com")
+                    }
+                  >
                     <Envelop />
                   </div>
                   <div className="double-numbers">
-                    <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
+                    <span
+                      onClick={() =>
+                        (window.location.href = "mailto:hunchofrank@gmail.com")
+                      }
+                    >
+                      contact@digtal.com
+                    </span>
                     <span> | </span>
-                    <span onClick={() => (window.location.href = "mailto:hunchofrank@gmail.com")}>contact@digtal.com</span>
+                    <span
+                      onClick={() =>
+                        (window.location.href = "mailto:hunchofrank@gmail.com")
+                      }
+                    >
+                      contact@digtal.com
+                    </span>
                   </div>
                 </div>
                 <div className="pair">
@@ -68,14 +99,24 @@ export default function Footer({ language,location }) {
 
           <Grid item className="footer-subscribe">
             <Grid item className="footer-subscribe-text">
-              <Typography className="footer-subscribe-text-typ">{t("subscribe")}</Typography>
+              <Typography className="footer-subscribe-text-typ">
+                {t("subscribe")}
+              </Typography>
             </Grid>
             <Grid item className="footer-subscribe-item">
               <Grid item>
-                <input type="text" id="subscribe-input" placeholder={t("placeholder")} />
+                <input
+                  type="text"
+                  id="subscribe-input"
+                  placeholder={t("placeholder")}
+                />
               </Grid>
               <Grid item>
-                <button type="button" className="footer-subscribe-item-button" variant="contained">
+                <button
+                  type="button"
+                  className="footer-subscribe-item-button"
+                  variant="contained"
+                >
                   {t("subs-button")}
                 </button>
               </Grid>
@@ -90,23 +131,40 @@ export default function Footer({ language,location }) {
               <div className="enterprise">
                 <span className="heading">Enterprise</span>
                 <div className="links">
-                  {enterprise.map((link) => (
-                    <FooterLink key={link.label} to={language + link.route} text={t(link.label)} className="footer-policy-link-text-item" sx={{ color: "red" }} />
+                  {enterprise.map(link => (
+                    <FooterLink
+                      key={link.label}
+                      to={language + link.route}
+                      text={t(link.label)}
+                      className="footer-policy-link-text-item"
+                      sx={{ color: "red" }}
+                    />
                   ))}
                 </div>
               </div>
               <div className="enterprise">
                 <span className="heading">Services</span>
                 <div className="links">
-                  {services.map((link) => (
-                    <FooterLink key={link.label} to={language + link.route} text={t(link.label)} className="footer-policy-link-text-item" sx={{ color: "red" }} />
+                  {services.map(link => (
+                    <FooterLink
+                      key={link.label}
+                      to={language + link.route}
+                      text={t(link.label)}
+                      className="footer-policy-link-text-item"
+                      sx={{ color: "red" }}
+                    />
                   ))}
                 </div>
               </div>
             </Grid>
             <Grid item className="footer-body-icons">
-              {icons.map((icon) => (
-                <a key={icon.url} href={icon.url} target="_blank" rel=" noreferrer">
+              {icons.map(icon => (
+                <a
+                  key={icon.url}
+                  href={icon.url}
+                  target="_blank"
+                  rel=" noreferrer"
+                >
                   {icon.icon}
                 </a>
               ))}
@@ -114,8 +172,14 @@ export default function Footer({ language,location }) {
           </Grid>
           <Grid item className="footer-policy">
             <Grid item className="footer-policy-link-text">
-              {policy.map((link) => (
-                <FooterLink key={link.label} to={language + link.route} text={t(link.label)} className="footer-policy-link-text-item" sx={{ color: "red" }} />
+              {policy.map(link => (
+                <FooterLink
+                  key={link.label}
+                  to={language + link.route}
+                  text={t(link.label)}
+                  className="footer-policy-link-text-item"
+                  sx={{ color: "red" }}
+                />
               ))}
             </Grid>
             <Typography component={"span"}>
