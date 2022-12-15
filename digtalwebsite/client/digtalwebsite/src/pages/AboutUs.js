@@ -2,11 +2,30 @@ import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import diversity from "@assets/images/diversity.png";
 import leonel from "@assets/images/leonel.png";
+import xevlyn from "@assets/images/xevlyn.png";
+import fj from "@assets/images/fj.png";
+import nesta from "@assets/images/nesta.png";
 import { Image } from "mui-image";
+import TeamCard from "src/components/about/TeamCard";
+
+const team = [
+  { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
+  {
+    name: "Ndob'Ewang Xevlyn",
+    title: "Cloud & DevOps Engineer",
+    image: xevlyn
+  },
+  { name: "Frank Zone Jordan", title: "Fullstack Developer", image: fj },
+  { name: "Nesta Enow", title: "UI/UX Designer", image: nesta },
+  { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
+  { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
+  { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
+  { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel }
+];
 
 export default function AboutUs() {
   return (
-    <Grid mt={10} className="about">
+    <Grid mt={10} columns={1} className="about">
       <Stack
         direction="column"
         justifyContent="center"
@@ -20,12 +39,13 @@ export default function AboutUs() {
           Diversity of Solution
         </Typography>
       </Stack>
+
       <Box className="h-[70vh] relative">
         <Image src={diversity} />
         <Typography
           variant="h3"
           classes={{
-            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-[75px]"
+            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-[75px] tracking-[5rem]"
           }}
         >
           diversity
@@ -143,51 +163,61 @@ export default function AboutUs() {
 
       {/* Team Section starts here */}
       <Box>
-        <Stack className="max-w-[100rem] mx-auto">
+        <Stack className="gap-24 mx-auto">
           <Typography
             variant="h2"
             component="h3"
-            className="font-[Poppins] text-[rebeccapurple] text-[40px] font-bold leading-[50px]"
+            className="font-[Poppins] text-[rebeccapurple] text-[40px] font-bold leading-[50px] px-[6.5rem]"
           >
             Meet our <br />
             Stunning Team
           </Typography>
-          <Grid container columns={4}>
-            <Grid item>
-              <Image height="204.5px" width="204.5px" src={leonel} />
-            </Grid>
-          </Grid>
+          <Box className="bg-[rebeccapurple]/10">
+            <Box className="grid grid-cols-4 gap-12 place-content-center py-14 mx-auto max-w-[1068px]">
+              {team.map(member => (
+                <TeamCard
+                  image={member.image}
+                  name={member.name}
+                  title={member.title}
+                />
+              ))}
+            </Box>
+          </Box>
         </Stack>
       </Box>
       {/* Team section ends here */}
 
-      <Container>
-        <Grid container className="max-w-[939px] mx-auto" spacing={15}>
-          <Grid item xs={5}>
+      {/* Join our team section */}
+      <Box>
+        <Box className="grid grid-cols-12 mx-auto max-w-[1068px] h-auto py-14 mb-20">
+          <Box className="col-span-4">
             <Typography
               variant="p"
-              className="text-[rebeccapurple] font-[Poppins] font-bold text-[40px] leading-[50px]"
+              className="text-[rebeccapurple] font-[Poppins] font-bold text-[40px] leading-[70px]"
             >
-              Join Our Team
+              Join our team
             </Typography>
-          </Grid>
+          </Box>
 
-          <Grid item xs={7}>
-            <Typography
-              component="p"
-              className="text-[rebeccapurple] text-opacity-60 font-[Poppins] text-[21px] leading-[35px]"
-            >
-              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
-              qui esse pariatur duis deserunt mollit dolore cillum minim tempor
-              enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
-              voluptate aute id deserunt nisi.
-            </Typography>
-            <Button className="bg-transparent border-[rebeccapurple]">
-              Open Positions
-            </Button>
-          </Grid>
-        </Grid>
-      </Container>
+          <Box className="col-span-8">
+            <Stack>
+              <Typography
+                component="p"
+                className="text-[rebeccapurple] text-opacity-60 font-[Poppins] text-[20px] leading-[35px]"
+              >
+                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+                Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+                tempor enim. Elit aute irure tempor cupidatat incididunt sint
+                deserunt ut voluptate aute id deserunt nisi.
+              </Typography>
+              <Button className="bg-transparent border-2 border-solid border-[rebeccapurple] col-span-1 px-4 py-2 hover:border-[rebeccapurple]/10 hover:bg-[rebeccapurple]/20 text-[17px] capitalize font-bold box-border mr-auto text-[rebeccapurple]">
+                Open Positions
+              </Button>
+            </Stack>
+          </Box>
+        </Box>
+      </Box>
+      {/* Join out team section ends here */}
     </Grid>
   );
 }
