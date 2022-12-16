@@ -5,4 +5,5 @@ import "@fontsource/sarala";
 import "@fontsource/poppins";
 import "@fontsource/inter";
 import "@fontsource/passion-one";
-import "@fontsource/montserrat"
+import "@fontsource/montserrat";
+import "@fontsource/poppins/900.css";
