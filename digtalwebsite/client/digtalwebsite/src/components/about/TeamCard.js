@@ -6,7 +6,13 @@ import React from "react";
 function TeamCard({ image, name, title }) {
   return (
     <Box className="p-2">
-      <Image height="204.5px" width="204.5px" src={image} />
+      <Image
+        src={image}
+        className=""
+        height="auto"
+        width="auto"
+        wrapperClassName="aspect-square max-h-[auto] lg:max-h-[204.5px]"
+      />
       <Stack>
         <Typography className="text-[rebeccapurple] text-[17px] font-bold font-[Poppins]">
           {name}
