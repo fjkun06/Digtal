@@ -1,6 +1,6 @@
 .about {
   .caption {
-    @apply font-semibold max-w-5xl text-center text-[55px] font-['Poppins'];
+    @apply font-semibold max-w-5xl text-center text-2xl lg:text-[55px] font-['Poppins'];
 
     color: rgba(rebeccapurple, 0.6);
   }
