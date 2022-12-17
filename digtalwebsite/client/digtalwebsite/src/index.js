@@ -69,5 +69,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  // </React.Suspense>
+  </React.Suspense>
 );
