@@ -30,23 +30,26 @@ export default function AboutUs() {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        className="h-screen [&>*]:font-['Poppins'] gap-8   lg:gap-0"
+        className="h-screen gap-8 lg:gap-0   [&>*]:font-['Poppins']"
       >
         <Typography className="caption">
           We are professionals
           <br /> Bringing to you a.
         </Typography>
-        <Typography className="capitalize font-bold text-3xl lg:text-[62px] text-[color:rebeccapurple]">
+        <Typography className="font-[Poppins] text-3xl font-bold capitalize leading-[auto] tracking-normal text-[color:rebeccapurple] lg:text-[62px] lg:leading-[70px]">
           Diversity of Solution
         </Typography>
       </Stack>
 
-      <Box className="h-auto lg:h-[70vh] relative">
-        <Image src={diversity} className="aspect-video" />
+      <Box className="relative h-auto lg:h-[70vh]">
+        <Image
+          src={diversity}
+          className="aspect-video object-contain object-center md:object-cover"
+        />
         <Typography
           variant="h3"
           classes={{
-            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-2xl lg:text-[75px] tracking-[.5rem] lg:tracking-[5rem]"
+            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-2xl md:text-[70px] leading-[70px] lg:text-[75px] tracking-[.9rem] lg:leading-[70px] lg:tracking-[5rem] font-[Poppins]"
           }}
         >
           diversity
@@ -61,7 +64,7 @@ export default function AboutUs() {
           <Grid item xs={12} lg={5}>
             <Typography
               component="p"
-              className="text-[rebeccapurple] font-[Poppins] mx-20 lg:mx-0 text-center lg:text-left font-bold text-[27px] leading-[35px] lg:text-[40px] lg:leading-[50px]"
+              className="mx-20 text-center font-[Poppins] text-[27px] font-bold leading-[35px] text-[rebeccapurple] lg:mx-0 lg:text-left lg:text-[40px] lg:leading-[50px]"
             >
               Lifting up others makes you rise
             </Typography>
@@ -69,7 +72,7 @@ export default function AboutUs() {
           <Grid item xs={12} lg={7}>
             <Typography
               component="p"
-              className="text-[rebeccapurple] text-opacity-60 font-[Poppins] lg:text-[21px] leading-[23px] text-[13px] lg:leading-[35px] mt-8 lg:mt-0 text-center lg:text-left"
+              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -78,7 +81,7 @@ export default function AboutUs() {
             </Typography>
             <Typography
               component="p"
-              className="text-[rebeccapurple] text-opacity-60 font-[Poppins] lg:text-[21px] leading-[23px] text-[13px] lg:leading-[35px] mt-8 lg:mt-0 text-center lg:text-left"
+              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -90,18 +93,18 @@ export default function AboutUs() {
 
         <Stack direction="column" className="my-32" gap={7}>
           <Stack direction="row" gap={2} className="items-start">
-            <Typography className="font-['Passion_One'] flex items-center tracking-[-0.04em] lg:text-[196px] text-[130px] leading-[50px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[130px] leading-[50px] tracking-[-0.04em] lg:text-[196px]">
               “
             </Typography>
             <Typography
               component="p"
-              className="font-[Poppins] font-semibold text-[13px] lg:text-[21px] leading-[25px] text-[rebeccapurple] text-opacity-60 text-center"
+              className="text-center font-[Poppins] text-[13px] font-semibold leading-[25px] text-[rebeccapurple] text-opacity-60 lg:text-[21px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
               enim. Elit aute irure tempor
             </Typography>
-            <Typography className="font-['Passion_One'] flex items-center tracking-[-0.04em] lg:text-[196px] text-[130px] leading-[50px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[130px] leading-[50px] tracking-[-0.04em] lg:text-[196px]">
               ’’
             </Typography>
           </Stack>
@@ -118,47 +121,47 @@ export default function AboutUs() {
               className="rounded-full"
             />
             <Stack>
-              <Typography className="text-[rebeccapurple] font-bold text-[15px] font-[Poppins] leading-[22.5px] flex items-center">
+              <Typography className="flex items-center font-[Poppins] text-[15px] font-bold leading-[22.5px] text-[rebeccapurple]">
                 Leonel Zone Yemeli
               </Typography>
-              <Typography className="text-[rebeccapurple] text-opacity-60 font-semibold text-[12px] font-[Poppins] flex items-center text-center">
+              <Typography className="flex items-center text-center font-[Poppins] text-[12px] font-semibold text-[rebeccapurple] text-opacity-60">
                 Founder & CEO
               </Typography>
             </Stack>
           </Stack>
         </Stack>
 
-        <Box className="lg:max-w-[1038px] mx-auto gap-8 lg:gap-14">
+        <Box className="mx-auto gap-8 lg:max-w-[1038px] lg:gap-14">
           <Box className="grid grid-cols-12 gap-8">
             <Box className="col-span-6 lg:col-span-4">
               <Stack className="gap-6">
-                <Typography className="text-center text-[Poppins] text-opacity-60 text-[rebeccapurple] text-[13px] leading-[20px] lg:text-[21px] lg:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 lg:text-[21px] lg:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="font-['Passion_One'] text-[#2B0A3D] text-[50px] lg:text-[90px] leading-[50px] flex items-center mx-auto">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] lg:text-[90px]">
                   160k+
                 </Typography>
               </Stack>
             </Box>
             <Box className="col-span-6 lg:col-span-4">
               <Stack className="gap-6">
-                <Typography className="text-center text-[Poppins] text-opacity-60 text-[rebeccapurple] text-[13px] leading-[20px] lg:text-[21px] lg:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 lg:text-[21px] lg:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="font-['Passion_One'] text-[#2B0A3D] text-[50px] lg:text-[90px] leading-[50px] flex items-center mx-auto">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] lg:text-[90px]">
                   10k+
                 </Typography>
               </Stack>
             </Box>
-            <Box className="col-span-6 col-start-4 lg:col-start-9 lg:col-span-4">
+            <Box className="col-span-6 col-start-4 lg:col-span-4 lg:col-start-9">
               <Stack className="gap-6">
-                <Typography className="text-center text-[Poppins] text-opacity-60 text-[rebeccapurple] text-[13px] leading-[20px] lg:text-[21px] lg:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 lg:text-[21px] lg:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="font-['Passion_One'] text-[#2B0A3D] text-[50px] lg:text-[90px] leading-[50px] flex items-center mx-auto">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] lg:text-[90px]">
                   2k+
                 </Typography>
               </Stack>
@@ -169,17 +172,17 @@ export default function AboutUs() {
 
       {/* Team Section starts here */}
       <Box>
-        <Stack className="gap-12 lg:gap-24 mx-auto">
+        <Stack className="mx-auto gap-12 lg:gap-24">
           <Typography
             variant="h2"
             component="h3"
-            className="font-[Poppins] text-[rebeccapurple] text-center text-[27px] leading-[35px] tracking-[0] lg:text-left lg:text-[40px] font-bold lg:leading-[50px] px-[6.5rem]"
+            className="px-[6.5rem] text-center font-[Poppins] text-[27px] font-bold leading-[35px] tracking-[0] text-[rebeccapurple] lg:text-left lg:text-[40px] lg:leading-[50px]"
           >
             Meet our <br />
             Stunning Team
           </Typography>
           <Box className="bg-[rebeccapurple]/10">
-            <Box className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 place-content-center py-14 px-12 lg:px-0 mx-auto max-w-[1068px]">
+            <Box className="mx-auto grid max-w-[1068px] grid-cols-2 place-content-center gap-8 py-14 px-12 lg:grid-cols-4 lg:gap-12 lg:px-0">
               {team.map(member => (
                 <TeamCard
                   key={member.name}
@@ -196,28 +199,28 @@ export default function AboutUs() {
 
       {/* Join our team section */}
       <Box>
-        <Box className="grid grid-cols-12 mx-auto max-w-[1068px] h-auto py-14 mb-20">
+        <Box className="mx-auto mb-20 grid h-auto max-w-[1068px] grid-cols-12 py-14">
           <Box className="col-span-12 lg:col-span-4">
             <Typography
               component="p"
-              className="text-[rebeccapurple] font-[Poppins] font-bold text-center lg:text-left lg:text-[40px] text-[27px] leading-[70px]"
+              className="text-center font-[Poppins] text-[27px] font-bold leading-[70px] text-[rebeccapurple] lg:text-left lg:text-[40px]"
             >
               Join our team
             </Typography>
           </Box>
 
-          <Box className="col-span-12 px-8 lg:px-0 lg:col-span-8">
+          <Box className="col-span-12 px-8 lg:col-span-8 lg:px-0">
             <Stack>
               <Typography
                 component="p"
-                className="text-[rebeccapurple] text-opacity-60 font-[Poppins] text-[13px] leading-[23px] text-center lg:text-left lg:text-[20px] lg:leading-[35px]"
+                className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:text-left lg:text-[20px] lg:leading-[35px]"
               >
                 Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                 Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
                 tempor enim. Elit aute irure tempor cupidatat incididunt sint
                 deserunt ut voluptate aute id deserunt nisi.
               </Typography>
-              <Button className="bg-transparent border-2 border-solid border-[rebeccapurple] col-span-1 px-4 py-2 mt-4 hover:border-[rebeccapurple]/10 hover:bg-[rebeccapurple]/20 text-[17px] capitalize font-bold box-border mx-auto lg:ml-0 text-[rebeccapurple]">
+              <Button className="col-span-1 mx-auto mt-4 box-border border-2 border-solid border-[rebeccapurple] bg-transparent px-4 py-2 text-[17px] font-bold capitalize text-[rebeccapurple] hover:border-[rebeccapurple]/10 hover:bg-[rebeccapurple]/20 lg:ml-0">
                 Open Positions
               </Button>
             </Stack>
