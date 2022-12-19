@@ -1,7 +1,16 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind base;
+@tailwind variants;
 
-.solutions__title{
-    position:relative;
+@layer base {
+    // @import url("@assets/fonts/font.scss");
+}
+
+.solutions__title {
+  position: relative;
+}
+
+html {
+  background-image: url("../src/assets/images/background.svg");
 }
