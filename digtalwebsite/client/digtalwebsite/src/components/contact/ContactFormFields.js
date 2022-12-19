@@ -38,14 +38,11 @@ export default function ContactFormFields({ t, cxs, cmd }) {
     },
   });
   return (
-    <Grid
-      item
-      className="contact-form form"
-    >
+    <Grid item className="contact-form form">
       <ContactFormOptions setSubject={setValue} getSubject={getValues} valid={isValid} sendSubjectState={setSubjectValidation} />
 
       <Grid item className="top3">
-        {contactFields.map((cf) => (
+        {/* {contactFields.map((cf) => (
           <Grid item  key={cf.label}>
             <Controller
               render={({ field, formState, fieldState: { isDirty, invalid } }) => (
@@ -65,12 +62,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
               control={control}
             />
           </Grid>
-        ))}
+        ))} */}
       </Grid>
 
-      <Grid
-        
-      >
+      <Grid>
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <>
@@ -97,12 +92,9 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           control={control}
         />
       </Grid>
-      <Grid
-        item
-        
-      ></Grid>
-      <Grid item >
-        <Controller
+      <Grid item></Grid>
+      <Grid item>
+        {/* <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <CustomTextField
               label={t("message")}
@@ -116,12 +108,17 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           )}
           name={"message"}
           control={control}
-        />
+        /> */}
+        <div className="form-input">
+          <label htmlFor={"oo"}>
+            zoro:
+            <input type="text" name=" " />
+          </label>
+        </div>
       </Grid>
 
       <Grid item container>
-        
-        <Button
+        <button
           onClick={handleSubmit((data) => console.log("onSubmit", data))}
           fullWidth
           className="contact-submitbutton"
@@ -130,11 +127,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           type="submit"
           disableFocusRipple
           disableRipple
-         
           disabled={!(isValid && subjectValidation)}
         >
           {t("button")}
-        </Button>
+        </button>
       </Grid>
     </Grid>
   );
