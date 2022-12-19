@@ -24,10 +24,11 @@
   grid-template-rows: repeat(10, minmax(250px));
 
   //postioning elements
-  .form {
+  .formsection {
     grid-row: 3/7;
     grid-column: 1/2;
     // background-color: rgb(212, 61, 61);
+    padding-bottom: 3rem;
     font-family: "Poppins", sans-serif;
     width: 80%;
     height: 100%;
@@ -79,7 +80,7 @@
             position: absolute;
           }
           input {
-            &:focus {
+            &:focus,&:hover {
               border: 3px solid rgba(rebeccapurple, 1);
             }
             padding: 0px;
@@ -183,7 +184,7 @@
           outline: none;
           border-radius: 3px;
           font-size: 1.4rem;
-          &:focus {
+          &:focus,&:hover {
             border: 3px solid rgba(rebeccapurple, 1);
           }
         }
@@ -204,13 +205,32 @@
 
       label {
         span{
-          font-family: "Poppins-Big",sans-serif;
+          font-family: "Poppins",sans-serif;
         }
         height: 12.5rem;
         textarea {
           height: 12.5rem;
           resize: both;
         }
+      }
+    }
+
+    .contact-submitbutton {
+      // .MuiButtonBase-root{
+      background-color: white !important;
+      width: 100%;
+      border: 3px solid rgba(rebeccapurple, 0.5);
+      color: rebeccapurple;
+      font-size: 14px;
+      font-family: "Poppins";
+      font-weight: 900;
+      font-size: 1.4rem;
+        height: 4rem;
+      // }
+      &:hover {
+        background-color: rebeccapurple !important;
+        // border: 3px solid white;
+        color: white;
       }
     }
   }
@@ -228,9 +248,11 @@
     grid-row: 1/2;
     grid-column: 1/2;
     background-color: rgb(181, 98, 25);
+    background-color: transparent;
     h2 {
-      font-size: 3.3rem;
-      font-weight: 900;
+      font-family: "Poppins 700",sans-serif;
+      font-size: 3rem;
+      // font-weight: 900;
     }
 
     @include mixins.flex(column);
@@ -311,21 +333,7 @@
   }
 
   //submit button
-  &-submitbutton {
-    // .MuiButtonBase-root{
-    background-color: white !important;
-    border: 3px solid rgba(rebeccapurple, 0.5);
-    color: rebeccapurple;
-    font-size: 14px;
-    font-family: "Poppins";
-    font-weight: 900;
-    // }
-    &:hover {
-      background-color: rebeccapurple !important;
-      // border: 3px solid white;
-      color: white;
-    }
-  }
+  // &-submit
 
   //form input fields
   &-form {
@@ -339,13 +347,14 @@
     height: fit-content;
     font-family: "Poppins";
     row-gap: 10px;
-    margin-top: 5vh;
+    margin-top: 3.3rem;
 
     //headx
     &-heading {
       color: variables.$purple;
       font-weight: bold;
-      font-size: 22px;
+      // font-size: 22px;
+      font-size: 1.6rem;
     }
 
     //pills
@@ -361,9 +370,9 @@
         padding: 3px 10px;
         // padding: 8px 10px;
         border-radius: 5px;
-        font-size: 18px;
+        font-size: 1.2rem;
+        // font-size: 18px;
         color: rgba(#663399, 0.5);
-        font-size: 18px;
         cursor: pointer;
         -webkit-user-select: none;
         user-select: none;

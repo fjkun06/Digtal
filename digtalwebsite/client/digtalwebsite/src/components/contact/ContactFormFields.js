@@ -37,7 +37,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
     }
   });
   return (
-    <Grid item className="contact-form form">
+    <Grid item className="contact-form formsection">
       <ContactFormOptions
         setSubject={setValue}
         getSubject={getValues}
@@ -86,7 +86,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           control={control}
         /> */}
       <div className="input">
-        <label htmlFor={"oo"}>
+        <label htmlFor={""}>
           <span>
             First Name <sup>*</sup>
           </span>
@@ -94,7 +94,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         </label>
       </div>
       <div className="input">
-        <label htmlFor={"oo"}>
+        <label htmlFor={""}>
           <span>
             Last Name <sup>*</sup>
           </span>
@@ -102,7 +102,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         </label>
       </div>
       <div className="input">
-        <label htmlFor={"oo"}>
+        <label htmlFor={""}>
           <span>
             Email <sup>*</sup>
           </span>
@@ -110,7 +110,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         </label>
       </div>
       <div className="input">
-        <label htmlFor={"oo"}>
+        <label htmlFor={""}>
           <span>
             Company Name
           </span>
@@ -122,7 +122,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <>
               <div className="tel">
-                <label htmlFor={"oo"}>
+                <label htmlFor={""}>
                   <span>
                     Telephone <sup>*</sup>
                   </span>
@@ -158,13 +158,12 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         />
       </div>
       <div className="input message-area">
-        <label htmlFor={"oop"}>
+        <label htmlFor={""}>
           <span>
             Message <sup>*</sup>
           </span>
           {/* <input type="text" name=" " id="oo"/> */}
           <textarea id="oop">
-            hello
           </textarea>
         </label>
       </div>

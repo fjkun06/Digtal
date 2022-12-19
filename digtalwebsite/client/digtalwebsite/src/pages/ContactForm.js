@@ -32,9 +32,7 @@ export default function Contact() {
       component="form"
       id="form1"
      
-      sx={{
-        "& .MuiTextField-root": { mt: 5 },
-      }}
+  
       noValidate
       autoComplete="off"
       onSubmit={handleSubmit((data) => console.log(data))}
