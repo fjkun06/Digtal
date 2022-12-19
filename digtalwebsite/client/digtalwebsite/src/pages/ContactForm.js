@@ -30,18 +30,10 @@ export default function Contact() {
     <Grid
       container
       component="form"
-      m={4}
-      ml={0}
-      mt={10}
       id="form1"
-      // alignItems={"center"}
-      // justifyContent="center"
-      // direction="row"
-      pl={{ xs: 1 }}
-      pr={{ xs: 1 }}
+     
       sx={{
         "& .MuiTextField-root": { mt: 5 },
-        padding: "1rem",
       }}
       noValidate
       autoComplete="off"
@@ -51,39 +43,18 @@ export default function Contact() {
       <Grid
         container
         item
-        // xs={12}
-        // sm={5}
-        // mb={12}
-        // pl={{ xs: 1, sm: 4, md: 5 }}
-        // pr={{ xs: 1, sm: 4, md: 5 }}
-        // md={5}
-        sx={{
-          padding: { xs: "8px" },
-          border: "1px solid red",
-        }}
         className="contact-getintouch getintouch"
       >
         <Typography variant="h2" component={"h2"}>
           Get in touch with Us
         </Typography>
         <Typography variant="body" component={"div"}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequa
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
         </Typography>
       </Grid>
       <Grid
         container
         item
-        // xs={12}
-        // sm={5}
-        // mb={12}
-        // pl={{ xs: 1, sm: 4, md: 5 }}
-        // pr={{ xs: 1, sm: 4, md: 5 }}
-        // md={5}
-        sx={{
-          padding: { xs: "8px" },
-          border: "1px solid red",
-
-        }}
         className="contact-getintouch office"
       >
         <Typography variant="h4" component={"h4"}>

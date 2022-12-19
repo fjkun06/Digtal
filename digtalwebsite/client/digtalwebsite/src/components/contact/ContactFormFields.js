@@ -38,29 +38,12 @@ export default function ContactFormFields({ t, cxs, cmd }) {
     },
   });
   return (
-    <Grid
-      item
-      rowSpacing={{ sm: -10, md: -10 }}
-      // xs={12}
-      // sm={5}
-      pl={{ xs: 1, sm: 4, md: 5 }}
-      pr={{ xs: 1, sm: 4, md: 5 }}
-      // md={5}
-      container
-      sx={{
-        padding: { xs: "8px" },
-        border: "1px solid red",
-
-      }}
-      alignItems="center"
-      justifyContent={"center"}
-      className="contact-form form"
-    >
+    <Grid item className="contact-form form">
       <ContactFormOptions setSubject={setValue} getSubject={getValues} valid={isValid} sendSubjectState={setSubjectValidation} />
 
-      <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 2 : ""} rowSpacing={-1}>
-        {contactFields.map((cf) => (
-          <Grid item xs={12} sm={12} md={cf.md} sx={{ borderRadius: 1 }} key={cf.label}>
+      <Grid item className="top3">
+        {/* {contactFields.map((cf) => (
+          <Grid item  key={cf.label}>
             <Controller
               render={({ field, formState, fieldState: { isDirty, invalid } }) => (
                 <>
@@ -79,18 +62,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
               control={control}
             />
           </Grid>
-        ))}
+        ))} */}
       </Grid>
 
-      <Grid
-        item
-        xs={12}
-        mt={2}
-        md={12}
-        sx={{
-          borderRadius: 1,
-        }}
-      >
+      <Grid>
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <>
@@ -117,16 +92,9 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           control={control}
         />
       </Grid>
-      <Grid
-        item
-        xs={12}
-        mt={2}
-        sx={{
-          borderRadius: 1,
-        }}
-      ></Grid>
-      <Grid item xs={12} sx={{ borderRadius: 1 }}>
-        <Controller
+      <Grid item></Grid>
+      <Grid item>
+        {/* <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <CustomTextField
               label={t("message")}
@@ -140,12 +108,17 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           )}
           name={"message"}
           control={control}
-        />
+        /> */}
+        <div className="form-input">
+          <label htmlFor={"oo"}>
+            zoro:
+            <input type="text" name=" " />
+          </label>
+        </div>
       </Grid>
 
-      <Grid item container mt={5} mb={4}>
-        
-        <Button
+      <Grid item container>
+        <button
           onClick={handleSubmit((data) => console.log("onSubmit", data))}
           fullWidth
           className="contact-submitbutton"
@@ -154,15 +127,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           type="submit"
           disableFocusRipple
           disableRipple
-          // sx={{
-          //   backgroundColor: purple[400],
-          //   transition: "all ease 0.0.5s",
-          //   "&:hover": { backgroundColor: purple[500] },
-          // }}
           disabled={!(isValid && subjectValidation)}
         >
           {t("button")}
-        </Button>
+        </button>
       </Grid>
     </Grid>
   );
