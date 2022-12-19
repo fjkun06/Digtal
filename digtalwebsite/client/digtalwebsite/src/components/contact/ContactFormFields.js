@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, FormHelperText, Grid } from "@mui/material";
-import { purple } from "@mui/material/colors";
+import { FormHelperText, Grid } from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -14,7 +13,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
   const [subjectValidation, setSubjectValidation] = React.useState(false);
 
   //handle change for subject field
-  const handleChange = (value) => {
+  const handleChange = value => {
     console.log(value);
   };
 
@@ -24,7 +23,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
     setValue,
     getValues,
     formState: { isValid },
-    control,
+    control
   } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -34,15 +33,20 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       email: "",
       subject: "",
       message: "",
-      phone: "",
-    },
+      phone: ""
+    }
   });
   return (
     <Grid item className="contact-form form">
-      <ContactFormOptions setSubject={setValue} getSubject={getValues} valid={isValid} sendSubjectState={setSubjectValidation} />
+      <ContactFormOptions
+        setSubject={setValue}
+        getSubject={getValues}
+        valid={isValid}
+        sendSubjectState={setSubjectValidation}
+      />
 
-      <Grid item className="top3">
-        {/* {contactFields.map((cf) => (
+      {/* <Grid item className="top3"> */}
+      {/* {contactFields.map((cf) => (
           <Grid item  key={cf.label}>
             <Controller
               render={({ field, formState, fieldState: { isDirty, invalid } }) => (
@@ -63,38 +67,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
             />
           </Grid>
         ))} */}
-      </Grid>
+      {/* </Grid> */}
 
-      <Grid>
-        <Controller
-          render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-            <>
-              <MuiPhoneNumber
-                defaultCountry={"cm"}
-                className="contact-textfield-telephone contact-textfield "
-                enableLongNumbers
-                dropdownClass=""
-                fullWidth
-                hiddenLabel
-                variant="outlined"
-                error={!!formState.errors?.phone}
-                focused={isDirty & !invalid ? true : undefined}
-                {...field}
-                color={isDirty & !invalid ? "success" : "secondary"}
-                label={!isDirty & !invalid ? t("phone.tel") : null}
-              />
-              <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem" }} error={!!formState.errors?.phone}>
-                {t(formState.errors.phone?.message, { ns: "formerror" })}
-              </FormHelperText>
-            </>
-          )}
-          name={"phone"}
-          control={control}
-        />
-      </Grid>
-      <Grid item></Grid>
-      <Grid item>
-        {/* <Controller
+      {/* <Grid item> */}
+      {/* <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
             <CustomTextField
               label={t("message")}
@@ -109,17 +85,102 @@ export default function ContactFormFields({ t, cxs, cmd }) {
           name={"message"}
           control={control}
         /> */}
-        <div className="form-input">
-          <label htmlFor={"oo"}>
-            zoro:
-            <input type="text" name=" " />
-          </label>
-        </div>
-      </Grid>
+      <div className="input">
+        <label htmlFor={"oo"}>
+          <span>
+            First Name <sup>*</sup>
+          </span>
+          <input type="text" name=" " id="oo" />
+        </label>
+      </div>
+      <div className="input">
+        <label htmlFor={"oo"}>
+          <span>
+            Last Name <sup>*</sup>
+          </span>
+          <input type="text" name=" " id="oo" />
+        </label>
+      </div>
+      <div className="input">
+        <label htmlFor={"oo"}>
+          <span>
+            Email <sup>*</sup>
+          </span>
+          <input type="text" name=" " id="oo" />
+        </label>
+      </div>
+      <div className="input">
+        <label htmlFor={"oo"}>
+          <span>
+            Company Name
+          </span>
+          <input type="text" name=" " id="oo" />
+        </label>
+      </div>
+      <div>
+        <Controller
+          render={({ field, formState, fieldState: { isDirty, invalid } }) => (
+            <>
+              <div className="tel">
+                <label htmlFor={"oo"}>
+                  <span>
+                    Telephone <sup>*</sup>
+                  </span>
+                  {/* <input type="text" name=" " id="oo" /> */}
+                  <MuiPhoneNumber
+                    tabIndex={"1"}
+                    defaultCountry={"cm"}
+                    className="contact-textfield-telephone contact-textfield "
+                    enableLongNumbers
+                    dropdownClass=""
+                    fullWidth
+                    hiddenLabel
+                    variant="outlined"
+                    error={!!formState.errors?.phone}
+                    focused={isDirty & !invalid ? true : undefined}
+                    {...field}
+                    color={isDirty & !invalid ? "success" : "secondary"}
+                    // label={!isDirty & !invalid ? t("phone.tel") : null}
+                  />
+                </label>
+              </div>
+              <FormHelperText
+                id="component-helper-text"
+                sx={{ paddingLeft: "14px", fontSize: "1.2rem" }}
+                error={!!formState.errors?.phone}
+              >
+                {t(formState.errors.phone?.message, { ns: "formerror" })}
+              </FormHelperText>
+            </>
+          )}
+          name={"phone"}
+          control={control}
+        />
+      </div>
+      <div className="input message-area">
+        <label htmlFor={"oop"}>
+          <span>
+            Message <sup>*</sup>
+          </span>
+          {/* <input type="text" name=" " id="oo"/> */}
+          <textarea id="oop">
+            hello
+          </textarea>
+        </label>
+      </div>
+      {/* <div className="input">
+        <label htmlFor={"oo"}>
+          <span>
+            First Name <sup>*</sup>
+          </span>
+          <input type="text" name=" " id="oo" />
+        </label>
+      </div> */}
+      {/* </Grid> */}
 
       <Grid item container>
         <button
-          onClick={handleSubmit((data) => console.log("onSubmit", data))}
+          onClick={handleSubmit(data => console.log("onSubmit", data))}
           fullWidth
           className="contact-submitbutton"
           size="large"

@@ -5,7 +5,8 @@
 #form1 {
   //get intouch section of form
   transition: all 0.25s ease-in-out;
-  background-color: rgb(190, 28, 152);
+  background-color: white;
+  // background-color: rgb(190, 28, 152);
 
   // width: 98vw;
   padding-top: 10vh;
@@ -26,14 +27,191 @@
   .form {
     grid-row: 3/7;
     grid-column: 1/2;
-    background-color: green;
+    // background-color: rgb(212, 61, 61);
     font-family: "Poppins", sans-serif;
     width: 80%;
-    height: 150%;
+    height: 100%;
+    margin-left: 10%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    @include mixins.flex(column) {
+      justify-content: center;
+    }
 
-    .top3{
-      background-color: gold;
-      // height: 100px;
+    & > * {
+      width: 100%;
+
+      @for $i from 2 through 8 {
+        &:nth-child(#{$i}) {
+          margin-top: 1rem;
+        }
+        @if $i == 2 {
+          &:nth-child(#{$i}) {
+            margin-top: 2rem;
+          }
+        } @else if $i == 8 {
+          &:nth-child(#{$i}) {
+            margin-top: 2rem;
+          }
+        }
+      }
+    }
+
+    //telephone input field
+    .tel {
+      // border: 1px solid rgb(192, 32, 32);
+      @include mixins.size(100%, 7rem);
+      background-color: rgb(255, 255, 255);
+      label {
+        // @include mixins.size(100%, 4rem);
+        @include mixins.flex(column);
+        row-gap: 0.55rem;
+      }
+
+      .MuiFormControl-root {
+        margin-top: 0px;
+
+        .MuiInputBase-root {
+          background-color: red;
+          position: relative;
+          // display: none;
+          & > * {
+            position: absolute;
+          }
+          input {
+            &:focus {
+              border: 3px solid rgba(rebeccapurple, 1);
+            }
+            padding: 0px;
+
+            font-size: 1.4rem;
+            border: 3px solid rgba(rebeccapurple, 0.35);
+            outline: none;
+            border-radius: 3px;
+            @include mixins.size(calc(100% - 4.75rem), 3.25rem);
+            // @include mixins.size(310px, 30px);
+            left: -0.15rem;
+            top: 0.5rem;
+            padding-left: 4.3rem;
+          }
+
+          .MuiPhoneNumber-flagButton {
+            left: -0.5rem;
+            top: 2.5rem;
+            z-index: 1;
+            @include mixins.size(1rem, 1rem);
+            transform: scale(0.6);
+          }
+
+          .MuiOutlinedInput-notchedOutline {
+            background-color: red;
+            position: relative;
+            display: none;
+            &:focus {
+              border: 3px solid rgba(rebeccapurple, 1);
+            }
+          }
+          background-color: transparent;
+          border-radius: 3px;
+          &:focus {
+            border: 3px solid rgba(rebeccapurple, 1);
+          }
+        }
+      }
+    }
+
+    .input,
+    .tel {
+      label {
+        span {
+          color: rebeccapurple;
+          justify-self: start;
+          width: 100%;
+          font-size: 1.6rem;
+
+          sup {
+            color: red;
+            vertical-align: bottom;
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    // .input label input,
+    // .input label textarea,
+    // .tel .MuiFormControl-root .MuiInputBase-root {
+    //   // background-color: red !important;
+    //   padding-left: 1rem;
+    //   border: 3px solid rgba(rebeccapurple, 0.35);
+    // outline: none;
+    //   border-radius: 3px;
+    //   font-size: 1.4rem;
+    //   &:focus {
+    //     border: 3px solid rgba(rebeccapurple, 1);
+    //   }
+    // }
+
+    .input {
+      @include mixins.size(100%, max-content);
+      @include mixins.flex;
+
+      label {
+        @include mixins.flex(column);
+        @include mixins.size(100%, 6.55rem);
+        row-gap: 0.35rem;
+
+        // border: 1px solid rgb(192, 32, 32);
+
+        span {
+          color: rebeccapurple;
+          justify-self: start;
+          width: 100%;
+          font-size: 1.6rem;
+
+          sup {
+            color: red;
+            vertical-align: bottom;
+            font-size: 2rem;
+          }
+        }
+        input,
+        textarea {
+          // background-color: red !important;
+          padding-left: 1rem;
+          border: 3px solid rgba(rebeccapurple, 0.35);
+          outline: none;
+          border-radius: 3px;
+          font-size: 1.4rem;
+          &:focus {
+            border: 3px solid rgba(rebeccapurple, 1);
+          }
+        }
+
+        input {
+          @include mixins.size(100%, 4rem);
+        }
+        textarea {
+          width: 100%;
+          padding-top: 0.5rem;
+          height: 3rem;
+        }
+      }
+    }
+
+    .message-area {
+      height: 12.5rem;
+
+      label {
+        span{
+          font-family: "Poppins-Big",sans-serif;
+        }
+        height: 12.5rem;
+        textarea {
+          height: 12.5rem;
+          resize: both;
+        }
+      }
     }
   }
 
@@ -59,25 +237,21 @@
     padding: 2.5rem 2rem;
     row-gap: 1rem;
 
-    &> * {
-
+    & > * {
       // border: 1px solid red;
-      &:nth-child(1){
+      &:nth-child(1) {
         // background-color: #fff;
         text-align: left;
         width: 307px;
-
       }
-      &:nth-child(2){
+      &:nth-child(2) {
         // background-color: rgb(105, 84, 84);
         text-align: left;
-    width: 310px;
-
+        width: 310px;
       }
     }
-    div{
+    div {
       font-size: 1.5rem;
-
     }
   }
 
@@ -153,168 +327,9 @@
     }
   }
 
-  //textfields
-  &-textfield {
-    // @keyframes success-blink {
-
-    //   0% {
-    //     border: 3px solid green;      }
-
-    //   70% {
-    //     border: 3px solid rgba(#663399, 1);
-
-    //   }
-    // }
-
-    //input label
-    .MuiFormLabel-root,
-    .MuiInputLabel-root {
-      font-size: 12px;
-      // font-size: 14px;
-      margin-top: -5px;
-      // margin-top: -5px;
-      z-index: 2;
-      // margin-bottom: 15px;
-      // border: 3px solid rgba(#663399, 0.5);
-      // transform: translate(0,-5px);
-      &.Mui-focused {
-        color: #663399;
-        // color: green;
-      font-size: 12px;
-
-        // font-size: 14px;
-        margin-top: 0px;
-
-        &.Mui-error {
-      font-size: 12px;
-
-          // font-size: 14px;
-
-          color: red;
-        }
-      }
-      &.Mui-error {
-      font-size: 12px;
-
-        // font-size: 14px;
-
-        color: red;
-      }
-    }
-
-    //input fields
-
-    .MuiInputBase-root,
-    .MuiOutlinedInput-root {
-      padding-bottom: 10px;
-      padding-top: 10px;
-      font-size: 12px;
-      // font-size: 16px;
-      fieldset {
-        border: 3px solid rgba(#663399, 0.5);
-      }
-
-      &:hover {
-        fieldset {
-          border: 3px solid rgba(#663399, 1);
-        }
-      }
-
-      &.Mui-focused {
-        .MuiOutlinedInput-notchedOutline {
-          border: 3px solid green;
-          // animation-name: success-blink;
-          // animation-duration: 1s;
-          // animation-iteration-count: 1;
-          // animation-fill-mode: forwards;
-          border: 3px solid rgba(#663399, 1);
-
-          legend {
-            span {
-              // font-size: 6px;
-              padding-left: 0px;
-              padding-right: 0px;
-
-              // display: none;
-            }
-          }
-        }
-
-        &.Mui-error {
-          fieldset {
-            border: 3px solid red;
-            legend {
-              span {
-                // font-size: 8px;
-                padding-left: 0px;
-                padding-right: 0px;
-              }
-            }
-          }
-        }
-      }
-      &.Mui-required {
-        fieldset {
-          border: 3px solid red;
-        }
-      }
-      &.Mui-error {
-        fieldset {
-          border: 3px solid red;
-          legend {
-            span {
-              // font-size: 8px;
-              padding-left: 0px;
-              padding-right: 0px;
-            }
-          }
-        }
-      }
-    }
-
-    //telephone
-    &-telephone {
-      .MuiInputBase-root,
-      .MuiOutlinedInput-root {
-        padding-bottom: 0px;
-        padding-top: 0px;
-        font-size: 14px;
-      }
-
-      //input label
-      .MuiFormLabel-root,
-      .MuiInputLabel-root {
-        font-size: 14px;
-        margin-top: 0px;
-        z-index: 2;
-        // margin-bottom: 15px;
-        // border: 3px solid rgba(#663399, 0.5);
-        // transform: translate(0,-5px);
-        &.Mui-focused {
-          color: #663399;
-          // color: green;
-          font-size: 14px;
-          margin-top: 0px;
-          margin-left: -5px;
-
-          &.Mui-error {
-            font-size: 14px;
-
-            color: red;
-          }
-        }
-        &.Mui-error {
-          font-size: 14px;
-
-          color: red;
-        }
-      }
-    }
-  }
-
   //form input fields
   &-form {
-    border-radius: 2%;
+    border-radius: 5px;
     box-shadow: 5px 5px 25px -1px rgba(187, 141, 138, 0.122), -5px -5px 25px 1px rgba(141, 138, 138, 0.122);
   }
 
