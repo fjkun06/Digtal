@@ -46,32 +46,6 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         valid={isValid}
         sendSubjectState={setSubjectValidation}
       />
-
-      {/* <Grid item className="top3"> */}
-      {/* {contactFields.map((cf) => (
-          <Grid item  key={cf.label}>
-            <Controller
-              render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-                <>
-                  <CustomTextField
-                    label={t(cf.label)}
-                    errorState={!!formState.errors[cf.index]}
-                    errorText={t(formState.errors[cf.index]?.message, {
-                      ns: "formerror",
-                    })}
-                    field={field}
-                    success={isDirty & !invalid}
-                  />
-                </>
-              )}
-              name={cf.index}
-              control={control}
-            />
-          </Grid>
-        ))} */}
-      {/* </Grid> */}
-
-      {/* <Grid item> */}
       {contactFields.map(cf => (
         <Controller
           key={cf.index}
@@ -121,7 +95,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
                 </label>
               </div>
               {!!formState.errors?.phone && (
-                <span id="component-helper-text">
+                <span className="phone-error">
                   {t(formState.errors.phone?.message, { ns: "formerror" })}
                 </span>
               )}

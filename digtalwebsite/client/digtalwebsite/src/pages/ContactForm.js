@@ -30,7 +30,7 @@ export default function Contact() {
         </Typography>
         <Typography variant="body" component={"div"}>
           Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit
+          sint. Velit officia consequa
         </Typography>
       </Grid>
       <Grid container item className="office">

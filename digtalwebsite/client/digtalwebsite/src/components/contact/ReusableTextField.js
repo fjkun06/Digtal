@@ -6,7 +6,7 @@ export default function ReusableTextField({
   sup,field
 }) {
   return (
-    <>
+    <div className="textfield">
       <div className={errorState ? "input problem" : "input"}>
         <label htmlFor={id}>
           <span>
@@ -16,6 +16,6 @@ export default function ReusableTextField({
         </label>
       </div>
       {errorState && <span id="component-helper-text">{errorText}</span>}
-    </>
+    </div>
   );
 }

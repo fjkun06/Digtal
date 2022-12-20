@@ -32,25 +32,25 @@
     @include mixins.flex(column) {
       justify-content: center;
     }
+    @media only screen and (min-width: 481px) {
+      @include mixins.grid;
+      //  grid-template-rows: repeat(1, minmax(50px));
+      //  background-color: red;
+       grid-template-rows: repeat(10, auto);
+       grid-template-columns: repeat(2,1fr);
 
-    & > * {
-      width: 100%;
-
-      @for $i from 2 through 8 {
-        &:nth-child(#{$i}) {
-          margin-top: 1rem;
-        }
-        @if $i == 2 {
-          &:nth-child(#{$i}) {
-            margin-top: 2rem;
-          }
-        } @else if $i == 8 {
-          &:nth-child(#{$i}) {
-            margin-top: 2rem;
-          }
-        }
-      }
     }
+
+//     .textfield{
+//       background-color: green;
+//      transition: all        0.5s ease-in-out;
+//   height: 7rem;
+
+// &:hover{
+//   background-color: red;
+//   height: 9rem
+// }
+//     }
 
     //form options
     .contact-formoptions {
@@ -65,6 +65,10 @@
         color: variables.$purple;
         font-weight: bold;
         font-size: 1.6rem;
+        @media only screen and (min-width: 481px) {
+          font-size: 1.9rem;
+          // font-size: 2.2rem;
+        }
       }
 
       //pills
@@ -84,6 +88,12 @@
           cursor: pointer;
           -webkit-user-select: none;
           user-select: none;
+          @media only screen and (min-width: 481px) {
+            padding: 6px 10px;
+
+            font-size: 1.5rem;
+            // font-size: 1.8rem;
+          }
 
           &:hover {
             border: 3px solid rgba(#663399, 1);
@@ -98,11 +108,25 @@
     }
 
     //form error text
-    #component-helper-text {
+    #component-helper-text,
+    .phone-error {
       font-size: 1rem;
       padding-top: 0rem;
       padding-left: 1.4rem;
       color: red;
+      @media only screen and (min-width: 481px) {
+      font-size: 1.2rem;
+      
+      }
+    }
+
+    //special phone error text
+    .phone-error {
+      @media only screen and (min-width: 481px) {
+        // border: 1px solid red;
+        // margin-top: 0.5rem;
+        // position: absolute;
+      }
     }
 
     //telephone input field
@@ -112,7 +136,10 @@
       label {
         @include mixins.flex(column);
         row-gap: 0.55rem;
-      }
+            @media only screen and (min-width: 481px) {
+        row-gap: 0rem;
+
+                  }      }
 
       .MuiFormControl-root {
         margin-top: 0px;
@@ -132,11 +159,20 @@
             padding: 0px;
 
             font-size: 1.4rem;
+
             border: 3px solid rgba(rebeccapurple, 0.35);
             // border: 3px solid red;
             outline: none;
             border-radius: 3px;
             @include mixins.size(calc(100% - 4.75rem), 3.25rem);
+            @media only screen and (min-width: 481px) {
+              width: calc(100% - 4.75rem);
+              padding-top: 0.15rem;
+              padding-bottom: 0.15rem;
+              font-size: 1.7rem;
+              // font-size: 1.9rem;
+              // @include mixins.size(calc(100% - 4.75rem), 3.6rem);
+            }
             left: -0.15rem;
             top: 0.5rem;
             padding-left: 4.3rem;
@@ -172,12 +208,17 @@
 
     .input,
     .tel {
+   
       label {
         span {
           color: rebeccapurple;
           justify-self: start;
           width: 100%;
           font-size: 1.6rem;
+          @media only screen and (min-width: 481px) {
+            font-size: 1.9rem;
+            // font-size: 2.2rem;
+          }
 
           sup {
             color: red;
@@ -192,23 +233,11 @@
       @include mixins.size(100%, max-content);
       @include mixins.flex;
 
+
       label {
         @include mixins.flex(column);
         @include mixins.size(100%, 6.55rem);
         row-gap: 0.35rem;
-        span {
-          color: rebeccapurple;
-          justify-self: start;
-          width: 100%;
-          font-size: 1.6rem;
-
-          sup {
-            color: red;
-            vertical-align: bottom;
-            font-size: 2rem;
-          }
-        }
-
         input,
         textarea {
           padding-left: 1rem;
@@ -216,19 +245,34 @@
           outline: none;
           border-radius: 3px;
           font-size: 1.4rem;
+
           &:focus,
           &:hover {
             border: 3px solid rgba(rebeccapurple, 1);
+          }
+          @media only screen and (min-width: 481px) {
+            font-size: 1.7rem;
+            // font-size: 2.2rem;
           }
         }
 
         input {
           @include mixins.size(100%, 4rem);
+          @media only screen and (min-width: 481px) {
+            @include mixins.size(100%, 5rem);
+            // @include mixins.size(100%, 5rem);
+            // font-size: 2.2rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+          }
         }
         textarea {
           width: 100%;
           padding-top: 0.5rem;
           height: 3rem;
+          @media only screen and (min-width: 481px) {
+            height: 5rem;
+          }
         }
       }
     }
@@ -283,6 +327,60 @@
         color: rgba(rebeccapurple, 0.5);
       }
       border-radius: 3px;
+    }
+
+    //general gaps
+    & > * {
+      width: 100%;
+
+      @for $i from 2 through 8 {
+        &:nth-child(#{$i}) {
+          margin-top: 1rem;
+        }
+        @if $i == 2 {
+          &:nth-child(#{$i}) {
+            margin-top: 2rem;
+            @media only screen and (min-width: 481px) {
+              // background-color: red;
+              // width: 49%;
+              // justify-self: flex-start;
+              grid-row: 2/3;
+              grid-column: 1/2;
+
+            }
+          }
+        } @else if $i == 8 {
+          &:nth-child(#{$i}) {
+            margin-top: 2rem;
+            @media only screen and (min-width: 481px) {
+              margin-bottom: 2rem;
+              margin-top: 4rem;
+            }
+          }
+        } @else if $i == 3 {
+          &:nth-child(#{$i}) {
+            margin-top: 2rem;
+
+            @media only screen and (min-width: 481px) {
+              // background-color: red;
+              // width: 49%;
+              // justify-self: flex-end;
+              // margin-top: -6.5rem;
+              grid-row: 2/3;
+              grid-column: 2/3;
+            }
+          }
+        } @else if $i == 6 {
+          &:nth-child(#{$i}) {
+            @media only screen and (min-width: 481px) {
+              // background-color: red;
+              // height: 110%;
+            }
+          }
+        }
+      }
+
+  
     }
   }
 
@@ -382,10 +480,12 @@
     grid-column: 1/2;
     background-color: rgb(181, 98, 25);
     background-color: transparent;
+
     h2 {
       font-family: "Poppins 700", sans-serif;
       font-size: 3rem;
       color: #663399;
+      // border: 1px solid red;
     }
 
     @include mixins.flex(column);
@@ -395,11 +495,20 @@
     & > * {
       &:nth-child(1) {
         text-align: left;
-        width: 307px;
+        width: max-content;
+        @media only screen and (min-width: 481px) {
+          font-size: 4rem;
+          // font-size: 4.3rem;
+        }
       }
       &:nth-child(2) {
         text-align: left;
         width: 310px;
+        @media only screen and (min-width: 481px) {
+          font-size: 1.6rem;
+          // font-size: 1.9rem;
+          width: 460px;
+        }
       }
     }
     div {
