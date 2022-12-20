@@ -31,44 +31,38 @@ export default function Contact() {
       container
       component="form"
       id="form1"
-     
-  
       noValidate
       autoComplete="off"
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit(data => console.log(data))}
     >
-      {/* <ContactFormLocation /> */}
-      <Grid
-        container
-        item
-        className="contact-getintouch getintouch"
-      >
+      <Grid container item className="getintouch">
         <Typography variant="h2" component={"h2"}>
           Get in touch with Us
         </Typography>
         <Typography variant="body" component={"div"}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+          sint. Velit
         </Typography>
       </Grid>
-      <Grid
-        container
-        item
-        className="contact-getintouch office"
-      >
-        <Typography variant="h4" component={"h4"}>
+      <Grid container item className="office">
+        <span>
           Our Office
-        </Typography>
+        </span>
         <CustomImage alt="Snapshot of Office" image={contactOffice} />
-        <Typography variant="body" component={"div"}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequa
-        </Typography>
-        <Grid item container direction={"row"}>
-          {location.map((loc) => (
-            <ContactFormSubLocation {...loc} key={loc.town} />
-          ))}
-        </Grid>
+        <div className="office-body">
+          <Typography variant="body" component={"span"}>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+            sint. Velit
+          </Typography>
+          <div className="office-body-location">
+            {location.map(loc => (
+              <ContactFormSubLocation {...loc} key={loc.town} />
+            ))}
+          </div>
+        </div>
       </Grid>
       <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
+      {/* <ContactFormLocation /> */}
     </Grid>
   );
 }

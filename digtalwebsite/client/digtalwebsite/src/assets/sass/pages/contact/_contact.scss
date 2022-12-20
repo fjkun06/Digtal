@@ -3,22 +3,14 @@
 
 .contact,
 #form1 {
-  //get intouch section of form
   transition: all 0.25s ease-in-out;
   background-color: white;
-  // background-color: rgb(190, 28, 152);
 
-  // width: 98vw;
   padding-top: 10vh;
-  // padding-left: 6vw;
-  // padding-right: 6vw;
   display: grid;
 
   height: auto;
-  width: 99.1vw;
-
-  // column-gap: 3rem;
-  // @include mixins.flex(column);
+  width: 100vw;
 
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, minmax(250px));
@@ -27,7 +19,6 @@
   .formsection {
     grid-row: 3/7;
     grid-column: 1/2;
-    // background-color: rgb(212, 61, 61);
     padding-bottom: 3rem;
     font-family: "Poppins", sans-serif;
     width: 80%;
@@ -35,6 +26,9 @@
     margin-left: 10%;
     padding-left: 3rem;
     padding-right: 3rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 25px -1px rgba(187, 141, 138, 0.122), -5px -5px 25px 1px rgba(141, 138, 138, 0.122);
+
     @include mixins.flex(column) {
       justify-content: center;
     }
@@ -58,13 +52,56 @@
       }
     }
 
+    //form options
+    .contact-formoptions {
+      @include mixins.flex;
+      height: fit-content;
+      font-family: "Poppins";
+      row-gap: 10px;
+      margin-top: 3.3rem;
+
+      //headx
+      &-heading {
+        color: variables.$purple;
+        font-weight: bold;
+        font-size: 1.6rem;
+      }
+
+      //pills
+      &--pills {
+        @include mixins.flex;
+        row-gap: 10px;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        justify-content: start;
+
+        &-pill {
+          border: 3px solid rgba(#663399, 0.5);
+          padding: 3px 10px;
+          border-radius: 5px;
+          font-size: 1.2rem;
+          color: rgba(#663399, 0.5);
+          cursor: pointer;
+          -webkit-user-select: none;
+          user-select: none;
+
+          &:hover {
+            border: 3px solid rgba(#663399, 1);
+            color: rgba(#663399, 1);
+          }
+        }
+        &--bordered {
+          border: 3px solid rgba(#663399, 1);
+          color: rgba(#663399, 1);
+        }
+      }
+    }
+
     //telephone input field
     .tel {
-      // border: 1px solid rgb(192, 32, 32);
       @include mixins.size(100%, 7rem);
       background-color: rgb(255, 255, 255);
       label {
-        // @include mixins.size(100%, 4rem);
         @include mixins.flex(column);
         row-gap: 0.55rem;
       }
@@ -80,7 +117,8 @@
             position: absolute;
           }
           input {
-            &:focus,&:hover {
+            &:focus,
+            &:hover {
               border: 3px solid rgba(rebeccapurple, 1);
             }
             padding: 0px;
@@ -90,7 +128,6 @@
             outline: none;
             border-radius: 3px;
             @include mixins.size(calc(100% - 4.75rem), 3.25rem);
-            // @include mixins.size(310px, 30px);
             left: -0.15rem;
             top: 0.5rem;
             padding-left: 4.3rem;
@@ -105,17 +142,7 @@
           }
 
           .MuiOutlinedInput-notchedOutline {
-            background-color: red;
-            position: relative;
             display: none;
-            &:focus {
-              border: 3px solid rgba(rebeccapurple, 1);
-            }
-          }
-          background-color: transparent;
-          border-radius: 3px;
-          &:focus {
-            border: 3px solid rgba(rebeccapurple, 1);
           }
         }
       }
@@ -139,20 +166,6 @@
       }
     }
 
-    // .input label input,
-    // .input label textarea,
-    // .tel .MuiFormControl-root .MuiInputBase-root {
-    //   // background-color: red !important;
-    //   padding-left: 1rem;
-    //   border: 3px solid rgba(rebeccapurple, 0.35);
-    // outline: none;
-    //   border-radius: 3px;
-    //   font-size: 1.4rem;
-    //   &:focus {
-    //     border: 3px solid rgba(rebeccapurple, 1);
-    //   }
-    // }
-
     .input {
       @include mixins.size(100%, max-content);
       @include mixins.flex;
@@ -161,9 +174,6 @@
         @include mixins.flex(column);
         @include mixins.size(100%, 6.55rem);
         row-gap: 0.35rem;
-
-        // border: 1px solid rgb(192, 32, 32);
-
         span {
           color: rebeccapurple;
           justify-self: start;
@@ -178,13 +188,13 @@
         }
         input,
         textarea {
-          // background-color: red !important;
           padding-left: 1rem;
           border: 3px solid rgba(rebeccapurple, 0.35);
           outline: none;
           border-radius: 3px;
           font-size: 1.4rem;
-          &:focus,&:hover {
+          &:focus,
+          &:hover {
             border: 3px solid rgba(rebeccapurple, 1);
           }
         }
@@ -204,8 +214,8 @@
       height: 12.5rem;
 
       label {
-        span{
-          font-family: "Poppins",sans-serif;
+        span {
+          font-family: "Poppins", sans-serif;
         }
         height: 12.5rem;
         textarea {
@@ -216,7 +226,6 @@
     }
 
     .contact-submitbutton {
-      // .MuiButtonBase-root{
       background-color: white !important;
       width: 100%;
       border: 3px solid rgba(rebeccapurple, 0.5);
@@ -225,34 +234,114 @@
       font-family: "Poppins";
       font-weight: 900;
       font-size: 1.4rem;
-        height: 4rem;
-      // }
+      height: 4rem;
       &:hover {
         background-color: rebeccapurple !important;
-        // border: 3px solid white;
         color: white;
       }
     }
   }
 
+  /*********************************************************/
+  /**********************Office Section*********************/
   .office {
     grid-row: 7/10;
     grid-column: 1/2;
-    // margin-top: -30vh;
-    width: 38vw;
-    background-color: rgb(0, 90, 128);
-    // font-family: "Poppins",sans-serif;
+    width: 100%;
+    // background-color: rgba(0, 128, 81, 0.72);
+    // padding: 2rem 0rem;
+    span,
+    h4 {
+      font-family: "Poppins 700", "Helvetica Neue";
+      color: #663399;
+      // border: 1px solid red;
+      width: 100%;
+      font-size: 2rem;
+    }
+    span {
+      padding: 2rem 0px 1.5rem 4.5rem;
+    }
+    img {
+      border-radius: 0px;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .office-body {
+      // background-color: red;
+      @include mixins.flex(column);
+      span {
+        background-color: #fff;
+        font-family: "Poppins";
+        color: rgba(#663399, 0.5);
+        font-size: 1.5rem;
+        // border: 1px solid red;
+        padding: 2rem 5rem;
+        text-align: center;
+      }
+
+      &-location {
+        // border: 1px solid red;
+        width: 100%;
+        @include mixins.flex(column);
+        row-gap: 2.5rem;
+        padding-bottom: 2rem;
+
+        &--item {
+          // border: 1px solid red;
+          width: 100%;
+          @include mixins.flex(column);
+
+          h4 {
+            // border: 1px solid red;
+            text-align: center;
+            padding-bottom: 0.5rem;
+          }
+
+          h5 {
+            font-family: "Poppins";
+            font-size: 1.5rem;
+            color: rgba(#663399, 0.5);
+          }
+
+          & > div {
+            width: 100%;
+            @include mixins.flex(column);
+          }
+          .icon-text {
+            // background-color: red;
+            width: 100%;
+            @include mixins.flex;
+            column-gap: 0.25rem;
+            padding: 0.15rem 0;
+            h5 {
+              margin-top: -1rem;
+            }
+          }
+
+          .address {
+            // border: 1px solid red;
+            margin-top: -1rem;
+            width: 100%;
+            text-align: center;
+            padding-left: 2.5rem;
+          }
+        }
+      }
+    }
   }
 
+  /*********************************************************/
+  /**********************Get In Touch Section*********************/
   .getintouch {
     grid-row: 1/2;
     grid-column: 1/2;
     background-color: rgb(181, 98, 25);
     background-color: transparent;
     h2 {
-      font-family: "Poppins 700",sans-serif;
+      font-family: "Poppins 700", sans-serif;
       font-size: 3rem;
-      // font-weight: 900;
+      color: #663399;
     }
 
     @include mixins.flex(column);
@@ -260,132 +349,19 @@
     row-gap: 1rem;
 
     & > * {
-      // border: 1px solid red;
       &:nth-child(1) {
-        // background-color: #fff;
         text-align: left;
         width: 307px;
       }
       &:nth-child(2) {
-        // background-color: rgb(105, 84, 84);
         text-align: left;
         width: 310px;
       }
     }
     div {
       font-size: 1.5rem;
-    }
-  }
-
-  &-getintouch {
-    // border: 1px solid red;
-    // height: 100px;
-    font-family: "Poppins", sans-serif;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: #663399;
-    }
-
-    // h2,
-    // h4,
-    // h3 {
-    //   color: rebeccapurple;
-    //   font-weight: 900;
-    // }
-    // h2 {
-    //   font-size: 40px;
-    //   padding-bottom: 5px;
-    // }
-    // h3 {
-    //   font-size: 30px;
-    //   // padding-top: 20px;
-    //   padding-bottom: 15px;
-    // }
-    // img {
-    //   padding-bottom: 20px;
-    // }
-
-    // img[alt*="svg"] {
-    //   // border: 1px solid red;
-    //   padding-bottom: 0px;
-    //   margin-top: -45px;
-    // }
-
-    // div {
-    //   font-size: 21px;
-    // }
-
-    // h4 {
-    //   font-size: 30px;
-    //   padding-top: 30px;
-    //   padding-bottom: 15px;
-    // }
-
-    // h5 {
-    //   font-weight: 500;
-    //   color: rgba(#2b0a3d, 0.5);
-    //   font-size: 18px;
-    // }
-  }
-
-  //submit button
-  // &-submit
-
-  //form input fields
-  &-form {
-    border-radius: 5px;
-    box-shadow: 5px 5px 25px -1px rgba(187, 141, 138, 0.122), -5px -5px 25px 1px rgba(141, 138, 138, 0.122);
-  }
-
-  //form options
-  &-formoptions {
-    @include mixins.flex;
-    height: fit-content;
-    font-family: "Poppins";
-    row-gap: 10px;
-    margin-top: 3.3rem;
-
-    //headx
-    &-heading {
-      color: variables.$purple;
-      font-weight: bold;
-      // font-size: 22px;
-      font-size: 1.6rem;
-    }
-
-    //pills
-    &--pills {
-      @include mixins.flex;
-      row-gap: 10px;
-      flex-wrap: wrap;
-      column-gap: 10px;
-      justify-content: start;
-
-      &-pill {
-        border: 3px solid rgba(#663399, 0.5);
-        padding: 3px 10px;
-        // padding: 8px 10px;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        // font-size: 18px;
-        color: rgba(#663399, 0.5);
-        cursor: pointer;
-        -webkit-user-select: none;
-        user-select: none;
-
-        &:hover {
-          border: 3px solid rgba(#663399, 1);
-          color: rgba(#663399, 1);
-        }
-      }
-      &--bordered {
-        border: 3px solid rgba(#663399, 1);
-        color: rgba(#663399, 1);
-      }
+      color: rgba(#663399, 0.5);
+      font-family: "Poppins", sans-serif;
     }
   }
 }
