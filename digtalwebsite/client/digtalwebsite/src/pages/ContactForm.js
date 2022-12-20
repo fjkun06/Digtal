@@ -35,7 +35,7 @@ export default function Contact() {
       </Grid>
       <Grid container item className="office">
         <span>Our Office</span>
-        <CustomImage alt="Snapshot of Office" image={contactOffice} />
+        <CustomImage alt="Snapshot of Office" image={contactOffice} id="office-pic" />
         <div className="office-body">
           <Typography variant="body" component={"span"}>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
