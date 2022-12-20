@@ -1,28 +1,17 @@
-import * as React from "react";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { useForm } from "react-hook-form";
 import contactOffice from "../assets/images/contact-our-office.png";
 
-// import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import ContactFormFields from "./../components/contact/ContactFormFields";
-import ContactFormLocation from "./../components/contact/ContactFormLocation";
 import CustomImage from "./../components/reusables/ReusableImage";
 import { location } from "./../components/contact/contact_config";
 import ContactFormSubLocation from "./../components/contact/ContactFormSubLocation";
 
 export default function Contact() {
-  //the hook for the form
-  // const [contact, setContact] = useState({});
-
-  //   //media queries
-  // const matchesSM = useMediaQuery("(max-width:900px)");
   const cmd = useMediaQuery("(min-width:900px)");
   const cxs = useMediaQuery("(max-width:599px)");
-  // const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
-
-  //   //setting up language translator
   const { t } = useTranslation(["form", "formerror"]);
   const { handleSubmit } = useForm();
 
@@ -45,9 +34,7 @@ export default function Contact() {
         </Typography>
       </Grid>
       <Grid container item className="office">
-        <span>
-          Our Office
-        </span>
+        <span>Our Office</span>
         <CustomImage alt="Snapshot of Office" image={contactOffice} />
         <div className="office-body">
           <Typography variant="body" component={"span"}>
@@ -62,7 +49,6 @@ export default function Contact() {
         </div>
       </Grid>
       <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
-      {/* <ContactFormLocation /> */}
     </Grid>
   );
 }

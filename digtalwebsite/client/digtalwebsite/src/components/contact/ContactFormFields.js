@@ -159,16 +159,6 @@ export default function ContactFormFields({ t, cxs, cmd }) {
         control={control}
       />
 
-      {/* <div className="input">
-        <label htmlFor={"oo"}>
-          <span>
-            First Name <sup>*</sup>
-          </span>
-          <input type="text" name=" " id="oo" />
-        </label>
-      </div> */}
-      {/* </Grid> */}
-
       <button
         onClick={handleSubmit(data => console.log("onSubmit", data))}
         className="contact-submitbutton"
