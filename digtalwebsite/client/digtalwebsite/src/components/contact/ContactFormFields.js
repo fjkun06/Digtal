@@ -122,11 +122,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
                 <textarea id="message" {...field}></textarea>
               </label>
             </div>
-            {!!formState.errors?.message && (
-              <span id="component-helper-text">
-                {t(formState.errors.message?.message, { ns: "formerror" })}
-              </span>
-            )}
+        
           </>
         )}
         name={"message"}
