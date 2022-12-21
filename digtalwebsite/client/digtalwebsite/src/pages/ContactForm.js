@@ -7,7 +7,6 @@ import ContactFormFields from "src/components/contact/ContactFormFields";
 import CustomImage from "src/components/reusables/ReusableImage";
 import { location } from "src/components/contact/contact_config";
 import ContactFormSubLocation from "src/components/contact/ContactFormSubLocation";
-import ContactModal from "src/components/contact/ContactModal";
 
 export default function Contact() {
   const { t } = useTranslation(["form", "formerror"]);
@@ -19,7 +18,7 @@ export default function Contact() {
 
   return (
     <Grid container component="form" id="form1" noValidate autoComplete="off">
-      <ContactModal disp={toggleModalDisplay} />
+      {/* <ContactModal disp={toggleModalDisplay} /> */}
       <Grid container item className="getintouch">
         <h2>Get in touch with Us</h2>
         <div>

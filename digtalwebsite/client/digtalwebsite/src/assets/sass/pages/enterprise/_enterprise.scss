@@ -1,0 +1,79 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+.enterprise-page {
+  @include mixins.size(100vw, 100vh);
+  @include mixins.grid;
+  padding-top: 11vh;
+  background-color: black;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+
+  span {
+    border: 3px solid white;
+  }
+  .container {
+    @include mixins.size(40vw, 40vh);
+    border: 3px solid white;
+    @include mixins.flex;
+    overflow-x: hidden;
+
+    .up,
+    .down {
+      @include mixins.size(40vw, 35vh);
+      min-width: 100%;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .up {
+      background-color: blue;
+      transform: translate(19vw, 0);
+      animation: left 5s ease-in-out 0s infinite forwards;
+    }
+    .down {
+      background-color: rgb(255, 30, 0);
+      transform: translate(19vw, 0);
+      animation: right 5s ease-in-out 0s infinite forwards;
+    }
+  }
+}
+
+@keyframes left {
+  100% {
+    transform: translate(58vw, 0);
+    opacity: 0;
+    // opacity: 1;
+    // z-index: -1;
+  }
+
+  99.9% {
+    opacity: 0;
+    // z-index: 1;
+
+  }
+  98% {
+    transform: translate(-21vw, 0);
+    opacity: 1;
+  }
+}
+@keyframes left2 {
+  100% {
+    transform: translate(19vw, 0);
+    opacity: 0;
+  }
+
+  99.9% {
+    transform: translate(-20vw, 0);
+    opacity: 1;
+  }
+}
+@keyframes right {
+  100% {
+    transform: translate(19vw, 0);
+    // opacity: 0;
+    opacity: 1;
+  }
+  99.9% {
+    transform: translate(-60vw, 0);
+    opacity: 1;
+  }
+}
