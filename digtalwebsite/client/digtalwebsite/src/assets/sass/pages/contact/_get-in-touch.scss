@@ -24,7 +24,9 @@
         width: max-content;
         @media only screen and (min-width: 481px) {
           font-size: 4rem;
-          // font-size: 4.3rem;
+        }
+        @media only screen and (min-width: 769px) {
+          font-size: 4.3rem;
         }
       }
       &:nth-child(2) {
@@ -35,6 +37,9 @@
           // font-size: 1.9rem;
           width: 460px;
           text-align: center;
+        }
+        @media only screen and (min-width: 769px) {
+          font-size: 1.9rem;
         }
       }
     }

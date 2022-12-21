@@ -76,7 +76,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       <div>
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-            <>
+            <div className="telephone-field">
               <div className="tel">
                 <label htmlFor={"phone"}>
                   <span>
@@ -99,7 +99,7 @@ export default function ContactFormFields({ t, cxs, cmd }) {
                   {t(formState.errors.phone?.message, { ns: "formerror" })}
                 </span>
               )}
-            </>
+            </div>
           )}
           name={"phone"}
           control={control}
