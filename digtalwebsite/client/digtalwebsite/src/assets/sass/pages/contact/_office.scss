@@ -70,6 +70,11 @@
           padding: 0 0vw;
         
         }
+        @media only screen and (min-width: 769px) {
+          height: 30rem;
+          padding: 0 15vw;
+        
+        }
         row-gap: 2.5rem;
         padding-bottom: 2rem;
 
@@ -102,6 +107,16 @@
               .icon-bottom {
                 padding-left: 2.5vw;
               }
+            }
+          }
+
+          @media only screen and (min-width: 481px) {
+            &:nth-child(1) {
+              .icon-top {
+                padding-left: 6.2vw;
+
+              }
+ 
             }
           }
 
