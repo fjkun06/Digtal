@@ -7,6 +7,7 @@ import schema from "../../utils/schemas/yupSchema";
 import { contactFields } from "./contact_config";
 import ContactFormOptions from "./ContactFormOptions";
 import CustomTextField from "./ReusableTextField";
+import ReusableTextField from "./ReusableTextField";
 
 export default function ContactFormFields({ t, cxs, cmd }) {
   //select option state handler
@@ -33,166 +34,109 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       email: "",
       subject: "",
       message: "",
-      phone: ""
+      phone: "",
+      company_name: ""
     }
   });
   return (
-    <Grid item className="contact-form form">
+    <Grid item className="contact-form formsection">
       <ContactFormOptions
         setSubject={setValue}
         getSubject={getValues}
         valid={isValid}
         sendSubjectState={setSubjectValidation}
       />
-
-      {/* <Grid item className="top3"> */}
-      {/* {contactFields.map((cf) => (
-          <Grid item  key={cf.label}>
-            <Controller
-              render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-                <>
-                  <CustomTextField
-                    label={t(cf.label)}
-                    errorState={!!formState.errors[cf.index]}
-                    errorText={t(formState.errors[cf.index]?.message, {
-                      ns: "formerror",
-                    })}
-                    field={field}
-                    success={isDirty & !invalid}
-                  />
-                </>
-              )}
-              name={cf.index}
-              control={control}
-            />
-          </Grid>
-        ))} */}
-      {/* </Grid> */}
-
-      {/* <Grid item> */}
-      {/* <Controller
-          render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-            <CustomTextField
-              label={t("message")}
-              multiline
-              rows={4}
-              errorState={!!formState.errors?.message}
-              errorText={t(formState.errors.message?.message, { ns: "formerror" })}
-              field={field}
-              success={isDirty & !invalid}
-            />
+      {contactFields.map(cf => (
+        <Controller
+          key={cf.index}
+          render={({
+            field,
+            formState,
+            fieldState: { isDirty, invalid },
+            value
+          }) => (
+            <>
+              <ReusableTextField
+                id={cf.label}
+                sup={cf.sup}
+                errorState={!!formState.errors[cf.index]}
+                errorText={t(formState.errors[cf.index]?.message, {
+                  ns: "formerror"
+                })}
+                fieldName={t(cf.label)}
+                field={field}
+              />
+            </>
           )}
-          name={"message"}
+          name={cf.index}
           control={control}
-        /> */}
-      <div className="input">
-        <label htmlFor={"oo"}>
-          <span>
-            First Name <sup>*</sup>
-          </span>
-          <input type="text" name=" " id="oo" />
-        </label>
-      </div>
-      <div className="input">
-        <label htmlFor={"oo"}>
-          <span>
-            Last Name <sup>*</sup>
-          </span>
-          <input type="text" name=" " id="oo" />
-        </label>
-      </div>
-      <div className="input">
-        <label htmlFor={"oo"}>
-          <span>
-            Email <sup>*</sup>
-          </span>
-          <input type="text" name=" " id="oo" />
-        </label>
-      </div>
-      <div className="input">
-        <label htmlFor={"oo"}>
-          <span>
-            Company Name
-          </span>
-          <input type="text" name=" " id="oo" />
-        </label>
-      </div>
+        />
+      ))}
+
       <div>
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-            <>
+            <div className="telephone-field">
               <div className="tel">
-                <label htmlFor={"oo"}>
+                <label htmlFor={"phone"}>
                   <span>
-                    Telephone <sup>*</sup>
+                    {t("phone.tel")} <sup>*</sup>
                   </span>
-                  {/* <input type="text" name=" " id="oo" /> */}
                   <MuiPhoneNumber
                     tabIndex={"1"}
                     defaultCountry={"cm"}
-                    className="contact-textfield-telephone contact-textfield "
+                    className={!!formState.errors?.phone ? "error" : ""}
+                    id="phone"
                     enableLongNumbers
-                    dropdownClass=""
                     fullWidth
-                    hiddenLabel
                     variant="outlined"
-                    error={!!formState.errors?.phone}
-                    focused={isDirty & !invalid ? true : undefined}
                     {...field}
-                    color={isDirty & !invalid ? "success" : "secondary"}
-                    // label={!isDirty & !invalid ? t("phone.tel") : null}
                   />
                 </label>
               </div>
-              <FormHelperText
-                id="component-helper-text"
-                sx={{ paddingLeft: "14px", fontSize: "1.2rem" }}
-                error={!!formState.errors?.phone}
-              >
-                {t(formState.errors.phone?.message, { ns: "formerror" })}
-              </FormHelperText>
-            </>
+              {!!formState.errors?.phone && (
+                <span className="phone-error">
+                  {t(formState.errors.phone?.message, { ns: "formerror" })}
+                </span>
+              )}
+            </div>
           )}
           name={"phone"}
           control={control}
         />
       </div>
-      <div className="input message-area">
-        <label htmlFor={"oop"}>
-          <span>
-            Message <sup>*</sup>
-          </span>
-          {/* <input type="text" name=" " id="oo"/> */}
-          <textarea id="oop">
-            hello
-          </textarea>
-        </label>
-      </div>
-      {/* <div className="input">
-        <label htmlFor={"oo"}>
-          <span>
-            First Name <sup>*</sup>
-          </span>
-          <input type="text" name=" " id="oo" />
-        </label>
-      </div> */}
-      {/* </Grid> */}
+      <Controller
+        render={({ field, formState, fieldState: { isDirty, invalid } }) => (
+          <>
+            <div
+              className={
+                !!formState.errors?.message
+                  ? "input message-area problem"
+                  : "input message-area"
+              }
+            >
+              <label htmlFor={"message"}>
+                <span>
+                  {t("message")}
+                </span>
+                <textarea id="message" {...field}></textarea>
+              </label>
+            </div>
+        
+          </>
+        )}
+        name={"message"}
+        control={control}
+      />
 
-      <Grid item container>
-        <button
-          onClick={handleSubmit(data => console.log("onSubmit", data))}
-          fullWidth
-          className="contact-submitbutton"
-          size="large"
-          variant="contained"
-          type="submit"
-          disableFocusRipple
-          disableRipple
-          disabled={!(isValid && subjectValidation)}
-        >
-          {t("button")}
-        </button>
-      </Grid>
+      <button
+        onClick={handleSubmit(data => console.log("onSubmit", data))}
+        className="contact-submitbutton"
+        // disabled={true}
+        disabled={!(isValid && subjectValidation)}
+      >
+        {t("button")}
+      </button>
     </Grid>
   );
 }

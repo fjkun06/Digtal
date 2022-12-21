@@ -20,7 +20,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 1.3rem;
 }
 
 /* Track */
@@ -40,5 +40,11 @@ background: rgba(102, 51, 153, 0.57);
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
+  transition: all 0.5s ease-in-out;
   background: darken(rebeccapurple,10%); 
+}
+
+@media only screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+display: none;  }
 }

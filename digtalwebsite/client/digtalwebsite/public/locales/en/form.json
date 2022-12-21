@@ -9,7 +9,7 @@
    },
    "email": "Email",
    "phone": {
-      "tel": "Telephone",
+      "tel": "Phone Number",
       "sel": "select country and enter phone number"
       
    },

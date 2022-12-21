@@ -1,11 +1,11 @@
-import { Grid, FormHelperText } from "@mui/material";
+import { Grid } from "@mui/material";
 import { StyledEngineProvider } from "@mui/system";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const ContactFormOptions = ({ setSubject, getSubject,valid,sendSubjectState }) => {
-  const { t } = useTranslation("form");
+  const { t } = useTranslation(["form","formerror"]);
   const [index, setIndex] = useState(4);
   const [subject, setSubjectx] = useState(getSubject("subject"));
 
@@ -34,7 +34,6 @@ const ContactFormOptions = ({ setSubject, getSubject,valid,sendSubjectState }) =
         setIndex(Number(e.target.id));
         setSubject("subject", e.target.textContent);
         setSubjectx(getSubject("subject"));
-        console.log("subject: ", getSubject("subject"));
 
         if (testState(e.target.id)) {
         } else {
@@ -64,12 +63,10 @@ const ContactFormOptions = ({ setSubject, getSubject,valid,sendSubjectState }) =
               {elt}
             </h5>
           ))}
-          <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem", display: valid?  (subject.length > 0 ? "none" : "inline-block") : "none" }} error={true}>
-            Please select an option or subject.
-          </FormHelperText>
-          {/* <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem" }} error={!!formState.errors?.phone}>
-                {t(formState.errors.phone?.message, { ns: "formerror" })}
-              </FormHelperText> */}
+       <span id="component-helper-text" style={{display: valid?  (subject.length > 0 ? "none" : "inline-block") : "none" }}>
+            {t("subject-error", { ns: "formerror" })}
+          </span>
+
         </Grid>
       </Grid>
     </StyledEngineProvider>

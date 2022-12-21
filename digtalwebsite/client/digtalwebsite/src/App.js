@@ -39,10 +39,10 @@ function App() {
           {/* bill's work starts here */}
           <Grid
             id="scroll-zone"
-            onClick={() => {
-              console.log("hello shxt");
-              setOutletState(false);
-            }}
+            // onClick={() => {
+            //   console.log("hello shxt");
+            //   setOutletState(false);
+            // }}
           >
             <Outlet />
           </Grid>
