@@ -1,29 +1,30 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormHelperText, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import schema from "../../utils/schemas/yupSchema";
 import { contactFields } from "./contact_config";
 import ContactFormOptions from "./ContactFormOptions";
-import CustomTextField from "./ReusableTextField";
 import ReusableTextField from "./ReusableTextField";
 
-export default function ContactFormFields({ t, cxs, cmd }) {
+export default function ContactFormFields({ t, modal }) {
   //select option state handler
   const [subjectValidation, setSubjectValidation] = React.useState(false);
-
-  //handle change for subject field
-  const handleChange = value => {
-    console.log(value);
-  };
+  const [submitted, setSubmitted] = React.useState(false);
 
   //React hook form validation with yupSchema
   const {
     handleSubmit,
     setValue,
     getValues,
-    formState: { isValid },
+    formState: {
+      isValid,
+      isSubmitting,
+      isSubmitSuccessful,
+      submitCount,
+      isSubmitted
+    },
     control
   } = useForm({
     resolver: yupResolver(schema),
@@ -38,6 +39,11 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       company_name: ""
     }
   });
+
+  //handle change for subject field
+  const handleChange = () => {
+    setSubmitted(isSubmitSuccessful ? true : false);
+  };
   return (
     <Grid item className="contact-form formsection">
       <ContactFormOptions
@@ -116,13 +122,10 @@ export default function ContactFormFields({ t, cxs, cmd }) {
               }
             >
               <label htmlFor={"message"}>
-                <span>
-                  {t("message")}
-                </span>
+                <span>{t("message")}</span>
                 <textarea id="message" {...field}></textarea>
               </label>
             </div>
-        
           </>
         )}
         name={"message"}
@@ -130,12 +133,32 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       />
 
       <button
-        onClick={handleSubmit(data => console.log("onSubmit", data))}
+        onClick={handleSubmit(data => {
+          console.log("onSubmit", data);
+          handleChange();
+          setTimeout(() => {
+            console.log("wtftfffffffffffffffffff: ", isSubmitSuccessful);
+            if (isSubmitSuccessful) {
+              console.log("77777777777: ", isSubmitSuccessful);
+              // modal();
+            }
+          }, 2000);
+        })}
         className="contact-submitbutton"
         // disabled={true}
-        disabled={!(isValid && subjectValidation)}
+        // disabled={!(isValid && subjectValidation)}
+        disabled={
+          !(isValid && subjectValidation) &&
+          !(isSubmitted && !isSubmitSuccessful)
+        }
       >
-        {t("button")}
+        {!isSubmitting &&
+          !isSubmitSuccessful &&
+          !isSubmitted &&
+          t("button.normal")}
+        {isSubmitting && t("button.submitting")}
+        {isSubmitSuccessful && t("button.success")}
+        {isSubmitted && !isSubmitSuccessful && t("button.error")}
       </button>
     </Grid>
   );

@@ -1,46 +1,44 @@
-import { Grid, Typography, useMediaQuery } from "@mui/material";
-import { useForm } from "react-hook-form";
-import contactOffice from "../assets/images/contact-our-office.png";
-
+import { Grid } from "@mui/material";
+import contactOffice from "src/assets/images/contact-our-office.png";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
-import ContactFormFields from "./../components/contact/ContactFormFields";
-import CustomImage from "./../components/reusables/ReusableImage";
-import { location } from "./../components/contact/contact_config";
-import ContactFormSubLocation from "./../components/contact/ContactFormSubLocation";
+import ContactFormFields from "src/components/contact/ContactFormFields";
+import CustomImage from "src/components/reusables/ReusableImage";
+import { location } from "src/components/contact/contact_config";
+import ContactFormSubLocation from "src/components/contact/ContactFormSubLocation";
+import ContactModal from "src/components/contact/ContactModal";
 
 export default function Contact() {
-  const cmd = useMediaQuery("(min-width:900px)");
-  const cxs = useMediaQuery("(max-width:599px)");
   const { t } = useTranslation(["form", "formerror"]);
-  const { handleSubmit } = useForm();
+  const [toggleModalDisplay, setModalDisplay] = React.useState(false);
+  function modalOn() {
+    setModalDisplay(true);
+    console.log("modal mode: ", toggleModalDisplay);
+  }
 
   return (
-    <Grid
-      container
-      component="form"
-      id="form1"
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmit(data => console.log(data))}
-    >
+    <Grid container component="form" id="form1" noValidate autoComplete="off">
+      <ContactModal disp={toggleModalDisplay} />
       <Grid container item className="getintouch">
-        <Typography variant="h2" component={"h2"}>
-          Get in touch with Us
-        </Typography>
-        <Typography variant="body" component={"div"}>
+        <h2>Get in touch with Us</h2>
+        <div>
           Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
           sint. Velit officia consequa
-        </Typography>
+        </div>
       </Grid>
       <Grid container item className="office">
         <span>Our Office</span>
-        <CustomImage alt="Snapshot of Office" image={contactOffice} id="office-pic" />
+        <CustomImage
+          alt="Snapshot of Office"
+          image={contactOffice}
+          id="office-pic"
+        />
         <div className="office-body">
-          <Typography variant="body" component={"span"}>
+          <span>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit
-          </Typography>
+          </span>
           <div className="office-body-location">
             {location.map(loc => (
               <ContactFormSubLocation {...loc} key={loc.town} />
@@ -48,7 +46,7 @@ export default function Contact() {
           </div>
         </div>
       </Grid>
-      <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
+      <ContactFormFields t={t} modal={modalOn} />
     </Grid>
   );
 }

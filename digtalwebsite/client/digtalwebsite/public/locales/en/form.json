@@ -22,6 +22,12 @@
    },
    "message": "Message",
    "company_name": "Company Name",
-   "button": "Submit",
+   "button":{
+      "normal": "Submit",
+      "submitting": "Submitting...",
+      "submitted": "Submitted",
+      "success": "Submitted Successfully",
+      "error": "Could Not Submit, Please Retry"
+   }, 
    "interest": "I am interested in"
 }

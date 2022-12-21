@@ -1,6 +1,7 @@
 @use "../../util/variables";
 @use "../../util/mixins";
 @use "./form" as Form;
+@use "./modal" as Modal;
 @use "./office" as OfficeSection;
 @use "./get-in-touch" as GetInTouch;
 
@@ -27,6 +28,10 @@ padding-top: 19vh;
 padding-bottom: 5vh;
 margin-bottom: 25vh;
   }
+
+  /*********************************************************/
+  /**********************Modal Section*********************/
+  @include Modal.modal;
 
   /*********************************************************/
   /**********************Form Section*********************/
