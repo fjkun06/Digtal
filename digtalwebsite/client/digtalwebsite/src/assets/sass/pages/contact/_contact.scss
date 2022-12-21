@@ -1,13 +1,13 @@
 @use "../../util/variables";
 @use "../../util/mixins";
-@use './form' as Form;
-@use './office' as OfficeSection;
-@use './get-in-touch' as GetInTouch;
+@use "./form" as Form;
+@use "./office" as OfficeSection;
+@use "./get-in-touch" as GetInTouch;
 
 .contact,
 #form1 {
   transition: all 0.25s ease-in-out;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 
   padding-top: 10vh;
   display: grid;
@@ -18,19 +18,27 @@
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, minmax(250px));
 
+  @media only screen and (min-width: 1201px) {
+    grid-template-columns: 1fr 1.1fr;
+  grid-template-rows: repeat(5, minmax(250px));
+padding: 0vh 8.2vw;
+column-gap: 5rem;
+padding-top: 19vh;
+padding-bottom: 5vh;
+margin-bottom: 25vh;
+  }
+
   /*********************************************************/
   /**********************Form Section*********************/
-@include Form.form;
+  @include Form.form;
 
   /*********************************************************/
   /**********************Office Section*********************/
-@include OfficeSection.office;
- 
+  @include OfficeSection.office;
 
   /*********************************************************/
   /**********************Get In Touch Section*********************/
-@include GetInTouch.get-in-touch;
-  
+  @include GetInTouch.get-in-touch;
 }
 
 @keyframes enlarge {
