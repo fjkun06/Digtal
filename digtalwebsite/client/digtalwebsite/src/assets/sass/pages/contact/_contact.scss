@@ -7,26 +7,55 @@
 
 .contact,
 #form1 {
+  width: 100vw;
+
   transition: all 0.25s ease-in-out;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.5);
+  background: none;
+  background: url("../../../svg/background_light.svg");
+  background-position: center;
+  background-size: 100% auto;
+  // background-size: auto 100%;
+  // background-size: cover;
+
+  // background-size: 100% auto, 100% 100%;
+  // background-size: auto auto, auto auto;
+  // background-size: auto,auto;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    // height: auto;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: red;
+    z-index: 22;
+  }
 
   padding-top: 10vh;
   display: grid;
+  // rgba(255, 255, 255,0.5)
 
-  height: auto;
-  width: 100vw;
+
 
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, minmax(250px));
 
   @media only screen and (min-width: 1201px) {
     grid-template-columns: 1fr 1.1fr;
-  grid-template-rows: repeat(5, minmax(250px));
-padding: 0vh 8.2vw;
-column-gap: 5rem;
-padding-top: 19vh;
-padding-bottom: 5vh;
-margin-bottom: 25vh;
+    grid-template-rows: repeat(5, minmax(250px));
+    padding: 0vh 8.2vw;
+    column-gap: 5rem;
+    padding-top: 19vh;
+    padding-bottom: 5vh;
+    margin-bottom: 25vh;
   }
 
   /*********************************************************/
