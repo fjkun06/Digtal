@@ -2,6 +2,7 @@
 @use "layout/navbar";
 @use "layout/footer";
 @use "pages/home/home";
+@use "pages/enterprise/enterprise";
 @use "pages/contact/contact";
 @use "components/telephone";
 @use "components/scrollbar";
@@ -21,14 +22,23 @@
   .solutions__title {
     position: relative;
   }
-
-  html {
-    background-image: url("../../assets/images/background.svg");
-  }
 }
 
-//root schemes
-//light here
+//setting background
+#scroll-zone{
+   // background-image: url("../../assets/images/background.svg");
+   background: url("../../assets/svg/background_light.svg");
+  //  background-position: center;
+  //  background-size: cover;
+   background-size: auto;
+   // background-size: 100% auto, 100% 100%;
+   // background-size: auto auto, auto auto;
+   // background-size: auto,auto;
+   background-repeat: no-repeat;
+   background-origin: border-box;
+   -webkit-background-clip: border-box;
+   background-clip: border-box;
+}
 
 //styling links
 a {
@@ -46,6 +56,7 @@ a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 //Configuring html
@@ -54,7 +65,6 @@ html {
   font-size: 62.5%;
   // font-size: calc(15px + 0.390625vw);
   // font-size: calc(12px + 1vw);
-
 
   overflow-x: hidden;
   -webkit-scroll-behavior: smooth;
@@ -66,6 +76,7 @@ html {
 body {
   font-size: 1.6em;
   min-width: 32rem;
+
 }
 
 .fix {
