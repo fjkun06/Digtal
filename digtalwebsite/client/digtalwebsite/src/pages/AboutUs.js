@@ -25,7 +25,7 @@ const team = [
 
 export default function AboutUs() {
   return (
-    <Grid mt={10} columns={1} className="about">
+    <Grid columns={1} className="about">
       <Stack
         direction="column"
         justifyContent="center"
@@ -49,30 +49,27 @@ export default function AboutUs() {
         <Typography
           variant="h3"
           classes={{
-            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-2xl md:text-[70px] leading-[70px] lg:text-[75px] tracking-[.9rem] lg:leading-[70px] lg:tracking-[5rem] font-[Poppins]"
+            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-2xl md:text-[70px] leading-[70px] lg:text-[75px] tracking-[.9rem] lg:leading-[70px] lg:tracking-[5rem] font-['Poppins_700']"
           }}
         >
           diversity
         </Typography>
       </Box>
 
-      <Container maxWidth="lg" className="my-24">
-        {/* <Box className="max-w-[939px] mx-auto">
-
-        </Box> */}
-        <Grid container className="">
-          <Grid item xs={12} lg={5}>
+      <Container maxWidth="lg" className="my-24 space-y-24">
+        <Box className="mx-auto grid grid-cols-12 tablet:max-w-[540px]">
+          <Box className="mobile:col-span-12 tablet:col-span-5 laptop:col-span-5">
             <Typography
               component="p"
-              className="mx-20 text-center font-[Poppins] text-[27px] font-bold leading-[35px] text-[rebeccapurple] lg:mx-0 lg:text-left lg:text-[40px] lg:leading-[50px]"
+              className="text-center font-[Poppins] font-bold leading-[35px] text-[rebeccapurple] lg:text-left lg:leading-[50px] mobile:mx-20 mobile:text-[18px] tablet:text-[20px] laptop:text-[24px]"
             >
               Lifting up others makes you rise
             </Typography>
-          </Grid>
-          <Grid item xs={12} lg={7}>
+          </Box>
+          <Box className="mobile:col-span-12 tablet:col-span-7 tablet:space-y-8 laptop:col-span-7">
             <Typography
               component="p"
-              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px]"
+              className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px] mobile:mt-8 tablet:text-left"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -81,50 +78,47 @@ export default function AboutUs() {
             </Typography>
             <Typography
               component="p"
-              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px]"
+              className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px] mobile:mt-8 tablet:text-left"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
               enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
               voluptate aute id deserunt nisi.
             </Typography>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
 
-        <Stack direction="column" className="my-32" gap={7}>
-          <Stack direction="row" gap={2} className="items-start">
-            <Typography className="flex items-center font-['Passion_One'] text-[130px] leading-[50px] tracking-[-0.04em] lg:text-[196px]">
+        <Stack
+          direction="column"
+          className="mx-auto gap-8 mobile:gap-10 tablet:max-w-[550px] laptop:max-w-none laptop:gap-12"
+        >
+          <Stack className="flex-row items-start gap-1 laptop:gap-4">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] lg:text-[196px] laptop:text-[130px]">
               “
             </Typography>
             <Typography
               component="p"
-              className="text-center font-[Poppins] text-[13px] font-semibold leading-[25px] text-[rebeccapurple] text-opacity-60 lg:text-[21px]"
+              className="text-center font-[Poppins] text-[12px] font-semibold leading-[25px] text-[rebeccapurple] text-opacity-60 laptop:text-[21px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
               enim. Elit aute irure tempor
             </Typography>
-            <Typography className="flex items-center font-['Passion_One'] text-[130px] leading-[50px] tracking-[-0.04em] lg:text-[196px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] lg:text-[196px] laptop:text-[130px]">
               ’’
             </Typography>
           </Stack>
-          <Stack
-            direction="row"
-            alignItems="center"
-            gap={2}
-            className="self-center lg:self-end"
-          >
+          <Stack className="flex-row items-center gap-4 self-center tablet:self-end laptop:gap-6">
             <Image
               src={leonel}
-              height="68px"
-              width="68px"
-              className="rounded-full"
+              className="aspect-square rounded-full mobile:!w-14 tablet:!w-16"
+              wrapperClassName="flex-shrink !w-auto"
             />
-            <Stack>
-              <Typography className="flex items-center font-[Poppins] text-[15px] font-bold leading-[22.5px] text-[rebeccapurple]">
+            <Stack className="flex-grow">
+              <Typography className="font-[Poppins] text-[15px] font-bold leading-[22.5px] text-[rebeccapurple]">
                 Leonel Zone Yemeli
               </Typography>
-              <Typography className="flex items-center text-center font-[Poppins] text-[12px] font-semibold text-[rebeccapurple] text-opacity-60">
+              <Typography className="font-[Poppins] text-[12px] font-semibold text-[rebeccapurple] text-opacity-60">
                 Founder & CEO
               </Typography>
             </Stack>
@@ -172,7 +166,7 @@ export default function AboutUs() {
 
       {/* Team Section starts here */}
       <Box>
-        <Stack className="mx-auto gap-12 lg:gap-24">
+        <Stack className="mx-auto gap-12 tablet:max-w-[480px] laptop:gap-24">
           <Typography
             variant="h2"
             component="h3"
@@ -199,7 +193,7 @@ export default function AboutUs() {
 
       {/* Join our team section */}
       <Box>
-        <Box className="mx-auto mb-20 grid h-auto max-w-[1068px] grid-cols-12 py-14">
+        <Box className="mx-auto grid h-auto max-w-[1068px] grid-cols-12 py-14">
           <Box className="col-span-12 lg:col-span-4">
             <Typography
               component="p"
