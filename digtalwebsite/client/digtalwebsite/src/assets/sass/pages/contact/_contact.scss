@@ -15,6 +15,8 @@
   background: url("../../../svg/background_light.svg");
   background-position: center;
   background-size: 100% auto;
+  background-size: cover;
+
   // background-size: auto 100%;
   // background-size: cover;
 
@@ -55,7 +57,7 @@
     column-gap: 5rem;
     padding-top: 19vh;
     padding-bottom: 5vh;
-    margin-bottom: 25vh;
+    // margin-bottom: 25vh;
   }
 
   /*********************************************************/

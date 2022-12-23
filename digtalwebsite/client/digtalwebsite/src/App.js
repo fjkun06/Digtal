@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Grid>
+        <div>
           <Grid container className="navigation-main" id="n-main">
             {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
 
@@ -37,7 +37,7 @@ function App() {
             />
           </Grid>
           {/* bill's work starts here */}
-          <Grid
+          <div
             id="scroll-zone"
             // onClick={() => {
             //   console.log("hello shxt");
@@ -45,14 +45,14 @@ function App() {
             // }}
           >
             <Outlet />
-          </Grid>
-          <Grid>
+          </div>
+          <div >
             <Footer
               language={language}
               location={loc.pathname.includes("contact")}
             />
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </StyledEngineProvider>
     </>
   );

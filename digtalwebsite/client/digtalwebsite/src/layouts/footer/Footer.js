@@ -17,10 +17,9 @@ export default function Footer({ language, location }) {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Box
+        <div
           className="footer"
-          component={"div"}
-          style={{ height: location ? "31vh" : "" }}
+          // style={{backgroundColor:"yellow" }}
         >
           {!location && (
             <>
@@ -186,7 +185,7 @@ export default function Footer({ language, location }) {
               © {new Date().getFullYear()} DIGTAL {t("rights")}
             </Typography>
           </Grid>
-        </Box>
+        </div>
       </StyledEngineProvider>
     </>
   );
