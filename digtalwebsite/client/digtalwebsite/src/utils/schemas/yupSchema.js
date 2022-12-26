@@ -35,7 +35,7 @@ let schema = object({
       .required('Please fill out this field.')
      
       .ensure(),
-   phone: string()
+   phone_number: string()
       .required('Please fill out this field.')
      
       .min(9, 'Phone number too short.')
