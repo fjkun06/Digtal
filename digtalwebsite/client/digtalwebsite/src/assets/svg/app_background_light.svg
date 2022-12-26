@@ -56,7 +56,8 @@
     <use href="#e3" stroke="red" transform="skewY(9) translate(40,55) scale(0.8)" />
     <use href="#e2" stroke="black" x="-60" y="60" transform="skewY(-39) scale(0.5) translate(-20,100)" />
     <use href="#e4" stroke="black" x="-60" y="60" transform="skewY(-39) scale(0.3) translate(-20,240)" />
-    <rect fill="white" fill-opacity="0.75" x="-30" y="0" width="180" height="150" />
+    <!-- <rect fill="white" fill-opacity="0.85" x="-30" y="0" width="180" height="150" /> -->
+    <rect fill="white" fill-opacity="0.0095" x="-30" y="0" width="180" height="150" />
 
   </svg>
 
