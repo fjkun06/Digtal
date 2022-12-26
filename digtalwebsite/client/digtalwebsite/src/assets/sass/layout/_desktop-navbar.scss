@@ -1,0 +1,29 @@
+@use "../util/variables";
+@use "../util/mixins";
+
+@mixin navbar() {
+  @media screen and (min-width: 1025px) {
+    .main-nav {
+
+      &-sub {
+
+        //services body(dropdown)
+        &-services {
+
+          .service-icons {
+      
+            background: url(./../../svg/desktop_wave.svg#select-waves);
+
+            background-position: center;
+            background-size: cover;
+            // background-repeat: no-repeat;
+          }
+        }
+
+        //theme
+        &-mobile {
+          display: none;
+        }
+      }
+    }
+  }}

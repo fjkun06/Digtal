@@ -15,9 +15,10 @@ class Contact(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=255)
     subject = models.CharField(
-        max_length=255, blank=True, default='Reporting Bugs')
+        max_length=255, blank=True, default='Need your services')
     message = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
+    company_name = models.CharField(max_length=255, blank=True,null=True)
 
 
     def __str__(self):

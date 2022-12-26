@@ -1,0 +1,53 @@
+@use "../util/variables";
+@use "../util/mixins";
+
+@mixin navbar() {
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    // @media screen and (max-width: 480px) {
+    .main-nav {
+      background-color: transparent;
+      //Multicolor bottom border
+      &::after {
+        @include mixins.size(41%, 4px);
+        // @include mixins.size(51%, 4px);
+      display: none;
+
+      }
+      &-sub {
+        background-color: transparent;
+        //logo
+        &-logo {
+          background-color: #fff;
+          border-bottom: 3px solid rebeccapurple;
+          img {
+            transform: scale(0.8);
+          }
+        }
+
+        //mobile body
+        &--mobile-body {
+          width: 50vw;
+          border-right: 3px solid rebeccapurple;
+          border-bottom: 3px solid rebeccapurple;
+          background-color: #fff;
+
+          .search {
+            margin-top: 20px;
+          }
+        }
+
+        //items
+        &-links {
+          background-color: #fff;
+          border-bottom: 3px solid rebeccapurple;
+        }
+
+        //theme
+        &-mobile {
+          background-color: #fff;
+          border-bottom: 3px solid rebeccapurple;
+        }
+      }
+    }
+  }
+}
