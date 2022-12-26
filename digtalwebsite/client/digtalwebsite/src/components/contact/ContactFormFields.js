@@ -108,7 +108,7 @@ export default function ContactFormFields({ t, modal }) {
               )}
             </div>
           )}
-          name={"phone"}
+          name={"phone_number"}
           control={control}
         />
       </div>
