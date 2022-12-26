@@ -11,36 +11,8 @@ import './styles/pagination.css'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function SwiperCarousel(){
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade,Autoplay]}
-      effect="fade"
-      autoplay={{
-        delay:5000
-      }}
-      spaceBetween={2}
-      slidesPerView={1}
-      pagination={{ 
-        clickable: true,
-        renderBullet:(index,className)=>{
-          return '<span class="' + className + '">' + '</span>'
-        }
-       }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-      className="w-full h-[60vh] md:h-[91vh] mt-[7rem]"
-    >
-      <SwiperSlide>
-        <CarouselTwo />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Carousel />
-      </SwiperSlide>
-      <SwiperSlide>
-        <CarouselTree />
-      </SwiperSlide>
-      <SwiperSlide>
-        <CarouselFour />
-      </SwiperSlide>
-    </Swiper>
+    <div style={{backgroundColor:"red",height:"100vh",width:"100vw"}}>
+hello
+    </div>
   );
 };
