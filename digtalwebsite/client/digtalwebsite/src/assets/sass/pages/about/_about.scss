@@ -1,4 +1,6 @@
 .about {
+  @apply mt-[75px];
+
   .caption {
     @apply max-w-5xl text-center font-['Poppins'] text-2xl font-semibold leading-[35px] tracking-normal lg:text-[55px] lg:leading-[70px];
 
