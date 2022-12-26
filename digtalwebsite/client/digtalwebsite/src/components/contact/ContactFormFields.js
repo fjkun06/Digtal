@@ -7,6 +7,7 @@ import schema from "../../utils/schemas/yupSchema";
 import { contactFields } from "./contact_config";
 import ContactFormOptions from "./ContactFormOptions";
 import ReusableTextField from "./ReusableTextField";
+import { sendContactData } from "src/functions/backend";
 
 export default function ContactFormFields({ t, modal }) {
   //select option state handler
@@ -134,7 +135,7 @@ export default function ContactFormFields({ t, modal }) {
 
       <button
         onClick={handleSubmit(data => {
-          console.log("onSubmit", data);
+          sendContactData(data);
           handleChange();
           setTimeout(() => {
             console.log("wtftfffffffffffffffffff: ", isSubmitSuccessful);
