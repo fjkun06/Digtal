@@ -37,14 +37,6 @@ export default function SwiperCarousel() {
   const [four, setFour] = React.useState(null);
   const [five, setFive] = React.useState(null);
 
-  //interval useffect
-  React.useEffect(() => {
-    // setCarousels(document.querySelectorAll(".home-images"));
-    // setCarousels(carouselArray)
-    // document.querySelector(".img-one").style.display = "block";
-    // console.log(carousels)
-  });
-
   React.useEffect(() => {
     Array.from(document.querySelectorAll(".home-images")).forEach(slide => {
       if (slide?.id && Number(slide?.id) === mainIndex) {
@@ -58,50 +50,176 @@ export default function SwiperCarousel() {
   }, [mainIndex]);
 
   React.useEffect(() => {
+    let number = 0;
+    let request;
+    let t = 0;
+    let k = 0;
+    let s = 0;
+
+
     Array.from(document.querySelectorAll(".home-images")).forEach(slide => {
       console.log(mainIndex, current, next);
+      if(next === 6){
+        setNext(1);
+      }
 
       if (Number(slide.id) === current && Number(slide.id) !== 6) {
         timer(slide);
-        killer(slide);
         // console.log(mainIndex);
       }
-      if (Number(slide.id) === next || Number(slide.id) === 5) {
+      
+      if (Number(slide.id) === next && Number(slide.id) <= 5) {
+        killer(slide);
+
         showNextElement(slide);
       }
     });
 
     function timer(slide) {
-      setTimeout(() => {
-        slide?.classList?.toggle("disappear");
-      }, 3500);
+      // setTimeout(() => {
+      //   slide?.classList?.toggle("disappear");
+      // }, 3500);
+
+      // function startAnimation() {
+      //   let i = 0;
+      //   i++;
+      //   if (i === 3500) {
+      //     console.log("here: ", i)
+      //     slide?.classList?.toggle("disappear");
+      //   }
+
+      //   if (i < 3500) {
+      //     request = requestAnimationFrame(startAnimation);
+      //   }
+      // }
+      function paint() {
+        t++;
+        //   box.style.opacity = 0.0002 * number;
+
+         if (t === 1500) {
+          console.log("here: ", t)
+          slide?.classList?.toggle("disappear");
+        }
+         if (t === 1700) {
+          // console.log("here: ", t)
+          // slide?.classList?.toggle("disappear");
+          slide.style.display = "none";
+
+        }
+
+        if (t < 1700) {
+          request = requestAnimationFrame(paint);
+        }
+      }
+      requestAnimationFrame(paint);
+      // requestAnimationFrame(startAnimation);
     }
 
     function killer(slide) {
-      setTimeout(() => {
-        slide?.classList?.toggle("appear");
+      // function startAnimation() {
+      //   let i = 0;
+      //   i++;
+      //   if (i === 3400) {
+      //     slide?.classList?.toggle("appear");
+      //   }
 
-        // if (slide) slide.style.display = "none";
-      }, 3900);
+      //   if (i < 3400) {
+      //     request = requestAnimationFrame(startAnimation);
+      //   }
+      //   // requestAnimationFrame(startAnimation);
+      // }
+      // requestAnimationFrame(startAnimation);
+      function paint() {
+        k++;
+        //   box.style.opacity = 0.0002 * number;
+
+        if (k === 1000) {
+          console.log(slide)
+          slide.style.display = "block";
+          slide.style.opacity = "0";
+        }
+         if (k === 1400) {
+        //  if (k === 1400) {
+          slide?.classList?.toggle("appear");
+          console.log("here: ", k)
+
+        // }
+        }
+
+        if (k < 1400) {
+          request = requestAnimationFrame(paint);
+        }
+      }
+      requestAnimationFrame(paint);
+
+      // setTimeout(() => {
+      //   slide?.classList?.toggle("appear");
+
+      //   // if (slide) slide.style.display = "none";
+      // }, 3900);
     }
 
     function showNextElement(slide) {
-      setTimeout(() => {
-        // slide.style.display = "block";
-        if (current === 5) {
-          setMain(1);
-        } else {
-          setMain(mainIndex + 1);
+      // function startAnimation() {
+      //   let i = 0;
+      //   i++;
+      //   if (i === 3495) {
+      //     if (current === 5) {
+      //       setMain(1);
+      //     } else {
+      //       setMain(mainIndex + 1);
+      //     }
+      //   }
+
+      //   if (i < 3495) {
+      //     request = requestAnimationFrame(startAnimation);
+      //   }
+      //   // requestAnimationFrame(startAnimation);
+      // }
+      // requestAnimationFrame(startAnimation);
+      // setTimeout(() => {
+      //   // slide.style.display = "block";
+      //   if (current === 5) {
+      //     setMain(1);
+      //   } else {
+      //     setMain(mainIndex + 1);
+      //   }
+      // }, 3495);
+
+      function paint() {
+        k++;
+        //   box.style.opacity = 0.0002 * number;
+        if (k === 1495) {
+          if (current === 5) {
+            setMain(1);
+          } else {
+            setMain(mainIndex + 1);
+          }
         }
-      }, 3495);
+
+        if (k < 1495) {
+          request = requestAnimationFrame(paint);
+        }
+      
+      }
+      requestAnimationFrame(paint);
     }
+  });
+
+  //interval useffect
+  React.useEffect(() => {
+    // setCarousels(document.querySelectorAll(".home-images"));
+    // setCarousels(carouselArray)
+    // document.querySelector(".img-one").style.display = "block";
+    // console.log(carousels)
+    return () => {
+      // second
+    };
   });
 
   return (
     <div id="home-carousel">
       {/* hello */}
-
- 
 
       <div className="img-one home-images" id={1}>
         <img src={slideOne} alt="slide one" />

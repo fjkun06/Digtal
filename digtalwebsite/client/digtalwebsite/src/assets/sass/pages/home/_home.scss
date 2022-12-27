@@ -55,11 +55,11 @@
   }
 }
 .disappear{
-  animation: disappear 0.25s ease-out 3s 1;
+  animation: disappear 0.25s ease-out 0s 1 forwards;
   // animation: disappear 0.25s ease-out 3s 1  forwards;
 }
 .appear{
-  animation: appear 0.25s ease-out 3s 1;
+  animation: appear 0.25s ease-out 0s 1 forwards;
   // animation: appear 0.25s ease-out 3s 1  forwards;
 }
 
