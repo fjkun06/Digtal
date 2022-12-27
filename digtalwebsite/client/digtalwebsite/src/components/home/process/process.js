@@ -1,5 +1,4 @@
 import Container  from "@mui/material/Container";
-import quart from "../../../assets/images/process/1-4.png"
 import { Typography } from "@mui/material";
 import vectorL from "../../../assets/images/process/vector-left.png"
 import vectorR from "../../../assets/images/process/vector-right.png"

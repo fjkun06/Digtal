@@ -12,7 +12,7 @@ import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, flagItems, selectDropdownItems } from "./navbar_config";
-import { DarkMode, ExpandMoreOutlined, KeyboardArrowRight, LightMode } from "@mui/icons-material";
+import { ExpandMoreOutlined, KeyboardArrowRight } from "@mui/icons-material";
 import { switchTheme } from "./theme";
 import { EnglandIcon } from "../../assets/svg/EnglandIcon";
 import { FranceIcon } from "../../assets/svg/FranceIcon";
@@ -23,7 +23,6 @@ import { LightModeIcon } from "../../assets/svg/LightModeIcon";
 import MobileNavbarBody from "../../components/navbar/MobileNavbarBody";
 import MobileNavbarIconHandler from "../../components/navbar/MobileNavbarIconHandler";
 import Search from "../../assets/svg/Search";
-import SearchDesktop from "../../assets/svg/SearchDesktop";
 import { icons } from "./../footer/footer_config";
 
 export default function Navbar({ language, setLanguage, outletState,toggleOutletSelect,toggleOutletSelectStateOff }) {
@@ -33,7 +32,6 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [mobileSelectState, setMobileSelectState] = useState(false);
-  const [outlet, setOutlet] = useState("");
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
@@ -115,7 +113,7 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
         }
       });
     });
-  }, [language, location, setLanguage, navigate, allFlags, flagId, outlet]);
+  }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");
