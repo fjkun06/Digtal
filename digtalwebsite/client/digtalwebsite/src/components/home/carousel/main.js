@@ -79,7 +79,9 @@ export default function SwiperCarousel() {
 
     function killer(slide) {
       setTimeout(() => {
-        if (slide) slide.style.display = "none";
+        slide?.classList?.toggle("appear");
+
+        // if (slide) slide.style.display = "none";
       }, 3900);
     }
 
@@ -98,6 +100,9 @@ export default function SwiperCarousel() {
   return (
     <div id="home-carousel">
       {/* hello */}
+
+ 
+
       <div className="img-one home-images" id={1}>
         <img src={slideOne} alt="slide one" />
       </div>
