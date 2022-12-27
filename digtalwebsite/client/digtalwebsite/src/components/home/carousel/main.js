@@ -25,75 +25,92 @@ import slideFive from "@assets/images/carousel/noir5.webp";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function SwiperCarousel() {
-  const [one, setOne] = React.useState(null);
+  const carouselArray = [];
+
+  const [carousels, setCarousels] = React.useState(null);
   const [mainIndex, setMain] = React.useState(1);
-  const allSlides = [
-    ".img-one",
-    ".img-two",
-    ".img-three",
-    ".img-four",
-    ".img-five"
-  ];
+  const [current, setCurrent] = React.useState(null);
+  const [next, setNext] = React.useState(null);
+  const [one, setOne] = React.useState(null);
+  const [two, setTwo] = React.useState(null);
+  const [three, setThree] = React.useState(null);
+  const [four, setFour] = React.useState(null);
+  const [five, setFive] = React.useState(null);
+
   //interval useffect
   React.useEffect(() => {
-    // setOne(document.querySelector(".img-one"));
-    allSlides.forEach(slide => {
-      setOne(document.querySelector(slide));
-      if (document.querySelector(slide).id === mainIndex) {
-        document.querySelector(slide).style.display = "block";
-      }
-    });
+    // setCarousels(document.querySelectorAll(".home-images"));
+    // setCarousels(carouselArray)
     // document.querySelector(".img-one").style.display = "block";
-
-    // i1.classList.add("disappear");
-    timer();
-    killer();
-    showNextElement();
-    // console.log(i1)
+    // console.log(carousels)
   });
 
-  // window.onload = () =>
-  const timer = React.useCallback(
-    () =>
-      setTimeout(() => {
-        console.log("lll : ", one?.id);
+  React.useEffect(() => {
+    Array.from(document.querySelectorAll(".home-images")).forEach(slide => {
+      if (slide?.id && Number(slide?.id) === mainIndex) {
+        slide.style.display = "block";
+        // console.log(mainIndex);
 
-        one?.classList?.toggle("disappear");
-      }, 3500),
-    [one?.classList, one?.id]
-  );
-  const killer = React.useCallback(
-    () =>
+        setCurrent(Number(slide.id));
+        setNext(Number(slide.id) + 1);
+      }
+    });
+  }, [mainIndex]);
+
+  React.useEffect(() => {
+    Array.from(document.querySelectorAll(".home-images")).forEach(slide => {
+      console.log(mainIndex, current, next);
+
+      if (Number(slide.id) === current && Number(slide.id) !== 6) {
+        timer(slide);
+        killer(slide);
+        // console.log(mainIndex);
+      }
+      if (Number(slide.id) === next || Number(slide.id) === 5) {
+        showNextElement(slide);
+      }
+    });
+
+    function timer(slide) {
       setTimeout(() => {
-       one.style.display = "none";
-        // document.querySelector(".img-one").style.display = "none";
-      }, 3501),
-    []
-  );
-  const showNextElement = React.useCallback(
-    () =>
+        slide?.classList?.toggle("disappear");
+      }, 3500);
+    }
+
+    function killer(slide) {
       setTimeout(() => {
-        document.querySelector(".img-two").style.display = "block";
-      }, 3495),
-    []
-  );
+        if (slide) slide.style.display = "none";
+      }, 3900);
+    }
+
+    function showNextElement(slide) {
+      setTimeout(() => {
+        // slide.style.display = "block";
+        if (current === 5) {
+          setMain(1);
+        } else {
+          setMain(mainIndex + 1);
+        }
+      }, 3495);
+    }
+  });
 
   return (
     <div id="home-carousel">
       {/* hello */}
-      <div className="img-one" id={1}>
+      <div className="img-one home-images" id={1}>
         <img src={slideOne} alt="slide one" />
       </div>
-      <div className="img-two" id={2}>
+      <div className="img-two home-images" id={2}>
         <img src={slideTwo} alt="slide one" />
       </div>
-      <div className="img-three" id={3}>
+      <div className="img-three home-images" id={3}>
         <img src={slideThree} alt="slide one" />
       </div>
-      <div className="img-four" id={4}>
+      <div className="img-four home-images" id={4}>
         <img src={slideFour} alt="slide one" />
       </div>
-      <div className="img-five" id={5}>
+      <div className="img-five home-images" id={5}>
         <img src={slideFive} alt="slide one" />
       </div>
     </div>
