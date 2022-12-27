@@ -10,7 +10,7 @@ const Home = () => {
       <SwiperCarousel />
       <ServiceSection />
       <ProcSection />
-      <BrandSection />
+      {/* <BrandSection /> */}
     </>
   );
 };
