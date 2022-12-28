@@ -7,6 +7,7 @@ import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectDropdownItems } from "../../layouts/navbar/navbar_config";
 import { icons } from "../../layouts/footer/footer_config";
 import { useTranslation } from "react-i18next";
+import SearchDesktop from "@assets/svg/SearchDesktop";
 
 const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobileSelectState, switchLanguage }) => {
   const { t } = useTranslation(["navbar", "form", "pageend"]);
@@ -15,7 +16,7 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
     <Grid item container className="main-nav-sub--mobile-body" sx={{ display: !showMobileMenu ? "none !important" : "grid" }}>
       <div className="mobile-body--section search" id="desktop-search">
         <div>
-          {/* <Search /> */}
+          {/* <SearchDesktop/> */}
           <img src={search} alt={"Search"}  />
 
         </div>
