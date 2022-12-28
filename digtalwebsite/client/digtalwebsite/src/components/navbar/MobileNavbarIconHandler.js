@@ -4,16 +4,33 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
 import { toggleMobileNavbar } from "../../layouts/navbar/navbar_config";
 
-const MobileNavbarIconHandler = ({ mobileCross, mobileMenu, setShowMobileMenu }) => {
+const MobileNavbarIconHandler = ({
+  mobileCross,
+  mobileMenu,
+  setShowMobileMenu,
+  showMobileMenu
+}) => {
   return (
-    <Grid item container alignItems={"center"} className="main-nav-sub-mobile" justifyContent="end">
+    <Grid
+      item
+      container
+      alignItems={"center"}
+      className="main-nav-sub-mobile"
+      justifyContent="end"
+    >
       <Grid item className="mobile-sub-container">
-        <MenuIcon className="mobile-navbar-menu" onClick={() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "round")} />
+        <MenuIcon
+          className="mobile-navbar-menu"
+          sx={{ display: showMobileMenu ? "none" : "block" }}
+          onClick={() => {
+            setTimeout(() => setShowMobileMenu(true), 100);
+          }}
+        />
         <CloseTwoToneIcon
-          sx={{ display: "none" }}
+          sx={{ display: !showMobileMenu ? "none" : "block" }}
           className="mobile-navbar-cross"
           onClick={() => {
-            setTimeout(() => toggleMobileNavbar(setShowMobileMenu, mobileCross, mobileMenu, "cross"), 50);
+            setTimeout(() => setShowMobileMenu(false), 100);
           }}
         />
       </Grid>

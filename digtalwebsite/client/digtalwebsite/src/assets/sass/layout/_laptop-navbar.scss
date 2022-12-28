@@ -64,6 +64,11 @@
             height: 100%;
           }
 
+          .navbar-theme-dark,.navbar-theme-dark {
+             
+            transform: scale(0.9);
+         }
+
           #laptop-services {
             @include mixins.grid;
             grid-template-columns: repeat(2, minmax(min-content, max-content));

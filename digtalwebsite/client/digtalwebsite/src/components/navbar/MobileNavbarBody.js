@@ -2,21 +2,19 @@ import { ExpandMoreOutlined } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 import React from "react";
 import search from "../../assets/svg/magnifier.svg";
-import ActiveNavLink from "../reusables/ReusableNavLink";
+import ActiveNavLink, { MobileActiveNavLink } from "../reusables/ReusableNavLink";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectDropdownItems } from "../../layouts/navbar/navbar_config";
 import { icons } from "../../layouts/footer/footer_config";
 import { useTranslation } from "react-i18next";
-import SearchDesktop from "@assets/svg/SearchDesktop";
 
-const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobileSelectState, switchLanguage }) => {
+const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobileSelectState, switchLanguage,setShowMobileMenu }) => {
   const { t } = useTranslation(["navbar", "form", "pageend"]);
 
   return (
     <Grid item container className="main-nav-sub--mobile-body" sx={{ display: !showMobileMenu ? "none !important" : "grid" }}>
       <div className="mobile-body--section search" id="desktop-search">
         <div>
-          {/* <SearchDesktop/> */}
           <img src={search} alt={"Search"}  />
 
         </div>
@@ -25,7 +23,7 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
         <div className="menu-sub">
           {navbarItems.slice(0, 2).map((item, index) => (
             <Grid item key={index} id={item.id}>
-              <ActiveNavLink to={language + item.route} text={t(item.index)} />
+              <MobileActiveNavLink to={language + item.route} text={t(item.index)} toggleMobile={setShowMobileMenu}/>
             </Grid>
           ))}
 
@@ -39,7 +37,7 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
             <div style={{ display: !mobileSelectState ? "none" : "block" }}>
               {selectDropdownItems.map((item) => (
                 <Grid item key={item.textIndex}>
-                  <ActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} />
+                  <MobileActiveNavLink to={language + item.route} text={t(item.textIndex, { ns: "form" })} toggleMobile={setShowMobileMenu}/>
                 </Grid>
               ))}
             </div>
@@ -47,7 +45,7 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
 
           {navbarItems.slice(2, 4).map((item, index) => (
             <Grid item key={index}id={item.id}>
-              <ActiveNavLink to={language + item.route} text={t(item.index)} />
+              <MobileActiveNavLink to={language + item.route} text={t(item.index)} toggleMobile={setShowMobileMenu}/>
             </Grid>
           ))}
 
