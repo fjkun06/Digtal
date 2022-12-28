@@ -30,7 +30,7 @@ const MobileNavbarIconHandler = ({
           sx={{ display: !showMobileMenu ? "none" : "block" }}
           className="mobile-navbar-cross"
           onClick={() => {
-            setTimeout(() => setShowMobileMenu(false), 100);
+            requestAnimationFrame(() => setShowMobileMenu(false));
           }}
         />
       </Grid>

@@ -5,54 +5,55 @@ import { NavLink } from "react-router-dom";
 
 export default function Enterprise() {
   const [counter, setCounter] = React.useState(0);
-  let elapsed = 0;
-  const requestRef = React.useRef()
-  function raf(func, ms) {
-    const handler = {};
+  const requestRef = React.useRef();
+  console.log("COUNTER: ", counter);
+
+  function raf(func, ms, handler) {
     let start = performance.now();
     const loop = curr => {
       if (curr - start >= ms) {
-        // if (Date.now() - start >= ms) {
         func(curr);
-        //   func(Date.now());
         start = curr;
-        //   start = Date.now();
         console.log("start: ", curr - start);
       }
 
-      requestRef.current = requestAnimationFrame(loop);
+      handler.current = requestAnimationFrame(loop);
     };
-    requestRef.current = requestAnimationFrame(loop);
-    // return handler.id;
+    handler.current = requestAnimationFrame(loop);
   }
 
-  // let interval = raf(gameLoop, 3000);
   function gameLoop(timestamp) {
-    console.log("c1: ", counter);
+    console.log("c1: ", timestamp);
     setCounter(counter => counter + 1);
-    console.log("c2: ", 1 % 2);
 
-    //   requestAnimationFrame(gameLoop);
   }
-  // requestAnimationFrame(gameLoop);
 
   React.useEffect(() => {
-    raf(gameLoop, 1000);
+    const func = gameLoop;
+    raf(func, 3500, requestRef);
+    const nestedRef = requestRef.current;
 
     return () => {
-      cancelAnimationFrame(requestRef.current);
+      cancelAnimationFrame(nestedRef);
     };
   }, []);
 
+  if (counter === 6) {
+    cancelAnimationFrame(requestRef.current);
+    setCounter(0);
+
+    raf(gameLoop, 3500, requestRef);
+  }
+
+
   return (
     <div className="enterprise-page">
-      <span>Changed {counter}x</span>
-      {
-        // counter + 2 %
-      }
-      <span>Changed {counter}x</span>
-      <span>Changed {counter}x</span>
-      <span>Changed {counter}x</span>
+      {counter === 0 && <span>Changed {counter}x</span>}
+      {counter === 1 && <span>Changed {counter}x</span>}
+      {counter === 2 && <span>Changed {counter}x</span>}
+      {counter === 3 && <span>Changed {counter}x</span>}
+      {counter === 4 && <span>Changed {counter}x</span>}
+      {counter === 5 && <span>Changed {counter}x</span>}
       <button
         type="button"
         onClick={() => {
