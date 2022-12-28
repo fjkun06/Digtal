@@ -1,4 +1,4 @@
-import { object, string, date } from 'yup';
+import { object, string } from 'yup';
 
 let schema = object({
    first_name: string()
@@ -42,7 +42,6 @@ let schema = object({
       
       .max(18, 'Phone number too long.'),
   
-   created_on: date().default(() => new Date())
 });
 
 export default schema;

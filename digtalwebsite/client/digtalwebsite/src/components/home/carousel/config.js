@@ -37,7 +37,7 @@ export function Carousel(){
                 x:0,
             }
         )
-    },[])
+    })
 
 
     return (
@@ -94,7 +94,7 @@ export function CarouselTwo(){
                 y:0,
             }
         )
-    },[])
+    })
 
 
     return (
@@ -151,7 +151,7 @@ export function CarouselTree(){
                 y:0,
             }
         )
-    },[])
+    })
 
 
     return (
@@ -208,7 +208,7 @@ export function CarouselFour(){
                 y:0,
             }
         )
-    },[])
+    })
 
 
     return (

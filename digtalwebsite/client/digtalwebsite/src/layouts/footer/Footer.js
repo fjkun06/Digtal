@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import { Box, StyledEngineProvider } from "@mui/system";
+import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import logoMobile from "../../assets/images/logo2.png";

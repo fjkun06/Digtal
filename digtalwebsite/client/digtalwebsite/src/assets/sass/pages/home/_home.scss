@@ -1,18 +1,97 @@
-@use "./home-body";
-@use "./home-header";
+@use "../../util/variables";
+@use "../../util/mixins";
 
-.home {
-  height: fit-content;
-  // margin-top: 10vh;
-  // margin-top: 12vh;
+#home-carousel {
+  background-color: rgba(rebeccapurple, 0.466);
+  // border: 10px solid yellow;
+  // overflow-y: hidden;
+  display: grid;
+  grid-template-rows: repeat(1,1fr);
+  grid-template-columns: repeat(1,1fr);
+  transition: all 1 ease-in-out;
 
-  //body goes here
-  @extend %home-header;
+  /******************Home after*****************/
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    @include mixins.size(100vw, 100vh);
+    top: 0;
+    left: 0;
+    background-color: rgba(#663399, 30%);
+    background: linear-gradient(to bottom, transparent 0%, transparent 70%, 90%, rgba(#663399, 50%));
+  }
 
-  //body goes here
-  @extend %home-body;
+  img {
+    @include mixins.size(100vw, 100vh);
+    object-fit: cover;
+  }
 
-  @media only screen and (max-width: 1050px) {
-    min-height: 100vw;
+  div{
+    grid-row: 1/2;
+    grid-column: 1/2;
+
+      // &:nth-child(1),&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5){
+      &:nth-child(3),&:nth-child(4),&:nth-child(5){
+
+      display: none;
+  animation: disappear 0.25s ease-in-out 4s 1 forwards;
+
+      z-index: 1;
+    }
+
+    &:nth-child(1),&:nth-child(2){
+  animation: disappear 0.25s ease-in-out 4s 1 forwards;
+
+    }
+
+    &:nth-child(1){
+      display: block;
+
+    }
+    &:nth-child(2){
+      // opacity: 0.1;
+      // z-index: 0;
+      // animation: disappear 0.25s ease-out 3s 1  forwards;
+      display: none;
+
+    }
+  }
+}
+.disappear{
+  animation: disappear 0.25s ease-in-out 4s 1 forwards;
+  // animation: disappear 0.25s ease-out 3s 1  forwards;
+}
+.appear{
+  animation: appear 0.25s ease-in-out 0s 1 forwards;
+  // animation: appear 0.25s ease-out 3s 1  forwards;
+}
+
+
+@keyframes disappear {
+  100%{
+    opacity: 0;
+    // display: none;
+  }
+
+  // 99%{
+  //   display: block;
+  // }
+}
+@keyframes appear {
+  100%{
+    opacity: 1;
+    // z-index: 2;
+
+  }
+}
+@keyframes imgup {
+  100%{
+    z-index: 2;
+  }
+}
+@keyframes imgdown {
+  100%{
+    z-index: 0;
   }
 }

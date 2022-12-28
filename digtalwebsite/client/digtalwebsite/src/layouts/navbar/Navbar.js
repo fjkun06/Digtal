@@ -33,7 +33,6 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [mobileSelectState, setMobileSelectState] = useState(false);
-  const [outlet, setOutlet] = useState("");
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
@@ -115,7 +114,7 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
         }
       });
     });
-  }, [language, location, setLanguage, navigate, allFlags, flagId, outlet]);
+  }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
   const max480 = useMediaQuery("(max-width:480px)");

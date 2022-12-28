@@ -11,9 +11,11 @@ const Home = () => {
     <>
       <SwiperCarousel />
       <ServiceSection />
+
       <ProcessSection />
       <MobileProcess />
       <BrandSection />
+
     </>
   );
 };
