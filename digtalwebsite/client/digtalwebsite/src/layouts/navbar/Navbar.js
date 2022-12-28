@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ActiveNavLink from "../../components/reusables/ReusableNavLink";
 import logo from "../../assets/images/logoo.png";
+import moon from "../../assets/svg/moon.svg";
 import logoMobile from "../../assets/images/logo2.png";
 import { ThemeProvider } from "@mui/system";
 import languageSwitcher from "../../i18n/languageSwitcher";
@@ -224,6 +225,14 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
                       setWebsiteTheme("light");
                     }}
                   />
+                //   <DarkModeIcon
+                //   className="navbar-theme-dark"
+                //   handler={() => {
+                //     switchTheme("light");
+                //     setWebsiteTheme("light");
+                //     console.log("hello: ", websiteTheme);
+                //   }}
+                // />
                 ) : (
                   <DarkModeIcon
                     className="navbar-theme-dark"
@@ -257,10 +266,10 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
               </div>
             </Grid>
             {/* mobile navbar */}
-            <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} />
+            <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} showMobileMenu={showMobileMenu}/>
 
             {/* mobile navbar body */}
-            <MobileNavbarBody language={language} showMobileMenu={showMobileMenu} toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage} />
+            <MobileNavbarBody language={language} showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu} toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage} />
           </Grid>
         </Grid>
       </ThemeProvider>

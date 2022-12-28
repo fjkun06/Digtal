@@ -1,8 +1,8 @@
 import React from "react";
 
-export const LightModeIcon = ({handler}) => {
+export const LightModeIcon = ({handler,className}) => {
   return (
-    <span  onClick={handler}>
+    <span  onClick={handler} className={className} style={{display:"block"}}>
       <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
         <rect x="0.5" y="0.5" width="28" height="28" fill="url(#pattern0)" />
         <defs>
