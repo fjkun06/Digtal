@@ -1,4 +1,3 @@
-
 import { Box } from "@mui/system";
 
 import React from "react";
@@ -7,7 +6,6 @@ import slideOne from "src/assets/images/carousel/noir3.webp";
 import slideTwo from "src/assets/images/carousel/noir4.webp";
 import slideTree from "src/assets/images/carousel/noir1.webp";
 import slideFour from "src/assets/images/carousel/noir2.webp";
-
 
 export default function Enterprise() {
   const [counter, setCounter] = React.useState(0);
