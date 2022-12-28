@@ -2,13 +2,13 @@
 @use "../../util/mixins";
 
 #home-carousel {
-  background-color: rgb(255, 251, 0);
+  background-color: rgba(rebeccapurple, 0.466);
   // border: 10px solid yellow;
   // overflow-y: hidden;
   display: grid;
   grid-template-rows: repeat(1,1fr);
   grid-template-columns: repeat(1,1fr);
-  // transition: all 1 ease-out;
+  transition: all 1 ease-in-out;
 
   /******************Home after*****************/
   &::after {
@@ -35,14 +35,18 @@
       &:nth-child(3),&:nth-child(4),&:nth-child(5){
 
       display: none;
+  animation: disappear 0.25s ease-in-out 4s 1 forwards;
+
       z-index: 1;
     }
 
     &:nth-child(1),&:nth-child(2){
+  animation: disappear 0.25s ease-in-out 4s 1 forwards;
+
     }
 
     &:nth-child(1){
-      // display: block;
+      display: block;
 
     }
     &:nth-child(2){
@@ -55,11 +59,11 @@
   }
 }
 .disappear{
-  animation: disappear 0.25s ease-out 0s 1 forwards;
+  animation: disappear 0.25s ease-in-out 4s 1 forwards;
   // animation: disappear 0.25s ease-out 3s 1  forwards;
 }
 .appear{
-  animation: appear 0.25s ease-out 0s 1 forwards;
+  animation: appear 0.25s ease-in-out 0s 1 forwards;
   // animation: appear 0.25s ease-out 3s 1  forwards;
 }
 

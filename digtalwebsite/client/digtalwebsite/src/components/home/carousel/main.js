@@ -25,7 +25,7 @@ import slideFive from "@assets/images/carousel/noir5.webp";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function SwiperCarousel() {
-  const carouselArray = [];
+  const slides = React.useRef([]);
 
   const [carousels, setCarousels] = React.useState(null);
   const [mainIndex, setMain] = React.useState(1);
@@ -37,203 +37,255 @@ export default function SwiperCarousel() {
   const [four, setFour] = React.useState(null);
   const [five, setFive] = React.useState(null);
 
-  React.useEffect(() => {
-    Array.from(document.querySelectorAll(".home-images")).forEach(slide => {
-      if (slide?.id && Number(slide?.id) === mainIndex) {
-        slide.style.display = "block";
-        // console.log(mainIndex);
+  // React.useEffect(() => {
+  //   document.querySelector(".img-one").style.display = "block";
+  // }, []);
 
-        setCurrent(Number(slide.id));
-        setNext(Number(slide.id) + 1);
-      }
-    });
-  }, [mainIndex]);
+  // React.useEffect(() => {
+  //   let number = 0;
+  //   let request;
+  //   let request2;
+  //   let t = 0;
+  //   let k = 0;
+  //   let s = 0;
+  //   console.log(mainIndex, current);
 
-  React.useEffect(() => {
-    let number = 0;
-    let request;
-    let t = 0;
-    let k = 0;
-    let s = 0;
+  //   slides.current.forEach(slide => {
+  //     if (mainIndex === 6) {
+  //       // setNext(2);
+  //       setCurrent(1);
+  //       setMain(1);
+  //     }
+
+  //     if (Number(slide.id) === mainIndex && Number(slide.id) !== 6) {
+  //       timer(slide);
+  //       console.log("in here?: ", mainIndex);
+  //     }
+
+  //     if (Number(slide.id) - 1 === mainIndex && Number(slide.id) <= 5) {
+  //       killer(slide);
+
+  //       // showNextElement(slide);
+  //     }
+  //   });
+
+  //   function timer(slide) {
+  //     console.log("in timer?: ", mainIndex);
+  //     let start = Date.now();
+
+  //     function paint() {
+  //       t = Date.now() - start;
+  //       // console.log("tithee: ", t);
+
+  //       if (t === 3500) {
+  //         console.log("here: ", slide);
+  //         slide?.classList?.toggle("disappear");
+
+  //         // if (current === 5) {
+  //         //   setMain(mainIndex => mainIndex );
+  //         // } else {
+  //         console.log("in timer?: ", mainIndex);
+
+  //         setMain(mainIndex + 1);
+  //         // }
+  //       }
+  //       if (t === 3700) {
+  //         slide.style.display = "none";
+  //         console.log("in timer22?: ", mainIndex);
+  //       }
+
+  //       if (t < 3700) {
+  //         request = requestAnimationFrame(paint);
+  //       }
+  //     }
+  //     requestAnimationFrame(paint);
+  //   }
+
+  //   function killer(slide) {
+  //     let start = Date.now();
+
+  //     function paint() {
+  //       k = Date.now() - start;
+
+  //       if (k === 3500) {
+  //         slide?.classList?.toggle("appear");
+  //         console.log("here: ", k);
+  //         // console.log("slide2");
+  //       }
+
+  //       if (k === 3500) {
+  //         // console.log("slide2");
+  //         // console.log(slide);
+  //         // slide.style.display = "block";
+  //         // slide.style.opacity = "0";
+  //       }
+
+  //       if (k < 3500) {
+  //         request2 = requestAnimationFrame(paint);
+  //       }
+  //     }
+  //     requestAnimationFrame(paint);
+  //   }
+
+  //   // function showNextElement(slide) {
+  //   //   function paint() {
+  //   //     s++;
+  //   //     if (s === 349) {
+  //   //       // if (s === 495) {
+  //   //       if (current === 5) {
+  //   //         setMain(mainIndex => mainIndex);
+  //   //       } else {
+  //   //         setMain(mainIndex => mainIndex + 1);
+  //   //       }
+  //   //     }
+
+  //   //     if (s < 495) {
+  //   //       request = requestAnimationFrame(paint);
+  //   //     }
+  //   //   }
+  //   //   requestAnimationFrame(paint);
+  //   // }
+
+  //   // return () => {
+  //   //   // cancelAnimationFrame(request);
+  //   //   // cancelAnimationFrame(request2);
+  //   // };
+  // }, [current, mainIndex]);
+
+  // //interval useffect
+//   React.useEffect(() => {
+//     let t, request;
+//     let start = Date.now();
+//     // function timer(slide) {
+//     //   console.log("in timer?: ", mainIndex);
+//     //   let start = Date.now();
+
+//     //   function paint() {
+//     //     t = Date.now() - start;
+//     //     // console.log("tithee: ", t);
+
+//     //     if (t === 3500) {
+//     //       console.log("here: ", slide);
+//     //       slide?.classList?.toggle("disappear");
+
+//     //       // if (current === 5) {
+//     //       //   setMain(mainIndex => mainIndex );
+//     //       // } else {
+//     //       console.log("in timer?: ", mainIndex);
+
+//     //       setMain(mainIndex + 1);
+//     //       // }
+//     //     }
+//     //     if (t === 3700) {
+//     //       slide.style.display = "none";
+//     //       console.log("in timer22?: ", mainIndex);
+//     //     }
+
+//     //     if (t < 3700) {
+//     //       request = requestAnimationFrame(paint);
+//     //     }
+//     //   }
+//     //   requestAnimationFrame(paint);
+//     // }
+// function animate(){
+//   function paintIN() {
+//     t = Date.now() - start;
+//     console.log("tithee: ", t);
+
+//     if (t > 0 && t < 3700) {
+//       console.log("here: ", slides.current[0]);
+//       // slides.current[0]?.classList?.toggle("disappear");
+//       // slides.current[0].style.opacity = 3001/t - 0.31;
+
+//       // if (current === 5) {
+//       //   setMain(mainIndex => mainIndex );
+//       // } else {
+//       console.log("in timer?: ", mainIndex);
+
+//       setMain(mainIndex + 1);
+//       } 
+//       if(t === 3700){
+//         console.log("here2: ", slides.current[0]);
+//       slides.current[0].style.opacity = 0;
 
 
-    Array.from(document.querySelectorAll(".home-images")).forEach(slide => {
-      console.log(mainIndex, current, next);
-      if(next === 6){
-        setNext(1);
-      }
+//       } 
+//       if(t < 3700){
+//         request = requestAnimationFrame(paintIN);
 
-      if (Number(slide.id) === current && Number(slide.id) !== 6) {
-        timer(slide);
-        // console.log(mainIndex);
-      }
+//       }
       
-      if (Number(slide.id) === next && Number(slide.id) <= 5) {
-        killer(slide);
+//     }
+//     requestAnimationFrame(paintIN);
 
-        showNextElement(slide);
-      }
-    });
+// }
+//     animate();
+//       // if (t === 3750) {
+//       //   slides.current[0].style.display = "none";
+//       //   console.log("in timer22?: ", mainIndex);
+//       // }
 
-    function timer(slide) {
-      // setTimeout(() => {
-      //   slide?.classList?.toggle("disappear");
-      // }, 3500);
+//       // if (t < 3700) {
+//       //   request = requestAnimationFrame(paintIN);
+//       // }
+//     // }
 
-      // function startAnimation() {
-      //   let i = 0;
-      //   i++;
-      //   if (i === 3500) {
-      //     console.log("here: ", i)
-      //     slide?.classList?.toggle("disappear");
-      //   }
+//     return () => {
+//       // second
+//       // cancelAnimationFrame(request);
 
-      //   if (i < 3500) {
-      //     request = requestAnimationFrame(startAnimation);
-      //   }
-      // }
-      function paint() {
-        t++;
-        //   box.style.opacity = 0.0002 * number;
+//     };
+//   }, []);
 
-         if (t === 1500) {
-          console.log("here: ", t)
-          slide?.classList?.toggle("disappear");
-        }
-         if (t === 1700) {
-          // console.log("here: ", t)
-          // slide?.classList?.toggle("disappear");
-          slide.style.display = "none";
-
-        }
-
-        if (t < 1700) {
-          request = requestAnimationFrame(paint);
-        }
-      }
-      requestAnimationFrame(paint);
-      // requestAnimationFrame(startAnimation);
-    }
-
-    function killer(slide) {
-      // function startAnimation() {
-      //   let i = 0;
-      //   i++;
-      //   if (i === 3400) {
-      //     slide?.classList?.toggle("appear");
-      //   }
-
-      //   if (i < 3400) {
-      //     request = requestAnimationFrame(startAnimation);
-      //   }
-      //   // requestAnimationFrame(startAnimation);
-      // }
-      // requestAnimationFrame(startAnimation);
-      function paint() {
-        k++;
-        //   box.style.opacity = 0.0002 * number;
-
-        if (k === 1000) {
-          console.log(slide)
-          slide.style.display = "block";
-          slide.style.opacity = "0";
-        }
-         if (k === 1400) {
-        //  if (k === 1400) {
-          slide?.classList?.toggle("appear");
-          console.log("here: ", k)
-
-        // }
-        }
-
-        if (k < 1400) {
-          request = requestAnimationFrame(paint);
-        }
-      }
-      requestAnimationFrame(paint);
-
-      // setTimeout(() => {
-      //   slide?.classList?.toggle("appear");
-
-      //   // if (slide) slide.style.display = "none";
-      // }, 3900);
-    }
-
-    function showNextElement(slide) {
-      // function startAnimation() {
-      //   let i = 0;
-      //   i++;
-      //   if (i === 3495) {
-      //     if (current === 5) {
-      //       setMain(1);
-      //     } else {
-      //       setMain(mainIndex + 1);
-      //     }
-      //   }
-
-      //   if (i < 3495) {
-      //     request = requestAnimationFrame(startAnimation);
-      //   }
-      //   // requestAnimationFrame(startAnimation);
-      // }
-      // requestAnimationFrame(startAnimation);
-      // setTimeout(() => {
-      //   // slide.style.display = "block";
-      //   if (current === 5) {
-      //     setMain(1);
-      //   } else {
-      //     setMain(mainIndex + 1);
-      //   }
-      // }, 3495);
-
-      function paint() {
-        k++;
-        //   box.style.opacity = 0.0002 * number;
-        if (k === 1495) {
-          if (current === 5) {
-            setMain(1);
-          } else {
-            setMain(mainIndex + 1);
-          }
-        }
-
-        if (k < 1495) {
-          request = requestAnimationFrame(paint);
-        }
-      
-      }
-      requestAnimationFrame(paint);
-    }
-  });
-
-  //interval useffect
-  React.useEffect(() => {
-    // setCarousels(document.querySelectorAll(".home-images"));
-    // setCarousels(carouselArray)
-    // document.querySelector(".img-one").style.display = "block";
-    // console.log(carousels)
-    return () => {
-      // second
-    };
-  });
+  console.log(slides);
 
   return (
     <div id="home-carousel">
       {/* hello */}
 
-      <div className="img-one home-images" id={1}>
+      <div
+        ref={element => {
+          slides.current[0] = element;
+        }}
+        className="img-one home-images"
+        id={1}
+      >
         <img src={slideOne} alt="slide one" />
       </div>
-      <div className="img-two home-images" id={2}>
+      <div
+        ref={element => {
+          slides.current[1] = element;
+        }}
+        className="img-two home-images"
+        id={2}
+      >
         <img src={slideTwo} alt="slide one" />
       </div>
-      <div className="img-three home-images" id={3}>
+      <div
+        ref={element => {
+          slides.current[2] = element;
+        }}
+        className="img-three home-images"
+        id={3}
+      >
         <img src={slideThree} alt="slide one" />
       </div>
-      <div className="img-four home-images" id={4}>
+      <div
+        ref={element => {
+          slides.current[3] = element;
+        }}
+        className="img-four home-images"
+        id={4}
+      >
         <img src={slideFour} alt="slide one" />
       </div>
-      <div className="img-five home-images" id={5}>
+      <div
+        ref={element => {
+          slides.current[4] = element;
+        }}
+        className="img-five home-images"
+        id={5}
+      >
         <img src={slideFive} alt="slide one" />
       </div>
     </div>
