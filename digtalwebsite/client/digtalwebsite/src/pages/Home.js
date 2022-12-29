@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <>
       <SwiperCarousel />
-      <ServiceSection />
+      {/* <ServiceSection />
 
       <ProcessSection />
-      <MobileProcess />
+      <MobileProcess /> */}
       <BrandSection />
 
     </>
