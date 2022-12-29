@@ -49,7 +49,7 @@ export default function AboutUs() {
         <Typography
           variant="h3"
           classes={{
-            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-2xl md:text-[70px] leading-[70px] lg:text-[75px] tracking-[.9rem] lg:leading-[70px] lg:tracking-[5rem] font-['Poppins_700']"
+            root: "bg-white/60 bg-clip-text text-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase font-bold text-2xl tablet:text-[70px] leading-[70px] laptop:text-[75px] tracking-[.9rem] laptop:leading-[70px] laptop:tracking-[5rem] font-['Poppins_700']"
           }}
         >
           diversity
@@ -57,11 +57,11 @@ export default function AboutUs() {
       </Box>
 
       <Container maxWidth="lg" className="my-24 space-y-24">
-        <Box className="mx-auto grid grid-cols-12 tablet:max-w-[540px]">
+        <Box className="mx-auto grid grid-cols-12 tablet:max-w-[540px] laptop:max-w-screen-laptop">
           <Box className="mobile:col-span-12 tablet:col-span-5 laptop:col-span-5">
             <Typography
               component="p"
-              className="text-center font-[Poppins] font-bold leading-[35px] text-[rebeccapurple] lg:text-left lg:leading-[50px] mobile:mx-20 mobile:text-[18px] tablet:text-[20px] laptop:text-[24px]"
+              className="text-center font-[Poppins] font-bold leading-[35px] text-[rebeccapurple] mobile:mx-20 mobile:text-[18px] tablet:text-[20px] laptop:text-left laptop:text-[24px] laptop:leading-[50px]"
             >
               Lifting up others makes you rise
             </Typography>
@@ -69,7 +69,7 @@ export default function AboutUs() {
           <Box className="mobile:col-span-12 tablet:col-span-7 tablet:space-y-8 laptop:col-span-7">
             <Typography
               component="p"
-              className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px] mobile:mt-8 tablet:text-left"
+              className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 mobile:mt-8 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -78,7 +78,7 @@ export default function AboutUs() {
             </Typography>
             <Typography
               component="p"
-              className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 lg:mt-0 lg:text-left lg:text-[21px] lg:leading-[35px] mobile:mt-8 tablet:text-left"
+              className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 mobile:mt-8 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -93,7 +93,7 @@ export default function AboutUs() {
           className="mx-auto gap-8 mobile:gap-10 tablet:max-w-[550px] laptop:max-w-none laptop:gap-12"
         >
           <Stack className="flex-row items-start gap-1 laptop:gap-4">
-            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] lg:text-[196px] laptop:text-[130px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[196px] laptop:text-[130px]">
               “
             </Typography>
             <Typography
@@ -104,7 +104,7 @@ export default function AboutUs() {
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
               enim. Elit aute irure tempor
             </Typography>
-            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] lg:text-[196px] laptop:text-[130px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[196px] laptop:text-[130px]">
               ’’
             </Typography>
           </Stack>
@@ -125,37 +125,37 @@ export default function AboutUs() {
           </Stack>
         </Stack>
 
-        <Box className="mx-auto gap-8 lg:max-w-[1038px] lg:gap-14">
+        <Box className="mx-auto gap-8 laptop:max-w-[1038px] laptop:gap-14">
           <Box className="grid grid-cols-12 gap-8">
-            <Box className="col-span-6 lg:col-span-4">
+            <Box className="col-span-6 laptop:col-span-4">
               <Stack className="gap-6">
-                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 lg:text-[21px] lg:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] lg:text-[90px]">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] laptop:text-[90px]">
                   160k+
                 </Typography>
               </Stack>
             </Box>
-            <Box className="col-span-6 lg:col-span-4">
+            <Box className="col-span-6 laptop:col-span-4">
               <Stack className="gap-6">
-                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 lg:text-[21px] lg:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] lg:text-[90px]">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] laptop:text-[90px]">
                   10k+
                 </Typography>
               </Stack>
             </Box>
-            <Box className="col-span-6 col-start-4 lg:col-span-4 lg:col-start-9">
+            <Box className="col-span-6 col-start-4 laptop:col-span-4 laptop:col-start-9">
               <Stack className="gap-6">
-                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 lg:text-[21px] lg:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] lg:text-[90px]">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] laptop:text-[90px]">
                   2k+
                 </Typography>
               </Stack>
@@ -166,7 +166,7 @@ export default function AboutUs() {
 
       {/* Team Section starts here */}
       <Box>
-        <Stack className="mx-auto gap-12 tablet:max-w-[480px] laptop:gap-24">
+        <Stack className="mx-auto gap-12 tablet:max-w-[480px] laptop:max-w-screen-laptop laptop:gap-24">
           <Typography
             variant="h2"
             component="h3"
