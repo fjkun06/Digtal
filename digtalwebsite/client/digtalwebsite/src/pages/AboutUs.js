@@ -28,7 +28,7 @@ const team = [
 export default function AboutUs() {
   const { t } = useTranslation("about");
   return (
-    <Grid columns={1} className="about">
+    <Grid columns={1} className="about  backdrop-blur-[10px]">
       <Stack
         direction="column"
         justifyContent="center"
