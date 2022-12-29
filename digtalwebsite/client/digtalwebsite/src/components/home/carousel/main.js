@@ -27,7 +27,7 @@ export default function SwiperCarousel() {
       timer++;
 
       if (timer < 6000) {
-        // console.log(timer);
+        console.log(timer);
         // console.log(timer/1200);
       }
       // if (timer === 2362) {
@@ -39,7 +39,7 @@ export default function SwiperCarousel() {
         start = curr;
         console.log("start: ", curr - start);
         console.log("refreshRate: ", timer / 25);
-        animeRef.current = requestAnimationFrame(func2);
+        // animeRef.current = requestAnimationFrame(func2);
       }
       handler.current = requestAnimationFrame(loop);
     };
@@ -69,7 +69,7 @@ export default function SwiperCarousel() {
   React.useEffect(() => {
     const func = gameLoop;
     const func2 = counterLoop;
-    raf(func, func2, 5000, requestRef);
+    // raf(func, func2, 5000, requestRef);
     const nestedRef = requestRef.current;
     console.log("I was running: ", reset, "x");
     return () => {

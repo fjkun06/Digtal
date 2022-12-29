@@ -21,17 +21,9 @@ export default function Enterprise() {
         console.log("start: ", curr - start);
       }
 
-      handler.current =
-        window.mozRequestAnimationFrame(loop) ||
-        window.msRequestAnimationFrame(loop) ||
-        window.oRequestAnimationFrame(loop) ||
-        requestAnimationFrame(loop);
+      handler.current = requestAnimationFrame(loop);
     };
-    handler.current =
-      window.mozRequestAnimationFrame(loop) ||
-      window.msRequestAnimationFrame(loop) ||
-      window.oRequestAnimationFrame(loop) ||
-      requestAnimationFrame(loop);
+    handler.current = requestAnimationFrame(loop);
   }
 
   function gameLoop(timestamp) {
