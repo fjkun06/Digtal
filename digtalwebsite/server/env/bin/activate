@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/kiricode/Desktop/digtal/projects/Digtal/digtalwebsite/server/env"
+VIRTUAL_ENV="/home/kirikode/Documents/new_digtal/Digtal/digtalwebsite/server/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

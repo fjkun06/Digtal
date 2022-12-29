@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import "./i18n/i18n";
-import "./index.css";
+// import "./index.scss";
 import Enterprise from "./components/enterprise/Enterprise";
 import TermsAndConditions from "./components/terms&conditions/TermsAndConditions";
 import MobileApp from "./components/services/mobile_app/MobileApp";
@@ -18,9 +18,9 @@ import Career from "./components/career/Career";
 import Contact from "./pages/ContactForm";
 import Blog from "./components/blog/Blog";
 import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
-import ServiceSection from "./components/home/services/main";
+import Home from "./pages/Home";
 
-const AboutUs = React.lazy(() => import("./pages/AboutUs.js"));
+const AboutUs = React.lazy(() => import("@pages/AboutUs.js"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const majorRoutes = ["/en", "/fr", "de"];
@@ -31,20 +31,14 @@ root.render(
         <Route path="/" exact element={<App />}>
           {majorRoutes.map((route, index) => (
             <Route path={route} key={index}>
-              <Route index exact element={<ServiceSection />} />
+              <Route index exact element={<Home />} />
               {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">
                 <Route index element={<App />} />
                 <Route path="consulting" element={<Consulting />} />
-                <Route
-                  path="web-development"
-                  element={<WebDevelopment />}
-                />
-                <Route
-                  path="mobile-app-development"
-                  element={<MobileApp />}
-                />
+                <Route path="web-development" element={<WebDevelopment />} />
+                <Route path="mobile-app-development" element={<MobileApp />} />
                 <Route
                   path="digital-marketing"
                   element={<DigitalMarketing />}
@@ -59,7 +53,10 @@ root.render(
               <Route path="about-us" element={<AboutUs />} />
               <Route path="blog" element={<Blog />} />
               <Route path="career" element={<Career />} />
-              <Route path="terms_and_conditions" element={<TermsAndConditions />} />
+              <Route
+                path="terms_and_conditions"
+                element={<TermsAndConditions />}
+              />
               <Route path="cookie-policy" element={<CookiePloicy />} />
               <Route path="cookie-settings" element={<CookieSettings />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -69,5 +66,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  // </React.Suspense>
+  </React.Suspense>
 );

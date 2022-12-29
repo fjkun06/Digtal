@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/kiricode/Desktop/digtal/projects/Digtal/digtalwebsite/server/env"
+set -gx VIRTUAL_ENV "/home/kirikode/Documents/new_digtal/Digtal/digtalwebsite/server/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -5,20 +5,44 @@
 @use "../components/footer-policy";
 
 .footer {
-  // border: 5px solid black;
-  // background-color: green;
-  height: 51vh;
-  // height: fit-content;
-  // background-color: var(--footer-bg);
-  // padding: 50px 30px 40px 30px;
-  // padding-top: 115px;
+  // height: 51vh;
+  // height: 330px;
+  // @media screen and (min-width: 769px) {
+  //   height: 50vh;
+  // }
+  // @media screen and (min-width: 961px) {
+  //   height: 57vh;
+  //   height: 680px;
+  // }
+  // @media screen and (min-width: 1201px) {
+  //   height: 57vh;
+  //   height: 770px;
+  // }
+  // background-image: url("../../assets/images/background.svg");
+  // -moz-background: url("../../svg/background_light.svg");
+
+  background: url("../../svg/footer_background_light.svg");
+  background: url("../../svg/test.svg");
+  //  background-position: center;
+  //  background-size: cover;
+  background-size: 100%;
+  background-size: cover;
+
+  // -moz-background-size: 100%;
+
+
+
+  // background-size: 100% auto, 100% 100%;
+  // background-size: auto auto, auto auto;
+  // background-size: auto,auto;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
 
   transition: all 0.5s ease-in-out;
   @include mixins.flex(column);
   grid-template-columns: 1fr;
-  // width: 100vw;
-  // min-width: 100vw;
-  // row-gap: 3rem;
 
   //Multicolor bottom border
   &::before {
@@ -31,6 +55,172 @@
     // border: 1px solid red;
   }
 
+  //footer help
+  &-help {
+    background-color: transparent;
+    background-color: #ececec;
+
+    @include mixins.size(100%, fit-content);
+
+    @include mixins.flex(column);
+    align-items: center;
+    padding: 1.5rem 0rem;
+    @media screen and (min-width: 481px) {
+      padding: 2rem 0rem;
+    }
+    @media screen and (min-width: 769px) {
+      padding: 2rem 0rem 4rem 0rem;
+    }
+    @media screen and (min-width: 961px) {
+      padding: 3rem 0rem 3rem 0rem;
+    }
+
+    button,
+    span {
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial;
+    }
+    button {
+      background-color: rebeccapurple;
+      color: #fff;
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      border-radius: 5px;
+      @media screen and (min-width: 769px) {
+        font-size: 1.3rem;
+        padding: 5px 13px;
+      }
+      @media screen and (min-width: 961px) {
+        font-size: 2rem;
+      }
+      @media screen and (min-width: 1201px) {
+        font-size: 2.4rem;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    span {
+      font-size: 1.1rem;
+      @media screen and (min-width: 769px) {
+        font-size: 1.3rem;
+      }
+      @media screen and (min-width: 961px) {
+        font-size: 2rem;
+      }
+      @media screen and (min-width: 1201px) {
+        font-size: 2.4rem;
+      }
+      color: rebeccapurple;
+      font-weight: 600;
+      padding-bottom: 3px;
+    }
+  }
+
+  //footer
+  &-contact {
+    background-color: rebeccapurple;
+    @include mixins.size(100%, max-content);
+    @include mixins.flex;
+
+    @media screen and (min-width: 961px) {
+      padding: 1rem 0rem;
+    }
+    @media screen and (min-width: 1201px) {
+      padding: 2rem 0rem;
+    }
+
+    & > * {
+      color: white;
+    }
+
+    .pair {
+      @include mixins.size(100%, 100%);
+      @include mixins.flex(column);
+      transition: all 0.5s ease-in-out;
+
+      // column-gap: 5px;
+      padding: 1.25rem 0rem;
+      img {
+        // padding-bottom: 3px;
+        @include mixins.size(20px, 27px);
+      }
+
+      span {
+        padding-top: 3px;
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+        @media screen and (min-width: 769px) {
+          font-size: 1.2rem;
+        }
+        @media screen and (min-width: 961px) {
+          font-size: 1.2rem;
+        }
+        @media screen and (min-width: 1201px) {
+          font-size: 1.4rem;
+        }
+      }
+      svg {
+        font-size: 1.5rem;
+        padding-bottom: 3px;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.15);
+        }
+
+        path {
+          fill: white;
+        }
+      }
+
+      .icon,
+      .mail {
+        svg {
+          @include mixins.size(20px, 27px);
+          transform: scale(1.25);
+          &:hover {
+            transform: scale(1.35);
+          }
+
+          @media screen and (min-width: 769px) {
+            transform: scale(1.6);
+            &:hover {
+              transform: scale(1.75);
+            }
+          }
+        }
+      }
+
+      .double-numbers {
+        height: 100%;
+
+        @include mixins.flex(column);
+        column-gap: -15px;
+        & > * {
+          &:nth-child(1) {
+          }
+          &:nth-child(2) {
+            display: none;
+            @media screen and (min-width: 481px) {
+              // display: block;
+            }
+          }
+        }
+      }
+    }
+
+    //  svg{
+    //   path {
+    //     fill: yellow;
+    //   }
+    // }
+  }
+
   //subscribe section here
   @extend %subscribe;
 
@@ -41,9 +231,20 @@
   @extend %policy;
 
   &-body {
-    // background-color: rgb(187, 65, 65);
     width: 87vw;
     height: 17vh;
+    @media screen and (min-width: 481px) {
+      height: 30vh;
+    }
+    @media screen and (min-width: 768px) {
+      height: 30vh;
+      height: 300px;
+    }
+    @media screen and (min-width: 1201px) {
+      // height: 45vh;
+      height: 420px;
+    }
+
     @include mixins.grid;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(1, 1fr);
@@ -59,17 +260,58 @@
       @include mixins.flex {
         justify-content: space-between;
       }
-      &>*{
+      & > * {
         margin-top: 12px;
+        @media screen and (min-width: 481px) {
+          margin-top: 3rem;
+        }
+        @media screen and (min-width: 769px) {
+          margin-top: 5rem;
+        }
+        @media screen and (min-width: 961px) {
+          margin-top: 4rem;
+        }
+        @media screen and (min-width: 1201px) {
+          margin-top: 5rem;
+        }
       }
 
       img {
         @include mixins.size(24px, 23px);
+        @media screen and (min-width: 481px) {
+          @include mixins.size(46px, 43px);
+        }
+        @media screen and (min-width: 769px) {
+          @include mixins.size(48px, 45px);
+        }
+        @media screen and (min-width: 961px) {
+          @include mixins.size(65px, 61px);
+        }
+        @media screen and (min-width: 1201px) {
+          @include mixins.size(83px, 79px);
+        }
         z-index: 2;
-
       }
-      svg{
+      svg {
+        & > * {
+          font-weight: bold;
+        }
         transform: scale(0.9);
+        @media screen and (min-width: 481px) {
+          @include mixins.size(130px, 40px);
+        }
+        @media screen and (min-width: 769px) {
+          @include mixins.size(133px, 42px);
+          transform: scale(1);
+        }
+        @media screen and (min-width: 961px) {
+          // @include mixins.size(130px, 41px);
+          transform: scale(1.05);
+        }
+        @media screen and (min-width: 1201px) {
+          @include mixins.size(148px, 47px);
+          transform: scale(1.2);
+        }
       }
     }
     &-items {
@@ -78,33 +320,25 @@
       grid-template-rows: repeat(1, 1fr);
       grid-template-columns: repeat(4, 1fr);
       justify-content: start;
-      // height: 90%;
-      // background-color: rgb(140, 188, 232);
-
 
       & > * {
-        // border: 1px solid red;
         @include mixins.size(100%, 100%);
-
+        @media screen and (min-width: 1201px) {
+          @include mixins.size(100%, 60%);
+        }
       }
 
       .enterprise {
-        background-color: #fff;
-      // background-color: rgb(140, 188, 232);
+        background-color: transparent;
 
         @include mixins.grid;
         justify-content: start;
-        
-        // @include mixins.size(50%, 100%);
-
-        // grid-template-rows: repeat(4, 1fr);
-        // grid-template-columns: repeat(1, 1fr);
 
         .heading {
-          // background-color: #000;
           margin-top: 7px;
 
           font-size: 1.2rem;
+
           font-weight: 600;
           position: relative;
           &::after {
@@ -114,26 +348,80 @@
             background: black;
             margin-top: 0.1px;
           }
+          @media screen and (min-width: 481px) {
+            font-size: 1.45rem;
+            margin-top: 2.5rem;
+            &::after {
+              @include mixins.size(3.5rem, 0.245rem);
+              margin-top: -1px;
+            }
+          }
+          @media screen and (min-width: 769px) {
+            font-size: 1.7rem;
+            margin-top: 3rem;
+            &::after {
+              @include mixins.size(4rem, 0.205rem);
+              margin-top: 0px;
+            }
+          }
+
+          @media screen and (min-width: 961px) {
+            font-size: 1.85rem;
+            margin-top: 3.5rem;
+            &::after {
+              @include mixins.size(5rem, 0.255rem);
+              margin-top: -2px;
+            }
+          }
+          @media screen and (min-width: 1201px) {
+            font-size: 2.1rem;
+            margin-top: 2rem;
+            &::after {
+              @include mixins.size(5rem, 0.355rem);
+              margin-top: -2px;
+            }
+          }
         }
 
         .links {
           @include mixins.grid;
-        // row-gap: -5px;
-        margin-top: 8px;
-        z-index: 2;
-
+          margin-top: 8px;
+          @media screen and (min-width: 769px) {
+            margin-bottom: 1rem;
+          }
+          @media screen and (min-width: 961px) {
+            font-size: 1.85rem;
+            margin-top: 1.5rem;
+          }
+          @media screen and (min-width: 1201px) {
+            font-size: 2.1rem;
+            margin-top: 1rem;
+          }
+          z-index: 2;
 
           justify-content: start;
           height: max-content;
-          // border: 1px solid red;
           a {
             @include mixins.size(max-content, max-content);
             font-size: 0.9rem;
+            @media screen and (min-width: 481px) {
+              font-size: 1.4rem;
+            }
+            @media screen and (min-width: 769px) {
+              font-size: 1.6rem;
+            }
+            @media screen and (min-width: 961px) {
+              font-size: 1.85rem;
+            }
+            @media screen and (min-width: 1201px) {
+              font-size: 2.1rem;
+            }
             font-weight: 500;
-          height: auto;
-          margin-top: -2px;
-          // border: 1px solid red;
-// padding: -5px;
+            height: auto;
+            margin-top: -2px;
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -142,14 +430,32 @@
       }
     }
     &-icons {
-      background-color: #fff;
+      background-color: trtansparent;
       grid-row: 9/11;
       @include mixins.icons-flush(center, 0.5rem);
       justify-content: flex-end;
       margin-top: -7px;
+      @media screen and (min-width: 961px) {
+        height: 60%;
+      }
+      @media screen and (min-width: 1201px) {
+        height: 80%;
+      }
 
       svg {
         font-size: 15px;
+        @media screen and (min-width: 481px) {
+          font-size: 2.8rem;
+        }
+        @media screen and (min-width: 769px) {
+          font-size: 3rem;
+        }
+        @media screen and (min-width: 961px) {
+          font-size: 3.5rem;
+        }
+        @media screen and (min-width: 1201px) {
+          font-size: 4rem;
+        }
       }
     }
   }

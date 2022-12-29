@@ -3,8 +3,10 @@ import React from "react";
 const FacebookDark = () => {
   return (
     <span>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="red" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
         <rect width="28" height="28" fill="url(#pattern0)" />
+        <use href="#image0_542_2907" transform="scale(0.01)" fill="red"/>
+
         <defs>
           <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
             <use href="#image0_542_2907" transform="scale(0.01)" />

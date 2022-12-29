@@ -1,308 +1,85 @@
 @use "../../util/variables";
 @use "../../util/mixins";
+@use "./form" as Form;
+@use "./modal" as Modal;
+@use "./office" as OfficeSection;
+@use "./get-in-touch" as GetInTouch;
 
 .contact,
 #form1 {
-  //get intouch section of form
+  width: 100vw;
+
   transition: all 0.25s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.5);
+  background: none;
+  background: url("../../../svg/app_background_light.svg");
+  background-position: center;
+  background-size: 110% 150%;
+  // background-size: 100% auto;
+  // background-size: cover;
 
-  // width: 98vw;
+  // background-size: auto 100%;
+  // background-size: cover;
+
+  // background-size: 100% auto, 100% 100%;
+  // background-size: auto auto, auto auto;
+  // background-size: auto,auto;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    // height: auto;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: red;
+    z-index: 22;
+  }
+
   padding-top: 10vh;
-  padding-left: 6vw;
-  padding-right: 6vw;
   display: grid;
-  height: fit-content;
-  column-gap: 3rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  // rgba(255, 255, 255,0.5)
 
-  //postioning elements
-  .form {
-    grid-row: 1/6;
-    grid-column: 2/3;
+
+
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(10, minmax(250px));
+
+  @media only screen and (min-width: 1201px) {
+    grid-template-columns: 1fr 1.1fr;
+    grid-template-rows: repeat(5, minmax(250px));
+    padding: 0vh 8.2vw;
+    column-gap: 5rem;
+    padding-top: 19vh;
+    padding-bottom: 5vh;
+    // margin-bottom: 25vh;
   }
 
-  .office {
-    grid-row: 2/6;
-    grid-column: 1/2;
-    // margin-top: -30vh;
-    width: 38vw;
-  }
+  /*********************************************************/
+  /**********************Modal Section*********************/
+  @include Modal.modal;
 
-  .getintouch {
-    grid-row: 1/2;
-    grid-column: 1/2;
-    div {
-      width: 38vw;
-    }
-    // margin-top: -10vh;
-  }
+  /*********************************************************/
+  /**********************Form Section*********************/
+  @include Form.form;
 
-  &-getintouch {
-    // border: 1px solid red;
-    // height: 100px;
-    & > * {
-      font-family: "Poppins";
-    }
+  /*********************************************************/
+  /**********************Office Section*********************/
+  @include OfficeSection.office;
 
-    h2,
-    h4,
-    h3 {
-      color: rebeccapurple;
-      font-weight: 900;
-    }
-    h2 {
-      font-size: 40px;
-      padding-bottom: 5px;
-    }
-    h3 {
-      font-size: 30px;
-      // padding-top: 20px;
-      padding-bottom: 15px;
-    }
-    img {
-      padding-bottom: 20px;
-    }
+  /*********************************************************/
+  /**********************Get In Touch Section*********************/
+  @include GetInTouch.get-in-touch;
+}
 
-    img[alt*="svg"] {
-      // border: 1px solid red;
-      padding-bottom: 0px;
-      margin-top: -45px;
-    }
-
-    div {
-      font-size: 21px;
-    }
-
-    h4 {
-      font-size: 30px;
-      padding-top: 30px;
-      padding-bottom: 15px;
-    }
-
-    h5 {
-      font-weight: 500;
-      color: rgba(#2b0a3d, 0.5);
-      font-size: 18px;
-    }
-  }
-
-  //submit button
-  &-submitbutton {
-    // .MuiButtonBase-root{
-    background-color: white !important;
-    border: 3px solid rgba(rebeccapurple, 0.5);
-    color: rebeccapurple;
-    font-size: 14px;
-    font-family: "Poppins";
-    font-weight: 900;
-    // }
-    &:hover {
-      background-color: rebeccapurple !important;
-      // border: 3px solid white;
-      color: white;
-    }
-  }
-
-  //textfields
-  &-textfield {
-    // @keyframes success-blink {
-
-    //   0% {
-    //     border: 3px solid green;      }
-
-    //   70% {
-    //     border: 3px solid rgba(#663399, 1);
-
-    //   }
-    // }
-
-    //input label
-    .MuiFormLabel-root,
-    .MuiInputLabel-root {
-      font-size: 14px;
-      margin-top: -5px;
-      z-index: 2;
-      // margin-bottom: 15px;
-      // border: 3px solid rgba(#663399, 0.5);
-      // transform: translate(0,-5px);
-      &.Mui-focused {
-        color: #663399;
-        // color: green;
-        font-size: 14px;
-        margin-top: 0px;
-
-        &.Mui-error {
-          font-size: 14px;
-
-          color: red;
-        }
-      }
-      &.Mui-error {
-        font-size: 14px;
-
-        color: red;
-      }
-    }
-
-    //input fields
-
-    .MuiInputBase-root,
-    .MuiOutlinedInput-root {
-      padding-bottom: 10px;
-      padding-top: 10px;
-      // height: 10px;
-      font-size: 16px;
-      fieldset {
-        border: 3px solid rgba(#663399, 0.5);
-      }
-
-      &:hover {
-        fieldset {
-          border: 3px solid rgba(#663399, 1);
-        }
-      }
-
-      &.Mui-focused {
-        .MuiOutlinedInput-notchedOutline {
-          border: 3px solid green;
-          // animation-name: success-blink;
-          // animation-duration: 1s;
-          // animation-iteration-count: 1;
-          // animation-fill-mode: forwards;
-          border: 3px solid rgba(#663399, 1);
-
-          legend {
-            span {
-              // font-size: 6px;
-              padding-left: 0px;
-              padding-right: 0px;
-
-              // display: none;
-            }
-          }
-        }
-
-        &.Mui-error {
-          fieldset {
-            border: 3px solid red;
-            legend {
-              span {
-                // font-size: 8px;
-                padding-left: 0px;
-                padding-right: 0px;
-              }
-            }
-          }
-        }
-      }
-      &.Mui-required {
-        fieldset {
-          border: 3px solid red;
-        }
-      }
-      &.Mui-error {
-        fieldset {
-          border: 3px solid red;
-          legend {
-            span {
-              // font-size: 8px;
-              padding-left: 0px;
-              padding-right: 0px;
-            }
-          }
-        }
-      }
-    }
-
-    //telephone
-    &-telephone {
-      .MuiInputBase-root,
-      .MuiOutlinedInput-root {
-        padding-bottom: 0px;
-        padding-top: 0px;
-        font-size: 14px;
-      }
-
-      //input label
-      .MuiFormLabel-root,
-      .MuiInputLabel-root {
-        font-size: 14px;
-        margin-top: 0px;
-        z-index: 2;
-        // margin-bottom: 15px;
-        // border: 3px solid rgba(#663399, 0.5);
-        // transform: translate(0,-5px);
-        &.Mui-focused {
-          color: #663399;
-          // color: green;
-          font-size: 14px;
-          margin-top: 0px;
-          margin-left: -5px;
-
-          &.Mui-error {
-            font-size: 14px;
-
-            color: red;
-          }
-        }
-        &.Mui-error {
-          font-size: 14px;
-
-          color: red;
-        }
-      }
-    }
-  }
-
-  //form input fields
-  &-form {
-    border-radius: 2%;
-    box-shadow: 5px 5px 25px -1px rgba(187, 141, 138, 0.122), -5px -5px 25px 1px rgba(141, 138, 138, 0.122);
-  }
-
-  //form options
-  &-formoptions {
-    @include mixins.flex;
-    height: fit-content;
-    font-family: "Poppins";
-    row-gap: 10px;
-    margin-top: 5vh;
-
-    //headx
-    &-heading {
-      color: variables.$purple;
-      font-weight: bold;
-      font-size: 22px;
-    }
-
-    //pills
-    &--pills {
-      @include mixins.flex;
-      row-gap: 10px;
-      flex-wrap: wrap;
-      column-gap: 10px;
-      justify-content: start;
-
-      &-pill {
-        border: 3px solid rgba(#663399, 0.5);
-        padding: 8px 10px;
-        border-radius: 5px;
-        font-size: 18px;
-        color: rgba(#663399, 0.5);
-        font-size: 18px;
-        cursor: pointer;
-        user-select: none;
-
-        &:hover {
-          border: 3px solid rgba(#663399, 1);
-          color: rgba(#663399, 1);
-        }
-      }
-      &--bordered {
-        border: 3px solid rgba(#663399, 1);
-        color: rgba(#663399, 1);
-      }
-    }
+@keyframes enlarge {
+  100% {
+    font-size: 1.2rem;
   }
 }

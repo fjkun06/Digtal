@@ -1,30 +1,32 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, FormHelperText, Grid } from "@mui/material";
-import { purple } from "@mui/material/colors";
+import { Grid } from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import schema from "../../utils/schemas/yupSchema";
 import { contactFields } from "./contact_config";
 import ContactFormOptions from "./ContactFormOptions";
-import CustomTextField from "./ReusableTextField";
+import ReusableTextField from "./ReusableTextField";
+import { sendContactData } from "src/functions/backend";
 
-export default function ContactFormFields({ t, cxs, cmd }) {
+export default function ContactFormFields({ t, modal }) {
   //select option state handler
   const [subjectValidation, setSubjectValidation] = React.useState(false);
-
-  //handle change for subject field
-  const handleChange = (value) => {
-    console.log(value);
-  };
+  const [submitted, setSubmitted] = React.useState(false);
 
   //React hook form validation with yupSchema
   const {
     handleSubmit,
     setValue,
     getValues,
-    formState: { isValid },
-    control,
+    formState: {
+      isValid,
+      isSubmitting,
+      isSubmitSuccessful,
+      submitCount,
+      isSubmitted
+    },
+    control
   } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -35,135 +37,130 @@ export default function ContactFormFields({ t, cxs, cmd }) {
       subject: "",
       message: "",
       phone: "",
-    },
+      company_name: ""
+    }
   });
+
+  //handle change for subject field
+  const handleChange = () => {
+    setSubmitted(isSubmitSuccessful ? true : false);
+  };
   return (
-    <Grid
-      item
-      rowSpacing={{ sm: -10, md: -10 }}
-      // xs={12}
-      // sm={5}
-      pl={{ xs: 1, sm: 4, md: 5 }}
-      pr={{ xs: 1, sm: 4, md: 5 }}
-      // md={5}
-      container
-      sx={{
-        padding: { xs: "8px" },
-        border: "1px solid red",
-
-      }}
-      alignItems="center"
-      justifyContent={"center"}
-      className="contact-form form"
-    >
-      <ContactFormOptions setSubject={setValue} getSubject={getValues} valid={isValid} sendSubjectState={setSubjectValidation} />
-
-      <Grid item container xs={12} spacing={cxs ? 0 : cmd ? 2 : ""} rowSpacing={-1}>
-        {contactFields.map((cf) => (
-          <Grid item xs={12} sm={12} md={cf.md} sx={{ borderRadius: 1 }} key={cf.label}>
-            <Controller
-              render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-                <>
-                  <CustomTextField
-                    label={t(cf.label)}
-                    errorState={!!formState.errors[cf.index]}
-                    errorText={t(formState.errors[cf.index]?.message, {
-                      ns: "formerror",
-                    })}
-                    field={field}
-                    success={isDirty & !invalid}
-                  />
-                </>
-              )}
-              name={cf.index}
-              control={control}
-            />
-          </Grid>
-        ))}
-      </Grid>
-
-      <Grid
-        item
-        xs={12}
-        mt={2}
-        md={12}
-        sx={{
-          borderRadius: 1,
-        }}
-      >
+    <Grid item className="contact-form formsection">
+      <ContactFormOptions
+        setSubject={setValue}
+        getSubject={getValues}
+        valid={isValid}
+        sendSubjectState={setSubjectValidation}
+      />
+      {contactFields.map(cf => (
         <Controller
-          render={({ field, formState, fieldState: { isDirty, invalid } }) => (
+          key={cf.index}
+          render={({
+            field,
+            formState,
+            fieldState: { isDirty, invalid },
+            value
+          }) => (
             <>
-              <MuiPhoneNumber
-                defaultCountry={"cm"}
-                className="contact-textfield-telephone contact-textfield "
-                enableLongNumbers
-                dropdownClass=""
-                fullWidth
-                hiddenLabel
-                variant="outlined"
-                error={!!formState.errors?.phone}
-                focused={isDirty & !invalid ? true : undefined}
-                {...field}
-                color={isDirty & !invalid ? "success" : "secondary"}
-                label={!isDirty & !invalid ? t("phone.tel") : null}
+              <ReusableTextField
+                id={cf.label}
+                sup={cf.sup}
+                errorState={!!formState.errors[cf.index]}
+                errorText={t(formState.errors[cf.index]?.message, {
+                  ns: "formerror"
+                })}
+                fieldName={t(cf.label)}
+                field={field}
               />
-              <FormHelperText id="component-helper-text" sx={{ paddingLeft: "14px", fontSize: "1.2rem" }} error={!!formState.errors?.phone}>
-                {t(formState.errors.phone?.message, { ns: "formerror" })}
-              </FormHelperText>
             </>
           )}
-          name={"phone"}
+          name={cf.index}
           control={control}
         />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        mt={2}
-        sx={{
-          borderRadius: 1,
-        }}
-      ></Grid>
-      <Grid item xs={12} sx={{ borderRadius: 1 }}>
+      ))}
+
+      <div>
         <Controller
           render={({ field, formState, fieldState: { isDirty, invalid } }) => (
-            <CustomTextField
-              label={t("message")}
-              multiline
-              rows={4}
-              errorState={!!formState.errors?.message}
-              errorText={t(formState.errors.message?.message, { ns: "formerror" })}
-              field={field}
-              success={isDirty & !invalid}
-            />
+            <div className="telephone-field">
+              <div className="tel">
+                <label htmlFor={"phone"}>
+                  <span>
+                    {t("phone.tel")} <sup>*</sup>
+                  </span>
+                  <MuiPhoneNumber
+                    tabIndex={"1"}
+                    defaultCountry={"cm"}
+                    className={!!formState.errors?.phone ? "error" : ""}
+                    id="phone"
+                    enableLongNumbers
+                    fullWidth
+                    variant="outlined"
+                    {...field}
+                  />
+                </label>
+              </div>
+              {!!formState.errors?.phone && (
+                <span className="phone-error">
+                  {t(formState.errors.phone?.message, { ns: "formerror" })}
+                </span>
+              )}
+            </div>
           )}
-          name={"message"}
+          name={"phone_number"}
           control={control}
         />
-      </Grid>
+      </div>
+      <Controller
+        render={({ field, formState, fieldState: { isDirty, invalid } }) => (
+          <>
+            <div
+              className={
+                !!formState.errors?.message
+                  ? "input message-area problem"
+                  : "input message-area"
+              }
+            >
+              <label htmlFor={"message"}>
+                <span>{t("message")}</span>
+                <textarea id="message" {...field}></textarea>
+              </label>
+            </div>
+          </>
+        )}
+        name={"message"}
+        control={control}
+      />
 
-      <Grid item container mt={5} mb={4}>
-        
-        <Button
-          onClick={handleSubmit((data) => console.log("onSubmit", data))}
-          fullWidth
-          className="contact-submitbutton"
-          size="large"
-          variant="contained"
-          type="submit"
-          disableFocusRipple
-          disableRipple
-          // sx={{
-          //   backgroundColor: purple[400],
-          //   transition: "all ease 0.0.5s",
-          //   "&:hover": { backgroundColor: purple[500] },
-          // }}
-          disabled={!(isValid && subjectValidation)}
-        >
-          {t("button")}
-        </Button>
-      </Grid>
+      <button
+        onClick={handleSubmit(data => {
+          sendContactData(data);
+          handleChange();
+          setTimeout(() => {
+            console.log("wtftfffffffffffffffffff: ", isSubmitSuccessful);
+            if (isSubmitSuccessful) {
+              console.log("77777777777: ", isSubmitSuccessful);
+              // modal();
+            }
+          }, 2000);
+        })}
+        className="contact-submitbutton"
+        // disabled={true}
+        // disabled={!(isValid && subjectValidation)}
+        disabled={
+          !(isValid && subjectValidation) &&
+          !(isSubmitted && !isSubmitSuccessful)
+        }
+      >
+        {!isSubmitting &&
+          !isSubmitSuccessful &&
+          !isSubmitted &&
+          t("button.normal")}
+        {isSubmitting && t("button.submitting")}
+        {isSubmitSuccessful && t("button.success")}
+        {isSubmitted && !isSubmitSuccessful && t("button.error")}
+      </button>
     </Grid>
   );
 }

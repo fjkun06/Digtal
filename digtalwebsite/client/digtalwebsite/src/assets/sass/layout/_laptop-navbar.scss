@@ -36,8 +36,12 @@
         &-logo {
           grid-column: 1/5;
           grid-row: 1/2;
+          width: 75%;
+
           @media screen and (min-width: 1201px) {
             height: 100%;
+          width: 55%;
+
           }
 
           img {
@@ -95,12 +99,15 @@
             // inline-size: min-content;
             // overflow-wrap: normal;
             width: fit-content(1rem);
+            width: -moz-fit-content(1rem);
             width: max-content;
           }
 
           span,
           svg {
+            -webkit-user-select: none;
             user-select: none;
+
           }
 
           #theme-switcher {

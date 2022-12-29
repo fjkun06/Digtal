@@ -3,8 +3,6 @@
 
 %subscribe {
   .footer-subscribe {
-    // width: 90vw;
-    // border: 1px solid red;
     background-color: #ececec;
 
     & > * {
@@ -18,15 +16,41 @@
     justify-content: center;
     align-items: center;
     @include mixins.size(100%, max-content);
+    @media screen and (min-width: 481px) {
+      @include mixins.flex;
+      grid-template-rows: repeat(1, 1fr);
+      padding: 1rem 0px;
+    }
+    @media screen and (min-width: 481px) {
+      @include mixins.flex;
+      padding: 2rem 0px;
+    }
 
-    // @include mixins.footer-item-init(34px, var(--footer-subscribe-bg));
     &-text {
       grid-row: 1/2;
-      // width: calc(100% / 2);
-      // border: 1px solid red;
+      @media screen and (min-width: 481px) {
+        width: 50%;
+      }
+
       @include mixins.grid;
       &-typ {
         font-size: 0.9rem;
+        font-weight: 600;
+
+        @media screen and (min-width: 481px) {
+          font-size: 1.1rem;
+          margin-top: 0px;
+        }
+        @media screen and (min-width: 769px) {
+          font-size: 1.2rem;
+        }
+        @media screen and (min-width: 961px) {
+          font-size: 2rem;
+        }
+        @media screen and (min-width: 1201px) {
+          font-size: 2.4rem;
+        }
+
         font-family: "Montserrat", sans-serif;
         margin-top: 10px;
       }
@@ -34,6 +58,11 @@
 
     &-item {
       grid-row: 2/3;
+      @media screen and (min-width: 481px) {
+        grid-row: 1/2;
+        width: 50%;
+        margin-top: 8px;
+      }
       margin-top: -5px;
       padding-bottom: 1.1rem;
 
@@ -43,9 +72,26 @@
         @include mixins.gradient-button-pb;
         padding: 2.75px 21px;
         font-size: 0.7rem;
+        @media screen and (min-width: 481px) {
+          font-size: 0.8rem;
+          padding: 5px 21px;
+          margin-top: 0px;
+          height: 100%;
+        }
+        @media screen and (min-width: 961px) {
+          font-size: 1rem;
+          padding: 5.55px 2.5rem;
+          margin-top: 0px;
+          height: 100%;
+        }
+        @media screen and (min-width: 1201px) {
+          font-size: 1.7rem;
+          padding: 5.55px 2.5rem;
+          margin-top: 0px;
+          height: 100%;
+        }
         text-align: center;
         vertical-align: center;
-        // border: 1px solid red;
         text-transform: uppercase;
         color: white;
         cursor: pointer;
@@ -57,64 +103,6 @@
         }
       }
     }
-
-    //Media queries
-    // @media only screen and (min-width: 980px) and (max-width: 1045px) {
-    //   column-gap: 4vw;
-    // }
-
-    // @media only screen and (max-width: 979px) {
-    //   @include mixins.flex(column);
-    //   row-gap: 3rem;
-
-    //   &-text {
-    //     width: 100%;
-
-    //     @include mixins.grid;
-    //     &-typ {
-    //       font-size: 2.5rem;
-    //     }
-    //   }
-
-    //   &-item {
-    //     width: fit-content;
-    //   }
-    // }
-
-    // @media only screen and (max-width: 450px) {
-    //   #subscribe-input {
-    //     min-width: 180px;
-    //   }
-
-    //   &-text {
-    //     &-typ {
-    //       font-size: 1.6rem;
-    //     }
-    //   }
-    // }
-
-    // @media only screen and (max-width: 320px) {
-    //   width: 80vw;
-    //   padding: 34px 0px;
-    //   // padding-bottom: 34px;
-
-    //   &-item {
-    //     flex-direction: column;
-    //     justify-content: start;
-    //     row-gap: 2rem;
-    //     width: fit-content;
-    //   }
-
-    //   &-text {
-    //     &-typ {
-    //       font-size: 0.9rem;
-    //     }
-    //   }
-
-    //   #subscribe-input {
-    //     min-width: 40px;
-    //   }
-    // }
   }
 }
 
@@ -122,19 +110,41 @@
   width: 17.4rem;
   height: 15.5px;
   border: none;
-  // border: 1px solid red;
   padding: 0px 0.7rem;
   font-size: 1rem;
   border-radius: 0px;
   box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
   font-weight: 300;
   font-size: 0.7rem;
+  @media screen and (min-width: 481px) {
+    font-size: 1.1rem;
+    padding: 11px 1rem;
+    width: 15rem;
+
+  }
+  @media screen and (min-width: 769px) {
+ 
+    width: 23rem;
+
+  }
   line-height: 1.235;
   letter-spacing: 0.00735em;
   color: variables.$black;
   &:focus {
     outline: none;
     caret-color: var(--footer-subscribe-input-caret);
+  }
+
+  @media screen and (min-width: 961px) {
+    font-size: 1.35rem;
+    height: 2.65rem;
+    width: 30rem;
+
+  }
+  @media screen and (min-width: 1201px) {
+    width: 40rem;
+    height: 3.55rem;
+    font-size: 1.6rem;
   }
 }
 

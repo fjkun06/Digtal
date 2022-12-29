@@ -1,105 +1,51 @@
-import * as React from "react";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
-import { useForm } from "react-hook-form";
-import contactOffice from "../assets/images/contact-our-office.png";
-
-// import { useState } from "react";
+import { Grid } from "@mui/material";
+import contactOffice from "src/assets/images/contact-our-office.png";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
-import ContactFormFields from "./../components/contact/ContactFormFields";
-import ContactFormLocation from "./../components/contact/ContactFormLocation";
-import CustomImage from "./../components/reusables/ReusableImage";
-import { location } from "./../components/contact/contact_config";
-import ContactFormSubLocation from "./../components/contact/ContactFormSubLocation";
+import ContactFormFields from "src/components/contact/ContactFormFields";
+import CustomImage from "src/components/reusables/ReusableImage";
+import { location } from "src/components/contact/contact_config";
+import ContactFormSubLocation from "src/components/contact/ContactFormSubLocation";
 
 export default function Contact() {
-  //the hook for the form
-  // const [contact, setContact] = useState({});
-
-  //   //media queries
-  // const matchesSM = useMediaQuery("(max-width:900px)");
-  const cmd = useMediaQuery("(min-width:900px)");
-  const cxs = useMediaQuery("(max-width:599px)");
-  // const matchesMDAndAbove = useMediaQuery("(min-width:901px)");
-
-  //   //setting up language translator
   const { t } = useTranslation(["form", "formerror"]);
-  const { handleSubmit } = useForm();
+  const [toggleModalDisplay, setModalDisplay] = React.useState(false);
+  function modalOn() {
+    setModalDisplay(true);
+    console.log("modal mode: ", toggleModalDisplay);
+  }
 
   return (
-    <Grid
-      container
-      component="form"
-      m={4}
-      ml={0}
-      mt={10}
-      id="form1"
-      // alignItems={"center"}
-      // justifyContent="center"
-      // direction="row"
-      pl={{ xs: 1 }}
-      pr={{ xs: 1 }}
-      sx={{
-        "& .MuiTextField-root": { mt: 5 },
-        padding: "1rem",
-      }}
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmit((data) => console.log(data))}
-    >
-      {/* <ContactFormLocation /> */}
-      <Grid
-        container
-        item
-        // xs={12}
-        // sm={5}
-        // mb={12}
-        // pl={{ xs: 1, sm: 4, md: 5 }}
-        // pr={{ xs: 1, sm: 4, md: 5 }}
-        // md={5}
-        sx={{
-          padding: { xs: "8px" },
-          border: "1px solid red",
-        }}
-        className="contact-getintouch getintouch"
-      >
-        <Typography variant="h2" component={"h2"}>
-          Get in touch with Us
-        </Typography>
-        <Typography variant="body" component={"div"}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequa
-        </Typography>
+    <Grid container component="form" id="form1" noValidate autoComplete="off">
+      {/* <ContactModal disp={toggleModalDisplay} /> */}
+      <Grid container item className="getintouch">
+        <h2>Get in touch with Us</h2>
+        <div>
+          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+          sint. Velit officia consequa
+        </div>
       </Grid>
-      <Grid
-        container
-        item
-        // xs={12}
-        // sm={5}
-        // mb={12}
-        // pl={{ xs: 1, sm: 4, md: 5 }}
-        // pr={{ xs: 1, sm: 4, md: 5 }}
-        // md={5}
-        sx={{
-          padding: { xs: "8px" },
-          border: "1px solid red",
-
-        }}
-        className="contact-getintouch office"
-      >
-        <Typography variant="h4" component={"h4"}>
-          Our Office
-        </Typography>
-        <CustomImage alt="Snapshot of Office" image={contactOffice} />
-        <Typography variant="body" component={"div"}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequa
-        </Typography>
-        <Grid item container direction={"row"}>
-          {location.map((loc) => (
-            <ContactFormSubLocation {...loc} key={loc.town} />
-          ))}
-        </Grid>
+      <Grid container item className="office">
+        <span>Our Office</span>
+        <CustomImage
+          alt="Snapshot of Office"
+          image={contactOffice}
+          id="office-pic"
+        />
+        <div className="office-body">
+          <span>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+            sint. Velit
+          </span>
+          <div className="office-body-location">
+            {location.map(loc => (
+              <ContactFormSubLocation {...loc} key={loc.town} />
+            ))}
+          </div>
+        </div>
       </Grid>
-      <ContactFormFields t={t} cxs={cxs} cmd={cmd} />
+      <ContactFormFields t={t} modal={modalOn} />
     </Grid>
   );
 }
