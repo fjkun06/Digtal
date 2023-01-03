@@ -12,7 +12,7 @@ import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { useMediaQuery, Grid } from "@mui/material";
 //importing configuration
 import { theme, Gridd, flagItems, selectDropdownItems } from "./navbar_config";
-import { DarkMode, ExpandMoreOutlined, KeyboardArrowRight, LightMode } from "@mui/icons-material";
+import { ExpandMoreOutlined, KeyboardArrowRight } from "@mui/icons-material";
 import { switchTheme } from "./theme";
 import { EnglandIcon } from "../../assets/svg/EnglandIcon";
 import { FranceIcon } from "../../assets/svg/FranceIcon";
@@ -23,7 +23,6 @@ import { LightModeIcon } from "../../assets/svg/LightModeIcon";
 import MobileNavbarBody from "../../components/navbar/MobileNavbarBody";
 import MobileNavbarIconHandler from "../../components/navbar/MobileNavbarIconHandler";
 import Search from "../../assets/svg/Search";
-import SearchDesktop from "../../assets/svg/SearchDesktop";
 import { icons } from "./../footer/footer_config";
 
 export default function Navbar({ language, setLanguage, outletState,toggleOutletSelect,toggleOutletSelectStateOff }) {
@@ -33,7 +32,6 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [mobileSelectState, setMobileSelectState] = useState(false);
-  const [outlet, setOutlet] = useState("");
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
@@ -115,10 +113,10 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
         }
       });
     });
-  }, [language, location, setLanguage, navigate, allFlags, flagId, outlet]);
+  }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
-  const max480 = useMediaQuery("(max-width:480px)");
+   const max480 = useMediaQuery("(max-width:480px)");
   const min769 = useMediaQuery("(min-width:769px)");
 
   function toggleMobileSelect() {
@@ -226,6 +224,14 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
                       setWebsiteTheme("light");
                     }}
                   />
+                //   <DarkModeIcon
+                //   className="navbar-theme-dark"
+                //   handler={() => {
+                //     switchTheme("light");
+                //     setWebsiteTheme("light");
+                //     console.log("hello: ", websiteTheme);
+                //   }}
+                // />
                 ) : (
                   <DarkModeIcon
                     className="navbar-theme-dark"
@@ -259,10 +265,10 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
               </div>
             </Grid>
             {/* mobile navbar */}
-            <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} />
+            <MobileNavbarIconHandler mobileCross={mobileCross} mobileMenu={mobileMenu} setShowMobileMenu={setShowMobileMenu} showMobileMenu={showMobileMenu}/>
 
             {/* mobile navbar body */}
-            <MobileNavbarBody language={language} showMobileMenu={showMobileMenu} toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage} />
+            <MobileNavbarBody language={language} showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu} toggleMobileSelect={toggleMobileSelect} mobileSelectState={mobileSelectState} t={t} switchLanguage={switchLanguage} />
           </Grid>
         </Grid>
       </ThemeProvider>

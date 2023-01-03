@@ -1,4 +1,3 @@
-import { Grid, Typography } from "@mui/material";
 import React from "react";
 import mapIcon from "../../assets/svg/map-pin.svg";
 import telIcon from "../../assets/svg/telephone.svg";

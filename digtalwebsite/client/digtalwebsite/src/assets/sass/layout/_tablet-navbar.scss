@@ -8,7 +8,7 @@
       background-color: transparent;
       //Multicolor bottom border
       &::after {
-        @include mixins.size(41%, 4px);
+        // @include mixins.size(41%, 4px);
         // @include mixins.size(51%, 4px);
       display: none;
 

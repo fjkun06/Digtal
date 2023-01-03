@@ -9,7 +9,6 @@ import full from "../../../assets/images/process/1.png"
 import coffee from "../../../assets/images/process/coffee.png"
 import edit from "../../../assets/images/process/edit.png"
 import computer from "../../../assets/images/process/laptop.png"
-import vectorR from "../../../assets/images/process/vector-right.png"
 import arrowl from "../../../assets/images/process/arrowl.png"
 import arrowr from "../../../assets/images/process/arrowr.png"
 

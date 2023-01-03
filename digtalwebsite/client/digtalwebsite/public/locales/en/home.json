@@ -1,8 +1,48 @@
 {
-  "digtal-carousel": {
-    "one": "We are young",
-    "two": "We are talented",
-    "three": " We are professionals."
+  "carousel": {
+    "mobile": {
+      "slide1": {
+        "one": "Let professionals",
+        "two": " handle your project",
+        "three": "and make it ",
+        "four": " come to life"
+      },
+      "slide2": {
+        "one": "We build your",
+        "two": "ideas in Mobile",
+        "three": "& Web"
+      },
+      "slide3": {
+        "one": "Make yuor presence",
+        "two": "on the internet",
+        "three": "Unmissable"
+      },
+      "slide4": {
+        "one": "Consult with us",
+        "two": " And get our",
+        "three": " expert opinion"
+      }
+    },
+    "laptop": {
+      "slide1": {
+        "one": "Let professionals handle your",
+        "two": "project and make it come to life"
+      },
+      "slide2": {
+        "one": "We build your ideas in ",
+        "two": "Mobile",
+        "three": "&",
+        "four": "Web"
+      },
+      "slide3": {
+        "one": "Make yuor presence on the internet",
+        "two": "Unmissable"
+      },
+      "slide4": {
+        "one": "Consult with us and",
+        "two": "Get our expert opinion"
+      }
+    }
   },
   "content": "Go to Content",
 

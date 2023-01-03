@@ -31,9 +31,7 @@ export const theme = createTheme({
 
 //navbar icon switcher
 export const toggleMobileNavbar = (setShowMobileMenu, mobileCross, mobileMenu, shape) => {
-  // Array.from(mobileNavbarReveal)[0].style.display = shape === "round" ? "grid" : "none";
-  Array.from(mobileCross)[0].style.display = shape === "round" ? "block" : "none";
-  Array.from(mobileMenu)[0].style.display = shape === "round" ? "none" : "block";
+ 
   shape === "round" ? setShowMobileMenu(true) : setShowMobileMenu(false);
   shape === "cross" ? setShowMobileMenu(false) : setShowMobileMenu(true);
 };
@@ -43,15 +41,6 @@ export const toggleLanguage = (specialLanguage) => {
   Array.from(specialLanguage)[0].style.display === "grid" ? (Array.from(specialLanguage)[0].style.display = "none") : (Array.from(specialLanguage)[0].style.display = "grid");
 };
 
-export const toggleMobileServicesDropdown = (mobileServicesDropdown, mobileSpecial) => {
-  if (Array.from(mobileServicesDropdown)[0].style.display === "block" && Array.from(mobileSpecial)[0].style.display === "block") {
-    Array.from(mobileServicesDropdown)[0].style.display = "none";
-    Array.from(mobileSpecial)[0].style.display = "none";
-  } else {
-    Array.from(mobileServicesDropdown)[0].style.display = "block";
-    Array.from(mobileSpecial)[0].style.display = "block";
-  }
-};
 
 export const selectMenu = [
   { t: "subject.op2", path: "web-development" },
