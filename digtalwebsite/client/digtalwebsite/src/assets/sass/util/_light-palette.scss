@@ -2,10 +2,11 @@
 @import "./custom-modifiers.scss";
 
 :root.light {
-  &>* a::selection,   *::selection{
+  & > * a::selection,
+  *::selection {
     background-color: rebeccapurple;
     color: white;
- }
+  }
   //footer section
   --footer-bg: #{$footer-bg-light};
   --footer-text: #{$footer-text-light};
@@ -18,6 +19,7 @@
   --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
   --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
   --footer-link-hover: #{$footer-link-hover-light};
+  --footer-bt-light: #{$footer-border-gradient};
 
   //navbar
   //navbar section
@@ -50,6 +52,7 @@
   --navbar-language-dd-item-br: #{$navbar-language-dd-item-br-light};
   --navbar-language-dd-item-bt: #{$navbar-language-dd-item-bt-light};
   --navbar-language-dd-item-bb: #{$navbar-language-dd-item-bb-light};
+  --navbar-bb-light: #{$navbar-border-gradient};
 
   //special
   --special-language-hover-bg: #{$special-language-hover-bg-light};

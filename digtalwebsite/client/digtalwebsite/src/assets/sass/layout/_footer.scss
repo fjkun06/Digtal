@@ -49,9 +49,9 @@
     content: "";
     display: block;
 
-    @include mixins.size(100%, 4px);
+    @include mixins.size(100%, 6px);
     // background-color: red;
-    background: variables.$footer-border-gradient;
+    background: var(--footer-bt-light);
     // border: 1px solid red;
   }
 

@@ -1,79 +1,179 @@
-
+import { PauseIcon } from "src/assets/svg/PauseIcon";
+import { PlayIcon } from "src/assets/svg/PlayIcon";
 import React from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import "swiper/css/effect-fade";
-import "./styles/pagination.css";
-import slideOne from "src/assets/images/carousel/noir1.webp";
-import slideTwo from "src/assets/images/carousel/noir2.webp";
-import slideThree from "src/assets/images/carousel/noir3.webp";
-import slideFour from "src/assets/images/carousel/noir4.webp";
-import slideFive from "src/assets/images/carousel/noir5.webp";
+
+import slideOne from "src/assets/images/carousel/noir11.jpg";
+import slideTwo from "src/assets/images/carousel/noir12.jpg";
+import slideThree from "src/assets/images/carousel/noir13.jpg";
+import slideFive from "src/assets/images/carousel/noir15.jpg";
+import { useTranslation } from "react-i18next";
+
 
 export default function SwiperCarousel() {
   const slides = React.useRef([]);
+  const buttons = React.useRef([]);
+  const [playState, setPlayState] = React.useState("playing");
+  const canceler = React.useRef(null);
+  const resumeAnimation = React.useRef();
+  const { t } = useTranslation("home");
 
-  const [carousels, setCarousels] = React.useState(null);
-  const [mainIndex, setMain] = React.useState(1);
-  const [current, setCurrent] = React.useState(null);
-  const [next, setNext] = React.useState(null);
-  const [one, setOne] = React.useState(null);
-  const [two, setTwo] = React.useState(null);
-  const [three, setThree] = React.useState(null);
-  const [four, setFour] = React.useState(null);
-  const [five, setFive] = React.useState(null);
+  React.useEffect(() => {
+    let slideIndex = 1;
+    showDivs(slideIndex);
+    function raf(func, ms) {
+      let start = performance.now();
+      const loop = curr => {
+        if (curr - start >= ms) {
+          func(curr);
+          start = curr;
+        }
 
+        canceler.current = requestAnimationFrame(loop);
+      };
+      canceler.current = requestAnimationFrame(loop);
+    }
 
+    function showDivs(n) {
+      var i;
+      //mkx carousel 360
+      if (slides.current.length > 0) {
+        if (n > slides.current.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.current.length;
+        }
 
-  return <div id="home-carousel">
-      {/* hello */}
+        for (i = 0; i < slides.current.length; i++) {
+          slides.current[i].style.display = "none";
+        }
+        for (i = 0; i < buttons.current.length; i++) {
+          buttons.current[i].style.background = "none";
+          buttons.current[i].style.border = "3px solid white";
+          buttons.current[i].style.filter = "blur(1.5px)";
+        }
+        slides.current[slideIndex - 1].style.display = "block";
+
+        buttons.current[slideIndex - 1].style.background =
+          "var(--navbar-bb-light)";
+        buttons.current[slideIndex - 1].style.border = "none";
+        buttons.current[slideIndex - 1].style.filter = "blur(0)";
+      }
+    }
+
+    function gameLoop(timestamp) {
+      slideIndex++;
+
+      showDivs(slideIndex);
+    }
+
+    function currentDiv(n) {
+      showDivs((slideIndex = n));
+    }
+
+    for (let i = 0; i < buttons.current.length; i++) {
+      buttons.current[i].addEventListener("click", () => {
+        currentDiv(i + 1);
+      });
+    }
+
+    raf(gameLoop, 5000);
+
+    resumeAnimation.current?.addEventListener("click", () => {
+      raf(gameLoop, 5000);
+    });
+
+    return () => cancelAnimationFrame(canceler.current);
+  }, []);
+
+  return (
+    <div id="home-carousel">
 
       <div
+        className="mySlide"
         ref={element => {
           slides.current[0] = element;
         }}
-        className="img-one home-images"
-        id={1}
       >
         <img src={slideOne} alt="slide one" />
+        <div>
+          <span>{t("carousel.mobile.slide1.one")}</span>
+          <span>{t("carousel.mobile.slide1.two")}</span>
+          <span>{t("carousel.mobile.slide1.three")}</span>
+          <span>{t("carousel.mobile.slide1.four")}</span>
+        </div>
       </div>
-      <div
-        ref={element => {
-          slides.current[1] = element;
-        }}
-        className="img-two home-images"
-        id={2}
-      >
-        <img src={slideTwo} alt="slide one" />
-      </div>
-      <div
-        ref={element => {
-          slides.current[2] = element;
-        }}
-        className="img-three home-images"
-        id={3}
-      >
-        <img src={slideThree} alt="slide one" />
-      </div>
+
       <div
         ref={element => {
           slides.current[3] = element;
         }}
-        className="img-four home-images"
-        id={4}
+        className="mySlide"
       >
-        <img src={slideFour} alt="slide one" />
+        <img src={slideTwo} alt="slide two" />
+        <div>
+          <span>{t("carousel.mobile.slide4.one")}</span>
+          <span>{t("carousel.mobile.slide4.two")}</span>
+          <span>{t("carousel.mobile.slide4.three")}</span>2{" "}
+        </div>
       </div>
+
       <div
         ref={element => {
-          slides.current[4] = element;
+          slides.current[2] = element;
         }}
-        className="img-five home-images"
-        id={5}
+        className="mySlide"
       >
-        <img src={slideFive} alt="slide one" />
+        <img src={slideThree} alt="slide three" />
+        <div>
+          <span>{t("carousel.mobile.slide3.one")}</span>
+          <span>{t("carousel.mobile.slide3.two")}</span>
+          <span>{t("carousel.mobile.slide3.three")}</span>2{" "}
+        </div>
+      </div>
+
+      <div
+        ref={element => {
+          slides.current[1] = element;
+        }}
+        className="mySlide"
+      >
+        <img src={slideFive} alt="slide four" />
+        <div>
+          <span>{t("carousel.mobile.slide2.one")}</span>
+          <span>{t("carousel.mobile.slide2.two")}</span>
+          <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
+        </div>
+      </div>
+
+      <div className="btns">
+        {[1, 2, 3, 4].map((button, index) => (
+          <button
+            key={index}
+            ref={element => {
+              buttons.current[index] = element;
+            }}
+            type="button"
+          ></button>
+        ))}
+      </div>
+      <div className="icons">
+        <PauseIcon
+          handler={() => {
+            cancelAnimationFrame(canceler.current);
+            setPlayState("paused");
+          }}
+          state={playState}
+        />
+        {/* pause
+        </PauseIcon> */}
+        <PlayIcon
+          state={playState}
+          ref={resumeAnimation}
+          handler={() => {
+            setPlayState("playing");
+          }}
+        />
       </div>
     </div>
   

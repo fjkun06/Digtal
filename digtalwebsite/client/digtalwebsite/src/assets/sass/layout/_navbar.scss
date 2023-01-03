@@ -4,10 +4,8 @@
 @use "../components/navbar-theme";
 @use "../components/navbar-language";
 @use "../util/media-queries";
-@use "../layout//mobile-navbar";
 @use "../layout/tablet-navbar";
 @use "../layout/laptop-navbar";
-@use "../layout/desktop-navbar";
 
 
 //main container
@@ -19,7 +17,7 @@
    animation-iteration-count: 1;
    background-color: rgb(255, 255, 255);
 
-   // // /controlling highlighter
+   // /controlling highlighter
    &>* a::selection,   *::selection{
       background-color: rebeccapurple;
       color: white;
@@ -269,8 +267,8 @@
       content: "";
       display: block;
 
-      @include mixins.size(100%, 4px);
-      background: variables.$navbar-border-gradient;
+      @include mixins.size(100%, 5px);
+      background: var(--navbar-bb-light);
    }
 
    //theme here

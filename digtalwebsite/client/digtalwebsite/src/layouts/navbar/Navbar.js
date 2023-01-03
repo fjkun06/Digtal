@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ActiveNavLink from "../../components/reusables/ReusableNavLink";
 import logo from "../../assets/images/logoo.png";
-import moon from "../../assets/svg/moon.svg";
 import logoMobile from "../../assets/images/logo2.png";
 import { ThemeProvider } from "@mui/system";
 import languageSwitcher from "../../i18n/languageSwitcher";
@@ -117,7 +116,7 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
   }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
-  const max480 = useMediaQuery("(max-width:480px)");
+   const max480 = useMediaQuery("(max-width:480px)");
   const min769 = useMediaQuery("(min-width:769px)");
 
   function toggleMobileSelect() {

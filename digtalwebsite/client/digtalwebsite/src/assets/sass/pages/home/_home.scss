@@ -3,8 +3,11 @@
 
 #home-carousel {
   background-color: rgba(rebeccapurple, 0.466);
+  background-color: #fff;
+
   // border: 10px solid yellow;
   // overflow-y: hidden;
+  @include mixins.size(100vw, 100vh);
   display: grid;
   grid-template-rows: repeat(1, 1fr);
   grid-template-columns: repeat(1, 1fr);
@@ -20,131 +23,112 @@
     left: 0;
     background-color: rgba(#663399, 30%);
     background: linear-gradient(to bottom, transparent 0%, transparent 70%, 90%, rgba(#663399, 50%));
+    z-index: 1;
   }
 
-  img {
-    @include mixins.size(100vw, 100vh);
-    object-fit: cover;
-  }
-
-  div {
-    grid-row: 1/2;
-    grid-column: 1/2;
-    // background-color: #fff;
-    transition: opacity;
-    // will-change: opacity;
-    // &:nth-child(1),&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5){
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4),
-    &:nth-child(5) {
-      opacity: 0;
-      // animation: disappear 0.25s ease-in-out 4s 1 forwards;
-
-      z-index: 1;
-    }
-
-    &:nth-child(5) {
-      animation: appear 0.65s ease-in 20s 1 forwards, disappear 0.65s ease-out 25.5s 1 forwards;
-      img {
-        animation: appear 0.65s ease-in 20s 1 forwards, disappear 0.65s ease-out 25.5s 1 forwards;
-      }
-    }
-    &:nth-child(4) {
-      animation: appear 0.65s ease-in 15s 1 forwards, disappear 0.65s ease-out 20.5s 1 forwards;
-      img {
-        animation: appear 0.65s ease-in 15s 1 forwards, disappear 0.65s ease-out 20.5s 1 forwards;
-      }
-    }
-    &:nth-child(3) {
-      animation: appear 0.65s ease-in 10s 1 forwards, disappear 0.65s ease-out 15.5s 1 forwards;
-      img {
-        animation: appear 0.65s ease-in 10s 1 forwards, disappear 0.65s ease-out 15.5s 1 forwards;
-      }
-    }
-    &:nth-child(2) {
-      animation: appear 0.75s ease-in 5s 1 forwards, disappear 0.65s ease-in-out 10.5s 1 forwards;
-      // animation: appear 01.05s ease-in-out 3.75s 1 forwards,disappear 1.25s ease-in-out 6.05s 1 forwards;
-      // animation: appear 01s ease-in-out 4s 1 forwards, disappear 0.25s ease-in-out 8.05s 1 forwards;
-      img {
-        animation: appear 0.75s ease-in 5s 1 forwards, disappear 0.65s ease-in-out 10.5s 1 forwards;
-        // animation: appear 01.05s ease-in-out 3.75s 1 forwards,disappear 1.25s ease-in-out 6.05s 1 forwards;
-      }
-    }
-
-    &:nth-child(1) {
-      // z-index: 2;
-      animation: disappear 0.25s ease-in 6s 1 forwards;
-      img {
-        animation: disappear 0.25s ease-in 6s 1 forwards;
-      }
-    }
-    // &:nth-child(5) {
-    //   animation: appear 01.25s ease-in-out 15.75s 1 forwards, disappear 0.25s ease-in-out 20.05s 1 forwards;
-    //   img {
-    //     animation: appear 01.25s ease-in-out 15.75s 1 forwards, disappear 0.25s ease-in-out 20.05s 1 forwards;
-    //   }
-    // }
-    // &:nth-child(4) {
-    //   animation: appear 01.25s ease-in-out 11.75s 1 forwards, disappear 1.25s ease-in-out 16.05s 1 forwards;
-    //   img {
-    //     animation: appear 01.25s ease-in-out 11.75s 1 forwards, disappear 1.25s ease-in-out 16.05s 1 forwards;
-    //   }
-    // }
-    // &:nth-child(3) {
-    //   animation: appear 01.25s ease-in-out 7.75s 1 forwards, disappear 1.25s ease-in-out 12.05s 1 forwards;
-    //   img {
-    //     animation: appear 01.25s ease-in-out 7.75s 1 forwards,disappear 1.25s ease-in-out 12.05s 1 forwards;
-    //   }
-    // }
-    // &:nth-child(2) {
-    //   animation: appear 01.25s ease-in-out 3.75s 1 forwards, disappear 0.25s ease-in-out 8.05s 1 forwards;
-    //   img {
-    //     animation: appear 01.25s ease-in-out 3.75s 1 forwards, disappear 0.25s ease-in-out 8.05s 1 forwards;
-    //   }
-    // }
-
-    // &:nth-child(1) {
-    //   animation: disappear 0.5s ease-in-out 4s 1 forwards;
-    //   img {
-    //     animation: disappear 0.5s ease-in-out 4s 1 forwards;
-    //   }
-    // }
-  }
-}
-// .disappear{
-//   animation: disappear 0.25s ease-in-out 4s 1 forwards;
-//   // animation: disappear 0.25s ease-out 3s 1  forwards;
-// }
-// .appear{
-//   animation: appear 0.25s ease-in-out 0s 1 forwards;
-//   // animation: appear 0.25s ease-out 3s 1  forwards;
-// }
-
-@keyframes disappear {
-  100% {
+ 
+  /****************Slides******************/
+  .mySlide {
+    display: none;
     opacity: 0;
-    // transform: scale(0);
-    // display: none;
+    position: relative;
+    animation: fade-in-out linear 5s 0s 1 forwards;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include mixins.size(100vw, 100vh);
+      object-fit: cover;
+    }
+
+
+    div {
+      position: absolute;
+      top: 0vh;
+      @include mixins.flex(column);
+      width: 100%;
+      height: 100%;
+      row-gap: 5px;
+      span {
+        font-family: "Cormorant Garamond 700", serif;
+        // font-size: 10.25vw;
+        font-size: calc(4.4rem + 1.05vw);
+        // font-size: 6.2rem;
+        text-align: left;
+        color: white;
+        line-height: 5.5rem;
+        padding: 0 3rem;
+        filter: drop-shadow(0 3mm 4mm rgb(0, 0, 0));
+        width: 100%;
+      }
+    }
   }
 
-  // 99%{
-  //   display: block;
-  // }
-}
-@keyframes appear {
-  100% {
-    opacity: 1;
-    // z-index: 3;
+  .btns {
+    position: absolute;
+    top: 90vh;
+    right: 10vw;
+    margin-right: 10rem;
+    @media screen and (max-width: 480px) {
+      margin-right: 0;
+    }
+    background-color: transparent;
+    z-index: 5;
+    width: max-content;
+    @include mixins.flex;
+    column-gap: 2rem;
+
+    button {
+      filter: blur(1.5px);
+
+      border: 3px solid white;
+      border-radius: 1px;
+      color: transparent;
+      cursor: pointer;
+      @include mixins.size(20px, 20px);
+      transform: rotate(45deg);
+      &:hover {
+        background: var(--navbar-bb-light);
+        border: none;
+        filter: blur(0);
+      }
+    }
   }
-}
-@keyframes imgup {
-  100% {
-    z-index: 2;
+  .icons {
+    position: absolute;
+    top: 90.15vh;
+    right: calc(8vw + 5rem);
+    z-index: 6;
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+    @media screen and (min-width: 1201px) {
+      right: calc(9vw + 5rem);
+
+    }
+
+    span {
+      svg {
+        path,
+        rect {
+          fill: white;
+          cursor: pointer;
+        }
+      }
+    }
   }
-}
-@keyframes imgdown {
-  100% {
-    z-index: 0;
+
+  @keyframes fade-in-out {
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  
   }
+
+
 }
