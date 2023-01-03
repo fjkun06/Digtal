@@ -57,6 +57,9 @@
     top: 90vh;
     right: 10vw;
     margin-right: 10rem;
+    @media screen and (max-width: 480px) {
+      margin-right: 0;
+    }
     background-color: transparent;
     z-index: 5;
     width: max-content;
