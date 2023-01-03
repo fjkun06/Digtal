@@ -5,8 +5,8 @@ import React from "react";
 import slideOne from "src/assets/images/carousel/noir11.jpg";
 import slideTwo from "src/assets/images/carousel/noir12.jpg";
 import slideThree from "src/assets/images/carousel/noir13.jpg";
-import slideFour from "src/assets/images/carousel/noir14.jpg";
 import slideFive from "src/assets/images/carousel/noir15.jpg";
+import { useTranslation } from "react-i18next";
 
 export default function SwiperCarousel() {
   const slides = React.useRef([]);
@@ -14,6 +14,7 @@ export default function SwiperCarousel() {
   const [playState, setPlayState] = React.useState("playing");
   const canceler = React.useRef(null);
   const resumeAnimation = React.useRef();
+  const { t } = useTranslation("home");
 
   React.useEffect(() => {
     let slideIndex = 1;
@@ -86,90 +87,57 @@ export default function SwiperCarousel() {
 
   return (
     <div id="home-carousel">
-      <img
+      <div
         className="mySlide"
         ref={element => {
           slides.current[0] = element;
         }}
-        src={slideOne}
-        alt="slide one"
-      />
+      >
+        <img src={slideOne} alt="slide one" />
+        <div>
+          <span>{t("carousel.slide1.one")}</span>
+          <span>{t("carousel.slide1.two")}</span>
+   
+        </div>
+      </div>
 
-      <img
-        className="mySlide"
-        src={slideTwo}
+      <div
         ref={element => {
           slides.current[1] = element;
         }}
-        alt="slide one"
-      />
-
-      <img
         className="mySlide"
-        src={slideThree}
+      >
+        <img src={slideTwo} alt="slide two" />
+      </div>
+
+      <div
         ref={element => {
           slides.current[2] = element;
         }}
-        alt="slide one"
-      />
-
-      <img
         className="mySlide"
-        src={slideFour}
+      >
+        <img src={slideThree} alt="slide three" />
+      </div>
+
+      <div
         ref={element => {
           slides.current[3] = element;
         }}
-        alt="slide one"
-      />
-
-      <img
         className="mySlide"
-        src={slideFive}
-        ref={element => {
-          slides.current[4] = element;
-        }}
-        alt="slide one"
-      />
+      >
+        <img src={slideFive} alt="slide four" />
+      </div>
 
       <div className="btns">
-        <button
-          ref={element => {
-            buttons.current[0] = element;
-          }}
-          type="button"
-          data-text="btn"
-        ></button>
-        <button
-          ref={element => {
-            buttons.current[1] = element;
-          }}
-          type="button"
-          data-text="btn"
-        ></button>
-        <button
-          ref={element => {
-            buttons.current[2] = element;
-          }}
-          type="button"
-          data-text="btn"
-        ></button>
-        <button
-          ref={element => {
-            buttons.current[3] = element;
-          }}
-          type="button"
-          data-text="btn"
-        ></button>
-        <button
-          ref={element => {
-            buttons.current[4] = element;
-          }}
-          type="button"
-          data-text="btn"
-        ></button>
-
-        {/* resume
-        </PlayIc> */}
+        {[1, 2, 3, 4].map((button, index) => (
+          <button
+            key={index}
+            ref={element => {
+              buttons.current[index] = element;
+            }}
+            type="button"
+          ></button>
+        ))}
       </div>
       <div className="icons">
         <PauseIcon

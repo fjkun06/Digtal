@@ -31,26 +31,30 @@
     object-fit: cover;
   }
   /****************Slides******************/
-  .mySlides {
+  .mySlide {
     display: none;
     opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: fade-in-out 5s linear 0s 1;
-    // background-color: #663399;
-    // height: 100%;
-    // width: 100%;
+    position: relative;
+    animation: fade-in-out linear 5s 0s 1 forwards;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+  
+    }
+
+    div{
+      position: absolute;
+      top: 45vh;
+      // left: 45vw;
+      z-index: 6;
+      width: 100%;
+      border: 2px solid white;
+    }
   }
 
-  & > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: fade-in-out linear 5s 0s 1 forwards;
-    display: none;
-    opacity: 0;
-  }
+   
 
   .btns {
     position: absolute;
