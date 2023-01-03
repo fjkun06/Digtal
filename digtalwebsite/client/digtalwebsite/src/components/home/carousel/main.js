@@ -5,11 +5,11 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-fade";
 import "./styles/pagination.css";
-import slideOne from "@assets/images/carousel/noir1.webp";
-import slideTwo from "@assets/images/carousel/noir2.webp";
-import slideThree from "@assets/images/carousel/noir3.webp";
-import slideFour from "@assets/images/carousel/noir4.webp";
-import slideFive from "@assets/images/carousel/noir5.webp";
+import slideOne from "src/assets/images/carousel/noir1.webp";
+import slideTwo from "src/assets/images/carousel/noir2.webp";
+import slideThree from "src/assets/images/carousel/noir3.webp";
+import slideFour from "src/assets/images/carousel/noir4.webp";
+import slideFive from "src/assets/images/carousel/noir5.webp";
 
 export default function SwiperCarousel() {
   const slides = React.useRef([]);
@@ -18,33 +18,6 @@ export default function SwiperCarousel() {
   const requestRef = React.useRef();
   const animeRef = React.useRef();
   console.log("COUNTER: ", counter);
-
-  function raf(func, func2, ms, handler) {
-    let start = performance.now();
-    let timer = 0;
-
-    const loop = curr => {
-      timer++;
-
-      if (timer < 6000) {
-        console.log(timer);
-        // console.log(timer/1200);
-      }
-      // if (timer === 2362) {
-      //   console.log("be");
-      // }
-
-      if (curr - start >= ms) {
-        func(curr);
-        start = curr;
-        console.log("start: ", curr - start);
-        console.log("refreshRate: ", timer / 25);
-        // animeRef.current = requestAnimationFrame(func2);
-      }
-      handler.current = requestAnimationFrame(loop);
-    };
-    handler.current = requestAnimationFrame(loop);
-  }
 
   function counterLoop(timestamp) {
     setCounter(counter => counter + 1);
@@ -91,61 +64,45 @@ export default function SwiperCarousel() {
     <div id="home-carousel">
       {/* hello */}
 
-      <div
+      <img className="mySlide"
         ref={element => {
           slides.current[0] = element;
         }}
-        className={
-          counter === 0 ? "img-one home-images appear" : "img-one home-images"
-        }
-        id={1}
-      >
-        <img src={slideOne} alt="slide one" />
-      </div>
-      <div
+        src={slideOne}
+        alt="slide one"
+      />
+
+      <img className="mySlide"
+        src={slideTwo}
         ref={element => {
           slides.current[1] = element;
         }}
-        className={
-          counter === 1 ? "img-one home-images appear" : "img-one home-images"
-        }
-        id={2}
-      >
-        <img src={slideTwo} alt="slide one" />
-      </div>
-      <div
+        alt="slide one"
+      />
+
+      <img className="mySlide"
+        src={slideThree}
         ref={element => {
           slides.current[2] = element;
         }}
-        className={
-          counter === 2 ? "img-one home-images appear" : "img-one home-images"
-        }
-        id={3}
-      >
-        <img src={slideThree} alt="slide one" />
-      </div>
-      <div
+        alt="slide one"
+      />
+
+      <img className="mySlide"
+        src={slideFour}
         ref={element => {
           slides.current[3] = element;
         }}
-        className={
-          counter === 3 ? "img-one home-images appear" : "img-one home-images"
-        }
-        id={4}
-      >
-        <img src={slideFour} alt="slide one" />
-      </div>
-      <div
+        alt="slide one"
+      />
+
+      <img className="mySlide"
+        src={slideFive}
         ref={element => {
           slides.current[4] = element;
         }}
-        className={
-          counter === 4 ? "img-one home-images appear" : "img-one home-images"
-        }
-        id={5}
-      >
-        <img src={slideFive} alt="slide one" />
-      </div>
+        alt="slide one"
+      />
     </div>
   );
 }
