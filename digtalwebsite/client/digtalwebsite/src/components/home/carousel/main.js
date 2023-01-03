@@ -95,19 +95,25 @@ export default function SwiperCarousel() {
       >
         <img src={slideOne} alt="slide one" />
         <div>
-          <span>{t("carousel.slide1.one")}</span>
-          <span>{t("carousel.slide1.two")}</span>
-   
+          <span>{t("carousel.mobile.slide1.one")}</span>
+          <span>{t("carousel.mobile.slide1.two")}</span>
+          <span>{t("carousel.mobile.slide1.three")}</span>
+          <span>{t("carousel.mobile.slide1.four")}</span>
         </div>
       </div>
 
       <div
         ref={element => {
-          slides.current[1] = element;
+          slides.current[3] = element;
         }}
         className="mySlide"
       >
         <img src={slideTwo} alt="slide two" />
+        <div>
+          <span>{t("carousel.mobile.slide4.one")}</span>
+          <span>{t("carousel.mobile.slide4.two")}</span>
+          <span>{t("carousel.mobile.slide4.three")}</span>2{" "}
+        </div>
       </div>
 
       <div
@@ -117,15 +123,25 @@ export default function SwiperCarousel() {
         className="mySlide"
       >
         <img src={slideThree} alt="slide three" />
+        <div>
+          <span>{t("carousel.mobile.slide3.one")}</span>
+          <span>{t("carousel.mobile.slide3.two")}</span>
+          <span>{t("carousel.mobile.slide3.three")}</span>2{" "}
+        </div>
       </div>
 
       <div
         ref={element => {
-          slides.current[3] = element;
+          slides.current[1] = element;
         }}
         className="mySlide"
       >
         <img src={slideFive} alt="slide four" />
+        <div>
+          <span>{t("carousel.mobile.slide2.one")}</span>
+          <span>{t("carousel.mobile.slide2.two")}</span>
+          <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
+        </div>
       </div>
 
       <div className="btns">

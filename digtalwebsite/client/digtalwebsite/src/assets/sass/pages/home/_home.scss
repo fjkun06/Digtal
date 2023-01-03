@@ -26,10 +26,7 @@
     z-index: 1;
   }
 
-  img {
-    @include mixins.size(100vw, 100vh);
-    object-fit: cover;
-  }
+ 
   /****************Slides******************/
   .mySlide {
     display: none;
@@ -41,20 +38,31 @@
       position: absolute;
       top: 0;
       left: 0;
-  
+      @include mixins.size(100vw, 100vh);
+      object-fit: cover;
     }
 
-    div{
+    div {
       position: absolute;
-      top: 45vh;
-      // left: 45vw;
-      z-index: 6;
+      top: 0vh;
+      @include mixins.flex(column);
       width: 100%;
-      border: 2px solid white;
+      height: 100%;
+      row-gap: 5px;
+      span {
+        font-family: "Cormorant Garamond 700", serif;
+        // font-size: 10.25vw;
+        font-size: calc(4.4rem + 1.05vw);
+        // font-size: 6.2rem;
+        text-align: left;
+        color: white;
+        line-height: 5.5rem;
+        padding: 0 3rem;
+        filter: drop-shadow(0 3mm 4mm rgb(0, 0, 0));
+        width: 100%;
+      }
     }
   }
-
-   
 
   .btns {
     position: absolute;
@@ -71,9 +79,7 @@
     column-gap: 2rem;
 
     button {
- 
-    filter: blur(1.5px);
-
+      filter: blur(1.5px);
 
       border: 3px solid white;
       border-radius: 1px;
@@ -85,11 +91,9 @@
         background: var(--navbar-bb-light);
         border: none;
         filter: blur(0);
-     
       }
     }
   }
-
   .icons {
     position: absolute;
     top: 90.15vh;
