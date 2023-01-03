@@ -11,13 +11,13 @@ function TeamCard({ image, name, title }) {
         className=""
         height="auto"
         width="auto"
-        wrapperClassName="aspect-square max-h-[auto] lg:max-h-[204.5px]"
+        wrapperClassName="aspect-square max-h-[auto] tablet:max-h-[204.5px]"
       />
       <Stack>
-        <Typography className="text-[rebeccapurple] text-[17px] font-bold font-[Poppins]">
+        <Typography className="font-[Poppins] text-[15px] font-bold text-[rebeccapurple] md:text-[16px]">
           {name}
         </Typography>
-        <Typography className="text-[rebeccapurple]/60 text-[15px]">
+        <Typography className="text-[13px] text-[rebeccapurple]/60 tablet:text-[15px]">
           {title}
         </Typography>
       </Stack>

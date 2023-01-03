@@ -6,11 +6,11 @@ module.exports = {
    theme: {
       extend: {
          screens: {
-            mobile: { max: "480px" },
-            tablet: "480.01px",
-            laptop: "768.01px",
-            desktop: "1024.01px",
-            tv: "1200px"
+            mobile: "320px",
+            tablet: "640px",
+            laptop: "1024px",
+            desktop: "1200px",
+            tv: "1680px"
          },
          colors: {
             brand: {
