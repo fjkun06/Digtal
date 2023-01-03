@@ -43,7 +43,7 @@
     // width: 100%;
   }
 
-  & > * {
+  & > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -53,11 +53,8 @@
   }
 
   .btns {
-    animation: none;
-    display: block;
-    opacity: 1;
+    position: absolute;
     top: 90vh;
-    left: unset;
     right: 10vw;
     background-color: transparent;
     z-index: 5;
@@ -67,15 +64,38 @@
 
     button {
       // margin-top: 15vh;
-      background-color: rebeccapurple;
+      // background-color: rebeccapurple;
+      border: 3px solid white;
+      border-radius: 2px;
       // padding: 5px;
       color: transparent;
       cursor: pointer;
       @include mixins.size(20px, 20px);
-transform: rotate(45deg);
+      transform: rotate(45deg);
       &:hover {
         background-color: rgb(157, 153, 153);
         color: rebeccapurple;
+      }
+    }
+  }
+
+  .icons {
+    position: absolute;
+    top: 90vh;
+    right: 10vw;
+    z-index: 6;
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+
+    span {
+      svg {
+        path,
+        rect {
+          fill: white;
+          cursor: pointer;
+        }
       }
     }
   }

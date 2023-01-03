@@ -1,3 +1,5 @@
+import { PauseIcon } from "src/assets/svg/PauseIcon";
+import { PlayIcon } from "src/assets/svg/PlayIcon";
 import React from "react";
 // import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 // import "swiper/css";
@@ -11,6 +13,7 @@ import slideTwo from "src/assets/images/carousel/noir12.jpg";
 import slideThree from "src/assets/images/carousel/noir13.jpg";
 import slideFour from "src/assets/images/carousel/noir14.jpg";
 import slideFive from "src/assets/images/carousel/noir15.jpg";
+import { useMediaQuery } from "@mui/material";
 // import slideOne from "src/assets/images/carousel/noir1.webp";
 // import slideTwo from "src/assets/images/carousel/noir2.webp";
 // import slideThree from "src/assets/images/carousel/noir3.webp";
@@ -24,7 +27,7 @@ export default function SwiperCarousel() {
   const [playState, setPlayState] = React.useState("playing");
   const requestRef = React.useRef();
   const canceler = React.useRef(null);
-  const resumeAnimation = React.useRef(null);
+  const resumeAnimation = React.createRef();
 
   React.useEffect(() => {
     let slideIndex = 1;
@@ -98,7 +101,6 @@ export default function SwiperCarousel() {
     for (let i = 0; i < buttons.current.length; i++) {
       buttons.current[i].addEventListener("click", () => {
         // showDivs((slideIndex = i + 1));
-        console.log("hell");
         currentDiv(i + 1);
       });
     }
@@ -106,6 +108,7 @@ export default function SwiperCarousel() {
     raf(gameLoop, 5000);
 
     resumeAnimation.current?.addEventListener("click", () => {
+
       raf(gameLoop, 5000);
     });
 
@@ -171,70 +174,57 @@ export default function SwiperCarousel() {
           }}
           type="button"
           data-text="btn"
-        >
-          
-        </button>
+        ></button>
         <button
           ref={element => {
             buttons.current[1] = element;
           }}
           type="button"
           data-text="btn"
-        >
-          
-        </button>
+        ></button>
         <button
           ref={element => {
             buttons.current[2] = element;
           }}
           type="button"
           data-text="btn"
-        >
-          
-        </button>
+        ></button>
         <button
           ref={element => {
             buttons.current[3] = element;
           }}
           type="button"
           data-text="btn"
-        >
-          
-        </button>
+        ></button>
         <button
           ref={element => {
             buttons.current[4] = element;
           }}
           type="button"
           data-text="btn"
-        >
-          
-        </button>
+        ></button>
 
-        {/* <button
-          // onClick={() => setReset(false)}
-          style={{ display: playState === "playing" ? "inline-block" : "none" }}
-          onClick={() => {
+        {/* resume
+        </PlayIc> */}
+      </div>
+      <div className="icons">
+        <PauseIcon
+          handler={() => {
             cancelAnimationFrame(canceler.current);
             setPlayState("paused");
           }}
-          type="button"
-        >
-          pause
-        </button>
-        <button
-          style={{
-            display: playState === "paused" ? "inline-block" : "none"
-          }}
-          type="button"
+          state={playState}
+        />
+        {/* pause
+        </PauseIcon> */}
+        <PlayIcon
+          
+          state={playState}
           ref={resumeAnimation}
-          onClick={() => {
+          handler={() => {
             setPlayState("playing");
           }}
-        >
-          resume
-        </button> */}
-        
+        />
       </div>
     </div>
   );

@@ -117,7 +117,7 @@ export default function Navbar({ language, setLanguage, outletState,toggleOutlet
   }, [language, location, setLanguage, navigate, allFlags, flagId]);
 
   //media query
-  const max480 = useMediaQuery("(max-width:480px)");
+   const max480 = useMediaQuery("(max-width:480px)");
   const min769 = useMediaQuery("(min-width:769px)");
 
   function toggleMobileSelect() {
