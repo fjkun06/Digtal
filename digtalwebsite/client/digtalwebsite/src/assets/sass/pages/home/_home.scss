@@ -55,7 +55,7 @@
   .btns {
     position: absolute;
     top: 90vh;
-    right: 10vw;
+    right: 20vw;
     background-color: transparent;
     z-index: 5;
     width: max-content;
@@ -64,17 +64,24 @@
 
     button {
       // margin-top: 15vh;
-      // background-color: rebeccapurple;
+      // background: variables.$navbar-border-gradient;
+      // filter: none;
+    filter: blur(1.5px);
+
+
       border: 3px solid white;
-      border-radius: 2px;
+      // border: none;
+      border-radius: 1px;
       // padding: 5px;
       color: transparent;
       cursor: pointer;
       @include mixins.size(20px, 20px);
       transform: rotate(45deg);
       &:hover {
-        background-color: rgb(157, 153, 153);
-        color: rebeccapurple;
+        background: variables.$navbar-border-gradient;
+        border: none;
+        filter: blur(0);
+     
       }
     }
   }
@@ -82,7 +89,7 @@
   .icons {
     position: absolute;
     top: 90vh;
-    right: 10vw;
+    right: 15vw;
     z-index: 6;
 
     @media screen and (max-width: 480px) {

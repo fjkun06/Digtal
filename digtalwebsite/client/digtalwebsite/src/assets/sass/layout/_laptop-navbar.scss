@@ -8,7 +8,7 @@
     .main-nav {
       //Multicolor bottom border
       &::after {
-        @include mixins.size(100%, 4px);
+        @include mixins.size(100%, 6px);
         // @include mixins.size(51%, 4px);
       }
 
