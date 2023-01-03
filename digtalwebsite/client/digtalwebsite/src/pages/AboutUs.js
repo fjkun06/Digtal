@@ -13,7 +13,7 @@ import nesta from "src/assets/images/nesta.png";
 import { Image } from "mui-image";
 import TeamCard from "src/components/about/TeamCard";
 import { useTranslation } from "react-i18next";
-import flower from "@assets/svg/flower.svg";
+import flower from "src/assets/svg/flower.svg";
 
 const team = [
   { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
