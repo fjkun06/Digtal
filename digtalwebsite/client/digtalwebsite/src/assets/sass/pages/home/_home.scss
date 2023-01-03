@@ -7,6 +7,7 @@
 
   // border: 10px solid yellow;
   // overflow-y: hidden;
+  @include mixins.size(100vw, 100vh);
   display: grid;
   grid-template-rows: repeat(1, 1fr);
   grid-template-columns: repeat(1, 1fr);
@@ -22,6 +23,8 @@
     left: 0;
     background-color: rgba(#663399, 30%);
     background: linear-gradient(to bottom, transparent 0%, transparent 70%, 90%, rgba(#663399, 50%));
+    z-index: 1;
+
   }
 
   img {
@@ -32,30 +35,59 @@
   .mySlides {
     display: none;
     opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: fade-in-out 5s linear 0s 1;
     // background-color: #663399;
     // height: 100%;
     // width: 100%;
   }
 
-  & > *{
+  & > * {
     position: absolute;
     top: 0;
     left: 0;
-    animation: fade-in-out 5s 0s 1;
+    animation: fade-in-out linear 5s 0s 1;
+    display: none;
+    opacity: 0;
+  }
+
+  .btns {
+    animation: none;
+    display: block;
+    opacity: 1;
+    top: 90vh;
+    left: 50vw;
+    background-color: #fff;
+    z-index: 5;
+
+
+    button {
+      // margin-top: 15vh;
+      background-color: rebeccapurple;
+      padding: 5px;
+      color: white;
+      cursor: pointer;
+      &:hover{
+      background-color: rgb(157, 153, 153);
+      color: rebeccapurple;
+
+      }
+    }
     
   }
 
   @keyframes fade-in-out {
-    15%{
+    10% {
       opacity: 1;
     }
-    99.5%{
+    99.5% {
       opacity: 1;
     }
-    100%{
+    100% {
       opacity: 0;
     }
-
   }
 
   // div {
@@ -75,8 +107,4 @@
   //     z-index: 1;
   //   }
   // }
-
-
 }
-
-    
