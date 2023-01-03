@@ -68,13 +68,21 @@ export default function SwiperCarousel() {
           slides.current[i].style.display = "none";
         }
         for (i = 0; i < buttons.current.length; i++) {
-          // buttons.current[i].style.backgroundColor = "#663399";
-          // buttons.current[i].style.color = "white";
+          // buttons.current[i].style.background = "var(--navbar-bb-light)";
+          // buttons.current[i].style.border = "none";
+          // buttons.current[i].style.filter = "blur(0)";
+          buttons.current[i].style.background = "none";
+          buttons.current[i].style.border = "3px solid white";
+          buttons.current[i].style.filter = "blur(1.5px)";
         }
         // slides[slideIndex - 1].style.opacity = "1";
         slides.current[slideIndex - 1].style.display = "block";
         // buttons.current[slideIndex - 1].style.backgroundColor = "white";
         // buttons.current[slideIndex - 1].style.color = "#663399";
+        buttons.current[slideIndex - 1].style.background =
+          "var(--navbar-bb-light)";
+        buttons.current[slideIndex - 1].style.border = "none";
+        buttons.current[slideIndex - 1].style.filter = "blur(0)";
       }
     }
 
@@ -108,7 +116,6 @@ export default function SwiperCarousel() {
     raf(gameLoop, 5000);
 
     resumeAnimation.current?.addEventListener("click", () => {
-
       raf(gameLoop, 5000);
     });
 
@@ -218,7 +225,6 @@ export default function SwiperCarousel() {
         {/* pause
         </PauseIcon> */}
         <PlayIcon
-          
           state={playState}
           ref={resumeAnimation}
           handler={() => {

@@ -78,7 +78,7 @@
       @include mixins.size(20px, 20px);
       transform: rotate(45deg);
       &:hover {
-        background: variables.$navbar-border-gradient;
+        background: var(--navbar-bb-light);
         border: none;
         filter: blur(0);
      
