@@ -55,7 +55,8 @@
   .btns {
     position: absolute;
     top: 90vh;
-    right: 20vw;
+    right: 10vw;
+    margin-right: 10rem;
     background-color: transparent;
     z-index: 5;
     width: max-content;
@@ -63,16 +64,12 @@
     column-gap: 2rem;
 
     button {
-      // margin-top: 15vh;
-      // background: variables.$navbar-border-gradient;
-      // filter: none;
+ 
     filter: blur(1.5px);
 
 
       border: 3px solid white;
-      // border: none;
       border-radius: 1px;
-      // padding: 5px;
       color: transparent;
       cursor: pointer;
       @include mixins.size(20px, 20px);
@@ -88,12 +85,15 @@
 
   .icons {
     position: absolute;
-    top: 90vh;
-    right: 15vw;
+    top: 90.15vh;
+    right: calc(8vw + 5rem);
     z-index: 6;
 
     @media screen and (max-width: 480px) {
       display: none;
+    }
+    @media screen and (min-width: 1201px) {
+      right: calc(9vw + 5rem);
     }
 
     span {

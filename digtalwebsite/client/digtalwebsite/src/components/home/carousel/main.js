@@ -13,7 +13,7 @@ export default function SwiperCarousel() {
   const buttons = React.useRef([]);
   const [playState, setPlayState] = React.useState("playing");
   const canceler = React.useRef(null);
-  const resumeAnimation = React.createRef();
+  const resumeAnimation = React.useRef();
 
   React.useEffect(() => {
     let slideIndex = 1;
@@ -71,7 +71,6 @@ export default function SwiperCarousel() {
 
     for (let i = 0; i < buttons.current.length; i++) {
       buttons.current[i].addEventListener("click", () => {
-        // showDivs((slideIndex = i + 1));
         currentDiv(i + 1);
       });
     }
@@ -84,11 +83,6 @@ export default function SwiperCarousel() {
 
     return () => cancelAnimationFrame(canceler.current);
   }, []);
-
-  // console.log("currentBTS: " + bts.current);
-
-  // if (slides.current.length > 0) {
-  // }
 
   return (
     <div id="home-carousel">
