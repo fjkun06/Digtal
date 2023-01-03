@@ -20,110 +20,104 @@ export default function SwiperCarousel() {
   const slides = React.useRef([]);
   const buttons = React.useRef([]);
   // const [buttons, setButtons] = React.useState(null);
-  const [reset, setReset] = React.useState(false);
+  const [playState, setPlayState] = React.useState("playing");
   const requestRef = React.useRef();
-  const canceler = React.useRef();
-  let slideIndex = 1;
-  const bts = React.useRef(null);
+  const canceler = React.useRef(null);
+  const resumeAnimation = React.useRef(null);
 
   React.useEffect(() => {
-    // bts.current = Array.from(document.querySelectorAll("button"));
+    let slideIndex = 1;
+    showDivs(slideIndex);
+    function raf(func, ms) {
+      let start = performance.now();
+      const loop = curr => {
+        if (curr - start >= ms) {
+          func(curr);
+          start = curr;
+        }
+
+        canceler.current = requestAnimationFrame(loop);
+      };
+      canceler.current = requestAnimationFrame(loop);
+    }
+
+    function showDivs(n) {
+      var i;
+      // const slides = document.getElementsByClassName("mySlides");
+
+      //mkx carousel 360
+      if (slides.current.length > 0) {
+        if (n > slides.current.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.current.length;
+        }
+        // slides.current.forEach(slide => (slide.style.display = "none"));
+        // buttons.current.forEach(button => {
+        //   button.style.backgroundColor = "#663399";
+        //   button.style.color = "white";
+        // });
+
+        for (i = 0; i < slides.current.length; i++) {
+          // slides[i].style.opacity = "0";
+          slides.current[i].style.display = "none";
+        }
+        for (i = 0; i < buttons.current.length; i++) {
+          buttons.current[i].style.backgroundColor = "#663399";
+          buttons.current[i].style.color = "white";
+        }
+        // slides[slideIndex - 1].style.opacity = "1";
+        slides.current[slideIndex - 1].style.display = "block";
+        buttons.current[slideIndex - 1].style.backgroundColor = "white";
+        buttons.current[slideIndex - 1].style.color = "#663399";
+      }
+    }
 
     // raf(gameLoop, 5000);
 
-    /***********buttons handler******************/
-    // function currentDiv(n) {
-    //   showDivs((slideIndex = n));
-    // }
+    function gameLoop(timestamp) {
+      slideIndex++;
 
-    return () => {
-      cancelAnimationFrame(canceler.current);
-    };
+      showDivs(slideIndex);
+    }
+
+    // buttons.current.forEach((button, index) =>
+    //   button.addEventListener("click", () => {
+    //     showDivs((slideIndex = index + 1));
+    //     console.log("hell")
+    //     // currentDiv(index + 1);
+    //   })
+    // );
+
+    function currentDiv(n) {
+      showDivs((slideIndex = n));
+    }
+
+    for (let i = 0; i < buttons.current.length; i++) {
+      buttons.current[i].addEventListener("click", () => {
+        // showDivs((slideIndex = i + 1));
+        console.log("hell");
+        currentDiv(i + 1);
+      });
+    }
+
+    raf(gameLoop, 5000);
+
+    resumeAnimation.current?.addEventListener("click", () => {
+      raf(gameLoop, 5000);
+    });
+
+    return () => cancelAnimationFrame(canceler.current);
   }, []);
 
-console.log("currentBTS: " + bts.current);
+  // console.log("currentBTS: " + bts.current);
 
   // if (slides.current.length > 0) {
-  showDivs(slideIndex);
   // }
-  raf(gameLoop, 5000);
-
-  function raf(func, ms) {
-    let start = performance.now();
-    const loop = curr => {
-      if (curr - start >= ms) {
-        func(curr);
-        start = curr;
-      }
-
-      canceler.current = requestAnimationFrame(loop);
-    };
-    canceler.current = requestAnimationFrame(loop);
-  }
-
-  function showDivs(n) {
-    var i;
-    // const slides = document.getElementsByClassName("mySlides");
-
-    //mkx carousel 360
-    if (slides.current.length > 0) {
-      if (n > slides.current.length) {
-        slideIndex = 1;
-      }
-      if (n < 1) {
-        slideIndex = slides.current.length;
-      }
-      // slides.current.forEach(slide => (slide.style.display = "none"));
-      // buttons.current.forEach(button => {
-      //   button.style.backgroundColor = "#663399";
-      //   button.style.color = "white";
-      // });
-
-      for (i = 0; i < slides.current.length; i++) {
-        // slides[i].style.opacity = "0";
-        slides.current[i].style.display = "none";
-      }
-      for (i = 0; i < buttons.current.length; i++) {
-        buttons.current[i].style.backgroundColor = "#663399";
-        buttons.current[i].style.color = "white";
-      }
-      // slides[slideIndex - 1].style.opacity = "1";
-      slides.current[slideIndex - 1].style.display = "block";
-      buttons.current[slideIndex - 1].style.backgroundColor = "white";
-      buttons.current[slideIndex - 1].style.color = "#663399";
-    }
-  }
-
-  function gameLoop(timestamp) {
-    slideIndex++;
-
-    showDivs(slideIndex);
-  }
-
-  // buttons.current.forEach((button, index) =>
-  //   button.addEventListener("click", () => {
-  //     showDivs((slideIndex = index + 1));
-  //     console.log("hell")
-  //     // currentDiv(index + 1);
-  //   })
-  // );
-
-  function currentDiv(n) {
-    showDivs((slideIndex = n));
-  }
-
-  for (let i = 0; i < buttons.current.length; i++) {
-    buttons.current[i].addEventListener("click", () => {
-      // showDivs((slideIndex = i + 1));
-      console.log("hell");
-      currentDiv(i + 1);
-    });
-  }
 
   return (
     <div id="home-carousel">
-      {/* hello */}
-
       <img
         className="mySlide"
         ref={element => {
@@ -215,12 +209,50 @@ console.log("currentBTS: " + bts.current);
         >
           5
         </button>
+        {/* {playState === "playing" ? (
+          <button
+            // onClick={() => setReset(false)}
+            onClick={() => {
+              cancelAnimationFrame(canceler.current);
+              setPlayState("paused");
+            }}
+            type="button"
+          >
+            pause
+          </button>
+        ) : (
+          <button
+            type="button"
+            ref={resumeAnimation}
+            onClick={() => {
+              setPlayState("playing");
+            }}
+          >
+            resume
+          </button>
+        )} */}
         <button
-          ref={bts}
+          // onClick={() => setReset(false)}
+          style={{ display: playState === "playing" ? "inline-block" : "none" }}
+          onClick={() => {
+            cancelAnimationFrame(canceler.current);
+            setPlayState("paused");
+          }}
           type="button"
-          data-text="btn"
         >
-          5
+          pause
+        </button>
+        <button
+          style={{
+            display: playState === "paused" ? "inline-block" : "none"
+          }}
+          type="button"
+          ref={resumeAnimation}
+          onClick={() => {
+            setPlayState("playing");
+          }}
+        >
+          resume
         </button>
       </div>
     </div>

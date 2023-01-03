@@ -48,7 +48,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    animation: fade-in-out linear 5s 0s 1;
+    animation: fade-in-out linear 5s 0s 1 forwards;
     display: none;
     opacity: 0;
   }
@@ -82,12 +82,12 @@
     10% {
       opacity: 1;
     }
-    99.5% {
+    100% {
       opacity: 1;
     }
-    100% {
-      opacity: 0;
-    }
+    // 100% {
+    //   opacity: 0;
+    // }
   }
 
   // div {
