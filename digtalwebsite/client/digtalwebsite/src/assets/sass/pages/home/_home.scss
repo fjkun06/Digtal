@@ -24,7 +24,6 @@
     background-color: rgba(#663399, 30%);
     background: linear-gradient(to bottom, transparent 0%, transparent 70%, 90%, rgba(#663399, 50%));
     z-index: 1;
-
   }
 
   img {
@@ -58,24 +57,27 @@
     display: block;
     opacity: 1;
     top: 90vh;
-    left: 50vw;
-    background-color: #fff;
+    left: unset;
+    right: 10vw;
+    background-color: transparent;
     z-index: 5;
-
+    width: max-content;
+    @include mixins.flex;
+    column-gap: 2rem;
 
     button {
       // margin-top: 15vh;
       background-color: rebeccapurple;
-      padding: 5px;
-      color: white;
+      // padding: 5px;
+      color: transparent;
       cursor: pointer;
-      &:hover{
-      background-color: rgb(157, 153, 153);
-      color: rebeccapurple;
-
+      @include mixins.size(20px, 20px);
+transform: rotate(45deg);
+      &:hover {
+        background-color: rgb(157, 153, 153);
+        color: rebeccapurple;
       }
     }
-    
   }
 
   @keyframes fade-in-out {

@@ -1,4 +1,5 @@
 import React from "react";
+// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 // import "swiper/css";
 // import "swiper/css/navigation";
 // import "swiper/css/pagination";
@@ -64,13 +65,13 @@ export default function SwiperCarousel() {
           slides.current[i].style.display = "none";
         }
         for (i = 0; i < buttons.current.length; i++) {
-          buttons.current[i].style.backgroundColor = "#663399";
-          buttons.current[i].style.color = "white";
+          // buttons.current[i].style.backgroundColor = "#663399";
+          // buttons.current[i].style.color = "white";
         }
         // slides[slideIndex - 1].style.opacity = "1";
         slides.current[slideIndex - 1].style.display = "block";
-        buttons.current[slideIndex - 1].style.backgroundColor = "white";
-        buttons.current[slideIndex - 1].style.color = "#663399";
+        // buttons.current[slideIndex - 1].style.backgroundColor = "white";
+        // buttons.current[slideIndex - 1].style.color = "#663399";
       }
     }
 
@@ -171,7 +172,7 @@ export default function SwiperCarousel() {
           type="button"
           data-text="btn"
         >
-          1
+          
         </button>
         <button
           ref={element => {
@@ -180,7 +181,7 @@ export default function SwiperCarousel() {
           type="button"
           data-text="btn"
         >
-          2
+          
         </button>
         <button
           ref={element => {
@@ -189,7 +190,7 @@ export default function SwiperCarousel() {
           type="button"
           data-text="btn"
         >
-          3
+          
         </button>
         <button
           ref={element => {
@@ -198,7 +199,7 @@ export default function SwiperCarousel() {
           type="button"
           data-text="btn"
         >
-          4
+          
         </button>
         <button
           ref={element => {
@@ -207,31 +208,10 @@ export default function SwiperCarousel() {
           type="button"
           data-text="btn"
         >
-          5
+          
         </button>
-        {/* {playState === "playing" ? (
-          <button
-            // onClick={() => setReset(false)}
-            onClick={() => {
-              cancelAnimationFrame(canceler.current);
-              setPlayState("paused");
-            }}
-            type="button"
-          >
-            pause
-          </button>
-        ) : (
-          <button
-            type="button"
-            ref={resumeAnimation}
-            onClick={() => {
-              setPlayState("playing");
-            }}
-          >
-            resume
-          </button>
-        )} */}
-        <button
+
+        {/* <button
           // onClick={() => setReset(false)}
           style={{ display: playState === "playing" ? "inline-block" : "none" }}
           onClick={() => {
@@ -253,7 +233,8 @@ export default function SwiperCarousel() {
           }}
         >
           resume
-        </button>
+        </button> */}
+        
       </div>
     </div>
   );
