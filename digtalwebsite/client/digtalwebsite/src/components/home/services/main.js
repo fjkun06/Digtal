@@ -1,25 +1,15 @@
-import ServicesLayout from "./layout";
 import Title from "./title";
-import {
-  ConsultingSection,
-  DesignSection,
-  MarketingSection,
-  WebSection
-} from "./makeservice";
 
-import section600 from "src/assets/images/services/home/section600.jpg";
-import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import section600 from "src/assets/images/services/home/consult600.jpg";
 import GlobeIcon from "src/assets/svg/GlobeIcon";
 import SnowIcon from "src/assets/svg/SnowIcon";
 import GraphIcon from "src/assets/svg/GraphIcon";
 import PaintIcon from "src/assets/svg/PaintIcon";
+import { useTranslation } from "react-i18next";
 export default function ServiceSection() {
+  const { t } = useTranslation(["home","form"]);
+
   return (
-    // <ServicesLayout>
-    //     <MarketingSection />
-    //     <ConsultingSection />
-    //     <DesignSection />
-    // </ServicesLayout>
     <div className="home__service">
       <Title text="DIVE INTO A MULTITUDE OF SOLUTIONS" />
 
@@ -95,10 +85,6 @@ export default function ServiceSection() {
         </div>
         <div className="home__service--card-subcard">
           <div className="icon">
-            {/* <span className="icon">
-                <DesignServicesIcon/>
-            </span> */}
-
             <PaintIcon />
           </div>
           <div className="mini-card">
