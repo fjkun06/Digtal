@@ -1,0 +1,125 @@
+$background-color:rebeccapurple;
+
+@mixin makeHeading ($color: #fff) {
+    color: $color;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+@mixin centerFlex ($direction:row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+.softwaredev{
+    background-image: url('../../../images/services/computer.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width:50vw;
+ 
+}
+
+.softwaredev__header{
+    position: absolute;
+   top:50%;
+   right:10%;
+   width: 1000px;
+   
+}
+
+.softwaredev__textContainer{
+    display: flex;
+   
+}
+
+.softwaredev__textStyle{
+    font-weight: bold;
+    font-size: xx-large;
+}
+.softwaredev__headerContainer{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.softwaredev__subText{
+   display: flex;
+    margin-left: 30%;
+    text-align: end;
+    max-width: 40%;
+   
+}
+
+.firstsection{
+    width: 100vw;
+    height: 60vh;
+   @include centerFlex;
+    background-color: $background-color;
+
+    &__header{
+        color: white;
+        font-weight: bold;
+        font-size: xx-large;
+        text-align: center;
+
+    }
+
+}
+
+.list-service-container{
+    
+    width: 100vw;
+    height: 50vh;
+    
+   
+
+&__number{
+    flex:2;
+    font-weight: bold;
+    font-size: xx-large;
+    color:$background-color;
+    @include centerFlex;
+  .number-value{
+    @include centerFlex;
+  }
+
+}
+
+&__detail{
+    flex: 6;
+    background-color: $background-color;
+    margin-top: -70px;
+    @include centerFlex;
+
+    &-container{
+        width: 70%;
+      
+
+    }
+    
+
+      &-heading{
+        @include makeHeading;
+        
+
+
+      }
+
+      &-text{
+        color: white;
+        
+
+      }
+    
+    
+}
+}
+
+
+
+
+

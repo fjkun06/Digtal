@@ -19,6 +19,7 @@ import Contact from "./pages/ContactForm";
 import Blog from "./components/blog/Blog";
 import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
 import Home from "./pages/Home";
+import SoftwareDevelopment from "./pages/SoftwareDevelopment";
 
 const AboutUs = React.lazy(() => import("@pages/AboutUs.js"));
 
@@ -51,6 +52,10 @@ root.render(
                 element={() => import("./routes/footer/AboutUs.js")}
               /> */}
               <Route path="about-us" element={<AboutUs />} />
+              <Route
+                path="software-development"
+                element={<SoftwareDevelopment />}
+              />
               <Route path="blog" element={<Blog />} />
               <Route path="career" element={<Career />} />
               <Route
