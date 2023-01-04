@@ -94,15 +94,23 @@ export default function SwiperCarousel() {
         }}
       >
         <img src={slideOne} alt="slide one" />
-        <div>
-          <span>{t("carousel.mobile.slide1.one")}</span>
-          <span>{t("carousel.mobile.slide1.two")}</span>
-          <span>{t("carousel.mobile.slide1.three")}</span>
-          <span>{t("carousel.mobile.slide1.four")}</span>
+        <div className="mainHolder">
+          <div className="container">
+            <div>{t("carousel.mobile.slide1.one")}</div>
+          </div>
+          <div className="container">
+            <div>{t("carousel.mobile.slide1.two")}</div>
+          </div>
+          <div className="container">
+            <div>{t("carousel.mobile.slide1.three")}</div>
+          </div>
+          <div className="container">
+            <div>{t("carousel.mobile.slide1.four")}</div>
+          </div>
         </div>
       </div>
 
-      <div
+      {/* <div
         ref={element => {
           slides.current[3] = element;
         }}
@@ -142,7 +150,7 @@ export default function SwiperCarousel() {
           <span>{t("carousel.mobile.slide2.two")}</span>
           <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
         </div>
-      </div>
+      </div> */}
 
       <div className="btns">
         {[1, 2, 3, 4].map((button, index) => (

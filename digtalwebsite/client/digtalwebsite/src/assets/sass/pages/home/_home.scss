@@ -17,6 +17,7 @@
   &::after {
     position: absolute;
     display: block;
+    display: none;
     content: "";
     @include mixins.size(100vw, 100vh);
     top: 0;
@@ -26,7 +27,6 @@
     z-index: 1;
   }
 
- 
   /****************Slides******************/
   .mySlide {
     display: none;
@@ -42,24 +42,60 @@
       object-fit: cover;
     }
 
-    div {
+    .mainHolder {
       position: absolute;
       top: 0vh;
       @include mixins.flex(column);
       width: 100%;
       height: 100%;
       row-gap: 5px;
-      span {
+      .container {
+        display: inline-block;
+
         font-family: "Cormorant Garamond 700", serif;
+        overflow: hidden;
         // font-size: 10.25vw;
         font-size: calc(4.4rem + 1.05vw);
         // font-size: 6.2rem;
+        // border: 2px solid black;
         text-align: left;
         color: white;
-        line-height: 5.5rem;
+        line-height: 5rem;
         padding: 0 3rem;
         filter: drop-shadow(0 3mm 4mm rgb(0, 0, 0));
         width: 100%;
+        padding: 0;
+        width: 100%;
+        height: auto;
+
+        div {
+          transform: translate(0px, 50px);
+        }
+        &:nth-child(1) {
+          div {
+            display: inline-block;
+
+            animation: glide-up ease-in 0.25s 1s 1 forwards;
+          }
+        }
+        &:nth-child(2) {
+          div {
+            display: inline-block;
+
+            animation: glide-up ease-in 0.25s 1.75s 1 forwards;
+          }
+        }
+        &:nth-child(3) {
+          div {
+            display: inline-block;
+            animation: glide-up ease-in 0.25s 2.25s 1 forwards;
+          }
+        }
+        &:nth-child(4) {
+          div {
+            animation: glide-up ease-in 0.25s 2.75s 1 forwards;
+          }
+        }
       }
     }
   }
@@ -125,26 +161,10 @@
     100% {
       opacity: 1;
     }
-    // 100% {
-    //   opacity: 0;
-    // }
   }
-
-  // div {
-  //   grid-row: 1/2;
-  //   grid-column: 1/2;
-  //   transition: opacity;
-  //   // will-change: opacity;
-  //   // &:nth-child(1),&:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5){
-  //   &:nth-child(1),
-  //   &:nth-child(2),
-  //   &:nth-child(3),
-  //   &:nth-child(4),
-  //   &:nth-child(5) {
-  //     opacity: 0;
-  //     // animation: disappear 0.25s ease-in-out 4s 1 forwards;
-
-  //     z-index: 1;
-  //   }
-  // }
+  @keyframes glide-up {
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
 }
