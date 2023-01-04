@@ -76,31 +76,11 @@
         @each $num, $delay in $texts {
           &:nth-child(#{$num}) {
             div {
-              animation: glide-up ease-in 0.25s #{$delay}s 1 forwards;
+              animation: glide-up ease-in-out 0.25s #{$delay}s 1 forwards;
             }
           }
         }
 
-        // &:nth-child(1) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 1s 1 forwards;
-        //   }
-        // }
-        // &:nth-child(2) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 1.75s 1 forwards;
-        //   }
-        // }
-        // &:nth-child(3) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 2.25s 1 forwards;
-        //   }
-        // }
-        // &:nth-child(4) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 2.75s 1 forwards;
-        //   }
-        // }
       }
     }
 
@@ -110,7 +90,6 @@
         margin: 0 3rem;
         padding: 0rem;
         width: 80%;
-        text-align: left;
         div {
           transform: translate(-320px, 0px);
         }
@@ -119,7 +98,7 @@
         @each $num, $delay in $texts {
           &:nth-child(#{$num}) {
             div {
-              animation: glide-up ease-in 0.25s #{$delay}s 1 forwards;
+              animation: glide-up ease-in-out 0.25s #{$delay}s 1 forwards;
             }
           }
         }
@@ -135,39 +114,44 @@
 
     .holder3 {
       .tb {
+        text-align: center;
+
         div {
-          transform: translate(0px, 50px);
+          transform: translate(0px, -50px);
         }
 
         $texts: 1 1, 2 1.75, 3 2.25, 4 2.75;
         @each $num, $delay in $texts {
           &:nth-child(#{$num}) {
             div {
-              animation: glide-up ease-in 0.25s #{$delay}s 1 forwards;
+              animation: glide-up ease-in-out 0.25s #{$delay}s 1 forwards;
             }
           }
         }
 
-        // &:nth-child(1) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 1s 1 forwards;
-        //   }
-        // }
-        // &:nth-child(2) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 1.75s 1 forwards;
-        //   }
-        // }
-        // &:nth-child(3) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 2.25s 1 forwards;
-        //   }
-        // }
-        // &:nth-child(4) {
-        //   div {
-        //     animation: glide-up ease-in 0.25s 2.75s 1 forwards;
-        //   }
-        // }
+      }
+    }
+
+    
+    .holder4 {
+      .tb {
+        
+        margin: 0 3rem;
+        padding: 0rem;
+        width: 80%;
+        div {
+          transform: translate(380px, 0px);
+        }
+
+        $texts: 1 1, 2 1.75, 3 2.25, 4 2.75;
+        @each $num, $delay in $texts {
+          &:nth-child(#{$num}) {
+            div {
+              animation: glide-up ease-in-out 0.35s #{$delay}s 1 forwards;
+            }
+          }
+        }
+      
       }
     }
   }

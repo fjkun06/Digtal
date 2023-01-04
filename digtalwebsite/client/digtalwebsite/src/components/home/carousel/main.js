@@ -87,7 +87,7 @@ export default function SwiperCarousel() {
 
   return (
     <div id="home-carousel">
-      {/* <div
+      <div
         className="mySlide"
         ref={element => {
           slides.current[0] = element;
@@ -108,12 +108,12 @@ export default function SwiperCarousel() {
             <div>{t("carousel.mobile.slide1.four")}</div>
           </div>
         </div>
-      </div> */}
-      {/* 
+      </div>
+      
        <div
         ref={element => {
-          slides.current[0] = element;
-          // slides.current[3] = element;
+          // slides.current[0] = element;
+          slides.current[3] = element;
         }}
         className="mySlide"
       >
@@ -129,12 +129,12 @@ export default function SwiperCarousel() {
             <div>{t("carousel.mobile.slide4.three")}</div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div
         ref={element => {
-          slides.current[0] = element;
-          // slides.current[2] = element;
+          // slides.current[0] = element;
+          slides.current[2] = element;
         }}
         className="mySlide"
       >
@@ -152,19 +152,26 @@ export default function SwiperCarousel() {
         </div>
       </div>
 
-      {/* <div
+       <div
         ref={element => {
+          // slides.current[0] = element;
           slides.current[1] = element;
         }}
         className="mySlide"
       >
         <img src={slideFive} alt="slide four" />
-        <div>
-          <span>{t("carousel.mobile.slide2.one")}</span>
-          <span>{t("carousel.mobile.slide2.two")}</span>
-          <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
+        <div  className="mainHolder holder4">
+             <div className="tb">
+            <div>{t("carousel.mobile.slide2.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide2.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide2.three")}</div>
+          </div>
         </div>
-      </div>  */}
+      </div> 
 
       <div className="btns">
         {[1, 2, 3, 4].map((button, index) => (
