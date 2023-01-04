@@ -1,22 +1,21 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function ActiveNavLink({ to, text }) {
+// export default function ActiveNavLink({ to, text }) {
 
-  return (
-    // <NavLink style={x}
+//   return (
+//     // <NavLink style={x}
 
-    <NavLink
-      // className={"nav--link"}
-      className={({ isActive }) => (isActive ? "nav--link--active" : "main-nav-item")}
-      to={to}
-    >
-      {text}
-    </NavLink>
-  );
-}
+//     <NavLink
+//       // className={"nav--link"}
+//       className={({ isActive }) => (isActive ? "nav--link--active" : "main-nav-item")}
+//       to={to}
+//     >
+//       {text}
+//     </NavLink>
+//   );
+// }
 
-export function MobileActiveNavLink({ to, text,toggleMobile }) {
+export default function MobileActiveNavLink({ to, text,toggleMobile }) {
 
   function nan(){
 // console.log("nan")
