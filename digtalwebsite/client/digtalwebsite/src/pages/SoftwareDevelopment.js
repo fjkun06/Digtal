@@ -74,6 +74,7 @@ const SoftwareDevelopment = () => {
         <div className="softwaredev">
           <div className="softwaredev__header">
             <div className="softwaredev__headerContainer">
+              +
               <div className="softwaredev__textContainer">
                 <motion.div
                   variants={containerVariants}
