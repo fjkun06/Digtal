@@ -36,8 +36,7 @@ function App() {
     <>
       <StyledEngineProvider injectFirst>
         <div
-          ref={outlet}
-          onScroll={() => console.log("heeeeeeeeeeeeeeeeeeeeee")}
+          
         >
           <Grid container className="navigation-main" id="n-main">
             <Navbar
