@@ -65,7 +65,7 @@
   }
 }
 //sets width and height
-@mixin size($width, $height) {
+@mixin size($width, $height: $width) {
   width: $width;
   height: $height;
 }

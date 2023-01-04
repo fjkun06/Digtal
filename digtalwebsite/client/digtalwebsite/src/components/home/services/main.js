@@ -1,19 +1,47 @@
 import ServicesLayout from "./layout";
 import Title from "./title";
-import { ConsultingSection,DesignSection,MarketingSection,WebSection } from "./makeservice";
+import {
+  ConsultingSection,
+  DesignSection,
+  MarketingSection,
+  WebSection
+} from "./makeservice";
 
-export default function ServiceSection(){
+import section600 from "src/assets/images/services/home/section600.jpg";
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import GlobeIcon from "src/assets/svg/GlobeIcon";
+export default function ServiceSection() {
+  return (
+    // <ServicesLayout>
+    //     <MarketingSection />
+    //     <ConsultingSection />
+    //     <DesignSection />
+    // </ServicesLayout>
+    <div className="home__service">
+      <Title text="DIVE INTO A MULTITUDE OF SOLUTIONS" />
 
-    return (
+      <div className="home__service--card">
+        <div className="home__service--card-image">
+          <img src={section600} alt="xxx" />
+        </div>
+        <div className="home__service--card-subcard">
+          <div className="icon">
+            {/* <span className="icon">
+                <DesignServicesIcon/>
+            </span> */}
 
-        <ServicesLayout>
-            <Title text="DIVE INTO A MULTITUDE OF SOLUTIONS"/>
-            <WebSection />
-            <MarketingSection />
-            <ConsultingSection />
-            <DesignSection />
-        </ServicesLayout>
-
-    )
-
+            <GlobeIcon/>
+          </div>
+          <div className="mini-card">
+            <div className="title">Software Development</div>
+            <div className="text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum
+              quod qui, veniam nostrum optio repellendus illum soluta iusto
+              possimus eius, sit ea commodi maiores cupiditate quaerat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
