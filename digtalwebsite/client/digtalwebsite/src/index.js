@@ -21,7 +21,9 @@ import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
 import Home from "./pages/Home";
 import SoftwareDevelopment from "./pages/SoftwareDevelopment";
 
-const AboutUs = React.lazy(() => import("@pages/AboutUs.js"));
+// const AboutUs = React.lazy(() => import("@pages/AboutUs.js"));
+const AboutUs = React.lazy(() => import("./pages/AboutUs"));
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const majorRoutes = ["/en", "/fr", "de"];

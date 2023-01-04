@@ -1,46 +1,180 @@
-import { Navigation, Pagination, Scrollbar, A11y,EffectFade,Autoplay} from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Carousel,CarouselTwo,CarouselTree,CarouselFour } from './config';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/effect-fade';
-import './styles/pagination.css'
+import { PauseIcon } from "src/assets/svg/PauseIcon";
+import { PlayIcon } from "src/assets/svg/PlayIcon";
+import React from "react";
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default function SwiperCarousel(){
-  return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y,EffectFade,Autoplay]}
-      effect="fade"
-      autoplay={{
-        delay:5000
-      }}
-      spaceBetween={2}
-      slidesPerView={1}
-      pagination={{ 
-        clickable: true,
-        renderBullet:(index,className)=>{
-          return '<span class="' + className + '">' + '</span>'
+import slideOne from "src/assets/images/carousel/noir11.jpg";
+import slideTwo from "src/assets/images/carousel/noir12.jpg";
+import slideThree from "src/assets/images/carousel/noir13.jpg";
+import slideFive from "src/assets/images/carousel/noir15.jpg";
+import { useTranslation } from "react-i18next";
+
+
+export default function SwiperCarousel() {
+  const slides = React.useRef([]);
+  const buttons = React.useRef([]);
+  const [playState, setPlayState] = React.useState("playing");
+  const canceler = React.useRef(null);
+  const resumeAnimation = React.useRef();
+  const { t } = useTranslation("home");
+
+  React.useEffect(() => {
+    let slideIndex = 1;
+    showDivs(slideIndex);
+    function raf(func, ms) {
+      let start = performance.now();
+      const loop = curr => {
+        if (curr - start >= ms) {
+          func(curr);
+          start = curr;
         }
-       }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-      className="w-full h-[60vh] md:h-[91vh] mt-[7rem]"
-    >
-      <SwiperSlide>
-        <CarouselTwo />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Carousel />
-      </SwiperSlide>
-      <SwiperSlide>
-        <CarouselTree />
-      </SwiperSlide>
-      <SwiperSlide>
-        <CarouselFour />
-      </SwiperSlide>
-    </Swiper>
-  );
-};
+
+        canceler.current = requestAnimationFrame(loop);
+      };
+      canceler.current = requestAnimationFrame(loop);
+    }
+
+    function showDivs(n) {
+      var i;
+      //mkx carousel 360
+      if (slides.current.length > 0) {
+        if (n > slides.current.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.current.length;
+        }
+
+        for (i = 0; i < slides.current.length; i++) {
+          slides.current[i].style.display = "none";
+        }
+        for (i = 0; i < buttons.current.length; i++) {
+          buttons.current[i].style.background = "none";
+          buttons.current[i].style.border = "3px solid white";
+          buttons.current[i].style.filter = "blur(1.5px)";
+        }
+        slides.current[slideIndex - 1].style.display = "block";
+
+        buttons.current[slideIndex - 1].style.background =
+          "var(--navbar-bb-light)";
+        buttons.current[slideIndex - 1].style.border = "none";
+        buttons.current[slideIndex - 1].style.filter = "blur(0)";
+      }
+    }
+
+    function gameLoop(timestamp) {
+      slideIndex++;
+
+      showDivs(slideIndex);
+    }
+
+    function currentDiv(n) {
+      showDivs((slideIndex = n));
+    }
+
+    for (let i = 0; i < buttons.current.length; i++) {
+      buttons.current[i].addEventListener("click", () => {
+        currentDiv(i + 1);
+      });
+    }
+
+    raf(gameLoop, 5000);
+
+    resumeAnimation.current?.addEventListener("click", () => {
+      raf(gameLoop, 5000);
+    });
+
+    return () => cancelAnimationFrame(canceler.current);
+  }, []);
+
+  return (
+    <div id="home-carousel">
+
+      <div
+        className="mySlide"
+        ref={element => {
+          slides.current[0] = element;
+        }}
+      >
+        <img src={slideOne} alt="slide one" />
+        <div>
+          <span>{t("carousel.mobile.slide1.one")}</span>
+          <span>{t("carousel.mobile.slide1.two")}</span>
+          <span>{t("carousel.mobile.slide1.three")}</span>
+          <span>{t("carousel.mobile.slide1.four")}</span>
+        </div>
+      </div>
+
+      <div
+        ref={element => {
+          slides.current[3] = element;
+        }}
+        className="mySlide"
+      >
+        <img src={slideTwo} alt="slide two" />
+        <div>
+          <span>{t("carousel.mobile.slide4.one")}</span>
+          <span>{t("carousel.mobile.slide4.two")}</span>
+          <span>{t("carousel.mobile.slide4.three")}</span>2{" "}
+        </div>
+      </div>
+
+      <div
+        ref={element => {
+          slides.current[2] = element;
+        }}
+        className="mySlide"
+      >
+        <img src={slideThree} alt="slide three" />
+        <div>
+          <span>{t("carousel.mobile.slide3.one")}</span>
+          <span>{t("carousel.mobile.slide3.two")}</span>
+          <span>{t("carousel.mobile.slide3.three")}</span>2{" "}
+        </div>
+      </div>
+
+      <div
+        ref={element => {
+          slides.current[1] = element;
+        }}
+        className="mySlide"
+      >
+        <img src={slideFive} alt="slide four" />
+        <div>
+          <span>{t("carousel.mobile.slide2.one")}</span>
+          <span>{t("carousel.mobile.slide2.two")}</span>
+          <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
+        </div>
+      </div>
+
+      <div className="btns">
+        {[1, 2, 3, 4].map((button, index) => (
+          <button
+            key={index}
+            ref={element => {
+              buttons.current[index] = element;
+            }}
+            type="button"
+          ></button>
+        ))}
+      </div>
+      <div className="icons">
+        <PauseIcon
+          handler={() => {
+            cancelAnimationFrame(canceler.current);
+            setPlayState("paused");
+          }}
+          state={playState}
+        />
+        {/* pause
+        </PauseIcon> */}
+        <PlayIcon
+          state={playState}
+          ref={resumeAnimation}
+          handler={() => {
+            setPlayState("playing");
+          }}
+        />
+      </div>
+    </div>
+  
+}

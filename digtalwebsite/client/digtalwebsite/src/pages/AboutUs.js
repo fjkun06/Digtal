@@ -1,14 +1,19 @@
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
-import diversity from "@assets/images/diversity.png";
-import leonel from "@assets/images/leonel.png";
-import xevlyn from "@assets/images/xevlyn.png";
-import fj from "@assets/images/fj.png";
-import nesta from "@assets/images/nesta.png";
+import diversity from "src/assets/images/diversity.png";
+import leonel from "src/assets/images/leonel.png";
+import xevlyn from "src/assets/images/xevlyn.png";
+import fj from "src/assets/images/fj.png";
+import nesta from "src/assets/images/nesta.png";
+// import diversity from "@assets/images/diversity.png";
+// import leonel from "@assets/images/leonel.png";
+// import xevlyn from "@assets/images/xevlyn.png";
+// import fj from "@assets/images/fj.png";
+// import nesta from "@assets/images/nesta.png";
 import { Image } from "mui-image";
 import TeamCard from "src/components/about/TeamCard";
 import { useTranslation } from "react-i18next";
-import flower from "@assets/svg/flower.svg";
+import flower from "src/assets/svg/flower.svg";
 
 const team = [
   { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
@@ -28,7 +33,7 @@ const team = [
 export default function AboutUs() {
   const { t } = useTranslation("about");
   return (
-    <Grid columns={1} className="about">
+    <Grid columns={1} className="about  backdrop-blur-[10px]">
       <Stack
         direction="column"
         justifyContent="center"

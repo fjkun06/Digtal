@@ -8,7 +8,7 @@
     .main-nav {
       //Multicolor bottom border
       &::after {
-        @include mixins.size(100%, 4px);
+        @include mixins.size(100%, 6px);
         // @include mixins.size(51%, 4px);
       }
 
@@ -63,6 +63,11 @@
           @media screen and (min-width: 1201px) {
             height: 100%;
           }
+
+          .navbar-theme-dark,.navbar-theme-dark {
+             
+            transform: scale(0.9);
+         }
 
           #laptop-services {
             @include mixins.grid;

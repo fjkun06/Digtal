@@ -1,4 +1,4 @@
-import { A11y,EffectFade,Autoplay} from 'swiper';
+import { EffectFade,Autoplay} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { giveRandomImageLocation } from './section';
 import 'swiper/css';

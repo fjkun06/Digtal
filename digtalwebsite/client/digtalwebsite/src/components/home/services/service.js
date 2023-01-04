@@ -1,6 +1,4 @@
 import { Container,Box } from "@mui/material";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import {gsap} from "gsap"
 import { useRef,useState } from "react";
 import {IoIosArrowForward} from "react-icons/io"
 import {MdDoubleArrow} from "react-icons/md"
