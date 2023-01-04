@@ -8,6 +8,8 @@ import slideThree from "src/assets/images/carousel/noir13.jpg";
 import slideFive from "src/assets/images/carousel/noir15.jpg";
 import { useTranslation } from "react-i18next";
 
+import { useMediaQuery } from "@material-ui/core";
+
 export default function SwiperCarousel() {
   const slides = React.useRef([]);
   const buttons = React.useRef([]);
@@ -15,6 +17,8 @@ export default function SwiperCarousel() {
   const canceler = React.useRef(null);
   const resumeAnimation = React.useRef();
   const { t } = useTranslation("home");
+  const max480 = useMediaQuery("(max-width:480px)");
+  const min480 = useMediaQuery("(min-width:481px)");
 
   React.useEffect(() => {
     let slideIndex = 1;
@@ -94,53 +98,145 @@ export default function SwiperCarousel() {
         }}
       >
         <img src={slideOne} alt="slide one" />
-        <div>
-          <span>{t("carousel.mobile.slide1.one")}</span>
-          <span>{t("carousel.mobile.slide1.two")}</span>
-          <span>{t("carousel.mobile.slide1.three")}</span>
-          <span>{t("carousel.mobile.slide1.four")}</span>
+        <div
+          className="mainHolder holder1"
+          style={{ display: max480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.mobile.slide1.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide1.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide1.three")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide1.four")}</div>
+          </div>
+        </div>
+        <div
+          className="laptopHolder big1"
+          style={{ display: min480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.laptop.slide1.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.laptop.slide1.two")}</div>
+          </div>
         </div>
       </div>
-
       <div
         ref={element => {
+          // slides.current[0] = element;
           slides.current[3] = element;
         }}
         className="mySlide"
       >
         <img src={slideTwo} alt="slide two" />
-        <div>
-          <span>{t("carousel.mobile.slide4.one")}</span>
-          <span>{t("carousel.mobile.slide4.two")}</span>
-          <span>{t("carousel.mobile.slide4.three")}</span>2{" "}
+        <div
+          className="mainHolder holder2"
+          style={{ display: max480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.mobile.slide4.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide4.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide4.three")}</div>
+          </div>
+        </div>
+        <div
+          className="laptopHolder big2"
+          style={{ display: min480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.laptop.slide4.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.laptop.slide4.two")}</div>
+          </div>
         </div>
       </div>
 
       <div
         ref={element => {
+          // slides.current[0] = element;
           slides.current[2] = element;
         }}
         className="mySlide"
       >
         <img src={slideThree} alt="slide three" />
-        <div>
-          <span>{t("carousel.mobile.slide3.one")}</span>
-          <span>{t("carousel.mobile.slide3.two")}</span>
-          <span>{t("carousel.mobile.slide3.three")}</span>2{" "}
+        <div
+          className="mainHolder holder3"
+          style={{ display: max480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.mobile.slide3.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide3.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide3.three")}</div>
+          </div>
+        </div>
+        <div
+          className="laptopHolder big3"
+          style={{ display: min480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.laptop.slide3.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.laptop.slide3.two")}</div>
+          </div>
         </div>
       </div>
 
       <div
         ref={element => {
+          // slides.current[0] = element;
           slides.current[1] = element;
         }}
         className="mySlide"
       >
         <img src={slideFive} alt="slide four" />
-        <div>
-          <span>{t("carousel.mobile.slide2.one")}</span>
-          <span>{t("carousel.mobile.slide2.two")}</span>
-          <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
+        <div
+          className="mainHolder holder4"
+          style={{ display: max480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.mobile.slide2.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide2.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide2.three")}</div>
+          </div>
+        </div>
+        <div
+          className="laptopHolder big4"
+          style={{ display: min480 ? "" : "none" }}
+        >
+          <div className="tb">
+            <div>{t("carousel.laptop.slide2.one")}</div>
+          </div>
+          <div className="sub-tb">
+            <div className="tb">
+              <div>{t("carousel.laptop.slide2.two")}</div>
+            </div>
+            <div className="tb">
+              <div>{t("carousel.laptop.slide2.three")}</div>
+            </div>
+            <div className="tb">
+              <div>{t("carousel.laptop.slide2.four")}</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -163,8 +259,7 @@ export default function SwiperCarousel() {
           }}
           state={playState}
         />
-        {/* pause
-        </PauseIcon> */}
+
         <PlayIcon
           state={playState}
           ref={resumeAnimation}
