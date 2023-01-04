@@ -184,5 +184,5 @@ export default function SwiperCarousel() {
         />
       </div>
     </div>
-  
+  )
 }
