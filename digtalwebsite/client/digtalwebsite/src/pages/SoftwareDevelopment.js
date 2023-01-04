@@ -70,7 +70,10 @@ const detailsData = [
 const SoftwareDevelopment = () => {
   return (
     <>
-      <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+      <div
+        style={{ position: "relative", width: "100vw", height: "100vh" }}
+        onScroll={() => console.log("heeeeeeeeeeeeeeeeeeeeee")}
+      >
         <div className="softwaredev">
           <div className="softwaredev__header">
             <div className="softwaredev__headerContainer">
@@ -127,6 +130,7 @@ const SoftwareDevelopment = () => {
       {/* services section */}
       {detailsData.map((data, index) => (
         <ListServiceSection
+        key={index}
           number={index + 1}
           heading={data.heading}
           info={data.info}

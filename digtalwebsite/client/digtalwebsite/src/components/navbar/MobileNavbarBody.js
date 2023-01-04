@@ -2,7 +2,7 @@ import { ExpandMoreOutlined } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 import React from "react";
 import search from "../../assets/svg/magnifier.svg";
-import ActiveNavLink, { MobileActiveNavLink } from "../reusables/ReusableNavLink";
+import MobileActiveNavLink from "../reusables/ReusableNavLink";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectDropdownItems } from "../../layouts/navbar/navbar_config";
 import { icons } from "../../layouts/footer/footer_config";

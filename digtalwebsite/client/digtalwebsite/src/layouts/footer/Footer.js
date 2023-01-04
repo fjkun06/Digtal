@@ -12,14 +12,13 @@ import Envelop from "../../assets/svg/Envelop";
 
 export default function Footer({ language, location }) {
   const { t } = useTranslation("pageend");
-  console.log(window.location.pathname.includes("contact"));
+  // console.log(window.location.pathname.includes("contact"));
 
   return (
     <>
       <StyledEngineProvider injectFirst>
         <div
           className="footer"
-          // style={{backgroundColor:"yellow" }}
         >
           {!location && (
             <>
