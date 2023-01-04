@@ -7,6 +7,7 @@ import slideTwo from "src/assets/images/carousel/noir12.jpg";
 import slideThree from "src/assets/images/carousel/noir13.jpg";
 import slideFive from "src/assets/images/carousel/noir15.jpg";
 import { useTranslation } from "react-i18next";
+
 import { useMediaQuery } from "@material-ui/core";
 
 export default function SwiperCarousel() {
