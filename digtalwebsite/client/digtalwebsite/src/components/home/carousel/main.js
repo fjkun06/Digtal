@@ -8,7 +8,6 @@ import slideThree from "src/assets/images/carousel/noir13.jpg";
 import slideFive from "src/assets/images/carousel/noir15.jpg";
 import { useTranslation } from "react-i18next";
 
-
 export default function SwiperCarousel() {
   const slides = React.useRef([]);
   const buttons = React.useRef([]);
@@ -88,59 +87,72 @@ export default function SwiperCarousel() {
 
   return (
     <div id="home-carousel">
-
-      <div
+      {/* <div
         className="mySlide"
         ref={element => {
           slides.current[0] = element;
         }}
       >
         <img src={slideOne} alt="slide one" />
-        <div className="mainHolder">
-          <div className="container">
+        <div className="mainHolder holder1">
+          <div className="tb">
             <div>{t("carousel.mobile.slide1.one")}</div>
           </div>
-          <div className="container">
+          <div className="tb">
             <div>{t("carousel.mobile.slide1.two")}</div>
           </div>
-          <div className="container">
+          <div className="tb">
             <div>{t("carousel.mobile.slide1.three")}</div>
           </div>
-          <div className="container">
+          <div className="tb">
             <div>{t("carousel.mobile.slide1.four")}</div>
+          </div>
+        </div>
+      </div> */}
+      {/* 
+       <div
+        ref={element => {
+          slides.current[0] = element;
+          // slides.current[3] = element;
+        }}
+        className="mySlide"
+      >
+        <img src={slideTwo} alt="slide two" />
+        <div className="mainHolder holder2">
+          <div className="tb">
+            <div>{t("carousel.mobile.slide4.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide4.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide4.three")}</div>
+          </div>
+        </div>
+      </div> */}
+
+      <div
+        ref={element => {
+          slides.current[0] = element;
+          // slides.current[2] = element;
+        }}
+        className="mySlide"
+      >
+        <img src={slideThree} alt="slide three" />
+        <div className="mainHolder holder3">
+          <div className="tb">
+            <div>{t("carousel.mobile.slide3.one")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide3.two")}</div>
+          </div>
+          <div className="tb">
+            <div>{t("carousel.mobile.slide3.three")}</div>
           </div>
         </div>
       </div>
 
       {/* <div
-        ref={element => {
-          slides.current[3] = element;
-        }}
-        className="mySlide"
-      >
-        <img src={slideTwo} alt="slide two" />
-        <div>
-          <span>{t("carousel.mobile.slide4.one")}</span>
-          <span>{t("carousel.mobile.slide4.two")}</span>
-          <span>{t("carousel.mobile.slide4.three")}</span>2{" "}
-        </div>
-      </div>
-
-      <div
-        ref={element => {
-          slides.current[2] = element;
-        }}
-        className="mySlide"
-      >
-        <img src={slideThree} alt="slide three" />
-        <div>
-          <span>{t("carousel.mobile.slide3.one")}</span>
-          <span>{t("carousel.mobile.slide3.two")}</span>
-          <span>{t("carousel.mobile.slide3.three")}</span>2{" "}
-        </div>
-      </div>
-
-      <div
         ref={element => {
           slides.current[1] = element;
         }}
@@ -152,7 +164,7 @@ export default function SwiperCarousel() {
           <span>{t("carousel.mobile.slide2.two")}</span>
           <span>{t("carousel.mobile.slide2.three")}</span>2{" "}
         </div>
-      </div> */}
+      </div>  */}
 
       <div className="btns">
         {[1, 2, 3, 4].map((button, index) => (
@@ -173,8 +185,7 @@ export default function SwiperCarousel() {
           }}
           state={playState}
         />
-        {/* pause
-        </PauseIcon> */}
+
         <PlayIcon
           state={playState}
           ref={resumeAnimation}
@@ -184,5 +195,5 @@ export default function SwiperCarousel() {
         />
       </div>
     </div>
-  )
+  );
 }
