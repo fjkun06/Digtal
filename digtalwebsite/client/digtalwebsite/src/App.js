@@ -11,42 +11,53 @@ import { useLocation } from "react-router-dom";
 function App() {
   const loc = useLocation();
   const [language, setLanguage] = useState("/en");
-  const [outletState, setOutletState] = useState(false);
 
-  function toggleOutletSelectState() {
-    setOutletState(true);
+  const [mobileSelectState, setMobileSelectState] = useState(false);
+
+  function toggleMobileSelect() {
+    setMobileSelectState(mobileSelectState === true ? false : true);
   }
 
-  function toggleOutletSelectStateOff() {
-    setOutletState(false);
-  }
+  const outlet = React.useRef(null);
+
+  React.useEffect(() => {
+    const handleScroll = event => {
+      setMobileSelectState(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <div>
+        <div
+          ref={outlet}
+          onScroll={() => console.log("heeeeeeeeeeeeeeeeeeeeee")}
+        >
           <Grid container className="navigation-main" id="n-main">
-            {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
-
             <Navbar
               setLanguage={setLanguage}
               language={language}
-              toggleOutletSelect={toggleOutletSelectState}
-              outletState={outletState}
-              toggleOutletSelectStateOff={toggleOutletSelectStateOff}
+              toggleMobileSelect={toggleMobileSelect}
+              setMobileSelectState={setMobileSelectState}
+              mobileSelectState={mobileSelectState}
             />
           </Grid>
-          {/* bill's work starts here */}
+
           <div
             id="scroll-zone"
-            // onClick={() => {
-            //   console.log("hello shxt");
-            //   setOutletState(false);
-            // }}
+            onClick={() => {
+              setMobileSelectState(false);
+            }}
           >
             <Outlet />
           </div>
-          <div >
+          <div>
             <Footer
               language={language}
               location={loc.pathname.includes("contact")}

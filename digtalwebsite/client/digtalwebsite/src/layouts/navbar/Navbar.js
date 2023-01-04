@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ActiveNavLink from "../../components/reusables/ReusableNavLink";
 import logo from "../../assets/images/logoo.png";
 import logoMobile from "../../assets/images/logo2.png";
 import { ThemeProvider } from "@mui/system";
@@ -29,16 +28,15 @@ import MobileActiveNavLink from "../../components/reusables/ReusableNavLink";
 export default function Navbar({
   language,
   setLanguage,
-  outletState,
-  toggleOutletSelect,
-  toggleOutletSelectStateOff
+  setMobileSelectState,
+  mobileSelectState,
+  toggleMobileSelect
 }) {
   //theme configuration
   const [websiteTheme, setWebsiteTheme] = useState("dark");
 
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [mobileSelectState, setMobileSelectState] = useState(false);
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
@@ -136,10 +134,6 @@ export default function Navbar({
   const max480 = useMediaQuery("(max-width:480px)");
   const min769 = useMediaQuery("(min-width:769px)");
 
-  function toggleMobileSelect() {
-    setMobileSelectState(mobileSelectState === true ? false : true);
-  }
-
   function toggleFlagDropdown() {
     setshowFlagDropdown(showFlagDropdown === true ? false : true);
   }
@@ -218,7 +212,6 @@ export default function Navbar({
                   <ExpandMoreOutlined
                     onClick={() => {
                       toggleMobileSelect();
-                      toggleOutletSelect();
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
                     className="select-item-sub-arrow"
@@ -226,7 +219,6 @@ export default function Navbar({
                 ) : (
                   <ExpandLessOutlinedIcon
                     onClick={() => {
-                      toggleOutletSelectStateOff();
                       toggleMobileSelect();
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
