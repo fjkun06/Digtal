@@ -70,8 +70,8 @@ const detailsData = [
 const SoftwareDevelopment = () => {
   return (
     <>
-      <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
-        <div className="softwaredev">
+      <div className="main-header">
+        {/* <div className="softwaredev">
           <div className="softwaredev__header">
             <div className="softwaredev__headerContainer">
               +
@@ -118,6 +118,12 @@ const SoftwareDevelopment = () => {
               </motion.div>
             </div>
           </div>
+        </div> */}
+        <div className="left">
+          <div className="text">left</div>
+        </div>
+        <div className="right">
+          <div className="text">right</div>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+@use '../../util/mixins';
 $background-color:rebeccapurple;
 
 @mixin makeHeading ($color: #fff) {
@@ -12,6 +13,51 @@ $background-color:rebeccapurple;
     align-items: center;
     flex-direction: $direction;
 }
+
+.main-header{
+    @include mixins.flex;
+    @include mixins.size(100vw, 100vh);
+    background-color: red;
+
+    .left{
+        background-color: yellow;
+    @include mixins.flex;
+    @include mixins.size(100%, 100%);
+    background-image: url('../../../images/services/computer.png');
+    background-size: cover;
+        background-position: center;
+            justify-content: flex-end ;
+            .text {
+                    text-align: right;
+                    background-color: #fff;
+                    color: #000;
+                }
+       
+}
+    .right{
+        background-color: white;
+    @include mixins.flex;
+    @include mixins.size(100%, 100%);
+            justify-content: flex-start;
+.text {
+   text-align: left;
+background-color: #fff;
+    color: #000;
+    }
+    }
+
+    .left,.right{
+        .text{
+    // @include mixins.flex;
+    @include mixins.size(50%, 10%);
+    vertical-align: center;
+        }
+    }
+
+}
+
+
+
 
 .softwaredev{
     background-image: url('../../../images/services/computer.png');
