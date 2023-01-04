@@ -43,6 +43,7 @@
     }
 
     .mainHolder {
+
       position: absolute;
       top: 0vh;
       @include mixins.flex(column);
@@ -141,6 +142,7 @@
     }
     @media screen and (min-width: 1201px) {
       right: calc(9vw + 5rem);
+
     }
 
     span {
@@ -161,10 +163,11 @@
     100% {
       opacity: 1;
     }
+
   }
   @keyframes glide-up {
     100% {
       transform: translate(0px, 0px);
     }
   }
-}
+

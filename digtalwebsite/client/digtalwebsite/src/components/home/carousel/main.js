@@ -8,6 +8,7 @@ import slideThree from "src/assets/images/carousel/noir13.jpg";
 import slideFive from "src/assets/images/carousel/noir15.jpg";
 import { useTranslation } from "react-i18next";
 
+
 export default function SwiperCarousel() {
   const slides = React.useRef([]);
   const buttons = React.useRef([]);
@@ -87,6 +88,7 @@ export default function SwiperCarousel() {
 
   return (
     <div id="home-carousel">
+
       <div
         className="mySlide"
         ref={element => {
@@ -182,5 +184,5 @@ export default function SwiperCarousel() {
         />
       </div>
     </div>
-  );
+  
 }
