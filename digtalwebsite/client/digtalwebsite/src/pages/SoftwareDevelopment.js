@@ -5,20 +5,24 @@ import ListServiceSection from "../components/services/software_development/List
 
 const containerVariants = {
   hidden: {
-    x: -200
+    x: -40,
+    scale: 2
   },
   visible: {
-    x: "60%",
-    transition: { type: "tween", delay: 0.5, duration: 1.5 }
+    x: 78.5,
+    scale: 2,
+    transition: { type: "tween", delay: 1, duration: 2 }
   }
 };
 const nextVariants = {
   hidden: {
-    x: 200
+    x: 40,
+    scale: 2
   },
   visible: {
-    x: "-40%",
-    transition: { type: "tween", delay: 0.5, duration: 1.5 }
+    x: -83,
+    scale: 2,
+    transition: { type: "tween", delay: 1, duration: 2 }
   }
 };
 const subTextVariants = {
@@ -120,10 +124,26 @@ const SoftwareDevelopment = () => {
           </div>
         </div> */}
         <div className="left">
-          <div className="text">left</div>
+          <div className="text">
+            <motion.p
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              Software Development
+            </motion.p>
+          </div>
         </div>
         <div className="right">
-          <div className="text">right</div>
+          <div className="text">
+            <motion.p
+              variants={nextVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              Software Development
+            </motion.p>
+          </div>
         </div>
       </div>
 

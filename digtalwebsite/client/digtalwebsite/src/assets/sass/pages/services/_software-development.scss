@@ -31,6 +31,11 @@ $background-color:rebeccapurple;
                     text-align: right;
                     background-color: #fff;
                     color: #000;
+                    // margin-left: -17.5px;
+                    overflow: hidden;
+                    @include makeHeading(black);
+                    @include mixins.size(300%, 300%);
+                   
                 }
        
 }
@@ -41,8 +46,11 @@ $background-color:rebeccapurple;
             justify-content: flex-start;
 .text {
    text-align: left;
-background-color: #fff;
+background-color: yellow;
     color: #000;
+    // margin-left: -17.5px;
+    overflow: hidden;
+    @include makeHeading(black)
     }
     }
 
