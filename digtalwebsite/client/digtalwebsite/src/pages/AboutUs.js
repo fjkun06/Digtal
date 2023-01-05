@@ -33,7 +33,7 @@ const team = [
 export default function AboutUs() {
   const { t } = useTranslation("about");
   return (
-    <Grid columns={1} className="about  backdrop-blur-[10px]">
+    <Grid className="about backdrop-blur-[10px]">
       <Stack
         direction="column"
         justifyContent="center"
@@ -184,7 +184,7 @@ export default function AboutUs() {
 
       {/* Team Section starts here */}
       <Box className="bg-[rebeccapurple]/30">
-        <Stack className="container mx-auto gap-12 tablet:max-w-[480px] laptop:max-w-screen-tablet laptop:gap-24 desktop:max-w-screen-laptop">
+        <Stack className="container mx-auto space-y-12 laptop:gap-24">
           <Typography
             variant="h2"
             component="h3"
@@ -193,7 +193,7 @@ export default function AboutUs() {
             Meet our <br />
             Stunning Team
           </Typography>
-          <Box className="mx-auto grid grid-cols-2 place-content-center gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-0 laptop:grid-cols-4 laptop:gap-12">
+          <Box className="mx-auto grid grid-cols-2 gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-0 laptop:grid-cols-4 laptop:gap-12">
             {team.map((member, index) => (
               <TeamCard
                 key={index}
