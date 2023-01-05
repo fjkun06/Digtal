@@ -7,6 +7,7 @@
   @include mixins.size(auto);
   row-gap: 3rem;
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 
   @media only screen and (min-width: 600.1px) {
     row-gap: 0rem;

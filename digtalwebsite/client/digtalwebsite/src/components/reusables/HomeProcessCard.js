@@ -1,8 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const HomeProcessCard = ({ position, moon, moonBlue, separator,text }) => {
-  const {t} = useTranslation('home')
+export const HomeProcessCard = ({
+  position,
+  moon,
+  moonBlue,
+  separator,
+  text
+}) => {
+  const { t } = useTranslation("home");
   return (
     <div
       className={
@@ -11,16 +17,15 @@ export const HomeProcessCard = ({ position, moon, moonBlue, separator,text }) =>
           : "home__magic--card"
       }
     >
-      <div className="icon">
-        {separator && (
+      {separator && (
+        <div className="icon">
           <span>
             <img src={separator} alt="moon" />
           </span>
-        )}
-      </div>
-      <div className="text">
-      {t(text)}
-      </div>
+        </div>
+      )}
+
+      <div className="text">{t(text)}</div>
       <div className="moon">
         <span>
           <img src={moon} alt="moon" />
