@@ -13,31 +13,35 @@ import consult from "src/assets/images/services/home/consult.jpg";
 
 export const homeServices600 = [
   {
-    img: [develop600,develop],
+    img: [develop600, develop],
     icon: <GlobeIcon />,
     text: "services.software",
     title: "subject.op2",
-    position: "right"
+    position: "right",
+    route: "software-development"
   },
   {
-    img: [marketing600,marketing],
+    img: [marketing600, marketing],
     icon: <GraphIcon />,
     text: "services.marketing",
     title: "subject.op3",
-    position: "left"
+    position: "left",
+    route: "digital-marketing"
   },
   {
-    img: [consult600,consult],
+    img: [consult600, consult],
     icon: <SnowIcon />,
     text: "services.consulting",
     title: "subject.op4",
-    position: "right"
+    position: "right",
+    route: "consulting"
   },
   {
-    img: [design600,design],
+    img: [design600, design],
     icon: <PaintIcon />,
     text: "services.design",
     title: "subject.op1",
-    position: "left"
+    position: "left",
+    route: "ui-ux-design"
   }
 ];

@@ -272,7 +272,17 @@
         @media only screen and (min-width: 600.1px) {
           grid-row: 6/7;
           grid-column: 1/2;
-          transform: scale(-1, -1);
+          // transform: scale(-1, -1);
+          transform: translate(-5rem,0);
+        }
+
+        @media only screen and (min-width: 960.1px) {
+          transform: translate(-7rem,0);
+        
+        }
+        @media only screen and (min-width: 1200.1px) {
+          transform: translate(-8rem,0);
+        
         }
       }
     }

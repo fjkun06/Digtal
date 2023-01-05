@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import ArrowIcon from "src/assets/svg/ArrowIcon";
-export const HomeServiceCard = ({ img, icon, title, text, position }) => {
+export const HomeServiceCard = ({ img, icon, title, text, position,route }) => {
   const { t } = useTranslation(["home", "form"]);
+  const navigate = useNavigate();
 
   return (
     <div
@@ -22,7 +24,7 @@ export const HomeServiceCard = ({ img, icon, title, text, position }) => {
           <div className="text">{t(text)}</div>
         </div>
       </div>
-      <div className="home__service--card-arrow">
+      <div className="home__service--card-arrow" onClick={() => navigate(route)}>
         <div className="home__service--card-arrow-one">
           <ArrowIcon />
         </div>
