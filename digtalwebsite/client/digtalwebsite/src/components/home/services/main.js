@@ -1,19 +1,22 @@
-import ServicesLayout from "./layout";
-import Title from "./title";
-import { ConsultingSection,DesignSection,MarketingSection,WebSection } from "./makeservice";
+import HomeServiceCard from "src/components/reusables/HomeServiceCard";
+import { homeServices600 } from "./config";
+import HomeHeading from "src/components/reusables/HomeHeading";
 
-export default function ServiceSection(){
+export default function ServiceSection() {
+  return (
+    <div className="home__service">
+      <HomeHeading section={"service"} />
 
-    return (
-
-        <ServicesLayout>
-            <Title text="DIVE INTO A MULTITUDE OF SOLUTIONS"/>
-            <WebSection />
-            <MarketingSection />
-            <ConsultingSection />
-            <DesignSection />
-        </ServicesLayout>
-
-    )
-
+      {homeServices600.map(({ img, icon, text, title,position }) => (
+        <HomeServiceCard
+          img={img}
+          icon={icon}
+          text={text}
+          title={title}
+          key={title}
+          position={position}
+        />
+      ))}
+    </div>
+  );
 }
