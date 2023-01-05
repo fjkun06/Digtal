@@ -6,6 +6,7 @@
   @include mixins.flex(column);
   @include mixins.size(auto);
   row-gap: 3rem;
+  padding-top: 1.5rem;
 
   &--card {
     @include mixins.grid;
@@ -35,11 +36,11 @@
       img {
         @include mixins.size(100%);
         object-fit: cover;
-        transition: transform 0.5s linear;
+        transition: transform 0.5s ease-in-out;
         // transition: transform 0.75s ease-in-out;
 
         &:hover {
-          transform: scale(1.75);
+          transform: scale(1.35);
         }
       }
     }
