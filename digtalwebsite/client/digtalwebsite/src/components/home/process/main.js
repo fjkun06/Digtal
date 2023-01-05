@@ -2,6 +2,7 @@ import HomeHeading from "src/components/reusables/HomeHeading";
 import { homeProcess } from "./config";
 import { HomeProcessCard } from "src/components/reusables/HomeProcessCard";
 
+
 export default function ProcessSection({ position }) {
   return (
     <div className="home__magic">
@@ -18,6 +19,7 @@ export default function ProcessSection({ position }) {
           />
         )
       )}
+
     </div>
   );
 }

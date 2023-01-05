@@ -35,3 +35,21 @@ export const HomeProcessCard = ({
     </div>
   );
 };
+
+const HomeProcessCardMini = ({ moon, moonBlue, text }) => {
+  const { t } = useTranslation("home");
+
+  return (
+    <div className={"leftmagic home__magic--card"}>
+      <div className="text">{t(text)}</div>
+      <div className="moon">
+        <span>
+          <img src={moon} alt="moon" />
+          <img src={moonBlue} alt="moon" />
+        </span>
+      </div>
+    </div>
+  );
+};
+
+export default HomeProcessCardMini;
