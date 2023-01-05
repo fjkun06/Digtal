@@ -9,7 +9,7 @@
   padding-top: 1.5rem;
 
   @media only screen and (min-width: 600.1px) {
-    row-gap: 5rem;
+    row-gap: 0rem;
     padding-top: 2.5rem;
   }
   @media only screen and (min-width: 1200.1px) {
@@ -53,6 +53,7 @@
     & > * {
       @include mixins.size(100%);
     }
+    /***************************************Card Imagee**********************************/
 
     &-image {
       background-color: rgb(37, 207, 34);
@@ -85,12 +86,17 @@
 
         &:hover {
           transform: scale(1.35);
+          @media only screen and (min-width: 600.1px) {
+            transform: scale(1.15);
+          }
           @media only screen and (min-width: 1200.1px) {
             transform: scale(1.25);
           }
         }
       }
     }
+    /***************************************Card Text + Icon**********************************/
+
     &-subcard {
       @media only screen and (min-width: 600.1px) {
         @include mixins.size(100%, 82%);
@@ -193,6 +199,41 @@
         }
       }
     }
+
+    /***************************************Arrow**********************************/
+    &-arrow {
+      cursor: pointer;
+      stroke: #663399;
+      @include mixins.flex;
+      justify-content: flex-end;
+      @media only screen and (min-width: 600.1px) {
+        grid-row: 6/7;
+        grid-column: 7/8;
+      }
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+
+      &-one {
+        margin-right: -1rem;
+        @media only screen and (min-width: 1200.1px) {
+          filter: drop-shadow(0 0 1mm white);
+        }
+      }
+      &-two {
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+        @media only screen and (min-width: 1200.1px) {
+          filter: drop-shadow(0 0 1mm white);
+        }
+      }
+
+      &:hover {
+        .home__service--card-arrow-two {
+          opacity: 1;
+        }
+      }
+    }
   }
 }
 // }
@@ -224,6 +265,14 @@
 
           max-width: none;
           margin-left: 0rem;
+        }
+      }
+
+      &-arrow {
+        @media only screen and (min-width: 600.1px) {
+          grid-row: 6/7;
+          grid-column: 1/2;
+          transform: scale(-1, -1);
         }
       }
     }

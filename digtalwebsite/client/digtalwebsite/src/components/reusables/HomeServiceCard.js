@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import ArrowIcon from "src/assets/svg/ArrowIcon";
 export const HomeServiceCard = ({ img, icon, title, text, position }) => {
   const { t } = useTranslation(["home", "form"]);
 
@@ -19,6 +20,14 @@ export const HomeServiceCard = ({ img, icon, title, text, position }) => {
         <div className="mini-card">
           <div className="title">{t(title, { ns: "form" })}</div>
           <div className="text">{t(text)}</div>
+        </div>
+      </div>
+      <div className="home__service--card-arrow">
+        <div className="home__service--card-arrow-one">
+          <ArrowIcon />
+        </div>
+        <div className="home__service--card-arrow-two">
+          <ArrowIcon />
         </div>
       </div>
     </div>
