@@ -8,6 +8,19 @@
   row-gap: 3rem;
   padding-top: 1.5rem;
 
+  @media only screen and (min-width: 600.1px) {
+    row-gap: 5rem;
+    padding-top: 2.5rem;
+  }
+  @media only screen and (min-width: 1200.1px) {
+    row-gap: 5rem;
+    padding-top: 3.5rem;
+  }
+
+  & > * {
+    color: #2b0a3d;
+  }
+
   &--card {
     @include mixins.grid;
     grid-template-rows: repeat(7, 1fr);
@@ -22,7 +35,6 @@
       grid-template-columns: repeat(7, 1fr);
       @include mixins.size(calc(100% - 15vw), calc(24rem + 15vw));
       box-shadow: none;
-      row-gap: -1rem;
 
       // background-color: #000;
     }
@@ -30,9 +42,8 @@
     @media only screen and (min-width: 1200.1px) {
       grid-template-rows: repeat(6, 1fr);
       grid-template-columns: repeat(7, 1fr);
-      @include mixins.size(calc(100% - 15vw), calc(24rem + 15vw));
+      @include mixins.size(calc(100% - 22.5vw), calc(24rem + 18vw));
       box-shadow: none;
-
       // background-color: #000;
     }
 
@@ -52,21 +63,31 @@
       @media only screen and (min-width: 600.1px) {
         grid-row: 3/7;
         grid-column: 1/6;
-        // max-width: 407px;
-        // max-width: 507px;
+      }
 
+      @media only screen and (min-width: 1200.1px) {
+        grid-row: 1/7;
+        grid-column: 1/7;
+        @include mixins.size(90%, 100%);
       }
       @include mixins.flex;
       overflow: hidden;
 
-      img {
+      img,
+      picture,
+      source {
         @include mixins.size(100%);
         object-fit: cover;
         transition: transform 0.5s ease-in-out;
-        // transition: transform 0.75s ease-in-out;
+        @media only screen and (min-width: 1200.1px) {
+          transition: transform 0.75s ease-in-out;
+        }
 
         &:hover {
           transform: scale(1.35);
+          @media only screen and (min-width: 1200.1px) {
+            transform: scale(1.25);
+          }
         }
       }
     }
@@ -80,6 +101,15 @@
         grid-row: 1/5;
         grid-column: 3/8;
       }
+
+      @media only screen and (min-width: 1200.1px) {
+        margin-top: 0rem;
+        @include mixins.size(88.5%, 89%);
+        grid-row: 2/6;
+        grid-column: 3/8;
+        max-width: none;
+        margin-left: 9.75rem;
+      }
       z-index: 2;
       & > * {
         @include mixins.size(100%, 85%);
@@ -88,7 +118,7 @@
       // background-color: rgb(157, 69, 69);
       grid-row: 5/8;
       grid-column: 1/2;
-    
+
       padding: 0.5rem 2.5rem;
       @include mixins.grid;
       grid-template-columns: repeat(9, 1fr);
@@ -101,10 +131,19 @@
         @include mixins.flex;
         padding: 0.5rem 0rem;
         padding-right: 2.5rem;
+        @media only screen and (min-width: 1200.1px) {
+          padding-right: 0.5rem;
+        }
 
         span {
           svg {
             @include mixins.size(calc(4rem + 2.25vw));
+            @media only screen and (min-width: 600.1px) {
+              @include mixins.size(calc(5.75rem + 2.3vw));
+            }
+            @media only screen and (min-width: 1200.1px) {
+              @include mixins.size(calc(7rem + 2.3vw));
+            }
             stroke-width: 0.25;
             color: #000;
             stroke: #fff;
@@ -114,13 +153,17 @@
 
       .mini-card {
         padding: 0.5rem 1rem;
-      // @media only screen and (min-width: 960.1px) and (max-width: 1199.9px) {
-      //   padding: 0.5rem 1.5rem;
-      
-      // }
+        @media only screen and (min-width: 1200.1px) {
+          padding: 0.5rem 20px;
+        }
         padding-left: 0;
         background-color: #fff;
-
+        @media only screen and (min-width: 600.1px) {
+          row-gap: 1rem;
+        }
+        @media only screen and (min-width: 1200.1px) {
+          row-gap: 1rem;
+        }
         grid-row: 1/2;
         grid-column: 3/10;
         // @media only screen and (min-width: 600.1px) {
@@ -160,16 +203,27 @@
       &-image {
         @media only screen and (min-width: 600.1px) {
           grid-row: 3/7;
-          // grid-column: 1/6;
           grid-column: 3/8;
+        }
+        @media only screen and (min-width: 1200.1px) {
+          grid-row: 1/7;
+          grid-column: 2/8;
+          margin-left: 9.75rem;
         }
       }
       &-subcard {
         @media only screen and (min-width: 600.1px) {
           grid-row: 1/5;
           grid-column: 1/6;
+        }
+        @media only screen and (min-width: 1200.1px) {
+          margin-top: 0rem;
+          @include mixins.size(88.5%, 89%);
+          grid-row: 2/6;
+          grid-column: 1/6;
 
-          // grid-column: 3/8;
+          max-width: none;
+          margin-left: 0rem;
         }
       }
     }
