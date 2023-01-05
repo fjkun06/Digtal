@@ -22,6 +22,16 @@
       grid-template-columns: repeat(7, 1fr);
       @include mixins.size(calc(100% - 15vw), calc(24rem + 15vw));
       box-shadow: none;
+      row-gap: -1rem;
+
+      // background-color: #000;
+    }
+
+    @media only screen and (min-width: 1200.1px) {
+      grid-template-rows: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
+      @include mixins.size(calc(100% - 15vw), calc(24rem + 15vw));
+      box-shadow: none;
 
       // background-color: #000;
     }
@@ -42,6 +52,9 @@
       @media only screen and (min-width: 600.1px) {
         grid-row: 3/7;
         grid-column: 1/6;
+        // max-width: 407px;
+        // max-width: 507px;
+
       }
       @include mixins.flex;
       overflow: hidden;
@@ -60,7 +73,12 @@
     &-subcard {
       @media only screen and (min-width: 600.1px) {
         @include mixins.size(100%, 82%);
+        // max-width: 507px;
+        max-width: 657px;
         box-shadow: 2px 20px 40px 10px rgba(#883399, 0.125);
+        margin-top: 6rem;
+        grid-row: 1/5;
+        grid-column: 3/8;
       }
       z-index: 2;
       & > * {
@@ -70,10 +88,7 @@
       // background-color: rgb(157, 69, 69);
       grid-row: 5/8;
       grid-column: 1/2;
-      @media only screen and (min-width: 600.1px) {
-        grid-row: 1/5;
-        grid-column: 3/8;
-      }
+    
       padding: 0.5rem 2.5rem;
       @include mixins.grid;
       grid-template-columns: repeat(9, 1fr);
@@ -99,24 +114,29 @@
 
       .mini-card {
         padding: 0.5rem 1rem;
+      // @media only screen and (min-width: 960.1px) and (max-width: 1199.9px) {
+      //   padding: 0.5rem 1.5rem;
+      
+      // }
         padding-left: 0;
         background-color: #fff;
 
         grid-row: 1/2;
         grid-column: 3/10;
         // @media only screen and (min-width: 600.1px) {
-          @include mixins.flex(column);
-          align-items:flex-start;
+        @include mixins.flex(column);
+        align-items: flex-start;
         // }
 
         .text {
           background-color: rgb(255, 255, 255);
 
-          font-size: calc(0.5rem + 1.175vw);
+          font-size: calc(0.5rem + 1.05vw);
           font-family: "Prompt", sans-serif;
           overflow: hidden;
           width: -moz-fit-content;
           width: fit-content;
+          // word-spacing: -.4ch;
         }
 
         .title {
@@ -126,9 +146,36 @@
           font-family: "Prompt", sans-serif;
           padding-bottom: 0.25rem;
           width: max-content;
+          // word-spacing: 4px;
         }
       }
     }
   }
 }
 // }
+
+@mixin leftAligned {
+  .home__service {
+    &--card {
+      &-image {
+        @media only screen and (min-width: 600.1px) {
+          grid-row: 3/7;
+          // grid-column: 1/6;
+          grid-column: 3/8;
+        }
+      }
+      &-subcard {
+        @media only screen and (min-width: 600.1px) {
+          grid-row: 1/5;
+          grid-column: 1/6;
+
+          // grid-column: 3/8;
+        }
+      }
+    }
+  }
+}
+
+.left {
+  @include leftAligned;
+}

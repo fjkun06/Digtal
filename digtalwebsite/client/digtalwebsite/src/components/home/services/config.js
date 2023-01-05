@@ -1,4 +1,3 @@
-
 import GlobeIcon from "src/assets/svg/GlobeIcon";
 import SnowIcon from "src/assets/svg/SnowIcon";
 import GraphIcon from "src/assets/svg/GraphIcon";
@@ -11,26 +10,30 @@ import consult600 from "src/assets/images/services/home/consult600.jpg";
 export const homeServices600 = [
   {
     img: develop600,
-    icon: <GlobeIcon/>,
+    icon: <GlobeIcon />,
     text: "services.software",
-    title: "subject.op2"
+    title: "subject.op2",
+    position: "right"
   },
   {
     img: marketing600,
-    icon: <GraphIcon/>,
+    icon: <GraphIcon />,
     text: "services.marketing",
-    title: "subject.op3"
+    title: "subject.op3",
+    position: "left"
   },
   {
     img: consult600,
-    icon: <SnowIcon/>,
+    icon: <SnowIcon />,
     text: "services.consulting",
-    title: "subject.op4"
+    title: "subject.op4",
+    position: "right"
   },
   {
     img: design600,
-    icon: <PaintIcon/>,
+    icon: <PaintIcon />,
     text: "services.design",
-    title: "subject.op1"
+    title: "subject.op1",
+    position: "left"
   }
 ];

@@ -7,13 +7,14 @@ export default function ServiceSection() {
     <div className="home__service">
       <HomeHeading section={"service"} />
 
-      {homeServices600.map(({ img, icon, text, title }) => (
+      {homeServices600.map(({ img, icon, text, title,position }) => (
         <HomeServiceCard
           img={img}
           icon={icon}
           text={text}
           title={title}
           key={title}
+          position={position}
         />
       ))}
     </div>
