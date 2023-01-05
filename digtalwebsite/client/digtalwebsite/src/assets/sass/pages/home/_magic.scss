@@ -1,0 +1,120 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+
+.home__magic {
+  @include mixins.flex(column);
+  @include mixins.size(auto);
+  background: url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg"), rgba(255, 255, 255, 1);
+  // background: rgb(255, 255, 255), url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
+  row-gap: 3rem;
+  padding-top: 3rem;
+
+  @media only screen and (min-width: 600.1px) {
+    row-gap: 0rem;
+    padding-top: 2.5rem;
+  }
+  @media only screen and (min-width: 1200.1px) {
+    row-gap: 5rem;
+    padding-top: 3.5rem;
+  }
+
+  &--card {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0.5rem 1rem;
+    @include mixins.grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    @include mixins.size(100%, calc(8rem + 24vw));
+    & > * {
+      @include mixins.flex;
+      @include mixins.size(100%);
+    }
+
+    .moon {
+      stroke: #663399;
+      grid-row: 1/6;
+      grid-column: 1/3;
+      margin-top: -2.5rem;
+      padding-right: 0.5rem;
+      // grid-column: 7/9;
+
+      span {
+        @include mixins.size(70px);
+
+        position: relative;
+        img {
+          position: absolute;
+          &:nth-child(1) {
+            // display: none;
+            z-index: 2;
+            background-color: #fff;
+            opacity: 1;
+            transition: opacity 0.25s ease-in-out;
+
+            &:hover {
+              opacity: 0;
+            }
+          }
+          &:nth-child(2) {
+            // display: none;
+            z-index: 1;
+          }
+        }
+      }
+    }
+    .icon {
+      stroke: #000;
+      grid-row: 6/9;
+      grid-column: 1/9;
+      margin-bottom: -2.35rem;
+      span {
+        @include mixins.size(50px);
+      }
+    }
+
+    .text {
+      font-size: calc(1rem + 1.1vw);
+      font-family: "Prompt", sans-serif;
+      overflow: hidden;
+      width: -moz-fit-content;
+      width: fit-content;
+      grid-row: 1/6;
+      grid-column: 3/9;
+      // grid-column: 1/7;
+      line-height: 23px;
+      text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+      font-style: normal;
+      font-weight: 500;
+      padding-right: 0.25rem;
+      background-color: rgba(#fff,0.05);
+    }
+  }
+}
+
+@mixin leftAlignedMagic {
+  .moon {
+    grid-column: 7/9;
+
+    @media only screen and (min-width: 600.1px) {
+    }
+    @media only screen and (min-width: 1200.1px) {
+    }
+  }
+  .text {
+    grid-column: 1/7;
+    padding-right: 0rem;
+
+    padding-left: 1rem;
+
+    @media only screen and (min-width: 600.1px) {
+    }
+    @media only screen and (min-width: 1200.1px) {
+    }
+  }
+}
+
+.leftmagic {
+  @include leftAlignedMagic;
+}

@@ -13,7 +13,7 @@ export const HomeServiceCard = ({ img, icon, title, text, position,route }) => {
     >
       <div className="home__service--card-image">
         <picture>
-          <source media="(min-width:480.01px)" srcset={img[1]} />
+          <source media="(min-width:480.01px)" srcSet={img[1]} />
           <img src={img[0]} alt="Service" />
         </picture>
       </div>

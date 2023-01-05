@@ -2,6 +2,7 @@
 @use "../../util/mixins";
 @use "carousel";
 @use "services";
+@use "magic";
 
 @keyframes fade-in-out {
   10% {
