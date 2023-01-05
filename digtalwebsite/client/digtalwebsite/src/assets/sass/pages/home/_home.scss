@@ -3,8 +3,6 @@
 @use "carousel";
 @use "services";
 
-
-
 @keyframes fade-in-out {
   10% {
     opacity: 1;
@@ -16,5 +14,34 @@
 @keyframes glide-up {
   100% {
     transform: translate(0px, 0px);
+  }
+}
+
+.home__heading {
+  // border: 3px solid red;
+  width: 100%;
+  @include mixins.flex;
+  span {
+    font-family: "Prompt", sans-serif;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: #fff;
+    height: 100%;
+    position: relative;
+    font-size: calc(1rem + 1vw);
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 115%;
+      left: calc((100% - 40%) / 2);
+      @include mixins.size(40%, 3px);
+
+      @media screen and (min-width: 768px) {
+        left: calc((100% - 35%) / 2);
+        @include mixins.size(35%, 3px);
+      }
+      background: var(--navbar-bb-light);
+    }
   }
 }

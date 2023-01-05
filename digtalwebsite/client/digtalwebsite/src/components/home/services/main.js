@@ -1,12 +1,11 @@
 import HomeServiceCard from "src/components/reusables/HomeServiceCard";
 import { homeServices600 } from "./config";
+import HomeHeading from "src/components/reusables/HomeHeading";
 
 export default function ServiceSection() {
   return (
     <div className="home__service">
-      <div className="home__heading">
-        {/* <span>'{t("solution")}'</span> */}
-      </div>
+      <HomeHeading section={"service"} />
 
       {homeServices600.map(({ img, icon, text, title }) => (
         <HomeServiceCard
