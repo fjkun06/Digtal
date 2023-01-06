@@ -6,16 +6,22 @@ import { useState } from "react";
 
 export default function ProcessSection() {
   const modalStyled = {
-    zIndex: "2",
+    zIndex: "3",
     opacity: "1"
   };
-  const modalNormal = {opacity: "0",zIndx: "0"};
+  const modalNormal = {opacity: "0",zIndex: "1"};
   const max1200 = useMediaQuery("(min-width: 1200.1px)");
   // const [state, setState] = useState(modalStyle);
   const [state, setState] = useState({opacity: "0",zIndx: "0"});
-  function toggleModal() {
-    setState( state => state.opacity === "0" ? modalStyled : modalNormal)
-    console.log("Toggling modal")
+  function toggleModalOn() {
+    setState(modalStyled)
+    console.log("entered")
+    requestAnimationFrame(toggleModalOn)
+  }
+  function toggleModalOff() {
+    setState( modalNormal)
+    requestAnimationFrame(toggleModalOff)
+
   }
 
   return (
@@ -30,7 +36,8 @@ export default function ProcessSection() {
             moonBlue={moonBlue}
             separator={separator}
             text={text}
-            toggle={toggleModal}
+            toggleOn={toggleModalOn}
+            toggleOff={toggleModalOff}
           />
         )
       )}

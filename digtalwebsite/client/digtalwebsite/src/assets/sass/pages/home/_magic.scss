@@ -2,32 +2,58 @@
 @use "../../util/mixins";
 
 @mixin hoveredEffect {
-  z-index: 2;
   &:hover {
     z-index: 5;
-    .icon {
-      z-index: 1;
+
+    .text,
+    .moon {
+      z-index: 5;
     }
   }
 }
 
 @mixin left1200 {
+  transition: all 0.25s ease-in-out;
+  // transition: all 0.25s ease-in-out;
+  & > * {
+    transition: all 0.25s ease-in-out;
+    // transition: all 0.25s ease-in-out;
+  }
   .moon {
-    margin-left: 1.5vw;
+    // margin-left: 1.5vw;
+    // margin-right: 4rem;
+    span {
+      justify-content: flex-end;
+      display: flex;
+      margin-right: -2vw;
+    }
   }
 
   .text {
-    margin-left: 4rem;
+    // margin-left: 4rem;
+    // padding-left: 4rem;
   }
 }
 
 @mixin right1200 {
+  transition: all 0.25s ease-in-out;
+  // transition: all 0.25s ease-in-out;
+  & > * {
+    transition: all 0.25s ease-in-out;
+    // transition: all 0.25s ease-in-out;
+  }
   .moon {
-    margin-left: 0.05vw;
+    // margin-left: -0.5vw;
+    margin-left: 3vw;
+
+    span {
+      justify-content: flex-start;
+      display: flex;
+    }
   }
 
   .text {
-    margin-left: 1.7rem;
+    // margin-left: 1.7rem;
   }
 }
 
@@ -61,7 +87,7 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 0rem;
     background: url("../../../svg/home/vector3.svg"), url("../../../svg/home/vector4.svg"), url("../../../svg/home/vector5.svg"), rgba(255, 255, 255, 1);
-    background-position: 47% 25%, 84% 57%, 50.5% 89%;
+    background-position: 51% 28%, 81.5% 60%, 51% 91%;
     background-repeat: no-repeat, no-repeat, no-repeat;
     padding-bottom: 5rem;
 
@@ -70,11 +96,26 @@
         grid-row: 1/2;
         grid-column: 1/3;
       }
+      &:nth-child(2):hover {
+        // z-index: 5;
+
+        .text,
+        .moon {
+          z-index: 5;
+        }
+      }
       &:nth-child(2) {
-        @include hoveredEffect;
+        // @include hoveredEffect;
+        // z-index: 1;
+        transition: all 0.25s ease-in-out;
+        // transition: all 0.25s ease-in-out;
+        & > * {
+          transition: all 0.25s ease-in-out;
+          // transition: all 0.25s ease-in-out;
+        }
         grid-row: 4/7;
         grid-column: 1/2;
-        margin-left: calc(6rem + 2vw);
+        margin-left: calc(10rem + 2vw);
         @include left1200;
 
         // margin-left: calc(9rem);
@@ -100,9 +141,11 @@
         @include hoveredEffect;
         grid-row: 13/16;
         grid-column: 1/2;
+        grid-row: 13/16;
+        grid-column: 2/3;
         // margin-left: 9rem;
-        margin-left: calc(6rem + 2vw);
-        @include left1200;
+        @include right1200;
+        margin-left: 4.75rem;
 
         // .moon,.text{
         transition: transform 0.5s ease-in-out;
@@ -124,9 +167,11 @@
       &:nth-child(5) {
         @include hoveredEffect;
         grid-row: 13/16;
-        grid-column: 2/3;
-        margin-left: 4.75rem;
+        grid-column: 1/2;
         transition: transform 0.5s ease-in-out;
+        @include left1200;
+        margin-left: calc(10rem + 2vw);
+
         // z-index: 10;
         // transform: scale(calc(1.5)) translate(10%, -20%);
         // .text{
@@ -135,14 +180,13 @@
         //   max-width: 70%;
         //   line-height: normal;
         // }
-        @include right1200;
       }
       // &:nth-child(1) {
       // }
     }
   }
   &--card {
-    border: 3px solid red;
+    // border: 3px solid red;
     position: relative;
     margin-top: -1.5rem;
     background-color: rgba(255, 255, 255, 0);
@@ -177,6 +221,7 @@
 
     .moon {
       stroke: #663399;
+      // background-color: #000;
       grid-row: 1/6;
       grid-column: 1/3;
       @media only screen and (min-width: 768.1px) {
@@ -186,15 +231,16 @@
       @media only screen and (min-width: 1200.1px) {
         grid-column: 1/3;
         max-height: 100%;
+        z-index: 2;
       }
-      margin-top: -2.5rem;
       padding-right: 0.5rem;
       // grid-column: 7/9;
 
       span {
         @include mixins.size(calc(5rem + 4.25vw));
         @media only screen and (min-width: 768.1px) {
-          @include mixins.size(10rem);
+          @include mixins.size(100%);
+          margin-top: 1rem;
         }
         // @include mixins.size(70px);
 
@@ -244,6 +290,8 @@
         left: 0vw;
         max-width: 75px;
         max-height: 75px;
+        z-index: 1;
+
         // top: 0;
       }
     }
@@ -277,12 +325,17 @@
       @media only screen and (min-width: 1200.1px) {
         max-width: 100%;
         max-height: 100%;
+        z-index: 2;
 
         // width: 90%;
         grid-row: 1/2;
         grid-column: 3/9;
         word-spacing: normal;
-        margin-left: 2rem;
+
+        //lefties
+        margin-left: 0rem;
+        padding-right: 1vw;
+        padding-left: 3vw;
       }
 
       // grid-column: 1/7;
@@ -313,7 +366,10 @@
 
       // opacity: 1;
 
-      transition: opacity 0.05s ease-in-out, z-index 0.05s ease-in-out;
+      // transition: opacity 5s ease-in-out, z-index 5s ease-in-out;
+      transition: all 0.25s ease-in-out;
+
+      // transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
 
       // filter: blur(5px);
     }
