@@ -9,19 +9,18 @@ export default function ProcessSection() {
     zIndex: "3",
     opacity: "1"
   };
-  const modalNormal = {opacity: "0",zIndex: "1"};
-  const max1200 = useMediaQuery("(min-width: 1200.1px)");
+  const modalNormal = { opacity: "0", zIndex: "1" };
+  const max1500 = useMediaQuery("(min-width: 1500.1px)");
   // const [state, setState] = useState(modalStyle);
-  const [state, setState] = useState({opacity: "0",zIndx: "0"});
+  const [state, setState] = useState({ opacity: "0", zIndx: "0" });
   function toggleModalOn() {
-    setState(modalStyled)
-    console.log("entered")
-    requestAnimationFrame(toggleModalOn)
+    setState(modalStyled);
+    console.log("entered");
+    requestAnimationFrame(toggleModalOn);
   }
   function toggleModalOff() {
-    setState( modalNormal)
-    requestAnimationFrame(toggleModalOff)
-
+    setState(modalNormal);
+    requestAnimationFrame(toggleModalOff);
   }
 
   return (
@@ -42,7 +41,7 @@ export default function ProcessSection() {
         )
       )}
 
-      {max1200 && (
+      {max1500 && (
         <div className="home__magic--modal" style={state}>
           {/* <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
             <filter id="blurMe">

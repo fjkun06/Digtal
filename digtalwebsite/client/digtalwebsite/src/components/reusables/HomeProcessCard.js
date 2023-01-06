@@ -12,12 +12,12 @@ export const HomeProcessCard = ({
   toggleOn
 }) => {
   const { t } = useTranslation("home");
-  const max1200 = useMediaQuery("(min-width: 1200.1px)");
+  const max1500 = useMediaQuery("(min-width: 1500.1px)");
 
   return (
     <div
       className={
-        position === "left" && !max1200
+        position === "left" && !max1500
           ? "leftmagic home__magic--card"
           : "home__magic--card"
       }
