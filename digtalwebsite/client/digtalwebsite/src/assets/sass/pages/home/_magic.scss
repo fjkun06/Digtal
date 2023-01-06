@@ -12,9 +12,29 @@
   }
 }
 
+$hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5% -30% "bottomleft", -75% -43% -15% -30% "bottomright";
+
+@each $mx ,$my, $tx, $ty, $suffix in $hover-list{
+  @keyframes animatetext-#{$suffix} {
+    100% {
+      transform: scale(1.25) translate(-15%, -30%);
+      transform: scale(1.25) translate(19%, 28%);
+      font-weight: 600;
+     
+    }
+  }
+
+  @keyframes animatemoon-#{$suffix} {
+    100% {
+      transform: scale(1.75) translate(-75%, -43%);
+    }
+  }
+}
+
 @keyframes animatemoon {
   100% {
     transform: scale(1.75);
+    // transform: scale(1.75) translate(-75%, -43%);
   }
 }
 @keyframes animatespan {
@@ -24,12 +44,10 @@
 }
 @keyframes animatetext {
   100% {
-    transform: scale(1.25) translate(18%, 18%);
-    // font-size: 1.35rem;
+    transform: scale(1.25) translate(-15%, -30%);
+    transform: scale(1.25) translate(19%, 28%);
     font-weight: 600;
-    // padding-right: 5vw;
-    // line-height: 25px;
-    // width: 92%;
+   
   }
 }
 
@@ -176,8 +194,9 @@
             span {
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
             }
-            // transform: scale(1.75);
+            
             animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
+            // animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
             // transform: scale(1.5) translate(23%, 18%);
