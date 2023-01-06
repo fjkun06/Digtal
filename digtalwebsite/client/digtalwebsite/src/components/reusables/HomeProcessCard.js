@@ -21,8 +21,7 @@ export const HomeProcessCard = ({
           ? "leftmagic home__magic--card"
           : "home__magic--card"
       }
-      onMouseEnter={toggleOn}
-      onMouseLeave={toggleOff}
+      
     >
       {separator && (
         <div className="icon">
@@ -32,13 +31,17 @@ export const HomeProcessCard = ({
         </div>
       )}
 
-      <div className="text" onMouseEnter={toggleOn} >
+      <div className="text" onMouseEnter={toggleOn} onMouseLeave={toggleOff}>
         {t(text)}
       </div>
-      <div className="moon" >
+      <div className="moon" onMouseLeave={toggleOff} onMouseEnter={toggleOn}>
         <span>
           <img src={moon} alt="moon" />
-          <img src={moonBlue} alt="moon" onMouseEnter={toggleOn} />
+          <img
+            src={moonBlue}
+            alt="moon"
+        
+          />
         </span>
       </div>
     </div>

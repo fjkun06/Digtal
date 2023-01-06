@@ -122,6 +122,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
   background-position: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
   row-gap: 3rem;
   padding-top: 1rem;
+  // border: 3px solid red;
   // filter: blur(5px);
 
   @media only screen and (min-width: 768.1px) {
@@ -165,12 +166,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
         }
       }
       &:nth-child(2) {
-        // transition: all 0.25s ease-in-out;
-        & > * {
-          // transition: all 0.25s ease-in-out;
-          // transition: none;
-          //  @include test(red);
-        }
+       
         grid-row: 4/7;
         grid-column: 1/2;
         margin-left: calc(10rem + 2vw);
@@ -183,23 +179,14 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
             }
 
             animation: animatemoon-topleft 0.5s ease-in-out 0s 1 forwards;
-            // animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
-            // transform: scale(1.5) translate(23%, 18%);
-            // font-size: 1.35rem;
-            // font-weight: 600;
-            // padding-right: 5vw;
-            // line-height: 25px;
-            // width: 92%;
+         
             animation: animatetext-topleft 0.5s ease-in-out 0s 1 forwards;
-            // @include generateTextAnimation(23%,18%);
           }
         }
 
-        // margin-left: calc(9rem);
         .icon {
-          // display: none;
           left: 32%;
           transform: translate(242%, 280%);
         }
@@ -243,37 +230,13 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
         }
       }
       &:nth-child(4) {
-        // @include hoveredEffect;
-        grid-row: 13/16;
-        grid-column: 1/2;
+        
         grid-row: 13/16;
         grid-column: 2/3;
-        // margin-left: 9rem;
         @include right1200;
         margin-left: 4.75rem;
 
-        // .moon,.text{
-        // transition: transform 0.5s ease-in-out;
-
-        // transform: scale(1.35);
-        // }
-
-        // transition: all 0.25s ease-in-out;
-        // // transition: none;
-
-        // // transition: all 0.25s ease-in-out;
-        // & > * {
-        //   transition: all 0.25s ease-in-out;
-        //   // transition: none;
-        // }
-
         .icon {
-          z-index: 1;
-          transform: scale(1);
-        }
-
-        .icon {
-          // display: none;
           left: 64%;
           transform: translate(-280%, -230%);
         }
@@ -281,21 +244,13 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
         &:hover {
           .moon {
             span {
-              // align-items: flex-start;
-              // margin-top: 0;
+             
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
             }
-            // transform: scale(1.75);
             animation: animatemoon-bottomright 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
-            // transform: scale(1.5) translate(20%, -18%);
-            // // transform: scale(1.5) translate(15%, -18%);
-            // font-size: 1.35rem;
-            // font-weight: 600;
-            // padding-right: 5vw;
-            // line-height: 25px;
-            // width: 92%;
+         
             animation: animatetext-bottomright 0.5s ease-in-out 0s 1 forwards;
           }
         }
@@ -339,7 +294,8 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
     }
   }
   &--card {
-    border: 3px solid red;
+  // border: 3px solid red;
+
     position: relative;
     margin-top: -1.5rem;
     background-color: rgba(255, 255, 255, 0);
