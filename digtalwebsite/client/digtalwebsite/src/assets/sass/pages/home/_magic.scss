@@ -2,7 +2,13 @@
 @use "../../util/mixins";
 
 $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 15% -30% "bottomleft", -75% -43% -15% -30% "bottomright";
-
+$background: rgba(255, 255, 255, 1);
+$mobile-arrows-light: url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg");
+$laptop-arrows-light: url("../../../svg/home/vector9.svg"), url("../../../svg/home/vector10.svg"), url("../../../svg/home/vector11.svg");
+$desktop-arrows-light: url("../../../svg/home/vector3.svg"), url("../../../svg/home/vector4.svg"), url("../../../svg/home/vector5.svg");
+$mobile-pb: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
+$laptop-pb: 76.5% 19.5%, 16% 48%, 76.5% 76%;
+$desktop-pb: 51% 28%, 81.5% 60%, 51% 91%;
 @each $mx, $my, $tx, $ty, $suffix in $hover-list {
   @keyframes animatetext-#{$suffix} {
     100% {
@@ -35,6 +41,12 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
   }
 }
 
+@mixin home-background($rg, $bp, $bglist) {
+  background: list.nth($bglist, 1), list.nth($bglist, 2), list.nth($bglist, 3), $background;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: $bp;
+  row-gap: $rg;
+}
 .home__magic {
   @include mixins.flex(column);
   @include mixins.size(auto);
@@ -43,8 +55,6 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
   background-position: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
   row-gap: 3rem;
   padding-top: 1rem;
-  // border: 3px solid red;
-  // filter: blur(5px);
 
   @media only screen and (min-width: 768.1px) {
     row-gap: 1.2rem;
