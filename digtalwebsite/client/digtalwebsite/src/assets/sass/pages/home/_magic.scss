@@ -279,12 +279,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 1
             animation: animatemoon-bottomleft 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
-            // transform: scale(1.5) translate(23%, -18%);
-            // font-size: 1.35rem;
-            // font-weight: 600;
-            // // padding-right: 5vw;
-            // line-height: 25px;
-            // width: 92%;
+         
             animation: animatetext-bottomleft 0.5s ease-in-out 0s 1 forwards;
           }
         }
