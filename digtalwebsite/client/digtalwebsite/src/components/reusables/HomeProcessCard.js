@@ -7,7 +7,7 @@ export const HomeProcessCard = ({
   moon,
   moonBlue,
   separator,
-  text
+  text,toggle
 }) => {
   const { t } = useTranslation("home");
   const max1200 = useMediaQuery("(min-width: 1200.1px)");
@@ -19,6 +19,9 @@ export const HomeProcessCard = ({
           ? "leftmagic home__magic--card"
           : "home__magic--card"
       }
+      onMouseEnter={toggle}
+      onMouseLeave={toggle}
+
     >
       {separator && (
         <div className="icon">
