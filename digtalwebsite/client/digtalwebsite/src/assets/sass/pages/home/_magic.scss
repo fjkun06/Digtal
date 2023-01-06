@@ -221,11 +221,9 @@
             span {
               // align-items: center;
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
-
             }
             // transform: scale(1.75);
             animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
-
           }
           .text {
             // transform: scale(1.5) translate(15%, 18%);
@@ -235,7 +233,6 @@
             // line-height: 25px;
             // width: 92%;
             animation: animatetext 0.5s ease-in-out 0s 1 forwards;
-
           }
         }
       }
@@ -530,7 +527,7 @@
       // opacity: 1;
 
       // transition: opacity 5s ease-in-out, z-index 5s ease-in-out;
-      transition: all 0.25s ease-in-out;
+      transition: opacity z-index 0.5s ease-in-out;
 
       // transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
 
