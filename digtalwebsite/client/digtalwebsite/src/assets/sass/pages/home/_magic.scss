@@ -12,72 +12,59 @@
   }
 }
 
-$hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5% -30% "bottomleft", -75% -43% -15% -30% "bottomright";
+$hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 15% -30% "bottomleft", -75% -43% -15% -30% "bottomright";
 
-@each $mx ,$my, $tx, $ty, $suffix in $hover-list{
+@each $mx, $my, $tx, $ty, $suffix in $hover-list {
   @keyframes animatetext-#{$suffix} {
     100% {
-      transform: scale(1.25) translate(-15%, -30%);
-      transform: scale(1.25) translate(19%, 28%);
+      transform: scale(1.25) translate($tx, $ty);
       font-weight: 600;
-     
     }
   }
 
   @keyframes animatemoon-#{$suffix} {
     100% {
-      transform: scale(1.75) translate(-75%, -43%);
+      transform: scale(1.75) translate($mx, $my);
     }
   }
 }
 
-@keyframes animatemoon {
-  100% {
-    transform: scale(1.75);
-    // transform: scale(1.75) translate(-75%, -43%);
-  }
-}
+// @keyframes animatemoon {
+//   100% {
+//     transform: scale(1.75);
+//     // transform: scale(1.75) translate(-75%, -43%);
+//   }
+// }
 @keyframes animatespan {
   100% {
     transform: translate(0, 23.3%);
   }
 }
-@keyframes animatetext {
-  100% {
-    transform: scale(1.25) translate(-15%, -30%);
-    transform: scale(1.25) translate(19%, 28%);
-    font-weight: 600;
-   
-  }
-}
+// @keyframes animatetext {
+//   100% {
+//     transform: scale(1.25) translate(-15%, -30%);
+//     transform: scale(1.25) translate(19%, 28%);
+//     font-weight: 600;
 
-@mixin generateTextAnimation($x, $y) {
-  // @mixin generateTextAnimation($x, $y) {
-  @keyframes animatetext {
-    100% {
-      transform: scale(1.5) translate($x, $y);
-      font-size: 1.35rem;
-      font-weight: 600;
-      // padding-right: 5vw;
-      line-height: 25px;
-      width: 92%;
-    }
-  }
+//   }
+// }
 
-  animation: animatetext 0.25s ease-in-out 0s 1 forwards;
-}
-@mixin generateSpanAnimation($span, $mt) {
-  @keyframes animatespan {
-    100% {
-      align-items: center;
-      @if $mt == 0 {
-        margin-top: 0;
-        align-items: flex-start;
-      }
-    }
-  }
-  animation: animatespan 0.25s ease-in-out 0s 1 forwards;
-}
+// @mixin generateTextAnimation($x, $y) {
+//   // @mixin generateTextAnimation($x, $y) {
+//   @keyframes animatetext {
+//     100% {
+//       transform: scale(1.5) translate($x, $y);
+//       font-size: 1.35rem;
+//       font-weight: 600;
+//       // padding-right: 5vw;
+//       line-height: 25px;
+//       width: 92%;
+//     }
+//   }
+
+//   animation: animatetext 0.25s ease-in-out 0s 1 forwards;
+// }
+// -topright
 @mixin left1200 {
   // transition: all 0.25s ease-in-out;
   // // transition: all 0.25s ease-in-out;
@@ -194,8 +181,8 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
             span {
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
             }
-            
-            animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
+
+            animation: animatemoon-topleft 0.5s ease-in-out 0s 1 forwards;
             // animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
@@ -205,7 +192,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
             // padding-right: 5vw;
             // line-height: 25px;
             // width: 92%;
-            animation: animatetext 0.5s ease-in-out 0s 1 forwards;
+            animation: animatetext-topleft 0.5s ease-in-out 0s 1 forwards;
             // @include generateTextAnimation(23%,18%);
           }
         }
@@ -242,7 +229,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
             }
             // transform: scale(1.75);
-            animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
+            animation: animatemoon-topright 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
             // transform: scale(1.5) translate(15%, 18%);
@@ -251,7 +238,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
             // padding-right: 5vw;
             // line-height: 25px;
             // width: 92%;
-            animation: animatetext 0.5s ease-in-out 0s 1 forwards;
+            animation: animatetext-topright 0.5s ease-in-out 0s 1 forwards;
           }
         }
       }
@@ -299,7 +286,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
             }
             // transform: scale(1.75);
-            animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
+            animation: animatemoon-bottomright 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
             // transform: scale(1.5) translate(20%, -18%);
@@ -309,7 +296,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
             // padding-right: 5vw;
             // line-height: 25px;
             // width: 92%;
-            animation: animatetext 0.5s ease-in-out 0s 1 forwards;
+            animation: animatetext-bottomright 0.5s ease-in-out 0s 1 forwards;
           }
         }
       }
@@ -334,7 +321,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
               animation: animatespan 0.5s ease-in-out 0s 1 forwards;
             }
             // transform: scale(1.75);
-            animation: animatemoon 0.5s ease-in-out 0s 1 forwards;
+            animation: animatemoon-bottomleft 0.5s ease-in-out 0s 1 forwards;
           }
           .text {
             // transform: scale(1.5) translate(23%, -18%);
@@ -343,7 +330,7 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
             // // padding-right: 5vw;
             // line-height: 25px;
             // width: 92%;
-            animation: animatetext 0.5s ease-in-out 0s 1 forwards;
+            animation: animatetext-bottomleft 0.5s ease-in-out 0s 1 forwards;
           }
         }
       }
@@ -421,26 +408,30 @@ $hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -30% -43% 5
           justify-content: center;
         }
 
-        // @include mixins.size(70px);
+        & > * {
+          &:hover {
+            &:nth-child(1) {
+              opacity: 0;
+            }
+            &:nth-child(2) {
+              opacity: 1;
+              z-index: 2;
+            }
+          }
+        }
 
         position: relative;
         img {
           position: absolute;
           &:nth-child(1) {
-            // display: none;
             z-index: 2;
-            background-color: #fff;
-            border-radius: 100%;
-            opacity: 1;
-            transition: opacity 0.25s ease-in-out;
 
-            &:hover {
-              opacity: 0;
-            }
+            opacity: 1;
+            transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
           }
           &:nth-child(2) {
-            // display: none;
-            z-index: 1;
+            z-index: 2;
+            opacity: 0;
           }
         }
       }
