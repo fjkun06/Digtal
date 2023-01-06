@@ -1,9 +1,11 @@
 import HomeHeading from "src/components/reusables/HomeHeading";
 import { homeProcess } from "./config";
 import { HomeProcessCard } from "src/components/reusables/HomeProcessCard";
+import { useMediaQuery } from "@material-ui/core";
 
+export default function ProcessSection() {
+  const max1200 = useMediaQuery("(min-width: 1200.1px)");
 
-export default function ProcessSection({ position }) {
   return (
     <div className="home__magic">
       <HomeHeading section={"magic"} />
@@ -20,6 +22,17 @@ export default function ProcessSection({ position }) {
         )
       )}
 
+      {max1200 && (
+        <div className="home__magic--modal">
+          {/* <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+            <filter id="blurMe">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+            </filter>
+
+            <rect width="10" height="10" fill="white" filter="url(#blurMe)" />
+          </svg> */}
+        </div>
+      )}
     </div>
   );
 }
