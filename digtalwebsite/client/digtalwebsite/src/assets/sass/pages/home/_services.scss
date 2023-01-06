@@ -7,6 +7,7 @@
   @include mixins.size(auto);
   row-gap: 3rem;
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 
   @media only screen and (min-width: 600.1px) {
     row-gap: 0rem;
@@ -56,7 +57,6 @@
     /***************************************Card Imagee**********************************/
 
     &-image {
-      background-color: rgb(37, 207, 34);
       grid-row: 1/5;
       grid-column: 1/2;
       z-index: 1;
@@ -158,6 +158,11 @@
       }
 
       .mini-card {
+        * > {
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+        }
         padding: 0.5rem 1rem;
         @media only screen and (min-width: 1200.1px) {
           padding: 0.5rem 20px;
@@ -181,7 +186,7 @@
           background-color: rgb(255, 255, 255);
 
           font-size: calc(0.5rem + 1.05vw);
-          font-family: "Prompt", sans-serif;
+          font-family: "Prompt 500", sans-serif;
           overflow: hidden;
           width: -moz-fit-content;
           width: fit-content;
@@ -192,7 +197,7 @@
           background-color: rgb(255, 255, 255);
 
           font-size: calc(1rem + 1.425vw);
-          font-family: "Prompt", sans-serif;
+          font-family: "Prompt 500", sans-serif;
           padding-bottom: 0.25rem;
           width: max-content;
           // word-spacing: 4px;
@@ -272,7 +277,15 @@
         @media only screen and (min-width: 600.1px) {
           grid-row: 6/7;
           grid-column: 1/2;
-          transform: scale(-1, -1);
+          // transform: scale(-1, -1);
+          transform: translate(-1rem, 0);
+        }
+
+        @media only screen and (min-width: 960.1px) {
+          transform: translate(-7rem, 0);
+        }
+        @media only screen and (min-width: 1200.1px) {
+          transform: translate(-8rem, 0);
         }
       }
     }
