@@ -7,18 +7,21 @@ export const HomeProcessCard = ({
   moon,
   moonBlue,
   separator,
-  text
+  text,
+  toggleOff,
+  toggleOn
 }) => {
   const { t } = useTranslation("home");
-  const max1200 = useMediaQuery("(min-width: 1200.1px)");
+  const max1500 = useMediaQuery("(min-width: 1500.1px)");
 
   return (
     <div
       className={
-        position === "left" && !max1200
+        position === "left" && !max1500
           ? "leftmagic home__magic--card"
           : "home__magic--card"
       }
+      
     >
       {separator && (
         <div className="icon">
@@ -28,11 +31,17 @@ export const HomeProcessCard = ({
         </div>
       )}
 
-      <div className="text">{t(text)}</div>
-      <div className="moon">
+      <div className="text" onMouseEnter={toggleOn} onMouseLeave={toggleOff}>
+        {t(text)}
+      </div>
+      <div className="moon" onMouseLeave={toggleOff} onMouseEnter={toggleOn}>
         <span>
           <img src={moon} alt="moon" />
-          <img src={moonBlue} alt="moon" />
+          <img
+            src={moonBlue}
+            alt="moon"
+        
+          />
         </span>
       </div>
     </div>
