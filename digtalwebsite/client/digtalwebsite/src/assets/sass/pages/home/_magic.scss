@@ -33,11 +33,34 @@
   }
 }
 
-@mixin test($val) 
-{
-  @if $val == red{
-    background-color: red;
+@mixin generateTextAnimation($x, $y, $mt) {
+  @keyframes animatetext {
+    100% {
+      transform: scale(1.5) translate($x, $y);
+      font-size: 1.35rem;
+      font-weight: 600;
+      padding-right: 5vw;
+      line-height: 25px;
+      width: 92%;
+      @if $mt == 0 {
+        margin-top: 0;
+      }
+    }
   }
+
+  animation: animatetext 0.25s ease-in-out 0s 1 forwards;
+}
+@mixin generateSpanAnimation($span, $mt) {
+  @keyframes animatespan {
+    100% {
+      align-items: center;
+      @if $mt == 0 {
+        margin-top: 0;
+        align-items: flex-start;
+      }
+    }
+  }
+  animation: animatespan 0.25s ease-in-out 0s 1 forwards;
 }
 @mixin left1200 {
   transition: all 0.25s ease-in-out;
@@ -78,6 +101,8 @@
       justify-content: flex-start;
       display: flex;
       margin-top: 3rem;
+      margin-right: -2vw;
+
     }
   }
 
@@ -141,7 +166,7 @@
         & > * {
           transition: all 0.25s ease-in-out;
           transition: none;
-         @include test(red);
+          //  @include test(red);
         }
         grid-row: 4/7;
         grid-column: 1/2;
@@ -186,10 +211,10 @@
           transform: translate(-460%, 280%);
         }
         transition: all 0.25s ease-in-out;
-        transition: none;
+        // transition: none;
         & > * {
           transition: all 0.25s ease-in-out;
-          transition: none;
+          // transition: none;
         }
 
         &:hover {
@@ -226,12 +251,12 @@
         // }
 
         transition: all 0.25s ease-in-out;
-        transition: none;
+        // transition: none;
 
         // transition: all 0.25s ease-in-out;
         & > * {
           transition: all 0.25s ease-in-out;
-          transition: none;
+          // transition: none;
         }
 
         .icon {
