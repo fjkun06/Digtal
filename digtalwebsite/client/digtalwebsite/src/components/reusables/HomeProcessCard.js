@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useMediaQuery } from "@material-ui/core";
 
 export const HomeProcessCard = ({
   position,
@@ -9,10 +10,12 @@ export const HomeProcessCard = ({
   text
 }) => {
   const { t } = useTranslation("home");
+  const max1200 = useMediaQuery("(min-width: 1200.1px)");
+
   return (
     <div
       className={
-        position === "left"
+        position === "left" && !max1200
           ? "leftmagic home__magic--card"
           : "home__magic--card"
       }
