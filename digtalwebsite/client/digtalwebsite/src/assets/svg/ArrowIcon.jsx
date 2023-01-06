@@ -11,7 +11,7 @@ export const Arrow = () => {
         <path
           d="M4.41797 5L22.8364 23.4185L4.41797 41.8369"
           
-          stroke-width="12"
+          strokeWidth="12"
         />
       </svg>
     </span>

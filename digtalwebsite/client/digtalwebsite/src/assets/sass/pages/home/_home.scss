@@ -2,6 +2,7 @@
 @use "../../util/mixins";
 @use "carousel";
 @use "services";
+@use "magic";
 
 @keyframes fade-in-out {
   10% {
@@ -43,13 +44,13 @@
       left: calc((100% - 40%) / 2);
       @include mixins.size(40%, 3px);
 
-      @media only screen and (min-width: 768.1px) {
+      @media only screen and (min-width: 960.1px) {
         @include mixins.size(35%, 5px);
         top: 110%;
         left: calc((100% - 35%) / 2);
       }
 
-      background: var(--navbar-bb-light);
+      background: var(--footer-bt-light);
     }
   }
 }
