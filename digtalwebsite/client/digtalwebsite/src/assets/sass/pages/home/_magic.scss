@@ -1,12 +1,11 @@
 @use "../../util/variables";
 @use "../../util/mixins";
 @use "sass:list";
+@use "sass:map";
 
 $hover-list: 0 0 19% 28% "topleft" calc(10rem + 2vw), -72.5% -10% -15% 17% "topright" 4.75rem, -10% -43% 15% -30% "bottomleft" calc(10rem + 2vw), -75% -43% -15% -30% "bottomright" 4.75rem;
 $background: rgba(255, 255, 255, 1);
-$mobile-bp: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
-$laptop-bp: 76.5% 19.5%, 16% 48%, 76.5% 76%;
-$desktop-bp: 51% 28%, 81.5% 60%, 51% 91%;
+
 
 $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem animatemoon-topright animatetext-topright, 4.75rem animatemoon-bottomright animatetext-bottomright,
   calc(10rem + 2vw) animatemoon-bottomleft animatetext-bottomleft;
@@ -23,22 +22,48 @@ $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem
 
 
 
-@function returnBg($list) {
-  $new-list: ();
-  @each $b in $list {
-    $new-list: list.append($new-list, url("../../../svg/home/#{$b}.svg"), $separator: comma);
+@function returnBg($bglist,$bplist) {
+  $bg: ();
+  $bp: ();
+  $br: ();
+  $all: ();
+  @each $b in $bglist {
+    $bg: list.append($bg, url("../../../svg/home/#{$b}.svg"), $separator: comma);
   }
-  @debug "bg: #{$new-list}";
+  @each $p in $bplist {
+    $bp: list.append($bp, $p, $separator: comma);
+  }
+  @each $r in $bplist {
+    $br: list.append($br, no-repeat, $separator: comma);
+  }
 
-  @return $new-list;
+  @each $i in $bg,$bp,$br {
+    $all: list.append($all, $i, $separator: comma);
+  }
+
+  $all: ( "background": $bg,"position": $bp,"repeat": $br );
+
+  @debug "bg: #{$bg}";
+  @debug "bp: #{$bp}";
+  @debug "br: #{$br}";
+  @debug "mbg: #{map.get($all,"background")}";
+  @debug "mbp: #{map.get($all,"position")}";
+  @debug "mbr: #{map.get($all,"repeat")}";
+
+
+  @return $all;
 }
 
-$mobile-arrows-light: returnBg(("arrow1","arrow2","arrow3"));
-$laptop-arrows-light: returnBg(("vector9","vector10","vector11"));
-$desktop-arrows-light: returnBg(("vector3","vector4","vector5"));
+$mobile-bp: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
+$laptop-bp: 76.5% 19.5%, 16% 48%, 76.5% 76%;
+$desktop-bp: 51% 28%, 81.5% 60%, 51% 91%,51% 58%,35% 58.5%,65.75% 58.5%;
+$mobile-arrows-light: "arrow1","arrow2","arrow3";
+$laptop-arrows-light: "vector9","vector10","vector11";
+$desktop-arrows-light: "vector3","vector4","vector5","editFile1500","coffee1500","laptop1500";
 
 
 $cards-hover: returnCards($hover-list);
+// $cards-hover: returnBg($desktop-arrows-light,$desktop-bp);
 
 $cards-icon: 32% translate(242%, 280%), 48% translate(-460%, 280%), 64% translate(-280%, -230%), 64% translate(-280%, -230%);
 
@@ -77,10 +102,11 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   }
 }
 
-@mixin home-background($rg, $bp, $bglist, $pt) {
-  background: list.nth($bglist, 1), list.nth($bglist, 2), list.nth($bglist, 3), $background;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: list.nth($bp, 1), list.nth($bp, 2), list.nth($bp, 3);
+@mixin home-background($rg, $bglist, $pt) {
+  
+  background: map.get($bglist,"background"), $background;
+  background-repeat: map.get($bglist,"repeat");
+  background-position: map.get($bglist,"position");
   row-gap: $rg;
   padding-top: $pt;
 }
@@ -120,10 +146,10 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 .home__magic {
   @include mixins.flex(column);
   @include mixins.size(auto);
-  @include home-background(3rem, $mobile-bp, $mobile-arrows-light, 1rem);
+  @include home-background(3rem, returnBg($mobile-arrows-light,$mobile-bp), 1rem);
 
   @media only screen and (min-width: 768.1px) {
-    @include home-background(1.2rem, $laptop-bp, $laptop-arrows-light, 2.5rem);
+    @include home-background(1.2rem, returnBg($laptop-arrows-light,$laptop-bp), 2.5rem);
   }
 
   @media only screen and (min-width: 1500.1px) {
@@ -135,7 +161,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: 5rem;
 
-    @include home-background(0rem, $desktop-bp, $desktop-arrows-light, 3.5rem);
+    @include home-background(0rem, returnBg($desktop-arrows-light,$desktop-bp), 3.5rem);
 
     & > * {
       &:nth-child(1) {
@@ -293,6 +319,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
         max-width: 75px;
         max-height: 75px;
         z-index: 1;
+        display: none;
 
         // top: 0;
       }
