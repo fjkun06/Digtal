@@ -101,7 +101,7 @@
                   width: 80%;
                   height: 100%;
                   @include mixins.grid {
-                     justify-content: start;
+                     justify-content: flex-start;
                   }
                   grid-template-columns: repeat(1, 1fr);
                   grid-template-rows: repeat(14, 1fr);
