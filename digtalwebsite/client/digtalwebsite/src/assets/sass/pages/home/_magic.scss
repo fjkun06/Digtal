@@ -4,9 +4,6 @@
 
 $hover-list: 0 0 19% 28% "topleft" calc(10rem + 2vw), -72.5% -10% -15% 17% "topright" 4.75rem, -10% -43% 15% -30% "bottomleft" calc(10rem + 2vw), -75% -43% -15% -30% "bottomright" 4.75rem;
 $background: rgba(255, 255, 255, 1);
-$mobile-arrows-light: url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg");
-$laptop-arrows-light: url("../../../svg/home/vector9.svg"), url("../../../svg/home/vector10.svg"), url("../../../svg/home/vector11.svg");
-$desktop-arrows-light: url("../../../svg/home/vector3.svg"), url("../../../svg/home/vector4.svg"), url("../../../svg/home/vector5.svg");
 $mobile-bp: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
 $laptop-bp: 76.5% 19.5%, 16% 48%, 76.5% 76%;
 $desktop-bp: 51% 28%, 81.5% 60%, 51% 91%;
@@ -23,6 +20,24 @@ $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem
 
   @return $new-list;
 }
+
+
+
+@function returnBg($list) {
+  $new-list: ();
+  @each $b in $list {
+    $new-list: list.append($new-list, url("../../../svg/home/#{$b}.svg"), $separator: comma);
+  }
+  @debug "bg: #{$new-list}";
+
+  @return $new-list;
+}
+
+$mobile-arrows-light: returnBg(("arrow1","arrow2","arrow3"));
+$laptop-arrows-light: returnBg(("vector9","vector10","vector11"));
+$desktop-arrows-light: returnBg(("vector3","vector4","vector5"));
+
+
 $cards-hover: returnCards($hover-list);
 
 $cards-icon: 32% translate(242%, 280%), 48% translate(-460%, 280%), 64% translate(-280%, -230%), 64% translate(-280%, -230%);
@@ -153,7 +168,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       }
     }
   }
-  
+
   &--card {
     // border: 3px solid red;
 
