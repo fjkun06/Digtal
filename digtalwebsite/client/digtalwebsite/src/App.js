@@ -11,6 +11,8 @@ import { useLocation } from "react-router-dom";
 function App() {
   const loc = useLocation();
   const [language, setLanguage] = useState("/en");
+  const { pathname } = useLocation();
+
 
   const [mobileSelectState, setMobileSelectState] = useState(false);
 
@@ -18,7 +20,6 @@ function App() {
     setMobileSelectState(mobileSelectState === true ? false : true);
   }
 
-  const outlet = React.useRef(null);
 
   React.useEffect(() => {
     const handleScroll = event => {
@@ -31,6 +32,12 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  //scrollToTop useeffects
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
