@@ -27,6 +27,7 @@
 
     @include mixins.customgrid(7, 1, 1fr);
 
+
     @include mixins.size(calc(100% - 20vw), calc(24rem + 24vw));
     @media only screen and (min-width: 501px) and (max-width: 600px) {
       @include mixins.size(calc(100% - 25vw), calc(24rem + 24vw));
@@ -34,6 +35,7 @@
 
     @media only screen and (min-width: 600.1px) {
       @include mixins.customgrid(6, 7, 1fr);
+      
 
       @include mixins.size(calc(100% - 15vw), calc(24rem + 15vw));
       box-shadow: none;
@@ -43,7 +45,7 @@
 
     @media only screen and (min-width: 1200.1px) {
       @include mixins.customgrid(6, 7, 1fr);
-
+     
       @include mixins.size(calc(100% - 22.5vw), calc(24rem + 18vw));
       box-shadow: none;
       // background-color: #000;
@@ -128,7 +130,8 @@
       padding: 0.5rem 2.5rem;
       @include mixins.grid;
 
-      @include mixins.customgrid(9, 1, 1fr);
+      @include mixins.customgrid(1, 9, 1fr);
+     
 
       .icon {
         @include mixins.position("1/2", "1/3");
