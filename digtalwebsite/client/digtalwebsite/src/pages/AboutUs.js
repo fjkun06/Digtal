@@ -14,6 +14,7 @@ import { Image } from "mui-image";
 import TeamCard from "src/components/about/TeamCard";
 import { useTranslation } from "react-i18next";
 import flower from "src/assets/svg/flower.svg";
+import Carousel from "@components/home/carousel";
 
 const team = [
   { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
@@ -184,7 +185,7 @@ export default function AboutUs() {
 
       {/* Team Section starts here */}
       <Box className="bg-[rebeccapurple]/30">
-        <Stack className="container mx-auto space-y-12 laptop:gap-24">
+        <Stack className="container mx-auto gap-12 laptop:gap-24">
           <Typography
             variant="h2"
             component="h3"
@@ -238,6 +239,9 @@ export default function AboutUs() {
         </Box>
       </Box>
       {/* Join out team section ends here */}
+      <Box>
+        <Carousel />
+      </Box>
     </Grid>
   );
 }
