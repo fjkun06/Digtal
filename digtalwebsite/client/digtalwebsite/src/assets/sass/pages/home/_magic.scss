@@ -14,25 +14,21 @@ $desktop-bp: 51% 28%, 81.5% 60%, 51% 91%;
 $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem animatemoon-topright animatetext-topright, 4.75rem animatemoon-bottomright animatetext-bottomright,
   calc(10rem + 2vw) animatemoon-bottomleft animatetext-bottomleft;
 
-
 @function returnCards($list) {
   $new-list: ();
   @each $mx, $my, $tx, $ty, $suffix, $ml in $list {
-    $new-list: list.append($new-list, $ml animatemoon-#{$suffix} animatetext-#{$suffix},$separator: comma);
+    $new-list: list.append($new-list, $ml animatemoon-#{$suffix} animatetext-#{$suffix}, $separator: comma);
   }
-  // @if $ml != 0 {
-    @debug "hoverers: #{$new-list}";
-  // }
+  // @debug "hoverers: #{$new-list}";
 
   @return $new-list;
 }
 $cards-hover: returnCards($hover-list);
 
-
 $cards-icon: 32% translate(242%, 280%), 48% translate(-460%, 280%), 64% translate(-280%, -230%), 64% translate(-280%, -230%);
 
 //row col
-$cards-grid: 4/7 1/2, 4/7 2/3, 13/16 2/3, 13/16 1/2;
+$cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
 @each $mx, $my, $tx, $ty, $suffix in $hover-list {
   @keyframes animatetext-#{$suffix} {
@@ -66,22 +62,46 @@ $cards-grid: 4/7 1/2, 4/7 2/3, 13/16 2/3, 13/16 1/2;
   }
 }
 
-
-
-
-
 @mixin home-background($rg, $bp, $bglist, $pt) {
   background: list.nth($bglist, 1), list.nth($bglist, 2), list.nth($bglist, 3), $background;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: list.nth($bp, 1), list.nth($bp, 2), list.nth($bp, 3);
   row-gap: $rg;
   padding-top: $pt;
-
 }
 
-@mixin cardAll {
+@mixin cardAll($index) {
+  $anim: list.nth($cards-hover, $index);
+  $ico: list.nth($cards-icon, $index);
+  $grid: list.nth($cards-grid, $index);
+
+  margin-left: list.nth($anim, 1);
+  grid-row: #{list.nth($grid, 1)};
+  grid-column: #{list.nth($grid, 2)};
+
+  @if $index != 3 {
+    .icon {
+      left: list.nth($ico, 1);
+      transform: list.nth($ico, 2);
+    }
+  }
+
   @include card1200;
+
+  &:hover {
+    .moon {
+      span {
+        animation: animatespan 0.5s ease-in-out 0s 1 forwards;
+      }
+
+      animation: list.nth($anim, 2) 0.5s ease-in-out 0s 1 forwards;
+    }
+    .text {
+      animation: list.nth($anim, 3) 0.5s ease-in-out 0s 1 forwards;
+    }
+  }
 }
+
 .home__magic {
   @include mixins.flex(column);
   @include mixins.size(auto);
@@ -107,130 +127,33 @@ $cards-grid: 4/7 1/2, 4/7 2/3, 13/16 2/3, 13/16 1/2;
         grid-row: 1/2;
         grid-column: 1/3;
       }
-      &:nth-child(2):hover,
-      &:nth-child(3):hover,
-      &:nth-child(4):hover,
-      &:nth-child(5):hover {
-        .text,
-        .moon {
-          z-index: 5;
-        }
-      }
-      &:nth-child(2) {
-        grid-row: 4/7;
-        grid-column: 1/2;
-        margin-left: calc(10rem + 2vw);
-        @include card1200;
 
-        &:hover {
+      @for $i from 1 through 4 {
+        &:nth-child(#{calc($i + 1)}):hover {
+          .text,
           .moon {
-            span {
-              animation: animatespan 0.5s ease-in-out 0s 1 forwards;
+            z-index: 5;
+          }
+        }
+
+        &:nth-child(#{calc($i + 1)}) {
+          @include cardAll($i);
+
+          @if $i == 3 {
+            &:nth-child(4) {
+              @include cardAll(4);
             }
-
-            animation: animatemoon-topleft 0.5s ease-in-out 0s 1 forwards;
           }
-          .text {
-            animation: animatetext-topleft 0.5s ease-in-out 0s 1 forwards;
-          }
-        }
-
-        .icon {
-          left: 32%;
-          transform: translate(242%, 280%);
-        }
-      }
-      &:nth-child(3) {
-        grid-row: 4/7;
-        grid-column: 2/3;
-        margin-left: 4.75rem;
-        @include card1200;
-        .icon {
-          // display: none;
-          left: 48%;
-          transform: translate(-460%, 280%);
-        }
-        // transition: all 0.25s ease-in-out;
-        // // transition: none;
-        // & > * {
-        //   transition: all 0.25s ease-in-out;
-        //   // transition: none;
-        // }
-
-        &:hover {
-          .moon {
-            span {
-              // align-items: center;
-              animation: animatespan 0.5s ease-in-out 0s 1 forwards;
+          @if $i == 4 {
+            &:nth-child(5) {
+              @include cardAll(3);
             }
-            // transform: scale(1.75);
-            animation: animatemoon-topright 0.5s ease-in-out 0s 1 forwards;
-          }
-          .text {
-            // transform: scale(1.5) translate(15%, 18%);
-            // font-size: 1.35rem;
-            // font-weight: 600;
-            // padding-right: 5vw;
-            // line-height: 25px;
-            // width: 92%;
-            animation: animatetext-topright 0.5s ease-in-out 0s 1 forwards;
           }
         }
       }
-      &:nth-child(4) {
-        grid-row: 13/16;
-        grid-column: 2/3;
-        @include card1200;
-        margin-left: 4.75rem;
-
-        .icon {
-          left: 64%;
-          transform: translate(-280%, -230%);
-        }
-
-        &:hover {
-          .moon {
-            span {
-              animation: animatespan 0.5s ease-in-out 0s 1 forwards;
-            }
-            animation: animatemoon-bottomright 0.5s ease-in-out 0s 1 forwards;
-          }
-          .text {
-            animation: animatetext-bottomright 0.5s ease-in-out 0s 1 forwards;
-          }
-        }
-      }
-      &:nth-child(5) {
-        grid-row: 13/16;
-        grid-column: 1/2;
-        // transition: transform 0.5s ease-in-out;
-        @include card1200;
-        // transition: all 0.5s ease-in-out;
-        // // transition: all 0.25s ease-in-out;
-        // & > * {
-        //   transition: all 0.5s ease-in-out;
-        //   // transition: all 0.25s ease-in-out;
-        // }
-        margin-left: calc(10rem + 2vw);
-        &:hover {
-          .moon {
-            span {
-              // align-items: flex-start;
-              // margin-top: 0;
-              animation: animatespan 0.5s ease-in-out 0s 1 forwards;
-            }
-            // transform: scale(1.75);
-            animation: animatemoon-bottomleft 0.5s ease-in-out 0s 1 forwards;
-          }
-          .text {
-            animation: animatetext-bottomleft 0.5s ease-in-out 0s 1 forwards;
-          }
-        }
-      }
-      // &:nth-child(1) {
-      // }
     }
   }
+  
   &--card {
     // border: 3px solid red;
 
@@ -419,23 +342,10 @@ $cards-grid: 4/7 1/2, 4/7 2/3, 13/16 2/3, 13/16 1/2;
       background-color: rgba(255, 255, 255, 0.3);
       -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
-      // background-color: red;
-      // background-color: rgba(rgb(45, 182, 35), 0.5);
-
-      // filter: blur(8px);
-      // z-index: 0;
-
-      // opacity: 0;
-      // z-index: 2;
-
-      // opacity: 1;
-
-      // transition: opacity 5s ease-in-out, z-index 5s ease-in-out;
+   
       transition: opacity z-index 0.5s ease-in-out;
 
-      // transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
-
-      // filter: blur(5px);
+     
     }
 
     &::after {
