@@ -10,7 +10,6 @@ $background: rgba(255, 255, 255, 1);
   @each $mx, $my, $tx, $ty, $suffix, $ml in $list {
     $new-list: list.append($new-list, $ml animatemoon-#{$suffix} animatetext-#{$suffix}, $separator: comma);
   }
-  // @debug "hoverers: #{$new-list}";
 
   @return $new-list;
 }
@@ -145,6 +144,10 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   opacity: $opacity;
   z-index: $zindex;
 }
+@mixin maxsize($width, $height: $width) {
+  max-width: $width;
+  max-height: $height;
+}
 
 .home__magic {
   @include mixins.flex(column);
@@ -158,10 +161,8 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   @media only screen and (min-width: 1500.1px) {
     position: relative;
     column-gap: 2rem;
-    // @include mixins.grid;
     background: #fff;
-    // grid-template-rows: repeat(15, 42.5px);
-    // grid-template-columns: repeat(2, 1fr);
+
     @include customgrid(15, 2, 42.5px, 1fr);
 
     padding-bottom: 5rem;
@@ -201,8 +202,6 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   }
 
   &--card {
-    // border: 3px solid red;
-
     position: relative;
     margin-top: -1.5rem;
     background-color: rgba(255, 255, 255, 0);
@@ -291,8 +290,9 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     }
     .icon {
       stroke: #000;
-      grid-row: 6/9;
-      grid-column: 1/9;
+
+      @include position("6/9", "1/9");
+
       margin-bottom: -2.35rem;
       span {
         @include mixins.size(50px);
@@ -303,20 +303,13 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
         }
       }
       @media only screen and (min-width: 768.1px) {
-        grid-row: 1/2;
-        grid-column: 14/19;
+        @include position("1/2", "14/19");
+
         margin-bottom: 0rem;
         margin-top: -3rem;
       }
       @media only screen and (min-width: 1500.1px) {
-        position: absolute;
-        left: 0vw;
-        max-width: 75px;
-        max-height: 75px;
-        z-index: 1;
         display: none;
-
-        // top: 0;
       }
     }
 
@@ -326,16 +319,18 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       overflow: hidden;
       width: -moz-fit-content;
       width: fit-content;
-      grid-row: 1/6;
-      grid-column: 3/9;
+
+      @include position("1/6", "3/9");
+
       line-height: 2.3rem;
       word-spacing: 0.25rem;
       @media only screen and (min-width: 768.1px) {
-        grid-row: 1/2;
-        grid-column: 4/13;
+        @include position("1/2", "4/13");
+
         margin-left: 1.85rem;
-        max-width: 38rem;
-        max-height: 14rem;
+
+        @include maxsize(38rem, 14rem);
+
         text-shadow: none;
         line-height: calc(1.8rem + 0.8vw);
         font-size: 1.9rem;
@@ -347,17 +342,14 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       }
 
       @media only screen and (min-width: 1500.1px) {
-        max-width: 100%;
-        max-height: 100%;
-        z-index: 2;
-        font-family: "Prompt 500", sans-serif;
+        @include maxsize(100%);
 
-        // width: 90%;
-        grid-row: 1/2;
-        grid-column: 3/9;
+        z-index: 2;
+
+        @include position("1/2", "3/9");
+
         word-spacing: normal;
 
-        //lefties
         margin-left: 0rem;
         padding-right: 1vw;
         padding-left: 3vw;
