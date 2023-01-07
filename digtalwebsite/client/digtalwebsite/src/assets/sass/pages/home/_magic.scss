@@ -1,14 +1,39 @@
 @use "../../util/variables";
 @use "../../util/mixins";
+@use "sass:list";
 
-$hover-list: 0 0 19% 28% "topleft", -72.5% -10% -15% 17% "topright", -10% -43% 15% -30% "bottomleft", -75% -43% -15% -30% "bottomright";
+$hover-list: 0 0 19% 28% "topleft" calc(10rem + 2vw), -72.5% -10% -15% 17% "topright" 4.75rem, -10% -43% 15% -30% "bottomleft" calc(10rem + 2vw), -75% -43% -15% -30% "bottomright" 4.75rem;
 $background: rgba(255, 255, 255, 1);
 $mobile-arrows-light: url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg");
 $laptop-arrows-light: url("../../../svg/home/vector9.svg"), url("../../../svg/home/vector10.svg"), url("../../../svg/home/vector11.svg");
 $desktop-arrows-light: url("../../../svg/home/vector3.svg"), url("../../../svg/home/vector4.svg"), url("../../../svg/home/vector5.svg");
-$mobile-pb: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
-$laptop-pb: 76.5% 19.5%, 16% 48%, 76.5% 76%;
-$desktop-pb: 51% 28%, 81.5% 60%, 51% 91%;
+$mobile-bp: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
+$laptop-bp: 76.5% 19.5%, 16% 48%, 76.5% 76%;
+$desktop-bp: 51% 28%, 81.5% 60%, 51% 91%;
+
+$cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem animatemoon-topright animatetext-topright, 4.75rem animatemoon-bottomright animatetext-bottomright,
+  calc(10rem + 2vw) animatemoon-bottomleft animatetext-bottomleft;
+
+
+@function returnCards($list) {
+  $new-list: ();
+  @each $mx, $my, $tx, $ty, $suffix, $ml in $list {
+    $new-list: list.append($new-list, $ml animatemoon-#{$suffix} animatetext-#{$suffix},$separator: comma);
+  }
+  // @if $ml != 0 {
+    @debug "hoverers: #{$new-list}";
+  // }
+
+  @return $new-list;
+}
+$cards-hover: returnCards($hover-list);
+
+
+$cards-icon: 32% translate(242%, 280%), 48% translate(-460%, 280%), 64% translate(-280%, -230%), 64% translate(-280%, -230%);
+
+//row col
+$cards-grid: 4/7 1/2, 4/7 2/3, 13/16 2/3, 13/16 1/2;
+
 @each $mx, $my, $tx, $ty, $suffix in $hover-list {
   @keyframes animatetext-#{$suffix} {
     100% {
@@ -41,32 +66,31 @@ $desktop-pb: 51% 28%, 81.5% 60%, 51% 91%;
   }
 }
 
-@mixin home-background($rg, $bp, $bglist) {
+
+
+
+
+@mixin home-background($rg, $bp, $bglist, $pt) {
   background: list.nth($bglist, 1), list.nth($bglist, 2), list.nth($bglist, 3), $background;
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: $bp;
+  background-position: list.nth($bp, 1), list.nth($bp, 2), list.nth($bp, 3);
   row-gap: $rg;
+  padding-top: $pt;
+
+}
+
+@mixin cardAll {
+  @include card1200;
 }
 .home__magic {
   @include mixins.flex(column);
   @include mixins.size(auto);
-  background: url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg"), rgba(255, 255, 255, 1);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
-  row-gap: 3rem;
-  padding-top: 1rem;
+  @include home-background(3rem, $mobile-bp, $mobile-arrows-light, 1rem);
 
   @media only screen and (min-width: 768.1px) {
-    row-gap: 1.2rem;
-    padding-top: 2.5rem;
-    background: url("../../../svg/home/vector9.svg"), url("../../../svg/home/vector10.svg"), url("../../../svg/home/vector11.svg"), rgba(255, 255, 255, 1);
-    background-position: 76.5% 19.5%, 16% 48%, 76.5% 76%;
-    background-repeat: no-repeat, no-repeat, no-repeat;
+    @include home-background(1.2rem, $laptop-bp, $laptop-arrows-light, 2.5rem);
   }
-  @media only screen and (min-width: 1500.1px) {
-    row-gap: 5rem;
-    padding-top: 3.5rem;
-  }
+
   @media only screen and (min-width: 1500.1px) {
     position: relative;
     column-gap: 2rem;
@@ -74,11 +98,9 @@ $desktop-pb: 51% 28%, 81.5% 60%, 51% 91%;
     background: #fff;
     grid-template-rows: repeat(15, 42.5px);
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 0rem;
-    background: url("../../../svg/home/vector3.svg"), url("../../../svg/home/vector4.svg"), url("../../../svg/home/vector5.svg"), rgba(255, 255, 255, 1);
-    background-position: 51% 28%, 81.5% 60%, 51% 91%;
-    background-repeat: no-repeat, no-repeat, no-repeat;
     padding-bottom: 5rem;
+
+    @include home-background(0rem, $desktop-bp, $desktop-arrows-light, 3.5rem);
 
     & > * {
       &:nth-child(1) {
@@ -89,8 +111,6 @@ $desktop-pb: 51% 28%, 81.5% 60%, 51% 91%;
       &:nth-child(3):hover,
       &:nth-child(4):hover,
       &:nth-child(5):hover {
-        // z-index: 5;
-
         .text,
         .moon {
           z-index: 5;
