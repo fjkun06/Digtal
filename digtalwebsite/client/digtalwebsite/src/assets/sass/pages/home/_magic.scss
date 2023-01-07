@@ -5,10 +5,6 @@
 
 $hover-list: 0 0 19% 28% "topleft" calc(10rem + 2vw), -72.5% -10% -15% 17% "topright" 4.75rem, -10% -43% 15% -30% "bottomleft" calc(10rem + 2vw), -75% -43% -15% -30% "bottomright" 4.75rem;
 $background: rgba(255, 255, 255, 1);
-
-$cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem animatemoon-topright animatetext-topright, 4.75rem animatemoon-bottomright animatetext-bottomright,
-  calc(10rem + 2vw) animatemoon-bottomleft animatetext-bottomleft;
-
 @function returnCards($list) {
   $new-list: ();
   @each $mx, $my, $tx, $ty, $suffix, $ml in $list {
@@ -55,7 +51,6 @@ $laptop-arrows-light: "vector9", "vector10", "vector11";
 $desktop-arrows-light: "vector3", "vector4", "vector5", "editFile1500", "coffee1500", "laptop1500";
 
 $cards-hover: returnCards($hover-list);
-// $cards-hover: returnBg($desktop-arrows-light,$desktop-bp);
 
 $cards-icon: 32% translate(242%, 280%), 48% translate(-460%, 280%), 64% translate(-280%, -230%), 64% translate(-280%, -230%);
 
@@ -138,6 +133,17 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   @include mixins.grid;
   grid-template-rows: repeat($r, $rowsize);
   grid-template-columns: repeat($c, $columnsize);
+  @debug "c: #{$rowsize}";
+}
+
+@mixin position($row, $column) {
+  grid-row: #{$row};
+  grid-column: #{$column};
+}
+
+@mixin layer($zindex, $opacity) {
+  opacity: $opacity;
+  z-index: $zindex;
 }
 
 .home__magic {
@@ -156,7 +162,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     background: #fff;
     // grid-template-rows: repeat(15, 42.5px);
     // grid-template-columns: repeat(2, 1fr);
-    @include customgrid(15, 2, 1fr, 42.5px);
+    @include customgrid(15, 2, 42.5px, 1fr);
 
     padding-bottom: 5rem;
 
@@ -228,11 +234,10 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
     .moon {
       stroke: #663399;
-      grid-row: 1/6;
-      grid-column: 1/3;
+
+      @include position("1/6", "1/3");
       @media only screen and (min-width: 768.1px) {
-        grid-row: 1/2;
-        grid-column: 1/4;
+        @include position("1/2", "1/4");
       }
       @media only screen and (min-width: 1500.1px) {
         grid-column: 1/3;
@@ -240,7 +245,6 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
         z-index: 2;
       }
       padding-right: 0.5rem;
-      // grid-column: 7/9;
 
       span {
         @include mixins.size(calc(5rem + 4.25vw));
@@ -250,7 +254,6 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
           margin-top: 10rem;
         }
         @media only screen and (min-width: 768.1px) and (max-width: 1500px) {
-          // @media only screen and (min-width: 1000.1px) and (max-width: 1500px) {
           @include mixins.flex;
           @include mixins.size(100%);
           margin-top: 1rem;
@@ -267,8 +270,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
               opacity: 0;
             }
             &:nth-child(2) {
-              opacity: 1;
-              z-index: 2;
+              @include layer(2, 1);
             }
           }
         }
@@ -277,14 +279,12 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
         img {
           position: absolute;
           &:nth-child(1) {
-            z-index: 2;
+            @include layer(2, 1);
 
-            opacity: 1;
             transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
           }
           &:nth-child(2) {
-            z-index: 2;
-            opacity: 0;
+            @include layer(2, 0);
           }
         }
       }

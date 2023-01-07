@@ -2346,8 +2346,8 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-rows: repeat(15, 1fr);
-    grid-template-columns: repeat(2, 42.5px);
+    grid-template-rows: repeat(15, 42.5px);
+    grid-template-columns: repeat(2, 1fr);
     padding-bottom: 5rem;
     background: url("../../../svg/home/vector3.svg"), url("../../../svg/home/vector4.svg"), url("../../../svg/home/vector5.svg"), url("../../../svg/home/editFile1500.svg"), url("../../../svg/home/coffee1500.svg"), url("../../../svg/home/laptop1500.svg"), rgb(255, 255, 255);
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
@@ -2628,13 +2628,13 @@
   position: absolute;
 }
 .home__magic--card .moon span img:nth-child(1) {
-  z-index: 2;
   opacity: 1;
+  z-index: 2;
   transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
 }
 .home__magic--card .moon span img:nth-child(2) {
-  z-index: 2;
   opacity: 0;
+  z-index: 2;
 }
 .home__magic--card .icon {
   stroke: #000;
