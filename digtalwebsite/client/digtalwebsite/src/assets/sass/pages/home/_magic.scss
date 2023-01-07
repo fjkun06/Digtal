@@ -6,7 +6,6 @@
 $hover-list: 0 0 19% 28% "topleft" calc(10rem + 2vw), -72.5% -10% -15% 17% "topright" 4.75rem, -10% -43% 15% -30% "bottomleft" calc(10rem + 2vw), -75% -43% -15% -30% "bottomright" 4.75rem;
 $background: rgba(255, 255, 255, 1);
 
-
 $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem animatemoon-topright animatetext-topright, 4.75rem animatemoon-bottomright animatetext-bottomright,
   calc(10rem + 2vw) animatemoon-bottomleft animatetext-bottomleft;
 
@@ -20,9 +19,7 @@ $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem
   @return $new-list;
 }
 
-
-
-@function returnBg($bglist,$bplist) {
+@function returnBg($bglist, $bplist) {
   $bg: ();
   $bp: ();
   $br: ();
@@ -37,30 +34,25 @@ $cards-hover: calc(10rem + 2vw) animatemoon-topleft animatetext-topleft, 4.75rem
     $br: list.append($br, no-repeat, $separator: comma);
   }
 
-  @each $i in $bg,$bp,$br {
+  @each $i in $bg, $bp, $br {
     $all: list.append($all, $i, $separator: comma);
   }
 
-  $all: ( "background": $bg,"position": $bp,"repeat": $br );
-
-  @debug "bg: #{$bg}";
-  @debug "bp: #{$bp}";
-  @debug "br: #{$br}";
-  @debug "mbg: #{map.get($all,"background")}";
-  @debug "mbp: #{map.get($all,"position")}";
-  @debug "mbr: #{map.get($all,"repeat")}";
-
+  $all: (
+    "background": $bg,
+    "position": $bp,
+    "repeat": $br,
+  );
 
   @return $all;
 }
 
 $mobile-bp: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
 $laptop-bp: 76.5% 19.5%, 16% 48%, 76.5% 76%;
-$desktop-bp: 51% 28%, 81.5% 60%, 51% 91%,51% 58%,35% 58.5%,65.75% 58.5%;
-$mobile-arrows-light: "arrow1","arrow2","arrow3";
-$laptop-arrows-light: "vector9","vector10","vector11";
-$desktop-arrows-light: "vector3","vector4","vector5","editFile1500","coffee1500","laptop1500";
-
+$desktop-bp: 51% 28%, 81.5% 60%, 51% 91%, 51% 58%, 35% 58.5%, 65.75% 58.5%;
+$mobile-arrows-light: "arrow1", "arrow2", "arrow3";
+$laptop-arrows-light: "vector9", "vector10", "vector11";
+$desktop-arrows-light: "vector3", "vector4", "vector5", "editFile1500", "coffee1500", "laptop1500";
 
 $cards-hover: returnCards($hover-list);
 // $cards-hover: returnBg($desktop-arrows-light,$desktop-bp);
@@ -103,10 +95,9 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 }
 
 @mixin home-background($rg, $bglist, $pt) {
-  
-  background: map.get($bglist,"background"), $background;
-  background-repeat: map.get($bglist,"repeat");
-  background-position: map.get($bglist,"position");
+  background: map.get($bglist, "background"), $background;
+  background-repeat: map.get($bglist, "repeat");
+  background-position: map.get($bglist, "position");
   row-gap: $rg;
   padding-top: $pt;
 }
@@ -143,25 +134,33 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   }
 }
 
+@mixin customgrid($r, $c, $rowsize, $columnsize: $rowsize) {
+  @include mixins.grid;
+  grid-template-rows: repeat($r, $rowsize);
+  grid-template-columns: repeat($c, $columnsize);
+}
+
 .home__magic {
   @include mixins.flex(column);
   @include mixins.size(auto);
-  @include home-background(3rem, returnBg($mobile-arrows-light,$mobile-bp), 1rem);
+  @include home-background(3rem, returnBg($mobile-arrows-light, $mobile-bp), 1rem);
 
   @media only screen and (min-width: 768.1px) {
-    @include home-background(1.2rem, returnBg($laptop-arrows-light,$laptop-bp), 2.5rem);
+    @include home-background(1.2rem, returnBg($laptop-arrows-light, $laptop-bp), 2.5rem);
   }
 
   @media only screen and (min-width: 1500.1px) {
     position: relative;
     column-gap: 2rem;
-    @include mixins.grid;
+    // @include mixins.grid;
     background: #fff;
-    grid-template-rows: repeat(15, 42.5px);
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: repeat(15, 42.5px);
+    // grid-template-columns: repeat(2, 1fr);
+    @include customgrid(15, 2, 1fr, 42.5px);
+
     padding-bottom: 5rem;
 
-    @include home-background(0rem, returnBg($desktop-arrows-light,$desktop-bp), 3.5rem);
+    @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
 
     & > * {
       &:nth-child(1) {
@@ -202,15 +201,13 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     margin-top: -1.5rem;
     background-color: rgba(255, 255, 255, 0);
     padding: 0.5rem 1rem;
-    @include mixins.grid;
-    grid-template-rows: repeat(8, 1fr);
-    grid-template-columns: repeat(8, 1fr);
+    @include customgrid(8, 8, 1fr);
     @include mixins.size(100%, calc(8rem + 24vw));
     @media only screen and (min-width: 768.1px) {
       padding: 0.5rem 4rem;
       @include mixins.size(100%, calc(8rem + 14vw));
-      grid-template-rows: repeat(1, 1fr);
-      grid-template-columns: repeat(18, 1fr);
+
+      @include customgrid(1, 18, 1fr);
     }
     @media only screen and (min-width: 530.1px) and (max-width: 650px) {
       @include mixins.size(100%, calc(8rem + 15vw));
@@ -219,9 +216,8 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       @include mixins.size(100%, calc(8rem + 13vw));
     }
     @media only screen and (min-width: 1500.1px) {
-      grid-template-rows: repeat(1, 1fr);
-      grid-template-columns: repeat(8, 1fr);
-      // padding-left: 15rem;
+      @include customgrid(1, 8, 1fr);
+
       @include mixins.size(77%, 131%);
       padding: 0.5rem 0rem;
     }
@@ -232,7 +228,6 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
     .moon {
       stroke: #663399;
-      // background-color: #000;
       grid-row: 1/6;
       grid-column: 1/3;
       @media only screen and (min-width: 768.1px) {
@@ -380,18 +375,11 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       position: absolute;
       top: 15%;
       left: 0;
-      width: 100vw;
-      height: 85%;
+      @include mixins.size(100vw, 85%);
       background-color: rgba(255, 255, 255, 0.3);
       -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
-   
-      transition: opacity z-index 0.5s ease-in-out;
-
-     
-    }
-
-    &::after {
+      transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;
     }
   }
 }
