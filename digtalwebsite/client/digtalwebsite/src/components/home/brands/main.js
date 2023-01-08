@@ -54,7 +54,7 @@ export default function BrandSection() {
         </div>
       );
       images22[i] = (
-        <div class="slide">
+        <div class="slide2">
           <img src={line2[0]} alt="CSS3" />
           <img src={line2[1]} alt="CSS3" />
           <img src={line2[2]} alt="CSS3" />
