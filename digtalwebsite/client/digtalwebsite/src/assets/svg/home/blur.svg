@@ -1,12 +1,16 @@
-<svg
-  viewBox="0 0 180 180"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
-  <filter id="blurMe">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="25" />
-  </filter>
+<svg viewBox="0 0 147 301" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-  <!-- <circle cx="100" cy="60" r="50" fill="green" /> -->
-
-  <circle cx="100" cy="60" r="50" fill="rgba(255,255,255,1)" filter="url(#blurMe)" />
+  <style>
+    svg {}
+  </style>
+  <g filter="url(#filter0_f_544_3985)">
+    <circle cx="150.63" cy="150.21" r="84.21" fill="white" />
+  </g>
+  <defs>
+    <filter id="filter0_f_544_3985" x="0.419922" y="0" width="300.42" height="300.42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="33" result="effect1_foregroundBlur_544_3985" />
+    </filter>
+  </defs>
 </svg>
