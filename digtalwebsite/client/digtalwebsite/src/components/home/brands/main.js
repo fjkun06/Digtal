@@ -1,6 +1,7 @@
 import { X } from "src/assets/svg/home/infinite-carousel/X";
 import React from "react";
-import css from "src/assets/svg/home/infinite-carousel/CSS3.svg";
+import css from "src/assets/svg/home/infinite-carousel/css.svg";
+import { line1, line2, line3 } from "./config";
 export default function BrandSection() {
   let images = [];
   let images22 = [];
@@ -41,76 +42,38 @@ export default function BrandSection() {
   //   };
   // }, []);
 
-  for (let i = 0; i < 12; i++) {
-    images[i] = (
-      <div class="slide">
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-      </div>
-    );
-    images22[i] = (
-      <div class="slide2">
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-        <img
-          src={css}
-          
-          alt="CSS3"
-        />
-      </div>
-    );
-
+  for (let i = 0; i < 6; i++) {
+      images[i] = (
+        <div class="slide">
+          <img src={line1[0]} alt="CSS3" />
+          <img src={line1[1]} alt="CSS3" />
+          <img src={line1[2]} alt="CSS3" />
+          <img src={line1[3]} alt="CSS3" />
+          <img src={line1[4]} alt="CSS3" />
+          <img src={line1[5]} alt="CSS3" />
+        </div>
+      );
+      images22[i] = (
+        <div class="slide">
+          <img src={line2[0]} alt="CSS3" />
+          <img src={line2[1]} alt="CSS3" />
+          <img src={line2[2]} alt="CSS3" />
+          <img src={line2[3]} alt="CSS3" />
+          <img src={line2[4]} alt="CSS3" />
+          <img src={line2[5]} alt="CSS3" />
+        </div>
+      );
+      images3[i] = (
+        <div class="slide">
+          <img src={line3[0]} alt="CSS3" />
+          <img src={line3[1]} alt="CSS3" />
+          <img src={line3[2]} alt="CSS3" />
+          <img src={line3[3]} alt="CSS3" />
+          <img src={line3[4]} alt="CSS3" />
+          <img src={line3[5]} alt="CSS3" />
+        </div>
+      );
+    
   }
 
   return (
@@ -129,18 +92,9 @@ export default function BrandSection() {
 
     <div class="infinite-carousel">
       <div class="slider">
-        <div class="slide-track">
-        {images.map(img => img)}
-
-          </div>
-        <div class="slide-track">
-        {images22.map(img => img)}
-
-          </div>
-        <div class="slide-track">
-        {images.map(img => img)}
-
-          </div>
+        <div class="slide-track">{images.map(img => img)}</div>
+        <div class="slide-track">{images22.map(img => img)}</div>
+        <div class="slide-track">{images3.map(img => img)}</div>
       </div>
     </div>
   );

@@ -131,17 +131,18 @@
   display: flex;
   height: calc(18rem + 1.5vw);
   // height: 300px;
-  border: 3px solid red;
+  // border: 3px solid red;
   // margin-bottom: 10rem;
 
   width: 100vw;
   justify-content: center;
 
   @mixin white-gradient {
-    background: linear-gradient(to right, rgba(rgb(255, 255, 255), 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(rgb(255, 255, 255), 1) 0%, white 20%, rgba(255, 255, 255, 0) 100%);
   }
 
   $animationSpeed: 25s;
+  $animationSpeed: 15s;
 
   // Animation
   @keyframes scroll {
@@ -155,7 +156,7 @@
       transform: translateX(calc(-250px * 7));
       transform: translateX(calc(-250px * 6));
       transform: translateX(calc(-110vw * 6));
-      transform: translateX(calc(-80vw * 6));
+      transform: translateX(calc(-80vw * 3));
     }
   }
 
@@ -171,7 +172,7 @@
     width: 1100px;
     width: 100%;
 
-    border: 3px solid red;
+    // border: 3px solid red;
 
     &::before,
     &::after {
@@ -180,7 +181,7 @@
       height: 100%;
       position: absolute;
       width: 50vw;
-      // z-index: 2;
+      z-index: 2;
     }
 
     &::after {
@@ -239,14 +240,15 @@
     }
 
     .slide2 {
-      margin-left: calc(-100vw / 24);
-      margin-left: calc(100vw / 24);
+      // margin-left: calc(-100vw / 24);
+      // margin-left: calc(100vw / 24);
 
       img {
         margin-left: calc(100vw / 12);
         margin-left: calc(-100vw / 24);
         &:nth-child(1) {
-          // margin-left: 0;
+          margin-left: calc(100vw / 48);
+          margin-left: 6rem;
           // padding-left: calc(100vw / 12);
         }
       }
