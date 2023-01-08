@@ -138,11 +138,16 @@
   justify-content: center;
 
   @mixin white-gradient {
-    background: linear-gradient(to right, rgba(rgb(255, 255, 255), 1) 0%, white 20%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(rgb(255, 255, 255), 1) 0%, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(rgb(255, 255, 255), 1) 0% ,rgba(255, 255, 255, 0) 100%);
   }
 
   $animationSpeed: 25s;
   $animationSpeed: 15s;
+  $animationSpeed: 11.5s;
+  $animationSpeed2: 5s;
+  $animationSpeed: 23s;
+  $animationSpeed2: 10s;
 
   // Animation
   @keyframes scroll {
@@ -157,11 +162,27 @@
       transform: translateX(calc(-250px * 6));
       transform: translateX(calc(-110vw * 6));
       transform: translateX(calc(-80vw * 3));
+      transform: translateX(calc(-250px * 2.5));
+      transform: translateX(calc(-80vw * 3));
+      // transform: translateX(calc(-80vw * 1.5));
+      // transform: translateX(calc(-80vw - 3 * calc(3rem + 1.15vw)));
+    }
+  }
+  @keyframes scroll2 {
+    0% {
+      transform: translateX(0);
+    }
+    // 100% {
+    //   transform: translateX(calc(-35px * 7));
+    // }
+    100% {
+      transform: translateX(calc(-80vw - 3 * calc(3rem + 1.15vw)));
+      transform: translateX(calc(-80vw - 3 * calc(3rem + 1.15vw)));
     }
   }
 
   // Styling
-  .slider {
+  .slider,.slider2 {
     background: white;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
     height: 100%;
@@ -171,6 +192,7 @@
     width: 960px;
     width: 1100px;
     width: 100%;
+   
 
     // border: 3px solid red;
 
@@ -181,7 +203,9 @@
       height: 100%;
       position: absolute;
       width: 50vw;
+      // border-radius: 50%;
       z-index: 2;
+      // display: none;
     }
 
     &::after {
@@ -195,7 +219,8 @@
       top: 0;
     }
 
-    .slide-track {
+    .slide-track,
+    .slide-track2 {
       animation: scroll $animationSpeed linear infinite;
       display: flex;
       width: calc(35px * 14);
@@ -203,8 +228,21 @@
       height: 33.3%;
       width: calc(250px * 14);
       width: calc(110vw * 14);
+      // width: calc(80vw * 6);
+      // width: calc(100vw * 10);
+      // overflow-x: hidden;
+
       // column-gap: 3rem;
       // width: auto;
+    }
+
+    .slide-track2 {
+      width: calc(calc(80vw + 3 * calc(3rem + 1.15vw)) * 6);
+      animation: scroll2 $animationSpeed2 linear infinite;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      // align-items: center;
     }
 
     .slide,
@@ -215,16 +253,21 @@
       width: 250px;
       width: 110vw;
       width: 80vw;
+      // width: calc(250px * 6);
+      // width: 100vw;
+
       padding: 0;
       img {
         width: 35px;
         height: 35px;
         height: auto;
         width: calc(100vw / 12);
+        width: calc(3rem + 1.15vw);
 
-        &:nth-child(1) {
+        &:last-child {
           // margin-left: 0;
           // padding-left: calc(100vw / 12);
+          margin-right: 1.5rem;
         }
       }
       // border: 3px solid rgb(36, 225, 162);
@@ -233,25 +276,51 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding-right: calc(100vw / 12);
-      padding-right: calc(100vw / 24);
+      padding-right: calc(100vw / 36);
+      // padding-right: calc(100vw / 12);
+      // padding-right: calc(100vw / 24);
+      // padding-right: calc((3rem + 1.15vw) / 2)
 
       // column-gap: calc(100vw / 12);
     }
 
     .slide2 {
-      // margin-left: calc(-100vw / 24);
-      // margin-left: calc(100vw / 24);
+      width: calc(80vw + 3 * calc(3rem + 1.15vw));
+      padding-right: calc(100vw / 24);
+
+      //       // margin-left: calc(-100vw / 24);
+      //       // margin-left: calc(100vw / 24);
+      //       margin-left: -1.5rem;
+      // background-color: red;
+      // padding-right: calc((3rem + 1.15vw) / 2);
 
       img {
-        margin-left: calc(100vw / 12);
-        margin-left: calc(-100vw / 24);
-        &:nth-child(1) {
-          margin-left: calc(100vw / 48);
-          margin-left: 1.5rem;
-          // padding-left: calc(100vw / 12);
-        }
+        margin-right: calc((3rem + 1.15vw) / 2);
+
+        //         // margin-left: calc(100vw / 12);
+        //         // margin-left: calc(-100vw / 8);
+        //         &:nth-child(1) {
+        //           // margin-left: calc(100vw / 48);
+        //           // margin-left: 1.5rem;
+        //           // margin-left: calc(-100vw / 48);
+        // background-color: rgb(97, 33, 207);
+
+        //         }
+        //         &:last-child {
+        //           // margin-left: 0;
+        //           // padding-left: calc(100vw / 12);
+        //           // margin-left: 1.5rem;
       }
+      //       }
     }
+  }
+
+  .slider2{
+    // overflow-x: hidden;
+
+    // display: flex;
+    // // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
   }
 }

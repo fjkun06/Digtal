@@ -43,6 +43,7 @@ export default function BrandSection() {
   // }, []);
 
   for (let i = 0; i < 6; i++) {
+  // for (let i = 0; i < 6; i++) {
       images[i] = (
         <div class="slide">
           <img src={line1[0]} alt="CSS3" />
@@ -61,6 +62,11 @@ export default function BrandSection() {
           <img src={line2[3]} alt="CSS3" />
           <img src={line2[4]} alt="CSS3" />
           <img src={line2[5]} alt="CSS3" />
+          <img src={line2[3]} alt="CSS3" />
+
+          {/* <img src={line2[0]} alt="CSS3" /> */}
+
+          
         </div>
       );
       images3[i] = (
@@ -93,7 +99,8 @@ export default function BrandSection() {
     <div class="infinite-carousel">
       <div class="slider">
         <div class="slide-track">{images.map(img => img)}</div>
-        <div class="slide-track">{images22.map(img => img)}</div>
+        <div class="slide-track2">{images22.map(img => img)}</div>
+        {/* <div class="slide-track">{images3.map(img => img)}</div> */}
         <div class="slide-track">{images3.map(img => img)}</div>
       </div>
     </div>
