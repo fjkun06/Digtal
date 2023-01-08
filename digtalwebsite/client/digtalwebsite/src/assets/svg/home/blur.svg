@@ -3,10 +3,10 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
   <filter id="blurMe">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+    <feGaussianBlur in="SourceGraphic" stdDeviation="25" />
   </filter>
 
-  <circle cx="100" cy="60" r="50" fill="green" />
+  <!-- <circle cx="100" cy="60" r="50" fill="green" /> -->
 
-  <circle cx="170" cy="60" r="50" fill="rgba(255,255,255,1)" filter="url(#blurMe)" />
+  <circle cx="100" cy="60" r="50" fill="rgba(255,255,255,1)" filter="url(#blurMe)" />
 </svg>
