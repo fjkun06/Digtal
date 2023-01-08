@@ -130,7 +130,7 @@
   background: #e3e3e3;
   display: flex;
   height: calc(18rem + 1.5vw);
-  height: 300px;
+  // height: 300px;
   border: 3px solid red;
   // margin-bottom: 10rem;
 
@@ -141,7 +141,7 @@
     background: linear-gradient(to right, rgba(rgb(255, 255, 255), 1) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
-  $animationSpeed: 15s;
+  $animationSpeed: 25s;
 
   // Animation
   @keyframes scroll {
@@ -154,6 +154,8 @@
     100% {
       transform: translateX(calc(-250px * 7));
       transform: translateX(calc(-250px * 6));
+      transform: translateX(calc(-110vw * 6));
+      transform: translateX(calc(-80vw * 6));
     }
   }
 
@@ -178,7 +180,7 @@
       height: 100%;
       position: absolute;
       width: 50vw;
-      z-index: 2;
+      // z-index: 2;
     }
 
     &::after {
@@ -199,17 +201,55 @@
       // border: 3px solid red;
       height: 33.3%;
       width: calc(250px * 14);
-      width: calc(250px * 14);
+      width: calc(110vw * 14);
+      // column-gap: 3rem;
       // width: auto;
     }
 
-    .slide {
+    .slide,
+    .slide2 {
       height: 35px;
       width: calc(100vw / 12);
-      height: 100px;
+      // height: 100px;
       width: 250px;
+      width: 110vw;
+      width: 80vw;
+      padding: 0;
+      img {
+        width: 35px;
+        height: 35px;
+        height: auto;
+        width: calc(100vw / 12);
+
+        &:nth-child(1) {
+          // margin-left: 0;
+          // padding-left: calc(100vw / 12);
+        }
+      }
       // border: 3px solid rgb(36, 225, 162);
-    @include mixins.flex;
+      // @include mixins.flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: calc(100vw / 12);
+      padding-right: calc(100vw / 24);
+
+      // column-gap: calc(100vw / 12);
+    }
+
+    .slide2 {
+      margin-left: calc(-100vw / 24);
+      margin-left: calc(100vw / 24);
+
+      img {
+        margin-left: calc(100vw / 12);
+        margin-left: calc(-100vw / 24);
+        &:nth-child(1) {
+          // margin-left: 0;
+          // padding-left: calc(100vw / 12);
+        }
+      }
     }
   }
 }

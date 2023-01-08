@@ -3,6 +3,8 @@ import React from "react";
 import css from "src/assets/svg/home/infinite-carousel/CSS3.svg";
 export default function BrandSection() {
   let images = [];
+  let images22 = [];
+  let images3 = [];
   // React.useEffect(() => {
   //   const el = document.querySelector(".infinite-carousel--box__one");
   //   const e2 = document.querySelector(".infinite-carousel--box__two");
@@ -57,8 +59,58 @@ export default function BrandSection() {
           
           alt="CSS3"
         />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
       </div>
     );
+    images22[i] = (
+      <div class="slide2">
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+        <img
+          src={css}
+          
+          alt="CSS3"
+        />
+      </div>
+    );
+
   }
 
   return (
@@ -81,14 +133,14 @@ export default function BrandSection() {
         {images.map(img => img)}
 
           </div>
-        {/* <div class="slide-track">
-        {images.map(img => img)}
+        <div class="slide-track">
+        {images22.map(img => img)}
 
           </div>
         <div class="slide-track">
         {images.map(img => img)}
 
-          </div> */}
+          </div>
       </div>
     </div>
   );
