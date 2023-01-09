@@ -7,10 +7,22 @@
   @include mixins.flex(column);
   row-gap: 1.5rem;
   $height: 35px;
-  $iwdidth: $height;
-  $slideWidth: calc($iwdidth * 12);
-  $noSlides: 3;
-
+  $iwidth: $height;
+  $slideWidth: calc($iwidth * 12);
+  $slideWidth: 100vw;
+  $noShifts: -1;
+  $translationDistance: calc(calc($iwidth * -9) * $noShifts);
+  $translationDistance: calc($slideWidth * $noShifts);
+  @media only screen and (min-width: 1500.01px) {
+    $height: 76px;
+    $iwidth: $height;
+    $slideWidth: calc($iwidth * 9);
+    // $slideWidth: calc($iwidth * 9);
+    // $slideWidth: 100vw;
+    $noShifts: -4;
+    $translationDistance: calc($iwidth * $noShifts);
+    // $translationDistance: calc($slideWidth * $noShifts);
+  }
   @mixin white-gradient {
     // background: linear-gradient(to right, rgba(rgb(255, 255, 255), 0) 0%, rgba(255, 255, 255, 1) 100%);
     background: url("../../../images/technology/eright2.png");
@@ -61,7 +73,7 @@
     $animationSpeed: 11.5s;
     $animationSpeed2: 5s;
     $animationSpeed: 23s;
-    $animationSpeed: 3s;
+    $animationSpeed: 13s;
     // $animationSpeed: 3s;
     $animationSpeed2: 10s;
 
@@ -74,9 +86,9 @@
       100% {
         transform: translateX(calc(-80vw * 3));
         transform: translateX(calc(-100vw * 2));
-        @media screen and (min-width: 768px) {
-          transform: translateX(calc(-100vw * 4));
-        }
+        transform: translateX($translationDistance);
+        transform: translateX(calc(calc(-76px * 9)* 4));
+       
       }
     }
     @keyframes scroll2 {
@@ -148,19 +160,23 @@
       .slide,
       .slide2 {
         @include mixins.customgrid(1, 12, 1fr);
-        height: 35px;
-        height: calc(2rem + 3.45vw);
-        width: 80vw;
-        width: 100vw;
+        @include mixins.size($slideWidth, $height);
         @include mixins.grid;
 
-        padding: 0;
-        img {
-          height: auto;
-          height: calc(3rem + 1.15vw);
-          height: calc(2rem + 3.45vw);
 
-          width: calc(2rem + 3.45vw);
+        padding: 0;
+
+        @media only screen and (min-width: 1500.01px) {
+          display: flex;
+          justify-content: space-between;
+            padding-right: 4rem;
+
+        }
+        img {
+          @include mixins.size($height);
+          @media only screen and (min-width: 1500.01px) {
+            // padding-right: 3rem;
+          }
 
           @media screen and (max-width: 768px) {
             &:nth-child(1) {
