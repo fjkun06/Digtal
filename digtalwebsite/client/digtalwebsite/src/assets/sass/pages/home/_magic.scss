@@ -302,7 +302,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     }
 
     .text {
-      font-size: calc(1rem + 1.1vw);
+      font-size: calc(0.85rem + 1.1vw);
       font-family: "Prompt 500", sans-serif;
       overflow: hidden;
       width: -moz-fit-content;
@@ -310,7 +310,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
       @include mixins.position("1/6", "3/9");
 
-      line-height: 2.3rem;
+      line-height: 2rem;
       word-spacing: 0.25rem;
       @media only screen and (min-width: 768.1px) {
         @include mixins.position("1/2", "4/13");
