@@ -30,14 +30,12 @@
     position: absolute;
     right: 0;
     z-index: 4;
-    // top: 5%;
     transform: translateY(25px);
     svg {
       circle {
         fill: white;
       }
     }
-    // display: none;
   }
   .left {
     transform: scale(-1, 1);
