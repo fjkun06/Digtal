@@ -4406,6 +4406,9 @@
   .solutions__title {
     position: relative;
   }
+  .swiper-free-mode > .swiper-wrapper {
+    transition-timing-function: linear;
+  }
 }
 #scroll-zone {
   background: url("../../assets/svg/app_background_light.svg");
