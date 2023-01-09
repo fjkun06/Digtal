@@ -1,13 +1,10 @@
 @use "../util/variables";
 @use "../util/mixins";
-@use "../components/select";
 @use "../components/navbar-theme";
 @use "../components/navbar-language";
 @use "../util/media-queries";
-@use "../layout//mobile-navbar";
 @use "../layout/tablet-navbar";
 @use "../layout/laptop-navbar";
-@use "../layout/desktop-navbar";
 
 
 //main container
@@ -17,9 +14,9 @@
    animation: animate-navbar 0.5s ease-in-out;
 
    animation-iteration-count: 1;
-   background-color: white;
+   background-color: rgb(255, 255, 255);
 
-   // // /controlling highlighter
+   // /controlling highlighter
    &>* a::selection,   *::selection{
       background-color: rebeccapurple;
       color: white;
@@ -104,7 +101,7 @@
                   width: 80%;
                   height: 100%;
                   @include mixins.grid {
-                     justify-content: start;
+                     justify-content: flex-start;
                   }
                   grid-template-columns: repeat(1, 1fr);
                   grid-template-rows: repeat(14, 1fr);
@@ -216,10 +213,9 @@
                display: none;
             }
 
-            .navbar-theme-dark {
-               display: inline-block;
-               // fill: red;
-               transform: scale(0.8);
+            .navbar-theme-dark,.navbar-theme-dark {
+             
+               transform: scale(1.25);
             }
          }
 
@@ -270,8 +266,8 @@
       content: "";
       display: block;
 
-      @include mixins.size(100%, 4px);
-      background: variables.$navbar-border-gradient;
+      @include mixins.size(100%, 5px);
+      background: var(--navbar-bb-light);
    }
 
    //theme here

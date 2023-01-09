@@ -11,48 +11,65 @@ import { useLocation } from "react-router-dom";
 function App() {
   const loc = useLocation();
   const [language, setLanguage] = useState("/en");
-  const [outletState, setOutletState] = useState(false);
+  const { pathname } = useLocation();
 
-  function toggleOutletSelectState() {
-    setOutletState(true);
+
+  const [mobileSelectState, setMobileSelectState] = useState(false);
+
+  function toggleMobileSelect() {
+    setMobileSelectState(mobileSelectState === true ? false : true);
   }
 
-  function toggleOutletSelectStateOff() {
-    setOutletState(false);
-  }
+
+  React.useEffect(() => {
+    const handleScroll = event => {
+      setMobileSelectState(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  //scrollToTop useeffects
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Grid>
+        <div
+          
+        >
           <Grid container className="navigation-main" id="n-main">
-            {/* <Grid container className="navigation-main" id="n-main" sx={{position: condition? "fixed":"relative"}}> */}
-
             <Navbar
               setLanguage={setLanguage}
               language={language}
-              toggleOutletSelect={toggleOutletSelectState}
-              outletState={outletState}
-              toggleOutletSelectStateOff={toggleOutletSelectStateOff}
+              toggleMobileSelect={toggleMobileSelect}
+              setMobileSelectState={setMobileSelectState}
+              mobileSelectState={mobileSelectState}
             />
           </Grid>
-          {/* bill's work starts here */}
-          <Grid
+
+          <div
             id="scroll-zone"
-            // onClick={() => {
-            //   console.log("hello shxt");
-            //   setOutletState(false);
-            // }}
+            onClick={() => {
+              setMobileSelectState(false);
+            }}
           >
             <Outlet />
-          </Grid>
-          <Grid>
+          </div>
+          <div>
             <Footer
               language={language}
               location={loc.pathname.includes("contact")}
             />
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </StyledEngineProvider>
     </>
   );

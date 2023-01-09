@@ -1,16 +1,12 @@
-import { Box } from '@mui/system';
-
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
 
 export default function Enterprise() {
+  const [counter, setCounter] = React.useState(0);
+  const requestRef = React.useRef();
+
   return (
-    <div className='enterprise-page'>
-      <span>Enterprise</span>
-      <div className='container'>
-        <div className="up">up</div>
-        <div className="down">down</div>
-      </div>
-    </div>
+    <main className="enterprise-page">
+      <div>hello</div>
+    </main>
   );
 }

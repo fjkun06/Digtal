@@ -1,4 +1,4 @@
-import { object, string, date } from 'yup';
+import { object, string } from 'yup';
 
 let schema = object({
    first_name: string()
@@ -35,14 +35,13 @@ let schema = object({
       .required('Please fill out this field.')
      
       .ensure(),
-   phone: string()
+   phone_number: string()
       .required('Please fill out this field.')
      
       .min(9, 'Phone number too short.')
       
       .max(18, 'Phone number too long.'),
   
-   created_on: date().default(() => new Date())
 });
 
 export default schema;

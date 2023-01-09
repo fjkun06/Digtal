@@ -7,11 +7,11 @@ import schema from "../../utils/schemas/yupSchema";
 import { contactFields } from "./contact_config";
 import ContactFormOptions from "./ContactFormOptions";
 import ReusableTextField from "./ReusableTextField";
+import { sendContactData } from "src/functions/backend";
 
 export default function ContactFormFields({ t, modal }) {
   //select option state handler
   const [subjectValidation, setSubjectValidation] = React.useState(false);
-  const [submitted, setSubmitted] = React.useState(false);
 
   //React hook form validation with yupSchema
   const {
@@ -22,7 +22,6 @@ export default function ContactFormFields({ t, modal }) {
       isValid,
       isSubmitting,
       isSubmitSuccessful,
-      submitCount,
       isSubmitted
     },
     control
@@ -41,9 +40,7 @@ export default function ContactFormFields({ t, modal }) {
   });
 
   //handle change for subject field
-  const handleChange = () => {
-    setSubmitted(isSubmitSuccessful ? true : false);
-  };
+ 
   return (
     <Grid item className="contact-form formsection">
       <ContactFormOptions
@@ -107,7 +104,7 @@ export default function ContactFormFields({ t, modal }) {
               )}
             </div>
           )}
-          name={"phone"}
+          name={"phone_number"}
           control={control}
         />
       </div>
@@ -134,19 +131,10 @@ export default function ContactFormFields({ t, modal }) {
 
       <button
         onClick={handleSubmit(data => {
-          console.log("onSubmit", data);
-          handleChange();
-          setTimeout(() => {
-            console.log("wtftfffffffffffffffffff: ", isSubmitSuccessful);
-            if (isSubmitSuccessful) {
-              console.log("77777777777: ", isSubmitSuccessful);
-              // modal();
-            }
-          }, 2000);
-        })}
+          sendContactData(data);
+       })}
         className="contact-submitbutton"
-        // disabled={true}
-        // disabled={!(isValid && subjectValidation)}
+      
         disabled={
           !(isValid && subjectValidation) &&
           !(isSubmitted && !isSubmitSuccessful)

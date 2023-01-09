@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import { Box, StyledEngineProvider } from "@mui/system";
+import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import logoMobile from "../../assets/images/logo2.png";
@@ -12,15 +12,13 @@ import Envelop from "../../assets/svg/Envelop";
 
 export default function Footer({ language, location }) {
   const { t } = useTranslation("pageend");
-  console.log(window.location.pathname.includes("contact"));
+  // console.log(window.location.pathname.includes("contact"));
 
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Box
+        <div
           className="footer"
-          component={"div"}
-          style={{ height: location ? "31vh" : "" }}
         >
           {!location && (
             <>
@@ -186,7 +184,7 @@ export default function Footer({ language, location }) {
               © {new Date().getFullYear()} DIGTAL {t("rights")}
             </Typography>
           </Grid>
-        </Box>
+        </div>
       </StyledEngineProvider>
     </>
   );

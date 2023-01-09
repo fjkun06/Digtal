@@ -1,0 +1,404 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+@use "sass:list";
+@use "sass:map";
+
+$hover-list: 0 0 19% 28% "topleft" calc(10rem + 2vw), -72.5% -10% -15% 17% "topright" 4.75rem, -10% -43% 15% -30% "bottomleft" calc(10rem + 2vw), -75% -43% -15% -30% "bottomright" 4.75rem;
+$background: rgba(255, 255, 255, 1);
+@function returnCards($list) {
+  $new-list: ();
+  @each $mx, $my, $tx, $ty, $suffix, $ml in $list {
+    $new-list: list.append($new-list, $ml animatemoon-#{$suffix} animatetext-#{$suffix}, $separator: comma);
+  }
+
+  @return $new-list;
+}
+
+@function returnBg($bglist, $bplist) {
+  $bg: ();
+  $bp: ();
+  $br: ();
+  $all: ();
+  @each $b in $bglist {
+    $bg: list.append($bg, url("../../../svg/home/#{$b}.svg"), $separator: comma);
+  }
+  @each $p in $bplist {
+    $bp: list.append($bp, $p, $separator: comma);
+  }
+  @each $r in $bplist {
+    $br: list.append($br, no-repeat, $separator: comma);
+  }
+
+  @each $i in $bg, $bp, $br {
+    $all: list.append($all, $i, $separator: comma);
+  }
+
+  $all: (
+    "background": $bg,
+    "position": $bp,
+    "repeat": $br,
+  );
+
+  @return $all;
+}
+
+$mobile-bp: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
+$laptop-bp: 76.5% 19.5%, 16% 48%, 76.5% 76%;
+$desktop-bp: 51% 28%, 81.5% 60%, 51% 91%, 51% 58%, 35% 58.5%, 65.75% 58.5%;
+$mobile-arrows-light: "arrow1", "arrow2", "arrow3";
+$laptop-arrows-light: "vector9", "vector10", "vector11";
+$desktop-arrows-light: "vector3", "vector4", "vector5", "editFile1500", "coffee1500", "laptop1500";
+
+$cards-hover: returnCards($hover-list);
+
+$cards-icon: 32% translate(242%, 280%), 48% translate(-460%, 280%), 64% translate(-280%, -230%), 64% translate(-280%, -230%);
+
+//row col
+$cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
+
+@each $mx, $my, $tx, $ty, $suffix in $hover-list {
+  @keyframes animatetext-#{$suffix} {
+    100% {
+      transform: scale(1.25) translate($tx, $ty);
+      font-weight: 600;
+    }
+  }
+
+  @keyframes animatemoon-#{$suffix} {
+    100% {
+      transform: scale(1.75) translate($mx, $my);
+    }
+  }
+}
+
+@keyframes animatespan {
+  100% {
+    transform: translate(0, 23.3%);
+  }
+}
+
+@mixin card1200 {
+  .moon {
+    span {
+      justify-content: flex-end;
+      display: flex;
+      margin-right: -2vw;
+      margin-top: 3rem;
+    }
+  }
+}
+
+@mixin home-background($rg, $bglist, $pt) {
+  background: map.get($bglist, "background"), $background;
+  background-repeat: map.get($bglist, "repeat");
+  background-position: map.get($bglist, "position");
+  row-gap: $rg;
+  padding-top: $pt;
+}
+
+@mixin cardAll($index) {
+  $anim: list.nth($cards-hover, $index);
+  $ico: list.nth($cards-icon, $index);
+  $grid: list.nth($cards-grid, $index);
+
+  margin-left: list.nth($anim, 1);
+  grid-row: #{list.nth($grid, 1)};
+  grid-column: #{list.nth($grid, 2)};
+
+  @if $index != 3 {
+    .icon {
+      left: list.nth($ico, 1);
+      transform: list.nth($ico, 2);
+    }
+  }
+
+  @include card1200;
+
+  &:hover {
+    .moon {
+      span {
+        animation: animatespan 0.5s ease-in-out 0s 1 forwards;
+      }
+
+      animation: list.nth($anim, 2) 0.5s ease-in-out 0s 1 forwards;
+    }
+    .text {
+      animation: list.nth($anim, 3) 0.5s ease-in-out 0s 1 forwards;
+    }
+  }
+}
+
+@mixin layer($zindex, $opacity) {
+  opacity: $opacity;
+  z-index: $zindex;
+}
+@mixin maxsize($width, $height: $width) {
+  max-width: $width;
+  max-height: $height;
+}
+
+.home__magic {
+  @include mixins.flex(column);
+  @include mixins.size(auto);
+  @include home-background(3rem, returnBg($mobile-arrows-light, $mobile-bp), 1rem);
+
+  @media only screen and (min-width: 768.1px) {
+    @include home-background(1.2rem, returnBg($laptop-arrows-light, $laptop-bp), 2.5rem);
+  }
+
+  @media only screen and (min-width: 1500.1px) {
+    position: relative;
+    column-gap: 2rem;
+    background: #fff;
+
+    @include mixins.customgrid(15, 2, 42.5px, 1fr);
+
+    padding-bottom: 5rem;
+
+    @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
+
+    & > * {
+      &:nth-child(1) {
+        grid-row: 1/2;
+        grid-column: 1/3;
+      }
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{calc($i + 1)}):hover {
+          .text,
+          .moon {
+            z-index: 5;
+          }
+        }
+
+        &:nth-child(#{calc($i + 1)}) {
+          @include cardAll($i);
+
+          @if $i == 3 {
+            &:nth-child(4) {
+              @include cardAll(4);
+            }
+          }
+          @if $i == 4 {
+            &:nth-child(5) {
+              @include cardAll(3);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--card {
+    position: relative;
+    margin-top: -1.5rem;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0.5rem 1rem;
+    @include mixins.customgrid(8, 8, 1fr);
+    @include mixins.size(100%, calc(8rem + 24vw));
+    @media only screen and (min-width: 768.1px) {
+      padding: 0.5rem 4rem;
+      @include mixins.size(100%, calc(8rem + 14vw));
+
+      @include mixins.customgrid(1, 18, 1fr);
+    }
+    @media only screen and (min-width: 530.1px) and (max-width: 650px) {
+      @include mixins.size(100%, calc(8rem + 15vw));
+    }
+    @media only screen and (min-width: 650.1px) and (max-width: 768px) {
+      @include mixins.size(100%, calc(8rem + 13vw));
+    }
+    @media only screen and (min-width: 1500.1px) {
+      @include mixins.customgrid(1, 8, 1fr);
+
+      @include mixins.size(77%, 131%);
+      padding: 0.5rem 0rem;
+    }
+    & > * {
+      @include mixins.flex;
+      @include mixins.size(100%);
+    }
+
+    .moon {
+      stroke: #663399;
+
+      @include mixins.position("1/6", "1/3");
+      @media only screen and (min-width: 768.1px) {
+        @include mixins.position("1/2", "1/4");
+      }
+      @media only screen and (min-width: 1500.1px) {
+        grid-column: 1/3;
+        max-height: 100%;
+        z-index: 2;
+      }
+      padding-right: 0.5rem;
+
+      span {
+        @include mixins.size(calc(5rem + 4.25vw));
+
+        @media only screen and (min-width: 768.1px) {
+          @include mixins.size(100%);
+          margin-top: 10rem;
+        }
+        @media only screen and (min-width: 768.1px) and (max-width: 1500px) {
+          @include mixins.flex;
+          @include mixins.size(100%);
+          margin-top: 1rem;
+          justify-content: flex-end;
+        }
+
+        @media only screen and (min-width: 768.1px) and (max-width: 800px) {
+          justify-content: center;
+        }
+
+        & > * {
+          &:hover {
+            &:nth-child(1) {
+              opacity: 0;
+            }
+            &:nth-child(2) {
+              @include layer(2, 1);
+            }
+          }
+        }
+
+        position: relative;
+        img {
+          position: absolute;
+          &:nth-child(1) {
+            @include layer(2, 1);
+
+            transition: opacity 0.25s ease-in-out, z-index 0.25s ease-in-out;
+          }
+          &:nth-child(2) {
+            @include layer(2, 0);
+          }
+        }
+      }
+    }
+    .icon {
+      stroke: #000;
+
+      @include mixins.position("6/9", "1/9");
+
+      margin-bottom: -2.35rem;
+      span {
+        @include mixins.size(50px);
+        img {
+          @media only screen and (min-width: 1500.1px) {
+            transform: scale(1.4);
+          }
+        }
+      }
+      @media only screen and (min-width: 768.1px) {
+        @include mixins.position("1/2", "14/19");
+
+        margin-bottom: 0rem;
+        margin-top: -3rem;
+      }
+      @media only screen and (min-width: 1500.1px) {
+        display: none;
+      }
+    }
+
+    .text {
+      font-size: calc(1rem + 1.1vw);
+      font-family: "Prompt 500", sans-serif;
+      overflow: hidden;
+      width: -moz-fit-content;
+      width: fit-content;
+
+      @include mixins.position("1/6", "3/9");
+
+      line-height: 2.3rem;
+      word-spacing: 0.25rem;
+      @media only screen and (min-width: 768.1px) {
+        @include mixins.position("1/2", "4/13");
+
+        margin-left: 1.85rem;
+
+        @include maxsize(38rem, 14rem);
+
+        text-shadow: none;
+        line-height: calc(1.8rem + 0.8vw);
+        font-size: 1.9rem;
+        margin-top: 1rem;
+      }
+
+      @media only screen and (min-width: 960.1px) {
+        max-width: 42rem;
+      }
+
+      @media only screen and (min-width: 1500.1px) {
+        @include maxsize(100%);
+
+        z-index: 2;
+
+        @include mixins.position("1/2", "3/9");
+
+        word-spacing: normal;
+
+        margin-left: 0rem;
+        padding-right: 1vw;
+        padding-left: 3vw;
+      }
+
+      // grid-column: 1/7;
+      text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+      padding-right: 0.25rem;
+      background-color: rgba(#fff, 0.05);
+    }
+  }
+
+  &--modal {
+    @media only screen and (min-width: 1500.1px) {
+      position: absolute;
+      top: 15%;
+      left: 0;
+      @include mixins.size(100vw, 85%);
+      background-color: rgba(255, 255, 255, 0.3);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;
+    }
+  }
+}
+
+@mixin leftAlignedMagic {
+  .moon {
+    grid-column: 7/9;
+
+    @media only screen and (min-width: 768.1px) {
+      grid-column: 6/9;
+      margin-left: 5rem;
+    }
+  }
+  .text {
+    grid-column: 1/7;
+    padding-right: 0rem;
+
+    padding-left: 1rem;
+
+    @media only screen and (min-width: 768.1px) {
+      grid-column: 9/19;
+      padding-left: 0rem;
+      margin-left: 7rem;
+    }
+    @media only screen and (min-width: 768.1px) and (max-width: 800.1px) {
+      margin-left: 5rem;
+    }
+  }
+
+  .icon {
+    @media only screen and (min-width: 768.1px) {
+      grid-column: 1/6;
+      margin-bottom: 0rem;
+      justify-content: flex-start;
+    }
+    padding-left: 3.5rem;
+  }
+}
+
+.leftmagic {
+  @include leftAlignedMagic;
+}

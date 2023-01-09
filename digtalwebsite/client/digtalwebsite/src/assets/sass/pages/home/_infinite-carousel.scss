@@ -1,0 +1,271 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+@use "sass:list";
+@use "sass:map";
+
+.home__technologies {
+  @include mixins.flex(column);
+  row-gap: 1.5rem;
+  $height: 35px;
+  $iwidth: $height;
+  $slideWidth: calc($iwidth * 12);
+  $slideWidth: 100vw;
+  $noShifts: -1;
+  $translationDistance: calc($slideWidth * $noShifts);
+
+  @mixin white-gradient {
+    // background: linear-gradient(to right, rgba(rgb(255, 255, 255), 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: url("../../../images/technology/eright2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    // background-origin: border-box;
+  }
+
+  position: relative;
+
+  .right,
+  .left {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    z-index: 4;
+    transform: translateY(25px);
+    svg {
+      circle {
+        fill: white;
+      }
+    }
+  }
+  .left {
+    transform: scale(-1, 1);
+    left: 0;
+  }
+
+  .infinite-carousel {
+    background: #e3e3e3;
+    background: transparent;
+    @include white-gradient;
+    -webkit-user-select: none;
+    user-select: none;
+    // border: 3px solid red;
+
+    height: calc(18rem + 1.5vw);
+
+    @media screen and (min-width: 768.01px) {
+      height: calc(calc(4.5rem + 3.45vw) * 3.5);
+    }
+
+    @include mixins.flex(column);
+
+    width: 100vw;
+
+    $animationSpeed: 11.5s;
+    $animationSpeed2: 5s;
+    $animationSpeed: 23s;
+    $animationSpeed: 13s;
+    // $animationSpeed: 3s;
+    $animationSpeed2: 10s;
+
+    // Animation
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX($translationDistance);
+      }
+    }
+    @keyframes scroll960Down {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(calc(-50px * 9) * 4));
+      }
+    }
+    @keyframes scroll960Up {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(calc(-76px * 9) * 4));
+      }
+    }
+
+    // Styling
+    .slider {
+      background: white;
+      background: transparent;
+
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+      height: 100%;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+
+      width: 100%;
+
+      // border: 3px solid red;
+
+      &::before,
+      &::after {
+        @include white-gradient;
+        content: "";
+        height: 100%;
+        position: absolute;
+        width: 50vw;
+        z-index: 2;
+
+        display: none;
+      }
+
+      &::after {
+        right: 0vw;
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+
+      &::before {
+        left: -50vw;
+        top: 0;
+      }
+
+      .slide-track,
+      .slide-track2 {
+        animation: scroll $animationSpeed linear infinite;
+        @media only screen and (min-width: 600.01px) {
+          animation: scroll960Down $animationSpeed linear infinite;
+        }
+
+        @media only screen and (min-width: 960.01px) {
+          animation: scroll960Up $animationSpeed linear infinite;
+        }
+        display: flex;
+        align-items: center;
+        height: 33.3%;
+        width: calc(110vw * 14);
+        width: calc(140vw * 14);
+      }
+
+   
+
+      .slide,
+      .slide2 {
+        @include mixins.customgrid(1, 12, 1fr);
+        @include mixins.size($slideWidth, $height);
+        @include mixins.grid;
+
+        padding: 0;
+
+        @media only screen and (min-width: 600.01px) {
+
+          display: flex;
+          justify-content: space-between;
+          padding-right: 4rem;
+          @include mixins.size(calc(50px * 9), 50px);
+        }
+        @media only screen and (min-width: 960.01px) {
+          @include mixins.size(calc(76px * 9), 76px);
+        }
+
+        img {
+          @include mixins.size($height);
+          @media only screen and (min-width: 600.01px) {
+            // @media only screen and (min-width: 1500.01px) {
+            // padding-right: 3rem;
+            @include mixins.size(50px);
+          }
+
+          @media only screen and (min-width: 960.01px) {
+            @include mixins.size(76px);
+          }
+
+          @media screen and (max-width: 768px) {
+            &:nth-child(1) {
+              @include mixins.position("1/2", "2/3");
+            }
+            &:nth-child(2) {
+              @include mixins.position("1/2", "4/5");
+            }
+            &:nth-child(3) {
+              @include mixins.position("1/2", "6/7");
+            }
+            &:nth-child(4) {
+              @include mixins.position("1/2", "8/9");
+            }
+            &:nth-child(5) {
+              @include mixins.position("1/2", "10/11");
+            }
+            &:nth-child(6) {
+              @include mixins.position("1/2", "12/13");
+              // position: absolute
+            }
+          }
+        }
+      }
+
+      .slide2 {
+        // @media only screen and (min-width: 1500.01px) {
+        @include mixins.customgrid(1, 6, 1fr);
+        padding-right: 0rem;
+        height: 100%;
+
+        img {
+          // padding-left: 3rem;
+          justify-self: flex-end;
+          &:nth-child(1) {
+            @include mixins.position("1/2", "1/2");
+          }
+          &:nth-child(2) {
+            @include mixins.position("1/2", "2/3");
+          }
+          &:nth-child(3) {
+            @include mixins.position("1/2", "3/4");
+          }
+          &:nth-child(4) {
+            @include mixins.position("1/2", "4/5");
+          }
+          &:nth-child(5) {
+            @include mixins.position("1/2", "5/6");
+          }
+          &:nth-child(6) {
+            @include mixins.position("1/2", "6/7");
+            // position: absolute
+          }
+          // }
+        }
+
+        @media screen and (max-width: 768px) {
+          // @include mixins.customgrid(1, 48, 1fr);
+
+          // img {
+          //   padding-left: 6rem;
+          //   &:nth-child(1) {
+          //     @include mixins.position("1/2", "6/10");
+          //   }
+          //   &:nth-child(2) {
+          //     @include mixins.position("1/2", "14/18");
+          //   }
+          //   &:nth-child(3) {
+          //     @include mixins.position("1/2", "22/26");
+          //   }
+          //   &:nth-child(4) {
+          //     @include mixins.position("1/2", "30/34");
+          //   }
+          //   &:nth-child(5) {
+          //     @include mixins.position("1/2", "38/42");
+          //   }
+          //   &:nth-child(6) {
+          //     @include mixins.position("1/2", "45/49");
+          //     margin-left: 2.75vw;
+          //   }
+          // }
+        }
+      }
+    }
+  }
+}
