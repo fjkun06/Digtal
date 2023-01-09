@@ -90,7 +90,7 @@ background-color: #fff;
         row-gap: 10px;
         flex-wrap: wrap;
         column-gap: 10px;
-        justify-content: start;
+        justify-content: flex-start;
 
         &-pill {
           border: 3px solid rgba(#663399, 0.5);

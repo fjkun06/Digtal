@@ -128,18 +128,6 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   }
 }
 
-@mixin customgrid($r, $c, $rowsize, $columnsize: $rowsize) {
-  @include mixins.grid;
-  grid-template-rows: repeat($r, $rowsize);
-  grid-template-columns: repeat($c, $columnsize);
-  @debug "c: #{$rowsize}";
-}
-
-@mixin position($row, $column) {
-  grid-row: #{$row};
-  grid-column: #{$column};
-}
-
 @mixin layer($zindex, $opacity) {
   opacity: $opacity;
   z-index: $zindex;
@@ -163,7 +151,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     column-gap: 2rem;
     background: #fff;
 
-    @include customgrid(15, 2, 42.5px, 1fr);
+    @include mixins.customgrid(15, 2, 42.5px, 1fr);
 
     padding-bottom: 5rem;
 
@@ -206,13 +194,13 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     margin-top: -1.5rem;
     background-color: rgba(255, 255, 255, 0);
     padding: 0.5rem 1rem;
-    @include customgrid(8, 8, 1fr);
+    @include mixins.customgrid(8, 8, 1fr);
     @include mixins.size(100%, calc(8rem + 24vw));
     @media only screen and (min-width: 768.1px) {
       padding: 0.5rem 4rem;
       @include mixins.size(100%, calc(8rem + 14vw));
 
-      @include customgrid(1, 18, 1fr);
+      @include mixins.customgrid(1, 18, 1fr);
     }
     @media only screen and (min-width: 530.1px) and (max-width: 650px) {
       @include mixins.size(100%, calc(8rem + 15vw));
@@ -221,7 +209,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       @include mixins.size(100%, calc(8rem + 13vw));
     }
     @media only screen and (min-width: 1500.1px) {
-      @include customgrid(1, 8, 1fr);
+      @include mixins.customgrid(1, 8, 1fr);
 
       @include mixins.size(77%, 131%);
       padding: 0.5rem 0rem;
@@ -234,9 +222,9 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     .moon {
       stroke: #663399;
 
-      @include position("1/6", "1/3");
+      @include mixins.position("1/6", "1/3");
       @media only screen and (min-width: 768.1px) {
-        @include position("1/2", "1/4");
+        @include mixins.position("1/2", "1/4");
       }
       @media only screen and (min-width: 1500.1px) {
         grid-column: 1/3;
@@ -291,7 +279,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     .icon {
       stroke: #000;
 
-      @include position("6/9", "1/9");
+      @include mixins.position("6/9", "1/9");
 
       margin-bottom: -2.35rem;
       span {
@@ -303,7 +291,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
         }
       }
       @media only screen and (min-width: 768.1px) {
-        @include position("1/2", "14/19");
+        @include mixins.position("1/2", "14/19");
 
         margin-bottom: 0rem;
         margin-top: -3rem;
@@ -320,12 +308,12 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       width: -moz-fit-content;
       width: fit-content;
 
-      @include position("1/6", "3/9");
+      @include mixins.position("1/6", "3/9");
 
       line-height: 2.3rem;
       word-spacing: 0.25rem;
       @media only screen and (min-width: 768.1px) {
-        @include position("1/2", "4/13");
+        @include mixins.position("1/2", "4/13");
 
         margin-left: 1.85rem;
 
@@ -346,7 +334,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
         z-index: 2;
 
-        @include position("1/2", "3/9");
+        @include mixins.position("1/2", "3/9");
 
         word-spacing: normal;
 
