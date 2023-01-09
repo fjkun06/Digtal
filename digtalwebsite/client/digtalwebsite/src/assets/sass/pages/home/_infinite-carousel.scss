@@ -48,6 +48,8 @@
     background: #e3e3e3;
     background: transparent;
     @include white-gradient;
+    -webkit-user-select: none;
+    user-select: none;
     // border: 3px solid red;
 
     height: calc(18rem + 1.5vw);
