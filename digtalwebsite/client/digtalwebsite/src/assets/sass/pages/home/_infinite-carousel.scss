@@ -13,14 +13,6 @@
   $noShifts: -1;
   $translationDistance: calc($slideWidth * $noShifts);
 
-  @mixin white-gradient {
-    // background: linear-gradient(to right, rgba(rgb(255, 255, 255), 0) 0%, rgba(255, 255, 255, 1) 100%);
-    background: url("../../../images/technology/eright2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
-    // background-origin: border-box;
-  }
 
   position: relative;
 
@@ -45,7 +37,6 @@
   .infinite-carousel {
     background: #e3e3e3;
     background: transparent;
-    @include white-gradient;
     -webkit-user-select: none;
     user-select: none;
     // border: 3px solid red;
@@ -108,31 +99,6 @@
       position: relative;
 
       width: 100%;
-
-      // border: 3px solid red;
-
-      &::before,
-      &::after {
-        @include white-gradient;
-        content: "";
-        height: 100%;
-        position: absolute;
-        width: 50vw;
-        z-index: 2;
-
-        display: none;
-      }
-
-      &::after {
-        right: 0vw;
-        top: 0;
-        transform: rotateZ(180deg);
-      }
-
-      &::before {
-        left: -50vw;
-        top: 0;
-      }
 
       .slide-track,
       .slide-track2 {

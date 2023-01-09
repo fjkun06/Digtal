@@ -1947,10 +1947,6 @@
 .home__technologies .infinite-carousel {
   background: #e3e3e3;
   background: transparent;
-  background: url("../../../images/technology/eright2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
   -webkit-user-select: none;
   user-select: none;
   height: calc(18rem + 1.5vw);
@@ -1998,27 +1994,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-}
-.home__technologies .infinite-carousel .slider::before, .home__technologies .infinite-carousel .slider::after {
-  background: url("../../../images/technology/eright2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
-  content: "";
-  height: 100%;
-  position: absolute;
-  width: 50vw;
-  z-index: 2;
-  display: none;
-}
-.home__technologies .infinite-carousel .slider::after {
-  right: 0vw;
-  top: 0;
-  transform: rotateZ(180deg);
-}
-.home__technologies .infinite-carousel .slider::before {
-  left: -50vw;
-  top: 0;
 }
 .home__technologies .infinite-carousel .slider .slide-track,
 .home__technologies .infinite-carousel .slider .slide-track2 {
