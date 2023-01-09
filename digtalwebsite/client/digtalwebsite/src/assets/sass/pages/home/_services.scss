@@ -24,16 +24,19 @@
 
   &--card {
     @include mixins.grid;
-    grid-template-rows: repeat(7, 1fr);
-    grid-template-columns: repeat(1, 1fr);
+
+    @include mixins.customgrid(7, 1, 1fr);
+
+
     @include mixins.size(calc(100% - 20vw), calc(24rem + 24vw));
     @media only screen and (min-width: 501px) and (max-width: 600px) {
       @include mixins.size(calc(100% - 25vw), calc(24rem + 24vw));
     }
 
     @media only screen and (min-width: 600.1px) {
-      grid-template-rows: repeat(6, 1fr);
-      grid-template-columns: repeat(7, 1fr);
+      @include mixins.customgrid(6, 7, 1fr);
+      
+
       @include mixins.size(calc(100% - 15vw), calc(24rem + 15vw));
       box-shadow: none;
 
@@ -41,8 +44,8 @@
     }
 
     @media only screen and (min-width: 1200.1px) {
-      grid-template-rows: repeat(6, 1fr);
-      grid-template-columns: repeat(7, 1fr);
+      @include mixins.customgrid(6, 7, 1fr);
+     
       @include mixins.size(calc(100% - 22.5vw), calc(24rem + 18vw));
       box-shadow: none;
       // background-color: #000;
@@ -57,18 +60,17 @@
     /***************************************Card Imagee**********************************/
 
     &-image {
-      grid-row: 1/5;
-      grid-column: 1/2;
+      @include mixins.position("1/5", "1/2");
+
       z-index: 1;
 
       @media only screen and (min-width: 600.1px) {
-        grid-row: 3/7;
-        grid-column: 1/6;
+        @include mixins.position("3/7", "1/6");
       }
 
       @media only screen and (min-width: 1200.1px) {
-        grid-row: 1/7;
-        grid-column: 1/7;
+        @include mixins.position("1/7");
+
         @include mixins.size(90%, 100%);
       }
       @include mixins.flex;
@@ -104,15 +106,16 @@
         max-width: 657px;
         box-shadow: 2px 20px 40px 10px rgba(#883399, 0.125);
         margin-top: 6rem;
-        grid-row: 1/5;
-        grid-column: 3/8;
+
+        @include mixins.position("1/5", "3/8");
       }
 
       @media only screen and (min-width: 1200.1px) {
         margin-top: 0rem;
         @include mixins.size(88.5%, 89%);
-        grid-row: 2/6;
-        grid-column: 3/8;
+
+        @include mixins.position("2/6", "3/8");
+
         max-width: none;
         margin-left: 9.75rem;
       }
@@ -121,18 +124,18 @@
         @include mixins.size(100%, 85%);
       }
       background-color: rgb(255, 255, 255);
-      // background-color: rgb(157, 69, 69);
-      grid-row: 5/8;
-      grid-column: 1/2;
+
+      @include mixins.position("5/8", "1/2");
 
       padding: 0.5rem 2.5rem;
       @include mixins.grid;
-      grid-template-columns: repeat(9, 1fr);
-      grid-template-rows: repeat(1, 1fr);
+
+      @include mixins.customgrid(1, 9, 1fr);
+     
 
       .icon {
-        grid-row: 1/2;
-        grid-column: 1/3;
+        @include mixins.position("1/2", "1/3");
+
         background-color: rgb(255, 255, 255);
         @include mixins.flex;
         padding: 0.5rem 0rem;
@@ -158,7 +161,6 @@
       }
 
       .mini-card {
-       
         padding: 0.5rem 1rem;
         @media only screen and (min-width: 1200.1px) {
           padding: 0.5rem 20px;
@@ -171,9 +173,9 @@
         @media only screen and (min-width: 1200.1px) {
           row-gap: 1rem;
         }
-        grid-row: 1/2;
-        grid-column: 3/10;
-        // @media only screen and (min-width: 600.1px) {
+
+        @include mixins.position("1/2", "3/10");
+
         @include mixins.flex(column);
         align-items: flex-start;
         // }
@@ -188,8 +190,6 @@
           width: fit-content;
           font-style: normal;
           font-weight: 500;
-          // line-height: 24px;
-          // word-spacing: -.4ch;
         }
 
         .title {
@@ -202,7 +202,6 @@
           font-family: "Prompt 500", sans-serif;
           padding-bottom: 0.25rem;
           width: max-content;
-          // word-spacing: 4px;
         }
       }
     }
@@ -243,32 +242,30 @@
     }
   }
 }
-// }
+
 
 @mixin leftAligned {
   .home__service {
     &--card {
       &-image {
         @media only screen and (min-width: 600.1px) {
-          grid-row: 3/7;
-          grid-column: 3/8;
+          @include mixins.position("3/7", "3/8");
         }
         @media only screen and (min-width: 1200.1px) {
-          grid-row: 1/7;
-          grid-column: 2/8;
+          @include mixins.position("1/7", "2/8");
+
           margin-left: 9.75rem;
         }
       }
       &-subcard {
         @media only screen and (min-width: 600.1px) {
-          grid-row: 1/5;
-          grid-column: 1/6;
+          @include mixins.position("1/5", "1/6");
         }
         @media only screen and (min-width: 1200.1px) {
           margin-top: 0rem;
           @include mixins.size(88.5%, 89%);
-          grid-row: 2/6;
-          grid-column: 1/6;
+
+          @include mixins.position("2/6", "1/6");
 
           max-width: none;
           margin-left: 0rem;
@@ -277,9 +274,8 @@
 
       &-arrow {
         @media only screen and (min-width: 600.1px) {
-          grid-row: 6/7;
-          grid-column: 1/2;
-          // transform: scale(-1, -1);
+          @include mixins.position("6/7", "1/2");
+
           transform: translate(-1rem, 0);
         }
 

@@ -5,16 +5,11 @@ import leonel from "src/assets/images/leonel.png";
 import xevlyn from "src/assets/images/xevlyn.png";
 import fj from "src/assets/images/fj.png";
 import nesta from "src/assets/images/nesta.png";
-// import diversity from "@assets/images/diversity.png";
-// import leonel from "@assets/images/leonel.png";
-// import xevlyn from "@assets/images/xevlyn.png";
-// import fj from "@assets/images/fj.png";
-// import nesta from "@assets/images/nesta.png";
+
 import { Image } from "mui-image";
 import TeamCard from "src/components/about/TeamCard";
 import { useTranslation } from "react-i18next";
 import flower from "src/assets/svg/flower.svg";
-import Carousel from "@components/home/carousel";
 
 const team = [
   { name: "Yemeli Zone Leonel", title: "Founder & CEO", image: leonel },
@@ -239,9 +234,6 @@ export default function AboutUs() {
         </Box>
       </Box>
       {/* Join out team section ends here */}
-      <Box>
-        <Carousel />
-      </Box>
     </Grid>
   );
 }
