@@ -100,7 +100,7 @@ background-color: #fff;
         @media only screen and (min-width: 1201px) {
           padding: 0 0vw;
           align-items: flex-start;
-          justify-content: start;
+          justify-content: flex-start;
           height: 17rem;
         }
         row-gap: 2.5rem;
@@ -176,7 +176,7 @@ background-color: #fff;
             width: 100%;
             @include mixins.flex(column);
             @media only screen and (min-width: 1201px) {
-              justify-content: start;
+              justify-content: flex-start;
               align-items: flex-start;
             }
           }
@@ -190,7 +190,7 @@ background-color: #fff;
               column-gap: 0.5rem;
             }
             @media only screen and (min-width: 1201px) {
-              justify-content: start;
+              justify-content: flex-start;
             }
             padding: 0.15rem 0;
             h5 {

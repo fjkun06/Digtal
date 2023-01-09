@@ -62,7 +62,6 @@
   &::after {
     position: absolute;
     display: block;
-    display: none;
     content: "";
     @include mixins.size(100vw, 100vh);
     top: 0;
