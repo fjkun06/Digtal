@@ -43,7 +43,7 @@ export default function BrandSection() {
   //   };
   // }, []);
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 3; i++) {
     // for (let i = 0; i < 6; i++) {
     images[i] = (
       <div class="slide">

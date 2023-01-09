@@ -94,41 +94,7 @@
     // Styling
     .slider,
     .slider2 {
-      background: white;
-      background: transparent;
-
-      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-      height: 100%;
-      margin: auto;
-      overflow: hidden;
-      position: relative;
-
-      width: 100%;
-
-      // border: 3px solid red;
-
-      &::before,
-      &::after {
-        @include white-gradient;
-        content: "";
-        height: 100%;
-        position: absolute;
-        width: 50vw;
-        z-index: 2;
-
-        display: none;
-      }
-
-      &::after {
-        right: 0vw;
-        top: 0;
-        transform: rotateZ(180deg);
-      }
-
-      &::before {
-        left: -50vw;
-        top: 0;
-      }
+ 
 
       .slide-track,
       .slide-track2 {
@@ -140,19 +106,8 @@
         width: calc(110vw * 14);
         width: calc(140vw * 14);
 
-        @media screen and (min-width: 768px) {
-          // width: calc(93vw * 18);
-          // width: calc(53vw * 8);
-        }
       }
 
-      .slide-track2 {
-        width: calc(calc(80vw + 3 * calc(3rem + 1.15vw)) * 6);
-        animation: scroll2 $animationSpeed2 linear infinite;
-        @include mixins.flex;
-
-        align-items: center;
-      }
 
       .slide,
       .slide2 {
