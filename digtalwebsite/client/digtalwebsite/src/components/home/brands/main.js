@@ -3,48 +3,30 @@ import React from "react";
 import css from "src/assets/svg/home/infinite-carousel/css.svg";
 import { line1, line2, line3 } from "./config";
 import HomeHeading from "src/components/reusables/HomeHeading";
+import { useMediaQuery } from "@mui/material";
 export default function BrandSection() {
   let images = [];
   let images22 = [];
   let images3 = [];
-  // React.useEffect(() => {
-  //   const el = document.querySelector(".infinite-carousel--box__one");
-  //   const e2 = document.querySelector(".infinite-carousel--box__two");
+  const [noSlides, setNoSlides] = React.useState(2);
+  const desktop = useMediaQuery("(min-width:1500.1px)");
+  const laptop = useMediaQuery("(min-width:600.1px)");
 
-  //   // window.addEventListener("click", (e) => console.log(e));
+  React.useEffect(() => {
+    if (desktop) {
+      setNoSlides(8);
+    } else if (laptop) {
+      // setNoSlides(6);
+    } else {
+      setNoSlides(2);
+    }
+    if (desktop) console.log("desktop: ", noSlides);
 
-  //   let i = 0;
-  //   let j = 0;
-  //   let end;
+    return () => {};
+  }, [desktop, noSlides,laptop]);
 
-  //   function run() {
-  //     i++;
-  //     j++;
-
-  //     if (el.offsetLeft === el.parentElement.clientWidth) {
-  //       i = 0 - el.clientWidth * 4;
-  //     }
-  //     if (e2.offsetLeft === el.parentElement.clientWidth) {
-  //       j = 0;
-  //     }
-  //     if (el.offsetLeft < el.parentElement.clientWidth + 1) {
-  //       el.style.marginLeft = `${i * 0.25}px`;
-  //     }
-  //     if (e2.offsetLeft < el.parentElement.clientWidth * 2 + 1) {
-  //       e2.style.marginLeft = `${j * 0.25 - el.parentElement.clientWidth}px`;
-  //     }
-
-  //     requestAnimationFrame(run);
-  //   }
-
-  //   end = requestAnimationFrame(run);
-  //   return () => {
-  //     cancelAnimationFrame(end);
-  //   };
-  // }, []);
-
-  for (let i = 0; i < 8; i++) {
-  // for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < noSlides; i++) {
+    // for (let i = 0; i < 3; i++) {
     // for (let i = 0; i < 6; i++) {
     images[i] = (
       <div class="slide">
@@ -57,8 +39,8 @@ export default function BrandSection() {
       </div>
     );
     images22[i] = (
-      <div class="slide">
-      {/* <div class="slide2"> */}
+      <div class="slide2">
+        {/* <div class="slide2"> */}
         <img src={line2[0]} alt="CSS3" />
         <img src={line2[1]} alt="CSS3" />
         <img src={line2[2]} alt="CSS3" />
@@ -82,12 +64,11 @@ export default function BrandSection() {
   }
 
   return (
-
     <div class="home__technologies">
       <HomeHeading section={"service"} />
       {/* <div className="right"> */}
-        <X classN={"right"}/>
-        <X classN={"left"}/>
+      <X classN={"right"} />
+      <X classN={"left"} />
       {/* </div> */}
 
       <div class="infinite-carousel">
