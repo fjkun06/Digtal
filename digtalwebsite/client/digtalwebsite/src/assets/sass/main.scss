@@ -23,6 +23,10 @@
   .solutions__title {
     position: relative;
   }
+
+.swiper-free-mode > .swiper-wrapper {
+  transition-timing-function: linear;
+}
 }
 
 //setting background
