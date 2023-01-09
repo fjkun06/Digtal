@@ -1951,6 +1951,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
+  -webkit-user-select: none;
+  user-select: none;
   height: calc(18rem + 1.5vw);
   display: flex;
   flex-direction: column;
