@@ -31,6 +31,7 @@
         fill: white;
       }
     }
+    display: none;
   }
   .left {
     transform: scale(-1, 1);
@@ -44,6 +45,11 @@
     // border: 3px solid red;
 
     height: calc(18rem + 1.5vw);
+
+    @media screen and (min-width: 768.01px) {
+      height: calc(calc(4.5rem + 3.45vw) * 3.5);
+    }
+
     @include mixins.flex(column);
 
     width: 100vw;
@@ -51,6 +57,8 @@
     $animationSpeed: 11.5s;
     $animationSpeed2: 5s;
     $animationSpeed: 23s;
+    $animationSpeed: 3s;
+    // $animationSpeed: 3s;
     $animationSpeed2: 10s;
 
     // Animation
@@ -61,6 +69,11 @@
 
       100% {
         transform: translateX(calc(-80vw * 3));
+        transform: translateX(calc(-100vw * 3));
+        @media screen and (min-width: 768px) {
+          transform: translateX(calc(-100vw * 4));
+        
+        }
       }
     }
     @keyframes scroll2 {
@@ -97,10 +110,7 @@
         position: absolute;
         width: 50vw;
         z-index: 2;
-        // svg {
-        //   width: 100%;
-        //   height: 100%;
-        // }
+
         display: none;
       }
 
@@ -122,6 +132,12 @@
         align-items: center;
         height: 33.3%;
         width: calc(110vw * 14);
+        width: calc(140vw * 14);
+
+        @media screen and (min-width: 768px) {
+          width: calc(93vw * 14);
+        
+        }
       }
 
       .slide-track2 {
@@ -134,34 +150,85 @@
 
       .slide,
       .slide2 {
+        @include mixins.customgrid(1, 12, 1fr);
         height: 35px;
+        height: calc(2rem + 3.45vw);
         width: 80vw;
+        width: 100vw;
+        @include mixins.grid;
+        @media screen and (min-width: 768px) {
+          @include mixins.flex;
+          justify-content: space-between;
+
+          height: calc(4.5rem + 3.45vw);
+          width: 53vw;
+          padding-right: 3rem;
+        }
 
         padding: 0;
         img {
           height: auto;
+          height: calc(3rem + 1.15vw);
+          height: calc(2rem + 3.45vw);
 
-          width: calc(3rem + 1.15vw);
+          width: calc(2rem + 3.45vw);
+          @media screen and (min-width: 768.01px) {
+            height: calc(4.5rem + 3.45vw);
 
-          &:last-child {
-            // margin-right: 1.5rem;
+            width: calc(4.5rem + 3.45vw);
+          }
+          @media screen and (max-width: 768px) {
+            &:nth-child(1) {
+              @include mixins.position("1/2", "2/3");
+            }
+            &:nth-child(2) {
+              @include mixins.position("1/2", "4/5");
+            }
+            &:nth-child(3) {
+              @include mixins.position("1/2", "6/7");
+            }
+            &:nth-child(4) {
+              @include mixins.position("1/2", "8/9");
+            }
+            &:nth-child(5) {
+              @include mixins.position("1/2", "10/11");
+            }
+            &:nth-child(6) {
+              @include mixins.position("1/2", "12/13");
+              // position: absolute
+            }
           }
         }
-        // border: 3px solid rgb(36, 225, 162);
-        @include mixins.flex;
-
-        justify-content: space-between;
-
-        padding-right: calc(100vw / 36);
-        padding-right: calc(100vw / 12);
       }
 
       .slide2 {
-        width: calc(80vw + 3 * calc(3rem + 1.15vw));
-        padding-right: calc(100vw / 24);
-
+        @include mixins.customgrid(1, 48, 1fr);
+        @media screen and (min-width: 768px) {
+          @include mixins.flex;
+          justify-content: space-between;
+        }
         img {
-          margin-right: calc((3rem + 1.15vw) / 2);
+          @media screen and (max-width: 768px) {
+            &:nth-child(1) {
+              @include mixins.position("1/2", "6/10");
+            }
+            &:nth-child(2) {
+              @include mixins.position("1/2", "14/18");
+            }
+            &:nth-child(3) {
+              @include mixins.position("1/2", "22/26");
+            }
+            &:nth-child(4) {
+              @include mixins.position("1/2", "30/34");
+            }
+            &:nth-child(5) {
+              @include mixins.position("1/2", "38/42");
+            }
+            &:nth-child(6) {
+              @include mixins.position("1/2", "45/49");
+              margin-left: 2.75vw;
+            }
+          }
         }
       }
     }

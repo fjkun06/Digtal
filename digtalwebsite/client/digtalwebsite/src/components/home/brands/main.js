@@ -43,7 +43,7 @@ export default function BrandSection() {
   //   };
   // }, []);
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 8; i++) {
     // for (let i = 0; i < 6; i++) {
     images[i] = (
       <div class="slide">
@@ -63,7 +63,6 @@ export default function BrandSection() {
         <img src={line2[3]} alt="CSS3" />
         <img src={line2[4]} alt="CSS3" />
         <img src={line2[5]} alt="CSS3" />
-        <img src={line2[3]} alt="CSS3" />
 
         {/* <img src={line2[0]} alt="CSS3" /> */}
       </div>
@@ -81,18 +80,6 @@ export default function BrandSection() {
   }
 
   return (
-    // <div className="infinite-carousel">
-    //   <div className="infinite-carousel--box">
-    //     <div className="infinite-carousel--box__one">
-    //       {/* {images.map(img => img)} */}
-    //     </div>
-    //     <div className="infinite-carousel--box__two">
-    //       {/* {images.map(img => img)} */}
-    //     </div>
-    //   </div>
-    //   {/* <div className="leftblur"></div>
-    //     <div className="rightblur"></div> */}
-    // </div>
 
     <div class="home__technologies">
       <HomeHeading section={"service"} />
@@ -104,7 +91,8 @@ export default function BrandSection() {
       <div class="infinite-carousel">
         <div class="slider">
           <div class="slide-track">{images.map(img => img)}</div>
-          <div class="slide-track2">{images22.map(img => img)}</div>
+          <div class="slide-track">{images22.map(img => img)}</div>
+          {/* <div class="slide-track2">{images22.map(img => img)}</div> */}
           {/* <div class="slide-track">{images3.map(img => img)}</div> */}
           <div class="slide-track">{images3.map(img => img)}</div>
         </div>
