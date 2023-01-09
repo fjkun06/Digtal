@@ -37,7 +37,7 @@
         fill: white;
       }
     }
-    display: none;
+    // display: none;
   }
   .left {
     transform: scale(-1, 1);
@@ -63,7 +63,7 @@
     $animationSpeed: 11.5s;
     $animationSpeed2: 5s;
     $animationSpeed: 23s;
-    $animationSpeed: 3s;
+    $animationSpeed: 13s;
     // $animationSpeed: 3s;
     $animationSpeed2: 10s;
 
@@ -77,22 +77,22 @@
         transform: translateX($translationDistance);
       }
     }
-    @keyframes scroll1500 {
+    @keyframes scroll960Down {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(calc(-50px * 9) * 4));
+      }
+    }
+    @keyframes scroll960Up {
       0% {
         transform: translateX(0);
       }
 
       100% {
         transform: translateX(calc(calc(-76px * 9) * 4));
-      }
-    }
-    @keyframes scroll2 {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(calc(-80vw - 3 * calc(3rem + 1.15vw)));
       }
     }
 
@@ -137,8 +137,12 @@
       .slide-track,
       .slide-track2 {
         animation: scroll $animationSpeed linear infinite;
-        @media only screen and (min-width: 1500.01px) {
-          animation: scroll1500 $animationSpeed linear infinite;
+        @media only screen and (min-width: 600.01px) {
+          animation: scroll960Down $animationSpeed linear infinite;
+        }
+
+        @media only screen and (min-width: 960.01px) {
+          animation: scroll960Up $animationSpeed linear infinite;
         }
         display: flex;
         align-items: center;
@@ -147,13 +151,7 @@
         width: calc(140vw * 14);
       }
 
-      .slide-track2 {
-        width: calc(calc(80vw + 3 * calc(3rem + 1.15vw)) * 6);
-        animation: scroll2 $animationSpeed2 linear infinite;
-        @include mixins.flex;
-
-        align-items: center;
-      }
+   
 
       .slide,
       .slide2 {
@@ -163,16 +161,27 @@
 
         padding: 0;
 
-        @media only screen and (min-width: 1500.01px) {
+        @media only screen and (min-width: 600.01px) {
+          // @media only screen and (min-width: 960.01px) {
+          // @media only screen and (min-width: 1500.01px) {
           display: flex;
           justify-content: space-between;
           padding-right: 4rem;
-          @include mixins.size(calc(76px * 9), $height);
+          @include mixins.size(calc(50px * 9), 50px);
         }
+        @media only screen and (min-width: 960.01px) {
+          @include mixins.size(calc(76px * 9), 76px);
+        }
+
         img {
           @include mixins.size($height);
-          @media only screen and (min-width: 1500.01px) {
+          @media only screen and (min-width: 600.01px) {
+            // @media only screen and (min-width: 1500.01px) {
             // padding-right: 3rem;
+            @include mixins.size(50px);
+          }
+
+          @media only screen and (min-width: 960.01px) {
             @include mixins.size(76px);
           }
 
@@ -202,32 +211,32 @@
 
       .slide2 {
         // @media only screen and (min-width: 1500.01px) {
-          @include mixins.customgrid(1, 6, 1fr);
-          padding-right: 0rem;
-          height: 100%;
+        @include mixins.customgrid(1, 6, 1fr);
+        padding-right: 0rem;
+        height: 100%;
 
-          img {
-            // padding-left: 3rem;
-            justify-self: flex-end;
-            &:nth-child(1) {
-              @include mixins.position("1/2", "1/2");
-            }
-            &:nth-child(2) {
-              @include mixins.position("1/2", "2/3");
-            }
-            &:nth-child(3) {
-              @include mixins.position("1/2", "3/4");
-            }
-            &:nth-child(4) {
-              @include mixins.position("1/2", "4/5");
-            }
-            &:nth-child(5) {
-              @include mixins.position("1/2", "5/6");
-            }
-            &:nth-child(6) {
-              @include mixins.position("1/2", "6/7");
-              // position: absolute
-            }
+        img {
+          // padding-left: 3rem;
+          justify-self: flex-end;
+          &:nth-child(1) {
+            @include mixins.position("1/2", "1/2");
+          }
+          &:nth-child(2) {
+            @include mixins.position("1/2", "2/3");
+          }
+          &:nth-child(3) {
+            @include mixins.position("1/2", "3/4");
+          }
+          &:nth-child(4) {
+            @include mixins.position("1/2", "4/5");
+          }
+          &:nth-child(5) {
+            @include mixins.position("1/2", "5/6");
+          }
+          &:nth-child(6) {
+            @include mixins.position("1/2", "6/7");
+            // position: absolute
+          }
           // }
         }
 
@@ -256,8 +265,6 @@
           //     margin-left: 2.75vw;
           //   }
           // }
-
-          
         }
       }
     }

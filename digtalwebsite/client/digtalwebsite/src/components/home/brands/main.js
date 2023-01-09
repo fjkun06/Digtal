@@ -16,7 +16,7 @@ export default function BrandSection() {
     if (desktop) {
       setNoSlides(8);
     } else if (laptop) {
-      // setNoSlides(6);
+      setNoSlides(8);
     } else {
       setNoSlides(2);
     }
