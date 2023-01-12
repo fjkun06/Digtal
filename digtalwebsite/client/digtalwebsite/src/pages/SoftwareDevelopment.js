@@ -42,6 +42,7 @@ const SoftwareDevelopment = () => {
 
   return (
     <>
+
       <div className="main-header">
         <div className="left">
           <div className="text">
@@ -76,6 +77,7 @@ const SoftwareDevelopment = () => {
           <div className="right-bottom">
             <div className="sub-text">
               <motion.p
+
                 variants={subTextVariants}
                 initial="hidden"
                 animate="visible"
@@ -93,6 +95,7 @@ const SoftwareDevelopment = () => {
 
       {/* services section */}
       {detailsData.map((data, index) => (
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -105,6 +108,7 @@ const SoftwareDevelopment = () => {
             info={data.info}
           />
         </motion.div>
+
       ))}
     </>
   );

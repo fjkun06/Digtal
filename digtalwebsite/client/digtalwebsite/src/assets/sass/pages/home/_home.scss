@@ -1,134 +1,57 @@
 @use "../../util/variables";
 @use "../../util/mixins";
+@use "carousel";
+@use "infinite-carousel";
+@use "services";
+@use "magic";
 
-#home-carousel {
-  background-color: rgba(rebeccapurple, 0.466);
-  background-color: #fff;
-
-  // border: 10px solid yellow;
-  // overflow-y: hidden;
-  @include mixins.size(100vw, 100vh);
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: repeat(1, 1fr);
-  // transition: all 1 ease-in-out;
-
-  /******************Home after*****************/
-  &::after {
-    position: absolute;
-    display: block;
-    content: "";
-    @include mixins.size(100vw, 100vh);
-    top: 0;
-    left: 0;
-    background-color: rgba(#663399, 30%);
-    background: linear-gradient(to bottom, transparent 0%, transparent 70%, 90%, rgba(#663399, 50%));
-    z-index: 1;
+@keyframes fade-in-out {
+  10% {
+    opacity: 1;
   }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes glide-up {
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
 
- 
-  /****************Slides******************/
-  .mySlide {
-    display: none;
-    opacity: 0;
+.home__heading {
+  // border: 3px solid red;
+  // background-color: rgba(#fff, 0.5);
+
+
+  width: 100%;
+  @include mixins.flex;
+  span {
+    font-family: "Prompt 500", sans-serif;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: rgba(#fff, 0.5);
+    height: 100%;
     position: relative;
-    animation: fade-in-out linear 5s 0s 1 forwards;
-
-    img {
+    font-size: calc(1rem + 1vw);
+    color: #663399;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    &::after {
+      display: block;
+      content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      @include mixins.size(100vw, 100vh);
-      object-fit: cover;
-    }
+      top: 115%;
+      left: calc((100% - 40%) / 2);
+      @include mixins.size(40%, 3px);
 
-
-    div {
-      position: absolute;
-      top: 0vh;
-      @include mixins.flex(column);
-      width: 100%;
-      height: 100%;
-      row-gap: 5px;
-      span {
-        font-family: "Cormorant Garamond 700", serif;
-        // font-size: 10.25vw;
-        font-size: calc(4.4rem + 1.05vw);
-        // font-size: 6.2rem;
-        text-align: left;
-        color: white;
-        line-height: 5.5rem;
-        padding: 0 3rem;
-        filter: drop-shadow(0 3mm 4mm rgb(0, 0, 0));
-        width: 100%;
+      @media only screen and (min-width: 960.1px) {
+        @include mixins.size(35%, 5px);
+        top: 110%;
+        left: calc((100% - 35%) / 2);
       }
+
+      background: var(--footer-bt-light);
     }
   }
-
-  .btns {
-    position: absolute;
-    top: 90vh;
-    right: 10vw;
-    margin-right: 10rem;
-    @media screen and (max-width: 480px) {
-      margin-right: 0;
-    }
-    background-color: transparent;
-    z-index: 5;
-    width: max-content;
-    @include mixins.flex;
-    column-gap: 2rem;
-
-    button {
-      filter: blur(1.5px);
-
-      border: 3px solid white;
-      border-radius: 1px;
-      color: transparent;
-      cursor: pointer;
-      @include mixins.size(20px, 20px);
-      transform: rotate(45deg);
-      &:hover {
-        background: var(--navbar-bb-light);
-        border: none;
-        filter: blur(0);
-      }
-    }
-  }
-  .icons {
-    position: absolute;
-    top: 90.15vh;
-    right: calc(8vw + 5rem);
-    z-index: 6;
-
-    @media screen and (max-width: 480px) {
-      display: none;
-    }
-    @media screen and (min-width: 1201px) {
-      right: calc(9vw + 5rem);
-
-    }
-
-    span {
-      svg {
-        path,
-        rect {
-          fill: white;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  @keyframes fade-in-out {
-    10% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
-    }
-  
-  }
-
-
 }
