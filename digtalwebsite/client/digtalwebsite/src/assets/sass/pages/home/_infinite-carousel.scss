@@ -13,7 +13,6 @@
   $noShifts: -1;
   $translationDistance: calc($slideWidth * $noShifts);
 
-
   position: relative;
 
   .right,
@@ -117,8 +116,6 @@
         width: calc(140vw * 14);
       }
 
-   
-
       .slide,
       .slide2 {
         @include mixins.customgrid(1, 12, 1fr);
@@ -128,7 +125,6 @@
         padding: 0;
 
         @media only screen and (min-width: 600.01px) {
-
           display: flex;
           justify-content: space-between;
           padding-right: 4rem;
@@ -183,6 +179,9 @@
         img {
           // padding-left: 3rem;
           justify-self: flex-end;
+          @media only screen and (max-width: 600px) {
+            justify-self: flex-start;
+          }
           &:nth-child(1) {
             @include mixins.position("1/2", "1/2");
           }
@@ -202,33 +201,6 @@
             @include mixins.position("1/2", "6/7");
             // position: absolute
           }
-          // }
-        }
-
-        @media screen and (max-width: 768px) {
-          // @include mixins.customgrid(1, 48, 1fr);
-
-          // img {
-          //   padding-left: 6rem;
-          //   &:nth-child(1) {
-          //     @include mixins.position("1/2", "6/10");
-          //   }
-          //   &:nth-child(2) {
-          //     @include mixins.position("1/2", "14/18");
-          //   }
-          //   &:nth-child(3) {
-          //     @include mixins.position("1/2", "22/26");
-          //   }
-          //   &:nth-child(4) {
-          //     @include mixins.position("1/2", "30/34");
-          //   }
-          //   &:nth-child(5) {
-          //     @include mixins.position("1/2", "38/42");
-          //   }
-          //   &:nth-child(6) {
-          //     @include mixins.position("1/2", "45/49");
-          //     margin-left: 2.75vw;
-          //   }
           // }
         }
       }
