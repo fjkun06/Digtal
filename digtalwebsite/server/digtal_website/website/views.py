@@ -1,9 +1,9 @@
 # from django.shortcuts import render
 
 from email import message
-from rest_framework.viewsets import ModelViewSet
-from website.models import Contact, Newsletter
-from website.serializer import ContactSerializer, NewsletterSerializer
+from rest_framework.viewsets import ModelViewSet,ReadOnlyModelViewSet
+from website.models import Contact, Newsletter,Employee
+from website.serializer import ContactSerializer, NewsletterSerializer,EmployeeSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
@@ -91,3 +91,12 @@ class NewsletterViewset(ModelViewSet):
             permission_classes = [IsAuthenticated, IsAdminUser]
 
         return [permission() for permission in permission_classes]
+
+
+class EmployeeViewset(ReadOnlyModelViewSet):
+
+    serializer_class = EmployeeSerializer
+
+    def get_queryset(self):
+        return Employee.objects.all()
+
