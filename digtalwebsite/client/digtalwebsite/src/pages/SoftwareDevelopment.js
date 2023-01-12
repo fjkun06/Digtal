@@ -6,7 +6,8 @@ import { useTranslation } from "react-i18next";
 import {
   headerVariants,
   rightVariants,
-  subTextVariants
+  subTextVariants,
+  containerVariants
 } from "../utils/motionVariants/variants";
 
 const SoftwareDevelopment = () => {
@@ -92,11 +93,18 @@ const SoftwareDevelopment = () => {
 
       {/* services section */}
       {detailsData.map((data, index) => (
-        <ListServiceSection
-          number={index + 1}
-          heading={data.heading}
-          info={data.info}
-        />
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <ListServiceSection
+            key={index}
+            number={index + 1}
+            heading={data.heading}
+            info={data.info}
+          />
+        </motion.div>
       ))}
     </>
   );

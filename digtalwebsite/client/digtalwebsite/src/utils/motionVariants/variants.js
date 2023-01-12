@@ -32,6 +32,16 @@ export const subTextVariants = {
   }
 };
 
+export const containerVariants = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1
+  },
+  transition: { staggerChildren: 1.5 }
+};
+
 // First Section Variants
 export const firstSectionVariants = {
   hidden: {
