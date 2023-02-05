@@ -1,6 +1,5 @@
 import { X } from "src/assets/svg/home/infinite-carousel/X";
 import React from "react";
-import css from "src/assets/svg/home/infinite-carousel/css.svg";
 import { line1, line2, line3 } from "./config";
 import HomeHeading from "src/components/reusables/HomeHeading";
 import { useMediaQuery } from "@mui/material";
@@ -29,7 +28,7 @@ export default function BrandSection() {
     // for (let i = 0; i < 3; i++) {
     // for (let i = 0; i < 6; i++) {
     images[i] = (
-      <div class="slide">
+      <div className="slide" key={"a" + i}>
         <img src={line1[0]} alt="CSS3" />
         <img src={line1[1]} alt="CSS3" />
         <img src={line1[2]} alt="CSS3" />
@@ -39,8 +38,8 @@ export default function BrandSection() {
       </div>
     );
     images22[i] = (
-      <div class="slide2">
-        {/* <div class="slide2"> */}
+      <div className="slide2" key={"b" + i}>
+        {/* <div className="slide2"> */}
         <img src={line2[0]} alt="CSS3" />
         <img src={line2[1]} alt="CSS3" />
         <img src={line2[2]} alt="CSS3" />
@@ -52,7 +51,7 @@ export default function BrandSection() {
       </div>
     );
     images3[i] = (
-      <div class="slide">
+      <div className="slide" key={"c" + i}>
         <img src={line3[0]} alt="CSS3" />
         <img src={line3[1]} alt="CSS3" />
         <img src={line3[2]} alt="CSS3" />
@@ -64,20 +63,20 @@ export default function BrandSection() {
   }
 
   return (
-    <div class="home__technologies">
+    <div className="home__technologies">
       <HomeHeading section={"service"} />
-      {/* <div className="right"> */}
-      <X classN={"right"} />
-      <X classN={"left"} />
+      {/* <div classNameName="right"> */}
+      <X classNameN={"right"} />
+      <X classNameN={"left"} />
       {/* </div> */}
 
-      <div class="infinite-carousel">
-        <div class="slider">
-          <div class="slide-track">{images.map(img => img)}</div>
-          {/* <div class="slide-track">{images22.map(img => img)}</div> */}
-          <div class="slide-track">{images22.map(img => img)}</div>
-          {/* <div class="slide-track">{images3.map(img => img)}</div> */}
-          <div class="slide-track">{images3.map(img => img)}</div>
+      <div className="infinite-carousel">
+        <div className="slider">
+          <div className="slide-track">{images.map(img => img)}</div>
+          {/* <div className="slide-track">{images22.map(img => img)}</div> */}
+          <div className="slide-track">{images22.map(img => img)}</div>
+          {/* <div className="slide-track">{images3.map(img => img)}</div> */}
+          <div className="slide-track">{images3.map(img => img)}</div>
         </div>
       </div>
     </div>
