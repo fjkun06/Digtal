@@ -11,9 +11,9 @@ const Enterprise = React.lazy(() =>
 const TermsAndConditions = React.lazy(() =>
   import("./components/terms&conditions/TermsAndConditions")
 );
-const MobileApp = React.lazy(() =>
-  import("./components/services/mobile_app/MobileApp")
-);
+// const MobileApp = React.lazy(() =>
+//   import("./components/services/mobile_app/MobileApp")
+// );
 const UIUX = React.lazy(() => import("./pages/services/UIUX"));
 const Consulting = React.lazy(() =>
   import("./components/services/consulting/Consulting")
@@ -58,7 +58,10 @@ root.render(
                 <Route index element={<App />} />
                 <Route path="consulting" element={<Consulting />} />
                 <Route path="web-development" element={<WebDevelopment />} />
-                <Route path="mobile-app-development" element={<MobileApp />} />
+                <Route
+                  path="software-development"
+                  element={<SoftwareDevelopment />}
+                />
                 <Route
                   path="digital-marketing"
                   element={<DigitalMarketing />}
@@ -71,10 +74,10 @@ root.render(
                 element={() => import("./routes/footer/AboutUs.js")}
               /> */}
               <Route path="about-us" element={<AboutUs />} />
-              <Route
+              {/* <Route
                 path="software-development"
                 element={<SoftwareDevelopment />}
-              />
+              /> */}
               <Route path="blog" element={<Blog />} />
               <Route path="career" element={<Career />} />
               <Route
