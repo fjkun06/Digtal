@@ -9,6 +9,19 @@ import headerDesktopLight from "../../../assets/images/services/uiux/headerDL.pn
 // import headerTablet from "../../../assets/images/services/uiux/bustablet.png";
 // import headerDesktop from "../../../assets/images/services/uiux/BusDesktop.png";
 import { nanoid } from "nanoid";
+// import HeaderSignatureDesktopIcon from "../../../assets/svg/services/uiux/HeaderSignatureDesktopIcon";
+// import HeaderSignatureMobileIcon from "../../../assets/svg/services/uiux/HeaderSignature";
+// import HeaderSignatureTabletIcon from "../../../assets/svg/services/uiux/HeaderSignatureTabletIcon";
+
+const HeaderSignatureDesktopIcon = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/HeaderSignatureDesktopIcon")
+);
+const HeaderSignatureMobileIcon = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/HeaderSignature")
+);
+const HeaderSignatureTabletIcon = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/HeaderSignatureTabletIcon")
+);
 
 const Header = () => {
   const main = "uiux__header";
@@ -41,11 +54,24 @@ const Header = () => {
         },
         { src: headerDesktopLight, query: "(width > 960px)", classN: "desktop" }
       ])}
-      <div className={`${main}--backdrop`}>
-       
-      </div>
+      <div className={`${main}--backdrop`}></div>
       <div className={`${main}--text`}>
-       jadhkhkjdhkjdhkjd dkgkfd dghjfd
+        <div>
+          <div>
+            <span>UI</span>
+            <span>/</span>
+            <span>UX</span>
+          </div>
+          <div>
+            <span>DESIGN</span>
+          </div>
+        </div>
+
+        <div className={`${main}--text-icons`}>
+          <HeaderSignatureMobileIcon />
+          <HeaderSignatureTabletIcon />
+          <HeaderSignatureDesktopIcon />
+        </div>
       </div>
       {/* <img src={headerMobile} alt="MDN" /> */}
     </section>
