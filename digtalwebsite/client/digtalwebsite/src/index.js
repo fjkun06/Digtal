@@ -1,29 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import App from "./App";
 import "./i18n/i18n";
-// import "./index.scss";
-import Enterprise from "./components/enterprise/Enterprise";
-import TermsAndConditions from "./components/terms&conditions/TermsAndConditions";
-import MobileApp from "./components/services/mobile_app/MobileApp";
-import UIUX from "./components/services/uiux/UIUX";
-import Consulting from "./components/services/consulting/Consulting";
-import WebDevelopment from "./components/services/web_development/WebDevelopment";
-import DigitalMarketing from "./components/services/digital_marketing/DigitalMarketing";
-import FourOFour from "./components/errorpage/FourOFour";
-import CookiePloicy from "./components/cookie_policy/CookiePolicy";
-import CookieSettings from "./components/cookie_settings/CookieSettings";
-import Career from "./components/career/Career";
-import Contact from "./pages/ContactForm";
-import Blog from "./components/blog/Blog";
-import PrivacyPolicy from "./components/privacy_policy/PrivacyPolicy";
-import Home from "./pages/Home";
-import SoftwareDevelopment from "./pages/SoftwareDevelopment";
 
-// const AboutUs = React.lazy(() => import("@pages/AboutUs.js"));
+const App = React.lazy(() => import("./App"));
 const AboutUs = React.lazy(() => import("./pages/AboutUs"));
-
+const Enterprise = React.lazy(() =>
+  import("./components/enterprise/Enterprise")
+);
+const TermsAndConditions = React.lazy(() =>
+  import("./components/terms&conditions/TermsAndConditions")
+);
+// const MobileApp = React.lazy(() =>
+//   import("./components/services/mobile_app/MobileApp")
+// );
+const UIUX = React.lazy(() => import("./pages/services/UIUX"));
+const Consulting = React.lazy(() =>
+  import("./components/services/consulting/Consulting")
+);
+const WebDevelopment = React.lazy(() =>
+  import("./components/services/web_development/WebDevelopment")
+);
+const DigitalMarketing = React.lazy(() =>
+  import("./components/services/digital_marketing/DigitalMarketing")
+);
+const FourOFour = React.lazy(() => import("./components/errorpage/FourOFour"));
+const CookiePloicy = React.lazy(() =>
+  import("./components/cookie_policy/CookiePolicy")
+);
+const CookieSettings = React.lazy(() =>
+  import("./components/cookie_settings/CookieSettings")
+);
+const Career = React.lazy(() => import("./components/career/Career"));
+const Contact = React.lazy(() => import("./pages/ContactForm"));
+const Blog = React.lazy(() => import("./components/blog/Blog"));
+const PrivacyPolicy = React.lazy(() =>
+  import("./components/privacy_policy/PrivacyPolicy")
+);
+const Home = React.lazy(() => import("./pages/Home"));
+const SoftwareDevelopment = React.lazy(() =>
+  import("./pages/SoftwareDevelopment")
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const majorRoutes = ["/en", "/fr", "de"];
@@ -41,7 +58,10 @@ root.render(
                 <Route index element={<App />} />
                 <Route path="consulting" element={<Consulting />} />
                 <Route path="web-development" element={<WebDevelopment />} />
-                <Route path="mobile-app-development" element={<MobileApp />} />
+                <Route
+                  path="software-development"
+                  element={<SoftwareDevelopment />}
+                />
                 <Route
                   path="digital-marketing"
                   element={<DigitalMarketing />}
@@ -54,10 +74,10 @@ root.render(
                 element={() => import("./routes/footer/AboutUs.js")}
               /> */}
               <Route path="about-us" element={<AboutUs />} />
-              <Route
+              {/* <Route
                 path="software-development"
                 element={<SoftwareDevelopment />}
-              />
+              /> */}
               <Route path="blog" element={<Blog />} />
               <Route path="career" element={<Career />} />
               <Route

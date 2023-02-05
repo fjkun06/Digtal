@@ -58,10 +58,10 @@ export const flagItems = [
 ];
 
 export const selectDropdownItems = [
-  { route: "/software-development", textIndex: "subject.op2" },
-  { route: "/digital-marketing", textIndex: "subject.op3" },
-  { route: "/consulting", textIndex: "subject.op4" },
-  { route: "/ui-ux-design", textIndex: "subject.op1" },
+  { route: "/services/software-development", textIndex: "subject.op2" },
+  { route: "/services/digital-marketing", textIndex: "subject.op3" },
+  { route: "/services/consulting", textIndex: "subject.op4" },
+  { route: "/services/ui-ux-design", textIndex: "subject.op1" },
 ];
 
 export const navbarItems = [

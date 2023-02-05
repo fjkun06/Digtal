@@ -1,0 +1,10 @@
+@use "../../../util/mixins";
+@use "./header" as header;
+.uiux {
+  margin-top: 9vh;
+  @include mixins.flex(column);
+  background-color: #fff;
+
+  //header
+  @include header.header;
+}
