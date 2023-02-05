@@ -59,7 +59,7 @@ const Header = () => {
         <div>
           <div>
             <span>UI</span>
-            <span>/</span>
+            <span id="slash">/</span>
             <span>UX</span>
           </div>
           <div>

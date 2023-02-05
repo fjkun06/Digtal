@@ -18,6 +18,19 @@
     }
   }
 
+  //header scaling animation
+  @keyframes heroscale {
+    100% {
+      opacity: 1;
+      transform: scale(1) translate(0px, 0px);
+    }
+  }
+  @keyframes slashscale {
+    100% {
+      opacity: 1;
+    }
+  }
+
   //header section
   &__header {
     @include mixins.customgrid(1, 2, auto);
@@ -93,6 +106,23 @@
       @include mixins.size(inherit, 55.6rem);
       margin-top: 5rem;
 
+      @media screen and (480px < width <= 960px) {
+        // @include mixins.size(100vw, 53.2rem);
+        @include mixins.size(inherit, inherit);
+        text-shadow: 0px 4.1254px 25.7837px #663399;
+      }
+      @media screen and (width > 960px) {
+        // @include mixins.size(100vw, 46.6rem);
+        margin-top: 5rem;
+        row-gap: 5rem;
+        @include mixins.size(inherit, inherit);
+        text-shadow: 0px 4.00752px 25.047px #663399;
+      }
+      // background-color: #765;
+      @include mixins.position("1/2", "1/3");
+      z-index: 2;
+      color: white;
+
       //controlling text display
       div {
         &:nth-of-type(1) {
@@ -136,32 +166,27 @@
         font-style: normal;
         letter-spacing: 0.2rem;
 
+        //text resizing animation
+        transform: scale(1.5) translate(-23.5vw, 9px);
+        // transform: scale(1.5) translate(calc(-20vw + 0px ), 9px);
+        opacity: 0;
+        animation: heroscale 1s ease-in-out 1s 1 forwards;
+
         @media screen and (700px < width <= 960px) {
           font-size: 8.6rem;
+          transform: scale(1.5) translate(-13.5vw, 9px);
         }
         @media screen and (width > 960px) {
           font-size: 8.4rem;
         }
-
-        &:nth-of-type(2) {
-          color: #663399;
-        }
       }
 
-      @media screen and (480px < width <= 960px) {
-        // @include mixins.size(100vw, 53.2rem);
-        @include mixins.size(inherit, inherit);
-        text-shadow: 0px 4.1254px 25.7837px #663399;
+      #slash {
+        // &:nth-of-type(2) {
+        color: #663399;
+        animation: slashscale 0.5s ease-in-out 0s 1 forwards, heroscale 1s ease-in-out 1s 1 forwards;
       }
-      @media screen and (width > 960px) {
-        // @include mixins.size(100vw, 46.6rem);
-        @include mixins.size(inherit, inherit);
-        text-shadow: 0px 4.00752px 25.047px #663399;
-      }
-      // background-color: #765;
-      @include mixins.position("1/2", "1/3");
-      z-index: 2;
-      color: white;
+
       // @include mixins.blurbackdrop($intensity: 10px, $color: rgb(228, 15, 15), $opacity: 0.2);
     }
   }
