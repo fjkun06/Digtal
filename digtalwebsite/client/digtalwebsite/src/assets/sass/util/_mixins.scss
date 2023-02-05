@@ -100,9 +100,20 @@
  
 }
 
-
-
+//positions elements in a 2d grid system
 @mixin position($row, $column:$row) {
   grid-row: #{$row};
   grid-column: #{$column};
 }
+
+
+//backdrop
+@mixin blurbackdrop($color: white, $opacity: 0.3,$effect: blur,$intensity: 10px){
+  // -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: $effect($intensity);
+  backdrop-filter: #{$effect}($intensity);
+  // backdrop-filter: blur(10px);
+background-color: rgba($color,$opacity);
+
+}
+
