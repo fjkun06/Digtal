@@ -73,7 +73,6 @@ const Header = () => {
           <HeaderSignatureDesktopIcon />
         </div>
       </div>
-      {/* <img src={headerMobile} alt="MDN" /> */}
     </section>
   );
 };
