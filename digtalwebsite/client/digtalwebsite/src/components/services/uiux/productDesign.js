@@ -1,11 +1,18 @@
 import React from "react";
-import HomeHeading from "src/components/reusables/HomeHeading";
-// import DeviceMockupsMobile from "../../../assets/svg/services/uiux/DeviceMockupsMobile";
 import DeviceMockupsMobile from "../../../assets/svg/services/uiux/DeviceMockups.svg";
 import DeviceMockupsTablet from "../../../assets/svg/services/uiux/DeviceMockupsTD.svg";
+import { nano } from "src/App";
+const HomeHeading = React.lazy(() =>
+  import("src/components/reusables/HomeHeading")
+);
 
 const ProductDesign = () => {
-  const main = "uiux__productdesign";
+  const main = "uiux__product_design";
+  const mockups = [
+    DeviceMockupsMobile,
+    DeviceMockupsTablet,
+    DeviceMockupsTablet
+  ];
 
   return (
     <section className={main}>
@@ -24,12 +31,9 @@ const ProductDesign = () => {
           </p>
         </div>
         <div>
-          {/* <DeviceMockupsMobile/> */}
-          <img src={DeviceMockupsMobile} alt="" />
-          <img src={DeviceMockupsTablet} alt="" />
-          <img src={DeviceMockupsTablet} alt="" />
-          {/* <DeviceMockupsTablet/>
-        <DeviceMockupsTablet/> */}
+          {mockups.map(m => (
+            <img src={m} alt="Design Mockup" key={nano()} />
+          ))}
         </div>
       </section>
     </section>

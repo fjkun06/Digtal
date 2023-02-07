@@ -1,37 +1,24 @@
 @use "../../../util/mixins";
 
 @mixin productdesign {
-  &__productdesign {
+  &__product_design {
     width: 100vw;
     padding: 0rem 3.5rem;
     & > * {
       width: 100%;
       @include mixins.grid;
     }
+    @include mixins.customgrid(2, 1, auto, 1fr);
+    row-gap: 3rem;
+    margin-top: 3rem;
+
+    @media screen and (width > 960px) {
+      row-gap: 5rem;
+      margin-top: 6rem;
+    }
 
     .home__heading {
-      span {
-        font-size: 1.8rem;
-        text-transform: uppercase;
-        line-height: 2.7rem;
-        font-family: "Poppins 600";
-        @media screen and (width > 960px) {
-          font-size: 2.4rem;
-        }
-
-        //redesigning heading underline
-        &::after {
-          @include mixins.size(65%, 5px);
-          background: var(--navbar-bb-light);
-          top: 100%;
-          left: calc((100% - 65%) / 2);
-          @media screen and (width > 960px) {
-            @include mixins.size(50%, 5px);
-            top: 125%;
-            left: calc((100% - 50%) / 2);
-          }
-        }
-      }
+      @include mixins.headingStyle;
     }
 
     section {
@@ -83,15 +70,6 @@
           }
         }
       }
-    }
-
-    @include mixins.customgrid(2, 1, auto, 1fr);
-    row-gap: 3rem;
-    margin-top: 3rem;
-
-    @media screen and (width > 960px) {
-      row-gap: 5rem;
-      margin-top: 6rem;
     }
   }
 }
