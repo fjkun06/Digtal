@@ -34,21 +34,22 @@ const DdesignProcess = () => {
   return (
     <section className={main}>
       <HomeHeading section={"Our Design Process"} />
-
-      {processes.map(({ icon, title }) => (
-        <article key={nano()}>
-          <div>{icon}</div>
-          <div>
-            <h3>{title}</h3>
-            <p>
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
-              Exercitation veniam consequat sunt nostrud amet.Amet minim mollit
-              non deserunt ullamco est sit aliqua dolor do amet sint.
-            </p>
-          </div>
-        </article>
-      ))}
+      <section>
+        {processes.map(({ icon, title }) => (
+          <article key={nano()}>
+            <div>{icon}</div>
+            <div>
+              <h3>{title}</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim velit mollit.
+                Exercitation veniam consequat sunt nostrud amet.Amet minim
+                mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+              </p>
+            </div>
+          </article>
+        ))}
+      </section>
     </section>
   );
 };
