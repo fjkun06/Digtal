@@ -46,7 +46,7 @@
       @include mixins.size(40%, 3px);
 
       @media only screen and (min-width: 960.1px) {
-        @include mixins.size(35%, 5px);
+        @include mixins.size(35%, 6px);
         top: 110%;
         left: calc((100% - 35%) / 2);
       }

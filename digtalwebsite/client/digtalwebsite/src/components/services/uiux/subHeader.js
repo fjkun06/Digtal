@@ -1,66 +1,69 @@
+import React from "react";
+
+//SVG files
 import LineIconMobileLight from "../../../assets/svg/services/uiux/lineml.svg";
 import LineIconTabletLight from "../../../assets/svg/services/uiux/linetl.svg";
 import LineIconDesktopLight from "../../../assets/svg/services/uiux/linedl.svg";
-import UnionLightLeftIcon from "../../../assets/svg/services/uiux/UnionLightLeftIcon";
-import UnionLightRightIcon from "../../../assets/svg/services/uiux/UnionLightRightIcon";
-import React from "react";
 import BrushIconMobile from "../../../assets/svg/services/uiux/brushm.svg";
 import BrushIconTablet from "../../../assets/svg/services/uiux/brusht.svg";
 import BrushIconDesktop from "../../../assets/svg/services/uiux/brushd.svg";
-import UnionTabletLeftLight from "../../../assets/svg/services/uiux/UnionTabletLeftLight";
-import UnionDesktopLeftLight from "../../../assets/svg/services/uiux/UnionDesktopLeftLight";
-import UnionTabletRightLight from "../../../assets/svg/services/uiux/UnionTabletRightLight";
-import UnionDesktopRightLight from "../../../assets/svg/services/uiux/UnionDesktopRightLight";
-const HeaderSignatureDesktopIcon = React.lazy(() =>
-  import("../../../assets/svg/services/uiux/HeaderSignatureDesktopIcon")
+import { nano } from "src/App";
+
+//SVG Components
+const UnionLightLeftIcon = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/UnionLightLeftIcon")
 );
-const HeaderSignatureMobileIcon = React.lazy(() =>
-  import("../../../assets/svg/services/uiux/HeaderSignature")
+const UnionLightRightIcon = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/UnionLightRightIcon")
 );
-const HeaderSignatureTabletIcon = React.lazy(() =>
-  import("../../../assets/svg/services/uiux/HeaderSignatureTabletIcon")
+const UnionTabletLeftLight = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/UnionTabletLeftLight")
+);
+const UnionDesktopLeftLight = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/UnionDesktopLeftLight")
+);
+const UnionTabletRightLight = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/UnionTabletRightLight")
+);
+const UnionDesktopRightLight = React.lazy(() =>
+  import("../../../assets/svg/services/uiux/UnionDesktopRightLight")
 );
 
 const SubHeader = () => {
   const main = "uiux__subheader";
+  const lines = [
+    LineIconMobileLight,
+    LineIconTabletLight,
+    LineIconDesktopLight
+  ];
+  const brushes = [BrushIconMobile, BrushIconTablet, BrushIconDesktop];
 
   return (
     <section className={main}>
       <div>
-
         <UnionLightLeftIcon />
         <UnionTabletLeftLight />
         <UnionDesktopLeftLight />
-
-        {/* <UnionLightLeftIcon /> */}
       </div>
       <div>
         <section>
           <span>All Ideas Need a blueprint</span>
           <div className={main + "--svg"}>
-          <img src={LineIconMobileLight} alt="" />
-          <img src={LineIconTabletLight} alt="" />
-          <img src={LineIconDesktopLight} alt="" />
-
-            {/* <LineIconLight /> */}
+            {lines.map(line => (
+              <img src={line} alt="curly_line" key={nano()} />
+            ))}
           </div>
           <div className={main + "--svg"}>
-            <img src={BrushIconMobile} alt="" />
-            <img src={BrushIconTablet} alt="" />
-            <img src={BrushIconDesktop} alt="" />
+            {brushes.map(brush => (
+              <img src={brush} alt="brush" key={nano()} />
+            ))}
           </div>
         </section>
-        {/* <div id={main + "--text"}> */}
-
-        {/* </div> */}
       </div>
       <div>
-
         <UnionLightRightIcon />
         <UnionTabletRightLight />
         <UnionDesktopRightLight />
-
-        {/* <UnionLightRightIcon /> */}
       </div>
     </section>
   );

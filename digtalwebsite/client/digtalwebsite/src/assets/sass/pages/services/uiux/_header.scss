@@ -147,6 +147,10 @@
       #slash {
         color: #663399;
         animation: slashscale 0.5s ease-in-out 0s 1 forwards, heroscale 1s ease-in-out 1s 1 forwards;
+        transform: scale(1.5) translate(-23.5vw, 9px);
+        @media screen and (700px < width <= 960px) {
+          transform: scale(1.5) translate(-13.5vw, 9px);
+        }
       }
     }
   }

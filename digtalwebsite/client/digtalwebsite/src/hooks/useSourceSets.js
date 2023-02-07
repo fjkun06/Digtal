@@ -1,5 +1,5 @@
 import React from "react";
-import { nanoid } from "nanoid";
+import { nano } from "src/App";
 
 // useSourceSets([
 //   headerMobileLight,main,
@@ -19,7 +19,7 @@ const useSourceSets = pictures => {
           <source
             srcSet={src}
             media={query}
-            key={nanoid()}
+            key={nano()}
             className={`${pictures[1]}--${classN}`}
           />
         ) : null

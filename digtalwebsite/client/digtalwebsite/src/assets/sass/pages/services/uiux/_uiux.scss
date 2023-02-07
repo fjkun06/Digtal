@@ -1,5 +1,6 @@
 @use "../../../util/mixins";
 @use "./header" as header;
+@use "./subheader" as subheader;
 .uiux {
   margin-top: 7.5vh;
   @include mixins.flex(column);
@@ -9,134 +10,56 @@
   @include header.header;
 
   //subheader
-  &__subheader {
+  @include subheader.subheader;
+
+  //proddesign
+  &__productdesign {
     width: 100vw;
-    margin-top: 4rem;
-
-    @include mixins.customgrid(1, 4, auto, 1fr);
-    height: 221.63px;
-    position: relative;
-    div {
+    margin-top: 3rem;
+    padding: 0rem 3.5rem;
+    & > * {
+      width: 100%;
       // border: 1px solid red;
-      &:nth-of-type(1) {
-        @include mixins.position("1/2");
-        span {
-          @include mixins.defaultSignature;
+      @include mixins.grid;
+    }
+
+    .home__heading {
+      span {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        line-height: 2.7rem;
+        font-family: "Poppins 600";
+
+        //redesigning heading underline
+        &::after {
+          @include mixins.size(65%, 5px);
+          background: var(--navbar-bb-light);
+          top: 100%;
+          left: calc((100% - 65%) / 2);
         }
-
-        @media screen and (480px < width <= 960px) {
-          left: 1.5rem;
-        }
-        @media screen and (width > 960px) {
-          left: 3rem;
-        }
-
-        position: absolute;
-        left: 0;
-      }
-      &:nth-of-type(2) {
-        @include mixins.position("1/2", "2/4");
-        position: relative;
-        @include mixins.grid;
-        // background-color: red;
-        @include mixins.size(100%);
-
-        section {
-          @include mixins.size(20rem, 6rem);
-          text-align: center;
-          @media screen and (480px < width <= 960px) {
-            @include mixins.size(25rem, 7.6rem);
-          }
-          @media screen and (width > 960px) {
-            @include mixins.size(34.04rem, 9.4rem);
-          }
-          // vertical-align: middle;
-
-          // background-color: yellow;
-          span {
-            // margin-left: -1.3rem;
-            font-family: "Pacifico Neue", cursive;
-            font-weight: 400;
-            font-size: 2.35rem;
-            line-height: 2.7rem;
-            text-transform: capitalize;
-            color: #663399;
-            width: 17.475rem;
-            // width: 100%;
-            height: 53.48px;
-            text-align: center;
-            @media screen and (480px < width <= 960px) {
-              font-size: 3.3rem;
-              line-height: 3.8rem;
-            }
-            @media screen and (width > 960px) {
-              font-size: 4.04rem;
-              line-height: 4.7rem;
-            }
-          }
-          div.uiux__subheader--svg {
-            position: absolute;
-            @include mixins.size(auto);
-
-            @media screen and (width <= 420px) {
-              display: none;
-            }
-
-            img {
-              @include mixins.defaultSignature;
-            }
-
-            &:nth-of-type(1) {
-              left: 73%;
-              top: 57%;
-              z-index: 1;
-              @media screen and (480px < width <= 960px) {
-                left: 75.5%;
-                top: 61%;
-              }
-              @media screen and (width > 960px) {
-                left: 73.2%;
-                top: 62.8%;
-              }
-            }
-            &:nth-of-type(2) {
-              left: -25px;
-              top: 50.6%;
-              z-index: 0;
-              @media screen and (480px < width <= 960px) {
-                left: -21px;
-                top: 51.6%;
-              }
-              @media screen and (width > 960px) {
-                left: -40px;
-                top: 51.8%;
-              }
-
-              // img {
-              //   @include mixins.defaultSignature;
-              //   // @include mixins.size(auto);
-              // }
-            }
-          }
-        }
-      }
-      &:nth-of-type(3) {
-        @include mixins.position("1/2", "4/5");
-
-        span {
-          @include mixins.defaultSignature;
-        }
-
-        @media screen and (480px < width <= 960px) {
-          right: 1.5rem;
-        }
-        @media screen and (width > 960px) {
-          right: 3rem;
-        }
-
-        position: absolute;
-        right: 0;
       }
     }
+
+    div {
+      &:nth-of-type(2) {
+        background-color: greenyellow;
+        @include mixins.flex(column);
+        row-gap: 2rem;
+        p {
+          padding: 0 4rem;
+          font-size: 1.529rem;
+          font-family: "Prompt 500";
+          line-height: 1.8rem;
+          color: #663399;
+          text-align: center;
+          // @include mixins.flex;
+        }
+      }
+    }
+
+    @include mixins.customgrid(3, 1, auto, 1fr);
+    border: 1px solid red;
+    row-gap: 4rem;
+
   }
 }

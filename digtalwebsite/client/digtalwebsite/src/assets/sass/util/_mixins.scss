@@ -142,3 +142,9 @@ background-color: rgba($color,$opacity);
     @include signatures($desktop: block);
   }
 }
+
+    //positioning absolutely positioned elements
+    @mixin positioning($dir_value, $top, $direction: left) {
+      top: $top;
+      #{$direction}: $dir_value;
+    }
