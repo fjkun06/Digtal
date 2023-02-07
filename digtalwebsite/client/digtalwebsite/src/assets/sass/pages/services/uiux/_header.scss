@@ -115,14 +115,8 @@
         span {
           margin-top: -1rem;
 
-          @include mixins.signatures(block);
+          @include mixins.defaultSignature;
 
-          @media screen and (480px < width <= 960px) {
-            @include mixins.signatures($tablet: block);
-          }
-          @media screen and (width > 960px) {
-            @include mixins.signatures($desktop: block);
-          }
         }
       }
 

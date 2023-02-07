@@ -131,3 +131,14 @@ background-color: rgba($color,$opacity);
   }
 }
 
+//controlling the display of 3 successive elements via media query
+@mixin defaultSignature{
+  @include signatures(block);
+
+  @media screen and (480px < width <= 960px) {
+    @include signatures($tablet: block);
+  }
+  @media screen and (width > 960px) {
+    @include signatures($desktop: block);
+  }
+}

@@ -1,8 +1,12 @@
-import LineIconLight from "../../../assets/svg/services/uiux/LineIconLight";
+import LineIconMobileLight from "../../../assets/svg/services/uiux/lineml.svg";
+import LineIconTabletLight from "../../../assets/svg/services/uiux/linetl.svg";
+import LineIconDesktopLight from "../../../assets/svg/services/uiux/linedl.svg";
 import UnionLightLeftIcon from "../../../assets/svg/services/uiux/UnionLightLeftIcon";
 import UnionLightRightIcon from "../../../assets/svg/services/uiux/UnionLightRightIcon";
 import React from "react";
-import BrushIconLight from "../../../assets/svg/services/uiux/brush.svg";
+import BrushIconMobile from "../../../assets/svg/services/uiux/brushm.svg";
+import BrushIconTablet from "../../../assets/svg/services/uiux/brusht.svg";
+import BrushIconDesktop from "../../../assets/svg/services/uiux/brushd.svg";
 import UnionTabletLeftLight from "../../../assets/svg/services/uiux/UnionTabletLeftLight";
 import UnionDesktopLeftLight from "../../../assets/svg/services/uiux/UnionDesktopLeftLight";
 import UnionTabletRightLight from "../../../assets/svg/services/uiux/UnionTabletRightLight";
@@ -33,10 +37,16 @@ const SubHeader = () => {
         <section>
           <span>All Ideas Need a blueprint</span>
           <div className={main + "--svg"}>
-            <LineIconLight />
+          <img src={LineIconMobileLight} alt="" />
+          <img src={LineIconTabletLight} alt="" />
+          <img src={LineIconDesktopLight} alt="" />
+
+            {/* <LineIconLight /> */}
           </div>
           <div className={main + "--svg"}>
-            <img src={BrushIconLight} alt="" />
+            <img src={BrushIconMobile} alt="" />
+            <img src={BrushIconTablet} alt="" />
+            <img src={BrushIconDesktop} alt="" />
           </div>
         </section>
         {/* <div id={main + "--text"}> */}
