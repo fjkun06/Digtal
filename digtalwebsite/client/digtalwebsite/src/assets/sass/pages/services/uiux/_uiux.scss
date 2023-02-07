@@ -90,8 +90,10 @@
           }
           p {
             line-height: 2rem;
-            // text-align: justify;
             // font-size: 1.85rem;
+            @media screen and (width <= 600px) {
+              text-align: justify;
+            }
             color: #663399;
           }
 
