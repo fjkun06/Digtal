@@ -1,10 +1,18 @@
 @use "../../../util/mixins";
-@use "./header" as header;
+@use "./header" as hdr;
+@use "./product-design" as pd;
+@use "./subheader" as subh;
 .uiux {
-  margin-top: 9vh;
+  margin-top: 7.5vh;
   @include mixins.flex(column);
   background-color: #fff;
 
   //header
-  @include header.header;
+  @include hdr.header;
+
+  //subheader
+  @include subh.subheader;
+
+  //proddesign
+  @include pd.productdesign;
 }
