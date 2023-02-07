@@ -8,7 +8,7 @@ import headerDesktopLight from "../../../assets/images/services/uiux/headerDL.pn
 // import headerDesktopDark from "../../../assets/images/services/uiux/headerDD.png";
 // import headerTablet from "../../../assets/images/services/uiux/bustablet.png";
 // import headerDesktop from "../../../assets/images/services/uiux/BusDesktop.png";
-import { nanoid } from "nanoid";
+import useSourceSets from "src/hooks/useSourceSets";
 // import HeaderSignatureDesktopIcon from "../../../assets/svg/services/uiux/HeaderSignatureDesktopIcon";
 // import HeaderSignatureMobileIcon from "../../../assets/svg/services/uiux/HeaderSignature";
 // import HeaderSignatureTabletIcon from "../../../assets/svg/services/uiux/HeaderSignatureTabletIcon";
@@ -25,28 +25,11 @@ const HeaderSignatureTabletIcon = React.lazy(() =>
 
 const Header = () => {
   const main = "uiux__header";
-  const SourceSet = pictures => {
-    return (
-      <picture>
-        {pictures?.map(({ src, query, classN }, index) =>
-          index > 0 ? (
-            <source
-              srcSet={src}
-              media={query}
-              key={nanoid()}
-              className={`${main}--${classN}`}
-            />
-          ) : null
-        )}
-        <img src={pictures[0]} alt="MDN" />
-      </picture>
-    );
-  };
 
   return (
-    <section className={main}>
-      {SourceSet([
-        headerMobileLight,
+    <header className={main}>
+      {useSourceSets([
+        headerMobileLight,main,
         {
           src: headerTabletLight,
           query: "(480px < width <= 960px)",
@@ -73,7 +56,7 @@ const Header = () => {
           <HeaderSignatureDesktopIcon />
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 

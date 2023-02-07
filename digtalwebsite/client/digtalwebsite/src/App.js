@@ -7,6 +7,8 @@ import { useState } from "react";
 import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { nanoid } from "nanoid";
+export {nanoid as nano};
 
 function App() {
   const loc = useLocation();

@@ -1,16 +1,5 @@
 @use "../../../util/mixins";
 
-@mixin signatures($mobile: none, $tablet: none, $desktop: none) {
-  &:nth-of-type(1) {
-    display: $mobile;
-  }
-  &:nth-of-type(2) {
-    display: $tablet;
-  }
-  &:nth-of-type(3) {
-    display: $desktop;
-  }
-}
 
 @mixin header {
   //header scaling animation
@@ -35,7 +24,7 @@
       @include mixins.size(100vw, 53.2rem);
     }
     @media screen and (width > 960px) {
-      @include mixins.size(100vw, 46.6rem);
+      @include mixins.size(100vw, 48rem);
     }
     align-items: flex-start;
 
@@ -54,7 +43,7 @@
           @include mixins.size(100%, 53.2rem);
         }
         @media screen and (width > 960px) {
-          @include mixins.size(100%, 46.6rem);
+          @include mixins.size(100%, 48rem);
         }
       }
     }
@@ -126,14 +115,8 @@
         span {
           margin-top: -1rem;
 
-          @include signatures(block);
+          @include mixins.defaultSignature;
 
-          @media screen and (480px < width <= 960px) {
-            @include signatures($tablet: block);
-          }
-          @media screen and (width > 960px) {
-            @include signatures($desktop: block);
-          }
         }
       }
 
@@ -164,6 +147,10 @@
       #slash {
         color: #663399;
         animation: slashscale 0.5s ease-in-out 0s 1 forwards, heroscale 1s ease-in-out 1s 1 forwards;
+        transform: scale(1.5) translate(-23.5vw, 9px);
+        @media screen and (700px < width <= 960px) {
+          transform: scale(1.5) translate(-13.5vw, 9px);
+        }
       }
     }
   }
