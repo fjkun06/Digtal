@@ -7,4 +7,128 @@
 
   //header
   @include header.header;
+
+  //subheader
+  &__subheader {
+    width: 100vw;
+
+    @include mixins.customgrid(1, 4, auto, 1fr);
+    height: 221.63px;
+    position: relative;
+    div {
+      // border: 1px solid red;
+      &:nth-of-type(1) {
+        @include mixins.position("1/2");
+        span {
+          @include mixins.signatures(block);
+
+          @media screen and (480px < width <= 960px) {
+            @include mixins.signatures($tablet: block);
+          }
+          @media screen and (width > 960px) {
+            @include mixins.signatures($desktop: block);
+          }
+        }
+        position: absolute;
+        left: 0;
+      }
+      &:nth-of-type(2) {
+        @include mixins.position("1/2", "2/4");
+        position: relative;
+        @include mixins.grid;
+        // background-color: red;
+        @include mixins.size(100%);
+
+        section {
+          @include mixins.size(20rem, 6rem);
+          text-align: center;
+          @media screen and (480px < width <= 960px) {
+            @include mixins.size(25rem, 7.6rem);
+          }
+          @media screen and (width > 960px) {
+            @include mixins.size(2rem, 6rem);
+          }
+          // vertical-align: middle;
+
+          background-color: yellow;
+          span {
+            // margin-left: -1.3rem;
+            font-family: "Pacifico Neue", cursive;
+            font-weight: 400;
+            font-size: 2.35rem;
+            line-height: 2.7rem;
+            text-transform: capitalize;
+            color: #663399;
+            width: 17.475rem;
+            // width: 100%;
+            height: 53.48px;
+            text-align: center;
+            @media screen and (480px < width <= 960px) {
+              font-size: 3.3rem;
+            }
+            @media screen and (width > 960px) {
+              font-size: 4.04rem;
+            }
+          }
+          div.uiux__subheader--svg {
+            position: absolute;
+            @include mixins.size(auto);
+
+            @media screen and (width <= 420px) {
+              display: none;
+            }
+
+            &:nth-of-type(1) {
+              left: 73%;
+              top: 57%;
+              z-index: 1;
+
+              span {
+                @include mixins.size(3.5rem, 0.35rem);
+                @media screen and (480px < width <= 960px) {
+                  @include mixins.size(4.9rem, 0.5rem);
+                }
+                @media screen and (width > 960px) {
+                  @include mixins.size(6.1rem, 0.6rem);
+                }
+              }
+            }
+            &:nth-of-type(2) {
+              right: 109%;
+              top: 50.7%;
+              z-index: 0;
+              @include mixins.size(2.2rem);
+              @media screen and (480px < width <= 960px) {
+                @include mixins.size(3.1rem);
+              }
+              @media screen and (width > 960px) {
+                @include mixins.size(3.8rem);
+              }
+
+              img {
+                @include mixins.size(100%);
+              }
+            }
+          }
+        }
+      }
+      &:nth-of-type(3) {
+        @include mixins.position("1/2", "4/5");
+
+        span {
+          @include mixins.signatures(block);
+
+          @media screen and (480px < width <= 960px) {
+            @include mixins.signatures($tablet: block);
+          }
+          @media screen and (width > 960px) {
+            @include mixins.signatures($desktop: block);
+          }
+        }
+
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
 }

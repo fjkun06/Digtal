@@ -1,16 +1,5 @@
 @use "../../../util/mixins";
 
-@mixin signatures($mobile: none, $tablet: none, $desktop: none) {
-  &:nth-of-type(1) {
-    display: $mobile;
-  }
-  &:nth-of-type(2) {
-    display: $tablet;
-  }
-  &:nth-of-type(3) {
-    display: $desktop;
-  }
-}
 
 @mixin header {
   //header scaling animation
@@ -126,13 +115,13 @@
         span {
           margin-top: -1rem;
 
-          @include signatures(block);
+          @include mixins.signatures(block);
 
           @media screen and (480px < width <= 960px) {
-            @include signatures($tablet: block);
+            @include mixins.signatures($tablet: block);
           }
           @media screen and (width > 960px) {
-            @include signatures($desktop: block);
+            @include mixins.signatures($desktop: block);
           }
         }
       }
