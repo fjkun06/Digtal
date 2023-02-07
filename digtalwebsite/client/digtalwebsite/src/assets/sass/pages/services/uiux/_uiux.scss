@@ -1,65 +1,18 @@
 @use "../../../util/mixins";
-@use "./header" as header;
-@use "./subheader" as subheader;
+@use "./header" as hdr;
+@use "./product-design" as pd;
+@use "./subheader" as subh;
 .uiux {
   margin-top: 7.5vh;
   @include mixins.flex(column);
   background-color: #fff;
 
   //header
-  @include header.header;
+  @include hdr.header;
 
   //subheader
-  @include subheader.subheader;
+  @include subh.subheader;
 
   //proddesign
-  &__productdesign {
-    width: 100vw;
-    margin-top: 3rem;
-    padding: 0rem 3.5rem;
-    & > * {
-      width: 100%;
-      // border: 1px solid red;
-      @include mixins.grid;
-    }
-
-    .home__heading {
-      span {
-        font-size: 1.8rem;
-        text-transform: uppercase;
-        line-height: 2.7rem;
-        font-family: "Poppins 600";
-
-        //redesigning heading underline
-        &::after {
-          @include mixins.size(65%, 5px);
-          background: var(--navbar-bb-light);
-          top: 100%;
-          left: calc((100% - 65%) / 2);
-        }
-      }
-    }
-
-    div {
-      &:nth-of-type(2) {
-        background-color: greenyellow;
-        @include mixins.flex(column);
-        row-gap: 2rem;
-        p {
-          padding: 0 4rem;
-          font-size: 1.529rem;
-          font-family: "Prompt 500";
-          line-height: 1.8rem;
-          color: #663399;
-          text-align: center;
-          // @include mixins.flex;
-        }
-      }
-    }
-
-    @include mixins.customgrid(3, 1, auto, 1fr);
-    border: 1px solid red;
-    row-gap: 4rem;
-
-  }
+  @include pd.productdesign;
 }
