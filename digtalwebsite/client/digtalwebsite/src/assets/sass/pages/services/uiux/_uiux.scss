@@ -15,4 +15,55 @@
 
   //proddesign
   @include pd.productdesign;
+
+  //design process
+  &__design_process {
+    width: 100vw;
+    padding: 0rem 3.5rem;
+    & > * {
+      width: 100%;
+      @include mixins.grid;
+    }
+    @include mixins.customgrid(2, 1, auto, 1fr);
+    row-gap: 2.5rem;
+    margin-top: 4rem;
+
+    @media screen and (width > 960px) {
+      row-gap: 5rem;
+      margin-top: 6rem;
+    }
+
+    //styling heading with mixin
+    .home__heading {
+      @include mixins.headingStyle;
+    }
+
+    article {
+      @include mixins.flex(column);
+      padding: 3.5rem 3rem;
+      gap: 2rem;
+      height: 34.6rem;
+      border: 1px solid red;
+
+      div {
+        &:nth-of-type(1) {
+          background-color: green;
+          @include mixins.size(4.4rem);
+        }
+        &:nth-of-type(2) {
+          & > * {
+            font-size: 2rem;
+            font-family: "Prompt 500";
+            text-align: center;
+          }
+          p {
+            line-height: 2rem;
+            text-align: justify;
+            // font-size: 1.85rem;
+            color: #663399;
+          }
+        }
+      }
+    }
+  }
 }
