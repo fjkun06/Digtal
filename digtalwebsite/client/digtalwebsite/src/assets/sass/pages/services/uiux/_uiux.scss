@@ -1,7 +1,7 @@
 @use "../../../util/mixins";
 @use "./header" as header;
 .uiux {
-  margin-top: 9vh;
+  margin-top: 7.5vh;
   @include mixins.flex(column);
   background-color: #fff;
 
@@ -11,6 +11,7 @@
   //subheader
   &__subheader {
     width: 100vw;
+    margin-top: 4rem;
 
     @include mixins.customgrid(1, 4, auto, 1fr);
     height: 221.63px;
@@ -20,15 +21,16 @@
       &:nth-of-type(1) {
         @include mixins.position("1/2");
         span {
-          @include mixins.signatures(block);
-
-          @media screen and (480px < width <= 960px) {
-            @include mixins.signatures($tablet: block);
-          }
-          @media screen and (width > 960px) {
-            @include mixins.signatures($desktop: block);
-          }
+          @include mixins.defaultSignature;
         }
+
+        @media screen and (480px < width <= 960px) {
+          left: 1.5rem;
+        }
+        @media screen and (width > 960px) {
+          left: 3rem;
+        }
+
         position: absolute;
         left: 0;
       }
@@ -46,11 +48,11 @@
             @include mixins.size(25rem, 7.6rem);
           }
           @media screen and (width > 960px) {
-            @include mixins.size(30.04rem, 9.4rem);
+            @include mixins.size(34.04rem, 9.4rem);
           }
           // vertical-align: middle;
 
-          background-color: yellow;
+          // background-color: yellow;
           span {
             // margin-left: -1.3rem;
             font-family: "Pacifico Neue", cursive;
@@ -80,6 +82,10 @@
               display: none;
             }
 
+            img {
+              @include mixins.defaultSignature;
+            }
+
             &:nth-of-type(1) {
               left: 73%;
               top: 57%;
@@ -89,10 +95,8 @@
                 top: 61%;
               }
               @media screen and (width > 960px) {
-              }
-
-              img {
-                @include mixins.defaultSignature;
+                left: 73.2%;
+                top: 62.8%;
               }
             }
             &:nth-of-type(2) {
@@ -104,12 +108,14 @@
                 top: 51.6%;
               }
               @media screen and (width > 960px) {
+                left: -40px;
+                top: 51.8%;
               }
 
-              img {
-                @include mixins.defaultSignature;
-                // @include mixins.size(auto);
-              }
+              // img {
+              //   @include mixins.defaultSignature;
+              //   // @include mixins.size(auto);
+              // }
             }
           }
         }
@@ -119,6 +125,13 @@
 
         span {
           @include mixins.defaultSignature;
+        }
+
+        @media screen and (480px < width <= 960px) {
+          right: 1.5rem;
+        }
+        @media screen and (width > 960px) {
+          right: 3rem;
         }
 
         position: absolute;

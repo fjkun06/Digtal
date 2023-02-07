@@ -27,10 +27,11 @@ const SubHeader = () => {
   return (
     <section className={main}>
       <div>
+
+        <UnionLightLeftIcon />
+        <UnionTabletLeftLight />
         <UnionDesktopLeftLight />
 
-        <UnionTabletLeftLight />
-        <UnionTabletLeftLight />
         {/* <UnionLightLeftIcon /> */}
       </div>
       <div>
@@ -54,10 +55,11 @@ const SubHeader = () => {
         {/* </div> */}
       </div>
       <div>
+
+        <UnionLightRightIcon />
+        <UnionTabletRightLight />
         <UnionDesktopRightLight />
 
-        <UnionTabletRightLight />
-        <UnionTabletRightLight />
         {/* <UnionLightRightIcon /> */}
       </div>
     </section>
