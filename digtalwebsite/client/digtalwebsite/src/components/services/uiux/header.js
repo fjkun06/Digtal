@@ -1,17 +1,10 @@
 import React from "react";
 import headerMobileLight from "../../../assets/images/services/uiux/headerML.jpg";
-// import headerMobileDark from "../../../assets/images/services/uiux/headerMD.png";
-// import headerMobile from "../../../assets/images/services/uiux/busmobile.png";
 import headerTabletLight from "../../../assets/images/services/uiux/headerT.png";
-// import headerTabletDark from "../../../assets/images/services/uiux/headerTD.png";
 import headerDesktopLight from "../../../assets/images/services/uiux/headerDL.png";
-// import headerDesktopDark from "../../../assets/images/services/uiux/headerDD.png";
-// import headerTablet from "../../../assets/images/services/uiux/bustablet.png";
-// import headerDesktop from "../../../assets/images/services/uiux/BusDesktop.png";
+
 import useSourceSets from "src/hooks/useSourceSets";
-// import HeaderSignatureDesktopIcon from "../../../assets/svg/services/uiux/HeaderSignatureDesktopIcon";
-// import HeaderSignatureMobileIcon from "../../../assets/svg/services/uiux/HeaderSignature";
-// import HeaderSignatureTabletIcon from "../../../assets/svg/services/uiux/HeaderSignatureTabletIcon";
+
 
 const HeaderSignatureDesktopIcon = React.lazy(() =>
   import("../../../assets/svg/services/uiux/HeaderSignatureDesktopIcon")
