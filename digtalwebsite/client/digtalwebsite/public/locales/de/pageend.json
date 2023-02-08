@@ -7,13 +7,22 @@
     "about": "Über uns",
     "contact": "KontaKt",
     "legal": "Impressum",
-    "news": "News"
+    "news": "News",
+    "career": "Karriere",
+    "blog": "Blog"
+  },
+
+  "services": {
+    "mad": "Mobile App Dev",
+    "wd": "Web Dev",
+    "dm": "Digital Marketing",
+    "ui": "UI/UX Design"
   },
   "terms": "AGB",
   "policy": "Datenschutz",
-  "rights": "Alle Rechte vorbehalten"
-
-
-
+  "rights": "Alle Rechte vorbehalten",
+  "cookie-settings": "Cookie Einstellungen",
+  "cookie-policy": "Cookie Policy",
+  "contact": "Kontaktieren Sie uns",
+  "help": "Hilfe ? Wir helfen Ihnen"
 }
-

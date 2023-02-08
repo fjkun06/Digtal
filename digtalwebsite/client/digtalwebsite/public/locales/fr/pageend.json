@@ -7,9 +7,21 @@
     "about": "Entreprise ",
     "contact": "Contact",
     "legal": "Mentions Légales",
-    "news": "News"
+    "news": "News",
+    "career": "Career",
+    "blog": "Blog"
+  },
+  "services": {
+    "mad": "Dev App Mobile",
+    "wd": "Dev Web",
+    "dm": "Marketing Digital",
+    "ui": "UI/UX Design"
   },
   "terms": "Conditions Générales",
   "policy": "Politique de confidentialité",
-  "rights": "Tous droits réservés"
+  "rights": "Tous droits réservés",
+  "cookie-settings": "Paramètres des Cookies ",
+  "cookie-policy": "Politique de Cookies ",
+  "contact": "Contactez Nous",
+  "help": "Besoin d'aide? Nous sommes là"
 }
