@@ -34,6 +34,8 @@
         @include mixins.flex(column);
         padding: 3.5rem 3rem;
         gap: 1rem;
+background-color: #fff;
+
 
         @include mixins.size(35rem, 34.6rem);
 
