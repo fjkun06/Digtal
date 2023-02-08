@@ -180,32 +180,11 @@
       .slide2 {
         // @include mixins.customgrid(1, 48, 1fr);
         @media screen and (min-width: 768px) {
-          // @include mixins.flex;
           // justify-content: space-between;
         }
         img {
           padding-left: 0rem;
-          // @media screen and (max-width: 768px) {
-          //   &:nth-child(1) {
-          //     @include mixins.position("1/2", "6/10");
-          //   }
-          //   &:nth-child(2) {
-          //     @include mixins.position("1/2", "14/18");
-          //   }
-          //   &:nth-child(3) {
-          //     @include mixins.position("1/2", "22/26");
-          //   }
-          //   &:nth-child(4) {
-          //     @include mixins.position("1/2", "30/34");
-          //   }
-          //   &:nth-child(5) {
-          //     @include mixins.position("1/2", "38/42");
-          //   }
-          //   &:nth-child(6) {
-          //     @include mixins.position("1/2", "45/49");
-          //     margin-left: 2.75vw;
-          //   }
-          // }
+
         }
       }
     }

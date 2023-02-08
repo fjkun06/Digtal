@@ -1,15 +1,70 @@
 {
-  "digtal-carousel": {
-    "one": "Wir sind jung",
-    "two": "talentiert",
-    "three": " und Profis."
+  "carousel": {
+    "mobile": {
+      "slide1": {
+        "one": "Lassen Sie Ihr Projekt ",
+        "two": " Von Profis Behandelt",
+        "three": "und ",
+        "four": " Umgesetzt Werden."
+      },
+      "slide2": {
+        "one": "Wir Entwickeln Eure",
+        "two": "Ideen Auf Mobile",
+        "three": "& Web."
+      },
+      "slide3": {
+        "one": "Ihre Präsenz im Internet",
+        "two": "Unübersehbar",
+        "three": "Machen."
+      },
+      "slide4": {
+        "one": "Konsultieren Sie Uns Und  ",
+        "two": " Holen Sie Sich",
+        "three": " Unsere Expertenmeinung."
+      }
+    },
+    "laptop": {
+      "slide1": {
+        "one": "Lassen Sie Ihr Projekt Von Profis Behandelt",
+        "two": "Und Umgesetzt Werden."
+      },
+      "slide2": {
+        "one": "Wir Entwickeln Eure Ideen Auf ",
+        "two": "Mobile",
+        "three": "&",
+        "four": "Web."
+      },
+      "slide3": {
+        "one": "Ihre Präsenz im Internet",
+        "two": "Unübersehbar Machen."
+      },
+      "slide4": {
+        "one": "Konsultieren Sie Uns Und",
+        "two": "Holen Sie Sich Unsere Expertenmeinung."
+      }
+    }
   },
 
-  "content": "Zum Inhalt",
-  "text": {
-    "web": "Wir entwickeln Softwares, die die Nutzer auf tolle Ideen bringen und sie so schnell wie möglich ans Ziel führen.",
+  "our-process": {
+    "title": "Unsere Vorgehensweise",
+    "text": "Profitieren Sie von dem Know-how unseres jungen und dynamischen Teams von mehr als 10 Experten aus den Bereichen Web & Mobile Entwicklung, IT Consulting und Digital Marketing."
+  },
+
+  "service": "IN EINE VIELZAHL VON LÖSUNGEN EINTAUCHEN.",
+  "magic": "WIE WIR DIE MAGIE BETREIBEN.",
+  "technologies": "UNSERE TECHNOLOGIEN.",
+  "process": {
+    "one": "Strategy||Alle unsere Projekte beginnen mit einer Entdeckungsphase, in der wir in Ihre Welt eintauchen.Unsere UX-Designer befragen alle Beteiligten, analysieren Ihre Konkurrenten, suchen Ihre Nutzer und konsolidieren Ihre Inhalte.Das Ergebnis ist ein strategischer Aktionsplan mit einem empathischen Verständnis des zu lösenden Problems.",
+    "two": "Design & Prototyp ||<br/> Wir erdenken und entwerfen gemeinsam dein digitales Produkt, um seinen Wert zu maximieren: Markenplattform, Design Sprint, User Journeys, Mockups, User Tests. ",
+    "three": "Maßgeschneiderte Entwicklung ||Wir erstellen Websites, Intranets/Extranets mit Schnittstellen zu Ihren CRM-Lösungen oder Management-Tools.Wir können uns in Ihre Login-Ökosysteme (SSO/MFA) integrieren.Wir bevorzugen zuverlässige Open-Source-Lösungen je nach Bedarf Ihres Projekts: Wordpress / Prestashop / Laravel / Ionic / Back-end / Front-end und innovative Lösungen wie React, Vue, Laravel, Node.js.",
+    "four": "Begleitung & Beratung |||<br/> Um den Erfolg Ihres Digtialprodukts zu sichern, begleiten wir Sie bei der Umsetzung einer erfolgreichen Strategie: Internalisierung von Teams, evolutionäre und korrektive Wartung, Datenanalyse, Wachstumshebel."
+  },
+
+  "services": {
+    "software": "Wir entwickeln Softwares, die die Nutzer auf tolle Ideen bringen und sie so schnell wie möglich ans Ziel führen.",
     "marketing": "Wir Unterstützen Ihrem Unternehmen dabei, Ihre Sichtbarkeit zu erhöhen, indem wir die bezahlten Akquisitionsstrategien optimieren, aber auch eine ausgefeilte SEO-Strategie implementieren. ",
-    "consulting": "Unsere IT-Berater verbinden strategisches Denken, Ideen für die Auswahl von Technologien und Werkzeugen sowie digitale Trends mit Projektmanagement."
+    "consulting": "Unsere IT-Berater verbinden strategisches Denken, Ideen für die Auswahl von Technologien und Werkzeugen sowie digitale Trends mit Projektmanagement.",
+    "design": "Unsere IT-Berater kombinieren Design Thinking, die richtige Auswahl von Technologien und Tools sowie digitale Trends mit Produktmanagement. "
   },
   "nos-services": {
     "title": "Unsere Dienstleistungen",
@@ -17,8 +72,8 @@
   },
   "card-button": "Mehr erfahren",
   "over-text": {
-    "web": "We Are Web Developers.",
-    "marketing": "Explore All Possibilities.",
+    "web": "Wir Sind Web Entwickler.",
+    "marketing": "Erkunden Sie Alle Möglichkeiten.",
     "consulting": " IT Consulting Made Easy."
   }
 }

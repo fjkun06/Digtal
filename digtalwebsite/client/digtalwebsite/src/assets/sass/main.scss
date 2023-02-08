@@ -1,13 +1,10 @@
-// @use "fonts/index";
+@use "fonts/index";
 @use "layout/navbar";
 @use "layout/footer";
-@use "pages/home/home";
-@use "pages/enterprise/enterprise";
-@use "pages/contact/contact";
+
 @use "components/telephone";
 @use "components/scrollbar";
-@use "pages/about/about";
-@use "pages/services/software-development";
+@use "pages/pages";
 
 @tailwind base;
 @tailwind components;

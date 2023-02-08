@@ -1,17 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const firstSectionVariants = {
-  hidden: {
-    opacity: 0
-  },
-  visible: {
-    opacity: 1,
-    transition: { duration: 2.5, delay: 0.5 }
-  }
-};
+import { useTranslation } from "react-i18next";
+import { firstSectionVariants } from "../../../utils/motionVariants/variants";
 
 const FirstSection = () => {
+  const { t } = useTranslation("softwaredevelopment");
+
   return (
     <div className="firstsection">
       <motion.div
@@ -22,8 +16,7 @@ const FirstSection = () => {
         viewport={{ once: true }}
       >
         <p>
-          We build your software using the most <br /> accurate of our
-          technologies
+          {t("section.first_part")} <br /> {t("section.second_part")}
         </p>
       </motion.div>
     </div>

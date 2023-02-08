@@ -100,9 +100,78 @@
  
 }
 
-
-
+//positions elements in a 2d grid system
 @mixin position($row, $column:$row) {
   grid-row: #{$row};
   grid-column: #{$column};
 }
+
+
+//backdrop
+@mixin blurbackdrop($color: white, $opacity: 0.3,$effect: blur,$intensity: 10px){
+  // -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: $effect($intensity);
+  backdrop-filter: #{$effect}($intensity);
+  // backdrop-filter: blur(10px);
+background-color: rgba($color,$opacity);
+
+}
+
+//nested elements styling (3)
+
+@mixin signatures($mobile: none, $tablet: none, $desktop: none) {
+  &:nth-of-type(1) {
+    display: $mobile;
+  }
+  &:nth-of-type(2) {
+    display: $tablet;
+  }
+  &:nth-of-type(3) {
+    display: $desktop;
+  }
+}
+
+//controlling the display of 3 successive elements via media query
+@mixin defaultSignature{
+  @include signatures(block);
+
+  @media screen and (480px < width <= 960px) {
+    @include signatures($tablet: block);
+  }
+  @media screen and (width > 960px) {
+    @include signatures($desktop: block);
+  }
+}
+
+    //positioning absolutely positioned elements
+    @mixin positioning($dir_value, $top, $direction: left) {
+      top: $top;
+      #{$direction}: $dir_value;
+    }
+
+    //custom styled main heading
+    @mixin headingStyle{
+        span {
+          font-size: 1.8rem;
+          text-transform: uppercase;
+          line-height: 2.7rem;
+          font-family: "Poppins 600";
+          @media screen and (width > 960px) {
+            font-size: 2.4rem;
+          }
+  
+          //redesigning heading underline
+          &::after {
+            @include size(65%, 5px);
+            background: var(--navbar-bb-light);
+            top: 100%;
+            left: calc((100% - 65%) / 2);
+            @media screen and (width > 960px) {
+              @include size(50%, 5px);
+              top: 125%;
+              left: calc((100% - 50%) / 2);
+            }
+          }
+        }
+      }
+    
