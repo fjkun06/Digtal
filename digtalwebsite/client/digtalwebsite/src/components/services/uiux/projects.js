@@ -5,8 +5,13 @@ import busTablet from "src/assets/images/services/uiux/busTablet.png";
 import busDesktop from "src/assets/images/services/uiux/BusDesktop.png";
 import marketTablet from "src/assets/images/services/uiux/marketTablet.png";
 import marketDesktop from "src/assets/images/services/uiux/marketDesktop.png";
-import BusIcon from "src/assets/svg/services/uiux/BusIcon";
-import MarketIcon from "src/assets/svg/services/uiux/MarketIcon";
+
+const BusIcon = React.lazy(() =>
+  import("src/assets/svg/services/uiux/BusIcon")
+);
+const MarketIcon = React.lazy(() =>
+  import("src/assets/svg/services/uiux/MarketIcon")
+);
 
 const Projects = () => {
   const main = "uiux__projects";
@@ -26,14 +31,12 @@ const Projects = () => {
         <HomeServiceCard
           img={[marketTablet, marketDesktop]}
           icon={<MarketIcon/>}
-          // icon={<BusIcon />}
           title="subject.op2"
           text="services.software"
           position="right"
           route={""}
         />
       </article>
-      {/* <HomeServiceCard/> */}
     </section>
   );
 };
