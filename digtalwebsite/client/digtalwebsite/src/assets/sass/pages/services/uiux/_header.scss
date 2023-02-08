@@ -128,18 +128,18 @@
         letter-spacing: 0.2rem;
 
         //text resizing animation
-        transform: scale(1.5) translate(-23.5vw, 9px);
+        transform: scale(1.5) translate(-23.5vw, 5vh);
         opacity: 0;
         animation: heroscale 1s ease-in-out 1s 1 forwards;
 
         @media screen and (700px < width <= 960px) {
           font-size: 8.6rem;
-          transform: scale(1.5) translate(-13.5vw, 9px);
+          transform: scale(1.5) translate(-13.5vw, 5vh);
         }
         @media screen and (width > 960px) {
           font-size: 8.4rem;
         }
-      }
+      } 
 
       #slash {
         color: #663399;
