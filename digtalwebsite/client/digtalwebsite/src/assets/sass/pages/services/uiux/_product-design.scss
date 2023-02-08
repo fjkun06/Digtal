@@ -25,7 +25,6 @@
       row-gap: 4rem;
 
       @media screen and (width > 960px) {
-        // font-size: 2.4rem;
         @include mixins.flex;
         column-gap: 4rem;
       }
@@ -44,7 +43,7 @@
             line-height: 1.8rem;
             color: #663399;
             text-align: center;
-            // padding: 0 8rem;
+z-index: 2;
 
             @media screen and (480px < width) {
               font-size: 2rem;
