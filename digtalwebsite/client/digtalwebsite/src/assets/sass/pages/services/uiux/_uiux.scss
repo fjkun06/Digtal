@@ -1,4 +1,5 @@
 @use "../../../util/mixins";
+@use "./projects" as pr;
 @use "./header" as hdr;
 @use "./product-design" as pd;
 @use "./subheader" as subh;
@@ -21,60 +22,6 @@
   @include dp.designprocess;
 
   //projects section
-  &__projects {
-    width: 100vw;
-    & > * {
-      width: 100%;
-      @include mixins.grid;
-    }
-    @include mixins.customgrid(2, 1, auto, 1fr);
-    row-gap: 2.5rem;
-    margin-top: 4rem;
+  @include pr.projects;
 
-    @media screen and (width > 960px) {
-      row-gap: 5rem;
-      margin-top: 6rem;
-    }
-
-    //styling heading with mixin
-    .home__heading {
-      @include mixins.headingStyle;
-    }
-
-    //card container
-    article {
-      @include mixins.grid;
-      gap: 3rem;
-
-      @media screen and (width >= 1400px) {
-        margin-top: -4rem;
-      }
-
-      .home__service--card {
-        justify-self: center;
-
-        @media screen and (width > 780px) {
-          @include mixins.size(calc(100vw - 18rem), auto);
-        }
-
-        @media screen and (960px < width < 1400px) {
-          transform: scale(0.85);
-        }
-
-        @media screen and (width >= 1400px) {
-          @include mixins.size(70vw, auto);
-          @include mixins.size(96rem, auto);
-          transform: scale(0.75);
-          &:nth-of-type(1) {
-            margin-left: -45%;
-          }
-
-          &:nth-of-type(2) {
-            margin-right: -45%;
-            margin-top: -10%;
-          }
-        }
-      }
-    }
-  }
 }

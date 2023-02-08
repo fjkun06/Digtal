@@ -75,14 +75,14 @@
               font-family: "Prompt 500";
               text-align: center;
 
-              @media screen and (width > 780px) {
+              @media screen and (width > 700px) {
                 text-align: left;
                 font-size: 2.1rem;
               }
             }
             p {
               line-height: 2rem;
-              @media screen and (width <= 600px) {
+              @media screen and (width <= 700px) {
                 text-align: justify;
               }
               color: #663399;
