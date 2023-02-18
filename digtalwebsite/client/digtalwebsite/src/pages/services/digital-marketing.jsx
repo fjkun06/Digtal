@@ -9,7 +9,7 @@ export default function DigitalMarketing(){
                 <HeaderDigitalMarketing />
             </div>
             <HeaderText />
-            <div className="flex my-4 items-center justify-center">
+            <div className="flex py-4 items-center justify-center bg-white">
                 <div className="flex items-center justify-center text-center font-extrabold text-4xl my-4 tablet:my-8">
                     <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
                 </div>
