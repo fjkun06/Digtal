@@ -22,7 +22,7 @@ const WebDevelopment = React.lazy(() =>
   import("./components/services/web_development/WebDevelopment")
 );
 const DigitalMarketing = React.lazy(() =>
-  import("./components/services/digital_marketing/DigitalMarketing")
+  import("./pages/services/digital-marketing")
 );
 const FourOFour = React.lazy(() => import("./components/errorpage/FourOFour"));
 const CookiePloicy = React.lazy(() =>
