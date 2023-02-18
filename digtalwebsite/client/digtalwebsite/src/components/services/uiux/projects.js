@@ -1,7 +1,7 @@
 import React from "react";
 import HomeHeading from "src/components/reusables/HomeHeading";
 import HomeServiceCard from "src/components/reusables/HomeServiceCard";
-import busTablet from "src/assets/images/services/uiux/busTablet.png";
+// import busTablet from "src/assets/images/services/uiux/busTablet.png";
 import busDesktop from "src/assets/images/services/uiux/BusDesktop.png";
 import marketTablet from "src/assets/images/services/uiux/marketTablet.png";
 import marketDesktop from "src/assets/images/services/uiux/marketDesktop.png";
@@ -21,7 +21,7 @@ const Projects = () => {
       <HomeHeading section={"Our Most Notable Projects"} />
       <article>
         <HomeServiceCard
-          img={[busTablet, busDesktop]}
+          img={[ marketDesktop, busDesktop]}
           icon={<BusIcon />}
           title="subject.op2"
           text="services.software"
