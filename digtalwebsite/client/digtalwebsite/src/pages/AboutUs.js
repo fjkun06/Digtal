@@ -29,12 +29,12 @@ const team = [
 export default function AboutUs() {
   const { t } = useTranslation("about");
   return (
-    <Grid className="about backdrop-blur-[10px]">
+    <Grid className="about bg-white/50">
       <Stack
         direction="column"
         justifyContent="center"
         alignItems="center"
-        className="h-screen gap-8 laptop:gap-0   [&>*]:font-['Poppins']"
+        className="h-screen gap-8 laptop:gap-0 [&>*]:font-['Poppins']"
       >
         <Typography
           className="caption"
@@ -104,10 +104,10 @@ export default function AboutUs() {
 
         <Stack
           direction="column"
-          className="mx-auto gap-10 gap-8 tablet:max-w-[550px] laptop:max-w-none laptop:gap-12"
+          className="mx-auto gap-10 tablet:max-w-[550px] laptop:max-w-none laptop:gap-12"
         >
           <Stack className="flex-row items-start gap-1 laptop:gap-4">
-            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[196px] laptop:text-[130px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px]">
               “
             </Typography>
             <Typography
@@ -118,7 +118,7 @@ export default function AboutUs() {
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
               enim. Elit aute irure tempor
             </Typography>
-            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[196px] laptop:text-[130px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px]">
               ’’
             </Typography>
           </Stack>
@@ -179,7 +179,7 @@ export default function AboutUs() {
       </Container>
 
       {/* Team Section starts here */}
-      <Box className="bg-[rebeccapurple]/30">
+      <Box className="bg-[rebeccapurple]/40">
         <Stack className="container mx-auto gap-12 laptop:gap-24">
           <Typography
             variant="h2"
