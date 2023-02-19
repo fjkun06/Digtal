@@ -1,0 +1,47 @@
+.digitalmarketing__header{
+    background: url("../../../../assets/images/digital-marketing.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-animation{
+    transition: 1s ease-in ;
+    animation: icon 1s linear infinite ,cicon 1s linear infinite;
+}
+
+@keyframes icon {
+    0%{
+        transform: translateY(50px);
+    }
+    100%{
+        transform: translateY(0px);
+        
+    }
+}
+
+@keyframes cicon{
+    100%{
+        --tw-text-opacity: 1;
+        color: rgb(59 130 246 / var(--tw-text-opacity));
+        opacity: 1;
+    }
+    0%{
+        color:rebeccapurple;
+        opacity: 1;
+    }
+}
+
+.icon-hover{
+    transition: .5s ease-in;
+    animation: enter 3s;
+}
+
+@keyframes enter {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
