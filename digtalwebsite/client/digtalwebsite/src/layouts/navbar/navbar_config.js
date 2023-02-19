@@ -1,17 +1,15 @@
 import { Grid, styled } from "@mui/material";
 import { createTheme } from "@mui/system";
-import sx from "@mui/system/sx";
+// import sx from "@mui/system/sx";
 import anglais from "./../../assets/svg/uk.svg";
 import france from "./../../assets/svg/fr.svg";
 import german from "./../../assets/svg/de.svg";
 
-export const Gridd = styled(Grid)(
-  sx({
-    fontSize: "1.5rem",
-    textAlign: "center",
-    display: "block",
-  })
-);
+export const Gridd = styled(Grid)({
+  fontSize: "1.5rem",
+  textAlign: "center",
+  display: "block",
+});
 
 //theme
 export const theme = createTheme({
@@ -31,7 +29,7 @@ export const theme = createTheme({
 
 //navbar icon switcher
 export const toggleMobileNavbar = (setShowMobileMenu, mobileCross, mobileMenu, shape) => {
- 
+
   shape === "round" ? setShowMobileMenu(true) : setShowMobileMenu(false);
   shape === "cross" ? setShowMobileMenu(false) : setShowMobileMenu(true);
 };
@@ -65,10 +63,10 @@ export const selectDropdownItems = [
 ];
 
 export const navbarItems = [
-  { route: "/", index: "home",id:"home" },
-  { route: "/enterprise", index: "enterprise",id:"enterprise" },
-  { route: "/about-us", index: "about",id:"about" },
-  { route: "/contact-us", index: "contact",id:"contact" },
+  { route: "/", index: "home", id: "home" },
+  { route: "/enterprise", index: "enterprise", id: "enterprise" },
+  { route: "/about-us", index: "about", id: "about" },
+  { route: "/contact-us", index: "contact", id: "contact" },
 ];
 
-console.log(navbarItems.slice(2,0));
+console.log(navbarItems.slice(2, 0));
