@@ -179,8 +179,8 @@ export default function AboutUs() {
       </Container>
 
       {/* Team Section starts here */}
-      <Box className="bg-[rebeccapurple]/40">
-        <Stack className="container mx-auto gap-12 laptop:gap-24">
+      <Box>
+        <Stack className="gap-12 laptop:gap-24">
           <Typography
             variant="h2"
             component="h3"
@@ -189,15 +189,17 @@ export default function AboutUs() {
             Meet our <br />
             Stunning Team
           </Typography>
-          <Box className="mx-auto grid grid-cols-2 gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-0 laptop:grid-cols-4 laptop:gap-12">
-            {team.map((member, index) => (
-              <TeamCard
-                key={index}
-                image={member.image}
-                name={member.name}
-                title={member.title}
-              />
-            ))}
+          <Box className="w-full bg-[rebeccapurple]/40">
+            <Box className="mx-auto grid grid-cols-2 gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-4 laptop:grid-cols-4 laptop:gap-12">
+              {team.map((member, index) => (
+                <TeamCard
+                  key={index}
+                  image={member.image}
+                  name={member.name}
+                  title={member.title}
+                />
+              ))}
+            </Box>
           </Box>
         </Stack>
       </Box>
