@@ -5,13 +5,13 @@ import React from "react";
 
 function TeamCard({ image, name, title }) {
   return (
-    <Box className="p-2">
+    <Box className="p-2 flex flex-col items-stretch">
       <Image
         src={image}
         className=""
         height="auto"
         width="auto"
-        wrapperClassName="aspect-square max-h-[auto] tablet:max-h-[204.5px]"
+        wrapperClassName="aspect-square max-h-[auto] w-full"
       />
       <Stack>
         <Typography className="font-[Poppins] text-[15px] font-bold text-[rebeccapurple] md:text-[16px]">
