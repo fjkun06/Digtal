@@ -5,7 +5,8 @@ export default function MobileActiveNavLink({ to, text, toggleMobile }) {
   return (
     <NavLink
       className={({ isActive }) =>
-        isActive ? "nav--link--active" : "main-nav-item"
+        isActive ? "navbar__link--active" : "navbar__link"
+        // isActive ? "nav--link--active" : "main-nav-item"
       }
       to={to}
       onClick={() => toggleMobile(false) ?? nan}

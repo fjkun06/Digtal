@@ -5,6 +5,6 @@ export default function FooterLink({ to, text }) {
   return (
     // <NavLink style={x}
 
-    <NavLink to={to}>{text}</NavLink>
+    <NavLink to={to} className={"footer__link"}>{text}</NavLink>
   );
 }

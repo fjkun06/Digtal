@@ -80,6 +80,9 @@
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial;
     }
     button {
+      span{
+        font-weight: normal;
+      }
       background-color: rebeccapurple;
       color: #fff;
       padding: 3px 8px;
@@ -97,7 +100,7 @@
       }
 
       &:hover {
-        text-decoration: underline;
+        // text-decoration: underline;
       }
     }
 
@@ -153,7 +156,7 @@
         font-family: "Montserrat", sans-serif;
         cursor: pointer;
         &:hover {
-          text-decoration: underline;
+          // text-decoration: underline;
         }
         @media screen and (min-width: 769px) {
           font-size: 1.2rem;
@@ -420,7 +423,7 @@
             height: auto;
             margin-top: -2px;
             &:hover {
-              text-decoration: underline;
+              // text-decoration: underline;
             }
           }
         }

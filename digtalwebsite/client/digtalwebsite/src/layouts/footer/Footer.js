@@ -9,6 +9,7 @@ import KeepItIcon from "../../assets/svg/KeepItIcon";
 import Telephone from "../../assets/svg/Telephone";
 import Location from "../../assets/svg/Location";
 import Envelop from "../../assets/svg/Envelop";
+import FooterContactLink from "src/components/reusables/FooterContactLink";
 
 export default function Footer({ language, location }) {
   const { t } = useTranslation("pageend");
@@ -17,35 +18,39 @@ export default function Footer({ language, location }) {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <div
-          className="footer"
-        >
+        <div className="footer">
           {!location && (
             <>
               <Grid item className="footer-help">
                 <Typography component={"span"}>{t("help")}</Typography>
 
-                <button type="button">{t("contact")}</button>
+                <button
+                  type="button"
+                  
+                >
+                  <span className="footer__link-contact footer__link" style={{color: "white",fontFamily:"Montserrat"}}>{t("contact")}</span>
+                  {/* {t("contact")}              */}
+                     </button>
               </Grid>
               <Grid item className="footer-contact">
                 <div className="pair">
                   <Telephone color={"red"} />
                   <div className="double-numbers">
-                    <span
+                    <FooterContactLink
                       onClick={() =>
                         (window.location.href = "tel:+375292771265")
                       }
                     >
                       +237 671 234 567
-                    </span>
-                    <span> | </span>
-                    <span
+                    </FooterContactLink>
+                    <FooterContactLink> | </FooterContactLink>
+                    <FooterContactLink
                       onClick={() =>
                         (window.location.href = "tel:+375292771265")
                       }
                     >
                       +237 671 234 567
-                    </span>
+                    </FooterContactLink>
                   </div>
                 </div>
                 <div className="pair">
@@ -58,21 +63,21 @@ export default function Footer({ language, location }) {
                     <Envelop />
                   </div>
                   <div className="double-numbers">
-                    <span
+                    <FooterContactLink
                       onClick={() =>
                         (window.location.href = "mailto:hunchofrank@gmail.com")
                       }
                     >
                       contact@digtal.com
-                    </span>
-                    <span> | </span>
-                    <span
+                    </FooterContactLink>
+                    <FooterContactLink> | </FooterContactLink>
+                    <FooterContactLink
                       onClick={() =>
                         (window.location.href = "mailto:hunchofrank@gmail.com")
                       }
                     >
                       contact@digtal.com
-                    </span>
+                    </FooterContactLink>
                   </div>
                 </div>
                 <div className="pair">
@@ -80,9 +85,9 @@ export default function Footer({ language, location }) {
                     <Location />
                   </div>
                   <div className="double-numbers">
-                    <span>Buea, CM</span>
-                    <span> | </span>
-                    <span>Castrop, DE</span>
+                    <FooterContactLink>Buea, CM</FooterContactLink>
+                    <FooterContactLink> | </FooterContactLink>
+                    <FooterContactLink>Castrop, DE</FooterContactLink>
                   </div>
                   {/* <div>
               <span>Buea, CM</span>
