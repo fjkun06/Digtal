@@ -33,6 +33,12 @@
     //styling heading with mixin
     .home__heading {
       @include mixins.headingStyle;
+      @media screen and (width > 1200px) {
+        margin-bottom: 1rem;
+      }
+      @media screen and (width >= 1400px) {
+        margin-bottom: 4rem;
+      }
     }
 
     //card container
