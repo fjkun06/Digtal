@@ -23,7 +23,7 @@ import MobileNavbarBody from "../../components/navbar/MobileNavbarBody";
 import MobileNavbarIconHandler from "../../components/navbar/MobileNavbarIconHandler";
 import Search from "../../assets/svg/Search";
 import { icons } from "./../footer/footer_config";
-import MobileActiveNavLink from "../../components/reusables/ReusableNavLink";
+import { ActiveNavLink } from "../../components/reusables/ReusableNavLink";
 
 export default function Navbar({
   language,
@@ -181,7 +181,7 @@ export default function Navbar({
             {/* Desktop navbar */}
             <Grid container item className="main-nav-sub-links">
               <Gridd item className="main-nav-sub-links--item">
-                <MobileActiveNavLink
+                <ActiveNavLink
                   to={language + "/"}
                   text={t("home")}
                   toggleMobile={setMobileSelectState}
@@ -189,7 +189,7 @@ export default function Navbar({
               </Gridd>
 
               <Gridd item className="main-nav-sub-links--item">
-                <MobileActiveNavLink
+                <ActiveNavLink
                   to={language + "/enterprise"}
                   text={t("enterprise")}
                   toggleMobile={setMobileSelectState}
@@ -204,7 +204,7 @@ export default function Navbar({
                 className="main-nav-sub-links--item"
                 id={"laptop-services"}
               >
-                <span onClick={toggleMobileSelect} id="services">
+                <span onClick={toggleMobileSelect} id="services" className="navbar__services">
                   {t("services")}
                 </span>
                 {!mobileSelectState ? (
@@ -214,7 +214,7 @@ export default function Navbar({
                       toggleMobileSelect();
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
-                    className="select-item-sub-arrow"
+                    className="services__arrow"
                   />
                 ) : (
                   <ExpandLessOutlinedIcon
@@ -222,13 +222,13 @@ export default function Navbar({
                       toggleMobileSelect();
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
-                    className="select-item-sub-arrow"
+                    className="services__arrow"
                   />
                 )}
               </Grid>
 
               <Gridd item className="main-nav-sub-links--item">
-                <MobileActiveNavLink
+                <ActiveNavLink
                   to={language + "/about-us"}
                   text={t("about")}
                   toggleMobile={setMobileSelectState}
@@ -236,7 +236,7 @@ export default function Navbar({
               </Gridd>
 
               <Gridd item className="main-nav-sub-links--item">
-                <MobileActiveNavLink
+                <ActiveNavLink
                   to={language + "/contact-us"}
                   text={t("contact")}
                   toggleMobile={setMobileSelectState}
@@ -341,8 +341,8 @@ export default function Navbar({
               <div className="service-list">
                 {selectDropdownItems.map(item => (
                   <Grid item key={item.textIndex}>
-                    <KeyboardArrowRight />
-                    <MobileActiveNavLink
+                    <KeyboardArrowRight className={"services__arrow"}/>
+                    <ActiveNavLink
                       to={language + item.route}
                       text={t(item.textIndex, { ns: "form" })}
                       toggleMobile={setMobileSelectState}

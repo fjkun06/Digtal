@@ -285,10 +285,103 @@
 
 }
 
-.nav--link--active {
-   padding-bottom: 3px;
-   border-bottom: var(--navbar-link-active-bb);
+//controlling navbar items
+.navbar__link,.navbar__link__mobile,.navbar__link__mobile--active,.footer__link,
+.navbar__link--active,.navbar__services {
+  font-weight: 600;
+  position: relative;
+
+  &:hover {
+    &::after {
+      // width: 100%;
+      @include mixins.size(100%, 4px);
+    }
+  }
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    transition: width 0.25s ease-in-out;
+
+    top: 120%;
+    left: 0;
+    @include mixins.size(0%, 4px);
+    border-radius: 10px;
+    background-color: #663399;
+  }
 }
+
+.navbar__link--active {
+  &::after {
+    @include mixins.size(100%, 4px);
+  }
+}
+
+//mobile navbar services links
+.navbar__link__mobile,.navbar__link__mobile--active{
+   &:hover {
+      &::after {
+        // width: 100%;
+        @include mixins.size(95%, 4px);
+      }
+    }
+
+  &::after {
+   top: 100%;
+   background-color: #b38cd9;
+   left: 3%;
+
+  }
+}
+
+.navbar__link__mobile--active{
+   &::after {
+      @include mixins.size(95%, 4px);
+    }
+}
+
+//services (navbar item) underline gap
+.navbar__services {
+
+  &::after {
+   top: 100%;
+  }
+}
+
+//setting arrow color for services dopdown svg
+.services__arrow{
+color: #663399;
+}
+
+//controlling some footer properties
+.footer__link {
+   font-weight: normal;
+   &:hover {
+      &::after {
+        @include mixins.size(100%, 1px);
+      }
+    }
+  &::after {
+   top: 90%;
+   background-color: #000;
+   @include mixins.size(0%, 1px);
+
+  }
+}
+
+.footer__link-contact{
+   &::after {
+      top: 90%;
+      background-color: #fff;
+      @include mixins.size(0%, 1px);
+   
+     } 
+}
+
+// .nav--link--active {
+//    padding-bottom: 3px;
+//    border-bottom: #663399;
+// }
 
 @keyframes rotateCross {
    from {
