@@ -286,14 +286,14 @@
 }
 
 //controlling navbar items
-.navbar__link,.footer__link,
-.navbar__link--active {
+.navbar__link,.navbar__link__mobile,.navbar__link__mobile--active,.footer__link,
+.navbar__link--active,.navbar__services {
   font-weight: 600;
   position: relative;
 
   &:hover {
     &::after {
-      width: 100%;
+      // width: 100%;
       @include mixins.size(100%, 4px);
     }
   }
@@ -317,6 +317,43 @@
   }
 }
 
+//mobile navbar services links
+.navbar__link__mobile,.navbar__link__mobile--active{
+   &:hover {
+      &::after {
+        // width: 100%;
+        @include mixins.size(95%, 4px);
+      }
+    }
+
+  &::after {
+   top: 100%;
+   background-color: #b38cd9;
+   left: 3%;
+
+  }
+}
+
+.navbar__link__mobile--active{
+   &::after {
+      @include mixins.size(95%, 4px);
+    }
+}
+
+//services (navbar item) underline gap
+.navbar__services {
+
+  &::after {
+   top: 100%;
+  }
+}
+
+//setting arrow color for services dopdown svg
+.services__arrow{
+color: #663399;
+}
+
+//controlling some footer properties
 .footer__link {
    font-weight: normal;
    &:hover {
@@ -340,6 +377,7 @@
    
      } 
 }
+
 // .nav--link--active {
 //    padding-bottom: 3px;
 //    border-bottom: #663399;

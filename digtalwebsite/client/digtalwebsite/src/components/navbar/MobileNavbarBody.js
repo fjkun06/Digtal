@@ -2,7 +2,7 @@ import { ExpandMoreOutlined } from "@mui/icons-material";
 import { Grid } from "@mui/material";
 import React from "react";
 import search from "../../assets/svg/magnifier.svg";
-import MobileActiveNavLink from "../reusables/ReusableNavLink";
+import MobileActiveNavLink, { ActiveNavLink } from "../reusables/ReusableNavLink";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
 import { flagItems, navbarItems, selectDropdownItems } from "../../layouts/navbar/navbar_config";
 import { icons } from "../../layouts/footer/footer_config";
@@ -23,16 +23,16 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
         <div className="menu-sub">
           {navbarItems.slice(0, 2).map((item, index) => (
             <Grid item key={index} id={item.id}>
-              <MobileActiveNavLink to={language + item.route} text={t(item.index)} toggleMobile={setShowMobileMenu}/>
+              <ActiveNavLink to={language + item.route} text={t(item.index)} toggleMobile={setShowMobileMenu}/>
             </Grid>
           ))}
 
           <Grid item>
             <span onClick={toggleMobileSelect} id="services">{t("services")}</span>
             {!mobileSelectState ? (
-              <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+              <ExpandMoreOutlined onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="services__arrow" />
             ) : (
-              <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="select-item-sub-arrow" />
+              <ExpandLessOutlinedIcon onClick={toggleMobileSelect} sx={{ fontSize: 24, marginTop: "-5px" }} className="services__arrow" />
             )}
             <div style={{ display: !mobileSelectState ? "none" : "block" }}>
               {selectDropdownItems.map((item) => (
@@ -45,7 +45,7 @@ const MobileNavbarBody = ({ language, showMobileMenu, toggleMobileSelect, mobile
 
           {navbarItems.slice(2, 4).map((item, index) => (
             <Grid item key={index}id={item.id}>
-              <MobileActiveNavLink to={language + item.route} text={t(item.index)} toggleMobile={setShowMobileMenu}/>
+              <ActiveNavLink to={language + item.route} text={t(item.index)} toggleMobile={setShowMobileMenu}/>
             </Grid>
           ))}
 
