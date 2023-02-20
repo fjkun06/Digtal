@@ -8,6 +8,7 @@ export default function DigitalMarketing(){
     return (
         <>     
             <div className="flex w-full flex-col items-center justify-center bg-white">
+                
                 <HeaderDigitalMarketing />
             </div>
             <HeaderText />
