@@ -24,13 +24,17 @@ export default function Footer({ language, location }) {
               <Grid item className="footer-help">
                 <Typography component={"span"}>{t("help")}</Typography>
 
-                <button
-                  type="button"
-                  
-                >
-                  <span className="footer__link-contact footer__link" style={{color: "white",fontFamily:"Montserrat"}}>{t("contact")}</span>
-                  {/* {t("contact")}              */}
-                     </button>
+                <button type="button">
+                  <span
+                    className="footer__link-contact footer__link"
+                    style={{ color: "white", fontFamily: "Montserrat" }}
+                    onClick={() =>
+                      (window.location.href = language + "/contact-us")
+                    }
+                  >
+                    {t("contact")}
+                  </span>
+                </button>
               </Grid>
               <Grid item className="footer-contact">
                 <div className="pair">
