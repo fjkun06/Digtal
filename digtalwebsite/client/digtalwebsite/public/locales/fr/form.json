@@ -15,10 +15,19 @@
    "subject": {
       "label": "Sujet",
       "op1": "Conception UI/UX",
-      "op2": "Developement Web",
+      "op2": "Développement Web",
       "op3": "Marketing Digital",
       "op4": "Consulting"
    },
    "message": "Message",
-   "button": "Envoyer"
+   "button":{
+      "normal": "Soumettre",
+      "submitting": "Soumission...",
+      "submitted": "Soumis",
+      "success": "Soumis avec succès",
+      "error": "Impossible d'envoyer, veuillez réessayer"
+   },
+   "company_name": "Nom de l'Entreprise",
+
+   "interest":"Je suis intéressé par"
 }
