@@ -1,0 +1,42 @@
+@use "../util/mixins";
+.home__heading {
+  // border: 3px solid red;
+  // background-color: rgba(#fff, 0.5);
+
+  width: 100%;
+  @include mixins.flex;
+  span {
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: rgba(#fff, 0.5);
+    height: 100%;
+    position: relative;
+    font-size: calc(1rem + 1vw);
+    color: #663399;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 2.7rem;
+    font-family: "Poppins 600";
+    @media screen and (width > 960px) {
+      font-size: 2.4rem;
+    }
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 115%;
+      left: calc((100% - 40%) / 2);
+      @include mixins.size(40%, 5px);
+
+      @media only screen and (min-width: 960.1px) {
+        @include mixins.size(35%, 6px);
+        top: 125%;
+        left: calc((100% - 35%) / 2);
+      }
+            background: var(--navbar-bb-light);
+
+    }
+  }
+}
