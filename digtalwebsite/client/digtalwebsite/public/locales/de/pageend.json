@@ -13,8 +13,8 @@
   },
 
   "services": {
-    "mad": "Mobile App Dev",
-    "wd": "Web Dev",
+    "mad": "Software-Entwicklung",
+    "wd": "Web Entwicklung",
     "dm": "Digital Marketing",
     "ui": "UI/UX Design"
   },
@@ -24,5 +24,7 @@
   "cookie-settings": "Cookie Einstellungen",
   "cookie-policy": "Cookie Policy",
   "contact": "Kontaktieren Sie uns",
-  "help": "Hilfe ? Wir helfen Ihnen"
+  "help": "Hilfe ? Wir helfen Ihnen",
+  "ent": "Unternehmen",
+  "serv":"Dienstleistungen"
 }

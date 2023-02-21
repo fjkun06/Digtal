@@ -14,11 +14,20 @@
    },
    "subject": {
       "label": "Betreff",
-      "op1": "Sonstiges",
-      "op2": "  Web Entwicklung",
+      "op1": "UI/UX-Design",
+      "op2": "Software-Entwicklung",
       "op3": "Digital Marketing ",
       "op4": "Consulting"
    },
    "message": "Nachricht",
-   "button": "Senden"
+   "button":{
+      "normal": "Einreichen",
+      "submitting": "Submitting...",
+      "submitted": "Eingereicht",
+      "success": "Erfolgreich eingereicht",
+      "error": "Senden nicht möglich, bitte erneut versuchen"
+   },
+   "interest":"Ich interessiere mich für",
+   "company_name": "Name der Firma"
+
 }
