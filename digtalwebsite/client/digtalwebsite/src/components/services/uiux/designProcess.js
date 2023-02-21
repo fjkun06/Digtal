@@ -2,6 +2,9 @@ import OneIconMobile from "src/assets/svg/services/digitalmarketing/OneIconMobil
 import React from "react";
 import { nano } from "src/App";
 import UnionIconMobile from "src/assets/svg/services/digitalmarketing/UnionIconMobile";
+import OneIconDesktop from "src/assets/svg/services/digitalmarketing/OneIconDesktop";
+import UnionIconDesktop from "src/assets/svg/services/digitalmarketing/UnionIconDesktop";
+import MarketingCard from "src/components/reusables/MarketingCard";
 
 //SVG Components
 const StarIcon = React.lazy(() =>
@@ -55,6 +58,7 @@ const DdesignProcess = () => {
           <div className="market__card__content">
             <div>
               <OneIconMobile />
+              <OneIconDesktop />
               <h1>Community Managment</h1>
             </div>
             <p>
@@ -66,8 +70,16 @@ const DdesignProcess = () => {
             </p>
           </div>
 
-          <UnionIconMobile/>
+          <UnionIconMobile />
+          <UnionIconDesktop />
         </article>
+        <MarketingCard
+          translationSource="marketing"
+          heading="headings.one"
+          body="content.one"
+          numberIconDesktop={<OneIconDesktop />}
+          numberIconMobile={<OneIconMobile />}
+        />
       </section>
     </section>
   );

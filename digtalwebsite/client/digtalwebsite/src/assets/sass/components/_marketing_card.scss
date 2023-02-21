@@ -39,6 +39,21 @@
     grid-row: 3/4;
     grid-column: 7/8;
 
+    //controlling background svg to display on mobile and desktop
+
+    &:first-of-type {
+      @media screen and (width > 960px) {
+        display: none;
+      }
+    }
+
+    &:last-of-type {
+      display: none;
+      @media screen and (width > 960px) {
+        display: block;
+      }
+    }
+
     svg {
       & > * {
         transition: all 0.25s ease-in-out;
@@ -93,6 +108,24 @@
       color: #663399;
     }
 
+    @media screen and (width > 960px) {
+    padding: 4rem;
+
+      p {
+        width: 510px;
+        height: 161px;
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 44px;
+        width: 277px;
+        height: 88px;
+      }
+    }
+
     //controllingnumber icon
     span {
       svg {
@@ -102,7 +135,7 @@
         g {
           svg {
             path {
-              fill: red;
+              fill: white;
             }
           }
           path {
@@ -125,22 +158,11 @@
   @media screen and (width < 360px) {
     transform: scale(0.8);
   }
-  @media screen and (600px <= width <= 780px) {
-    // @include mixins.flex;
 
-    // @include mixins.size(calc(100vw - 8rem), 21rem);
+  @media screen and (width > 960px) {
+    width: 590px;
+    height: 367px;
+  }
 
-    gap: 5rem;
-  }
-  @media screen and (width > 780px) {
-    // @include mixins.flex;
-    // @include mixins.size(calc(100vw - 18rem), 21rem);
-
-  
-  }
-  @media screen and (width >= 1400px) {
-    // @include mixins.flex;
-    // width: 96rem;
-  }
   box-shadow: 0px 0px 9.82657px rgba(0, 0, 0, 0.15);
 }
