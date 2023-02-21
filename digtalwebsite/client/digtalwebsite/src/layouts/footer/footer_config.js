@@ -13,8 +13,8 @@ export const links = [
 
 export const policy = [
   { label: "terms", route: "/terms-of-use" },
-  { label: "cookie-settings", route: "/privacy-policy" },
-  { label: "cookie-policy", route: "/privacy-policy" },
+  // { label: "cookie-settings", route: "/privacy-policy" },
+  // { label: "cookie-policy", route: "/privacy-policy" },
   { label: "policy", route: "/privacy-policy" },
 ];
 
