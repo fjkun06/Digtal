@@ -136,7 +136,7 @@ export default function Footer({ language, location }) {
             </Grid>
             <Grid item className="footer-body-items">
               <div className="enterprise">
-                <span className="heading">Enterprise</span>
+                <span className="heading">{t("ent")}</span>
                 <div className="links">
                   {enterprise.map(link => (
                     <FooterLink
@@ -150,7 +150,7 @@ export default function Footer({ language, location }) {
                 </div>
               </div>
               <div className="enterprise">
-                <span className="heading">Services</span>
+                <span className="heading">{t("serv")}</span>
                 <div className="links">
                   {services.map(link => (
                     <FooterLink
