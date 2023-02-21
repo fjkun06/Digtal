@@ -1,10 +1,5 @@
-import OneIconMobile from "src/assets/svg/services/digitalmarketing/OneIconMobile";
 import React from "react";
 import { nano } from "src/App";
-import UnionIconMobile from "src/assets/svg/services/digitalmarketing/UnionIconMobile";
-import OneIconDesktop from "src/assets/svg/services/digitalmarketing/OneIconDesktop";
-import UnionIconDesktop from "src/assets/svg/services/digitalmarketing/UnionIconDesktop";
-import MarketingCard from "src/components/reusables/MarketingCard";
 
 //SVG Components
 const StarIcon = React.lazy(() =>
@@ -54,32 +49,6 @@ const DdesignProcess = () => {
             </div>
           </article>
         ))}
-        <article id="marketing_card">
-          <div className="market__card__content">
-            <div>
-              <OneIconMobile />
-              <OneIconDesktop />
-              <h1>Community Managment</h1>
-            </div>
-            <p>
-              At DIGTAL, we understand the importance of having a strong online
-              presence and building a community of engaged customers, fans, and
-              stakeholders. That's why we offer comprehensive community
-              management services that help our clients build and maintain a
-              positive, engaging, and active online community.
-            </p>
-          </div>
-
-          <UnionIconMobile />
-          <UnionIconDesktop />
-        </article>
-        <MarketingCard
-          translationSource="marketing"
-          heading="headings.one"
-          body="content.one"
-          numberIconDesktop={<OneIconDesktop />}
-          numberIconMobile={<OneIconMobile />}
-        />
       </section>
     </section>
   );
