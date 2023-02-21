@@ -16,6 +16,7 @@ export default function DigitalMarketing(){
                 <div className="flex items-center justify-center text-center font-extrabold text-4xl my-4 tablet:my-8">
                     <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
                 </div>
+              
             </div>
             <Score />
             <div className="w-full justify-center items-center content-center bg-white laptop:px-24 tablet:px-12 grid grid-cols-1 tablet:grid-cols-2 ">

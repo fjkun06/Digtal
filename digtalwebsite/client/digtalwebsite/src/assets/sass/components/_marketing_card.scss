@@ -1,0 +1,146 @@
+@use "../util/mixins";
+
+#marketing_card {
+  color: red;
+  // border: 1px solid red;
+  @include mixins.customgrid(3, 7, 1fr);
+
+  //managing hover animations
+  &:hover {
+    // background-color: red;
+    span {
+      svg {
+        path {
+          fill: rgba($color: #663399, $alpha: 1);
+        }
+      }
+    }
+
+    .market__card__content {
+      span {
+        svg {
+          g {
+            svg {
+              path {
+                fill: #00d0ff;
+              }
+            }
+            path {
+              fill: #00d0ff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //controlling card background svg
+  span {
+    grid-row: 3/4;
+    grid-column: 7/8;
+
+    svg {
+      & > * {
+        transition: all 0.25s ease-in-out;
+      }
+      path {
+        fill: rgba($color: #663399, $alpha: 0.2);
+      }
+    }
+  }
+
+  //control card details
+  .market__card__content {
+    grid-row: 1/4;
+    grid-column: 1/8;
+    @include mixins.flex(column);
+    padding: 3.2rem;
+    div {
+      @include mixins.flex;
+      column-gap: 1rem;
+      align-self: flex-start;
+    }
+    p {
+      width: 33.41rem;
+      height: 10.547rem;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.17919rem;
+      line-height: 1.5rem;
+      /* or 130% */
+
+      display: flex;
+      align-items: center;
+
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    h1 {
+      width: 18.2rem;
+      height: 5.8rem;
+
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 2.62042rem;
+      line-height: 2.9rem;
+      /* or 110% */
+
+      display: flex;
+      align-items: center;
+
+      color: #663399;
+    }
+
+    //controllingnumber icon
+    span {
+      svg {
+        & > * {
+          transition: all 0.25s ease-in-out;
+        }
+        g {
+          svg {
+            path {
+              fill: red;
+            }
+          }
+          path {
+            fill: #00d0ff;
+          }
+        }
+      }
+    }
+  }
+  padding: 0rem;
+  overflow: hidden;
+  gap: 1rem;
+  background-color: #fff;
+
+  @include mixins.size(38.6rem, 24rem);
+
+  @media screen and (width < 390px) {
+    transform: scale(0.9);
+  }
+  @media screen and (width < 360px) {
+    transform: scale(0.8);
+  }
+  @media screen and (600px <= width <= 780px) {
+    // @include mixins.flex;
+
+    // @include mixins.size(calc(100vw - 8rem), 21rem);
+
+    gap: 5rem;
+  }
+  @media screen and (width > 780px) {
+    // @include mixins.flex;
+    // @include mixins.size(calc(100vw - 18rem), 21rem);
+
+  
+  }
+  @media screen and (width >= 1400px) {
+    // @include mixins.flex;
+    // width: 96rem;
+  }
+  box-shadow: 0px 0px 9.82657px rgba(0, 0, 0, 0.15);
+}
