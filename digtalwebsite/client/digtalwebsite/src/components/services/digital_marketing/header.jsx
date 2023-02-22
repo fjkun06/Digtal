@@ -5,7 +5,7 @@ import {HiOutlineArrowTrendingUp} from "react-icons/hi2"
 import {FaChevronDown} from "react-icons/fa"
 export default function HeaderDigitalMarketing(){
     return (
-        <div className="relative w-full h-[60vh] laptop:h-[80vh] ">
+        <div className="relative w-full h-[60vh] laptop:h-[90vh]  ">
             <div className="digitalmarketing__header w-full h-full blur-md "></div>
             <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center text-6xl absolu">
                     <div className="w-full hidden tablet:flex items-center justify-center gap-6 laptop:gap-16">

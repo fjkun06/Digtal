@@ -14,17 +14,26 @@ export default function DigitalMarketing() {
         <HeaderDigitalMarketing />
       </div>
       <HeaderText />
-      <div className="flex items-center justify-center bg-white py-4">
+      <div className="flex flex-col items-center justify-center bg-white py-4 px-4">
         <div className="my-4 flex items-center justify-center text-center text-4xl font-extrabold tablet:my-8">
           <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
         </div>
-        <MarketingCard
-          translationSource="marketing"
-          heading="headings.one"
-          body="content.one"
-          numberIconDesktop={<OneIconDesktop />}
-          numberIconMobile={<OneIconMobile />}
-        />
+        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 py-16 ">
+          {
+            [1,2,3,4,5,6].map((element)=>{
+              return (
+                <MarketingCard
+                  key={element}
+                  translationSource="marketing"
+                  heading="headings.one"
+                  body="content.one"
+                  numberIconDesktop={<OneIconDesktop />}
+                  numberIconMobile={<OneIconMobile />}
+                />
+              )
+            })
+          }
+        </div>
       </div>
       <Score />
       <div className="grid w-full grid-cols-1 content-center items-center justify-center bg-white tablet:grid-cols-2 tablet:px-12 laptop:px-24 ">
