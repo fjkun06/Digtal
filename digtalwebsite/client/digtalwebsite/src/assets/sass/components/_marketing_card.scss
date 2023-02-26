@@ -131,11 +131,14 @@
   overflow: hidden;
   gap: 1rem;
   background-color: #fff;
+  border-radius: 10px;
+  justify-self: center;
 
   @include mixins.size(38.6rem, 24rem);
 
-  @media screen and (width < 390px) {
+  @media screen and (width <= 400px) {
     transform: scale(0.9);
+    justify-self: center;
   }
   @media screen and (width < 360px) {
     transform: scale(0.8);

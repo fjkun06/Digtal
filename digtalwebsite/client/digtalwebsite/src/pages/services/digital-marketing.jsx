@@ -6,6 +6,8 @@ import Testimonial from "src/components/services/digital_marketing/testimonials"
 import MarketingCard from "src/components/reusables/MarketingCard";
 import OneIconDesktop from "src/assets/svg/services/digitalmarketing/OneIconDesktop";
 import OneIconMobile from "src/assets/svg/services/digitalmarketing/OneIconMobile";
+import { marketingCardElements } from "src/components/services/digital_marketing/config";
+import { nano } from "src/App";
 
 export default function DigitalMarketing() {
   return (
@@ -18,22 +20,22 @@ export default function DigitalMarketing() {
         <div className="my-4 flex items-center justify-center text-center text-4xl font-extrabold tablet:my-8">
           <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
         </div>
-        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 py-16 ">
-          {
-            [1,2,3,4,5,6].map((element)=>{
+        <div className="grid grid-cols-1 gap-8 py-16 tablet:grid-cols-2 ">
+          {marketingCardElements.map(
+            ({ heading, body, numberIconDesktop, numberIconMobile }) => {
               return (
                 <MarketingCard
-                  key={element}
-                  translationSource="marketing"
-                  heading="headings.one"
-                  body="content.one"
-                  numberIconDesktop={<OneIconDesktop />}
-                  numberIconMobile={<OneIconMobile />}
+                  key={nano()}
+                  heading={heading}
+                  body={body}
+                  numberIconDesktop={numberIconDesktop}
+                  numberIconMobile={numberIconMobile}
                 />
-              )
-            })
-          }
+              );
+            }
+          )}
         </div>
+    
       </div>
       <Score />
       <div className="grid w-full grid-cols-1 content-center items-center justify-center bg-white tablet:grid-cols-2 tablet:px-12 laptop:px-24 ">
