@@ -20,9 +20,9 @@ export default function DigitalMarketing() {
         <div className="my-4 flex items-center justify-center text-center text-4xl font-extrabold tablet:my-8">
           <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
         </div>
-        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 py-16 ">
-          {
-            marketingCardElements.map(({heading,body,numberIconDesktop,numberIconMobile})=>{
+        <div className="grid grid-cols-1 gap-8 py-16 tablet:grid-cols-2 ">
+          {marketingCardElements.map(
+            ({ heading, body, numberIconDesktop, numberIconMobile }) => {
               return (
                 <MarketingCard
                   key={nano()}
@@ -31,10 +31,11 @@ export default function DigitalMarketing() {
                   numberIconDesktop={numberIconDesktop}
                   numberIconMobile={numberIconMobile}
                 />
-              )
-            })
-          }
+              );
+            }
+          )}
         </div>
+    
       </div>
       <Score />
       <div className="grid w-full grid-cols-1 content-center items-center justify-center bg-white tablet:grid-cols-2 tablet:px-12 laptop:px-24 ">
