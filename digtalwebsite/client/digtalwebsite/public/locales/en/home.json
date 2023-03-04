@@ -54,10 +54,22 @@
   "magic": "HOW WE MAKE THE MAGIC HAPPEN",
   "technologies": "OUR TECHNOLOGIES",
   "process": {
-    "one": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
-    "two": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
-    "three": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
-    "four": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet..."
+    "one": {
+      "title":"",
+      "body":""
+    }"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
+    "two": {
+      "title":"",
+      "body":""
+    }"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
+    "three": {
+      "title":"",
+      "body":""
+    }"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
+    "four": {
+      "title":"",
+      "body":""
+    }"Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet..."
   },
   "services": {
     "software": "We develop softwares that inspire users, and lead them to their destination as quickly as possible. Your satisfaction, is our objective. ",
