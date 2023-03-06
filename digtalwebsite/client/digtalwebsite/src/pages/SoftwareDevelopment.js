@@ -44,7 +44,7 @@ const SoftwareDevelopment = () => {
     <>
       <div className="main-header">
         <div className="left">
-          <div className="overflow-x-hidden text-center font-bold text-white mobile:text-[12px] tablet:text-[20px] laptop:text-[35px] desktop:text-[50px]">
+          <div className="overflow-x-hidden text-center text-[50px] font-bold text-white">
             <motion.p
               initial={{ x: -300 }}
               animate={{
@@ -60,7 +60,7 @@ const SoftwareDevelopment = () => {
           </div>
         </div>
         <div className="right">
-          <div className="relative overflow-x-hidden overflow-y-clip text-center font-bold text-[#663399] mobile:text-[12px] tablet:text-[20px] laptop:text-[35px] desktop:text-[50px]">
+          <div className="relative overflow-x-hidden text-center text-[50px] font-bold text-[#663399]">
             <motion.p
               initial={{ x: 300 }}
               animate={{
@@ -72,10 +72,10 @@ const SoftwareDevelopment = () => {
               }}
             >
               {t("software_development")}
-              <div className="absolute right-0 w-3/5 break-words text-end text-sm font-extralight">
-                <motion.p>{t("software_development_slogan")}</motion.p>
-              </div>
             </motion.p>
+          </div>
+          <div className="absolute right-0 w-3/5 break-words text-end text-sm font-extralight">
+            <motion.p>{t("software_development_slogan")}</motion.p>
           </div>
         </div>
       </div>

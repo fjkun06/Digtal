@@ -35,7 +35,7 @@ const ListServiceSection = ({ number, heading, info }) => {
         </div>
 
         <motion.div
-          className="laptop:w-9/12"
+          className="laptop:w-9/12 shadow-2xl"
           initial={matches ? { x: number % 2 === 0 ? "-100vw" : "100vw" }: {y: "100vh"}}
           animate={
             inView && matches ? {
