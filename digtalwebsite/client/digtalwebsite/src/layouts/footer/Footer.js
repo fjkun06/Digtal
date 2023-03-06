@@ -40,20 +40,12 @@ export default function Footer({ language, location }) {
                 <div className="pair">
                   <Telephone color={"red"} />
                   <div className="double-numbers">
-                    <FooterContactLink
-                      onClick={() =>
-                        (window.location.href = "tel:+375292771265")
-                      }
-                    >
-                      +237 671 234 567
+                    <FooterContactLink text="tel:+237650906666">
+                      +237 650 906 666
                     </FooterContactLink>
                     <FooterContactLink> | </FooterContactLink>
-                    <FooterContactLink
-                      onClick={() =>
-                        (window.location.href = "tel:+375292771265")
-                      }
-                    >
-                      +237 671 234 567
+                    <FooterContactLink text="tel:+491771577232">
+                      +49 1771 577 232
                     </FooterContactLink>
                   </div>
                 </div>
@@ -67,19 +59,11 @@ export default function Footer({ language, location }) {
                     <Envelop />
                   </div>
                   <div className="double-numbers">
-                    <FooterContactLink
-                      onClick={() =>
-                        (window.location.href = "mailto:hunchofrank@gmail.com")
-                      }
-                    >
-                      contact@digtal.com
+                    <FooterContactLink text="mailto:dgitald5@gmail.com">
+                      dgitald5@gmail.com
                     </FooterContactLink>
                     <FooterContactLink> | </FooterContactLink>
-                    <FooterContactLink
-                      onClick={() =>
-                        (window.location.href = "mailto:hunchofrank@gmail.com")
-                      }
-                    >
+                    <FooterContactLink text="mailto:hunchofrank@gmail.com">
                       contact@digtal.com
                     </FooterContactLink>
                   </div>
@@ -93,12 +77,6 @@ export default function Footer({ language, location }) {
                     <FooterContactLink> | </FooterContactLink>
                     <FooterContactLink>Castrop, DE</FooterContactLink>
                   </div>
-                  {/* <div>
-              <span>Buea, CM</span>
-              <span> | </span>
-              <span>Castrop, DE</span>
-
-              </div> */}
                 </div>
               </Grid>
             </>

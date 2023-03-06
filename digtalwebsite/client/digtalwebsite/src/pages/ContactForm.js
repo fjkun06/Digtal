@@ -20,10 +20,9 @@ export default function Contact() {
     <Grid container component="form" id="form1" noValidate autoComplete="off">
       {/* <ContactModal disp={toggleModalDisplay} /> */}
       <Grid container item className="getintouch">
-        <h2>Get in touch with Us</h2>
+        <h2>{t('contact-section.getintouch')}</h2>
         <div>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequa
+        {t('contact-section.text')}
         </div>
       </Grid>
       <Grid container item className="office">
@@ -35,8 +34,7 @@ export default function Contact() {
         />
         <div className="office-body">
           <span>
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit
+          {t('contact-section.visit')}
           </span>
           <div className="office-body-location">
             {location.map(loc => (

@@ -17,14 +17,14 @@ export const contactFields = [
 export const location = [
   {
     country: "Germany",
-    town: "Berlin, Brandenburg",
-    street: "Rue 1234.",
-    tel: "+49 1234 567 89"
+    town: "Duisburg, Romerstrasse 98",
+    street: "44579 Castrop-Rauxel",
+    tel: "+49 1771 577 232"
   },
   {
     country: "Cameroun",
     town: "Douala, Littoral",
     street: "Rue 1234.",
-    tel: "+237 1234 567 89"
+    tel: "+237 6509 066 66"
   }
 ];
