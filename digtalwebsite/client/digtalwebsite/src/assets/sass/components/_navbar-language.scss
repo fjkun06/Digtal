@@ -9,19 +9,18 @@
 //Icon container
 %language-item {
    @include mixins.grid;
-   @include mixins.grid{
-grid-template-columns: 1fr 1fr;
-column-gap: 0.75rem;
-justify-content: space-between;
-   };
-      // border: 1px solid red;
-
+   @include mixins.grid {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0.75rem;
+      justify-content: space-between;
+   }
+   // border: 1px solid red;
 
    .language-item-sub {
       @include mixins.grid;
       // border: 1px solid red;
 
-
+      width: -moz-fit-content;
       width: fit-content;
       grid-template-columns: repeat(2, 1fr);
 
