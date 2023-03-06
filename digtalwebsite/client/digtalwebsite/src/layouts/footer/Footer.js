@@ -21,6 +21,7 @@ export default function Footer({ language, location }) {
         <div className="footer">
           {!location && (
             <>
+              {/* help section */}
               <Grid item className="footer-help">
                 <Typography component={"span"}>{t("help")}</Typography>
 
@@ -36,6 +37,7 @@ export default function Footer({ language, location }) {
                   </span>
                 </button>
               </Grid>
+              {/* means of contact section */}
               <Grid item className="footer-contact">
                 <div className="pair">
                   <Telephone color={"red"} />
@@ -81,7 +83,7 @@ export default function Footer({ language, location }) {
               </Grid>
             </>
           )}
-
+          {/* subscribe row */}
           <Grid item className="footer-subscribe">
             <Grid item className="footer-subscribe-text">
               <Typography className="footer-subscribe-text-typ">
@@ -96,17 +98,56 @@ export default function Footer({ language, location }) {
                   placeholder={t("placeholder")}
                 />
               </Grid>
-              <Grid item>
-                <button
-                  type="button"
-                  className="footer-subscribe-item-button"
-                  variant="contained"
+              <span className="footer-subscribe-item-svg">
+                <svg
+                  width="86"
+                  height="16"
+                  id="exe"
+                  fill="none"
+                  preserveAspectRatio="none"
+                  viewBox="0 0 84 16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {t("subs-button")}
-                </button>
-              </Grid>
+                  <defs>
+                    <linearGradient id="galaxy">
+                      <stop offset="0" stop-color="rgb(0, 162, 255)">
+                        <animate
+                          attributeName="stop-color"
+                          values="#663399;rgb(0, 162, 255);#663399;rgb(0, 162, 255);#663399;rgb(0, 162, 255);#663399;"
+                          dur="15s"
+                          repeatCount="indefinite"
+                          begin="exe.mouseenter"
+                          end="exe.mouseleave"
+                        ></animate>
+                      </stop>
+                      <stop offset="1" stop-color="#663399">
+                        <animate
+                          attributeName="stop-color"
+                          // values="blue;green;yellow;orange;red;purple;blue;"
+                          values="#663399;rgb(0, 162, 255);#663399;rgb(0, 162, 255);#663399;rgb(0, 162, 255);#663399;"
+                          dur="15s"
+                          repeatCount="indefinite"
+                          begin="exe.mouseenter"
+                          end="exe.mouseleave"
+                        ></animate>
+                      </stop>
+                    </linearGradient>
+                  </defs>
+
+                  <rect width="84" height="16" id="exe" />
+                  <text
+                    x="42"
+                    y="9"
+                    dominant-baseline="middle"
+                    text-anchor="middle"
+                  >
+                    {t("subs-button")}
+                  </text>
+                </svg>
+              </span>
             </Grid>
           </Grid>
+          {/* footer body */}
           <Grid item className="footer-body">
             <Grid item className="footer-body-nav">
               <img src={logoMobile} alt="Digtal Logo" />
@@ -123,6 +164,7 @@ export default function Footer({ language, location }) {
                       text={t(link.label)}
                       className="footer-policy-link-text-item"
                       sx={{ color: "red" }}
+                      inactive={link.state}
                     />
                   ))}
                 </div>
@@ -155,6 +197,7 @@ export default function Footer({ language, location }) {
               ))}
             </Grid>
           </Grid>
+          {/* footer policy section */}
           <Grid item className="footer-policy">
             <Grid item className="footer-policy-link-text">
               {policy.map(link => (
