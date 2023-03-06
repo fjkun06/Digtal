@@ -42,50 +42,40 @@ const SoftwareDevelopment = () => {
 
   return (
     <>
-
       <div className="main-header">
         <div className="left">
-          <div className="text">
+          <div className="overflow-x-hidden text-center font-bold text-white mobile:text-[12px] tablet:text-[20px] laptop:text-[35px] desktop:text-[50px]">
             <motion.p
-              variants={headerVariants}
-              initial="hidden"
-              animate="visible"
+              initial={{ x: -300 }}
+              animate={{
+                x: 270,
+                transition: {
+                  duration: 2,
+                  type: "tween"
+                }
+              }}
             >
               {t("software_development")}
             </motion.p>
-          </div>
-
-          <div className="left-bottom">
-            <div className="sub-text">
-              <p>
-                <br />
-                <br />
-              </p>
-            </div>
           </div>
         </div>
         <div className="right">
-          <div className="text">
+          <div className="relative overflow-x-hidden overflow-y-clip text-center font-bold text-[#663399] mobile:text-[12px] tablet:text-[20px] laptop:text-[35px] desktop:text-[50px]">
             <motion.p
-              variants={rightVariants}
-              initial="hidden"
-              animate="visible"
+              initial={{ x: 300 }}
+              animate={{
+                x: -270,
+                transition: {
+                  duration: 2,
+                  type: "tween"
+                }
+              }}
             >
               {t("software_development")}
+              <div className="absolute right-0 w-3/5 break-words text-end text-sm font-extralight">
+                <motion.p>{t("software_development_slogan")}</motion.p>
+              </div>
             </motion.p>
-          </div>
-          <div className="right-bottom">
-            <div className="sub-text">
-              <motion.p
-
-                variants={subTextVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-                molestias!
-              </motion.p>
-            </div>
           </div>
         </div>
       </div>
@@ -95,7 +85,6 @@ const SoftwareDevelopment = () => {
 
       {/* services section */}
       {detailsData.map((data, index) => (
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -108,7 +97,6 @@ const SoftwareDevelopment = () => {
             info={data.info}
           />
         </motion.div>
-
       ))}
     </>
   );
