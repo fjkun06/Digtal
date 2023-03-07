@@ -4,8 +4,8 @@ import HomeHeading from "src/components/reusables/HomeHeading";
 import Score from "src/components/services/digital_marketing/score";
 import Testimonial from "src/components/services/digital_marketing/testimonials";
 import MarketingCard from "src/components/reusables/MarketingCard";
-import OneIconDesktop from "src/assets/svg/services/digitalmarketing/OneIconDesktop";
-import OneIconMobile from "src/assets/svg/services/digitalmarketing/OneIconMobile";
+// import OneIconDesktop from "src/assets/svg/services/digitalmarketing/OneIconDesktop";
+// import OneIconMobile from "src/assets/svg/services/digitalmarketing/OneIconMobile";
 import { marketingCardElements } from "src/components/services/digital_marketing/config";
 import { nano } from "src/App";
 
@@ -22,14 +22,11 @@ export default function DigitalMarketing() {
         </div>
         <div className="grid grid-cols-1 gap-8 py-16 tablet:grid-cols-2 ">
           {marketingCardElements.map(
-            ({ heading, body, numberIconDesktop, numberIconMobile }) => {
+            (details) => {
               return (
                 <MarketingCard
                   key={nano()}
-                  heading={heading}
-                  body={body}
-                  numberIconDesktop={numberIconDesktop}
-                  numberIconMobile={numberIconMobile}
+                {...details}
                 />
               );
             }

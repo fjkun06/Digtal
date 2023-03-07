@@ -19,10 +19,10 @@ export const policy = [
 ];
 
 export const enterprise = [
-  { label: "link.about", route: "/about-us" },
-  { label: "link.contact", route: "/contact-us" },
-  { label: "link.career", route: "/career" },
-  { label: "link.blog", route: "/blog" }
+  { label: "link.about", route: "/about-us",state:false  },
+  { label: "link.contact", route: "/contact-us",state:false  },
+  { label: "link.career", route: "/career",state:true },
+  { label: "link.blog", route: "/blog",state:true }
 ];
 export const services = [
   { label: "services.mad", route: "/services/software-development" },

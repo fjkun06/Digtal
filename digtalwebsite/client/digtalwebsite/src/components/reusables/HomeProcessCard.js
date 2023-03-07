@@ -13,6 +13,7 @@ export const HomeProcessCard = ({
 }) => {
   const { t } = useTranslation("home");
   const max1500 = useMediaQuery("(min-width: 1500.1px)");
+  const max768 = useMediaQuery("(min-width: 768.1px)");
 
   return (
     <div
@@ -21,7 +22,6 @@ export const HomeProcessCard = ({
           ? "leftmagic home__magic--card"
           : "home__magic--card"
       }
-      
     >
       {separator && (
         <div className="icon">
@@ -32,16 +32,22 @@ export const HomeProcessCard = ({
       )}
 
       <div className="text" onMouseEnter={toggleOn} onMouseLeave={toggleOff}>
-        {t(text)}
+        {max768 ? (
+          <>
+            <span>{t(text.title)}</span>
+            <p>
+            {t(text.body)}
+            </p>
+          </>
+        ) : (
+          <>{t(text.title)}. {t(text.body)}</>
+        )}
+        
       </div>
       <div className="moon" onMouseLeave={toggleOff} onMouseEnter={toggleOn}>
         <span>
           <img src={moon} alt="moon" />
-          <img
-            src={moonBlue}
-            alt="moon"
-        
-          />
+          <img src={moonBlue} alt="moon" />
         </span>
       </div>
     </div>
@@ -53,7 +59,15 @@ const HomeProcessCardMini = ({ moon, moonBlue, text }) => {
 
   return (
     <div className={"leftmagic home__magic--card"}>
-      <div className="text">{t(text)}</div>
+      <div className="text">
+        {t(text)}
+        {/* <span>Title</span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+          assumenda eius pariatur deleniti aspernatur ab aut! Sunt quam amet
+          nesciunt.
+        </p> */}
+      </div>
       <div className="moon">
         <span>
           <img src={moon} alt="moon" />
