@@ -126,6 +126,8 @@ $home-body-card-icon-light: $purple;
 $home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
 $home-body-para-light: #555;
 $home-body-title-light: $purple;
+$home-bg-svg-light: url("../../svg/home/vector3.svg"), url("../../svg/home/vector4.svg"), url("../../svg/home/vector5.svg");
+$home-bg-svg-dark: url("../../svg/home/vector3_dark.svg"), url("../../svg/home/vector4_dark.svg"), url("../../svg/home/vector5_dark.svg");
 
 //home carousel
 $carousel-button-bg-light: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));

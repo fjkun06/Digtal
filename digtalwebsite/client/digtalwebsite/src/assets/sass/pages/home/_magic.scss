@@ -155,7 +155,13 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
     padding-bottom: 5rem;
 
-    @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
+    // @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
+    background: var(--home-bg-svg), url("../../../svg/home/editFile1500.svg"), url("../../../svg/home/coffee1500.svg"), url("../../../svg/home/laptop1500.svg") $background;
+    // background: url("../../../svg/home/vector3.svg"),url("../../../svg/home/vector4.svg"),url("../../../svg/home/vector5.svg"),url("../../../svg/home/editFile1500.svg"),url("../../../svg/home/coffee1500.svg"),url("../../../svg/home/laptop1500.svg"), $background;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: $desktop-bp;
+    row-gap: 0rem;
+    padding-top: 3.5;
 
     & > * {
       &:nth-child(1) {
@@ -333,10 +339,10 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       @media only screen and (min-width: 960.1px) {
         max-width: 42rem;
       }
-      @media only screen and (960px < width <= 1200px){
+      @media only screen and (960px < width <= 1200px) {
         font-size: 1.7rem;
       }
-      @media only screen and (1200px < width){
+      @media only screen and (1200px < width) {
         line-height: calc(1rem + 0.65vw);
         font-size: 1.25rem;
       }
