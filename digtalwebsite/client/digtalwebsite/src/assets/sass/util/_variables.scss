@@ -19,6 +19,10 @@ $light-purple-10: lighten($purple, 10);
 $skyBlue: #00d0ff;
 
 //global variables
+$main-background-light: url("../../svg/app_background_light.svg");
+$main-background-dark: gold;
+$main-background-dark: url("../../svg/app_background_dark.svg");
+
 $facebook-hover: rgb(16, 16, 174);
 $instagram-hover: rgb(81, 31, 131);
 $twitter-hover: lighten(rgb(0, 81, 139), 30);
@@ -57,7 +61,7 @@ $footer-bt-light: $footer-border-gradient;
 
 //navbar section
 //desktop
-$navbar-link-light: $black;
+$navbar-link-light: $purple;
 $navbar-flag-b-light: $purple;
 $navbar-flag-bg-light: $light-blue;
 $navbar-flag-hovered-light: darken($light-blue, 20);
@@ -147,3 +151,21 @@ $scb-track-bs-light: inset 0 0 5px grey;
 $scb-track-bg-light: rgba(102, 51, 153, 0.57);
 $scb-thumb-bg-light: rgba(102, 51, 153, 0.892);
 $scb-thumb-hover-light: darken(rebeccapurple, 10%);
+
+//contact
+$contact-primary-light: $purple;
+$contact-secondary-light: rgba($purple, 0.5);;
+$contact-tertiary-light: $black;
+$contact-bg-light: $white;
+$contact-bs-light: 5px 5px 25px -1px rgba(109, 98, 97, 0.122), -5px -5px 25px 1px rgba(165, 162, 162, 0.122);
+
+
+//home
+
+//uiux
+
+//dital marketing
+
+//software development
+
+

@@ -1,26 +1,20 @@
-@use "../../util/variables";
 @use "../../util/mixins";
 
 @mixin office {
   .office {
     grid-row: 7/10;
     grid-column: 1/2;
-background-color: #fff;
-
+    background-color: var(--contact-bg);
 
     @media only screen and (min-width: 1201px) {
-      // grid-template-columns: repeat(2, 1fr);
       grid-row: 2/5;
       grid-column: 1/2;
-      // border: 1px solid red;
     }
-    // background-color: rgba(0, 128, 81, 0.72);
-    // padding: 2rem 0rem;
+
     span,
     h4 {
       font-family: "Poppins 700", "Helvetica Neue";
-      color: #663399;
-      // border: 1px solid red;
+      color: var(--contact-primary);
       width: 100%;
       font-size: 2rem;
       @media only screen and (min-width: 481px) {
@@ -45,7 +39,6 @@ background-color: #fff;
 
     img[id="office-pic"] {
       @media only screen and (min-width: 481px) {
-        // border: 1px solid red;
         width: 100%;
         height: auto;
         padding: 0px 10vw;
@@ -61,12 +54,11 @@ background-color: #fff;
 
       @include mixins.flex(column);
       span {
-        background-color: #fff;
+        background-color: var(--contact-bg);
         font-family: "Poppins";
-        color: rgba(#663399, 0.5);
+        color: var(--contact-secondary);
         font-size: 1.5rem;
         width: 100%;
-        // border: 1px solid red;
         padding: 2rem 5rem;
         text-align: center;
         @media only screen and (min-width: 481px) {
@@ -113,7 +105,6 @@ background-color: #fff;
         }
 
         &--item {
-          // border: 1px solid red;
           width: 100%;
           @include mixins.flex(column);
 
@@ -121,7 +112,6 @@ background-color: #fff;
             &:nth-child(1) {
               .icon-top {
                 padding-left: 7.7vw;
-                // border: 1px solid red;
               }
               .icon-bottom {
                 padding-left: 2.75vw;
@@ -155,7 +145,6 @@ background-color: #fff;
           }
 
           h4 {
-            // border: 1px solid red;
             text-align: center;
             padding-bottom: 0.5rem;
             @media only screen and (min-width: 1201px) {
@@ -166,7 +155,7 @@ background-color: #fff;
           h5 {
             font-family: "Poppins 500";
             font-size: 1.5rem;
-            color: rgba(#663399, 0.5);
+            color: var(--contact-secondary);
             @media only screen and (min-width: 481px) {
               font-size: 1.7rem;
             }
@@ -181,8 +170,6 @@ background-color: #fff;
             }
           }
           .icon-text {
-            // background-color: red;
-            // width: 100%;
             @include mixins.flex;
 
             column-gap: 0.25rem;

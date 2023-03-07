@@ -7,8 +7,12 @@
     background-color: rebeccapurple;
     color: white;
   }
-  //footer section
+
+  //overall varables
   --footer-bg: #{$footer-bg-light};
+
+  //footer section
+  --main-background: #{$main-background-light};
   --footer-body-heading-bg: #{$footer-body-heading-bg-light};
   --footer-body-link-color: #{$footer-body-link-color-light};
   --footer-help-bg: #{$footer-help-bg-light};
@@ -130,4 +134,18 @@
   --scb-thumb-bg: #{$scb-thumb-bg-light};
   --scb-thumb-hover: #{$scb-thumb-hover-light};
 
+  //contact
+  --contact-primary: #{$contact-primary-light};
+  --contact-secondary: #{$contact-secondary-light};
+  --contact-tertiary: #{$contact-tertiary-light};
+  --contact-bg: #{$contact-bg-light};
+  --contact-bs: #{$contact-bs-light};
+
+  //home
+
+  //uiux
+
+  //dital marketing
+
+  //software development
 }

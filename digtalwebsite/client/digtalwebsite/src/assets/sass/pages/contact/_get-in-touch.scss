@@ -1,26 +1,22 @@
-@use "../../util/variables";
 @use "../../util/mixins";
 @mixin get-in-touch {
   .getintouch {
     grid-row: 1/2;
     grid-column: 1/2;
     background-color: transparent;
-background-color: #fff;
-
+    background-color: var(--contact-bg);
 
     @media only screen and (min-width: 1201px) {
       width: 100%;
-      // border: 1px solid red;
       text-align: left;
       padding: 0rem;
-    row-gap: 0rem;
-
+      row-gap: 0rem;
     }
 
     h2 {
       font-family: "Poppins 700", sans-serif;
       font-size: 3rem;
-      color: #663399;
+      color: var(--contact-primary);
       // border: 1px solid red;
     }
 
@@ -39,7 +35,7 @@ background-color: #fff;
           font-size: 4.3rem;
         }
         @media only screen and (min-width: 1201px) {
-          // border: 1px solid red;
+        
           width: 100%;
         }
       }
@@ -61,12 +57,13 @@ background-color: #fff;
           text-align: left;
         }
         @media only screen and (min-width: 1490px) {
-          width: 80%;}
+          width: 80%;
+        }
       }
     }
     div {
       font-size: 1.5rem;
-      color: rgba(#663399, 0.5);
+      color: var(--contact-secondary);
       font-family: "Poppins", sans-serif;
     }
   }
