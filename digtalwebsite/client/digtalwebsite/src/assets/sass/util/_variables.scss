@@ -33,7 +33,9 @@ $footer-bg-light: $white;
 $footer-text-light: $black;
 $footer-menu-bg-light: $footer-bg-light;
 $footer-policy-bg-light: $footer-bg-light;
+$footer-policy-bt-light: $black;
 $footer-subscribe-bg-light: #f5f7fa;
+$footer-subscribe-input-color-light: $black;
 $footer-subscribe-input-bs-light: #777;
 $footer-subscribe-input-caret-light: #888;
 $footer-link-hover-light: $light-purple-20;
@@ -82,6 +84,8 @@ $arrow-start-light: $light-blue;
 $arrow-end-light: $purple;
 
 //home
+$home-heading-bg-light: rgba(rgb(255, 255, 255), 0.5);
+$home-heading-color-light: $purple;
 $home-body-inner-bg-light: #f5f7fa;
 $home-body-card-text-light: #00000099;
 $home-body-card-heading-light: #000000de;

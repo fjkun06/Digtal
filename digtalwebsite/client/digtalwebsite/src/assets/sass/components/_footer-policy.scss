@@ -7,7 +7,7 @@
     @include mixins.footer-item-init(1vh, var(--footer-policy-bg), row, center);
     width: 87vw;
     @include mixins.flex(column);
-    border-top: 1.65px solid #000;
+    border-top: 1.65px solid  var(--footer-policy-bt);
     background: transparent;
     @media screen and (min-width: 961px) {
       font-size: 1.25rem;

@@ -1,5 +1,4 @@
 @use "../util/mixins";
-@use "../util/variables";
 
 %subscribe {
   .footer-subscribe {
@@ -68,41 +67,6 @@
 
       @include mixins.flex;
 
-      &-button {
-        @include mixins.gradient-button-pb;
-        padding: 2.75px 21px;
-        font-size: 0.7rem;
-        @media screen and (min-width: 481px) {
-          font-size: 0.8rem;
-          padding: 5px 21px;
-          margin-top: 0px;
-          height: 100%;
-        }
-        @media screen and (min-width: 961px) {
-          font-size: 1rem;
-          padding: 5.55px 2.5rem;
-          margin-top: 0px;
-          height: 100%;
-        }
-        @media screen and (min-width: 1201px) {
-          font-size: 1.7rem;
-          padding: 5.55px 2.5rem;
-          margin-top: 0px;
-          height: 100%;
-        }
-        text-align: center;
-        vertical-align: center;
-        text-transform: uppercase;
-        color: white;
-        cursor: pointer;
-        margin-top: 2px;
-        &:hover {
-          transition: all 0.25s ease-in-out;
-          // animation: background-change 1s ease-in-out 0 1 forwards;
-          background: rebeccapurple;
-        }
-      }
-
       //svg
       &-svg {
         @include mixins.size(8.36rem, 1.543rem);
@@ -110,8 +74,7 @@
         cursor: pointer;
         @media screen and (min-width: 481px) {
           @include mixins.size(8.95rem, 2.2rem);
-        margin-top: 0.1rem;
-
+          margin-top: 0.1rem;
         }
         @media screen and (min-width: 961px) {
           @include mixins.size(10.94rem, 2.6rem);
@@ -170,7 +133,7 @@
   }
   line-height: 1.235;
   letter-spacing: 0.00735em;
-  color: variables.$black;
+  color: var(--footer-subscribe-input-color);
   &:focus {
     outline: none;
     caret-color: var(--footer-subscribe-input-caret);
@@ -185,12 +148,5 @@
     width: 40rem;
     height: 3.55rem;
     font-size: 1.6rem;
-  }
-}
-
-@keyframes background-change {
-  100% {
-    background: rgb(0, 162, 255);
-    // background: linear-gradient(to left, variables.$light-blue, variables.$purple);
   }
 }

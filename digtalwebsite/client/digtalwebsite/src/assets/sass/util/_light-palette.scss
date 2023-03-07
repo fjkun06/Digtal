@@ -15,7 +15,9 @@
   --footer-menu-bb: #{$footer-menu-bb-light};
 
   --footer-policy-bg: #{$footer-bg-light};
+  --footer-policy-bt: #{$footer-policy-bt-light};
   --footer-subscribe-bg: #{$footer-subscribe-bg-light};
+  --footer-subscribe-input-color: #{$footer-subscribe-input-color-light};
   --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
   --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
   --footer-link-hover: #{$footer-link-hover-light};
@@ -65,6 +67,8 @@
   --arrow-end: #{$arrow-end-light};
 
   //home
+  --home-heading-bg: #{$home-heading-bg-light};
+  --home-heading-color: #{$home-heading-color-light};
   --home-body-inner-bg: #{$home-body-inner-bg-light};
   --home-body-card-text: #{$home-body-card-text-light};
   --home-body-card-heading: #{$home-body-card-heading-light};
