@@ -50,23 +50,39 @@ $footer-subscribe-input-color-light: $black;
 $footer-subscribe-input-bs-light: #777;
 $footer-subscribe-input-caret-light: #888;
 $footer-link-hover-light: $light-purple-20;
+$footer-link-after-light: $black;
+$footer-contact-after-light: $white;
 $footer-menu-bb-light: #e4ebf3;
 $footer-bt-light: $footer-border-gradient;
 
 //navbar section
 //desktop
 $navbar-link-light: $black;
+$navbar-flag-b-light: $purple;
+$navbar-flag-bg-light: $light-blue;
+$navbar-flag-hovered-light: darken($light-blue, 20);
+$navbar-link-after-light: $purple;
 $navbar-link-visited-light: $navbar-link-light;
 $navbar-link-active-bb-light: 3px solid $purple;
 
+//tablet
+$tablet-navbar-bg-light: $white;
+$tablet-navbar-link-light: $purple;
+
 //mobile
-$mobile-navbar-bg-light: $purple;
+$mobile-navbar-bg-light: $white;
+$mobile-navbar-select-item-light: lighten( $purple, 30%);
+$mobile-navbar-svg-fill-light: $purple;
+$mobile-navbar-selection-bg-light: $purple;
+$mobile-navbar-selection-color-light: $white;
 $mobile-navbar-light: aliceblue;
 $mobile-navbar-link-light: $active-hover;
 $mobile-navbar-item-bb-light: $black;
 $mobile-navbar-item-link-light: $footer-bg-light;
 $mobile-navbar-item-link-hovered-light: $black;
 $mobile-navbar-item-hover-light: $light-purple-50;
+$mobile-navbar-link-after-light: #b38cd9;
+
 
 //select both navbars
 $navbar-select-item-bg-light: $purple;

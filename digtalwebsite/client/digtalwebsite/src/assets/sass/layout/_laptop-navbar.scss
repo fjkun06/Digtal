@@ -1,10 +1,8 @@
-@use "../util/variables";
+
 @use "../util/mixins";
 
 @mixin navbar() {
   @media screen and (min-width: 769px) {
-    // @media screen and (min-width: 769px) and (max-width: 1024px) {
-    // @media screen and (max-width: 480px) {
     .main-nav {
       //Multicolor bottom border
       &::after {
@@ -20,7 +18,7 @@
         @media screen and (min-width: 1025px) {
           font-size: 1.7rem;
         }
-        color: variables.$purple;
+        color: var(--tablet-navbar-link-light);
         font-family: "Inter", serif;
       }
 
@@ -99,8 +97,7 @@
             // border: 1px solid red;
             padding: 0;
             word-break: keep-all;
-            // inline-size: min-content;
-            // overflow-wrap: normal;
+          
             width: fit-content(1rem);
             width: -moz-fit-content(1rem);
             width: max-content;
@@ -128,7 +125,7 @@
             position: relative;
 
             #flags {
-              // border: 1px solid variables.$light-blue;
+              
               position: absolute;
               margin-top: 5rem;
               margin-left: -8px;
@@ -137,15 +134,15 @@
               // padding: 5px;
 
               & > * div {
-                background-color: red;
+                background-color: rgb(0, 255, 38);
               }
 
               div {
                 cursor: pointer;
-                background-color: variables.$light-blue;
+                background-color: var(--navbar-flag-bg);
                 padding: 5px;
                 &:hover {
-                  background-color: darken(variables.$light-blue, 20);
+                  background-color: var(--navbar-flag-hovered);
                 }
               }
               img {
@@ -154,8 +151,7 @@
                 // object-fit: contain;
               }
               .flag--bordered {
-                // border: 3px solid rebeccapurple;
-                background-color: rebeccapurple;
+                background-color: var(--navbar-flag-b);
               }
               .flags--off {
                 display: none;
@@ -165,7 +161,7 @@
                 content: "";
                 display: block;
                 @include mixins.size(105%, 20px);
-                background-color: variables.$light-blue;
+                background-color: var(--navbar-flag-bg);
                 position: absolute;
                 top: -2rem;
                 left: -1px;

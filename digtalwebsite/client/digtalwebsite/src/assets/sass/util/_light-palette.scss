@@ -28,24 +28,38 @@
   --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
   --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
   --footer-link-hover: #{$footer-link-hover-light};
+  --footer-link-after: #{$footer-link-after-light};
+  --footer-contact-after: #{$footer-contact-after-light};
   --footer-bt-light: #{$footer-border-gradient};
 
   //navbar
   //navbar section
   //desktop
   --navbar-link: #{$navbar-link-light};
-
+  --navbar-flag-bg: #{$navbar-flag-bg-light};
+  --navbar-flag-hovered: #{$navbar-flag-hovered-light};
+  --navbar-flag-b: #{$navbar-flag-b-light};
+  --navbar-link-after: #{$navbar-link-after-light};
   --navbar-link-visited: #{$navbar-link-visited-light};
   --navbar-link-active-bb: #{$navbar-link-active-bb-light};
 
+  //tablet
+  --tablet-navbar-bg: #{$tablet-navbar-bg-light};
+  --tablet-navbar-link: #{$tablet-navbar-link-light};
+
   //mobile
   --mobile-navbar-bg: #{$mobile-navbar-bg-light};
+  --mobile-navbar-select-item: #{$mobile-navbar-select-item-light};
+  --mobile-navbar-svg-fill: #{$mobile-navbar-svg-fill-light};
+  --mobile-navbar-selection-bg: #{$mobile-navbar-selection-bg-light};
+  --mobile-navbar-selection-color: #{$mobile-navbar-selection-color-light};
   --mobile-navbar: #{$mobile-navbar-light};
   --mobile-navbar-link: #{$mobile-navbar-link-light};
   --mobile-navbar-item-bb: #{$mobile-navbar-item-bb-light};
   --mobile-navbar-item-link: #{$mobile-navbar-item-link-light};
   --mobile-navbar-item-link-hovered: #{$mobile-navbar-item-link-hovered-light};
   --mobile-navbar-item-hover: #{$mobile-navbar-item-hover-light};
+  --mobile-navbar-link-after: #{$mobile-navbar-link-after-light};
 
   //select both navbars
   --navbar-select-item-bg: #{$navbar-select-item-bg-light};

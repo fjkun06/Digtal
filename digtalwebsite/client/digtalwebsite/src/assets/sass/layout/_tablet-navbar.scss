@@ -17,17 +17,17 @@
         background-color: transparent;
         //logo
         &-logo {
-          background-color: #fff;
-          border-bottom: 3px solid rebeccapurple;
+          background-color: var(--tablet-navbar-bg);
+          border-bottom: 3px solid var(--tablet-navbar-link);
          
         }
 
         //mobile body
         &--mobile-body {
           width: 50vw;
-          border-right: 3px solid rebeccapurple;
-          border-bottom: 3px solid rebeccapurple;
-          background-color: #fff;
+          border-right: 3px solid var(--tablet-navbar-link);
+          border-bottom: 3px solid var(--tablet-navbar-link);
+          background-color: var(--tablet-navbar-bg);
 
           .search {
             margin-top: 20px;
@@ -36,14 +36,14 @@
 
         //items
         &-links {
-          background-color: #fff;
-          border-bottom: 3px solid rebeccapurple;
+          background-color: var(--tablet-navbar-bg);
+          border-bottom: 3px solid var(--tablet-navbar-link);
         }
 
         //theme
         &-mobile {
-          background-color: #fff;
-          border-bottom: 3px solid rebeccapurple;
+          background-color: var(--tablet-navbar-bg);
+          border-bottom: 3px solid var(--tablet-navbar-link);
         }
       }
     }
