@@ -31,7 +31,9 @@ export default function Navbar({
   setLanguage,
   setMobileSelectState,
   mobileSelectState,
-  toggleMobileSelect
+  toggleMobileSelect,
+  showFlagDropdown,
+  setshowFlagDropdown
 }) {
   //theme configuration
   const [websiteTheme, setWebsiteTheme] = useState("dark");
@@ -41,7 +43,7 @@ export default function Navbar({
 
   const [mobileCross, setMobileCross] = useState("");
   const [mobileMenu, setMobileMenu] = useState("");
-  const [showFlagDropdown, setshowFlagDropdown] = useState(false);
+  // const [showFlagDropdown, setshowFlagDropdown] = useState(false);
   const [flagId, setFlagId] = useState("");
   const navigate = useNavigate();
 
@@ -255,6 +257,7 @@ export default function Navbar({
                   <Search />
                 </span>
 
+                {/* language handler*/}
                 <Grid sx={{ width: "fit-content" }} className="language-item">
                   {flagId === "0" ? (
                     <EnglandIcon
@@ -304,6 +307,7 @@ export default function Navbar({
                   </Grid>
                 </Grid>
 
+                {/* theme switcher */}
                 {websiteTheme === "dark" ? (
                   <LightModeIcon
                     className="navbar-theme-light"
@@ -339,6 +343,8 @@ export default function Navbar({
               style={{ display: mobileSelectState && min769 ? "grid" : "none" }}
             >
               {/* <Grid container item className="main-nav-sub-services" style={{ display: outletState && mobileSelectState && min769 ? "grid" : "none" }}> */}
+              {/* services dropdown */}
+
               <div className="service-list">
                 {selectDropdownItems.map(item => (
                   <Grid item key={item.textIndex}>

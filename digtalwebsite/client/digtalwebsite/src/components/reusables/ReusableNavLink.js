@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export function ActiveNavLink({ to, text, toggleMobile }) {
   function nan() {}
   return (
-    <NavLink
+    <NavLink 
       className={({ isActive }) =>
         isActive ? "navbar__link--active" : "navbar__link"
         // isActive ? "nav--link--active" : "main-nav-item"

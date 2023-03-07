@@ -13,9 +13,8 @@ const ContactFormSubLocation = ({ country, town, street, tel }) => {
         </div>
 
         <div className="address icon-right">
-          {[country, street].map(i => (
-            <h5 key={i}>{i}</h5>
-          ))}
+            <h5 >{street}</h5>
+            {/* <br/> */}
         </div>
       </div>
       <div className="icon-text icon-bottom">
