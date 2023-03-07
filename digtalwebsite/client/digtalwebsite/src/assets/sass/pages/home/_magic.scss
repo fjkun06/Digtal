@@ -321,12 +321,24 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
         text-shadow: none;
         line-height: calc(1.8rem + 0.8vw);
-        font-size: 1.9rem;
+        line-height: calc(1.3rem + 0.4vw);
+        font-size: 1.5rem;
+        font-size: 1.15rem;
         margin-top: 1rem;
+
+        @include mixins.flex(column);
+        align-items: flex-start;
       }
 
       @media only screen and (min-width: 960.1px) {
         max-width: 42rem;
+      }
+      @media only screen and (960px < width <= 1200px){
+        font-size: 1.7rem;
+      }
+      @media only screen and (1200px < width){
+        line-height: calc(1rem + 0.65vw);
+        font-size: 1.25rem;
       }
 
       @media only screen and (min-width: 1500.1px) {

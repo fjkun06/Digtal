@@ -16,27 +16,39 @@ export const homeProcess = [
     moonBlue: phaseOneBlue,
     separator: coffee,
     position: "right",
-    text: "process.one"
+    text: {
+      title: "process.one.title",
+      body: "process.one.body"
+    }
   },
   {
     moon: half,
     moonBlue: halfBlue,
     separator: edit,
     position: "left",
-    text: "process.two"
+    text: {
+      title: "process.two.title",
+      body: "process.two.body"
+    }
   },
   {
     moon: phaseThree,
     moonBlue: phaseThreeBlue,
     separator: laptop,
     position: "right",
-    text: "process.three"
+    text: {
+      title: "process.three.title",
+      body: "process.three.body"
+    }
   },
   {
     moon: full,
     moonBlue: fullBlue,
     separator: null,
     position: "left",
-    text: "process.four"
+    text: {
+      title: "process.four.title",
+      body: "process.four.body"
+    }
   }
 ];

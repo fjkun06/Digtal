@@ -8,24 +8,27 @@ import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { nanoid } from "nanoid";
-export {nanoid as nano};
+export { nanoid as nano };
 
 function App() {
   const loc = useLocation();
   const [language, setLanguage] = useState("/en");
   const { pathname } = useLocation();
 
-
+  //select dropdown state
   const [mobileSelectState, setMobileSelectState] = useState(false);
+
+  //language dropdown state
+  const [showFlagDropdown, setshowFlagDropdown] = useState(false);
 
   function toggleMobileSelect() {
     setMobileSelectState(mobileSelectState === true ? false : true);
   }
 
-
   React.useEffect(() => {
     const handleScroll = event => {
       setMobileSelectState(false);
+      setshowFlagDropdown(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,9 +47,7 @@ function App() {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <div
-          
-        >
+        <div>
           <Grid container className="navigation-main" id="n-main">
             <Navbar
               setLanguage={setLanguage}
@@ -54,6 +55,8 @@ function App() {
               toggleMobileSelect={toggleMobileSelect}
               setMobileSelectState={setMobileSelectState}
               mobileSelectState={mobileSelectState}
+              showFlagDropdown={showFlagDropdown}
+              setshowFlagDropdown={setshowFlagDropdown}
             />
           </Grid>
 
@@ -61,6 +64,7 @@ function App() {
             id="scroll-zone"
             onClick={() => {
               setMobileSelectState(false);
+              setshowFlagDropdown(false);
             }}
           >
             <Outlet />
