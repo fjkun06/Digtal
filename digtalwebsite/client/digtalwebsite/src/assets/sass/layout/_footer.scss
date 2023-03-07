@@ -1,40 +1,11 @@
 @use "../util/mixins";
-@use "../util/variables";
 @use "../components/footer-subscribe";
 @use "../components/footer-menu";
 @use "../components/footer-policy";
 
 .footer {
-  // height: 51vh;
-  // height: 330px;
-  // @media screen and (min-width: 769px) {
-  //   height: 50vh;
-  // }
-  // @media screen and (min-width: 961px) {
-  //   height: 57vh;
-  //   height: 680px;
-  // }
-  // @media screen and (min-width: 1201px) {
-  //   height: 57vh;
-  //   height: 770px;
-  // }
-  // background-image: url("../../assets/images/background.svg");
-  // -moz-background: url("../../svg/background_light.svg");
-
-  // background: url("../../svg/footer_background_light.svg");
-  // background: url("../../svg/test.svg");
-  //  background-position: center;
-  //  background-size: cover;
   background-size: 100%;
   background-size: cover;
-
-  // -moz-background-size: 100%;
-
-
-
-  // background-size: 100% auto, 100% 100%;
-  // background-size: auto auto, auto auto;
-  // background-size: auto,auto;
   background-repeat: no-repeat;
   background-origin: border-box;
   -webkit-background-clip: border-box;
@@ -57,8 +28,7 @@
 
   //footer help
   &-help {
-    background-color: transparent;
-    background-color: #ececec;
+    background-color: var(--footer-help-bg);
 
     @include mixins.size(100%, fit-content);
 
@@ -80,11 +50,11 @@
       font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial;
     }
     button {
-      span{
+      span {
         font-weight: normal;
       }
-      background-color: rebeccapurple;
-      color: #fff;
+      background-color: var(--footer-help-btn-bg);
+      // color: #a42525;
       padding: 3px 8px;
       font-size: 0.8rem;
       border-radius: 5px;
@@ -97,10 +67,6 @@
       }
       @media screen and (min-width: 1201px) {
         font-size: 2.4rem;
-      }
-
-      &:hover {
-        // text-decoration: underline;
       }
     }
 
@@ -115,7 +81,7 @@
       @media screen and (min-width: 1201px) {
         font-size: 2.4rem;
       }
-      color: rebeccapurple;
+      color: var(--footer-help-span-color);
       font-weight: 600;
       padding-bottom: 3px;
     }
@@ -123,7 +89,7 @@
 
   //footer
   &-contact {
-    background-color: rebeccapurple;
+    background-color: var(--footer-contact-bg);
     @include mixins.size(100%, max-content);
     @include mixins.flex;
 
@@ -135,7 +101,7 @@
     }
 
     & > * {
-      color: white;
+      color: var(--footer-contact-color);
     }
 
     .pair {
@@ -177,7 +143,7 @@
         }
 
         path {
-          fill: white;
+          fill: var(--footer-contact-color);
         }
       }
 
@@ -217,11 +183,6 @@
       }
     }
 
-    //  svg{
-    //   path {
-    //     fill: yellow;
-    //   }
-    // }
   }
 
   //subscribe section here
@@ -338,6 +299,8 @@
         justify-content: flex-start;
 
         .heading {
+        color: var(--footer-body-heading-bg);
+
           margin-top: 7px;
 
           font-size: 1.2rem;
@@ -348,7 +311,7 @@
             content: "";
             display: block;
             @include mixins.size(4rem, 0.155rem);
-            background: black;
+            background: var(--footer-body-heading-bg);
             margin-top: 0.1px;
           }
           @media screen and (min-width: 481px) {
@@ -388,6 +351,7 @@
 
         .links {
           @include mixins.grid;
+          color: var(--footer-body-link-color);
           margin-top: 8px;
           @media screen and (min-width: 769px) {
             margin-bottom: 1rem;
@@ -422,15 +386,11 @@
             font-weight: 500;
             height: auto;
             margin-top: -2px;
-            &:hover {
-              // text-decoration: underline;
-            }
+            
           }
         }
       }
-      .services {
-        background-color: rgb(143, 138, 138);
-      }
+    
     }
     &-icons {
       background-color: trtansparent;

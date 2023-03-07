@@ -3,6 +3,7 @@
 //bb: border bottom
 //dd: dropdown
 //scb: scrollbar
+//btn: button
 //bl: border left n so on...
 
 //variablessss
@@ -32,6 +33,14 @@ $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 13
 
 //footer section
 $footer-bg-light: $white;
+$footer-body-heading-bg-light: $black;
+$footer-body-link-color-light: rgba(#000000, 0.65);
+$footer-help-bg-light: #ececec;
+$footer-help-btn-bg-light: $purple;
+$footer-help-span-color-light: $purple;
+$footer-contact-bg-light: $purple;
+$footer-contact-color-light: $white;
+
 $footer-text-light: $black;
 $footer-menu-bg-light: $footer-bg-light;
 $footer-policy-bg-light: $footer-bg-light;

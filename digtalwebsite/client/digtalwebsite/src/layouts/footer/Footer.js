@@ -110,7 +110,7 @@ export default function Footer({ language, location }) {
                 >
                   <defs>
                     <linearGradient id="galaxy">
-                      <stop offset="0" stop-color="rgb(0, 162, 255)">
+                      <stop offset="0" stopColor="rgb(0, 162, 255)">
                         <animate
                           attributeName="stop-color"
                           values="#663399;rgb(0, 162, 255);#663399;rgb(0, 162, 255);#663399;rgb(0, 162, 255);#663399;"
@@ -120,7 +120,7 @@ export default function Footer({ language, location }) {
                           end="exe.mouseleave"
                         ></animate>
                       </stop>
-                      <stop offset="1" stop-color="#663399">
+                      <stop offset="1" stopColor="#663399">
                         <animate
                           attributeName="stop-color"
                           // values="blue;green;yellow;orange;red;purple;blue;"
@@ -138,8 +138,8 @@ export default function Footer({ language, location }) {
                   <text
                     x="42"
                     y="9"
-                    dominant-baseline="middle"
-                    text-anchor="middle"
+                    dominantBaseline="middle"
+                    textAnchor="middle"
                   >
                     {t("subs-button")}
                   </text>
