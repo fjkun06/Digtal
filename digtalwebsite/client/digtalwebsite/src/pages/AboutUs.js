@@ -6,7 +6,7 @@ import xevlyn from "src/assets/images/xevlyn.png";
 import fj from "src/assets/images/fj.png";
 import nesta from "src/assets/images/nesta.png";
 
-import { Image } from "mui-image";
+import Image from "mui-image";
 import TeamCard from "src/components/about/TeamCard";
 import { useTranslation } from "react-i18next";
 import flower from "src/assets/svg/flower.svg";
@@ -184,12 +184,12 @@ export default function AboutUs() {
           <Typography
             variant="h2"
             component="h3"
-            className="px-[6.5rem] text-center font-[Poppins] text-[27px] font-bold leading-[35px] tracking-[0] text-[rebeccapurple] laptop:text-left laptop:text-[40px] laptop:leading-[50px]"
+            className="px-[6.5rem] text-center font-[Poppins] text-[27px] font-bold leading-[35px] tracking-[0] text-[rebeccapurple] tablet:text-left laptop:text-[40px] laptop:leading-[50px]"
           >
             Meet our <br />
             Stunning Team
           </Typography>
-          <Box className="w-full bg-[rebeccapurple]/40">
+          <Box className="w-full bg-[rebeccapurple]/10">
             <Box className="mx-auto grid grid-cols-2 gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-4 laptop:grid-cols-4 laptop:gap-12">
               {team.map((member, index) => (
                 <TeamCard
@@ -208,7 +208,7 @@ export default function AboutUs() {
       {/* Join our team section */}
       <Box>
         <Box className="mx-auto grid h-auto max-w-[1068px] grid-cols-12 py-14">
-          <Box className="col-span-12 laptop:col-span-4">
+          <Box className="col-span-12 tablet:col-span-4">
             <Typography
               component="p"
               className="text-center font-[Poppins] text-[27px] font-bold leading-[70px] text-[rebeccapurple] laptop:text-left laptop:text-[40px]"
@@ -217,18 +217,18 @@ export default function AboutUs() {
             </Typography>
           </Box>
 
-          <Box className="col-span-12 px-8 laptop:col-span-8 laptop:px-0">
-            <Stack>
+          <Box className="col-span-12 px-8 tablet:col-span-8 tablet:px-0">
+            <Stack className="tablet:max-w-screen-tablet laptop:max-w-screen-laptop">
               <Typography
                 component="p"
-                className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 laptop:text-left laptop:text-[20px] laptop:leading-[35px]"
+                className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 tablet:text-left laptop:text-[20px] laptop:leading-[35px]"
               >
                 Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                 Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
                 tempor enim. Elit aute irure tempor cupidatat incididunt sint
                 deserunt ut voluptate aute id deserunt nisi.
               </Typography>
-              <Button className="col-span-1 mx-auto mt-4 box-border border-2 border-solid border-[rebeccapurple] bg-transparent px-4 py-2 text-[17px] font-bold capitalize text-[rebeccapurple] hover:border-[rebeccapurple]/10 hover:bg-[rebeccapurple]/20 laptop:ml-0">
+              <Button className="col-span-1 mx-auto mt-4 box-border border-[3px] border-solid border-[rebeccapurple] bg-transparent px-4 py-2 text-[17px] font-bold capitalize text-[rebeccapurple] hover:border-[rebeccapurple]/10 hover:bg-[rebeccapurple]/20 tablet:ml-0">
                 Open Positions
               </Button>
             </Stack>
