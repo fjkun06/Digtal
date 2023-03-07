@@ -17,7 +17,7 @@
     span {
       svg {
         path {
-          fill: rgba($color: #663399, $alpha: 1);
+          fill: var(--marketing-card-svg-fill)
         }
       }
     }
@@ -28,11 +28,11 @@
           g {
             svg {
               path {
-                fill: #00d0ff;
+                fill: var(--marketing-card-svg-content-fill)
               }
             }
             path {
-              fill: #00d0ff;
+              fill: var(--marketing-card-svg-content-fill)
             }
           }
         }
@@ -65,10 +65,10 @@
         transition: all 0.25s ease-in-out;
       }
       path {
-        fill: rgba($color: #663399, $alpha: 0.2);
+        fill: var(--marketing-card-svg-blocks-fill);
       }
     }
-  }
+  } 
 
   //control card details
   .market__card__content {
@@ -85,7 +85,8 @@
       font-weight: 500;
 
       @include marketCardStructure(33.41rem, 10.547rem, 1.17919rem, 1.5rem);
-      color: rgba(0, 0, 0, 0.65);
+      color: var(--marketing-card-content-color);
+
     }
 
     h1 {
@@ -93,7 +94,7 @@
 
       @include marketCardStructure(18.2rem, 5.8rem, 2.62042rem, 2.9rem);
 
-      color: #663399;
+      color: var(--marketing-card-heading-color);
     }
 
     @media screen and (width > 960px) {
@@ -117,11 +118,11 @@
         g {
           svg {
             path {
-              fill: white;
+              fill: var( --marketing-card-svg-num-inside-fill);
             }
           }
           path {
-            fill: #00d0ff;
+            fill: var(--marketing-card-svg-content-fill)
           }
         }
       }
@@ -130,7 +131,7 @@
   padding: 0rem;
   overflow: hidden;
   gap: 1rem;
-  background-color: #fff;
+  background-color: var(--marketing-card-bg);
   border-radius: 10px;
   justify-self: center;
 
@@ -148,5 +149,5 @@
     @include mixins.size(59rem, 36.7rem);
   }
 
-  box-shadow: 0px 0px 9.82657px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--marketing-card-bs)
 }

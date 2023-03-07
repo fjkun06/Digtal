@@ -2,6 +2,7 @@
 //bg: background
 //bb: border bottom
 //dd: dropdown
+//scb: scrollbar
 //bl: border left n so on...
 
 //variablessss
@@ -14,6 +15,7 @@ $white: #fff;
 $light-purple-50: lighten($purple, 50);
 $light-purple-20: lighten($purple, 20);
 $light-purple-10: lighten($purple, 10);
+$skyBlue: #00d0ff;
 
 //global variables
 $facebook-hover: rgb(16, 16, 174);
@@ -41,7 +43,6 @@ $footer-subscribe-input-caret-light: #888;
 $footer-link-hover-light: $light-purple-20;
 $footer-menu-bb-light: #e4ebf3;
 $footer-bt-light: $footer-border-gradient;
-
 
 //navbar section
 //desktop
@@ -105,3 +106,19 @@ $carousel-consulting-caption-sub-bg-light: rgba($black, 0.4);
 $carousel-consulting-caption-sub-before-bg-light: $white;
 $carousel-button-mobile-bg-light: $purple;
 $carousel-control-arrow-light: $purple;
+
+//digital marketing
+$marketing-card-svg-fill-light: $purple;
+$marketing-card-svg-num-inside-fill-light: $white;
+$marketing-card-svg-blocks-fill-light: rgba(#663399, 0.2);
+$marketing-card-svg-content-fill-light: $skyBlue;
+$marketing-card-content-color-light: rgba(0, 0, 0, 0.65);
+$marketing-card-heading-color-light: $purple;
+$marketing-card-bg-light: $white;
+$marketing-card-bs-light: 0px 0px 9.82657px rgba(0, 0, 0, 0.15);
+
+//scrollbar
+$scb-track-bs-light: inset 0 0 5px grey;
+$scb-track-bg-light: rgba(102, 51, 153, 0.57);
+$scb-thumb-bg-light: rgba(102, 51, 153, 0.892);
+$scb-thumb-hover-light: darken(rebeccapurple, 10%);

@@ -2,19 +2,18 @@
 
 %navbar-theme {
   .navbar-theme {
+    &-dark,
+    &-light {
+      cursor: pointer;
+      font-size: 3.5rem;
+    }
     &-dark {
       fill: rebeccapurple;
-      cursor: pointer;
-      font-size: 35px;
       margin-top: -2px;
-      // border: 1px solid red;
     }
 
     &-light {
       color: white;
-      cursor: pointer;
-      font-size: 35px;
-
     }
   }
 }

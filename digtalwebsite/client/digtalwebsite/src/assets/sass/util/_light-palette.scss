@@ -92,4 +92,21 @@
   //modifiers
   --carousel-caption-overline-width: #{$carousel-caption-overline-width};
   // --carousel-caption-overline-animated-width: #{$carousel-caption-overline-animated-width};
+
+  //digital marketing
+  --marketing-card-svg-fill: #{$marketing-card-svg-fill-light};
+  --marketing-card-svg-num-inside-fill: #{$marketing-card-svg-num-inside-fill-light};
+  --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-light};
+  --marketing-card-svg-content-fill: #{$marketing-card-svg-content-fill-light};
+  --marketing-card-content-color: #{$marketing-card-content-color-light};
+  --marketing-card-heading-color: #{$marketing-card-heading-color-light};
+  --marketing-card-bg: #{$marketing-card-bg-light};
+  --marketing-card-bs: #{$marketing-card-bs-light};
+
+  //scrollbar
+  --scb-track-bs: #{$scb-track-bs-light};
+  --scb-track-bg: #{$scb-track-bg-light};
+  --scb-thumb-bg: #{$scb-thumb-bg-light};
+  --scb-thumb-hover: #{$scb-thumb-hover-light};
+
 }

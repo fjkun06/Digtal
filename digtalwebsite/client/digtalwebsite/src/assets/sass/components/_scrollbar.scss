@@ -25,15 +25,15 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: var(--scb-track-bs); 
   // border-radius: 10px;
-background: rgba(102, 51, 153, 0.57);
+background: var(--scb-track-bg);
 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(102, 51, 153, 0.892); 
+  background: var(--scb-thumb-bg); 
   border-radius: 100px;
 
 }
@@ -41,7 +41,7 @@ background: rgba(102, 51, 153, 0.57);
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   transition: all 0.5s ease-in-out;
-  background: darken(rebeccapurple,10%); 
+  background: var(--scb-thumb-hover); 
 }
 
 @media only screen and (max-width: 480px) {
