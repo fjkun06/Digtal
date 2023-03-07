@@ -7,7 +7,7 @@ const FirstSection = () => {
   const { t } = useTranslation("softwaredevelopment");
 
   return (
-    <div className="firstsection">
+    <div className="firstsection bg-[#663399] bg-blend-darken">
       <motion.div
         className="firstsection__header"
         variants={firstSectionVariants}

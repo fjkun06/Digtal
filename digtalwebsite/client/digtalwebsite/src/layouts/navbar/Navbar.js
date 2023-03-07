@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/images/logoo.png";
-import logoMobile from "../../assets/images/logo2.png";
+
+import logoHalfPNG from "../../assets/images/digtal_logo@0.5x.png";
+
 import { ThemeProvider } from "@mui/system";
 import languageSwitcher from "../../i18n/languageSwitcher";
 
@@ -172,11 +173,7 @@ export default function Navbar({
 
             <Grid item className="main-nav-sub-logo" id="navlogo">
               <Gridd item className="logo">
-                {max480 ? (
-                  <img src={logoMobile} alt="Digtal Logo" />
-                ) : (
-                  <img src={logo} alt="Digtal Logo" />
-                )}
+                <img src={logoHalfPNG} alt="Digtal Logo" />
               </Gridd>
             </Grid>
 

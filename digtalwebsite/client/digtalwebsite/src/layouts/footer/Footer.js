@@ -2,7 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import logoMobile from "../../assets/images/logo2.png";
+import logoHalfPNG from "../../assets/images/digtal_logo@0.5x.png";
 import FooterLink from "../../components/reusables/FooterLink";
 import { policy, icons, enterprise, services } from "./footer_config";
 import KeepItIcon from "../../assets/svg/KeepItIcon";
@@ -150,7 +150,7 @@ export default function Footer({ language, location }) {
           {/* footer body */}
           <Grid item className="footer-body">
             <Grid item className="footer-body-nav">
-              <img src={logoMobile} alt="Digtal Logo" />
+              <img src={logoHalfPNG} alt="Digtal Logo" />
               <KeepItIcon />
             </Grid>
             <Grid item className="footer-body-items">
