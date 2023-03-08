@@ -3,7 +3,7 @@ import React from "react";
 import { line1, line2, line3 } from "./config";
 import HomeHeading from "src/components/reusables/HomeHeading";
 import { useMediaQuery } from "@mui/material";
-export default function BrandSection() {
+export default function BrandSection({heading}) {
   let images = [];
   let images22 = [];
   let images3 = [];
@@ -64,7 +64,7 @@ export default function BrandSection() {
 
   return (
     <div className="home__technologies">
-      <HomeHeading section={"service"} />
+      <HomeHeading section={heading} />
       {/* <div classNameName="right"> */}
       <X classNameN={"right"} />
       <X classNameN={"left"} />
