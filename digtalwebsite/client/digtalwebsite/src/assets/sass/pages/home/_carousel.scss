@@ -50,7 +50,7 @@
 }
 
 #home-carousel {
-  background-color: #fff;
+  background-color: var(--home-magic-bg);
 
   @include mixins.size(100vw, 100vh);
   display: grid;
@@ -220,11 +220,6 @@
           }
         }
 
-        div {
-          // transform: translate(380px, 0px);
-        }
-
-        // @include animator;
       }
 
       .sub-tb {

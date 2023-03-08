@@ -1,4 +1,3 @@
-@use "../../util/variables";
 @use "../../util/mixins";
 
 // @mixin services{
@@ -210,6 +209,7 @@
     &-arrow {
       cursor: pointer;
       stroke: #663399;
+      stroke: var(--home-service-icon);
       @include mixins.flex;
       justify-content: flex-end;
       @media only screen and (min-width: 600.1px) {
@@ -223,14 +223,14 @@
       &-one {
         margin-right: -1rem;
         @media only screen and (min-width: 1200.1px) {
-          filter: drop-shadow(0 0 1mm white);
+          // filter: drop-shadow(0 0 1mm white);
         }
       }
       &-two {
         opacity: 0;
         transition: opacity 0.25s ease-in-out;
         @media only screen and (min-width: 1200.1px) {
-          filter: drop-shadow(0 0 1mm white);
+          // filter: drop-shadow(0 0 1mm white);
         }
       }
 
