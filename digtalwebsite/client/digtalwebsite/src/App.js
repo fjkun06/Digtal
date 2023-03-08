@@ -27,7 +27,7 @@ function App() {
     if (!cookies.get("language")) {
       cookies.set("language", "/en", { path: "/" });
     }
-    setCookie(cookies.get("language"));
+    setLanguage(cookies.get("language"));
     if (loc.pathname === "/") navigate(cookies.get("language") + "/");
   }, [loc.pathname, navigate, cookies]);
 
