@@ -13,6 +13,7 @@ const SoftwareDevelopment = () => {
   const { t } = useTranslation("softwaredevelopment");
   const matchesLaptop = useMediaQuery("(max-width:1199px)");
   const matchesTablet = useMediaQuery("(max-width:919px)");
+  const matchesPhone = useMediaQuery("(max-width:530px)");
   console.log(matchesLaptop);
 
   const detailsData = [
@@ -46,14 +47,25 @@ const SoftwareDevelopment = () => {
     <>
       <div className="main-header">
         <div className="left">
-          <div className="overflow-x-hidden break-keep text-center font-bold text-white tablet:text-[25px] laptop:text-[40px] desktop:text-[50px]">
+          <div
+            className={`overflow-x-hidden break-keep text-center font-bold text-white laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+
+          >
             <motion.p
               // style={matchesTablet && { fontSize: "20px" }}
               initial={{ x: -300 }}
               animate={
-                matchesTablet
+                matchesPhone
                   ? {
-                      x: 135,
+                      x: 132.5,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : matchesTablet
+                  ? {
+                      x: 130,
                       transition: {
                         duration: 2,
                         type: "tween"
@@ -81,13 +93,24 @@ const SoftwareDevelopment = () => {
           </div>
         </div>
         <div className="right">
-          <div className="relative overflow-x-hidden text-center font-bold text-[#663399] tablet:text-[25px] laptop:text-[40px] desktop:text-[50px]">
+          <div
+            className={`relative overflow-x-hidden text-center font-bold text-[#663399] laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+            // style={matchesPhone && { fontSize: "35px" }}
+          >
             <motion.p
               initial={{ x: 300 }}
               animate={
-                matchesTablet
+                matchesPhone
                   ? {
-                      x: -135,
+                      x: -132.5,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : matchesTablet
+                  ? {
+                      x: -130,
                       transition: {
                         duration: 2,
                         type: "tween"
@@ -141,7 +164,7 @@ const SoftwareDevelopment = () => {
         <BrandSection heading={"technologies"} />
       </div>
       <div className="mt-16">
-       <Patner/>
+        <Patner />
       </div>
       <div className=" mt-16">
         <ServiceSection />

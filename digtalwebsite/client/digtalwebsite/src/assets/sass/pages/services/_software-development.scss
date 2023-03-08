@@ -170,9 +170,12 @@ $background-color: rebeccapurple;
 .softwaredev__svg {
   span {
     svg {
-      @include mixins.size(5.1rem, 2.3rem);
-      @media only screen and (width > 768px) {
-        @include mixins.size(25.1rem, 22.3rem);
+      @include mixins.size(3.834rem, 3.412rem);
+      @media only screen and (width > 1000px) {
+        @include mixins.size(10.9rem, 9.7rem);
+      }
+      @media only screen and (width > 600px) {
+        @include mixins.size(6.483rem, 5.77rem);
       }
       transition: fill 0.25s ease-in-out;
 
@@ -216,9 +219,12 @@ $background-color: rebeccapurple;
 .softwaredev__aws__svg {
   span {
     svg {
-      @include mixins.size(5.1rem, 2.3rem);
-      @media only screen and (width > 768px) {
-        @include mixins.size(31.7rem, 19rem);
+      @include mixins.size(5.24rem, 3.13rem);
+      @media only screen and (width > 1000px) {
+        @include mixins.size(14.9rem, 8.9rem);
+      }
+      @media only screen and (width > 600px) {
+        @include mixins.size(8.863rem, 5.294rem);
       }
       transition: fill 0.25s ease-in-out;
 
@@ -248,9 +254,12 @@ $background-color: rebeccapurple;
 .softwaredev__google__svg {
   span {
     svg {
-      @include mixins.size(5.1rem, 2.3rem);
-      @media only screen and (width > 768px) {
-        @include mixins.size(22.1rem, 22.4rem);
+      @include mixins.size(3.376rem, 3.447rem);
+      @media only screen and (width > 1000px) {
+        @include mixins.size(9.6rem, 9.8rem);
+      }
+      @media only screen and (width > 600px) {
+        @include mixins.size(5.71rem, 5.829rem);
       }
       transition: fill 0.25s ease-in-out;
 
@@ -260,16 +269,16 @@ $background-color: rebeccapurple;
           transition: fill 0.25s ease-in-out;
           // fill: transparent;
           &:nth-child(1) {
-            fill: #4285F4;
+            fill: #4285f4;
           }
           &:nth-child(2) {
-            fill: #34A853;
+            fill: #34a853;
           }
           &:nth-child(3) {
-            fill: #FBBC05;
+            fill: #fbbc05;
           }
           &:nth-child(4) {
-            fill: #EB4335;
+            fill: #eb4335;
           }
         }
       }
@@ -286,9 +295,12 @@ $background-color: rebeccapurple;
 .softwaredev__azure__svg {
   span {
     svg {
-      @include mixins.size(5.1rem, 2.3rem);
+      @include mixins.size(4.431rem, 3.447rem);
+      @media only screen and (width > 1000px) {
+        @include mixins.size(12.6rem, 9.8rem);
+      }
       @media only screen and (width > 768px) {
-        @include mixins.size(29rem, 22.4rem);
+        @include mixins.size(7.495rem, 5.892rem);
       }
       transition: fill 0.25s ease-in-out;
 
