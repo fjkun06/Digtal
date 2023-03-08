@@ -172,13 +172,13 @@ $background-color: rebeccapurple;
     svg {
       @include mixins.size(5.1rem, 2.3rem);
       @media only screen and (width > 768px) {
-      @include mixins.size(25.1rem, 22.3rem);
-        
+        @include mixins.size(25.1rem, 22.3rem);
       }
       transition: fill 0.25s ease-in-out;
 
       &:hover {
         path {
+          cursor: pointer;
           transition: fill 0.25s ease-in-out;
           // fill: transparent;
           &:nth-child(1) {
@@ -208,6 +208,102 @@ $background-color: rebeccapurple;
         &:nth-child(4) {
           fill: #ffffff;
         }
+      }
+    }
+  }
+}
+
+.softwaredev__aws__svg {
+  span {
+    svg {
+      @include mixins.size(5.1rem, 2.3rem);
+      @media only screen and (width > 768px) {
+        @include mixins.size(31.7rem, 19rem);
+      }
+      transition: fill 0.25s ease-in-out;
+
+      &:hover {
+        path {
+          cursor: pointer;
+          transition: fill 0.25s ease-in-out;
+          // fill: transparent;
+          &:nth-child(1) {
+            fill: #252f3e;
+          }
+          &:nth-child(2) {
+            fill: #ff9900;
+          }
+        }
+      }
+
+      path {
+        // opacity: 0.2;
+        transition: fill 0.25s ease-in-out;
+        fill: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.softwaredev__google__svg {
+  span {
+    svg {
+      @include mixins.size(5.1rem, 2.3rem);
+      @media only screen and (width > 768px) {
+        @include mixins.size(22.1rem, 22.4rem);
+      }
+      transition: fill 0.25s ease-in-out;
+
+      &:hover {
+        path {
+          cursor: pointer;
+          transition: fill 0.25s ease-in-out;
+          // fill: transparent;
+          &:nth-child(1) {
+            fill: #4285F4;
+          }
+          &:nth-child(2) {
+            fill: #34A853;
+          }
+          &:nth-child(3) {
+            fill: #FBBC05;
+          }
+          &:nth-child(4) {
+            fill: #EB4335;
+          }
+        }
+      }
+
+      path {
+        // opacity: 0.2;
+        transition: fill 0.25s ease-in-out;
+        fill: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.softwaredev__azure__svg {
+  span {
+    svg {
+      @include mixins.size(5.1rem, 2.3rem);
+      @media only screen and (width > 768px) {
+        @include mixins.size(29rem, 22.4rem);
+      }
+      transition: fill 0.25s ease-in-out;
+
+      &:hover {
+        path {
+          cursor: pointer;
+          transition: fill 0.25s ease-in-out;
+          fill: #0089d6;
+        }
+      }
+
+      path {
+        // opacity: 0.2;
+        transition: fill 0.25s ease-in-out;
+        fill: rgba(0, 0, 0, 0.2);
       }
     }
   }

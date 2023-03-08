@@ -7,15 +7,15 @@ import market from "src/assets/images/services/uiux/marketDesktop.png";
 export const homeServices600 = [
   {
     img: [bus600, bus],
-    text: "section.first_part",
-    title: "subject.op2",
+    text: "projects.first_contain",
+    title: "projects.first_title",
     position: "left",
     route: "services/software-development"
   },
   {
     img: [market600, market],
-    text: "services.marketing",
-    title: "subject.op3",
+    text: "projects.second_contain",
+    title: "projects.second_title",
     position: "right",
     route: "services/digital-marketing"
   },

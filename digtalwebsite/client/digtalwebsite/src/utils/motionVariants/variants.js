@@ -49,6 +49,6 @@ export const firstSectionVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { duration: 2.5, delay: 0.5 }
+    transition: { duration: 2.5, delay: 1.5 }
   }
 };

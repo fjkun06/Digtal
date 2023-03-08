@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 const HomeHeading = ({ section }) => {
-  const { t } = useTranslation(["home", "form", "softwaredevelopment"]);
+  const { t } = useTranslation(["home", "form"]);
 
   return (
     <div className="home__heading">

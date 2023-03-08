@@ -20,8 +20,8 @@ export const HomeServiceCard = ({ img, icon, title, text, position,route }) => {
       <div className="home__service--card-subcard">
         {icon && <div className="icon">{icon}</div>}
         <div className={`mini-card ${!icon && "-ml-[25%]"}`}>
-          <div className={`title ${!icon && "font-semibold"}`}>{t(title, { ns: "form" })}</div>
-          <div className="text">{t(text)}</div>
+          <div className={`title ${!icon && "font-semibold"}`}>{t(title, icon ?{ ns: "form" } : {ns : "softwaredevelopment"})}</div>
+          <div className="text">{t(text, !icon && {ns : "softwaredevelopment"})}</div>
         </div>
       </div>
       <div className="home__service--card-arrow" onClick={() => navigate(route)}>

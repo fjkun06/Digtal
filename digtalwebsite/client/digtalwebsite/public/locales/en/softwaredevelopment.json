@@ -13,5 +13,12 @@
     "first_part": "We build your software using the most",
     "second_part": "accurate of our technologies"
   },
-  "project": "OUR MOST NOTABLE PROJECTS"
+  "project": "OUR MOST NOTABLE PROJECTS",
+  "patner": "OUR PATNERS",
+  "projects": {
+    "first_title": "We build your",
+    "second_title": "accurate of",
+    "first_contain": "We build your software using the most",
+    "second_contain": "accurate of our technologies"
+  }
 }
