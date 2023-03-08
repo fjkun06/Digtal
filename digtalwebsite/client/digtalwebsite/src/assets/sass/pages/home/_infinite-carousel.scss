@@ -12,7 +12,7 @@
   $slideWidth: 100vw;
   $noShifts: -1;
   $translationDistance: calc($slideWidth * $noShifts);
-
+  overflow: hidden;
   position: relative;
 
   .right,
@@ -23,8 +23,9 @@
     z-index: 4;
     transform: translateY(25px);
     svg {
+      // @include mixins.size(326px);
       circle {
-        fill: white;
+        fill: var(--home-magic-bg);
       }
     }
   }

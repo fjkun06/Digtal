@@ -66,8 +66,8 @@ export default function BrandSection() {
     <div className="home__technologies">
       <HomeHeading section={"service"} />
       {/* <div classNameName="right"> */}
-      <X classNameN={"right"} />
-      <X classNameN={"left"} />
+      <X classN={"right"} />
+      <X classN={"left"} />
       {/* </div> */}
 
       <div className="infinite-carousel">
