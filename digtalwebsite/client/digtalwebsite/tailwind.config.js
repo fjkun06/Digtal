@@ -13,11 +13,8 @@ module.exports = {
             tv: "1680px"
          },
          colors: {
-            primary: 'var(--primary-color)',
-            secondary: 'var(--secondary-color)',
-            tertiary: 'var(--tertiary-color)',
             brand: {
-               blue: "#ccddff",
+               blue: "#ccddff"
             }
          }
       }

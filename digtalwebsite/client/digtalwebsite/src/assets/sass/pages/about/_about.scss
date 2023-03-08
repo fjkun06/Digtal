@@ -1,23 +1,9 @@
 .about {
-  /**
-   *  light: rebeccapurple
-   *  dark: white
-   */
-  --primary-color: rebeccapurple;
-
-  /**
-   *  light: white
-   *  dark: rebeccapurple
-   */
-  --secondary-color: white;
-
-  /**
-   *  light: #2B0A3D
-   *  dark: #00D0FF
-   */
-  --tertiary-color: #2B0A3D;
+  // @apply mt-[75px];
 
   .caption {
-    @apply max-w-5xl text-center font-['Poppins'] text-2xl font-semibold leading-[35px] tracking-normal laptop:text-[55px] laptop:leading-[70px] text-primary opacity-60
+    @apply max-w-5xl text-center font-['Poppins'] text-2xl font-semibold leading-[35px] tracking-normal laptop:text-[55px] laptop:leading-[70px];
+
+    color: rgba(rebeccapurple, 0.6);
   }
 }
