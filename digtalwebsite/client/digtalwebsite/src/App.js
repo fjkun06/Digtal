@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "./layouts/footer/Footer";
 import Navbar from "./layouts/navbar/Navbar";
 import "./assets/sass/main.scss";
@@ -8,12 +8,55 @@ import { StyledEngineProvider } from "@mui/system";
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { nanoid } from "nanoid";
+import Cookies from "universal-cookie";
+
 export { nanoid as nano };
 
 function App() {
   const loc = useLocation();
   const [language, setLanguage] = useState("/en");
   const { pathname } = useLocation();
+
+    //langguage route settings
+    const navigate = useNavigate();
+
+    //navigation
+    React.useEffect(() => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (!cookies.get("langguage")) {
+        cookies.set("language", userTheme ? "dark" : "light", { path: "/" });
+      }
+      setCookie(cookies.get("theme"));
+      if (loc.pathname === "/") navigate(language + "/");
+
+    }, [language, loc.pathname, navigate]);
+
+  //cookies and theme
+  const cookies = React.useMemo(() => new Cookies(), []);
+
+  const [userTheme, _] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+
+  // const [cookie, setCookie] = useState(cookies.get('theme'));
+  const [cookie, setCookie] = useState("");
+
+  React.useEffect(() => {
+    //checking if cookie exists and or creating a new one
+
+    if (!cookies.get("theme")) {
+      cookies.set("theme", userTheme ? "dark" : "light", { path: "/" });
+    }
+    setCookie(cookies.get("theme"));
+    //setting default color scheme
+    document.documentElement.className = cookie;
+  }, [cookie, cookies, userTheme]);
+
+  //cookie handler
+  const setThemeCookie = val => {
+    cookies.set("theme", val, { path: "/" });
+    setCookie(val);
+  };
 
   //select dropdown state
   const [mobileSelectState, setMobileSelectState] = useState(false);
@@ -44,6 +87,8 @@ function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+
+
   return (
     <>
       <StyledEngineProvider injectFirst>
@@ -57,6 +102,8 @@ function App() {
               mobileSelectState={mobileSelectState}
               showFlagDropdown={showFlagDropdown}
               setshowFlagDropdown={setshowFlagDropdown}
+              setThemeCookie={setThemeCookie}
+              cookie={cookie}
             />
           </Grid>
 

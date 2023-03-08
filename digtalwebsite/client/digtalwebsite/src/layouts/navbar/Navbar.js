@@ -33,11 +33,10 @@ export default function Navbar({
   mobileSelectState,
   toggleMobileSelect,
   showFlagDropdown,
-  setshowFlagDropdown
+  setshowFlagDropdown,
+  setThemeCookie,
+  cookie
 }) {
-  //theme configuration
-  const [websiteTheme, setWebsiteTheme] = useState("dark");
-  const [userTheme, setuserTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches);
 
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -52,25 +51,13 @@ export default function Navbar({
   const { t } = useTranslation(["navbar", "form", "pageend"]);
   let location = useLocation();
 
-  //theme configuration
-  useEffect(() => {
-    // const userTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    //setting default color scheme
-    document.documentElement.className = userTheme ? "dark" : "light";
-    setWebsiteTheme(document.documentElement.className);
-  }, [userTheme]);
-
   //manage mobile menu icon
   useEffect(() => {
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
   }, []);
 
-  //navigation
-  useEffect(() => {
-    if (location.pathname === "/") navigate(language + "/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [language, location.pathname, navigate]);
+
 
   //language flasg
   const allFlags = Array.from(
@@ -310,29 +297,21 @@ export default function Navbar({
                 </Grid>
 
                 {/* theme switcher */}
-                {websiteTheme === "dark" ? (
+                {cookie === "dark" ? (
                   <LightModeIcon
                     className="navbar-theme-light"
                     handler={() => {
                       switchTheme("light");
-                      setWebsiteTheme("light");
+                      setThemeCookie("light");
                     }}
                   />
                 ) : (
-                  //   <DarkModeIcon
-                  //   className="navbar-theme-dark"
-                  //   handler={() => {
-                  //     switchTheme("light");
-                  //     setWebsiteTheme("light");
-                  //     console.log("hello: ", websiteTheme);
-                  //   }}
-                  // />
                   <DarkModeIcon
                     className="navbar-theme-dark"
                     handler={() => {
                       switchTheme("dark");
-                      setWebsiteTheme("dark");
-                      console.log("hello: ", websiteTheme);
+
+                      setThemeCookie("dark");
                     }}
                   />
                 )}
