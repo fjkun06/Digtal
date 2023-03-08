@@ -14,26 +14,24 @@ export { nanoid as nano };
 
 function App() {
   const loc = useLocation();
-  const [language, setLanguage] = useState("/en");
+  const [language, setLanguage] = useState("");
   const { pathname } = useLocation();
-
-    //langguage route settings
-    const navigate = useNavigate();
-
-    //navigation
-    React.useEffect(() => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      if (!cookies.get("langguage")) {
-        cookies.set("language", userTheme ? "dark" : "light", { path: "/" });
-      }
-      setCookie(cookies.get("theme"));
-      if (loc.pathname === "/") navigate(language + "/");
-
-    }, [language, loc.pathname, navigate]);
-
-  //cookies and theme
   const cookies = React.useMemo(() => new Cookies(), []);
 
+  //langguage route settings
+  const navigate = useNavigate();
+
+  //navigation language cookie
+  React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!cookies.get("language")) {
+      cookies.set("language", "/en", { path: "/" });
+    }
+    setCookie(cookies.get("language"));
+    if (loc.pathname === "/") navigate(cookies.get("language") + "/");
+  }, [loc.pathname, navigate, cookies]);
+
+  //cookies and theme
   const [userTheme, _] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
@@ -56,6 +54,10 @@ function App() {
   const setThemeCookie = val => {
     cookies.set("theme", val, { path: "/" });
     setCookie(val);
+  };
+  const setLanguageCookie = lang => {
+    cookies.set("language", lang, { path: "/" });
+    setLanguage(lang);
   };
 
   //select dropdown state
@@ -87,15 +89,13 @@ function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-
-
   return (
     <>
       <StyledEngineProvider injectFirst>
         <div>
           <Grid container className="navigation-main" id="n-main">
             <Navbar
-              setLanguage={setLanguage}
+              setLanguage={setLanguageCookie}
               language={language}
               toggleMobileSelect={toggleMobileSelect}
               setMobileSelectState={setMobileSelectState}
