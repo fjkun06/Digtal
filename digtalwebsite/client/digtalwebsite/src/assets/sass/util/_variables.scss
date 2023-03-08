@@ -4,11 +4,13 @@
 //dd: dropdown
 //scb: scrollbar
 //btn: button
+//ts: text-shadow
 //bl: border left n so on...
 
 //variablessss
 $displayState: none;
 $purple: rebeccapurple;
+$darkPurple: #2B0A3D;
 $black: #000000;
 $active-hover: gold;
 $light-blue: lighten(rgb(0, 81, 139), 50);
@@ -127,10 +129,15 @@ $home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
 $home-body-para-light: #555;
 $home-body-title-light: $purple;
 $home-desktop-bg-svg-light: url("../../svg/home/vector3.svg"), url("../../svg/home/vector4.svg"), url("../../svg/home/vector5.svg");
-$home-desktop-bg-svg-dark: url("../../svg/home/vector3_dark.svg"), url("../../svg/home/vector4_dark.svg"), url("../../svg/home/vector5_dark.svg");
+$home-desktop-bg-svg-dark: url("../../svg/home/vector3dark.svg"), url("../../svg/home/vector4dark.svg"), url("../../svg/home/vector5dark.svg");
 $home-laptop-bg-svg-light: url("../../svg/home/vector9.svg"), url("../../svg/home/vector10.svg"), url("../../svg/home/vector11.svg");
-$home-laptop-bg-svg-dark: url("../../svg/home/vector9_dark.svg"), url("../../svg/home/vector10_dark.svg"), url("../../svg/home/vector11_dark.svg");
-
+$home-laptop-bg-svg-dark: url("../../svg/home/vector9dark.svg"), url("../../svg/home/vector10dark.svg"), url("../../svg/home/vector11dark.svg");
+$home-magic-bg-light: $white;
+$home-magic-bg-dark: $darkPurple;
+$home-magic-ts-light: rgba(0, 0, 0, 0.4);
+$home-magic-ts-dark: rgba(255, 255, 255, 0.4);
+$home-magic-text-dark: $white;
+$home-magic-text-light: $black;
 //home carousel
 $carousel-button-bg-light: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
 $carousel-icon-bg-light: $purple;
