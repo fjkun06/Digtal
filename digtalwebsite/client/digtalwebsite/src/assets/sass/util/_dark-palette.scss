@@ -4,6 +4,7 @@
     background-color: rebeccapurple;
     color: white;
  }
+ background: #{$darkPurple};
  --main-background: #{$main-background-dark};
  --home-magic-bg: #{$home-magic-bg-dark};
  --navbar-bb-light: #{$footer-bt-light};
@@ -18,4 +19,11 @@
     //arrow
     --arrow-start: #{$arrow-start-light};
     --arrow-end: #{$arrow-end-light};
+
+      //uiux
+  --uiux-bd-opacity: #{$uiux-bd-opacity-dark};
+  --uiux-bg: #{$uiux-bg-dark};
+  --uiux-subheader-text: #{$uiux-subheader-text-dark};
+  --uiux-processdesign-text: #{$uiux-processdesign-text-dark};
+
 }

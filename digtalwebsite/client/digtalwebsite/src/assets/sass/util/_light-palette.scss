@@ -6,7 +6,9 @@
   *::selection {
     background-color: rebeccapurple;
     color: white;
-  }
+  }     
+ background: #{$white};
+
 
   //overall varables
   --footer-bg: #{$footer-bg-light};
@@ -150,6 +152,10 @@
   //home
 
   //uiux
+  --uiux-bd-opacity: #{$uiux-bd-opacity-light};
+  --uiux-bg: #{$uiux-bg-light};
+  --uiux-subheader-text: #{$uiux-subheader-text-light};
+  --uiux-processdesign-text: #{$uiux-processdesign-text-light};
 
   //dital marketing
 

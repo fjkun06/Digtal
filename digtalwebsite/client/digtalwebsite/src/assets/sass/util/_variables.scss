@@ -5,6 +5,7 @@
 //scb: scrollbar
 //btn: button
 //ts: text-shadow
+//bd: backdrop
 //bl: border left n so on...
 
 //variablessss
@@ -177,6 +178,15 @@ $contact-bs-light: 5px 5px 25px -1px rgba(109, 98, 97, 0.122), -5px -5px 25px 1p
 //home
 
 //uiux
+$uiux-bg-light: $white;
+$uiux-bg-dark: $darkPurple;
+$uiux-bd-opacity-light: 0;
+$uiux-bd-opacity-dark: 0.55;
+$uiux-subheader-text-light: $purple;
+$uiux-subheader-text-dark: $white;
+$uiux-processdesign-text-light: $black;
+$uiux-processdesign-text-dark: $white;
+
 
 //dital marketing
 

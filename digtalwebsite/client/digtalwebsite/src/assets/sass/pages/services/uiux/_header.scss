@@ -61,12 +61,12 @@
       z-index: 2;
 
       //controlling background-blur effect
-      @include mixins.blurbackdrop($intensity: 3.5px, $color: white, $opacity: 0);
+      @include mixins.blurbackdrop($intensity: 3.5px, $color: black, $opacity: var(--uiux-bd-opacity));
       @media screen and (480px < width <= 960px) {
-        @include mixins.blurbackdrop($intensity: 7.5px, $color: white, $opacity: 0);
+        @include mixins.blurbackdrop($intensity: 7.5px, $color: black, $opacity: var(--uiux-bd-opacity));
       }
       @media screen and (width > 960px) {
-        @include mixins.blurbackdrop($intensity: 10px, $color: white, $opacity: 0);
+        @include mixins.blurbackdrop($intensity: 10px, $color: black, $opacity: var(--uiux-bd-opacity));
       }
     }
 
