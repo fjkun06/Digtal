@@ -320,7 +320,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       overflow: hidden;
       width: -moz-fit-content;
       width: fit-content;
-      color: var(--home-magic-text);
+      color: var(--footer-body-heading-bg);
 
       @include mixins.position("1/6", "3/9");
 

@@ -21,6 +21,11 @@
     background-position: 0rem 101rem, 18rem 212rem;
     background-repeat: no-repeat;
   }
+  @media screen and (width > 1350px) {
+    background: url("../../../../svg/services/uiux/bg3light.svg"), url("../../../../svg/services/uiux/bg4light.svg"), var(--uiux-bg);
+    background-position: 0rem 101rem, 45% 117%;
+    background-repeat: no-repeat;
+  }
 
   //header
   @include hdr.header;
