@@ -48,6 +48,7 @@ $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 13
 // footer-subscribe-bg
 
 /******white n purple**************/
+// contact-bg
 
 /******purple n white**************/
 // home-heading-color
@@ -181,10 +182,11 @@ $scb-thumb-hover-light: darken(rebeccapurple, 10%);
 $scb-thumb-hover-dark: darken($skyBlue, 10%);
 
 //contact
-$contact-primary-light: $purple;
 $contact-secondary-light: rgba($purple, 0.5);
+$contact-secondary-dark: rgba($white, 0.65);
 $contact-tertiary-light: $black;
 $contact-bg-light: $white;
+$contact-bg-dark: $purple;
 $contact-bs-light: 5px 5px 25px -1px rgba(109, 98, 97, 0.122), -5px -5px 25px 1px rgba(165, 162, 162, 0.122);
 
 //uiux

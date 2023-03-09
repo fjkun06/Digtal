@@ -3,8 +3,8 @@
   .getintouch {
     grid-row: 1/2;
     grid-column: 1/2;
-    background-color: transparent;
     background-color: var(--contact-bg);
+    background-color: transparent;
 
     @media only screen and (min-width: 1201px) {
       width: 100%;
@@ -16,7 +16,7 @@
     h2 {
       font-family: "Poppins 700", sans-serif;
       font-size: 3rem;
-      color: var(--contact-primary);
+      color: var(--home-heading-color);
       // border: 1px solid red;
     }
 
