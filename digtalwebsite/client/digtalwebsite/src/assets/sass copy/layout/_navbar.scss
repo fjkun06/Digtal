@@ -368,7 +368,6 @@
 .footer__link-contact {
    &::after {
       top: 90%;
-      background-color: white;
       @include mixins.size(0%, 1px);
    }
 }

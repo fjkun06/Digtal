@@ -88,7 +88,7 @@
 
   //footer
   &-contact {
-    background-color: var(--footer-help-btn-bg);
+    background-color: var(--footer-contact-bg);
     @include mixins.size(100%, max-content);
     @include mixins.flex;
 
@@ -100,7 +100,7 @@
     }
 
     & > * {
-      color: white;
+      color: var(--footer-contact-color);
     }
 
     .pair {
@@ -137,13 +137,12 @@
         font-size: 1.5rem;
         padding-bottom: 3px;
         cursor: pointer;
-
         &:hover {
           transform: scale(1.15);
         }
 
         path {
-          fill: white;
+          fill: var(--footer-contact-color);
         }
       }
 

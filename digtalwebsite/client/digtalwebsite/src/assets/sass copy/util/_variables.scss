@@ -36,19 +36,23 @@ $navbar-border-gradient: linear-gradient(to left, lighten(rgb(0, 81, 139), 30), 
 $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 139), 30));
 
 //Light colorSpace
-/******black n white**************/
-// footer-body-heading-bg
-
-/******purple n darkpurple**************/
-// footer-help-btn-bg
+//Light colorSpace
 
 //footer section
+$footer-bg-light: $white;
+$footer-bg-dark: $white;
 $footer-body-heading-bg-light: $black;
-$footer-body-heading-bg-dark: $white;
+$footer-body-heading-bg-dark: $black;
 $footer-body-link-color-light: rgba(#000000, 0.65);
-$footer-body-link-color-dark: rgba(#fff, 0.65);
+$footer-body-link-color-dark: rgba(#000000, 0.65);
 $footer-bt-light: $footer-border-gradient;
 $footer-bt-dark: $navbar-border-gradient;
+$footer-contact-bg-light: $purple;
+$footer-contact-bg-dark: $purple;
+$footer-contact-color-light: $white;
+$footer-contact-color-dark: $white;
+$footer-contact-after-light: $white;
+$footer-contact-after-dark: $white;
 $footer-help-bg-light: #ececec;
 $footer-help-bg-dark: #CACACA;;
 $footer-help-btn-bg-light: $purple;
@@ -57,8 +61,8 @@ $footer-link-hover-light: $light-purple-20;
 $footer-link-hover-dark: $light-purple-20;
 $footer-link-after-light: $black;
 $footer-link-after-dark: $black;
-$footer-policy-bg-light: $footer-body-heading-bg-light;
-$footer-policy-bg-dark: $footer-body-heading-bg-dark;
+$footer-policy-bg-light: $footer-bg-light;
+$footer-policy-bg-dark: $footer-bg-light;
 $footer-policy-bt-light: $black;
 $footer-policy-bt-dark: $black;
 $footer-subscribe-bg-light: #f5f7fa;
@@ -96,8 +100,7 @@ $mobile-navbar-selection-color-light: $white;
 $mobile-navbar-light: aliceblue;
 $mobile-navbar-link-light: $active-hover;
 $mobile-navbar-item-bb-light: $black;
-$mobile-navbar-item-link-light: $white;
-// $mobile-navbar-item-link-light: $footer-bg-light;
+$mobile-navbar-item-link-light: $footer-bg-light;
 $mobile-navbar-item-link-hovered-light: $black;
 $mobile-navbar-item-hover-light: $light-purple-50;
 $mobile-navbar-link-after-light: #b38cd9;

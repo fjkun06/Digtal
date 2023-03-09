@@ -10,17 +10,21 @@
   background: #{$white};
 
   //overall varables
+  --footer-bg: #{$footer-bg-light};
 
   //footer section
   --main-background: #{$main-background-light};
   --footer-body-heading-bg: #{$footer-body-heading-bg-light};
   --footer-body-link-color: #{$footer-body-link-color-light};
   --footer-bt: #{$footer-border-gradient};
+  --footer-contact-bg: #{$footer-contact-bg-light};
+  --footer-contact-color: #{$footer-contact-color-light};
+  --footer-contact-after: #{$footer-contact-after-light};
   --footer-help-bg: #{$footer-help-bg-light};
   --footer-help-btn-bg: #{$footer-help-btn-bg-light};
   --footer-link-hover: #{$footer-link-hover-light};
   --footer-link-after: #{$footer-link-after-light};
-  // --footer-policy-bg: #{$footer-bg-light};
+  --footer-policy-bg: #{$footer-bg-light};
   --footer-policy-bt: #{$footer-policy-bt-light};
   --footer-subscribe-bg: #{$footer-subscribe-bg-light};
   --footer-subscribe-input-color: #{$footer-subscribe-input-color-light};
