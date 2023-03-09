@@ -2,7 +2,8 @@
 
 %subscribe {
   .footer-subscribe {
-    background-color: #ececec;
+    background-color: var(--footer-subscribe-bg);
+    border-top: 1px solid #e23232;
 
     & > * {
       font-family: "Montserrat", sans-serif;
@@ -35,6 +36,7 @@
       &-typ {
         font-size: 0.9rem;
         font-weight: 600;
+        color: var(--footer-body-heading-bg);
 
         @media screen and (min-width: 481px) {
           font-size: 1.1rem;
@@ -120,7 +122,7 @@
   padding: 0px 0.7rem;
   font-size: 1rem;
   border-radius: 0px;
-  box-shadow: 5px 5px 10px -10px var(--footer-subscribe-input-bs);
+  box-shadow: 5px 5px 10px -10px #777;
   font-weight: 300;
   font-size: 0.7rem;
   @media screen and (min-width: 481px) {
@@ -133,10 +135,10 @@
   }
   line-height: 1.235;
   letter-spacing: 0.00735em;
-  color: var(--footer-subscribe-input-color);
+  color: black;
   &:focus {
     outline: none;
-    caret-color: var(--footer-subscribe-input-caret);
+    caret-color:black;
   }
 
   @media screen and (min-width: 961px) {

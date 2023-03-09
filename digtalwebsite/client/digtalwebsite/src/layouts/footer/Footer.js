@@ -205,7 +205,6 @@ export default function Footer({ language, location }) {
                   key={link.label}
                   to={language + link.route}
                   text={t(link.label)}
-                  className="footer-policy-link-text-item"
                   sx={{ color: "red" }}
                 />
               ))}

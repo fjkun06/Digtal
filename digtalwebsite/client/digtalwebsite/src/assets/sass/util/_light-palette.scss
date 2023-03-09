@@ -10,23 +10,17 @@
   background: #{$white};
 
   //overall varables
+  --main-background: #{$main-background-light};
 
   //footer section
-  --main-background: #{$main-background-light};
+  --footer-bg: #{$footer-bg-light};
   --footer-body-heading-bg: #{$footer-body-heading-bg-light};
   --footer-body-link-color: #{$footer-body-link-color-light};
   --footer-bt: #{$footer-border-gradient};
   --footer-help-bg: #{$footer-help-bg-light};
   --footer-help-btn-bg: #{$footer-help-btn-bg-light};
-  --footer-link-hover: #{$footer-link-hover-light};
-  --footer-link-after: #{$footer-link-after-light};
-  // --footer-policy-bg: #{$footer-bg-light};
-  --footer-policy-bt: #{$footer-policy-bt-light};
+  --footer-subscribe-bt: #{$footer-subscribe-bt-light};
   --footer-subscribe-bg: #{$footer-subscribe-bg-light};
-  --footer-subscribe-input-color: #{$footer-subscribe-input-color-light};
-  --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
-  --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
-  --footer-text: #{$footer-text-light};
 
   //navbar
   //navbar section
@@ -38,17 +32,17 @@
   --navbar-link-after: #{$navbar-link-after-light};
   --navbar-link-visited: #{$navbar-link-visited-light};
   --navbar-link-active-bb: #{$navbar-link-active-bb-light};
+  --navbar-service-desktop-svg: #{$navbar-service-desktop-svg-light};
+  --navbar-service-wave-svg: #{$navbar-service-wave-svg-light};
+  --navbar-service-biggest-svg: #{$navbar-service-biggest-svg-light};
 
   //tablet
-  --tablet-navbar-bg: #{$tablet-navbar-bg-light};
   --tablet-navbar-link: #{$tablet-navbar-link-light};
 
   //mobile
   --mobile-navbar-bg: #{$mobile-navbar-bg-light};
   --mobile-navbar-select-item: #{$mobile-navbar-select-item-light};
   --mobile-navbar-svg-fill: #{$mobile-navbar-svg-fill-light};
-  --mobile-navbar-selection-bg: #{$mobile-navbar-selection-bg-light};
-  --mobile-navbar-selection-color: #{$mobile-navbar-selection-color-light};
   --mobile-navbar: #{$mobile-navbar-light};
   --mobile-navbar-link: #{$mobile-navbar-link-light};
   --mobile-navbar-item-bb: #{$mobile-navbar-item-bb-light};
@@ -90,7 +84,7 @@
   --home-body-card-text: #{$home-body-card-text-light};
   --home-body-card-heading: #{$home-body-card-heading-light};
   --home-body-card-button: #{$home-body-card-button-light};
-  --home-body-card-bs-light: #{$home-body-card-bs-light};
+  --home-body-card-bs: #{$home-body-card-bs-light};
   --home-body-card-button-hover-color: #{$home-body-card-button-light-hover-color};
   --home-body-card-button-hover-bg: #{$home-body-card-button-light-hover-bg};
   --home-body-para: #{$home-body-para-light};
@@ -108,14 +102,7 @@
   // --carousel-caption-overline-animated-width: #{$carousel-caption-overline-animated-width};
 
   //digital marketing
-  --marketing-card-svg-fill: #{$marketing-card-svg-fill-light};
-  --marketing-card-svg-num-inside-fill: #{$marketing-card-svg-num-inside-fill-light};
   --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-light};
-  --marketing-card-svg-content-fill: #{$marketing-card-svg-content-fill-light};
-  --marketing-card-content-color: #{$marketing-card-content-color-light};
-  --marketing-card-heading-color: #{$marketing-card-heading-color-light};
-  --marketing-card-bg: #{$marketing-card-bg-light};
-  --marketing-card-bs: #{$marketing-card-bs-light};
 
   //scrollbar
   --scb-track-bs: #{$scb-track-bs-light};

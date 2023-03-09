@@ -1,6 +1,5 @@
 @use "../util/mixins";
 @use "../components/navbar-theme";
-@use "../components/navbar-language";
 @use "../util/media-queries";
 @use "../layout/tablet-navbar";
 @use "../layout/laptop-navbar";
@@ -17,8 +16,8 @@
    // /controlling highlighter
    & > * a::selection,
    *::selection {
-      background-color: var(--mobile-navbar-selection-bg);
-      color: var(--mobile-navbar-selection-color);
+      background-color: rebeccapurple;
+      color: white;
    }
 
    & > *,
@@ -75,10 +74,11 @@
 
             div {
                width: 90%;
-               background-color: var(--tablet-navbar-bg);
+               background-color: var(--home-heading-color);
+               background-color: transparent;
                height: 100%;
                justify-self: center;
-               border: 3px solid var(--navbar-link-after);
+               border: 3px solid var(--home-heading-color);
                border-radius: 5px;
                padding-top: 9px;
                padding-left: 5%;
@@ -91,7 +91,7 @@
 
             span {
                font-size: 2rem;
-               color: var(--navbar-link-after);
+               color: var(--home-heading-color);
                font-family: "Inter", serif;
                font-weight: bold;
                cursor: pointer;
@@ -114,7 +114,7 @@
 
                   a {
                      font-size: 2rem;
-                     color: var(--navbar-link-after);
+                     color: var(--home-heading-color);
                      font-family: "Inter", sans-serif;
                   }
 
@@ -169,7 +169,7 @@
                         object-fit: contain;
                      }
                      .flag--bordered {
-                        border: 3px solid var(--navbar-flag-b);
+                        border: 3px solid var(--home-heading-color);
                         border-radius: 2px;
                      }
                   }
@@ -191,7 +191,7 @@
                }
                &:nth-child(2) {
                   font-size: 0.9rem;
-                  color: var(--navbar-flag-b);
+                  color: var(--home-heading-color);
                }
             }
          }
@@ -227,7 +227,7 @@
          .mobile-sub-container {
             height: auto;
             svg {
-               fill: var(--mobile-navbar-svg-fill);
+               fill: var(--home-heading-color);
                font-size: 4.5rem;
 
                &:hover {
@@ -242,7 +242,7 @@
    & > * a {
       font-weight: 600;
       // font-size: 17px;
-      color: var(--navbar-flag-b);
+      color: var(--home-heading-color);
 
       // /controlling highlighter
    }
@@ -253,7 +253,7 @@
       &:hover {
          transition: all 0.25s ease-in-out;
          padding-bottom: 0.3rem;
-         border-bottom: var(--navbar-link-active-bb);
+         border-bottom: var(--home-heading-color);
       }
    }
 
@@ -305,7 +305,7 @@
       left: 0;
       @include mixins.size(0%, 4px);
       border-radius: 10px;
-      background-color: var(--navbar-link-after);
+      background-color: var(--home-heading-color);
    }
 }
 
@@ -327,7 +327,7 @@
 
    &::after {
       top: 100%;
-      background-color: var(--mobile-navbar-link-after);
+      background-color: var(--home-heading-color);
       left: 3%;
    }
 }
@@ -347,7 +347,7 @@
 
 //setting arrow color for services dopdown svg
 .services__arrow {
-   color: var(--navbar-link-after);
+   color: var(--home-heading-color);
 }
 
 //controlling some footer properties
@@ -360,7 +360,8 @@
    }
    &::after {
       top: 90%;
-      background-color: var(--footer-link-after);
+      background-color: var(--footer-body-link-color);
+      // background-color: red;
       @include mixins.size(0%, 1px);
    }
 }
@@ -421,4 +422,13 @@
    transition: all ease 0.15s;
    animation-duration: 1s;
    animation-name: rotateCross;
+}
+
+#navbar__search{
+   svg{
+      circle,line{
+         stroke: var(--home-heading-color);
+      }
+   }
+
 }

@@ -11,7 +11,7 @@
 //variablessss
 $displayState: none;
 $purple: rebeccapurple;
-$darkPurple: #2B0A3D;
+$darkPurple: #2b0a3d;
 $black: #000000;
 $active-hover: gold;
 $light-blue: lighten(rgb(0, 81, 139), 50);
@@ -20,61 +20,71 @@ $light-purple-50: lighten($purple, 50);
 $light-purple-20: lighten($purple, 20);
 $light-purple-10: lighten($purple, 10);
 $skyBlue: #00d0ff;
+$lightGrey: #ececec;
 
 //global variables
 $main-background-light: url("../../svg/app_background_light.svg");
-$main-background-dark: gold;
 $main-background-dark: url("../../svg/app_background_dark.svg");
 
-$facebook-hover: rgb(16, 16, 174);
+$facebook-hover:rgb(30, 30, 93);
+$facebook-hover:rgb(24, 41, 111);
 $instagram-hover: rgb(81, 31, 131);
 $twitter-hover: lighten(rgb(0, 81, 139), 30);
 $youtube-hover: red;
-$linkedin-hover: blue;
+$linkedin-hover: rgb(25, 38, 137);
 $navbar-border-gradient: linear-gradient(to left, lighten(rgb(0, 81, 139), 30), $purple);
 // $navbar-border-gradient: linear-gradient(to left, lighten(rgb(0, 81, 139), 50), $light-purple-10);
 $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 139), 30));
 
 //Light colorSpace
+/******light n dark**************/
 /******black n white**************/
 // footer-body-heading-bg
 
 /******purple n darkpurple**************/
 // footer-help-btn-bg
 
+/******ececec n darkpurple**************/
+// footer-subscribe-bg
+
+/******white n purple**************/
+
+/******purple n white**************/
+// home-heading-color
+
+/******white n darkpurple**************/
+// mobile-navbar-bg
+
+/******purple n skyBlue**************/
+// tablet-navbar-link
+
 //footer section
+$footer-bg-light: transparent;
+$footer-bg-dark: url("../../images/footer.png");
 $footer-body-heading-bg-light: $black;
 $footer-body-heading-bg-dark: $white;
 $footer-body-link-color-light: rgba(#000000, 0.65);
 $footer-body-link-color-dark: rgba(#fff, 0.65);
+// $footer-body-link-color-dark: red;
 $footer-bt-light: $footer-border-gradient;
 $footer-bt-dark: $navbar-border-gradient;
-$footer-help-bg-light: #ececec;
-$footer-help-bg-dark: #CACACA;;
+$footer-help-bg-light: $lightGrey;
+$footer-help-bg-dark: #cacaca;
 $footer-help-btn-bg-light: $purple;
 $footer-help-btn-bg-dark: $darkPurple;
-$footer-link-hover-light: $light-purple-20;
-$footer-link-hover-dark: $light-purple-20;
-$footer-link-after-light: $black;
-$footer-link-after-dark: $black;
-$footer-policy-bg-light: $footer-body-heading-bg-light;
-$footer-policy-bg-dark: $footer-body-heading-bg-dark;
-$footer-policy-bt-light: $black;
-$footer-policy-bt-dark: $black;
-$footer-subscribe-bg-light: #f5f7fa;
-$footer-subscribe-bg-dark: #f5f7fa;
-$footer-subscribe-input-color-light: $black;
-$footer-subscribe-input-color-dark: $black;
-$footer-subscribe-input-bs-light: #777;
-$footer-subscribe-input-bs-dark: #777;
-$footer-subscribe-input-caret-light: #888;
-$footer-subscribe-input-caret-dark: #888;
-$footer-text-light: $black;
-$footer-text-dark: $black;
-
+$footer-subscribe-bg-light: $lightGrey;
+$footer-subscribe-bg-dark: $darkPurple;
+$footer-subscribe-bt-light: transparent;
+$footer-subscribe-bt-dark: $lightGrey;
 
 //navbar section
 //desktop
+$navbar-service-desktop-svg-light: url(./../../svg/desktop_wave.svg#select-waves);
+$navbar-service-desktop-svg-dark: url(./../../svg/desktop_wave_dark.svg#select-waves);
+$navbar-service-wave-svg-light: url(./../../svg/waves.svg#select-waves);
+$navbar-service-wave-svg-dark: url(./../../svg/waves_dark.svg#select-waves);
+$navbar-service-biggest-svg-light: url(./../../svg/biggest_wave.svg#select-waves);
+$navbar-service-biggest-svg-dark: url(./../../svg/biggest_wave_dark.svg#select-waves);
 $navbar-link-light: $purple;
 $navbar-flag-b-light: $purple;
 $navbar-flag-bg-light: $light-blue;
@@ -82,25 +92,26 @@ $navbar-flag-hovered-light: darken($light-blue, 20);
 $navbar-link-after-light: $purple;
 $navbar-link-visited-light: $navbar-link-light;
 $navbar-link-active-bb-light: 3px solid $purple;
+$navbar-link-active-bb-dark: 3px solid $purple;
+
 
 //tablet
-$tablet-navbar-bg-light: $white;
 $tablet-navbar-link-light: $purple;
+$tablet-navbar-link-dark: $skyBlue;
 
 //mobile
 $mobile-navbar-bg-light: $white;
-$mobile-navbar-select-item-light: lighten( $purple, 30%);
-$mobile-navbar-svg-fill-light: $purple;
-$mobile-navbar-selection-bg-light: $purple;
-$mobile-navbar-selection-color-light: $white;
-$mobile-navbar-light: aliceblue;
-$mobile-navbar-link-light: $active-hover;
+$mobile-navbar-bg-dark: $darkPurple;
 $mobile-navbar-item-bb-light: $black;
 $mobile-navbar-item-link-light: $white;
-// $mobile-navbar-item-link-light: $footer-bg-light;
 $mobile-navbar-item-link-hovered-light: $black;
 $mobile-navbar-item-hover-light: $light-purple-50;
+$mobile-navbar-light: aliceblue;
+$mobile-navbar-link-light: $active-hover;
 $mobile-navbar-link-after-light: #b38cd9;
+$mobile-navbar-select-item-light: lighten($purple, 30%);
+$mobile-navbar-select-item-dark:rgba(255,255,255,0.65);
+$mobile-navbar-svg-fill-light: $purple;
 
 
 //select both navbars
@@ -129,8 +140,6 @@ $arrow-start-light: $light-blue;
 $arrow-end-light: $purple;
 
 //home
-$home-heading-bg-light: rgba(rgb(255, 255, 255), 0.5);
-$home-heading-color-light: $purple;
 $home-body-inner-bg-light: #f5f7fa;
 $home-body-card-text-light: #00000099;
 $home-body-card-heading-light: #000000de;
@@ -143,6 +152,10 @@ $home-body-para-light: #555;
 $home-body-title-light: $purple;
 $home-desktop-bg-svg-light: url("../../svg/home/vector3.svg"), url("../../svg/home/vector4.svg"), url("../../svg/home/vector5.svg");
 $home-desktop-bg-svg-dark: url("../../svg/home/vector3dark.svg"), url("../../svg/home/vector4dark.svg"), url("../../svg/home/vector5dark.svg");
+$home-heading-bg-light: rgba(rgb(255, 255, 255), 0.5);
+$home-heading-bg-dark: transparent;
+$home-heading-color-light: $purple;
+$home-heading-color-dark: $white;
 $home-laptop-bg-svg-light: url("../../svg/home/vector9.svg"), url("../../svg/home/vector10.svg"), url("../../svg/home/vector11.svg");
 $home-laptop-bg-svg-dark: url("../../svg/home/vector9dark.svg"), url("../../svg/home/vector10dark.svg"), url("../../svg/home/vector11dark.svg");
 $home-magic-bg-light: $white;
@@ -156,28 +169,25 @@ $home-service-icon-dark: $white;
 //home carousel
 
 //digital marketing
-$marketing-card-svg-fill-light: $purple;
-$marketing-card-svg-num-inside-fill-light: $white;
 $marketing-card-svg-blocks-fill-light: rgba(#663399, 0.2);
-$marketing-card-svg-content-fill-light: $skyBlue;
-$marketing-card-content-color-light: rgba(0, 0, 0, 0.65);
-$marketing-card-heading-color-light: $purple;
-$marketing-card-bg-light: $white;
-$marketing-card-bs-light: 0px 0px 9.82657px rgba(0, 0, 0, 0.15);
+$marketing-card-svg-blocks-fill-dark: rgba(#625a6a, 0.2);
 
 //scrollbar
 $scb-track-bs-light: inset 0 0 5px grey;
+$scb-track-bs-dark: inset 0 0 5px $skyBlue;
 $scb-track-bg-light: rgba(102, 51, 153, 0.57);
+$scb-track-bg-dark: rgba($skyBlue, 0.57);
 $scb-thumb-bg-light: rgba(102, 51, 153, 0.892);
+$scb-thumb-bg-dark: rgba($skyBlue, 0.892);
 $scb-thumb-hover-light: darken(rebeccapurple, 10%);
+$scb-thumb-hover-dark: darken($skyBlue, 10%);
 
 //contact
 $contact-primary-light: $purple;
-$contact-secondary-light: rgba($purple, 0.5);;
+$contact-secondary-light: rgba($purple, 0.5);
 $contact-tertiary-light: $black;
 $contact-bg-light: $white;
 $contact-bs-light: 5px 5px 25px -1px rgba(109, 98, 97, 0.122), -5px -5px 25px 1px rgba(165, 162, 162, 0.122);
-
 
 //uiux
 $uiux-bg-light: $white;
@@ -189,9 +199,6 @@ $uiux-subheader-text-dark: $white;
 $uiux-processdesign-text-light: $black;
 $uiux-processdesign-text-dark: $white;
 
-
 //dital marketing
 
 //software development
-
-

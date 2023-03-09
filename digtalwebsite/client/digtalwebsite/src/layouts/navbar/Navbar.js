@@ -37,7 +37,6 @@ export default function Navbar({
   setThemeCookie,
   cookie
 }) {
-
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -56,8 +55,6 @@ export default function Navbar({
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
   }, []);
-
-
 
   //language flasg
   const allFlags = Array.from(
@@ -242,12 +239,10 @@ export default function Navbar({
                 className="main-nav-sub-links--itemx"
                 id="theme-switcher"
               >
-                <span>
-                  <Search />
-                </span>
+                <Search />
 
                 {/* language handler*/}
-                <Grid sx={{ width: "fit-content" }} className="language-item">
+                <Grid sx={{ width: "fit-content" }}>
                   {flagId === "0" ? (
                     <EnglandIcon
                       className="navbar-theme-dark main-nav-sub-links--country"
@@ -276,7 +271,7 @@ export default function Navbar({
                     ""
                   )}
                   <Grid
-                    className="language-item flags--off"
+                    className="flags--off"
                     id="flags"
                     style={{ display: !showFlagDropdown ? "none" : "grid" }}
                   >
