@@ -10,6 +10,10 @@ import TwoIconDesktop from "src/assets/svg/services/digitalmarketing/TwoIconDesk
 import TwoIconMobile from "src/assets/svg/services/digitalmarketing/TwoIconMobile";
 import SevenIconDesktop from "src/assets/svg/services/digitalmarketing/SevenIconDesktop";
 import SevenIconMobile from "src/assets/svg/services/digitalmarketing/SevenIconMobile";
+import testi_one from "src/assets/images/services/digital_marketing/testimonials_2.png"
+import testi_two from "src/assets/images/services/digital_marketing/testimonials_1.png"
+import testi_three from "src/assets/images/services/digital_marketing/testimonials_3.png"
+import testi_four from "src/assets/images/services/digital_marketing/testimonials_4.png"
 
 const {
   default: OneIconDesktop
@@ -62,3 +66,27 @@ export const marketingCardElements = [
     numberIconMobile: <SevenIconMobile />
   }
 ];
+
+export const testimonialsCardElements = [
+  {
+    "author":"testimonials_authors.one",
+    "text":"testimonials.one",
+    "image":testi_one
+  },
+  {
+    "author":"testimonials_authors.two",
+    "text":"testimonials.two",
+    "image":testi_two
+  },
+  {
+    "author":"testimonials_authors.three",
+    "text":"testimonials.three",
+    "image":testi_three
+  },
+  {
+    "author":"testimonials_authors.four",
+    "text":"testimonials.four",
+    "image":testi_four
+  }
+
+]
