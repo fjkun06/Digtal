@@ -14,7 +14,7 @@ const Home = () => {
       <ProcessSection />
       {/* <MobileProcess /> */}
 
-      <BrandSection />
+      <BrandSection heading={"service"}/>
     </>
   );
 };

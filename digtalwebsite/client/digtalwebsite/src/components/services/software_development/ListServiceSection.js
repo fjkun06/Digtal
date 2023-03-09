@@ -9,8 +9,6 @@ const ListServiceSection = ({ number, heading, info }) => {
 
   const { ref, inView } = useInView({ threshold: matches? 0.6 : 0.4});
 
-
-
   return (
     <>
       <motion.div
