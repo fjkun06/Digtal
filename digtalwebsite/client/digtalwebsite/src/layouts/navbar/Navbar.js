@@ -125,6 +125,7 @@ export default function Navbar({
 
   function toggleFlagDropdown() {
     setshowFlagDropdown(showFlagDropdown === true ? false : true);
+    setMobileSelectState(false)
   }
 
   return (
@@ -201,6 +202,7 @@ export default function Navbar({
                   <ExpandMoreOutlined
                     onClick={() => {
                       toggleMobileSelect();
+                      setshowFlagDropdown(false);
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
                     className="services__arrow"
@@ -209,6 +211,7 @@ export default function Navbar({
                   <ExpandLessOutlinedIcon
                     onClick={() => {
                       toggleMobileSelect();
+
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
                     className="services__arrow"

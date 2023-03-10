@@ -88,8 +88,11 @@ $navbar-service-biggest-svg-light: url(./../../svg/biggest_wave.svg#select-waves
 $navbar-service-biggest-svg-dark: url(./../../svg/biggest_wave_dark.svg#select-waves);
 $navbar-link-light: $purple;
 $navbar-flag-b-light: $purple;
+$navbar-flag-b-dark: $light-blue;
 $navbar-flag-bg-light: $light-blue;
+$navbar-flag-bg-dark: $purple;
 $navbar-flag-hovered-light: darken($light-blue, 20);
+$navbar-flag-hovered-dark: darken($purple, 20);
 $navbar-link-after-light: $purple;
 $navbar-link-visited-light: $navbar-link-light;
 $navbar-link-active-bb-light: 3px solid $purple;
