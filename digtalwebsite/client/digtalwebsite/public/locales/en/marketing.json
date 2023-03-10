@@ -16,5 +16,17 @@
     "five": "Our video editing services help our clients enhance their existing video content and make it more engaging and effective. Our team of experienced video editors will use the latest tools and techniques to improve the quality, style, and overall impact of your videos.",
     "six": "Our page animation services help our clients bring their website to life with dynamic, engaging animations that grab the attention of visitors and improve the user experience. Our team of experienced animators will work with you to create custom animations that align with your brand and enhance your online presence.",
     "seven": " Our monetization services help our clients generate revenue from their website and online presence. We will work with you to implement effective monetization strategies, such as display advertising, affiliate marketing, and e-commerce, to help you maximize your return on investment."
+  },
+  "testimonials":{
+    "one":"Working with DIGTAL has been a game-changer for our business. Their team of experts helped us improve our online visibility with their SEO services and our video campaigns have been a huge success thanks to their video editing services. We couldn't be happier with the results! ",
+    "two":"Our page animations have been a huge hit with our visitors thanks to the talented team at DIGTAL They really brought our website to life and made it more engaging and user-friendly. We're so glad we found them!",
+    "three":"Monetizing our website was a top priority for us, and DIGTAL delivered. Their team of experts helped us implement effective monetization strategies and the results have been outstanding. We're so grateful for their help and expertise. ",
+    "four":"We were looking for a partner to help us with our digital marketing efforts and DIGTAL has been a perfect fit. Their team of experts has been with us every step of the way, helping us improve our online presence and reach our target audience. We're so glad we found them! "
+  },
+  "testimonials_authors":{
+    "one":"Jane Doe, CEO of ABC Inc.",
+    "two":"Jennet Smith, Marketing Director of DEF Ltd.",
+    "three":"Bob Johnson, Owner of GHI Enterprises",
+    "four":"Sarah Lee, Marketing Manager of JKL Inc."
   }
 }

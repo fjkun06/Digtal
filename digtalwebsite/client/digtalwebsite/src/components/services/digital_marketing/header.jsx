@@ -5,9 +5,9 @@ import {HiOutlineArrowTrendingUp} from "react-icons/hi2"
 import {FaChevronDown} from "react-icons/fa"
 export default function HeaderDigitalMarketing(){
     return (
-        <div className="relative w-full h-[60vh] laptop:h-[90vh]  ">
-            <div className="digitalmarketing__header w-full h-full blur-md "></div>
-            <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center text-6xl absolu">
+        <div className="relative w-full h-[60vh] laptop:h-[90vh]  overflow-hidden">
+            <div className="digitalmarketing__header w-full h-full blur-md overflow-hidden"></div>
+            <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center text-6xl absolu overflow-hidden">
                     <div className="w-full hidden tablet:flex items-center justify-center gap-6 laptop:gap-16">
                         <HiOutlineArrowTrendingUp className="text-[8rem] -rotate-[15deg] icon-hover laptop:scale-150 text-[rebeccapurple] font-normal" />
                         <p className="leading-relaxed z-10 text-[rebeccapurple] font-extrabold laptop:text-[6rem]">
