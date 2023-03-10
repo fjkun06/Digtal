@@ -1,0 +1,49 @@
+:root,
+:root.dark {
+  & > * a::selection,
+  *::selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+  background: #{$darkPurple};
+  --main-background: #{$main-background-dark};
+  --home-magic-bg: #{$home-magic-bg-dark};
+  --navbar-bb-light: #{$footer-bt-light};
+  --footer-bt: #{$navbar-border-gradient};
+
+  --home-service-icon: #{$home-service-icon-dark};
+
+  --footer-text: green;
+  --home-desktop-bg-svg: #{$home-desktop-bg-svg-dark};
+  --home-laptop-bg-svg: #{$home-laptop-bg-svg-dark};
+  //arrow
+  --arrow-start: #{$arrow-start-light};
+  --arrow-end: #{$arrow-end-light};
+
+    //footer section
+    --main-background: #{$main-background-dark};
+    --footer-body-heading-bg: #{$footer-body-heading-bg-dark};
+    --footer-body-link-color: #{$footer-body-link-color-dark};
+    --footer-bt: #{$navbar-border-gradient};
+    --footer-contact-bg: #{$footer-contact-bg-dark};
+    --footer-contact-color: #{$footer-contact-color-dark};
+    --footer-contact-after: #{$footer-contact-after-dark};
+    --footer-help-bg: #{$footer-help-bg-dark};
+    --footer-help-btn-bg: #{$footer-help-btn-bg-dark};
+    --footer-link-hover: #{$footer-link-hover-dark};
+    --footer-link-after: #{$footer-link-after-dark};
+    --footer-policy-bg: #{$footer-bg-dark};
+    --footer-policy-bt: #{$footer-policy-bt-dark};
+    --footer-subscribe-bg: #{$footer-subscribe-bg-dark};
+    --footer-subscribe-input-color: #{$footer-subscribe-input-color-dark};
+    --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-dark};
+    --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-dark};
+    --footer-text: #{$footer-text-dark};
+
+
+  //uiux
+  --uiux-bd-opacity: #{$uiux-bd-opacity-dark};
+  --uiux-bg: #{$uiux-bg-dark};
+  --uiux-subheader-text: #{$uiux-subheader-text-dark};
+  --uiux-processdesign-text: #{$uiux-processdesign-text-dark};
+}

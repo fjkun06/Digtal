@@ -2,9 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import Backend from 'i18next-http-backend';
-
-// console.log("win2: ",window.location.pathname[1] + window.location.pathname[2])
-// window.onload = () => 
+import Cookies from "universal-cookie";
+const cookies = new Cookies()
 
 i18n
    // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
@@ -19,7 +18,7 @@ i18n
    // init i18next
    // for all options read: https://www.i18next.com/overview/configuration-options
    .init({
-      fallbackLng: (window.location.pathname[1] + window.location.pathname[2]) || 'en',
+      fallbackLng: (cookies.get("language") ?? window.location.pathname[1] + window.location.pathname[2]) || 'en',
       debug: true,
       // lng:'cimode',
 

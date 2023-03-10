@@ -57,6 +57,7 @@
     "react-visibility-sensor": "^5.1.1",
     "sass": "^1.57.1",
     "swiper": "^8.4.5",
+    "universal-cookie": "^4.0.4",
     "waypoints": "^4.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11",

@@ -7,36 +7,49 @@
     background-color: rebeccapurple;
     color: white;
   }
+  background: #{$white};
+
+  //overall varables
+  --main-background: #{$main-background-light};
+
   //footer section
   --footer-bg: #{$footer-bg-light};
-  --footer-text: #{$footer-text-light};
-
-  --footer-menu-bg: #{$footer-bg-light};
-  --footer-menu-bb: #{$footer-menu-bb-light};
-
-  --footer-policy-bg: #{$footer-bg-light};
+  --footer-body-heading-bg: #{$footer-body-heading-bg-light};
+  --footer-body-link-color: #{$footer-body-link-color-light};
+  --footer-bt: #{$footer-border-gradient};
+  --footer-help-bg: #{$footer-help-bg-light};
+  --footer-help-btn-bg: #{$footer-help-btn-bg-light};
+  --footer-subscribe-bt: #{$footer-subscribe-bt-light};
   --footer-subscribe-bg: #{$footer-subscribe-bg-light};
-  --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
-  --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
-  --footer-link-hover: #{$footer-link-hover-light};
-  --footer-bt-light: #{$footer-border-gradient};
 
   //navbar
   //navbar section
   //desktop
   --navbar-link: #{$navbar-link-light};
-
+  --navbar-flag-bg: #{$navbar-flag-bg-light};
+  --navbar-flag-hovered: #{$navbar-flag-hovered-light};
+  --navbar-flag-b: #{$navbar-flag-b-light};
+  --navbar-link-after: #{$navbar-link-after-light};
   --navbar-link-visited: #{$navbar-link-visited-light};
   --navbar-link-active-bb: #{$navbar-link-active-bb-light};
+  --navbar-service-desktop-svg: #{$navbar-service-desktop-svg-light};
+  --navbar-service-wave-svg: #{$navbar-service-wave-svg-light};
+  --navbar-service-biggest-svg: #{$navbar-service-biggest-svg-light};
+
+  //tablet
+  --tablet-navbar-link: #{$tablet-navbar-link-light};
 
   //mobile
   --mobile-navbar-bg: #{$mobile-navbar-bg-light};
+  --mobile-navbar-select-item: #{$mobile-navbar-select-item-light};
+  --mobile-navbar-svg-fill: #{$mobile-navbar-svg-fill-light};
   --mobile-navbar: #{$mobile-navbar-light};
   --mobile-navbar-link: #{$mobile-navbar-link-light};
   --mobile-navbar-item-bb: #{$mobile-navbar-item-bb-light};
   --mobile-navbar-item-link: #{$mobile-navbar-item-link-light};
   --mobile-navbar-item-link-hovered: #{$mobile-navbar-item-link-hovered-light};
   --mobile-navbar-item-hover: #{$mobile-navbar-item-hover-light};
+  --mobile-navbar-link-after: #{$mobile-navbar-link-after-light};
 
   //select both navbars
   --navbar-select-item-bg: #{$navbar-select-item-bg-light};
@@ -65,28 +78,54 @@
   --arrow-end: #{$arrow-end-light};
 
   //home
+  --home-heading-bg: #{$home-heading-bg-light};
+  --home-heading-color: #{$home-heading-color-light};
   --home-body-inner-bg: #{$home-body-inner-bg-light};
   --home-body-card-text: #{$home-body-card-text-light};
   --home-body-card-heading: #{$home-body-card-heading-light};
   --home-body-card-button: #{$home-body-card-button-light};
-  --home-body-card-bs-light: #{$home-body-card-bs-light};
+  --home-body-card-bs: #{$home-body-card-bs-light};
   --home-body-card-button-hover-color: #{$home-body-card-button-light-hover-color};
   --home-body-card-button-hover-bg: #{$home-body-card-button-light-hover-bg};
   --home-body-para: #{$home-body-para-light};
   --home-body-title: #{$home-body-title-light};
   --home-body-card-icon: #{$home-body-card-icon-light};
-  --home-bg-svg: #{$home-bg-svg-light};
 
-  //home carousel
-  --carousel-button-bg: #{$carousel-button-bg-light};
-  --carousel-icon-bg: #{$carousel-icon-bg-light};
-  --carousel-consulting-caption: #{$carousel-consulting-caption-light};
-  --carousel-consulting-caption-sub-bg: #{$carousel-consulting-caption-sub-bg-light};
-  --carousel-consulting-caption-sub-before-bg: #{$carousel-consulting-caption-sub-before-bg-light};
-  --carousel-button-mobile-bg: #{$carousel-button-mobile-bg-light};
-  --carousel-control-arrow: #{$carousel-control-arrow-light};
+  --home-desktop-bg-svg: #{$home-desktop-bg-svg-light};
+  --home-laptop-bg-svg: #{$home-laptop-bg-svg-light};
+  --home-magic-bg: #{$home-magic-bg-light};
+  --home-magic-ts: #{$home-magic-ts-light};
+
+
+  --home-service-icon: #{$home-service-icon-light};
 
   //modifiers
   --carousel-caption-overline-width: #{$carousel-caption-overline-width};
-  // --carousel-caption-overline-animated-width: #{$carousel-caption-overline-animated-width};
+
+  //digital marketing
+  --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-light};
+
+  //scrollbar
+  --scb-track-bs: #{$scb-track-bs-light};
+  --scb-track-bg: #{$scb-track-bg-light};
+  --scb-thumb-bg: #{$scb-thumb-bg-light};
+  --scb-thumb-hover: #{$scb-thumb-hover-light};
+
+  //contact
+  --contact-secondary: #{$contact-secondary-light};
+  --contact-tertiary: #{$contact-tertiary-light};
+  --contact-bg: #{$contact-bg-light};
+  --contact-bs: #{$contact-bs-light};
+
+  //home
+
+  //uiux
+  --uiux-bd-opacity: #{$uiux-bd-opacity-light};
+  --uiux-bg: #{$uiux-bg-light};
+  --uiux-subheader-text: #{$uiux-subheader-text-light};
+  --uiux-processdesign-text: #{$uiux-processdesign-text-light};
+
+  //dital marketing
+
+  //software development
 }

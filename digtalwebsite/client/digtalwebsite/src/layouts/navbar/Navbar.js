@@ -33,11 +33,10 @@ export default function Navbar({
   mobileSelectState,
   toggleMobileSelect,
   showFlagDropdown,
-  setshowFlagDropdown
+  setshowFlagDropdown,
+  setThemeCookie,
+  cookie
 }) {
-  //theme configuration
-  const [websiteTheme, setWebsiteTheme] = useState("dark");
-
   //initialising states
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -51,24 +50,11 @@ export default function Navbar({
   const { t } = useTranslation(["navbar", "form", "pageend"]);
   let location = useLocation();
 
-  //theme configuration
-  useEffect(() => {
-    //setting default color scheme
-    document.documentElement.className = "light";
-    setWebsiteTheme(document.documentElement.className);
-  }, []);
-
   //manage mobile menu icon
   useEffect(() => {
     setMobileCross(document.getElementsByClassName("mobile-navbar-cross"));
     setMobileMenu(document.getElementsByClassName("mobile-navbar-menu"));
   }, []);
-
-  //navigation
-  useEffect(() => {
-    if (location.pathname === "/") navigate(language + "/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [language, location.pathname, navigate]);
 
   //language flasg
   const allFlags = Array.from(
@@ -139,6 +125,7 @@ export default function Navbar({
 
   function toggleFlagDropdown() {
     setshowFlagDropdown(showFlagDropdown === true ? false : true);
+    setMobileSelectState(false)
   }
 
   return (
@@ -215,6 +202,7 @@ export default function Navbar({
                   <ExpandMoreOutlined
                     onClick={() => {
                       toggleMobileSelect();
+                      setshowFlagDropdown(false);
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
                     className="services__arrow"
@@ -223,6 +211,7 @@ export default function Navbar({
                   <ExpandLessOutlinedIcon
                     onClick={() => {
                       toggleMobileSelect();
+
                     }}
                     sx={{ fontSize: 24, marginTop: "-5px" }}
                     className="services__arrow"
@@ -253,12 +242,10 @@ export default function Navbar({
                 className="main-nav-sub-links--itemx"
                 id="theme-switcher"
               >
-                <span>
-                  <Search />
-                </span>
+                <Search />
 
                 {/* language handler*/}
-                <Grid sx={{ width: "fit-content" }} className="language-item">
+                <Grid sx={{ width: "fit-content" }}>
                   {flagId === "0" ? (
                     <EnglandIcon
                       className="navbar-theme-dark main-nav-sub-links--country"
@@ -287,7 +274,7 @@ export default function Navbar({
                     ""
                   )}
                   <Grid
-                    className="language-item flags--off"
+                    className="flags--off"
                     id="flags"
                     style={{ display: !showFlagDropdown ? "none" : "grid" }}
                   >
@@ -308,29 +295,21 @@ export default function Navbar({
                 </Grid>
 
                 {/* theme switcher */}
-                {websiteTheme === "dark" ? (
+                {cookie === "dark" ? (
                   <LightModeIcon
                     className="navbar-theme-light"
                     handler={() => {
                       switchTheme("light");
-                      setWebsiteTheme("light");
+                      setThemeCookie("light");
                     }}
                   />
                 ) : (
-                  //   <DarkModeIcon
-                  //   className="navbar-theme-dark"
-                  //   handler={() => {
-                  //     switchTheme("light");
-                  //     setWebsiteTheme("light");
-                  //     console.log("hello: ", websiteTheme);
-                  //   }}
-                  // />
                   <DarkModeIcon
                     className="navbar-theme-dark"
                     handler={() => {
                       switchTheme("dark");
-                      setWebsiteTheme("dark");
-                      console.log("hello: ", websiteTheme);
+
+                      setThemeCookie("dark");
                     }}
                   />
                 )}

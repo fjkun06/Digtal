@@ -4,10 +4,10 @@
 
 %policy {
   .footer-policy {
-    @include mixins.footer-item-init(1vh, var(--footer-policy-bg), row, center);
+    @include mixins.footer-item-init(1vh, white, row, center);
     width: 87vw;
     @include mixins.flex(column);
-    border-top: 1.65px solid #000;
+    border-top: 1.65px solid  var(--footer-body-heading-bg);
     background: transparent;
     @media screen and (min-width: 961px) {
       font-size: 1.25rem;
@@ -61,17 +61,7 @@
       }
     }
 
-    a {
-      &:hover {
-        // color: var(--footer-link-hover);
-        // text-decoration: underline;
-      }
-    }
+
   }
 }
 
-.footer-policy-link-text-item {
-  &:hover {
-    color: var(--footer-link-hover);
-  }
-}
