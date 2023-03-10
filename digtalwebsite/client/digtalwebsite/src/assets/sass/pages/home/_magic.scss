@@ -162,6 +162,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     padding-bottom: 5rem;
 
     // @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
+
     background: var(--home-desktop-bg-svg), url("../../../svg/home/editFile1500.svg"), url("../../../svg/home/coffee1500.svg"), url("../../../svg/home/laptop1500.svg");
     // background: url("../../../svg/home/vector3.svg"),url("../../../svg/home/vector4.svg"),url("../../../svg/home/vector5.svg"),url("../../../svg/home/editFile1500.svg"),url("../../../svg/home/coffee1500.svg"),url("../../../svg/home/laptop1500.svg"), $background;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
@@ -169,6 +170,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
     row-gap: 0rem;
     padding-top: 3.5rem;
     background-color: var(--home-magic-bg);
+
 
     & > * {
       &:nth-child(1) {
