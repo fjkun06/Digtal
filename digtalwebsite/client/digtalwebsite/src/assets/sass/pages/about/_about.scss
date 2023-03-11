@@ -5,28 +5,36 @@
 }
 
 :root.light {
-  --primary-color: #{toRGB(rebeccapurple)};
-  --primary-alt-color: #{toRGB(rebeccapurple)};
-  --secondary-color: #{toRGB(white)};
-  --tertiary-color: #{toRGB(#2B0A3D)};
+  --rebecca-purple: #{toRGB(rebeccapurple)};
+  --rebecca-white: #{toRGB(rebeccapurple)};
+  --rebecca-blue: #{toRGB(rebeccapurple)};
 
-  --title-color: #{toRGB(rebeccapurple)};
-  --subtitle-color: #{toRGB(rebeccapurple)};
+  --white-purple: #{toRGB(white)};
+  --white-rebecca: #{toRGB(white)};
+  --white-blue: #{toRGB(white)};
+
+  --purple-rebecca: #{toRGB(#2B0A3D)};
+  --purple-white: #{toRGB(#2B0A3D)};
+  --purple-blue: #{toRGB(#2B0A3D)};
 }
 
 :root.dark {
-  --primary-color: #{toRGB(white)};
-  --primary-alt-color: #{toRGB(#00D0FF)};
-  --secondary-color: #{toRGB(rebeccapurple)};
-  --tertiary-color: #{toRGB(#00D0FF)};
+  --rebecca-purple: #{toRGB(#2B0A3d)};
+  --rebecca-white: #{toRGB(white)};
+  --rebecca-blue: #{toRGB(#00D0FF)};
 
-  --title-color: #{toRGB(white)};
-  --subtitle-color: #{toRGB(#00D0FF)};
+  --white-purple: #{toRGB(#2B0A3D)};
+  --white-rebecca: #{toRGB(rebeccapurple)};
+  --white-blue: #{toRGB(#00D0FF)};
+
+  --purple-rebecca: #{toRGB(rebeccapurple)};
+  --purple-white: #{toRGB(white)};
+  --purple-blue: #{toRGB(#00D0FF)};
 }
 
 .about {
 
   .caption {
-    @apply max-w-5xl text-center font-['Poppins'] text-2xl font-semibold leading-[35px] tracking-normal laptop:text-[55px] laptop:leading-[70px] text-primary/60;
+    @apply max-w-5xl text-center font-['Poppins'] text-2xl font-semibold leading-[35px] tracking-normal laptop:text-[55px] laptop:leading-[70px] text-rebecca-white/60;
   }
 }
