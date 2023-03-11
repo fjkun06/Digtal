@@ -85,7 +85,7 @@
 
   //footer
   &-contact {
-    background-color: var(--footer-help-btn-bg);
+    background-color: var(--footer-contact-bg);
     @include mixins.size(100%, max-content);
     @include mixins.flex;
     border-bottom: 1px solid var(--footer-subscribe-bt);

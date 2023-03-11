@@ -27,6 +27,12 @@
   // rgba(255, 255, 255,0.5)
 
 
+  mark{
+    color: var(--home-heading-color);
+    background-color: var(--mobile-navbar-bg);
+    // color: rebeccapurple;
+    // background-color: #2b0a3d;
+  }
 
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, minmax(250px));

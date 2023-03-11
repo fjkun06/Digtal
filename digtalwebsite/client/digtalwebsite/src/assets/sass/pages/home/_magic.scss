@@ -140,6 +140,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   @include mixins.flex(column);
   @include mixins.size(auto);
   @include home-background(3rem, returnBg($mobile-arrows-light, $mobile-bp), 1rem);
+  background-color: var(--home-magic-bg);
 
   @media only screen and (min-width: 768.1px) {
     @include home-background(1.2rem, returnBg($laptop-arrows-light, $laptop-bp), 2.5rem);

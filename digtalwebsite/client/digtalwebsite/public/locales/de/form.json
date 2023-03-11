@@ -1,7 +1,9 @@
 {
    "contact-section": {
-      "contact": "Kontakt",
-      "our": "Unsere Liebe für Gott"
+      "getintouch": "Get in touch with Us",
+      "text": "To initiate any communication or for any inquiries, kindly fill the form on the page and we will get to you as soon as possible.",
+      "visit": "Pay us a visit at any of these addresses.",
+      "office": "Our office"
    },
    "name": {
       "first": "Name",

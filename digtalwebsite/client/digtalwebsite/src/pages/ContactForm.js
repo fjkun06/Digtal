@@ -20,13 +20,17 @@ export default function Contact() {
     <Grid container component="form" id="form1" noValidate autoComplete="off">
       {/* <ContactModal disp={toggleModalDisplay} /> */}
       <Grid container item className="getintouch">
-        <h2>{t('contact-section.getintouch')}</h2>
+        <h2>
+          <mark>{t("contact-section.getintouch")}</mark>
+        </h2>
         <div>
-        {t('contact-section.text')}
+          <mark>{t("contact-section.text")}</mark>
         </div>
       </Grid>
       <Grid container item className="office">
-        <span>Our Office</span>
+        <span>
+          <mark>{t("contact-section.office")}</mark>
+        </span>
         <CustomImage
           alt="Snapshot of Office"
           image={contactOffice}
@@ -34,7 +38,7 @@ export default function Contact() {
         />
         <div className="office-body">
           <span>
-          {t('contact-section.visit')}
+            <mark>{t("contact-section.visit")}</mark>
           </span>
           <div className="office-body-location">
             {location.map(loc => (

@@ -61,21 +61,24 @@ $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 13
 
 //footer section
 $footer-bg-light: transparent;
-$footer-bg-dark: url("../../images/footer.png");
+$footer-bg-dark: url("../../svg/footer_bg.svg");
 $footer-body-heading-bg-light: $black;
 $footer-body-heading-bg-dark: $white;
 $footer-body-link-color-light: rgba(#000000, 0.65);
 $footer-body-link-color-dark: rgba(#fff, 0.65);
 // $footer-body-link-color-dark: red;
 $footer-bt-light: $footer-border-gradient;
-
+$footer-contact-bg-light: $purple;
+$footer-contact-bg-dark: transparent;
 $footer-bt-dark: $navbar-border-gradient;
+$footer-bt-dark: none;
 $footer-help-bg-light: $lightGrey;
 $footer-help-bg-dark: #cacaca;
 $footer-help-btn-bg-light: $purple;
 $footer-help-btn-bg-dark: $darkPurple;
 $footer-subscribe-bg-light: $lightGrey;
 $footer-subscribe-bg-dark: $darkPurple;
+$footer-subscribe-bg-dark: transparent;
 $footer-subscribe-bt-light: transparent;
 $footer-subscribe-bt-dark: $lightGrey;
 
