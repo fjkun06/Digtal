@@ -29,7 +29,7 @@ const team = [
 export default function AboutUs() {
   const { t } = useTranslation("about");
   return (
-    <Grid className="about bg-white/50">
+    <Grid className="about bg-secondary/50">
       <Stack
         direction="column"
         justifyContent="center"
@@ -40,7 +40,7 @@ export default function AboutUs() {
           className="caption"
           dangerouslySetInnerHTML={{ __html: t("caption.primary") }}
         />
-        <Typography className="font-[Poppins] text-3xl font-bold capitalize leading-[auto] tracking-normal text-[color:rebeccapurple] laptop:text-[62px] laptop:leading-[70px]">
+        <Typography className="font-[Poppins] text-3xl font-bold capitalize leading-[auto] tracking-normal text-primary laptop:text-[62px] laptop:leading-[70px]">
           {t("caption.secondary")}
         </Typography>
       </Stack>
@@ -71,11 +71,11 @@ export default function AboutUs() {
       </Box>
 
       <Container maxWidth="lg" className="my-24 space-y-24">
-        <Box className="mx-auto grid grid-cols-12 tablet:max-w-screen-tablet laptop:max-w-screen-laptop">
-          <Box className="col-span-12 tablet:col-span-5 laptop:col-span-5">
+        <Box className="mx-auto grid grid-cols-12 tablet:max-w-[939px]">
+          <Box className="col-span-12 tablet:col-span-5 laptop:col-span-5 tablet:gap-4">
             <Typography
               component="p"
-              className="mx-20 text-center font-[Poppins] text-[18px] font-bold leading-[35px] text-[rebeccapurple] tablet:text-[20px] laptop:text-left laptop:text-[24px] laptop:leading-[50px]"
+              className="text-center font-[Poppins] text-[27px] font-bold leading-[35px] text-primary laptop:text-[35px] laptop:text-left laptop:leading-[50px]"
             >
               Lifting up others makes you rise
             </Typography>
@@ -83,7 +83,7 @@ export default function AboutUs() {
           <Box className="col-span-12 tablet:col-span-7 tablet:space-y-8 laptop:col-span-7">
             <Typography
               component="p"
-              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
+              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-primary text-opacity-60 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -92,7 +92,7 @@ export default function AboutUs() {
             </Typography>
             <Typography
               component="p"
-              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
+              className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-primary text-opacity-60 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
@@ -107,18 +107,18 @@ export default function AboutUs() {
           className="mx-auto gap-10 tablet:max-w-[550px] laptop:max-w-none laptop:gap-12"
         >
           <Stack className="flex-row items-start gap-1 laptop:gap-4">
-            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px] text-tertiary">
               “
             </Typography>
             <Typography
               component="p"
-              className="text-center font-[Poppins] text-[12px] font-semibold leading-[25px] text-[rebeccapurple] text-opacity-60 laptop:text-[21px]"
+              className="text-center font-[Poppins] text-[12px] font-semibold leading-[25px] text-primary text-opacity-60 laptop:text-[21px]"
             >
               Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
               qui esse pariatur duis deserunt mollit dolore cillum minim tempor
               enim. Elit aute irure tempor
             </Typography>
-            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px]">
+            <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px] text-tertiary">
               ’’
             </Typography>
           </Stack>
@@ -129,10 +129,10 @@ export default function AboutUs() {
               wrapperClassName="flex-shrink !w-auto"
             />
             <Stack className="flex-grow">
-              <Typography className="font-[Poppins] text-[15px] font-bold leading-[22.5px] text-[rebeccapurple]">
+              <Typography className="font-[Poppins] text-[15px] font-bold leading-[22.5px] text-primary">
                 Leonel Zone Yemeli
               </Typography>
-              <Typography className="font-[Poppins] text-[12px] font-semibold text-[rebeccapurple] text-opacity-60">
+              <Typography className="font-[Poppins] text-[12px] font-semibold text-primary text-opacity-60">
                 Founder & CEO
               </Typography>
             </Stack>
@@ -143,33 +143,33 @@ export default function AboutUs() {
           <Box className="grid grid-cols-12 gap-8">
             <Box className="col-span-6 laptop:col-span-4">
               <Stack className="gap-6">
-                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-primary text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] laptop:text-[90px]">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-tertiary laptop:text-[90px]">
                   160k+
                 </Typography>
               </Stack>
             </Box>
             <Box className="col-span-6 laptop:col-span-4">
               <Stack className="gap-6">
-                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-primary text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] laptop:text-[90px]">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-tertiary laptop:text-[90px]">
                   10k+
                 </Typography>
               </Stack>
             </Box>
             <Box className="col-span-6 col-start-4 laptop:col-span-4 laptop:col-start-9">
               <Stack className="gap-6">
-                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-[rebeccapurple] text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
+                <Typography className="text-center text-[13px] leading-[20px] text-[Poppins] text-primary text-opacity-60 laptop:text-[21px] laptop:leading-[35px]">
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui ess
                 </Typography>
-                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-[#2B0A3D] laptop:text-[90px]">
+                <Typography className="mx-auto flex items-center font-['Passion_One'] text-[50px] leading-[50px] text-tertiary laptop:text-[90px]">
                   2k+
                 </Typography>
               </Stack>
@@ -184,12 +184,12 @@ export default function AboutUs() {
           <Typography
             variant="h2"
             component="h3"
-            className="px-[6.5rem] text-center font-[Poppins] text-[27px] font-bold leading-[35px] tracking-[0] text-[rebeccapurple] laptop:text-left laptop:text-[40px] laptop:leading-[50px]"
+            className="px-[6.5rem] text-center font-[Poppins] text-[27px] font-bold leading-[35px] tracking-[0] text-primary laptop:text-left laptop:text-[40px] laptop:leading-[50px]"
           >
             Meet our <br />
             Stunning Team
           </Typography>
-          <Box className="w-full bg-[rebeccapurple]/40">
+          <Box className="w-full bg-primary-alt/20">
             <Box className="mx-auto grid grid-cols-2 gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-4 laptop:grid-cols-4 laptop:gap-12">
               {team.map((member, index) => (
                 <TeamCard
@@ -211,7 +211,7 @@ export default function AboutUs() {
           <Box className="col-span-12 laptop:col-span-4">
             <Typography
               component="p"
-              className="text-center font-[Poppins] text-[27px] font-bold leading-[70px] text-[rebeccapurple] laptop:text-left laptop:text-[40px]"
+              className="text-center font-[Poppins] text-[27px] font-bold leading-[70px] text-primary laptop:text-left laptop:text-[40px]"
             >
               Join our team
             </Typography>
@@ -221,14 +221,14 @@ export default function AboutUs() {
             <Stack>
               <Typography
                 component="p"
-                className="text-center font-[Poppins] text-[13px] leading-[23px] text-[rebeccapurple] text-opacity-60 laptop:text-left laptop:text-[20px] laptop:leading-[35px]"
+                className="text-center font-[Poppins] text-[13px] leading-[23px] text-primary text-opacity-60 laptop:text-left laptop:text-[20px] laptop:leading-[35px]"
               >
                 Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                 Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
                 tempor enim. Elit aute irure tempor cupidatat incididunt sint
                 deserunt ut voluptate aute id deserunt nisi.
               </Typography>
-              <Button className="col-span-1 mx-auto mt-4 box-border border-2 border-solid border-[rebeccapurple] bg-transparent px-4 py-2 text-[17px] font-bold capitalize text-[rebeccapurple] hover:border-[rebeccapurple]/10 hover:bg-[rebeccapurple]/20 laptop:ml-0">
+              <Button className="col-span-1 mx-auto mt-4 box-border border-[3px] border-solid border-primary-alt bg-transparent px-4 py-2 text-[17px] font-bold capitalize text-primary hover:border-primary-alt/10 hover:bg-primary-alt/20 laptop:ml-0">
                 Open Positions
               </Button>
             </Stack>
