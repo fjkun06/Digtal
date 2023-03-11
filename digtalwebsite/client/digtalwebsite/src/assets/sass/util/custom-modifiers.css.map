@@ -1,1 +1,9 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"custom-modifiers.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "custom-modifiers.scss"
+    ],
+    "names": [],
+    "file": "custom-modifiers.css"
+}
