@@ -13,13 +13,18 @@ module.exports = {
             tv: "1680px"
          },
          colors: {
-            'primary': 'rgb(var(--primary-color) / <alpha-value>)',
-            'primary-alt': 'rgb(var(--primary-alt-color) / <alpha-value>)',
-            'secondary': 'rgb(var(--secondary-color) / <alpha-value>)',
-            'tertiary': 'rgb(var(--tertiary-color) / <alpha-value>)',
-            'title': 'rgb(var(--title-color) / <alpha-value>)',
-            'subtitle': 'rgb(var(--subtitle-color) / <alpha-value>)',
-            'subtitle-muted': 'rgb(var(--subtitle-color) / <alpha-value>)',
+            'rebecca-purple': 'rgb(var(--rebecca-purple) / <alpha-value>)',
+            'rebecca-blue': 'rgb(var(--rebecca-blue) / <alpha-value>)',
+            'rebecca-white': 'rgb(var(--rebecca-white) / <alpha-value>)',
+
+            'white-purple': 'rgb(var(--white-purple) / <alpha-value>)',
+            'white-blue': 'rgb(var(--white-blue) / <alpha-value>)',
+            'white-rebecca': 'rgb(var(--white-rebecca) / <alpha-value>)',
+
+            'purple-rebecca': 'rgb(var(--purple-rebecca) / <alpha-value>)',
+            'purple-blue': 'rgb(var(--purple-blue) / <alpha-value>)',
+            'purple-white': 'rgb(var(--purple-white) / <alpha-value>)',
+
             brand: {
                blue: "#ccddff"
             }
