@@ -7,6 +7,7 @@
     background-color: rebeccapurple;
     color: white;
   }
+    transition: all 0.25s ease-in-out;
   background: #{$white};
 
   //overall varables
@@ -105,6 +106,8 @@
 
   //digital marketing
   --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-light};
+  --marketing-numbers: #{$marketing-numbers-light};
+
 
   //scrollbar
   --scb-track-bs: #{$scb-track-bs-light};

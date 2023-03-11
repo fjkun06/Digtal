@@ -13,11 +13,11 @@ import { testimonialsCardElements } from "src/components/services/digital_market
 export default function DigitalMarketing() {
   return (
     <>
-      <div className="flex w-full flex-col items-center justify-center bg-white">
+      <div className=" digital__marketing flex w-full flex-col items-center justify-center">
         <HeaderDigitalMarketing />
       </div>
       <HeaderText />
-      <div className="flex flex-col items-center justify-center bg-white py-4 px-4">
+      <div className=" suite flex flex-col items-center justify-center py-4 px-4">
         <div className="my-4 flex items-center justify-center text-center text-4xl font-extrabold tablet:my-8">
           <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
         </div>
@@ -36,7 +36,7 @@ export default function DigitalMarketing() {
     
       </div>
       <Score />
-      <div className="grid w-full grid-cols-1 content-center items-center justify-center bg-white tablet:grid-cols-2 tablet:px-12 laptop:px-24 ">
+      <div className=" testimonial grid w-full grid-cols-1 content-center items-center justify-center tablet:grid-cols-2 tablet:px-12 laptop:px-24 ">
         {testimonialsCardElements.map(element => {
           return <Testimonial key={nano()} {...element} />;
         })}
