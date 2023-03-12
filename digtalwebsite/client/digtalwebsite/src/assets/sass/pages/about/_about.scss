@@ -1,36 +1,3 @@
-@use 'sass:color';
-
-@function toRGB($color) {
-  @return #{red($color)} #{green($color)} #{blue($color)}
-}
-
-:root.light {
-  --rebecca-purple: #{toRGB(rebeccapurple)};
-  --rebecca-white: #{toRGB(rebeccapurple)};
-  --rebecca-blue: #{toRGB(rebeccapurple)};
-
-  --white-purple: #{toRGB(white)};
-  --white-rebecca: #{toRGB(white)};
-  --white-blue: #{toRGB(white)};
-
-  --purple-rebecca: #{toRGB(#2B0A3D)};
-  --purple-white: #{toRGB(#2B0A3D)};
-  --purple-blue: #{toRGB(#2B0A3D)};
-}
-
-:root.dark {
-  --rebecca-purple: #{toRGB(#2B0A3d)};
-  --rebecca-white: #{toRGB(white)};
-  --rebecca-blue: #{toRGB(#00D0FF)};
-
-  --white-purple: #{toRGB(#2B0A3D)};
-  --white-rebecca: #{toRGB(rebeccapurple)};
-  --white-blue: #{toRGB(#00D0FF)};
-
-  --purple-rebecca: #{toRGB(rebeccapurple)};
-  --purple-white: #{toRGB(white)};
-  --purple-blue: #{toRGB(#00D0FF)};
-}
 
 .about {
 
