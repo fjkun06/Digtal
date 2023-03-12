@@ -48,7 +48,7 @@ const SoftwareDevelopment = () => {
       <div className="main-header">
         <div className="left">
           <div
-            className={`overflow-x-hidden break-keep text-center font-bold text-white laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+            className={`overflow-x-hidden break-keep text-center font-bold text-[var(--software-development-section-presentation-left)] laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
 
           >
             <motion.p
@@ -94,7 +94,7 @@ const SoftwareDevelopment = () => {
         </div>
         <div className="right">
           <div
-            className={`relative overflow-x-hidden text-center font-bold text-[#663399] laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+            className={`relative overflow-x-hidden text-center font-bold text-[var(--software-development-section-presentation-right)] laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
             // style={matchesPhone && { fontSize: "35px" }}
           >
             <motion.p
