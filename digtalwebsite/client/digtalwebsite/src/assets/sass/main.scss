@@ -2,6 +2,7 @@
 @use "layout/navbar";
 @use "layout/footer";
 
+
 // @use "components/telephone";
 // @use "components/scrollbar";
 @use "pages/pages";
@@ -15,6 +16,7 @@
 @tailwind variants;
 
 @layer base {
+  @import './util/functions';
   @import "./util/light-palette";
   @import "./util/dark-palette";
 }

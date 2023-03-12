@@ -69,4 +69,18 @@
   --scb-track-bg: #{$scb-track-bg-dark};
   --scb-thumb-bg: #{$scb-thumb-bg-dark};
   --scb-thumb-hover: #{$scb-thumb-hover-dark};
+
+  //
+
+  --rebecca-purple: #{toRGB(#2B0A3d)};
+  --rebecca-white: #{toRGB(white)};
+  --rebecca-blue: #{toRGB(#00D0FF)};
+
+  --white-purple: #{toRGB(#2B0A3D)};
+  --white-rebecca: #{toRGB(rebeccapurple)};
+  --white-blue: #{toRGB(#00D0FF)};
+
+  --purple-rebecca: #{toRGB(rebeccapurple)};
+  --purple-white: #{toRGB(white)};
+  --purple-blue: #{toRGB(#00D0FF)};
 }
