@@ -59,6 +59,9 @@ $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 13
 /******purple n skyBlue**************/
 // tablet-navbar-link
 
+/******skyblue n purple**************/
+// marketing-numbers
+
 //footer section
 $footer-bg-light: transparent;
 $footer-bg-dark: url("../../svg/footer_bg.svg");
@@ -180,6 +183,8 @@ $home-service-icon-dark: $white;
 //digital marketing
 $marketing-card-svg-blocks-fill-light: rgba(#663399, 0.2);
 $marketing-card-svg-blocks-fill-dark: rgba(#625a6a, 0.2);
+$marketing-numbers-light: $skyBlue;
+$marketing-numbers-dark: $purple;
 
 //scrollbar
 $scb-track-bs-light: inset 0 0 5px grey;

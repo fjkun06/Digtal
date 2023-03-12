@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-   darkMode: "media",
+   darkMode: 'class',
    content: ["./src/**/*.{js,jsx,ts,tsx}", "./src/**/**/**/*.{js,jsx,ts,tsx}"],
    important: "#root",
    theme: {
@@ -13,6 +13,18 @@ module.exports = {
             tv: "1680px"
          },
          colors: {
+            'rebecca-purple': 'rgb(var(--rebecca-purple) / <alpha-value>)',
+            'rebecca-blue': 'rgb(var(--rebecca-blue) / <alpha-value>)',
+            'rebecca-white': 'rgb(var(--rebecca-white) / <alpha-value>)',
+
+            'white-purple': 'rgb(var(--white-purple) / <alpha-value>)',
+            'white-blue': 'rgb(var(--white-blue) / <alpha-value>)',
+            'white-rebecca': 'rgb(var(--white-rebecca) / <alpha-value>)',
+
+            'purple-rebecca': 'rgb(var(--purple-rebecca) / <alpha-value>)',
+            'purple-blue': 'rgb(var(--purple-blue) / <alpha-value>)',
+            'purple-white': 'rgb(var(--purple-white) / <alpha-value>)',
+
             brand: {
                blue: "#ccddff"
             }
