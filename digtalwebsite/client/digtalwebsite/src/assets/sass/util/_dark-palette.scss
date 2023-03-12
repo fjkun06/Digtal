@@ -64,7 +64,6 @@
   --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-dark};
   --marketing-numbers: #{$marketing-numbers-dark};
 
-
    //scrollbar
    --scb-track-bs: #{$scb-track-bs-dark};
    --scb-track-bg: #{$scb-track-bg-dark};
@@ -77,4 +76,18 @@
   --software-development-section-presentation-left: #{$software-development-section-presentation-left-dark};
   --software-development-section-presentation-right: #{$software-development-section-presentation-right-dark};
   --software-development-number: #{$software-development-number-dark};
+
+  //
+
+  --rebecca-purple: #{toRGB(#2B0A3d)};
+  --rebecca-white: #{toRGB(white)};
+  --rebecca-blue: #{toRGB(#00D0FF)};
+
+  --white-purple: #{toRGB(#2B0A3D)};
+  --white-rebecca: #{toRGB(rebeccapurple)};
+  --white-blue: #{toRGB(#00D0FF)};
+
+  --purple-rebecca: #{toRGB(rebeccapurple)};
+  --purple-white: #{toRGB(white)};
+  --purple-blue: #{toRGB(#00D0FF)};
 }

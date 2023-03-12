@@ -135,4 +135,19 @@
   --software-development-section-presentation-left: #{$software-development-section-presentation-left-light};
   --software-development-section-presentation-right: #{$software-development-section-presentation-right-light};
   --software-development-number: #{$software-development-number-light};
+
+
+  //
+
+  --rebecca-purple: #{toRGB(rebeccapurple)};
+  --rebecca-white: #{toRGB(rebeccapurple)};
+  --rebecca-blue: #{toRGB(rebeccapurple)};
+
+  --white-purple: #{toRGB(white)};
+  --white-rebecca: #{toRGB(white)};
+  --white-blue: #{toRGB(white)};
+
+  --purple-rebecca: #{toRGB(#2B0A3D)};
+  --purple-white: #{toRGB(#2B0A3D)};
+  --purple-blue: #{toRGB(#2B0A3D)};
 }
