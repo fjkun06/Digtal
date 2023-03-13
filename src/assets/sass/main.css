@@ -2426,7 +2426,7 @@
     grid-template-rows: repeat(6, 1fr);
     justify-content: flex-end;
     padding-right: 5rem;
-    background: url(./../../svg/waves.svg#select-waves);
+    background: url(/src/assets/svg/waves.svg#select-waves);
     background: var(--navbar-service-wave-svg);
     background-position: center;
     background-size: cover;
@@ -2435,7 +2435,7 @@
 }
 @media screen and (min-width: 769px) and (min-width: 1025px) {
   .main-nav-sub-services .service-icons {
-    background: url(./../../svg/desktop_wave.svg#select-waves);
+    background: url(/src/assets/svg/desktop_wave.svg#select-waves);
     background: var(--navbar-service-desktop-svg);
     background-position: center;
     background-size: cover;
@@ -2443,7 +2443,7 @@
 }
 @media screen and (min-width: 769px) and (min-width: 1201px) {
   .main-nav-sub-services .service-icons {
-    background: url(./../../svg/biggest_wave.svg#select-waves);
+    background: url(/src/assets/svg/biggest_wave.svg#select-waves);
     background: var(--navbar-service-biggest-svg);
     background-position: center;
     background-size: cover;
@@ -4284,7 +4284,7 @@
   align-items: center;
   width: auto;
   height: auto;
-  background: url("../../../svg/home/arrow1.svg"), url("../../../svg/home/arrow2.svg"), url("../../../svg/home/arrow3.svg"), rgb(255, 255, 255);
+  background: url(/src/assets/svg/home/arrow1.svg), url(/src/assets/svg/home/arrow2.svg), url(/src/assets/svg/home/arrow3.svg), rgb(255, 255, 255);
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: 0% 24.5%, 98.75% 53.5%, 0% 82.5%;
   row-gap: 3rem;
@@ -4293,7 +4293,7 @@
 }
 @media only screen and (min-width: 768.1px) {
   .home__magic {
-    background: url("../../../svg/home/vector9.svg"), url("../../../svg/home/vector10.svg"), url("../../../svg/home/vector11.svg"), rgb(255, 255, 255);
+    background: url(/src/assets/svg/home/vector9.svg), url(/src/assets/svg/home/vector10.svg), url(/src/assets/svg/home/vector11.svg), rgb(255, 255, 255);
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: 76.5% 19.5%, 16% 48%, 76.5% 76%;
     row-gap: 1.2rem;
@@ -4316,7 +4316,7 @@
     grid-template-rows: repeat(15, 42.5px);
     grid-template-columns: repeat(2, 1fr);
     padding-bottom: 5rem;
-    background: var(--home-desktop-bg-svg), url("../../../svg/home/editFile1500.svg"), url("../../../svg/home/coffee1500.svg"), url("../../../svg/home/laptop1500.svg");
+    background: var(--home-desktop-bg-svg), url(/src/assets/svg/home/editFile1500.svg), url(/src/assets/svg/home/coffee1500.svg), url(/src/assets/svg/home/laptop1500.svg);
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: 51% 28%, 81.5% 60%, 51% 91%, 51% 58%, 35% 58.5%, 65.75% 58.5%;
     row-gap: 0rem;
@@ -5898,27 +5898,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../../../../svg/services/uiux/bg1light.svg"), url("../../../../svg/services/uiux/bg2light.svg"), var(--uiux-bg);
+  background: url(/src/assets/svg/services/uiux/bg1light.svg), url(/src/assets/svg/services/uiux/bg2light.svg), var(--uiux-bg);
   background-repeat: no-repeat;
   background-position: -7rem 100rem, 100% 171rem;
 }
 @media screen and (480px < width <= 960px) {
   .uiux {
-    background: url("../../../../svg/services/uiux/bg1light.svg"), url("../../../../svg/services/uiux/bg2light.svg"), var(--uiux-bg);
+    background: url(/src/assets/svg/services/uiux/bg1light.svg), url(/src/assets/svg/services/uiux/bg2light.svg), var(--uiux-bg);
     background-repeat: no-repeat;
     background-position: 0rem 87rem, 100% 171rem;
   }
 }
 @media screen and (width > 960px) {
   .uiux {
-    background: url("../../../../svg/services/uiux/bg3light.svg"), url("../../../../svg/services/uiux/bg4light.svg"), var(--uiux-bg);
+    background: url(/src/assets/svg/services/uiux/bg3light.svg), url(/src/assets/svg/services/uiux/bg4light.svg), var(--uiux-bg);
     background-position: 0rem 101rem, 18rem 212rem;
     background-repeat: no-repeat;
   }
 }
 @media screen and (width > 1350px) {
   .uiux {
-    background: url("../../../../svg/services/uiux/bg3light.svg"), url("../../../../svg/services/uiux/bg4light.svg"), var(--uiux-bg);
+    background: url(/src/assets/svg/services/uiux/bg3light.svg), url(/src/assets/svg/services/uiux/bg4light.svg), var(--uiux-bg);
     background-position: 0rem 101rem, 45% 117%;
     background-repeat: no-repeat;
   }
@@ -6747,34 +6747,34 @@
 }
 
 .suite {
-  background: url("../../../../svg/services/uiux/bg1light.svg"), url("../../../../svg/services/uiux/bg2light.svg"), var(--uiux-bg);
+  background: url(/src/assets/svg/services/uiux/bg1light.svg), url(/src/assets/svg/services/uiux/bg2light.svg), var(--uiux-bg);
   background-repeat: no-repeat;
   background-position: -7rem 100rem, 100% 171rem;
 }
 @media screen and (480px < width <= 960px) {
   .suite {
-    background: url("../../../../svg/services/uiux/bg1light.svg"), url("../../../../svg/services/uiux/bg2light.svg"), var(--uiux-bg);
+    background: url(/src/assets/svg/services/uiux/bg1light.svg), url(/src/assets/svg/services/uiux/bg2light.svg), var(--uiux-bg);
     background-repeat: no-repeat;
     background-position: 0rem 87rem, 100% 171rem;
   }
 }
 @media screen and (width > 960px) {
   .suite {
-    background: url("../../../../svg/services/uiux/bg3light.svg"), url("../../../../svg/services/uiux/bg4light.svg"), var(--uiux-bg);
+    background: url(/src/assets/svg/services/uiux/bg3light.svg), url(/src/assets/svg/services/uiux/bg4light.svg), var(--uiux-bg);
     background-position: 0rem 101rem, 18rem 212rem;
     background-repeat: no-repeat;
   }
 }
 @media screen and (width > 1350px) {
   .suite {
-    background: url("../../../../svg/services/uiux/bg3light.svg"), url("../../../../svg/services/uiux/bg4light.svg"), var(--uiux-bg);
+    background: url(/src/assets/svg/services/uiux/bg3light.svg), url(/src/assets/svg/services/uiux/bg4light.svg), var(--uiux-bg);
     background-position: 0rem 101rem, 45% 117%;
     background-repeat: no-repeat;
   }
 }
 
 .digitalmarketing__header {
-  background: url("../../../../images/digital2.jpg");
+  background: url(/src/assets/images/digital2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -6989,7 +6989,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background-image: url("../../../images/services/computer.png");
+  background-image: url(/src/assets/images/services/computer.png);
   background-size: cover;
   background-position: center;
   align-items: flex-end;
@@ -7046,7 +7046,7 @@
 }
 
 .softwaredev {
-  background-image: url("../../../images/services/computer.png");
+  background-image: url(/src/assets/images/services/computer.png);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -7512,7 +7512,7 @@
   :root.light {
     transition: all 0.25s ease-in-out;
     background: #fff;
-    --main-background: url("../../svg/app_background_light.svg");
+    --main-background: url(/src/assets/svg/app_background_light.svg);
     --footer-bg: transparent;
     --footer-body-heading-bg: #000000;
     --footer-body-link-color: rgba(0, 0, 0, 0.65);
@@ -7529,9 +7529,9 @@
     --navbar-link-after: rebeccapurple;
     --navbar-link-visited: rebeccapurple;
     --navbar-link-active-bb: 3px solid rebeccapurple;
-    --navbar-service-desktop-svg: url(./../../svg/desktop_wave.svg#select-waves);
-    --navbar-service-wave-svg: url(./../../svg/waves.svg#select-waves);
-    --navbar-service-biggest-svg: url(./../../svg/biggest_wave.svg#select-waves);
+    --navbar-service-desktop-svg: url(/src/assets/svg/desktop_wave.svg#select-waves);
+    --navbar-service-wave-svg: url(/src/assets/svg/waves.svg#select-waves);
+    --navbar-service-biggest-svg: url(/src/assets/svg/biggest_wave.svg#select-waves);
     --tablet-navbar-link: rebeccapurple;
     --mobile-navbar-bg: #fff;
     --mobile-navbar-select-item: #b38cd9;
@@ -7572,8 +7572,8 @@
     --home-body-para: #555;
     --home-body-title: rebeccapurple;
     --home-body-card-icon: rebeccapurple;
-    --home-desktop-bg-svg: url("../../svg/home/vector3.svg"), url("../../svg/home/vector4.svg"), url("../../svg/home/vector5.svg");
-    --home-laptop-bg-svg: url("../../svg/home/vector9.svg"), url("../../svg/home/vector10.svg"), url("../../svg/home/vector11.svg");
+    --home-desktop-bg-svg: url(/src/assets/svg/home/vector3.svg), url(/src/assets/svg/home/vector4.svg), url(/src/assets/svg/home/vector5.svg);
+    --home-laptop-bg-svg: url(/src/assets/svg/home/vector9.svg), url(/src/assets/svg/home/vector10.svg), url(/src/assets/svg/home/vector11.svg);
     --home-magic-bg: #fff;
     --home-magic-ts: rgba(0, 0, 0, 0.4);
     --home-service-icon: rebeccapurple;
@@ -7614,14 +7614,14 @@
   :root.dark {
     transition: all 0.25s ease-in-out;
     background: #2b0a3d;
-    --main-background: url("../../svg/app_background_dark.svg");
+    --main-background: url(/src/assets/svg/app_background_dark.svg);
     --home-magic-bg: #2b0a3d;
     --navbar-bb-light: linear-gradient(to left, rebeccapurple, #25a4ff);
     --footer-bt: linear-gradient(to left, #25a4ff, rebeccapurple);
     --home-service-icon: #fff;
     --footer-text: green;
-    --home-desktop-bg-svg: url("../../svg/home/vector3dark.svg"), url("../../svg/home/vector4dark.svg"), url("../../svg/home/vector5dark.svg");
-    --home-laptop-bg-svg: url("../../svg/home/vector9dark.svg"), url("../../svg/home/vector10dark.svg"), url("../../svg/home/vector11dark.svg");
+    --home-desktop-bg-svg: url(/src/assets/svg/home/vector3dark.svg), url(/src/assets/svg/home/vector4dark.svg), url(/src/assets/svg/home/vector5dark.svg);
+    --home-laptop-bg-svg: url(/src/assets/svg/home/vector9dark.svg), url(/src/assets/svg/home/vector10dark.svg), url(/src/assets/svg/home/vector11dark.svg);
     --arrow-start: #8bcfff;
     --arrow-end: rebeccapurple;
     --navbar-flag-bg: rebeccapurple;
@@ -7630,11 +7630,11 @@
     --tablet-navbar-link: #00d0ff;
     --mobile-navbar-bg: #2b0a3d;
     --mobile-navbar-select-item: rgba(255, 255, 255, 0.65);
-    --navbar-service-desktop-svg: url(./../../svg/desktop_wave_dark.svg#select-waves);
-    --navbar-service-wave-svg: url(./../../svg/waves_dark.svg#select-waves);
-    --navbar-service-biggest-svg: url(./../../svg/biggest_wave_dark.svg#select-waves);
-    --main-background: url("../../svg/app_background_dark.svg");
-    --footer-bg: url("../../svg/footer_bg.svg");
+    --navbar-service-desktop-svg: url(/src/assets/svg/desktop_wave_dark.svg#select-waves);
+    --navbar-service-wave-svg: url(/src/assets/svg/waves_dark.svg#select-waves);
+    --navbar-service-biggest-svg: url(/src/assets/svg/biggest_wave_dark.svg#select-waves);
+    --main-background: url(/src/assets/svg/app_background_dark.svg);
+    --footer-bg: url(/src/assets/svg/footer_bg.svg);
     --footer-body-heading-bg: #fff;
     --footer-body-link-color: rgba(255, 255, 255, 0.65);
     --footer-bt: linear-gradient(to left, #25a4ff, rebeccapurple);
