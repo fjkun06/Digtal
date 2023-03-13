@@ -48,8 +48,9 @@ const SoftwareDevelopment = () => {
       <div className="main-header">
         <div className="left">
           <div
-            className={`overflow-x-hidden break-keep text-center font-bold text-white laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
-
+            className={`overflow-x-hidden break-keep text-center font-bold text-[var(--software-development-section-presentation-left)] laptop:text-[40px] desktop:text-[50px] ${
+              matchesPhone ? "text-[42px]" : "text-[24px]"
+            }`}
           >
             <motion.p
               // style={matchesTablet && { fontSize: "20px" }}
@@ -94,7 +95,9 @@ const SoftwareDevelopment = () => {
         </div>
         <div className="right">
           <div
-            className={`relative overflow-x-hidden text-center font-bold text-[#663399] laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+            className={`relative overflow-x-hidden text-center font-bold text-[var(--software-development-section-presentation-right)] laptop:text-[40px] desktop:text-[50px] ${
+              matchesPhone ? "text-[42px]" : "text-[24px]"
+            }`}
             // style={matchesPhone && { fontSize: "35px" }}
           >
             <motion.p
@@ -136,8 +139,20 @@ const SoftwareDevelopment = () => {
               {t("software_development")}
             </motion.p>
           </div>
-          <div className="absolute right-0 w-3/5 break-words text-end text-sm font-extralight">
-            <motion.p>{t("software_development_slogan")}</motion.p>
+          <div className="w-full flex justify-center items-center">
+            <div
+              className={`absolute ${
+                matchesPhone
+                  ? "left-[55%] mt-24 max-w-[110px] text-[16px]"
+                  : matchesTablet
+                  ? "left-[51%] mt-14 max-w-[120px] text-[13px]"
+                  : matchesLaptop
+                  ? "left-[51%] mt-14 max-w-[210px] text-[17px]"
+                  : "left-[51%] mt-14 max-w-[260px] text-[20px]"
+              }  break-word text-end  font-medium text-[rebeccapurple]`}
+            >
+              <motion.p>{t("software_development_slogan")}</motion.p>
+            </div>
           </div>
         </div>
       </div>

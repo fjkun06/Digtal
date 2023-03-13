@@ -1,4 +1,4 @@
-import bus600 from "src/assets/images/services/uiux/busTablet.png";
+import bus600 from "src/assets/images/services/uiux/bustablet.png";
 import bus from "src/assets/images/services/uiux/BusDesktop.png";
 import market600 from "src/assets/images/services/uiux/marketTablet.png";
 import market from "src/assets/images/services/uiux/marketDesktop.png";

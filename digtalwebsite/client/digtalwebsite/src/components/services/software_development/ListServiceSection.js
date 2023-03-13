@@ -17,7 +17,7 @@ const ListServiceSection = ({ number, heading, info }) => {
           number % 2 === 0 ? "laptop:flex-row-reverse" : "laptop:flex-row"
         }`}
       >
-        <div className="flex h-[200px] items-center justify-center text-[50px]  font-semibold text-purple-800 laptop:h-auto laptop:w-3/12 laptop:text-[60px]">
+        <div className="flex h-[200px] items-center justify-center text-[50px]  font-semibold text-[var(--software-development-number)] laptop:h-auto laptop:w-3/12 laptop:text-[60px]">
           <motion.p
             className="number-value"
             initial={{ scale: 1 }}
