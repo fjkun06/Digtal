@@ -1,0 +1,214 @@
+@use "../../util/mixins";
+
+@mixin office {
+  .office {
+    grid-row: 7/10;
+    grid-column: 1/2;
+    background-color: var(--contact-bg);
+    background:transparent;
+
+    @media only screen and (min-width: 1201px) {
+      grid-row: 2/5;
+      grid-column: 1/2;
+    }
+
+    span,
+    h4 {
+      font-family: "Poppins 700", "Helvetica Neue";
+      color: var(--home-heading-color);
+      width: 100%;
+      font-size: 2rem;
+      @media only screen and (min-width: 481px) {
+        font-size: 2.7rem;
+      }
+    }
+    span {
+      padding: 2rem 0px 1.5rem 4.5rem;
+      @media only screen and (min-width: 481px) {
+        padding: 3rem 0px 1.5rem 8rem;
+      }
+
+      @media only screen and (min-width: 1201px) {
+        padding: 1rem 0px 1.5rem 0rem;
+      }
+    }
+    img {
+      border-radius: 0px;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    img[id="office-pic"] {
+      @media only screen and (min-width: 481px) {
+        width: 100%;
+        height: auto;
+        padding: 0px 10vw;
+      }
+      @media only screen and (min-width: 1201px) {
+        padding: 0px;
+        max-width: 52rem;
+      }
+    }
+
+    .office-body {
+      width: 100%;
+
+      @include mixins.flex(column);
+      span {
+        background-color: var(--contact-bg);
+    background:transparent;
+
+        font-family: "Poppins";
+        color: var(--contact-secondary);
+        font-size: 1.5rem;
+        width: 100%;
+        padding: 2rem 5rem;
+        text-align: center;
+        @media only screen and (min-width: 481px) {
+          font-size: 1.8rem;
+          padding: 2rem 10vw;
+          text-align: left;
+        }
+        @media only screen and (min-width: 1201px) {
+          padding: 2rem 0vw;
+          text-align: left;
+        }
+      }
+
+      &-location {
+        width: 100%;
+        @include mixins.flex(column);
+        @media only screen and (min-width: 481px) {
+          @include mixins.flex;
+          height: 26rem;
+          align-items: flex-start;
+          padding: 0 10vw;
+        }
+        @media only screen and (min-width: 481px) and (max-width: 620px) {
+          padding: 0 0vw;
+        }
+        @media only screen and (min-width: 769px) {
+          height: 20rem;
+          padding: 0 15vw;
+          // margin-bottom: 10rem;
+        }
+        @media only screen and (min-width: 1201px) {
+          padding: 0 0vw;
+          align-items: flex-start;
+          justify-content: flex-start;
+          height: 17rem;
+        }
+        row-gap: 2.5rem;
+        padding-bottom: 2rem;
+
+        img {
+          @media only screen and (min-width: 481px) {
+            transform: scale(1.05);
+          }
+        }
+
+        &--item {
+          width: 100%;
+          @include mixins.flex(column);
+
+          @media only screen and (min-width: 481px) {
+            &:nth-child(1) {
+              .icon-top {
+                padding-left: 7.7vw;
+              }
+              .icon-bottom {
+                padding-left: 2.75vw;
+              }
+            }
+            &:nth-child(2) {
+              .icon-top {
+                padding-left: 0.7vw;
+              }
+              .icon-bottom {
+                padding-left: 2.5vw;
+              }
+            }
+          }
+
+          @media only screen and (min-width: 481px) {
+            &:nth-child(1) {
+              .icon-top {
+                padding-left: 6.2vw;
+              }
+            }
+          }
+          @media only screen and (min-width: 1201px) {
+            &:nth-child(1),
+            &:nth-child(2) {
+              .icon-top,
+              .icon-bottom {
+                padding-left: 0vw;
+              }
+            }
+          }
+
+          h4 {
+            text-align: center;
+            padding-bottom: 0.5rem;
+            @media only screen and (min-width: 1201px) {
+              text-align: left;
+            }
+          }
+
+          h5 {
+            font-family: "Poppins 500";
+            font-size: 1.5rem;
+            color: var(--contact-secondary);
+            @media only screen and (min-width: 481px) {
+              font-size: 1.7rem;
+            }
+          }
+
+          & > div {
+            width: 100%;
+            @include mixins.flex(column);
+            @media only screen and (min-width: 1201px) {
+              justify-content: flex-start;
+              align-items: flex-start;
+            }
+          }
+          .icon-text {
+            @include mixins.flex;
+
+            column-gap: 0.25rem;
+            @media only screen and (min-width: 481px) {
+              column-gap: 0.5rem;
+            }
+            @media only screen and (min-width: 1201px) {
+              justify-content: flex-start;
+            }
+            padding: 0.15rem 0;
+            h5 {
+              margin-top: -1rem;
+            }
+          }
+
+          .address {
+            // border: 1px solid red;
+            margin-top: -1rem;
+            width: 100%;
+            text-align: center;
+            padding-left: 2.5rem;
+
+            @media only screen and (min-width: 481px) {
+              width: auto;
+              padding-left: 0;
+              padding-top: 0.5rem;
+              padding-bottom: 2rem;
+              text-align: left;
+            }
+
+            @media only screen and (min-width: 1201px) {
+              padding-left: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

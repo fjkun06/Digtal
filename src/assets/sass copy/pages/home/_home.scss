@@ -1,0 +1,22 @@
+@use "../../util/variables";
+@use "../../util/mixins";
+@use "carousel";
+@use "infinite-carousel";
+@use "services";
+@use "magic";
+
+@keyframes fade-in-out {
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes glide-up {
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+

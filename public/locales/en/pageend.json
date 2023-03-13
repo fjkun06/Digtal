@@ -1,0 +1,28 @@
+{
+  "subscribe": "Subscribe to Our Newsletter",
+  "subs-button": "Subscribe",
+  "placeholder": "Enter email address",
+  "link": {
+    "about": "About Us",
+    "contact": "Contact",
+    "legal": "Legal Notice",
+    "news": "News",
+    "career": "Career",
+    "blog": "Blog"
+  },
+  "services": {
+    "mad": "Software Development",
+    "wd": "Web Development",
+    "dm": "Digital Marketing",
+    "ui": "UI/UX Design"
+  },
+  "terms": "Terms & Conditions",
+  "policy": "Privacy Policy",
+  "rights": "All Rights Reserved",
+  "cookie-settings": "Cookie Settings",
+  "cookie-policy": "Cookie Policy",
+  "contact":"Contact Us",
+  "help":"Need help? Let Us Know",
+  "ent": "Enterprise",
+  "serv":"Services"
+}

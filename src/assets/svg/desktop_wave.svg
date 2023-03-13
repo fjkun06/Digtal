@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 240 120" width="471px" height="230px">
+  <title>Waves</title>
+  <style>
+    svg {
+      background-color: transparent;
+    }
+  </style>
+
+
+  <defs>
+    <path id="largest-arc" d="M-10,122 Q10,116 5,110 C-25,91 -10,60 15,60 S25,60 30,40 C35,20 60,0 90,20 Q96,24 110,15 C130,-2 175,-5 180,20 Q173,45 200,35 T240,55 Q230,85 260,75" Fill="none" stroke-width="2px" />
+
+  </defs>
+
+  <use xlink:href="#largest-arc" stroke="#9747FF" x="25" fill="none" y="22" />
+  <use xlink:href="#largest-arc" stroke="black" x="40" y="35" transform="scale(0.9)" fill="none" />
+  <use xlink:href="#largest-arc" stroke="#9747FF" x="85" y="67" transform="scale(0.7)" fill="none" />
+
+  <view id="select-waves" viewBox="0,0 205,120" />
+
+</svg>

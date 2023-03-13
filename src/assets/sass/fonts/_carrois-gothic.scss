@@ -1,0 +1,13 @@
+@use "~@fontsource/carrois-gothic/scss/mixins" as CarroisGothic;
+
+$weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+@each $weight in $weights {
+  $name: "Carrois Gothic #{$weight}";
+
+  @if $weight == 400 {
+    $name: "Carrois Gothic";
+  }
+
+  @include CarroisGothic.fontFace($fontName: $name, $weight: $weight);
+}

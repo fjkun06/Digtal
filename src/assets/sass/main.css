@@ -1,0 +1,148 @@
+@use "fonts/index";
+@use "layout/navbar";
+@use "layout/footer";
+@use "pages/pages";
+@use "components/components";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+@layer base {
+  :root.light {
+    --footer-bg: #fff;
+    --footer-text: #000000;
+    --footer-menu-bg: #fff;
+    --footer-menu-bb: #e4ebf3;
+    --footer-policy-bg: #fff;
+    --footer-subscribe-bg: #f5f7fa;
+    --footer-subscribe-input-bs: #777;
+    --footer-subscribe-input-caret: #888;
+    --footer-link-hover: #9966cc;
+    --footer-bt-light: linear-gradient(to left, rebeccapurple, #25a4ff);
+    --navbar-link: #000000;
+    --navbar-link-visited: #000000;
+    --navbar-link-active-bb: 3px solid rebeccapurple;
+    --mobile-navbar-bg: rebeccapurple;
+    --mobile-navbar: aliceblue;
+    --mobile-navbar-link: gold;
+    --mobile-navbar-item-bb: #000000;
+    --mobile-navbar-item-link: #fff;
+    --mobile-navbar-item-link-hovered: #000000;
+    --mobile-navbar-item-hover: #e6d9f2;
+    --navbar-select-item-bg: rebeccapurple;
+    --navbar-select-item-bb: #000000;
+    --navbar-select-item-hover: #e6d9f2;
+    --navbar-select-item-dd-text: #fff;
+    --navbar-select-item-dd-text-hover: #000000;
+    --navbar-language-dd-item-bg-hover: #e6d9f2;
+    --navbar-language-dd-item-bg: rebeccapurple;
+    --navbar-language-dd-item-bl: #000000;
+    --navbar-language-dd-item-br: #000000;
+    --navbar-language-dd-item-bt: #000000;
+    --navbar-language-dd-item-bb: #000000;
+    --navbar-bb-light: linear-gradient(to left, #25a4ff, rebeccapurple);
+    --special-language-hover-bg: rebeccapurple;
+    --special-language-dd-bb: #e6d9f2;
+    --special-language-dd-hover-bg: #e6d9f2;
+    --arrow-start: #8bcfff;
+    --arrow-end: rebeccapurple;
+    --home-body-inner-bg: #f5f7fa;
+    --home-body-card-text: #00000099;
+    --home-body-card-heading: #000000de;
+    --home-body-card-button: rebeccapurple;
+    --home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
+    --home-body-card-button-hover-color: #f5f7fa;
+    --home-body-card-button-hover-bg: rebeccapurple;
+    --home-body-para: #555;
+    --home-body-title: rebeccapurple;
+    --home-body-card-icon: rebeccapurple;
+    --carousel-button-bg: linear-gradient(to bottom left, rebeccapurple, #00d0ff);
+    --carousel-icon-bg: rebeccapurple;
+    --carousel-consulting-caption: #fff;
+    --carousel-consulting-caption-sub-bg: rgba(0, 0, 0, 0.4);
+    --carousel-consulting-caption-sub-before-bg: #fff;
+    --carousel-button-mobile-bg: rebeccapurple;
+    --carousel-control-arrow: rebeccapurple;
+    --carousel-caption-overline-width: 0rem;
+  }
+  :root.light > * a::-moz-selection,
+  :root.light *::-moz-selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+  :root.light > * a::selection,
+  :root.light *::selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+  :root,
+  :root.dark {
+    --footer-bg: red;
+    --footer-text: green;
+    --arrow-start: #8bcfff;
+    --arrow-end: rebeccapurple;
+  }
+  :root > * a::-moz-selection, :root *::-moz-selection,
+  :root.dark > * a::-moz-selection,
+  :root.dark *::-moz-selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+  :root > * a::selection, :root *::selection,
+  :root.dark > * a::selection,
+  :root.dark *::selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+}
+
+@layer components {
+  .solutions__title {
+    position: relative;
+  }
+  .swiper-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear;
+  }
+}
+
+#scroll-zone {
+  background: url("../../assets/svg/app_background_light.svg");
+  background-size: auto;
+  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: border-box;
+}
+
+a {
+  font-family: "Inter", sans-serif;
+  -webkit-transition: all ease 0.15s;
+  transition: all ease 0.15s;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  -webkit-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6em;
+  min-width: 32rem;
+}
+
+.fix {
+  position: fixed;
+}
+/*# sourceMappingURL=main.css.map */
