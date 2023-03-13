@@ -1,0 +1,46 @@
+import HeaderDigitalMarketing from "src/components/services/digital_marketing/header";
+import HeaderText from "src/components/services/digital_marketing/headertext";
+import HomeHeading from "src/components/reusables/HomeHeading";
+import Score from "src/components/services/digital_marketing/score";
+import Testimonial from "src/components/services/digital_marketing/testimonials";
+import MarketingCard from "src/components/reusables/MarketingCard";
+// import OneIconDesktop from "src/assets/svg/services/digitalmarketing/OneIconDesktop";
+// import OneIconMobile from "src/assets/svg/services/digitalmarketing/OneIconMobile";
+import { marketingCardElements } from "src/components/services/digital_marketing/config";
+import { nano } from "src/App";
+import { testimonialsCardElements } from "src/components/services/digital_marketing/config";
+
+export default function DigitalMarketing() {
+  return (
+    <>
+      <div className=" digital__marketing flex w-full flex-col items-center justify-center">
+        <HeaderDigitalMarketing />
+      </div>
+      <HeaderText />
+      <div className=" suite flex flex-col items-center justify-center py-4 px-4">
+        <div className="my-4 flex items-center justify-center text-center text-4xl font-extrabold tablet:my-8">
+          <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
+        </div>
+        <div className="flex flex-wrap gap-8 py-16 laptop:grid-cols-2 content-center justify-center aitems-center">
+          {marketingCardElements.map(
+            (details) => {
+              return (
+                <MarketingCard
+                  key={nano()}
+                {...details}
+                />
+              );
+            }
+          )}
+        </div>
+    
+      </div>
+      <Score />
+      <div className=" testimonial grid w-full grid-cols-1 content-center items-center justify-center tablet:grid-cols-2 tablet:px-12 laptop:px-24 ">
+        {testimonialsCardElements.map(element => {
+          return <Testimonial key={nano()} {...element} />;
+        })}
+      </div>
+    </>
+  );
+}

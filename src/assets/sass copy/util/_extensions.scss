@@ -1,0 +1,11 @@
+@use "./variables";
+
+
+//footer
+%f-text{
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.3rem;
+  color: var( --footer-text);
+  font-family: "Montserrat", "Helvetica Neue",;
+}

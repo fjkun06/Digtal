@@ -1,0 +1,35 @@
+{
+  "contact-section": {
+    "getintouch": "Get in touch with Us",
+    "text": "To initiate any communication or for any inquiries, kindly fill the form on the page and we will get to you as soon as possible.",
+    "visit": "Pay us a visit at any of these addresses.",
+    "office": "Our office"
+  },
+  "name": {
+    "first": "Nom",
+    "last": "Prénom"
+  },
+  "email": "Email",
+  "phone": {
+    "tel": "Tel:",
+    "sel": "Choisissez votre pays et entrez votre numéro"
+  },
+  "subject": {
+    "label": "Sujet",
+    "op1": "Conception UI/UX",
+    "op2": "Développement Web",
+    "op3": "Marketing Digital",
+    "op4": "Consulting"
+  },
+  "message": "Message",
+  "button": {
+    "normal": "Soumettre",
+    "submitting": "Soumission...",
+    "submitted": "Soumis",
+    "success": "Soumis avec succès",
+    "error": "Impossible d'envoyer, veuillez réessayer"
+  },
+  "company_name": "Nom de l'Entreprise",
+
+  "interest": "Je suis intéressé par"
+}
