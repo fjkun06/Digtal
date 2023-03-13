@@ -1,0 +1,63 @@
+import React from "react";
+
+const HeaderSignatureMobileIcon = () => {
+  return (
+    <span>
+      <svg
+        width="170"
+        height="52"
+        viewBox="0 0 170 52"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+      
+        <g filter="url(#filter0_d_3289_5116)">
+          <path
+            d="M21 28.1572C21.7491 26.1218 22.7472 23.3674 23.5619 21.297C23.7476 20.8252 24.3378 18.779 25.0279 18.365C26.6804 17.3735 29.573 21.0946 30.3652 21.9517C31.0524 22.695 33.8496 27.0758 35.1333 26.9332C36.8414 26.7434 37.7593 23.5471 38.051 22.2648C38.4409 20.5512 38.3204 18.6409 40.3425 18.1088C42.237 17.6103 43.4025 18.9119 44.5697 20.2437C45.9861 21.86 47.6186 25.2602 49.7647 26.0081C52.5882 26.992 53.9317 23.0795 54.8173 21.3254C57.0431 16.9172 63.8217 22.3427 66.289 23.9016C67.1255 24.4301 70.5865 26.8399 71.8399 27.3744C73.6737 28.1565 74.307 27.1286 74.7718 25.5099C75.0097 24.6818 74.8122 23.6972 75.2842 22.9765C76.2604 21.4859 80.5152 23.4184 81.1909 23.6454C86.349 25.3784 91.9111 28.8085 97.2598 26.0792C99.3045 25.0359 99.4892 24.4242 101.957 24.1151C105.9 23.621 109.852 24.8502 113.67 25.5811C119.775 26.7495 125.088 24.8614 131.163 24.2574C136.332 23.7434 141.621 24.1414 146.733 23.1757C147.684 22.9961 148.637 22.7772 149.608 22.7772"
+            stroke="#663399"
+            strokeWidth="4.43361"
+            strokeLinecap="round"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_d_3289_5116"
+            x="0.838184"
+            y="0.70843"
+            width="168.931"
+            height="50.4799"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dy="2.86976" />
+            <feGaussianBlur stdDeviation="8.97202" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0.4 0 0 0 0 0.2 0 0 0 0 0.6 0 0 0 1 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_3289_5116"
+            />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="effect1_dropShadow_3289_5116"
+              result="shape"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </span>
+  );
+};
+
+export default HeaderSignatureMobileIcon;

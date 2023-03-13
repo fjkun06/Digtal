@@ -1,0 +1,91 @@
+@import "./variables";
+@import "./custom-modifiers.scss";
+
+:root.light {
+  & > * a::selection,
+  *::selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+  //footer section
+  --footer-bg: #{$footer-bg-light};
+  --footer-text: #{$footer-text-light};
+
+  --footer-menu-bg: #{$footer-bg-light};
+  --footer-menu-bb: #{$footer-menu-bb-light};
+
+  --footer-policy-bg: #{$footer-bg-light};
+  --footer-subscribe-bg: #{$footer-subscribe-bg-light};
+  --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
+  --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
+  --footer-link-hover: #{$footer-link-hover-light};
+  --footer-bt-light: #{$footer-border-gradient};
+
+  //navbar
+  //navbar section
+  //desktop
+  --navbar-link: #{$navbar-link-light};
+
+  --navbar-link-visited: #{$navbar-link-visited-light};
+  --navbar-link-active-bb: #{$navbar-link-active-bb-light};
+
+  //mobile
+  --mobile-navbar-bg: #{$mobile-navbar-bg-light};
+  --mobile-navbar: #{$mobile-navbar-light};
+  --mobile-navbar-link: #{$mobile-navbar-link-light};
+  --mobile-navbar-item-bb: #{$mobile-navbar-item-bb-light};
+  --mobile-navbar-item-link: #{$mobile-navbar-item-link-light};
+  --mobile-navbar-item-link-hovered: #{$mobile-navbar-item-link-hovered-light};
+  --mobile-navbar-item-hover: #{$mobile-navbar-item-hover-light};
+
+  //select both navbars
+  --navbar-select-item-bg: #{$navbar-select-item-bg-light};
+  --navbar-select-item-bb: #{$navbar-select-item-bb-light};
+  --navbar-select-item-hover: #{$navbar-select-item-hover-light};
+  --navbar-select-item-dd-text: #{$navbar-select-item-dd-text-light};
+  --navbar-select-item-dd-text-hover: #{$navbar-select-item-dd-text-hover-light};
+
+  //language dropdown
+  --navbar-language-dd-item-bg-hover: #{$navbar-language-dd-item-bg-hover-light};
+  --navbar-language-dd-item-bg: #{$navbar-language-dd-item-bg-light};
+  --navbar-language-dd-item-bl: #{$navbar-language-dd-item-bl-light};
+  --navbar-language-dd-item-br: #{$navbar-language-dd-item-br-light};
+  --navbar-language-dd-item-bt: #{$navbar-language-dd-item-bt-light};
+  --navbar-language-dd-item-bb: #{$navbar-language-dd-item-bb-light};
+  --navbar-bb-light: #{$navbar-border-gradient};
+
+  //special
+  --special-language-hover-bg: #{$special-language-hover-bg-light};
+  --special-language-dd-bb: #{$special-language-dd-bb-light};
+  --special-language-dd-hover-bg: #{$special-language-dd-hover-bg-light};
+  // --navbar-link: #{$navbar-link-light};
+
+  //arrow
+  --arrow-start: #{$arrow-start-light};
+  --arrow-end: #{$arrow-end-light};
+
+  //home
+  --home-body-inner-bg: #{$home-body-inner-bg-light};
+  --home-body-card-text: #{$home-body-card-text-light};
+  --home-body-card-heading: #{$home-body-card-heading-light};
+  --home-body-card-button: #{$home-body-card-button-light};
+  --home-body-card-bs-light: #{$home-body-card-bs-light};
+  --home-body-card-button-hover-color: #{$home-body-card-button-light-hover-color};
+  --home-body-card-button-hover-bg: #{$home-body-card-button-light-hover-bg};
+  --home-body-para: #{$home-body-para-light};
+  --home-body-title: #{$home-body-title-light};
+  --home-body-card-icon: #{$home-body-card-icon-light};
+
+  //home carousel
+  --carousel-button-bg: #{$carousel-button-bg-light};
+  --carousel-icon-bg: #{$carousel-icon-bg-light};
+  --carousel-consulting-caption: #{$carousel-consulting-caption-light};
+  --carousel-consulting-caption-sub-bg: #{$carousel-consulting-caption-sub-bg-light};
+  --carousel-consulting-caption-sub-before-bg: #{$carousel-consulting-caption-sub-before-bg-light};
+  --carousel-button-mobile-bg: #{$carousel-button-mobile-bg-light};
+  --carousel-control-arrow: #{$carousel-control-arrow-light};
+
+  //modifiers
+  --carousel-caption-overline-width: #{$carousel-caption-overline-width};
+  // --carousel-caption-overline-animated-width: #{$carousel-caption-overline-animated-width};
+}

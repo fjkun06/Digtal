@@ -1,0 +1,27 @@
+{
+  "subscribe": "S'abonner à notre Newsletter",
+  "subs-button": "Souscrire",
+  "placeholder": "Veuillez entrer votre email",
+
+  "link": {
+    "about": "Entreprise ",
+    "contact": "Contact",
+    "legal": "Mentions Légales",
+    "news": "News",
+    "career": "Career",
+    "blog": "Blog"
+  },
+  "services": {
+    "mad": "Dev App Mobile",
+    "wd": "Dev Web",
+    "dm": "Marketing Digital",
+    "ui": "UI/UX Design"
+  },
+  "terms": "Conditions Générales",
+  "policy": "Politique de confidentialité",
+  "rights": "Tous droits réservés",
+  "cookie-settings": "Paramètres des Cookies ",
+  "cookie-policy": "Politique de Cookies ",
+  "contact": "Contactez Nous",
+  "help": "Besoin d'aide? Nous sommes là"
+}

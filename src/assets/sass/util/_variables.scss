@@ -1,0 +1,103 @@
+//bs: box-shadow
+//bg: background
+//bb: border bottom
+//dd: dropdown
+//bl: border left n so on...
+
+//variablessss
+$displayState: none;
+$purple: rebeccapurple;
+$black: #000000;
+$active-hover: gold;
+$light-blue: lighten(rgb(0, 81, 139), 50);
+$white: #fff;
+$light-purple-50: lighten($purple, 50);
+$light-purple-20: lighten($purple, 20);
+$light-purple-10: lighten($purple, 10);
+
+//global variables
+$facebook-hover: rgb(16, 16, 174);
+$instagram-hover: rgb(81, 31, 131);
+$twitter-hover: lighten(rgb(0, 81, 139), 30);
+$youtube-hover: red;
+$linkedin-hover: blue;
+$navbar-border-gradient: linear-gradient(to left, lighten(rgb(0, 81, 139), 30), $purple);
+// $navbar-border-gradient: linear-gradient(to left, lighten(rgb(0, 81, 139), 50), $light-purple-10);
+$footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 139), 30));
+
+//Light colorSpace
+//Light colorSpace
+
+//footer section
+$footer-bg-light: $white;
+$footer-text-light: $black;
+$footer-menu-bg-light: $footer-bg-light;
+$footer-policy-bg-light: $footer-bg-light;
+$footer-subscribe-bg-light: #f5f7fa;
+$footer-subscribe-input-bs-light: #777;
+$footer-subscribe-input-caret-light: #888;
+$footer-link-hover-light: $light-purple-20;
+$footer-menu-bb-light: #e4ebf3;
+$footer-bt-light: $footer-border-gradient;
+
+
+//navbar section
+//desktop
+$navbar-link-light: $black;
+$navbar-link-visited-light: $navbar-link-light;
+$navbar-link-active-bb-light: 3px solid $purple;
+
+//mobile
+$mobile-navbar-bg-light: $purple;
+$mobile-navbar-light: aliceblue;
+$mobile-navbar-link-light: $active-hover;
+$mobile-navbar-item-bb-light: $black;
+$mobile-navbar-item-link-light: $footer-bg-light;
+$mobile-navbar-item-link-hovered-light: $black;
+$mobile-navbar-item-hover-light: $light-purple-50;
+
+//select both navbars
+$navbar-select-item-bg-light: $purple;
+$navbar-select-item-bb-light: $black;
+$navbar-select-item-hover-light: $light-purple-50;
+$navbar-select-item-dd-text-light: $white;
+$navbar-select-item-dd-text-hover-light: $black;
+
+//language dropdown
+$navbar-language-dd-item-bg-hover-light: $light-purple-50;
+$navbar-language-dd-item-bg-light: $purple;
+$navbar-language-dd-item-bl-light: $black;
+$navbar-language-dd-item-br-light: $black;
+$navbar-language-dd-item-bt-light: $black;
+$navbar-language-dd-item-bb-light: $black;
+$navbar-bb-light: $navbar-border-gradient;
+
+//special
+$special-language-hover-bg-light: $purple;
+$special-language-dd-bb-light: $light-purple-50;
+$special-language-dd-hover-bg-light: $light-purple-50;
+
+//arrowa
+$arrow-start-light: $light-blue;
+$arrow-end-light: $purple;
+
+//home
+$home-body-inner-bg-light: #f5f7fa;
+$home-body-card-text-light: #00000099;
+$home-body-card-heading-light: #000000de;
+$home-body-card-button-light: $purple;
+$home-body-card-button-light-hover-color: $home-body-inner-bg-light;
+$home-body-card-button-light-hover-bg: $home-body-card-button-light;
+$home-body-card-icon-light: $purple;
+$home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
+$home-body-para-light: #555;
+$home-body-title-light: $purple;
+
+//home carousel
+$carousel-button-bg-light: linear-gradient(to bottom left, rebeccapurple, rgb(0, 208, 255));
+$carousel-icon-bg-light: $purple;
+$carousel-consulting-caption-light: $white;
+$carousel-consulting-caption-sub-bg-light: rgba($black, 0.4);
+$carousel-consulting-caption-sub-before-bg-light: $white;
+$carousel-button-mobile-bg-light: $purple;
+$carousel-control-arrow-light: $purple;
