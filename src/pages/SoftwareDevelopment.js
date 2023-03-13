@@ -1,17 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
 import FirstSection from "../components/services/software_development/FirstSection";
+import ServiceSection from "../components/services/software_development/services/main";
+import BrandSection from "../components/home/brands/main";
 import ListServiceSection from "../components/services/software_development/ListServiceSection";
 import { useTranslation } from "react-i18next";
-import {
-  headerVariants,
-  rightVariants,
-  subTextVariants,
-  containerVariants
-} from "../utils/motionVariants/variants";
+import { containerVariants } from "../utils/motionVariants/variants";
+import { useMediaQuery } from "@mui/material";
+import Patner from "src/components/services/software_development/patner";
 
 const SoftwareDevelopment = () => {
   const { t } = useTranslation("softwaredevelopment");
+  const matchesLaptop = useMediaQuery("(max-width:1199px)");
+  const matchesTablet = useMediaQuery("(max-width:919px)");
+  const matchesPhone = useMediaQuery("(max-width:530px)");
+  console.log(matchesLaptop);
 
   const detailsData = [
     {
@@ -42,50 +45,99 @@ const SoftwareDevelopment = () => {
 
   return (
     <>
-
       <div className="main-header">
         <div className="left">
-          <div className="text">
+          <div
+            className={`overflow-x-hidden break-keep text-center font-bold text-white laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+
+          >
             <motion.p
-              variants={headerVariants}
-              initial="hidden"
-              animate="visible"
+              // style={matchesTablet && { fontSize: "20px" }}
+              initial={{ x: -300 }}
+              animate={
+                matchesPhone
+                  ? {
+                      x: 132.5,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : matchesTablet
+                  ? {
+                      x: 130,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : matchesLaptop
+                  ? {
+                      x: 217,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : {
+                      x: 270,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+              }
             >
               {t("software_development")}
             </motion.p>
-          </div>
-
-          <div className="left-bottom">
-            <div className="sub-text">
-              <p>
-                <br />
-                <br />
-              </p>
-            </div>
           </div>
         </div>
         <div className="right">
-          <div className="text">
+          <div
+            className={`relative overflow-x-hidden text-center font-bold text-[#663399] laptop:text-[40px] desktop:text-[50px] ${matchesPhone ?"text-[42px]": "text-[24px]"}`}
+            // style={matchesPhone && { fontSize: "35px" }}
+          >
             <motion.p
-              variants={rightVariants}
-              initial="hidden"
-              animate="visible"
+              initial={{ x: 300 }}
+              animate={
+                matchesPhone
+                  ? {
+                      x: -132.5,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : matchesTablet
+                  ? {
+                      x: -130,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : matchesLaptop
+                  ? {
+                      x: -217,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+                  : {
+                      x: -270,
+                      transition: {
+                        duration: 2,
+                        type: "tween"
+                      }
+                    }
+              }
             >
               {t("software_development")}
             </motion.p>
           </div>
-          <div className="right-bottom">
-            <div className="sub-text">
-              <motion.p
-
-                variants={subTextVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-                molestias!
-              </motion.p>
-            </div>
+          <div className="absolute right-0 w-3/5 break-words text-end text-sm font-extralight">
+            <motion.p>{t("software_development_slogan")}</motion.p>
           </div>
         </div>
       </div>
@@ -95,7 +147,6 @@ const SoftwareDevelopment = () => {
 
       {/* services section */}
       {detailsData.map((data, index) => (
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -108,8 +159,16 @@ const SoftwareDevelopment = () => {
             info={data.info}
           />
         </motion.div>
-
       ))}
+      <div className=" mt-16">
+        <BrandSection heading={"technologies"} />
+      </div>
+      <div className="mt-16">
+        <Patner />
+      </div>
+      <div className=" mt-16">
+        <ServiceSection />
+      </div>
     </>
   );
 };

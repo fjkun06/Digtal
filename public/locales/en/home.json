@@ -50,14 +50,26 @@
     "text": "Benefit From The Know-how Of Our Young And Dynamic Team, comprising of more than 10 experts in Web & Mobile Development, IT Consulting, and Digital Marketing."
   },
 
-  "service": "DIVE INTO A MULTITUDE OF SOLUTIONS.",
-  "magic": "HOW WE MAKE THE MAGIC HAPPEN.",
-  "technologies": "OUR TECHNOLOGIES.",
+  "service": "DIVE INTO A MULTITUDE OF SOLUTIONS",
+  "magic": "HOW WE MAKE THE MAGIC HAPPEN",
+  "technologies": "OUR TECHNOLOGIES",
   "process": {
-    "one": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
-    "two": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
-    "three": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet...",
-    "four": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet..."
+    "one": {
+      "title": "Strategy",
+      "body": "Alle unsere Projekte beginnen mit einer Entdeckungsphase, in der wir in Ihre Welt eintauchen.Unsere UX-Designer befragen alle Beteiligten, analysieren Ihre Konkurrenten, suchen Ihre Nutzer und konsolidieren Ihre Inhalte.Das Ergebnis ist ein strategischer Aktionsplan mit einem empathischen Verständnis des zu lösenden Problems."
+    },
+    "two": {
+      "title": "Design & Prototyp",
+      "body": "Wir erdenken und entwerfen gemeinsam dein digitales Produkt, um seinen Wert zu maximieren: Markenplattform, Design Sprint, User Journeys, Mockups, User Tests. "
+    },
+    "three": {
+      "title": "Maßgeschneiderte Entwicklung",
+      "body": "Wir erstellen Websites, Intranets/Extranets mit Schnittstellen zu Ihren CRM-Lösungen oder Management-Tools.Wir können uns in Ihre Login-Ökosysteme (SSO/MFA) integrieren.Wir bevorzugen zuverlässige Open-Source-Lösungen je nach Bedarf Ihres Projekts: Wordpress / Prestashop / Laravel / Ionic / Back-end / Front-end und innovative Lösungen wie React, Vue, Laravel, Node.js."
+    },
+    "four": {
+      "title": "Begleitung & Beratung",
+      "body": "Um den Erfolg Ihres Digtialprodukts zu sichern, begleiten wir Sie bei der Umsetzung einer erfolgreichen Strategie: Internalisierung von Teams, evolutionäre und korrektive Wartung, Datenanalyse, Wachstumshebel."
+    }
   },
   "services": {
     "software": "We develop softwares that inspire users, and lead them to their destination as quickly as possible. Your satisfaction, is our objective. ",

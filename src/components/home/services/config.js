@@ -18,7 +18,7 @@ export const homeServices600 = [
     text: "services.software",
     title: "subject.op2",
     position: "right",
-    route: "software-development"
+    route: "services/software-development"
   },
   {
     img: [marketing600, marketing],
@@ -26,7 +26,7 @@ export const homeServices600 = [
     text: "services.marketing",
     title: "subject.op3",
     position: "left",
-    route: "digital-marketing"
+    route: "services/digital-marketing"
   },
   {
     img: [consult600, consult],
@@ -34,7 +34,7 @@ export const homeServices600 = [
     text: "services.consulting",
     title: "subject.op4",
     position: "right",
-    route: "consulting"
+    route: "services/consulting"
   },
   {
     img: [design600, design],
@@ -42,6 +42,6 @@ export const homeServices600 = [
     text: "services.design",
     title: "subject.op1",
     position: "left",
-    route: "ui-ux-design"
+    route: "services/ui-ux-design"
   }
 ];

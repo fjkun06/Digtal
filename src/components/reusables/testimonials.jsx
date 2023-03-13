@@ -1,20 +1,25 @@
 import {ImQuotesLeft} from "react-icons/im"
 import {ImQuotesRight} from "react-icons/im"
 import girl from "../../assets/images/profile1.jpg"
+import { useTranslation } from "react-i18next";
 
-export default function Testimonials(){
+export default function Testimonials({text,author,image}){
+
+
+    const { t } = useTranslation("marketing");
+
     return (
-        <div className="flex w-full px-6 flex-col laptop:w-4/5 ">
-            <div className="image flex items-center justify-center p-2">
-                <img src={girl} alt="testimonial" className="w-36 h-36 rounded-full object-cover " />
+        <div className="testimonial-card">
+            <div className="testimonial-card-image-container">
+                <img src={image} alt="testimonial" c />
             </div>
-            <div className="flex w-full items-start justify-center p-2">
-                <ImQuotesLeft className="text-[8rem] text-[rebeccapurple]" />
-                <p className="text-center p-4 pt-16 font-light font-[Poppins] text-xl laptop:text-3xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum voluptate ut placeat veniam iure. Tenetur nemo ipsa quae! Inventore eos delectus libero deleniti ullam iusto tenetur dolorum, consequatur cum aspernatur?</p>
-                <ImQuotesRight className="text-[8rem] text-[rebeccapurple]" />
+            <div className="testimonial-card-content">
+                <ImQuotesLeft className="quote" />
+                <p className="">{t(text)}</p>
+                <ImQuotesRight className="quote" />
             </div>
-            <div className="image flex items-center justify-center p-2">
-                <p className="text-xl text-[rebeccapurple] font-bold laptop:text-2xl">John Doe,CEO of ABC.inc</p>
+            <div className="testimonial-author">
+                <p className="">{t(author)}</p>
             </div>
         </div>
     )

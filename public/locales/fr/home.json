@@ -52,14 +52,26 @@
     "design": "Notre Équipe de Designers associent le Design thinking, un choix minutieux des technologies et outils appropriées, ainsi que les dernières tendances digitales à la gestion des projets  . "
   },
 
-  "service": "PLONGEZ Au COEUR D'UNE MULTITUDE DE SOLUTIONS",
+  "service": "PLONGEZ AU CŒUR D'UNE MULTITUDE DE SOLUTIONS",
   "magic": "AINSI S'OPÈRE LA MAGIE",
   "technologies": "NOS TECHNOLOGIES",
   "process": {
-    "one": "Stratégie||Tous nos projets commencent par une phase de découverte qui nous permet de nous plonger dans votre univers.Nos concepteurs UX questionnent toutes les parties prenantes, analysent vos concurrents, recherchent vos utilisateurs et consolident votre contenu.Le résultat est un plan d'action stratégique avec la compréhension empathique du problème à résoudre.",
-    "two": "Design & Prototype ||<br/> Nous imaginons et concevons ensemble votre produit digital pour maximiser sa valeur : plateforme de marque, design sprint, parcours utilisateurs, maquettes, tests utilisateurs. ",
-    "three": "Développement sur mesure. ||Nous réalisons des sites web, des intranets/extranets interfacés avec vos solutions CRM ou vos outils de Gestion.Nous pouvons nous incorporer à vos écosystèmes de connexion (SSO/MFA).Nous privilégions les solutions open sources fiables selon le besoin de votre projet : Wordpress / Prestashop / Laravel  / Ionic / Back-end / Front-end et des solutions innovantes comme React, Vue, Laravel, Node.js. ",
-    "four": "Accompagnement & Conseil ||<br/> Pour assurer le succès de votre produit digtial nous vous accompagnons dans la mise en place d’une stratégie gagnante : internalisation d’équipe, maintenance évolutive et corrective, analyse des données, leviers de croissance "
+    "one": {
+      "title": "Stratégie",
+      "body": "Tous nos projets commencent par une phase de découverte qui nous permet de nous plonger dans votre univers.Nos concepteurs UX questionnent toutes les parties prenantes, analysent vos concurrents, recherchent vos utilisateurs et consolident votre contenu.Le résultat est un plan d'action stratégique avec la compréhension empathique du problème à résoudre."
+    },
+    "two": {
+      "title": "Design & Prototype",
+      "body": "Nous imaginons et concevons ensemble votre produit digital pour maximiser sa valeur : plateforme de marque, design sprint, parcours utilisateurs, maquettes, tests utilisateurs."
+    },
+    "three": {
+      "title": "Développement sur mesure",
+      "body": "Nous réalisons des sites web, des intranets/extranets interfacés avec vos solutions CRM ou vos outils de Gestion.Nous pouvons nous incorporer à vos écosystèmes de connexion (SSO/MFA).Nous privilégions les solutions open sources fiables selon le besoin de votre projet : Wordpress / Prestashop / Laravel  / Ionic / Back-end / Front-end et des solutions innovantes comme React, Vue, Laravel, Node.js."
+    },
+    "four": {
+      "title": "Accompagnement & Conseil",
+      "body": "Pour assurer le succès de votre produit digtial nous vous accompagnons dans la mise en place d’une stratégie gagnante : internalisation d’équipe, maintenance évolutive et corrective, analyse des données, leviers de croissance."
+    }
   },
 
   "our-process": {

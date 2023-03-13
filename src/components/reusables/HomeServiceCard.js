@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import ArrowIcon from "src/assets/svg/ArrowIcon";
 export const HomeServiceCard = ({ img, icon, title, text, position,route }) => {
-  const { t } = useTranslation(["home", "form"]);
+  const { t } = useTranslation(["home", "form", "softwaredevelopment"]);
   const navigate = useNavigate();
 
   return (
@@ -18,10 +18,10 @@ export const HomeServiceCard = ({ img, icon, title, text, position,route }) => {
         </picture>
       </div>
       <div className="home__service--card-subcard">
-        <div className="icon">{icon}</div>
-        <div className="mini-card">
-          <div className="title">{t(title, { ns: "form" })}</div>
-          <div className="text">{t(text)}</div>
+        {icon && <div className="icon">{icon}</div>}
+        <div className={`mini-card ${!icon && "-ml-[25%]"}`}>
+          <div className={`title ${!icon && "font-semibold"}`}>{t(title, icon ?{ ns: "form" } : {ns : "softwaredevelopment"})}</div>
+          <div className="text">{t(text, !icon && {ns : "softwaredevelopment"})}</div>
         </div>
       </div>
       <div className="home__service--card-arrow" onClick={() => navigate(route)}>

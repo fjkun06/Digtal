@@ -1,0 +1,148 @@
+@import "./variables";
+@import "./custom-modifiers.scss";
+
+:root.light {
+  & > * a::selection,
+  *::selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+  background: #{$white};
+
+  //overall varables
+  --footer-bg: #{$footer-bg-light};
+
+  //footer section
+  --main-background: #{$main-background-light};
+  --footer-body-heading-bg: #{$footer-body-heading-bg-light};
+  --footer-body-link-color: #{$footer-body-link-color-light};
+  --footer-bt: #{$footer-border-gradient};
+  --footer-contact-bg: #{$footer-contact-bg-light};
+  --footer-contact-color: #{$footer-contact-color-light};
+  --footer-contact-after: #{$footer-contact-after-light};
+  --footer-help-bg: #{$footer-help-bg-light};
+  --footer-help-btn-bg: #{$footer-help-btn-bg-light};
+  --footer-link-hover: #{$footer-link-hover-light};
+  --footer-link-after: #{$footer-link-after-light};
+  --footer-policy-bg: #{$footer-bg-light};
+  --footer-policy-bt: #{$footer-policy-bt-light};
+  --footer-subscribe-bg: #{$footer-subscribe-bg-light};
+  --footer-subscribe-input-color: #{$footer-subscribe-input-color-light};
+  --footer-subscribe-input-bs: #{$footer-subscribe-input-bs-light};
+  --footer-subscribe-input-caret: #{$footer-subscribe-input-caret-light};
+  --footer-text: #{$footer-text-light};
+
+  //navbar
+  //navbar section
+  //desktop
+  --navbar-link: #{$navbar-link-light};
+  --navbar-flag-bg: #{$navbar-flag-bg-light};
+  --navbar-flag-hovered: #{$navbar-flag-hovered-light};
+  --navbar-flag-b: #{$navbar-flag-b-light};
+  --navbar-link-after: #{$navbar-link-after-light};
+  --navbar-link-visited: #{$navbar-link-visited-light};
+  --navbar-link-active-bb: #{$navbar-link-active-bb-light};
+
+  //tablet
+  --tablet-navbar-bg: #{$tablet-navbar-bg-light};
+  --tablet-navbar-link: #{$tablet-navbar-link-light};
+
+  //mobile
+  --mobile-navbar-bg: #{$mobile-navbar-bg-light};
+  --mobile-navbar-select-item: #{$mobile-navbar-select-item-light};
+  --mobile-navbar-svg-fill: #{$mobile-navbar-svg-fill-light};
+  --mobile-navbar-selection-bg: #{$mobile-navbar-selection-bg-light};
+  --mobile-navbar-selection-color: #{$mobile-navbar-selection-color-light};
+  --mobile-navbar: #{$mobile-navbar-light};
+  --mobile-navbar-link: #{$mobile-navbar-link-light};
+  --mobile-navbar-item-bb: #{$mobile-navbar-item-bb-light};
+  --mobile-navbar-item-link: #{$mobile-navbar-item-link-light};
+  --mobile-navbar-item-link-hovered: #{$mobile-navbar-item-link-hovered-light};
+  --mobile-navbar-item-hover: #{$mobile-navbar-item-hover-light};
+  --mobile-navbar-link-after: #{$mobile-navbar-link-after-light};
+
+  //select both navbars
+  --navbar-select-item-bg: #{$navbar-select-item-bg-light};
+  --navbar-select-item-bb: #{$navbar-select-item-bb-light};
+  --navbar-select-item-hover: #{$navbar-select-item-hover-light};
+  --navbar-select-item-dd-text: #{$navbar-select-item-dd-text-light};
+  --navbar-select-item-dd-text-hover: #{$navbar-select-item-dd-text-hover-light};
+
+  //language dropdown
+  --navbar-language-dd-item-bg-hover: #{$navbar-language-dd-item-bg-hover-light};
+  --navbar-language-dd-item-bg: #{$navbar-language-dd-item-bg-light};
+  --navbar-language-dd-item-bl: #{$navbar-language-dd-item-bl-light};
+  --navbar-language-dd-item-br: #{$navbar-language-dd-item-br-light};
+  --navbar-language-dd-item-bt: #{$navbar-language-dd-item-bt-light};
+  --navbar-language-dd-item-bb: #{$navbar-language-dd-item-bb-light};
+  --navbar-bb-light: #{$navbar-border-gradient};
+
+  //special
+  --special-language-hover-bg: #{$special-language-hover-bg-light};
+  --special-language-dd-bb: #{$special-language-dd-bb-light};
+  --special-language-dd-hover-bg: #{$special-language-dd-hover-bg-light};
+  // --navbar-link: #{$navbar-link-light};
+
+  //arrow
+  --arrow-start: #{$arrow-start-light};
+  --arrow-end: #{$arrow-end-light};
+
+  //home
+  --home-heading-bg: #{$home-heading-bg-light};
+  --home-heading-color: #{$home-heading-color-light};
+  --home-body-inner-bg: #{$home-body-inner-bg-light};
+  --home-body-card-text: #{$home-body-card-text-light};
+  --home-body-card-heading: #{$home-body-card-heading-light};
+  --home-body-card-button: #{$home-body-card-button-light};
+  --home-body-card-bs-light: #{$home-body-card-bs-light};
+  --home-body-card-button-hover-color: #{$home-body-card-button-light-hover-color};
+  --home-body-card-button-hover-bg: #{$home-body-card-button-light-hover-bg};
+  --home-body-para: #{$home-body-para-light};
+  --home-body-title: #{$home-body-title-light};
+  --home-body-card-icon: #{$home-body-card-icon-light};
+  --home-desktop-bg-svg: #{$home-desktop-bg-svg-light};
+  --home-laptop-bg-svg: #{$home-laptop-bg-svg-light};
+  --home-magic-bg: #{$home-magic-bg-light};
+  --home-magic-ts: #{$home-magic-ts-light};
+  --home-magic-text: #{$home-magic-text-light};
+  --home-service-icon: #{$home-service-icon-light};
+
+  //modifiers
+  --carousel-caption-overline-width: #{$carousel-caption-overline-width};
+  // --carousel-caption-overline-animated-width: #{$carousel-caption-overline-animated-width};
+
+  //digital marketing
+  --marketing-card-svg-fill: #{$marketing-card-svg-fill-light};
+  --marketing-card-svg-num-inside-fill: #{$marketing-card-svg-num-inside-fill-light};
+  --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-light};
+  --marketing-card-svg-content-fill: #{$marketing-card-svg-content-fill-light};
+  --marketing-card-content-color: #{$marketing-card-content-color-light};
+  --marketing-card-heading-color: #{$marketing-card-heading-color-light};
+  --marketing-card-bg: #{$marketing-card-bg-light};
+  --marketing-card-bs: #{$marketing-card-bs-light};
+
+  //scrollbar
+  --scb-track-bs: #{$scb-track-bs-light};
+  --scb-track-bg: #{$scb-track-bg-light};
+  --scb-thumb-bg: #{$scb-thumb-bg-light};
+  --scb-thumb-hover: #{$scb-thumb-hover-light};
+
+  //contact
+  --contact-primary: #{$contact-primary-light};
+  --contact-secondary: #{$contact-secondary-light};
+  --contact-tertiary: #{$contact-tertiary-light};
+  --contact-bg: #{$contact-bg-light};
+  --contact-bs: #{$contact-bs-light};
+
+  //home
+
+  //uiux
+  --uiux-bd-opacity: #{$uiux-bd-opacity-light};
+  --uiux-bg: #{$uiux-bg-light};
+  --uiux-subheader-text: #{$uiux-subheader-text-light};
+  --uiux-processdesign-text: #{$uiux-processdesign-text-light};
+
+  //dital marketing
+
+  //software development
+}

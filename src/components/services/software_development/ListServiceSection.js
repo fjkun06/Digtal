@@ -1,75 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
-
-const numberVariants = {
-  hidden: {
-    scale: 1.5
-  },
-  visible: {
-    scale: 6,
-    transition: { duration: 3, type: "spring" }
-  }
-};
-
-const detailsVariants = {
-  hidden: {
-    x: 1005
-  },
-  visible: {
-    x: 0,
-    transition: { type: "tween", delay: 2, duration: 1.5 }
-  }
-};
+import { useInView } from "react-intersection-observer";
+import { delay } from "lodash";
+import { useMediaQuery } from "@mui/material";
 
 const ListServiceSection = ({ number, heading, info }) => {
-  const [isInView, setIsInView] = useState();
+  const matches = useMediaQuery('(min-width:920px)');
+
+  const { ref, inView } = useInView({ threshold: matches? 0.6 : 0.4});
+
   return (
     <>
       <motion.div
-        className="list-service-container"
-        style={{
-          display: "flex",
-          flexDirection: number % 2 == 0 ? "row-reverse" : "row"
-        }}
-        whileInView={() => {
-          setIsInView(true);
-          return {};
-        }}
+        ref={ref}
+        className={`flex flex-col ${
+          number % 2 === 0 ? "laptop:flex-row-reverse" : "laptop:flex-row"
+        }`}
       >
-        <div className="list-service-container__number">
+        <div className="flex h-[200px] items-center justify-center text-[50px]  font-semibold text-purple-800 laptop:h-auto laptop:w-3/12 laptop:text-[60px]">
           <motion.p
             className="number-value"
-            variants={numberVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            initial={{ scale: 1 }}
+            animate={
+              inView && {
+                scale: 3,
+                transition: { duration: 2, type: "spring" }
+              }
+            }
           >
             {number}
           </motion.p>
         </div>
 
         <motion.div
-          className="list-service-container__detail"
-          //   variants={detailsVariants}
-          initial={{ x: number % 2 == 0 ? "-100vw" : "100vw" }}
+          className="laptop:w-9/12 shadow-2xl"
+          initial={matches ? { x: number % 2 === 0 ? "-100vw" : "100vw" }: {y: "100vh"}}
           animate={
-            isInView && {
-              x: 0,
+            inView && matches ? {
+             x: 0,
               transition: {
-                delay: 1.5,
-                type: "tween",
-                duration: 1
+                duration: 2,
+                type : "tween"
               }
-            }
+            }: inView &&{
+              y:0,
+               transition: {
+                 duration: 2,
+                 type : "tween"
+               }
+             }
           }
-          //   whileInView="visible"
-          //   viewport={{ once: true }}
         >
-          <div className="list-service-container__detail-container">
-            <p className="list-service-container__detail-heading">{heading}</p>
-            <p className="list-service-container__detail-text">{info}</p>
-          </div>
+          <motion.div className="bg-[#663399] py-20 px-20 text-center text-[16] text-white laptop:p-40 laptop:text-left">
+            <motion.p
+              className=" mb-3 text-[16px] font-semibold laptop:text-[20]
+            desktop:text-[30px]"
+              initial={{ opacity: 0  }}
+              animate={
+                inView && {
+                  opacity: 1,
+                  transition: {
+                    type: "tween",
+                    duration: 1,
+                    delay: 1.5
+                  }
+                }
+              }
+            >
+              {heading}
+            </motion.p>
+            <motion.p
+              className=" text-[10px] laptop:text-[14px] desktop:text-[19px]"
+              initial={{ opacity: 0  }}
+              animate={
+                inView && {
+                  opacity: 1,
+                  transition: {
+                    type: "tween",
+                    duration: 1,
+                    delay: 1.5
+                  }
+                }
+              }
+            >
+              {info}
+            </motion.p>
+          </motion.div>
         </motion.div>
       </motion.div>
     </>

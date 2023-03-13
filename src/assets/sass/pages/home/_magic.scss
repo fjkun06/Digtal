@@ -1,4 +1,3 @@
-@use "../../util/variables";
 @use "../../util/mixins";
 @use "sass:list";
 @use "sass:map";
@@ -141,21 +140,38 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   @include mixins.flex(column);
   @include mixins.size(auto);
   @include home-background(3rem, returnBg($mobile-arrows-light, $mobile-bp), 1rem);
+  background-color: var(--home-magic-bg);
 
   @media only screen and (min-width: 768.1px) {
     @include home-background(1.2rem, returnBg($laptop-arrows-light, $laptop-bp), 2.5rem);
+    background: var(--home-laptop-bg-svg), var(--home-magic-bg);
+    // background: url("../../../svg/home/vector3.svg"),url("../../../svg/home/vector4.svg"),url("../../../svg/home/vector5.svg"),url("../../../svg/home/editFile1500.svg"),url("../../../svg/home/coffee1500.svg"),url("../../../svg/home/laptop1500.svg"), $background;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: $desktop-bp;
+    background-color: var(--home-magic-bg);
+
+    row-gap: 1.2rem;
+    padding-top: 2.5rem;
   }
 
   @media only screen and (min-width: 1500.1px) {
     position: relative;
     column-gap: 2rem;
-    background: #fff;
 
     @include mixins.customgrid(15, 2, 42.5px, 1fr);
 
     padding-bottom: 5rem;
 
-    @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
+    // @include home-background(0rem, returnBg($desktop-arrows-light, $desktop-bp), 3.5rem);
+
+    background: var(--home-desktop-bg-svg), url("../../../svg/home/editFile1500.svg"), url("../../../svg/home/coffee1500.svg"), url("../../../svg/home/laptop1500.svg");
+    // background: url("../../../svg/home/vector3.svg"),url("../../../svg/home/vector4.svg"),url("../../../svg/home/vector5.svg"),url("../../../svg/home/editFile1500.svg"),url("../../../svg/home/coffee1500.svg"),url("../../../svg/home/laptop1500.svg"), $background;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: $desktop-bp;
+    row-gap: 0rem;
+    padding-top: 3.5rem;
+    background-color: var(--home-magic-bg);
+
 
     & > * {
       &:nth-child(1) {
@@ -192,7 +208,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
   &--card {
     position: relative;
     margin-top: -1.5rem;
-    background-color: rgba(255, 255, 255, 0);
+    // background-color: rgba(255, 255, 255, 0);
     padding: 0.5rem 1rem;
     @include mixins.customgrid(8, 8, 1fr);
     @include mixins.size(100%, calc(8rem + 24vw));
@@ -277,7 +293,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       }
     }
     .icon {
-      stroke: #000;
+      // stroke: #000;
 
       @include mixins.position("6/9", "1/9");
 
@@ -307,6 +323,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       overflow: hidden;
       width: -moz-fit-content;
       width: fit-content;
+      color: var(--footer-body-heading-bg);
 
       @include mixins.position("1/6", "3/9");
 
@@ -321,12 +338,24 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
 
         text-shadow: none;
         line-height: calc(1.8rem + 0.8vw);
-        font-size: 1.9rem;
+        line-height: calc(1.3rem + 0.4vw);
+        font-size: 1.5rem;
+        font-size: 1.15rem;
         margin-top: 1rem;
+
+        @include mixins.flex(column);
+        align-items: flex-start;
       }
 
       @media only screen and (min-width: 960.1px) {
         max-width: 42rem;
+      }
+      @media only screen and (960px < width <= 1200px) {
+        font-size: 1.7rem;
+      }
+      @media only screen and (1200px < width) {
+        line-height: calc(1rem + 0.65vw);
+        font-size: 1.25rem;
       }
 
       @media only screen and (min-width: 1500.1px) {
@@ -344,9 +373,9 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       }
 
       // grid-column: 1/7;
-      text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+      text-shadow: 0px 4px 8px var(--home-magic-ts);
       padding-right: 0.25rem;
-      background-color: rgba(#fff, 0.05);
+      // background-color: rgba(#fff, 0.05);
     }
   }
 
@@ -356,7 +385,7 @@ $cards-grid: "4/7" "1/2", "4/7" "2/3", "13/16" "1/2", "13/16" "2/3";
       top: 15%;
       left: 0;
       @include mixins.size(100vw, 85%);
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0);
       -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
       transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;

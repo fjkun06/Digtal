@@ -1,10 +1,10 @@
 export const headerVariants = {
   hidden: {
-    x: -80,
+    x: -400,
     scale: 2
   },
   visible: {
-    x: 208,
+    x: -200,
     scale: 2,
 
     transition: { type: "tween", duration: 1 }
@@ -12,11 +12,11 @@ export const headerVariants = {
 };
 export const rightVariants = {
   hidden: {
-    x: 80,
+    x: 400,
     scale: 2
   },
   visible: {
-    x: -222,
+    x: 200,
     scale: 2,
 
     transition: { type: "tween", duration: 1 }
@@ -49,6 +49,6 @@ export const firstSectionVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { duration: 2.5, delay: 0.5 }
+    transition: { duration: 2.5, delay: 1.5 }
   }
 };

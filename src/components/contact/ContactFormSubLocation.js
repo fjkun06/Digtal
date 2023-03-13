@@ -5,22 +5,29 @@ import telIcon from "../../assets/svg/telephone.svg";
 const ContactFormSubLocation = ({ country, town, street, tel }) => {
   return (
     <div className="office-body-location--item">
-      <h4>{country}</h4>
+      <h4>
+        <mark>{country}</mark>
+      </h4>
       <div>
         <div className="icon-text icon-top">
           <img src={mapIcon} alt="svg" />
-          <h5>{town}</h5>
+          <h5>
+            <mark>{town}</mark>
+          </h5>
         </div>
 
         <div className="address icon-right">
-          {[country, street].map(i => (
-            <h5 key={i}>{i}</h5>
-          ))}
+          <h5>
+            <mark>{street}</mark>
+          </h5>
+          {/* <br/> */}
         </div>
       </div>
       <div className="icon-text icon-bottom">
         <img src={telIcon} alt="tel" />
-        <h5>{tel}</h5>
+        <h5>
+          <mark>{tel}</mark>
+        </h5>
       </div>
     </div>
   );

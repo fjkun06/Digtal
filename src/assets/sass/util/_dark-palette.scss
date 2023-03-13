@@ -1,14 +1,85 @@
+@use 'sass:color';
+@function toRGB($color) {
+  @return #{red($color)} #{green($color)} #{blue($color)}
+}
 :root,
 :root.dark {
-  &>* a::selection,   *::selection{
+  & > * a::selection,
+  *::selection {
     background-color: rebeccapurple;
     color: white;
- }
+  }
+  transition: all 0.25s ease-in-out;
+  background: #{$darkPurple};
+  --main-background: #{$main-background-dark};
+  --home-magic-bg: #{$home-magic-bg-dark};
+  --navbar-bb-light: #{$footer-bt-light};
+  --footer-bt: #{$navbar-border-gradient};
 
-  --footer-bg: red;
+  --home-service-icon: #{$home-service-icon-dark};
+
   --footer-text: green;
 
-    //arrow
-    --arrow-start: #{$arrow-start-light};
-    --arrow-end: #{$arrow-end-light};
+  --home-desktop-bg-svg: #{$home-desktop-bg-svg-dark};
+  --home-laptop-bg-svg: #{$home-laptop-bg-svg-dark};
+  //arrow
+  --arrow-start: #{$arrow-start-light};
+  --arrow-end: #{$arrow-end-light};
+
+  //mobile
+  --navbar-flag-bg: #{$navbar-flag-bg-dark};
+  --navbar-flag-hovered: #{$navbar-flag-hovered-dark};
+  --navbar-flag-b: #{$navbar-flag-b-dark};
+  --tablet-navbar-link: #{$tablet-navbar-link-dark};
+  --mobile-navbar-bg: #{$mobile-navbar-bg-dark};
+  --mobile-navbar-select-item: #{$mobile-navbar-select-item-dark};
+  --navbar-service-desktop-svg: #{$navbar-service-desktop-svg-dark};
+  --navbar-service-wave-svg: #{$navbar-service-wave-svg-dark};
+  --navbar-service-biggest-svg: #{$navbar-service-biggest-svg-dark};
+
+  //footer section
+  --main-background: #{$main-background-dark};
+  --footer-bg: #{$footer-bg-dark};
+  --footer-body-heading-bg: #{$footer-body-heading-bg-dark};
+  --footer-body-link-color: #{$footer-body-link-color-dark};
+  --footer-bt: #{$navbar-border-gradient};
+  --footer-contact-bg: #{$footer-contact-bg-dark};
+  --footer-help-bg: #{$footer-help-bg-dark};
+  --footer-help-btn-bg: #{$footer-help-btn-bg-dark};
+  --footer-subscribe-bg: #{$footer-subscribe-bg-dark};
+  --footer-subscribe-bt: #{$footer-subscribe-bt-dark};
+
+  //home
+
+  --home-heading-bg: #{$home-heading-bg-dark};
+  --home-heading-color: #{$home-heading-color-dark};
+
+  //contact
+  --contact-bg: #{$contact-bg-dark};
+  --contact-secondary: #{$contact-secondary-dark};
+
+  //uiux
+  --uiux-bd-opacity: #{$uiux-bd-opacity-dark};
+  --uiux-bg: #{$uiux-bg-dark};
+  --uiux-subheader-text: #{$uiux-subheader-text-dark};
+  --uiux-processdesign-text: #{$uiux-processdesign-text-dark};
+
+  //digital marketing
+  --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-dark};
+  --marketing-numbers: #{$marketing-numbers-dark};
+
+  //scrollbar
+  --scb-track-bs: #{$scb-track-bs-dark};
+  --scb-track-bg: #{$scb-track-bg-dark};
+  --scb-thumb-bg: #{$scb-thumb-bg-dark};
+  --scb-thumb-hover: #{$scb-thumb-hover-dark};
+
+  //stephan
+  --primary-color: #{toRGB(white)};
+  --primary-alt-color: #{toRGB(#00D0FF)};
+  --secondary-color: #{toRGB(rebeccapurple)};
+  --tertiary-color: #{toRGB(#00D0FF)};
+
+  --title-color: #{toRGB(white)};
+  --subtitle-color: #{toRGB(#00D0FF)};
 }

@@ -11,9 +11,7 @@ const Enterprise = React.lazy(() =>
 const TermsAndConditions = React.lazy(() =>
   import("./components/terms&conditions/TermsAndConditions")
 );
-// const MobileApp = React.lazy(() =>
-//   import("./components/services/mobile_app/MobileApp")
-// );
+
 const UIUX = React.lazy(() => import("./pages/services/UIUX"));
 const Consulting = React.lazy(() =>
   import("./components/services/consulting/Consulting")
@@ -52,7 +50,6 @@ root.render(
           {majorRoutes.map((route, index) => (
             <Route path={route} key={index}>
               <Route index exact element={<Home />} />
-              {/* <Route path="home" element={<Home />} /> */}
               <Route path="enterprise" element={<Enterprise />} />
               <Route path="services">
                 <Route index element={<App />} />
@@ -69,15 +66,9 @@ root.render(
                 <Route path="ui-ux-design" element={<UIUX />} />
               </Route>
               <Route path="contact-us" element={<Contact />} />
-              {/* <Route
-                path="about-us"
-                element={() => import("./routes/footer/AboutUs.js")}
-              /> */}
+            
               <Route path="about-us" element={<AboutUs />} />
-              {/* <Route
-                path="software-development"
-                element={<SoftwareDevelopment />}
-              /> */}
+             
               <Route path="blog" element={<Blog />} />
               <Route path="career" element={<Career />} />
               <Route

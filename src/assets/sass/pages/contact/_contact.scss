@@ -12,41 +12,24 @@
   transition: all 0.25s ease-in-out;
   background-color: rgba(255, 255, 255, 0.5);
   background: none;
-  background: url("../../../svg/app_background_light.svg");
+  background: var(--main-background),rgba(255, 255, 255, 0.5);
   background-position: center;
   background-size: 110% 150%;
-  // background-size: 100% auto;
-  // background-size: cover;
-
-  // background-size: auto 100%;
-  // background-size: cover;
-
-  // background-size: 100% auto, 100% 100%;
-  // background-size: auto auto, auto auto;
-  // background-size: auto,auto;
-  background-repeat: no-repeat;
+  
   background-origin: border-box;
   -webkit-background-clip: border-box;
   background-clip: border-box;
   position: relative;
 
-  &::after {
-    position: absolute;
-    display: block;
-    content: "";
-    // height: auto;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    background-color: red;
-    z-index: 22;
-  }
 
   padding-top: 10vh;
   display: grid;
-  // rgba(255, 255, 255,0.5)
 
 
+  mark{
+    color: var(--home-heading-color);
+    background-color: var(--mobile-navbar-bg);
+  }
 
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(10, minmax(250px));
