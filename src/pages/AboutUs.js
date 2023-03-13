@@ -78,7 +78,7 @@ export default function AboutUs() {
               className="text-center font-[Poppins] text-[27px] font-bold leading-[35px] laptop:text-[35px] laptop:text-left laptop:leading-[50px]"
             >
               <mark className="bg-white-purple/70 text-rebecca-white">
-            {t('lift-up.heading')}
+                {t('lift-up.heading')}
               </mark>
             </Typography>
           </Box>
@@ -94,8 +94,8 @@ export default function AboutUs() {
               component="p"
               className="mt-8 text-center font-[Poppins] text-[13px] leading-[23px] text-rebecca-white text-opacity-60 tablet:text-left laptop:mt-0 laptop:text-left laptop:text-[21px] laptop:leading-[35px]"
             >
-            <mark className="bg-white-purple/70 text-rebecca-white/60">{t('lift-up.paragraph-2')}
-            </mark>
+              <mark className="bg-white-purple/70 text-rebecca-white/60">{t('lift-up.paragraph-2')}
+              </mark>
             </Typography>
           </Box>
         </Box>
@@ -113,9 +113,9 @@ export default function AboutUs() {
               className="text-center isolate font-[Poppins] text-[12px] font-semibold leading-[25px] laptop:text-[21px]"
             >
               <mark className="bg-white-purple/70 text-rebecca-white/60">
-              Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
-              qui esse pariatur duis deserunt mollit dolore cillum minim tempor
-              enim. Elit aute irure tempor
+                Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+                qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+                enim. Elit aute irure tempor
               </mark>
             </Typography>
             <Typography className="flex items-center font-['Passion_One'] text-[100px] leading-[50px] tracking-[-0.04em] laptop:text-[130px] text-purple-blue">
@@ -185,7 +185,7 @@ export default function AboutUs() {
             variant="h2"
             component="h3"
             className="px-[6.5rem] text-center font-[Poppins] text-[27px] font-bold leading-[35px] tracking-[0] text-rebecca-white laptop:text-left laptop:text-[40px] laptop:leading-[50px]"
-            dangerouslySetInnerHTML={{ __html: t('meet-team')}}
+            dangerouslySetInnerHTML={{ __html: t('meet-team') }}
           />
           <Box className="w-full bg-rebecca-blue/20">
             <Box className="mx-auto grid grid-cols-2 gap-8 py-14 px-12 md:max-w-screen-md md:grid-cols-3 md:px-4 laptop:grid-cols-4 laptop:gap-12">
@@ -210,7 +210,7 @@ export default function AboutUs() {
             <Typography
               component="p"
               className="text-center font-[Poppins] text-[27px] font-bold leading-[70px] text-rebecca-white laptop:text-left laptop:text-[40px]"
-              dangerouslySetInnerHTML={{ __html: t('join-team')}}
+              dangerouslySetInnerHTML={{ __html: t('join-team') }}
             />
           </Box>
 
