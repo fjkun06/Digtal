@@ -1,5 +1,0 @@
-@use 'sass:color';
-
-@function toRGB($color) {
-  @return #{red($color)} #{green($color)} #{blue($color)}
-}
