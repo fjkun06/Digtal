@@ -2,5 +2,12 @@
   "caption": {
     "primary": "We are professionals<br /> Bringing to you a",
     "secondary": "Diversity of solutions"
-  }
+  },
+  "lift-up": {
+    "heading": "Lifting up others makes you rise",
+    "paragraph-1": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi.",
+    "paragraph-2": "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptate aute id deserunt nisi."
+  },
+  "meet-team": "Meet our <br />stunning team",
+  "join-team": "Join our team"
 }

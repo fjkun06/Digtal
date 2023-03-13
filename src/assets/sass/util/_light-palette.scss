@@ -1,10 +1,5 @@
-@use 'sass:color';
 @import "./variables";
 @import "./custom-modifiers.scss";
-
-@function toRGB($color) {
-  @return #{red($color)} #{green($color)} #{blue($color)}
-}
 
 :root.light {
   & > * a::selection,
@@ -134,14 +129,25 @@
   --uiux-subheader-text: #{$uiux-subheader-text-light};
   --uiux-processdesign-text: #{$uiux-processdesign-text-light};
 
-  //stephan
-  --primary-color: #{toRGB(rebeccapurple)};
-  --primary-alt-color: #{toRGB(rebeccapurple)};
-  --secondary-color: #{toRGB(white)};
-  --tertiary-color: #{toRGB(#2B0A3D)};
-
-  --title-color: #{toRGB(rebeccapurple)};
-  --subtitle-color: #{toRGB(rebeccapurple)};
+  //dital marketing
 
   //software development
+  --software-development-section-presentation-left: #{$software-development-section-presentation-left-light};
+  --software-development-section-presentation-right: #{$software-development-section-presentation-right-light};
+  --software-development-number: #{$software-development-number-light};
+
+
+  //
+
+  --rebecca-purple: #{toRGB(rebeccapurple)};
+  --rebecca-white: #{toRGB(rebeccapurple)};
+  --rebecca-blue: #{toRGB(rebeccapurple)};
+
+  --white-purple: #{toRGB(white)};
+  --white-rebecca: #{toRGB(white)};
+  --white-blue: #{toRGB(white)};
+
+  --purple-rebecca: #{toRGB(#2B0A3D)};
+  --purple-white: #{toRGB(#2B0A3D)};
+  --purple-blue: #{toRGB(#2B0A3D)};
 }

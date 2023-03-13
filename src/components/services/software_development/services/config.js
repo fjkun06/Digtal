@@ -1,4 +1,3 @@
-
 import bus600 from "src/assets/images/services/uiux/bustablet.png";
 import bus from "src/assets/images/services/uiux/BusDesktop.png";
 import market600 from "src/assets/images/services/uiux/marketTablet.png";
@@ -18,5 +17,5 @@ export const homeServices600 = [
     title: "projects.second_title",
     position: "right",
     route: "services/digital-marketing"
-  },
+  }
 ];

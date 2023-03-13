@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "./layouts/footer/Footer";
 import Navbar from "./layouts/navbar/Navbar";
-import "./assets/sass/main.scss";
+import "./assets/sass/main.css";
 import { useState } from "react";
 import { StyledEngineProvider } from "@mui/system";
 import React from "react";

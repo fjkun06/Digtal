@@ -14,7 +14,7 @@ const MarketingCard = ({
 }) => {
   const { t } = useTranslation(translationSource ?? "marketing");
   return (
-    <article id="marketing_card" className="self-center">
+    <article id="marketing_card" className="">
       <div className="market__card__content">
         <div>
           {numberIconMobile}

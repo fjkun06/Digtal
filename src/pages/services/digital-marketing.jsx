@@ -21,8 +21,20 @@ export default function DigitalMarketing() {
         <div className="my-4 flex items-center justify-center text-center text-4xl font-extrabold tablet:my-8">
           <HomeHeading section="OUR SUITE OF DIGITAL  MARKETING SERVICES" />
         </div>
-        <div className="flex flex-wrap gap-8 py-16 laptop:grid-cols-2 content-center justify-center aitems-center">
-          {marketingCardElements.map(
+        <div className="flex flex-wrap gap-8 py-16 items-center justify-center laptop:justify-items-center laptop:grid laptop:grid-cols-2">
+          {marketingCardElements.slice(0,6).map(
+            (details) => {
+              return (
+                <MarketingCard
+                  key={nano()}
+                {...details}
+                />
+              );
+            }
+          )}
+        </div>
+        <div className="flex items-center justify-center">
+        {marketingCardElements.slice(6,7).map(
             (details) => {
               return (
                 <MarketingCard

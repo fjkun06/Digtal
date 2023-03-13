@@ -1,7 +1,3 @@
-@use 'sass:color';
-@function toRGB($color) {
-  @return #{red($color)} #{green($color)} #{blue($color)}
-}
 :root,
 :root.dark {
   & > * a::selection,
@@ -68,18 +64,30 @@
   --marketing-card-svg-blocks-fill: #{$marketing-card-svg-blocks-fill-dark};
   --marketing-numbers: #{$marketing-numbers-dark};
 
-  //scrollbar
-  --scb-track-bs: #{$scb-track-bs-dark};
-  --scb-track-bg: #{$scb-track-bg-dark};
-  --scb-thumb-bg: #{$scb-thumb-bg-dark};
-  --scb-thumb-hover: #{$scb-thumb-hover-dark};
+   //scrollbar
+   --scb-track-bs: #{$scb-track-bs-dark};
+   --scb-track-bg: #{$scb-track-bg-dark};
+   --scb-thumb-bg: #{$scb-thumb-bg-dark};
+   --scb-thumb-hover: #{$scb-thumb-hover-dark};
 
-  //stephan
-  --primary-color: #{toRGB(white)};
-  --primary-alt-color: #{toRGB(#00D0FF)};
-  --secondary-color: #{toRGB(rebeccapurple)};
-  --tertiary-color: #{toRGB(#00D0FF)};
 
-  --title-color: #{toRGB(white)};
-  --subtitle-color: #{toRGB(#00D0FF)};
+   
+  //software development
+  --software-development-section-presentation-left: #{$software-development-section-presentation-left-dark};
+  --software-development-section-presentation-right: #{$software-development-section-presentation-right-dark};
+  --software-development-number: #{$software-development-number-dark};
+
+  //
+
+  --rebecca-purple: #{toRGB(#2B0A3d)};
+  --rebecca-white: #{toRGB(white)};
+  --rebecca-blue: #{toRGB(#00D0FF)};
+
+  --white-purple: #{toRGB(#2B0A3D)};
+  --white-rebecca: #{toRGB(rebeccapurple)};
+  --white-blue: #{toRGB(#00D0FF)};
+
+  --purple-rebecca: #{toRGB(rebeccapurple)};
+  --purple-white: #{toRGB(white)};
+  --purple-blue: #{toRGB(#00D0FF)};
 }
