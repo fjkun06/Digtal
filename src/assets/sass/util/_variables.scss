@@ -23,8 +23,8 @@ $skyBlue: #00d0ff;
 $lightGrey: #ececec;
 
 //global variables
-$main-background-light: url("../../svg/app_background_light.svg");
-$main-background-dark: url("../../svg/app_background_dark.svg");
+$main-background-light: url(/assets/svg/app_background_light.svg);
+$main-background-dark: url(/assets/svg/app_background_dark.svg);
 
 $facebook-hover:rgb(30, 30, 93);
 $facebook-hover:rgb(24, 41, 111);
@@ -64,7 +64,7 @@ $footer-border-gradient: linear-gradient(to left, $purple, lighten(rgb(0, 81, 13
 
 //footer section
 $footer-bg-light: transparent;
-$footer-bg-dark: url("../../svg/footer_bg.svg");
+$footer-bg-dark: url(/assets/svg/footer_bg.svg);
 $footer-body-heading-bg-light: $black;
 $footer-body-heading-bg-dark: $white;
 $footer-body-link-color-light: rgba(#000000, 0.65);
@@ -88,12 +88,12 @@ $footer-subscribe-bt-dark: $lightGrey;
 
 //navbar section
 //desktop
-$navbar-service-desktop-svg-light: url(./../../svg/desktop_wave.svg#select-waves);
-$navbar-service-desktop-svg-dark: url(./../../svg/desktop_wave_dark.svg#select-waves);
-$navbar-service-wave-svg-light: url(./../../svg/waves.svg#select-waves);
-$navbar-service-wave-svg-dark: url(./../../svg/waves_dark.svg#select-waves);
-$navbar-service-biggest-svg-light: url(./../../svg/biggest_wave.svg#select-waves);
-$navbar-service-biggest-svg-dark: url(./../../svg/biggest_wave_dark.svg#select-waves);
+$navbar-service-desktop-svg-light: url(/assets/svg/desktop_wave.svg#select-waves);
+$navbar-service-desktop-svg-dark: url(/assets/svg/desktop_wave_dark.svg#select-waves);
+$navbar-service-wave-svg-light: url(/assets/svg/waves.svg#select-waves);
+$navbar-service-wave-svg-dark: url(/assets/svg/waves_dark.svg#select-waves);
+$navbar-service-biggest-svg-light: url(/assets/svg/biggest_wave.svg#select-waves);
+$navbar-service-biggest-svg-dark: url(/assets/svg/biggest_wave_dark.svg#select-waves);
 $navbar-link-light: $purple;
 $navbar-flag-b-light: $purple;
 $navbar-flag-b-dark: $light-blue;
@@ -163,14 +163,14 @@ $home-body-card-bs-light: 5px 5px 10px -10px #888, -5px -5px 10px -10px #555;
 $home-body-para-light: #555;
 $home-body-title-light: $purple;
 
-$home-desktop-bg-svg-light: url("../../svg/home/vector3.svg"), url("../../svg/home/vector4.svg"), url("../../svg/home/vector5.svg");
-$home-desktop-bg-svg-dark: url("../../svg/home/vector3dark.svg"), url("../../svg/home/vector4dark.svg"), url("../../svg/home/vector5dark.svg");
+$home-desktop-bg-svg-light: url(/assets/svg/home/vector3.svg), url(/assets/svg/home/vector4.svg), url(/assets/svg/home/vector5.svg);
+$home-desktop-bg-svg-dark: url(/assets/svg/home/vector3dark.svg), url(/assets/svg/home/vector4dark.svg), url(/assets/svg/home/vector5dark.svg);
 $home-heading-bg-light: rgba(rgb(255, 255, 255), 0.5);
 $home-heading-bg-dark: transparent;
 $home-heading-color-light: $purple;
 $home-heading-color-dark: $white;
-$home-laptop-bg-svg-light: url("../../svg/home/vector9.svg"), url("../../svg/home/vector10.svg"), url("../../svg/home/vector11.svg");
-$home-laptop-bg-svg-dark: url("../../svg/home/vector9dark.svg"), url("../../svg/home/vector10dark.svg"), url("../../svg/home/vector11dark.svg");
+$home-laptop-bg-svg-light: url(/assets/svg/home/vector9.svg), url(/assets/svg/home/vector10.svg), url(/assets/svg/home/vector11.svg);
+$home-laptop-bg-svg-dark: url(/assets/svg/home/vector9dark.svg), url(/assets/svg/home/vector10dark.svg), url(/assets/svg/home/vector11dark.svg);
 $home-magic-bg-light: $white;
 $home-magic-bg-dark: $darkPurple;
 $home-magic-ts-light: rgba(0, 0, 0, 0.4);

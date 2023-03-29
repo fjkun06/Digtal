@@ -187,6 +187,7 @@
 .surface {
   position: absolute;
   z-index: 999;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
