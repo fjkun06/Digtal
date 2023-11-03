@@ -2,7 +2,6 @@ import { Grid } from "@mui/material";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
-import { toggleMobileNavbar } from "../../layouts/navbar/navbar_config";
 
 const MobileNavbarIconHandler = ({
   mobileCross,

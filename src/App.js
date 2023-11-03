@@ -32,7 +32,7 @@ function App() {
   }, [loc.pathname, navigate, cookies]);
 
   //cookies and theme
-  const [userTheme, _] = useState(
+  const [userTheme] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 

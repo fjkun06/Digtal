@@ -1,6 +1,5 @@
 import {ImQuotesLeft} from "react-icons/im"
 import {ImQuotesRight} from "react-icons/im"
-import girl from "../../assets/images/profile1.jpg"
 import { useTranslation } from "react-i18next";
 
 export default function Testimonials({text,author,image}){

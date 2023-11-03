@@ -7,15 +7,16 @@ export default function Result({ percentage = "300", text = "Organic traffic" })
   const ref = useRef(null)
 
   useEffect(() => {
+    const current = ref.current
     const observer = new IntersectionObserver(
       ([entry]) => setIsInView(entry.isIntersecting)
     )
-    if (ref.current) {
-      observer.observe(ref.current)
+    if (current) {
+      observer.observe(current)
     }
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
+      if (current) {
+        observer.unobserve(current)
       }
     }
   }, [])
@@ -30,7 +31,7 @@ export default function Result({ percentage = "300", text = "Organic traffic" })
     return () => {
       clearInterval(intervalId)
     }
-  }, [isInView, score, percentage])
+  }, [isInView, score, percentage,intervalId])
 
   return (
     <div className="result" ref={ref}>

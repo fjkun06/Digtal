@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { delay } from "lodash";
 import { useMediaQuery } from "@mui/material";
 
 const ListServiceSection = ({ number, heading, info }) => {

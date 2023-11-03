@@ -1,6 +1,5 @@
 import HomeServiceCard from "src/components/reusables/HomeServiceCard";
 import { homeServices600 } from "./config";
-import HomeHeading from "src/components/reusables/HomeHeading";
 import { useTranslation } from "react-i18next";
 
 export default function ServiceSection() {
