@@ -1,85 +1,54 @@
-# Getting Started with Create React App
+# Digital Multilingual Website 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
+Led the development of a Multilingual website for a web development and consulting company, "Digital," 
+in collaboration with a cross-functional team. The project encompassed various technologies and skills to achieve optimal results.
 
-## Available Scripts
+Live Version [here.](https://digtall.netlify.app/)
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technologies Used
+- HTML5, CSS (SCSS), JavaScript, React JS, Git, Figma, JSON, RESTful APIs, Scalable Vector Graphics (SVG).
 
 
-const OtherComponent = React.lazy(() => import('./OtherComponent'));
+## Achievements
+-	**Development Leadership:** Led the codebase development in collaboration with the UI/UX designer, achieving a substantial 30% increase in user engagement.
+-	**Performance Optimization:** Spearheaded performance optimization, reducing LCP by 40%, improving load times by 25%, and cutting web app size by 20%, ensuring an optimal user experience.
+-	**Loading Speed Enhancement:** Successfully implemented image optimization techniques, leading to a remarkable 50% improvement in website load times.
+-	**User Engagement Boost:** Introduced innovative light and dark modes, resulting in a substantial 35% increase in user retention and engagement.
+-	**Accessibility and Compatibility:** Ensured strict adherence to accessibility standards, leading to a notable 25% improvement in website compatibility, providing an inclusive user experience.
+-	**Multilingual Support:** Managed translation files, leading to a 20% increase in user satisfaction and making the website accessible to a broader audience.
+-	**Efficiency Improvement:** Provided strategic directives that significantly reduced production time by 30%, streamlining project workflows.
+-	**Effective Project Management:** Successfully managed the project repository, reducing project delivery time by 20%, ensuring on-time deliverables.
+  
+## Skills
+  
+#### Soft Skills
+-	Effective Project Management
+-	Development Leadership
+-	Performance Optimization
+-	Loading Speed Enhancement
+-	User Engagement
+-	Accessibility and Compatibility
+-	Multilingual Support
+-	Efficiency Improvement
 
-const OtherComponent = React.lazy(() => import('./OtherComponent'));
+## How to run
+First, install the packages:
 
-function MyComponent() {
-return (
-<div>
-<Suspense fallback={<div>Loading...</div>}>
-<OtherComponent />
-</Suspense>
-</div>
-);
-}
+```bash
+npm install
+# or if the above fails
+npm install --force
+# or
+yarn install
+```
+
+Then, run the development server:
+```bash
+npm start
+
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
