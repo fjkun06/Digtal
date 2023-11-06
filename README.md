@@ -7,7 +7,7 @@ in collaboration with a cross-functional team. The project encompassed various t
 Live Version [here.](https://digtall.netlify.app/)
 
 ## Technologies Used
-- HTML5, CSS (SCSS), JavaScript, React JS, Git, Figma, JSON, RESTful APIs, Scalable Vector Graphics (SVG).
+- HTML5, CSS (SCSS), JavaScript, React JS, Git, Figma, JSON, RESTful APIs, Scalable Vector Graphics (SVG), i18n.
 
 
 ## Achievements
