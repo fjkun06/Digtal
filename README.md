@@ -1,4 +1,4 @@
-# Digital Multilingual Website 
+# Digtal Multilingual Website 
 
 ## Project Overview
 Led the development of a Multilingual website for a web development and consulting company, "Digital," 
